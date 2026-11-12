@@ -1,0 +1,14 @@
+{
+  "id": 900005,
+  "name": "MLS NEXT Cup Qualifier Scottsdale Regional U15-U19 2027",
+  "fullName": "MLS NEXT Cup Qualifier Scottsdale Regional U15-U19 2027",
+  "league": "MLS NEXT",
+  "gender": "Boys",
+  "start": "2027-03-26",
+  "end": "2027-03-29",
+  "venue": "Scottsdale Sports Complex, Bell 94 Sports Complex, Reata Sports Complex",
+  "city": "Scottsdale",
+  "state": "AZ",
+  "format": "MLS NEXT Cup Qualifier regional tournament, U15–U19.",
+  "note": "Hand-entered (no GotSport id): ids 900000+ are events without a platform id. Source: mlssoccer.com/mlsnext/events (2026-27 key dates; 2027 dates subject to change). Owner request 2026-11-12."
+}

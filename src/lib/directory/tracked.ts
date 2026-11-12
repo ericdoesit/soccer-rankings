@@ -20,6 +20,8 @@ const NAMED: Array<[RegExp, string]> = [
   [/^elite academy league\b/i, "Elite Academy League"],
   [/^usl academy\b/i, "USL Academy"],
   [/\bgirls academy\b|^\d\d\/\d\d girls academy/i, "Girls Academy"],
+  // GA's national events are named "GA Winter Showcase & Champions Cup", "GA Summer Showcase & Playoffs" …
+  [/^ga\b.*\b(showcase|playoffs?|champions cup|finals?)\b/i, "Girls Academy"],
   [/\baspire\b/i, "GA Aspire"],
   [/development player league|\bdpl\b/i, "DPL"],
   [/\becnl\b/i, "ECNL"],
@@ -30,6 +32,9 @@ const NAMED: Array<[RegExp, string]> = [
   // ("Hawaii International Cup", "San Juan SC Presidents' Cup", "Surf Select Regional Cup")
   [/national presidents.? cup|presidents.? cup.*national qualifier|^\d{4} [a-z ]+ presidents.? cup|national championships?|\bnational cup (finals|west regional)|regional championships?|far west regional|elite 64/i, "Championship"],
   [/state cup/i, "State Cup"],
+  // SOCAL + NorCal Premier state final for U9–U12 State Cup champions and finalists
+  // (socalstatecup.com/california-cup) — not Rated Sports' Memorial Day "California Cup"
+  [/\b(socal|norcal|cal south|cal north)\b.*\bcalifornia cup\b/i, "State Cup"],
 ];
 
 /** Classify one competition by name, or null when it's not tracked by name. */

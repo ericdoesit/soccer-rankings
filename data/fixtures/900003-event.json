@@ -1,0 +1,13 @@
+{
+  "id": 900003,
+  "name": "ECNL Boys Phoenix 2026",
+  "fullName": "ECNL Boys Phoenix National Event 2026",
+  "league": "ECNL",
+  "gender": "Boys",
+  "start": "2026-11-20",
+  "end": "2026-11-22",
+  "city": "Phoenix",
+  "state": "AZ",
+  "format": "ECNL Boys national event; also the ECNL Boys Super Cup group stage (knockouts at the Surf College Cup, Nov 27–29).",
+  "note": "Hand-entered (ECNL events are on TGS, not GotSport): ids 900000+ are events without a platform id. Source: soccerwire.com, ECNL Boys Super Cup qualifiers article."
+}

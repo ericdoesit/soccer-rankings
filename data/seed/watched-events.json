@@ -1,0 +1,45 @@
+{
+  "_note": "Events the owner wants tracked regardless of size: always on the recurring-events checklist and the /events calendar. Match is on the series name (year and season words ignored).",
+  "series": [
+    {
+      "name": "California Cup",
+      "why": "Rated Sports' Memorial Day showcase in Davis, ~200 teams incl. national (Rated Sports Qualifier Series). Owner request 2026-11-12. GotSport 45695 (2026), 55841 (2027). Not the state final below."
+    },
+    {
+      "name": "Surf College Cup",
+      "why": "College showcase, San Diego. Owner request 2026-11-12 (hand-entered as fixture 900001)."
+    },
+    {
+      "name": "SOCAL California Cup",
+      "why": "State final of SOCAL + NorCal State Cup champions/finalists, U9–U12; host alternates (NorCal odd years, SOCAL even). socalstatecup.com/california-cup. Owner request 2026-11-12."
+    },
+    {
+      "name": "ALBION CUP NATIONAL SHOWCASE SAN DIEGO",
+      "why": "Albion Cup National Showcase, July, Oceanside & Temecula, U8–U19 with semifinals/finals. Owner request 2026-11-12. GotSport 40710 (2025), 49518 (2026)."
+    },
+    {
+      "name": "ALBION CUP PRESEASON ELITE SHOWCASE",
+      "why": "Albion Cup preseason showcase, August, Temecula. Owner request 2026-11-12 (Albion Cup series). GotSport 44207 (2025), 49533 (2026)."
+    },
+    {
+      "name": "ALBION CUP DEVELOPMENT SHOWCASE",
+      "why": "Albion Cup January showcase, Temecula. Owner request 2026-11-12 (Albion Cup series). GotSport 44208 (2026), 55053 (2027)."
+    },
+    {
+      "name": "Legends FC The Showcase",
+      "why": "Legends FC college showcase U15–U19, SilverLakes Norco (2026: May 30–31). Not on GotSport; enter by hand when 2027 dates are published (legendsfc.net/lfc-showcase). Owner request 2026-11-12."
+    },
+    {
+      "name": "Legends FC The Classic",
+      "why": "Legends FC tournament, SilverLakes Norco. Owner request 2026-11-12; enter by hand when dates are published."
+    },
+    {
+      "name": "SCV Holiday Classic",
+      "why": "Legends FC holiday tournament. Owner request 2026-11-12; enter by hand when dates are published."
+    },
+    {
+      "name": "MLS NEXT Fest",
+      "why": "MLS NEXT's December showcase, Mesa AZ, ~1,600 teams U13–U19. Owner request 2026-11-12 (hand-entered as fixture 900002)."
+    }
+  ]
+}

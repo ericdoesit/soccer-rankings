@@ -1,0 +1,14 @@
+{
+  "id": 900002,
+  "name": "MLS NEXT Fest 2026",
+  "fullName": "MLS NEXT Fest 2026",
+  "league": "MLS NEXT",
+  "gender": "Boys",
+  "start": "2026-12-02",
+  "end": "2026-12-13",
+  "venue": "Arizona Athletic Grounds and Red Mountain Park",
+  "city": "Mesa",
+  "state": "AZ",
+  "format": "National showcase, U13–U19, 1,600+ teams, ~2,400 matches over 12 days; also the MLS NEXT All-Star Game.",
+  "note": "Hand-entered (no GotSport id): ids 900000+ are events without a platform id. Source: mlssoccer.com/mlsnext/events (2026-27 key dates), confirmed by owner 2026-11-12."
+}

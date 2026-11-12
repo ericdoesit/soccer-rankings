@@ -1,4 +1,4 @@
-import { getRankings, getLeagues } from "@/lib/data";
+import { getRankings, getLeagues, getLeagueStrength } from "@/lib/data";
 
 const MAX_LIMIT = 500;
 
@@ -7,6 +7,12 @@ export async function GET(request: Request) {
 
   if (searchParams.get("leagues") === "list") {
     return Response.json(getLeagues());
+  }
+  // league comparison for one age group + gender
+  if (searchParams.get("strength")) {
+    const age = searchParams.get("ageGroup"), gender = searchParams.get("gender");
+    if (!age || !gender || age === "All" || gender === "Both") return Response.json([]);
+    return Response.json(getLeagueStrength(age, gender));
   }
 
   // limit 1..MAX_LIMIT (default 50), offset >= 0; junk values fall back to defaults
@@ -23,6 +29,7 @@ export async function GET(request: Request) {
     ageGroup: searchParams.get("ageGroup") ?? undefined,
     gender: searchParams.get("gender") ?? undefined,
     league: searchParams.get("league") ?? undefined,
+    program: searchParams.get("program") ?? undefined,
     search,
     limit: Number.MAX_SAFE_INTEGER,
     offset: 0,

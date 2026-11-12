@@ -36,7 +36,7 @@ const AREA_BY_CODE = new Map(AREAS.map((a) => [a.code, a]));
 export const areaBySlug = (slug: string) => AREAS.find((a) => a.slug === slug.toLowerCase()) ?? null;
 export const areaByCode = (code: string) => AREA_BY_CODE.get(code) ?? null;
 
-export const AGE_ORDER = ["U6", "U7", "U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17", "U18", "U19"];
+export const AGE_ORDER = ["U6", "U7", "U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17", "U18", "U19", "U20"];
 
 export interface TeamRow {
   id: number; name: string; ageGroup: string; gender: "Boys" | "Girls";

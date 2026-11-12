@@ -4,8 +4,10 @@ import { generateFullSampleData } from "./sample-data";
 import { calculateRankings, type RankingResult } from "./ranking/massey";
 import { loadGotsportData, hasRealData, inferAgeAndGender, type RealTeam } from "./import-gotsport-data";
 import { trackedCompetitions } from "./directory/tracked";
-import { mergeModularTwins } from "./directory/merge-twins";
+import { mergeModularTwins, mergeTournamentCopies } from "./directory/merge-twins";
 import { buildTeamIdentity } from "./directory/team-identity";
+import { joinUslAcademySeasons } from "./directory/usl-academy";
+import { assignPrograms, PROGRAMS } from "./directory/program";
 
 export interface Team {
   id: number;
@@ -29,6 +31,8 @@ export interface Team {
   rankable?: boolean;
   /** first hurdle it failed, for "unranked" explanations */
   notRankedReason?: string;
+  /** elite league it plays in ("ECNL", "MLS NEXT AD", …; directory/program.ts) */
+  program?: string;
 }
 
 export interface Game {
@@ -224,7 +228,8 @@ function markRankable(teams: Team[], games: Game[], rankings: DataSet["rankings"
       !score.has(t.id) || !x || x.games < RANK_RULES.minGames ? `fewer than ${RANK_RULES.minGames} games in the last 15 months` :
       !t.tracked || x.tracked < RANK_RULES.minTrackedGames ? `fewer than ${RANK_RULES.minTrackedGames} games in tracked competitions` :
       x.quality < RANK_RULES.minQualityOpponentGames ? `fewer than ${RANK_RULES.minQualityOpponentGames} games against ranked-level opponents` :
-      sos(t.id) < (floor.get(`${t.ageGroup}|${t.gender}`) ?? -Infinity) ? "schedule too weak (bottom 20% of its age group)" :
+      // U20 is one closed league (USL Academy): every team plays the same field, so no schedule floor
+      t.ageGroup !== "U20" && sos(t.id) < (floor.get(`${t.ageGroup}|${t.gender}`) ?? -Infinity) ? "schedule too weak (bottom 20% of its age group)" :
       null;
     if (reason) failed.set(reason, (failed.get(reason) ?? 0) + 1);
     return reason ? { ...t, rankable: false, notRankedReason: reason } : { ...t, rankable: true };
@@ -238,6 +243,8 @@ function markRankable(teams: Team[], games: Game[], rankings: DataSet["rankings"
 export let lastDroppedEvents: string[] = [];
 /** Twin-merge cases left separate (2+ GotSport candidates), from the last build, for diagnostics. */
 export let lastAmbiguousTwins: Array<{ team: { id: number; sourceName?: string }; candidates: Array<{ id: number; sourceName?: string }> }> = [];
+/** tournament copies joined in the last build (scripts/twin-ambiguity.ts --copies) */
+export let lastTournamentCopies: Array<{ into: { id: number; club: string; ageGroup: string; gender: string; sourceName?: string }; from: Array<{ id: number; sourceName?: string }> }> = [];
 export const DROPPED_EVENTS_FILE = path.join(process.cwd(), "data", "snapshot-dropped-events.json");
 
 export function buildData(): DataSet {
@@ -313,10 +320,18 @@ export function buildData(): DataSet {
 
       lastDroppedEvents = real.droppedEvents;
       // Modular11 copies of GotSport teams → one team; ratings recomputed on the merged games
-      const twins = mergeModularTwins(identity.teams, games, real.modularTeamNames);
-      lastAmbiguousTwins = twins.ambiguousCases;
+      const m11 = mergeModularTwins(identity.teams, games, real.modularTeamNames);
+      lastAmbiguousTwins = m11.ambiguousCases;
+      // tournament copies of one team (each event's own name for the club's ECNL / GA / DPL … team)
+      const copies = mergeTournamentCopies(m11.teams, m11.games);
+      lastTournamentCopies = copies.joins;
+      // USL Academy: one program across seasons (B2006 → B2007), listed as U20
+      const usl = joinUslAcademySeasons(copies.teams, copies.games);
+      const twins = { ...m11, teams: usl.teams, games: usl.games };
+      console.log(`  tournament copies: ${copies.merged} records joined into their team`);
+      console.log(`  USL Academy: ${usl.joined} last-season records joined, ${usl.listed} teams playing this season listed as U20`);
       let rankings = real.rankings;
-      if (twins.merged) {
+      if (m11.merged || copies.merged || usl.joined) {
         rankings = calculateRankings(twins.games.map((g) => ({ ...g, status: "completed" as const })), { minGames: 10 });
       }
       console.log(`  modular11 twins: ${twins.merged} merged into GotSport teams, ${twins.ambiguous} left separate (2+ candidates), ${twins.noCurrent} with only last season's teams`);
@@ -324,7 +339,10 @@ export function buildData(): DataSet {
       console.log(`  tracked: ${tracked.stats}`);
       const eligible = markRankable(tracked.teams, twins.games, rankings);
       console.log(`  rankable: ${eligible.stats}`);
-      return { teams: eligible.teams, games: twins.games, rankings };
+      const programs = assignPrograms(eligible.teams, twins.games, new Date(Date.now() - TRACKED_DAYS * 864e5).toISOString().slice(0, 10));
+      const withPrograms = eligible.teams.map((t) => (programs.has(t.id) ? { ...t, program: programs.get(t.id) } : t));
+      console.log(`  programs: ${programs.size} teams tagged with their league`);
+      return { teams: withPrograms, games: twins.games, rankings };
     } catch (e) {
       console.warn("Failed to load real data, falling back to sample:", e);
     }
@@ -404,6 +422,8 @@ export interface RankingsFilter {
   ageGroup?: string;
   gender?: string;
   league?: string;
+  /** elite league program ("ECNL", "MLS NEXT AD", …) */
+  program?: string;
   search?: string;
   limit?: number;
   offset?: number;
@@ -502,6 +522,9 @@ export function getRankings(filter: RankingsFilter = {}): RankedTeam[] {
       teamIdsInLeague.add(g.team2Id);
     }
     rankedTeams = rankedTeams.filter((t) => teamIdsInLeague.has(t.id));
+  }
+  if (filter.program && filter.program !== "All") {
+    rankedTeams = rankedTeams.filter((t) => t.program === filter.program);
   }
   if (filter.search) {
     const q = filter.search.toLowerCase();
@@ -920,4 +943,43 @@ export function getAllClubs(): Array<{
     }))
     .sort((a, b) => b.avgScore - a.avgScore)
     .map((c, i) => ({ ...c, rank: i + 1 }));
+}
+
+/**
+ * How the leagues compare in one age group and gender: each program's listed teams,
+ * their average and top rating, and how many games connect it to other programs in the
+ * last 15 months. The gaps between leagues come only from those games, so a program
+ * with few of them (under 50) is flagged as less certain.
+ */
+export interface LeagueStrengthRow {
+  program: string; teams: number; avgScore: number; topScore: number;
+  crossGames: number; links: Array<{ program: string; games: number }>; lessCertain: boolean;
+}
+export function getLeagueStrength(ageGroup: string, gender: string): LeagueStrengthRow[] {
+  const { teams, games } = getData();
+  const { rankedBase } = getIndex();
+  const listed = rankedBase.filter((t) => t.ageGroup === ageGroup && t.gender === gender && t.program);
+  const progOf = new Map<number, string>();
+  for (const t of teams) if (t.program && t.ageGroup === ageGroup && t.gender === gender && t.region === "Region4") progOf.set(t.id, t.program);
+  const since = new Date(Date.now() - TRACKED_DAYS * 864e5).toISOString().slice(0, 10);
+  const link = new Map<string, Map<string, number>>();
+  for (const g of games) {
+    if (!g.date || g.date < since) continue;
+    const a = progOf.get(g.team1Id), b = progOf.get(g.team2Id);
+    if (!a || !b || a === b) continue;
+    for (const [x, y] of [[a, b], [b, a]]) {
+      const m = link.get(x) ?? new Map<string, number>();
+      m.set(y, (m.get(y) ?? 0) + 1); link.set(x, m);
+    }
+  }
+  const rows: LeagueStrengthRow[] = [];
+  for (const p of PROGRAMS) {
+    const ts = listed.filter((t) => t.program === p);
+    if (!ts.length) continue;
+    const links = [...(link.get(p) ?? new Map<string, number>())].map(([program, n]) => ({ program, games: n })).sort((a, b) => b.games - a.games);
+    const crossGames = links.reduce((s, l) => s + l.games, 0);
+    rows.push({ program: p, teams: ts.length, avgScore: ts.reduce((s, t) => s + t.score, 0) / ts.length,
+      topScore: Math.max(...ts.map((t) => t.score)), crossGames, links, lessCertain: crossGames < 50 });
+  }
+  return rows.sort((a, b) => b.avgScore - a.avgScore);
 }

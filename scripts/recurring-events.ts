@@ -68,6 +68,10 @@ const seriesKey = (n: string) => n.toLowerCase()
   .replace(/\b(19|20)\d\d\b|'\d\d\b|\b\d\d[-/]\d\d\b|\b\d+(st|nd|rd|th)\b|\b(fall|spring|summer|winter)\b|\bseason\b|\bannual\b/g, " ")
   .replace(/[^a-z]+/g, " ").trim();
 
+// series the owner asked to track whatever their size (data/seed/watched-events.json)
+const watched = new Set<string>((() => { try { return JSON.parse(fs.readFileSync(path.join(DATA, "seed", "watched-events.json"), "utf8")).series as Array<{ name: string }>; } catch { return []; } })()
+  .map((w) => seriesKey(w.name)));
+
 const series = new Map<string, Edition[]>();
 for (const e of editions.values()) {
   const k = `${e.platform.split(":")[0]}|${seriesKey(e.name)}`;
@@ -89,10 +93,11 @@ for (const [k, eds] of series) {
   const dated = eds.filter((e) => e.last).sort((a, b) => a.first.localeCompare(b.first));
   if (!dated.length) continue;
   const biggest = Math.max(...eds.map((e) => e.games));
-  if (biggest < MIN) continue;
+  const isWatched = watched.has(k.split("|")[1]);
+  if (biggest < MIN && !isWatched) continue;
   const latest = dated[dated.length - 1];
   const platform = k.split("|")[0];
-  const recurring = dated.length >= 2 || /\b20\d\d\b|\d\d[-/]\d\d/.test(latest.name);
+  const recurring = isWatched || dated.length >= 2 || /\b20\d\d\b|\d\d[-/]\d\d/.test(latest.name);
   if (!recurring) continue;
   // the latest edition is still running (a league season, or a tournament in progress)
   const running = latest.last >= new Date(Date.now() - 21 * 864e5).toISOString().slice(0, 10);
@@ -100,7 +105,7 @@ for (const [k, eds] of series) {
   const queued = (queuedBySeries.get(k) ?? []).filter((ev) => ev.startDate && ev.startDate > latest.last)
     .map((ev) => ({ id: ev.id, name: ev.name, start: ev.startDate, status: ev.status }));
   out.push({
-    series: latest.name, platform, editions: dated.length, biggestEdition: biggest,
+    series: latest.name, platform, editions: dated.length, biggestEdition: biggest, ...(isWatched ? { watched: true } : {}),
     latest: { eventId: latest.eventId, name: latest.name, first: latest.first, last: latest.last, games: latest.games },
     status: running ? "in progress" : queued.length ? "next edition queued" : next < today ? "next edition overdue — look for it" : "next edition not listed yet",
     nextExpected: next, queued,

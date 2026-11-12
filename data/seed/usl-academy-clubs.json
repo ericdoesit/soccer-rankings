@@ -1,0 +1,11 @@
+{
+  "_note": "USL Academy (U20 boys, via Modular11) clubs our club directory can't place. Name as Modular11 writes it (before 'USL Academy') → club, state. Checked 2026-11-12 against footyaccess.com/leagues/usl-academy/clubs and club sites.",
+  "clubs": {
+    "Colorado Springs Switchbacks FC": { "club": "Colorado Springs Switchbacks FC", "state": "CO" },
+    "Colorado Springs Switchbacks FC II": { "club": "Colorado Springs Switchbacks FC", "state": "CO" },
+    "ALBION SC Colorado": { "club": "ALBION SC Colorado", "state": "CO" },
+    "Flatirons FC": { "club": "Flatirons FC", "state": "CO" },
+    "Utah United": { "club": "Utah United", "state": "UT" },
+    "Monterey Bay FC": { "club": "Monterey Bay FC", "state": "CAN" }
+  }
+}

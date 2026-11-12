@@ -12,6 +12,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { LeagueStrength } from "@/components/rankings/league-strength";
+
+const PROGRAMS = ["MLS NEXT", "ECNL", "ECNL RL", "Pre-ECNL", "GA", "GA Aspire", "DPL", "EA", "EA2", "USL Academy", "N1", "NPL"];
 
 interface RankedTeam {
   id: number;
@@ -27,6 +30,7 @@ interface RankedTeam {
   wins: number;
   losses: number;
   draws: number;
+  program?: string;
 }
 
 const REGIONS = [
@@ -113,6 +117,7 @@ export default function RankingsPage() {
   const [ageGroup, setAgeGroup] = useState("All");
   const [gender, setGender] = useState("Both");
   const [league, setLeague] = useState("All");
+  const [program, setProgram] = useState("All");
   const [search, setSearch] = useState("");
   const [teams, setTeams] = useState<RankedTeam[]>([]);
   const [leagues, setLeagues] = useState<string[]>([]);
@@ -161,6 +166,7 @@ export default function RankingsPage() {
     if (ageGroup !== "All") params.set("ageGroup", ageGroup);
     if (gender !== "Both") params.set("gender", gender);
     if (league !== "All") params.set("league", league);
+    if (program !== "All") params.set("program", program);
     if (search) params.set("search", search);
     params.set("limit", String(PAGE_SIZE));
     params.set("offset", String(page * PAGE_SIZE));
@@ -171,12 +177,12 @@ export default function RankingsPage() {
     setTotalCount(Number(res.headers.get("X-Total-Count") ?? data.length));
 
     setLoading(false);
-  }, [region, ageGroup, gender, league, search, page]);
+  }, [region, ageGroup, gender, league, program, search, page]);
 
   // Reset page when filters change
   useEffect(() => {
     setPage(0);
-  }, [region, ageGroup, gender, league, search]);
+  }, [region, ageGroup, gender, league, program, search]);
 
   useEffect(() => {
     fetchRankings();
@@ -219,6 +225,7 @@ export default function RankingsPage() {
             <SelectItem value="U17">U17</SelectItem>
             <SelectItem value="U18">U18</SelectItem>
             <SelectItem value="U19">U19</SelectItem>
+            <SelectItem value="U20">U20 (USL Academy)</SelectItem>
           </SelectContent>
         </Select>
 
@@ -233,12 +240,24 @@ export default function RankingsPage() {
           </SelectContent>
         </Select>
 
-        <Select value={league} onValueChange={(v) => v !== null && setLeague(v)}>
-          <SelectTrigger className="w-[220px]">
+        <Select value={program} onValueChange={(v) => v !== null && setProgram(v)}>
+          <SelectTrigger className="w-[160px]">
             <SelectValue placeholder="League" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="All">All Leagues</SelectItem>
+            {PROGRAMS.map((p) => (
+              <SelectItem key={p} value={p}>{p}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+
+        <Select value={league} onValueChange={(v) => v !== null && setLeague(v)}>
+          <SelectTrigger className="w-[220px]">
+            <SelectValue placeholder="Event" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="All">All Events</SelectItem>
             {leagues.map((l) => (
               <SelectItem key={l} value={l}>
                 {l}
@@ -254,6 +273,10 @@ export default function RankingsPage() {
           className="w-[240px]"
         />
       </div>
+
+      {ageGroup !== "All" && gender !== "Both" && (
+        <LeagueStrength ageGroup={ageGroup} gender={gender} onPick={setProgram} />
+      )}
 
       {/* Table */}
       <Card>
@@ -317,6 +340,11 @@ export default function RankingsPage() {
                         >
                           {team.name}
                         </Link>
+                        {team.program && (
+                          <span className="ml-2 rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
+                            {team.program}
+                          </span>
+                        )}
                       </td>
                       <td className="px-4 py-2.5 hidden md:table-cell text-muted-foreground">
                         <Link

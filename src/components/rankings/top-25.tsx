@@ -83,6 +83,7 @@ export function Top25Rankings() {
               <SelectItem value="U17">U17</SelectItem>
               <SelectItem value="U18">U18</SelectItem>
               <SelectItem value="U19">U19</SelectItem>
+              <SelectItem value="U20">U20 (USL Academy)</SelectItem>
             </SelectContent>
           </Select>
           <Select value={gender} onValueChange={(v) => v !== null && setGender(v)}>
