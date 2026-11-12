@@ -26,3 +26,28 @@ U15	SuperGroup A	22	Consolation Round 2 C	2026-11-21	8:30 AM MST	Field 10	L:Cons
 U15	SuperGroup A	23	Consolation Round 2 D	2026-11-21	8:30 AM MST	Field 11	L:Consolation Round 1 D	L:Consolation Round 1 C
 U15	SuperGroup A	24	Consolation Round 2 E	2026-11-21	8:30 AM MST	Field 12	L:Quarterfinals A	L:Quarterfinals B
 U15	SuperGroup A	25	Consolation Round 2 F	2026-11-21	8:30 AM MST	Field 13	L:Quarterfinals D	L:Quarterfinals C
+U16	SuperGroup A	26	Round of 16 A	2026-11-19	12:00 PM MST	Field 13	Albion SC Riverside GU16 DPL	FC Premier (CA) U16G DPLO
+U16	SuperGroup A	27	Round of 16 B	2026-11-19	12:00 PM MST	Field 12	So Cal Blues U16G DPL	City SC Southwest U16G DPL
+U16	SuperGroup A	28	Round of 16 C	2026-11-19	12:00 PM MST	Field 11	CDA Slammers U16G DPL	Arizona Arsenal Soccer Club U16G DPL
+U16	SuperGroup A	29	Round of 16 D	2026-11-19	12:00 PM MST	Field 10	Albion SC Santa Monica U16G DPL	El Paso Surf Soccer Club U16G DPL
+U16	SuperGroup A	30	Round of 16 E	2026-11-19	12:00 PM MST	Field 01	Central Coast Surf Soccer Club U16G DPL	NM Rapids SC U16G DPL
+U16	SuperGroup A	31	Round of 16 F	2026-11-19	12:00 PM MST	Field 02	Idaho Surf SC ID U16G DPL	West Coast F.C. U16G DPL
+U16	SuperGroup A	32	Round of 16 G	2026-11-19	12:00 PM MST	Field 03	Inland Surf GU16 DPL	HTX North U16G DPL
+U16	SuperGroup A	33	Round of 16 H	2026-11-19	12:00 PM MST	Field 04	Phoenix Premier FC U16G DPL	Los Angeles Bulls Soccer Club U16G DPLO
+U16	SuperGroup A	34	Quarterfinals A	2026-11-20	1:00 PM MST	Field 01	W:Round of 16 A	W:Round of 16 B
+U16	SuperGroup A	35	Quarterfinals B	2026-11-20	1:00 PM MST	Field 02	W:Round of 16 D	W:Round of 16 C
+U16	SuperGroup A	36	Quarterfinals C	2026-11-20	1:00 PM MST	Field 03	W:Round of 16 E	W:Round of 16 F
+U16	SuperGroup A	37	Quarterfinals D	2026-11-20	1:00 PM MST	Field 04	W:Round of 16 H	W:Round of 16 G
+U16	SuperGroup A	38	Semi-Finals A	2026-11-21	10:30 AM MST	Field 01	W:Quarterfinals A	W:Quarterfinals B
+U16	SuperGroup A	39	Semi-Finals B	2026-11-21	10:30 AM MST	Field 02	W:Quarterfinals D	W:Quarterfinals C
+U16	SuperGroup A	40	Final	2026-11-22	10:30 AM MST	Field 02	W:Semi-Finals A	W:Semi-Finals B
+U16	SuperGroup A	41	Consolation Round 1 A	2026-11-20	12:30 PM MST	Field 10	L:Round of 16 A	L:Round of 16 B
+U16	SuperGroup A	42	Consolation Round 1 B	2026-11-20	12:30 PM MST	Field 11	L:Round of 16 D	L:Round of 16 C
+U16	SuperGroup A	43	Consolation Round 1 C	2026-11-20	12:30 PM MST	Field 12	L:Round of 16 E	L:Round of 16 F
+U16	SuperGroup A	44	Consolation Round 1 D	2026-11-20	12:30 PM MST	Field 13	L:Round of 16 H	L:Round of 16 G
+U16	SuperGroup A	45	Consolation Round 2 A	2026-11-21	10:30 AM MST	Field 03	W:Consolation Round 1 A	W:Consolation Round 1 B
+U16	SuperGroup A	46	Consolation Round 2 B	2026-11-21	10:30 AM MST	Field 04	W:Consolation Round 1 D	W:Consolation Round 1 C
+U16	SuperGroup A	47	Consolation Round 2 C	2026-11-21	10:30 AM MST	Field 10	L:Consolation Round 1 A	L:Consolation Round 1 B
+U16	SuperGroup A	48	Consolation Round 2 D	2026-11-21	10:30 AM MST	Field 11	L:Consolation Round 1 D	L:Consolation Round 1 C
+U16	SuperGroup A	49	Consolation Round 2 E	2026-11-21	10:30 AM MST	Field 12	L:Quarterfinals A	L:Quarterfinals B
+U16	SuperGroup A	50	Consolation Round 2 F	2026-11-21	10:30 AM MST	Field 13	L:Quarterfinals D	L:Quarterfinals C

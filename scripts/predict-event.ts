@@ -103,8 +103,17 @@ const schedule = readTsv(path.join(FIX, `${eventId}-schedule.tsv`)).map(([divisi
 const findEntry = (division: string, shown: string) => {
   const n = norm(shown);
   const inDiv = entries.filter((e) => e.division === division);
+  // GotSport shows "<club> <team>" but drops words repeated from the club name
+  // ("Idaho Surf SC" + "ID Surf U16G DPL" → "Idaho Surf SC ID U16G DPL")
+  const restFits = (e: Entry) => {
+    const club = norm(e.club);
+    if (!n.startsWith(club + " ")) return false;
+    const team = new Set(norm(e.team).split(" "));
+    return n.slice(club.length + 1).split(" ").every((w) => team.has(w));
+  };
   return inDiv.find((e) => norm(`${e.club} ${e.team}`) === n) ?? inDiv.find((e) => norm(e.team) === n)
-    ?? inDiv.find((e) => n.endsWith(norm(e.team)) && n.startsWith(norm(e.club).split(" ")[0]));
+    ?? inDiv.find((e) => n.startsWith(norm(e.club) + " ") && n.endsWith(norm(e.team)))
+    ?? inDiv.find(restFits);
 };
 const scheduled = new Map<string, (typeof schedule)[number] & { homeEntry?: Entry }>();
 for (const m of schedule) {
@@ -136,7 +145,7 @@ function simulateBracket(rows: BRow[], division: string, runs = 10000) {
         const side = (s: string) => { const ref = s.match(/^([WL]):(.+)$/); if (!ref) return teamOf(s); const r0 = res.get(ref[2]); return r0 ? (ref[1] === "W" ? r0.w : r0.l) : undefined; };
         const h = side(m.home), a = side(m.away);
         if (h === undefined || a === undefined) { next.push(m); continue; }
-        if (!h || !a) continue; // a team we couldn't place: skip that branch
+        if (!h || !a) continue; // a team we couldn't place (warned below): skip that branch
         const o = predict(rr(h), rr(a)), x = Math.random();
         const homeWins = x < o.win || (x < o.win + o.draw && Math.random() < 0.5);
         res.set(m.round, homeWins ? { w: h, l: a } : { w: a, l: h });
@@ -183,6 +192,8 @@ for (const div of divisions) {
         groups.push({ name: g, kind: "bracket", teams: [...grp].sort((a, b) => rr(b) - rr(a)).map((e) => teamOut(e, rank)), matches: [] });
         continue;
       }
+      for (const b of rows) for (const side of [b.home, b.away]) if (!/^[WL]:/.test(side) && !findEntry(div, side))
+        console.warn(`  ! ${div} ${g}: couldn't place "${side}" in the bracket; the simulation will be incomplete`);
       const ko = simulateBracket(rows, div);
       const rate = (e: Entry) => { const t = ko.reach.get(e) ?? { qf: 0, sf: 0, final: 0, title: 0 }; return { qf: t.qf / ko.runs, sf: t.sf / ko.runs, final: t.final / ko.runs, title: t.title / ko.runs }; };
       const teams = [...grp].sort((a, b) => rate(b).title - rate(a).title || rr(b) - rr(a)).map((e) => ({ ...teamOut(e, rank), reach: rate(e) }));
