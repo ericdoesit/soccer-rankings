@@ -20,7 +20,7 @@
     "build:data": "tsx scripts/build-snapshot.ts",
     "check:data": "tsx scripts/check-snapshot.ts",
     "rebuild": "npm run build:data && npm run check:data",
-    "refresh": "npm run scrape:modular11 && npm run scrape:surf && npm run rebuild",
+    "refresh": "npm run scrape:modular11 && npm run scrape:surf && npm run rebuild && npm run events:upcoming",
     "check:fairness": "tsx scripts/correlator.ts",
     "check:events": "tsx scripts/recurring-events.ts",
     "check:twins": "tsx scripts/twin-ambiguity.ts",
@@ -28,7 +28,10 @@
     "db:generate": "drizzle-kit generate",
     "db:seed": "tsx scripts/seed-directory.ts",
     "db:report": "tsx scripts/directory-report.ts",
-    "load-test": "tsx scripts/load-test.ts"
+    "load-test": "tsx scripts/load-test.ts",
+    "predict": "tsx scripts/predict-event.ts",
+    "events:upcoming": "tsx scripts/upcoming-events.ts",
+    "schedule:import": "tsx scripts/import-schedule-paste.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

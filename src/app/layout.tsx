@@ -69,6 +69,12 @@ export default function RootLayout({
                 States
               </Link>
               <Link
+                href="/events"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Events
+              </Link>
+              <Link
                 href="/power-rankings"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >

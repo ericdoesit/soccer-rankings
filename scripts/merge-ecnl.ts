@@ -20,7 +20,7 @@ const srcs = process.argv.slice(2).filter((a) => !a.startsWith("--"));
 const keep = process.argv.includes("--keep");
 if (!srcs.length) { console.error("usage: npm run ecnl:merge -- <folder> [<folder> …] [--keep]"); process.exit(1); }
 
-type Row = Record<string, any>;
+type Row = Record<string, unknown> & { leagues?: string[]; genders?: string[] };
 const KEYS: Record<string, (r: Row) => string> = {
   games: (r) => String(r.matchId),
   teams: (r) => `${r.eventId}:${r.teamId}`,

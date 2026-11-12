@@ -18,6 +18,9 @@
 | `utah/` | frozen | archived `scrape-utah.ts` | 2024 UYSA SportsAffinity pull (no dates). Not refreshed: the site is behind bot protection. |
 | `adidas-cup/` | frozen | one-off | Generation adidas Cup 2026. |
 | `ysg/teams.json` | frozen | archived YSG scrapers | Only used for team gender/age lookups. YSG games were corrupt and are not used. |
+| `fixtures/` | hand-entered | pasted by the owner + `npm run schedule:import` | Upcoming events to predict: `<id>-event.json`, `-accepted.tsv`, `-groups.tsv`, `-schedule.tsv` (and the raw `-schedule-paste.txt`). |
+| `predictions/` | generated | `npm run predict -- <id>` | Event predictions the /events pages show. |
+| `upcoming-events.json` | generated | `npm run events:upcoming` | The /events calendar. |
 | `pglite/` | generated | `npm run db:seed` | Local directory database. |
 | `snapshot.json`, `snapshot-dropped-events.json` | generated | `npm run build:data` | What the site reads. Never edit by hand. |
 | `recurring-events.json` | generated | `npm run check:events` | Recurring-event checklist. |

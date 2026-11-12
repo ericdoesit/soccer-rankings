@@ -13,11 +13,13 @@ Soccer Region IV: AK, AZ, CA North & South, CO, HI, ID, MT, NM, NV, OR, UT, WA, 
 
 All commands run from this folder. Details for every source: [SCRAPING.md](SCRAPING.md).
 
-### Always running
+### GotSport crawler (owner decision pending)
 ```bash
 npm run discover -- --loop    # GotSport crawler: new events daily, active leagues weekly
 ```
-Never start a second GotSport crawler (two in parallel get rate-limited); it keeps a lock file.
+**system.gotsport.com's robots.txt disallows all automated access** (found 2026-11-12), so the
+AI assistant no longer runs this crawler; whether to run it is the project owner's call. Never start
+a second crawler (two in parallel get rate-limited); it keeps a lock file.
 
 ### Weekly during the season
 ```bash
@@ -39,6 +41,12 @@ For an "overdue" event: find the new edition's ID and add it (GotSport national 
 `gotsportEvents` in `src/lib/directory/leagues.ts`; Surf events → `KNOWN_EVENTS` in
 `scripts/scrape-surfcup.ts`; ECNL → `ECNL_PRE_EVENT_IDS` in `package.json` or a single-event
 pull, see SCRAPING.md).
+
+### Predicting an event
+Put the event's teams in `data/fixtures/<eventId>-accepted.tsv` and, once brackets are out,
+`data/fixtures/<eventId>-groups.tsv` (division · group · club · team, copied from the event page),
+then `npm run predict -- <eventId>` → `data/predictions/<eventId>.json`. After the event, rebuild and
+run `npm run predict -- <eventId> --score` to see how the predictions did.
 
 ### New season (August)
 - Modular11: add the new season's league ids to `scripts/scrape-modular11.ts`.
