@@ -1,0 +1,372 @@
+{
+ "source": "https://www.oregonyouthsoccer.org/find-a-club/",
+ "fetchedAt": "2026-11-10",
+ "association": "OR",
+ "clubs": [
+  {
+   "name": "Capital FC",
+   "area": "CENTRAL VALLEY",
+   "website": "http://www.capitalfctimbers.com/"
+  },
+  {
+   "name": "Central Coast Soccer Association",
+   "area": "CENTRAL VALLEY",
+   "website": "https://www.centralcoastsoccer.org/"
+  },
+  {
+   "name": "Eugene Metros FC",
+   "area": "CENTRAL VALLEY",
+   "website": "http://www.eugenetimbers.org/"
+  },
+  {
+   "name": "Mid Valley Soccer Club",
+   "area": "CENTRAL VALLEY",
+   "website": "https://www.midvalleysoccerclub.org/"
+  },
+  {
+   "name": "North Marion Youth Athletics",
+   "area": "CENTRAL VALLEY",
+   "website": "https://www.northmarionyouth.com/soccer"
+  },
+  {
+   "name": "Oregon Valley Futbol Alliance",
+   "area": "CENTRAL VALLEY",
+   "website": "https://www.ovfalliance.com/"
+  },
+  {
+   "name": "Pelada Football Academy",
+   "area": "CENTRAL VALLEY",
+   "website": "http://www.peladafootballacademy.org/"
+  },
+  {
+   "name": "Apex FC",
+   "area": "CENTRAL/EASTERN OREGON",
+   "website": "https://apexfcbend.com/"
+  },
+  {
+   "name": "Bend FC",
+   "area": "CENTRAL/EASTERN OREGON",
+   "website": "https://www.bendfctimbers.com/"
+  },
+  {
+   "name": "Union County Youth Soccer Association",
+   "area": "CENTRAL/EASTERN OREGON",
+   "website": "http://ucysa.org/"
+  },
+  {
+   "name": "Eastside Timbers and Thorns FC",
+   "area": "COLUMBIA",
+   "website": "http://www.eastsidetimbers.com/"
+  },
+  {
+   "name": "FC Piamonte",
+   "area": "COLUMBIA",
+   "website": "https://www.fcpiamonte.org/fcpiamonte"
+  },
+  {
+   "name": "La Amistad Soccer Club",
+   "area": "COLUMBIA",
+   "website": "http://www.laamistadsoccerclub.com/"
+  },
+  {
+   "name": "Northwest United Soccer Academy",
+   "area": "COLUMBIA",
+   "website": "http://stopbloodnow.com/find-a-club/www.northwestunitedsocceracademy.com"
+  },
+  {
+   "name": "Reynolds Youth Soccer Club",
+   "area": "COLUMBIA",
+   "website": "http://www.reynoldsyouthsoccerclub.com/"
+  },
+  {
+   "name": "Valley Premier FC",
+   "area": "COLUMBIA",
+   "website": "http://stopbloodnow.com/find-a-club/"
+  },
+  {
+   "name": "Foothills Soccer Club",
+   "area": "PORTLAND",
+   "website": "http://www.foothillssoccer.org/"
+  },
+  {
+   "name": "Lincoln Youth Soccer",
+   "area": "PORTLAND",
+   "website": "http://www.lincolnyouthsoccer.org/home.php"
+  },
+  {
+   "name": "Portland City United Soccer Club",
+   "area": "PORTLAND",
+   "website": "http://www.pcusc.org/"
+  },
+  {
+   "name": "Portland Community FC",
+   "area": "PORTLAND",
+   "website": "https://www.pcfc.co/"
+  },
+  {
+   "name": "Portland Youth Soccer Association",
+   "area": "PORTLAND",
+   "website": "http://stopbloodnow.com/find-a-club/www.portlandyouthsoccer.com"
+  },
+  {
+   "name": "Saints Soccer Academy",
+   "area": "PORTLAND",
+   "website": "http://saintssocceracademy.org/"
+  },
+  {
+   "name": "Soccer Chance Academy",
+   "area": "PORTLAND",
+   "website": "https://soccerchanceacademy.us/"
+  },
+  {
+   "name": "Southeast Soccer Club",
+   "area": "PORTLAND",
+   "website": "http://www.sesc-pdx.org/"
+  },
+  {
+   "name": "ADF Portland\u200b",
+   "area": "SOUTH METRO",
+   "website": "http://www.adfportland.org/"
+  },
+  {
+   "name": "Albion SC Portland",
+   "area": "SOUTH METRO",
+   "website": "http://www.southsidesoccer.org/"
+  },
+  {
+   "name": "Lake Oswego Soccer Club",
+   "area": "SOUTH METRO",
+   "website": "http://www.losc.org/"
+  },
+  {
+   "name": "Oregon Premier FC",
+   "area": "SOUTH METRO",
+   "website": "http://www.oregonpremierfc.com/home.php"
+  },
+  {
+   "name": "Sherwood Youth Soccer Club",
+   "area": "SOUTH METRO",
+   "website": "http://www.sherwoodsoccer.org/"
+  },
+  {
+   "name": "Tualatin Soccer Club",
+   "area": "SOUTH METRO",
+   "website": "http://www.tualatinsoccer.com/"
+  },
+  {
+   "name": "Willamette United Football Club",
+   "area": "SOUTH METRO",
+   "website": "http://www.willametteunitedfc.com/"
+  },
+  {
+   "name": "Ashland Soccer Club",
+   "area": "SOUTHERN",
+   "website": "http://www.ashlandsoccer.com/"
+  },
+  {
+   "name": "Basin United Soccer Club",
+   "area": "SOUTHERN",
+   "website": "https://www.mikesfieldhouse.org/"
+  },
+  {
+   "name": "Central Valley Futbol Club",
+   "area": "SOUTHERN",
+   "website": "https://www.centralvalleyfc.club/"
+  },
+  {
+   "name": "Coast to Coast Futbol Academy",
+   "area": "SOUTHERN",
+   "website": "https://ccfutbolacademy.com/"
+  },
+  {
+   "name": "Illinois Valley Youth Soccer League",
+   "area": "SOUTHERN",
+   "website": "http://begreat4kids.com/illinois-valley-club/"
+  },
+  {
+   "name": "Oregon Futbol Academy",
+   "area": "SOUTHERN",
+   "website": "http://www.oregonfutbolacademy.com/"
+  },
+  {
+   "name": "Rogue River Soccer Club",
+   "area": "SOUTHERN",
+   "website": "https://www.rogueriversoccerclub.com/"
+  },
+  {
+   "name": "Rogue United FC",
+   "area": "SOUTHERN",
+   "website": "https://rogueunitedfc.com/"
+  },
+  {
+   "name": "Rogue Valley Timbers",
+   "area": "SOUTHERN",
+   "website": "http://www.rvsoccer.com/"
+  },
+  {
+   "name": "Southern Oregon Soccer Academy\u200b",
+   "area": "SOUTHERN",
+   "website": "https://sosocceracademy.com/"
+  },
+  {
+   "name": "Umpqua United Soccer Club",
+   "area": "SOUTHERN",
+   "website": "http://www.roseburgsoccer.org/"
+  },
+  {
+   "name": "Wild Rivers Soccer Club",
+   "area": "SOUTHERN",
+   "website": "http://www.bhsoccer.info/"
+  },
+  {
+   "name": "Aloha United Soccer Club",
+   "area": "TUALATIN HILLS",
+   "website": "http://www.alohaunited.com/"
+  },
+  {
+   "name": "Milltown United Soccer Club",
+   "area": "TUALATIN HILLS",
+   "website": "http://www.milltownsoccer.org/"
+  },
+  {
+   "name": "Oak Hills Soccer Club",
+   "area": "TUALATIN HILLS",
+   "website": "http://www.ohsoccer.com/"
+  },
+  {
+   "name": "Oregon Surf",
+   "area": "TUALATIN HILLS",
+   "website": "https://northwestelitefc.org/"
+  },
+  {
+   "name": "Somerset West Soccer Club",
+   "area": "TUALATIN HILLS",
+   "website": "http://www.somersetwestsoccer.org/"
+  },
+  {
+   "name": "Westside Metros FC",
+   "area": "TUALATIN HILLS",
+   "website": "https://www.westsidemetros.org/"
+  },
+  {
+   "name": "Westside Soccer Club",
+   "area": "TUALATIN HILLS",
+   "website": "http://stopbloodnow.com/find-a-club/www.westsidesoccerclub.com"
+  },
+  {
+   "name": "Banks Youth Soccer Association\u200b",
+   "area": "WESTERN",
+   "website": "http://www.banksyouthsoccer.com/"
+  },
+  {
+   "name": "Bridge City Soccer Academy",
+   "area": "WESTERN",
+   "website": "http://www.bridgecitysoccer.org/"
+  },
+  {
+   "name": "Chehalem Valley Soccer Club",
+   "area": "WESTERN",
+   "website": "https://www.chehalemvalleysc.com/"
+  },
+  {
+   "name": "Columbia County United \u2013 Scappoose",
+   "area": "WESTERN",
+   "website": "https://columbiacountyunited.teamsnapsites.com/"
+  },
+  {
+   "name": "FC Portland Soccer Academy",
+   "area": "WESTERN",
+   "website": "http://www.fcportland.org/"
+  },
+  {
+   "name": "FC West Soccer",
+   "area": "WESTERN",
+   "website": "https://www.fcwestsoccerclub.com/"
+  },
+  {
+   "name": "Hillsboro Rush",
+   "area": "WESTERN",
+   "website": "https://www.hillsbororush.org/"
+  },
+  {
+   "name": "Lower Columbia Youth Soccer Association",
+   "area": "WESTERN",
+   "website": "http://www.lcysasoccer.com/"
+  },
+  {
+   "name": "McMinnville Soccer Club",
+   "area": "WESTERN",
+   "website": "http://www.mcminnvillesoccerclub.com/"
+  },
+  {
+   "name": "Oregon Coast FC",
+   "area": "WESTERN",
+   "website": "https://www.oregoncoastfc.org/"
+  },
+  {
+   "name": "Rainier/Clatskanie Youth Soccer Association",
+   "area": "WESTERN",
+   "website": "http://www.cowlitzyouthsoccer.com/home.php?layout=33236"
+  },
+  {
+   "name": "Santos Football Club",
+   "area": "WESTERN",
+   "website": "http://stopbloodnow.com/find-a-club/"
+  },
+  {
+   "name": "Yamhill Carlton Soccer Club",
+   "area": "WESTERN",
+   "website": "http://www.ycsoccerclub.com/"
+  },
+  {
+   "name": "Atletico Canby",
+   "area": "WILLAMETTE",
+   "website": "https://www.atleticocanby.org"
+  },
+  {
+   "name": "Canby United Soccer Association",
+   "area": "WILLAMETTE",
+   "website": "http://canbysoccer.bonzidev.com/home.php"
+  },
+  {
+   "name": "Clackamas United Soccer Club",
+   "area": "WILLAMETTE",
+   "website": "https://www.clackamasunited.com/"
+  },
+  {
+   "name": "Colton Jr Vikings",
+   "area": "WILLAMETTE",
+   "website": "http://www.coltonjrvikings.com/"
+  },
+  {
+   "name": "Estacada Youth Soccer Association",
+   "area": "WILLAMETTE",
+   "website": "http://www.estacadayouthsoccer.com/"
+  },
+  {
+   "name": "Gladstone Soccer Association",
+   "area": "WILLAMETTE",
+   "website": "https://www.gladstonesoccer.com/"
+  },
+  {
+   "name": "Molalla Youth Sports",
+   "area": "WILLAMETTE",
+   "website": "https://www.myssports.com/myssports"
+  },
+  {
+   "name": "North Clackamas Soccer Club",
+   "area": "WILLAMETTE",
+   "website": "http://www.ncsoccerclub.com/"
+  },
+  {
+   "name": "Oregon City Soccer Club",
+   "area": "WILLAMETTE",
+   "website": "http://www.ocsoccerclub.org/"
+  },
+  {
+   "name": "WHK Soccer Club",
+   "area": "WILLAMETTE",
+   "website": "http://whksoccer.org/wordpress/home/"
+  }
+ ]
+}

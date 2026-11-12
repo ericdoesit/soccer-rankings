@@ -1,0 +1,64 @@
+{
+ "source": "https://downtownlvsc.com/programs/las-vegas-club-soccer-league/",
+ "fetchedAt": "2026-11-11",
+ "league": "lv-club-soccer-league",
+ "association": "NV",
+ "note": "member list from Downtown Las Vegas SC's LVCSL page ('More to follow'; undated). Names are our GotSport club names; websites verified 2026-11-11 (lv-sa.net and albionsclv.org via web search; heatfcnevada.com redirects to lasvegasheatsurf.com).",
+ "clubs": [
+  {
+   "name": "Downtown Las Vegas SC",
+   "city": "Las Vegas",
+   "website": "https://downtownlvsc.com/"
+  },
+  {
+   "name": "Las Vegas Sports Academy",
+   "city": "Las Vegas",
+   "website": "https://www.lv-sa.net/"
+  },
+  {
+   "name": "LV Heat Surf SC",
+   "city": "Las Vegas",
+   "website": "https://lasvegasheatsurf.com/"
+  },
+  {
+   "name": "Albion SC Las Vegas",
+   "city": "Las Vegas",
+   "website": "https://albionsclv.org/"
+  },
+  {
+   "name": "Players SC",
+   "city": "Las Vegas",
+   "website": null
+  },
+  {
+   "name": "Las Vegas Diversity FC",
+   "city": "Las Vegas",
+   "website": null
+  },
+  {
+   "name": "PRIME Soccer Club",
+   "city": "Las Vegas",
+   "website": null
+  },
+  {
+   "name": "Villarreal Las Vegas Academy",
+   "city": "Las Vegas",
+   "website": null
+  },
+  {
+   "name": "Nevada Rush",
+   "city": "Las Vegas",
+   "website": null
+  },
+  {
+   "name": "Vegas United Soccer Club",
+   "city": "Las Vegas",
+   "website": null
+  },
+  {
+   "name": "Las Vegas Elite FC",
+   "city": "Las Vegas",
+   "website": null
+  }
+ ]
+}

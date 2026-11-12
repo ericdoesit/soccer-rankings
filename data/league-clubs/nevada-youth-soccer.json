@@ -1,0 +1,57 @@
+{
+ "source": "https://www.nevadayouthsoccer.org/find-a-club/",
+ "fetchedAt": "2026-11-10",
+ "association": "NV",
+ "clubs": [
+  {
+   "name": "VEGAS UNITED",
+   "area": null,
+   "website": "http://www.vegasunited.net/"
+  },
+  {
+   "name": "LAS VEGAS DIVERSITY FC",
+   "area": "2417 WINWOOD ST. LAS VEGAS NV. 89108",
+   "website": "https://www.lvdiversityfc.com/"
+  },
+  {
+   "name": "PRIME SOCCER CLUB",
+   "area": "1425 ANTIENNE DR. HENDERSON, NV 89052",
+   "website": "https://www.primesoccerclub.com/"
+  },
+  {
+   "name": "PLAYERS SOCCER CLUB",
+   "area": "7040 LAREDO ST, SUITE A, LV, NV 89117",
+   "website": "https://playerssc.com/"
+  },
+  {
+   "name": "NEVADA ALLIANCE YOUTH SOCCER LEAGUE",
+   "area": "10120 W. FLAMINGO RD. | SUITE # 4522 | LAS VEGAS, NV 89147 ",
+   "website": "https://youthsoccerlv.org/"
+  },
+  {
+   "name": "HEAT FC",
+   "area": "149 N. GIBSON ROAD, SUITE \u201cI\u201d HENDERSON, NV 89014",
+   "website": "https://www.heatfcnevada.com/"
+  },
+  {
+   "name": "VILLARREAL LAS VEGAS",
+   "area": "6265 W Post Rd, 89118",
+   "website": "https://www.villarreallasvegas.com/"
+  },
+  {
+   "name": "BVB INTERNATIONAL ACADEMY",
+   "area": "Summerlin Centre Dr. Summerlin South, NV 89135",
+   "website": "https://www.bvbia-lasvegas.com/"
+  },
+  {
+   "name": "LAS VEGAS ELITE FC",
+   "area": "Las Vegas, NV, USA",
+   "website": "https://lasvegaselitefc.com/"
+  },
+  {
+   "name": "MAGNIFICO FC",
+   "area": "901 E Cartier Ave North Las Vegas,NV 89030",
+   "website": "https://www.magnificofc.com/"
+  }
+ ]
+}

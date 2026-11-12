@@ -1,0 +1,343 @@
+{
+ "source": "https://elements.demosphere.com/74274/teams/club/List.html",
+ "league": "north-puget-sound-league",
+ "fetchedAt": "2026-11-10",
+ "association": "WA",
+ "clubs": [
+  {
+   "name": "Bainbridge Island FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77067207.html"
+  },
+  {
+   "name": "Blackhills FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/79834405.html"
+  },
+  {
+   "name": "Bremerton Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/78634549.html"
+  },
+  {
+   "name": "Cascade FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/91699802.html"
+  },
+  {
+   "name": "Cascade Foothills Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/108639351.html"
+  },
+  {
+   "name": "Crossfire Select",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77247843.html"
+  },
+  {
+   "name": "FC Everett",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77066758.html"
+  },
+  {
+   "name": "Fife-Milton-Edgewood Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77067339.html"
+  },
+  {
+   "name": "Frankin Pierce Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/78797940.html"
+  },
+  {
+   "name": "Granite Falls",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77066813.html"
+  },
+  {
+   "name": "Grays Harbor Gulls FC Academy",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/79103687.html"
+  },
+  {
+   "name": "Grays Harbor Rush",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/111307902.html"
+  },
+  {
+   "name": "Harbor Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/88367985.html"
+  },
+  {
+   "name": "Highline Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/95042105.html"
+  },
+  {
+   "name": "HSA Select",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/78617613.html"
+  },
+  {
+   "name": "Irish",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77245264.html"
+  },
+  {
+   "name": "Issaquah FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77066724.html"
+  },
+  {
+   "name": "Jefferson County Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/93102888.html"
+  },
+  {
+   "name": "Kitsap Alliance",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77067306.html"
+  },
+  {
+   "name": "Lake Hills Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77065763.html"
+  },
+  {
+   "name": "Lake Stevens Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/82306733.html"
+  },
+  {
+   "name": "Lakewood Steilacoom DuPont Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/88990422.html"
+  },
+  {
+   "name": "Maple Valley",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77245661.html"
+  },
+  {
+   "name": "Mercer Island FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77067023.html"
+  },
+  {
+   "name": "MIB XL",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/111427610.html"
+  },
+  {
+   "name": "Norpoint FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77067370.html"
+  },
+  {
+   "name": "Nortac Colibri",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77067461.html"
+  },
+  {
+   "name": "North Kitsap",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77067317.html"
+  },
+  {
+   "name": "North Whidbey",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77747778.html"
+  },
+  {
+   "name": "Northshore Select Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77067129.html"
+  },
+  {
+   "name": "Northwest United FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/84671852.html"
+  },
+  {
+   "name": "Orcas Island FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/115425267.html"
+  },
+  {
+   "name": "PacNW",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77245419.html"
+  },
+  {
+   "name": "Peninsula Soccer Academy",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/86476957.html"
+  },
+  {
+   "name": "Pilchuck Soccer Alliance",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77066852.html"
+  },
+  {
+   "name": "Port Angeles Youth Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/86237117.html"
+  },
+  {
+   "name": "Puyallup Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/78374306.html"
+  },
+  {
+   "name": "Rainier Soccer Alliance",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77245538.html"
+  },
+  {
+   "name": "Rainier Valley Slammers",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/84667201.html"
+  },
+  {
+   "name": "Seattle United",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77066750.html"
+  },
+  {
+   "name": "Sequim FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/96158421.html"
+  },
+  {
+   "name": "Silver FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/111393694.html"
+  },
+  {
+   "name": "Silver Lake",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77066840.html"
+  },
+  {
+   "name": "Sky River",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77079169.html"
+  },
+  {
+   "name": "Snohomish United",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77079174.html"
+  },
+  {
+   "name": "Sound FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/115382570.html"
+  },
+  {
+   "name": "South Kitsap United",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77067304.html"
+  },
+  {
+   "name": "South Mason YSC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/84847802.html"
+  },
+  {
+   "name": "South Tacoma United",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77245558.html"
+  },
+  {
+   "name": "South Whidbey",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77079101.html"
+  },
+  {
+   "name": "Southlake FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/79202559.html"
+  },
+  {
+   "name": "Stanwood Spartan FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/113253852.html"
+  },
+  {
+   "name": "Storm King FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77079078.html"
+  },
+  {
+   "name": "TC United",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/79643729.html"
+  },
+  {
+   "name": "Terrace Brier",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77889230.html"
+  },
+  {
+   "name": "Tracyton SC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77067219.html"
+  },
+  {
+   "name": "University Place Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/78658309.html"
+  },
+  {
+   "name": "Valor Soccer",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/96479593.html"
+  },
+  {
+   "name": "Vashon Island Soccer Club",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77245555.html"
+  },
+  {
+   "name": "Washington Premier FC",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/110128259.html"
+  },
+  {
+   "name": "Washington Rush",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/116871483.html"
+  },
+  {
+   "name": "Washington Rush Select",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77066790.html"
+  },
+  {
+   "name": "Washington United",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/88979430.html"
+  },
+  {
+   "name": "West Seattle",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77245568.html"
+  },
+  {
+   "name": "Whatcom County Select",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77245344.html"
+  },
+  {
+   "name": "Whatcom FC Rangers",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/108971957.html"
+  },
+  {
+   "name": "Whidbey Islanders",
+   "website": null,
+   "leagueClubUrl": "https://elements.demosphere.com/74274/teams/club/77079124.html"
+  }
+ ]
+}

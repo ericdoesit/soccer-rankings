@@ -1,0 +1,17 @@
+{
+ "source": "web search (clubs not on Find Your Club or a league list)",
+ "fetchedAt": "2026-11-11",
+ "association": "NM",
+ "clubs": [
+  {
+   "name": "Carlsbad Youth Soccer League",
+   "city": "Carlsbad",
+   "website": "https://clubs.bluesombrero.com/carlsbadysl"
+  },
+  {
+   "name": "Roswell Youth Soccer Association",
+   "city": "Roswell",
+   "website": "https://clubs.bluesombrero.com/roswellysa"
+  }
+ ]
+}

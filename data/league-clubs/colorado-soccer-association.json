@@ -1,0 +1,481 @@
+{
+ "source": "https://www.coloradosoccer.org/youth",
+ "fetchedAt": "2026-11-10",
+ "association": "CO",
+ "clubs": [
+  {
+   "name": "Albion SC Boulder County",
+   "city": "Boulder",
+   "address": "3805 47th St, Boulder, CO 80301",
+   "website": "https://www.albionscbouldercounty.org/"
+  },
+  {
+   "name": "Albion SC Denver",
+   "city": null,
+   "address": "Denver, CO 80211",
+   "website": "https://albionscdenver.org/"
+  },
+  {
+   "name": "Alliance SC",
+   "city": null,
+   "address": "Longmont, CO 80501",
+   "website": null
+  },
+  {
+   "name": "Arsenal Colorado",
+   "city": "Fort Collins",
+   "address": "3955 Interstate 25 Northwest Frontage Rd, Fort Collins, CO 80524",
+   "website": "http://www.soccerfortcollins.org/"
+  },
+  {
+   "name": "Avalanche SC",
+   "city": "Wheat Ridge",
+   "address": "4355 Field St, Wheat Ridge, CO 80033",
+   "website": "https://www.avalanchesoccer.org/"
+  },
+  {
+   "name": "Azteca FC 5280",
+   "city": null,
+   "address": "Denver, CO 80209",
+   "website": "https://www.aztecafc5280.com/teams"
+  },
+  {
+   "name": "Bear Creek Soccer",
+   "city": "Lakewood",
+   "address": "2750 S Wadsworth Blvd, Lakewood, CO 80227",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=1429392"
+  },
+  {
+   "name": "Bright Stars of Colorado",
+   "city": "Aurora",
+   "address": "1009 S Uvalda St, Aurora, CO 80012",
+   "website": "https://www.bscsoccer.org/"
+  },
+  {
+   "name": "Broomfield SC",
+   "city": "Broomfield",
+   "address": "13200 Sheridan Boulevard, Broomfield, CO 80020",
+   "website": "https://www.broomfieldsoccerclub.org/"
+  },
+  {
+   "name": "BVB International Academy Colorado",
+   "city": "Colorado Springs",
+   "address": "4330 Clyde Way, Colorado Springs, CO 80918",
+   "website": "https://www.bvbia-coloradosprings.com/"
+  },
+  {
+   "name": "Ca\u00f1on City Blitz",
+   "city": "Ca\u00f1on City",
+   "address": "922 N Orchard Ave, Ca\u00f1on City, CO 81212",
+   "website": "https://www.canoncitysoccer.com/"
+  },
+  {
+   "name": "Centauros Soccer Academy",
+   "city": null,
+   "address": "Denver, CO 80219",
+   "website": "https://www.facebook.com/profile.php?id=100068103294081"
+  },
+  {
+   "name": "Chaffee County United SC",
+   "city": "Salida",
+   "address": "1455 Holman Ave, Salida, CO 81201",
+   "website": "https://chaffeecountyunitedsoccerclub.leagueapps.com/"
+  },
+  {
+   "name": "Chivas Denver Soccer Academy",
+   "city": "Denver",
+   "address": "6300 E 39th Ave Unit d, Denver, CO 80207",
+   "website": "https://www.chivasdenversocceracademy.org/"
+  },
+  {
+   "name": "City of Wheat Ridge",
+   "city": null,
+   "address": "4005 Kipling Street Wheat Ridge, CO  80033",
+   "website": "https://www.rootedinfun.com/190/Soccer"
+  },
+  {
+   "name": "Club America of Colorado",
+   "city": null,
+   "address": "Denver, CO 80239",
+   "website": "https://www.facebook.com/clubamericacosoccer/"
+  },
+  {
+   "name": "Colorado EDGE SC",
+   "city": "Arvada",
+   "address": "11200 W 58th Ave, Arvada, CO 80002",
+   "website": "https://www.edgesoccer.net/"
+  },
+  {
+   "name": "Colorado Elevation FC",
+   "city": "Highlands Ranch",
+   "address": "6161 Business Center Dr, Highlands Ranch, CO 80130",
+   "website": "https://www.coelevationfc.com/"
+  },
+  {
+   "name": "Colorado Hawks",
+   "city": null,
+   "address": "Parker, CO 80138",
+   "website": "https://cohawkssoccer.leagueapps.com/"
+  },
+  {
+   "name": "Colorado Ice SC",
+   "city": "Lakewood",
+   "address": "11100 W 8th Ave, Suite 102, Lakewood, CO  80215",
+   "website": "https://www.coloradoice.org/"
+  },
+  {
+   "name": "Colorado International Soccer Academy (CISA)",
+   "city": null,
+   "address": "Parker, CO 80134",
+   "website": "https://cisasocceracademy.org/"
+  },
+  {
+   "name": "Colorado Mountain United Soccer Club",
+   "city": "Silt",
+   "address": "1050 Orchard Ave, Silt, CO 81652",
+   "website": "https://www.cmusc.net/"
+  },
+  {
+   "name": "Colorado Rush",
+   "city": "Littleton",
+   "address": "7306 W Bowles Ave, Littleton, CO 80123",
+   "website": "https://www.coloradorush.com/youth-soccer-lakewood-littleton"
+  },
+  {
+   "name": "Colorado Rush Colorado Springs",
+   "city": "Colorado Springs",
+   "address": "3870 Mark Dabling Blvd, Colorado Springs, CO 80907",
+   "website": "https://www.coloradorush.com/youth-soccer-colorado-springs"
+  },
+  {
+   "name": "Colorado Rush East",
+   "city": null,
+   "address": "Aurora, Colorado 80011",
+   "website": "https://www.coloradorush.com/youth-soccer-aurora"
+  },
+  {
+   "name": "Colorado Rush Mountain",
+   "city": "Evergreen",
+   "address": "26663 N Turkey Creek Rd, Evergreen, CO 80439",
+   "website": "https://www.coloradorush.com/youth-soccer-evergreen"
+  },
+  {
+   "name": "Colorado Rush NorCo",
+   "city": "Greeley",
+   "address": "4681 W 20th St, #203, Greeley, CO 80634",
+   "website": "https://www.coloradorush.com/NorCO"
+  },
+  {
+   "name": "Colorado Rush North",
+   "city": null,
+   "address": "Thornton, CO 80241",
+   "website": "https://www.coloradorush.com/youth-soccer-thornton-northglenn"
+  },
+  {
+   "name": "Colorado Rush South",
+   "city": "Pueblo",
+   "address": "422 W 6th St, Pueblo, CO 81003",
+   "website": "https://www.coloradorush.com/youth-soccer-pueblo"
+  },
+  {
+   "name": "Colorado Storm - Castle Rock",
+   "city": null,
+   "address": "Castle Rock, CO 80104",
+   "website": "https://coloradostorm.com/"
+  },
+  {
+   "name": "Colorado Storm - Central",
+   "city": "Aurora",
+   "address": "111 Havana St, Aurora, CO 80010",
+   "website": "https://coloradostorm.com/"
+  },
+  {
+   "name": "Colorado Storm - Fort Collins",
+   "city": null,
+   "address": "Fort Collins, CO 80528",
+   "website": "https://coloradostorm.com/"
+  },
+  {
+   "name": "Colorado Storm - North",
+   "city": null,
+   "address": "Northglenn, CO 80233",
+   "website": "https://coloradostorm.com/"
+  },
+  {
+   "name": "Colorado Storm - South",
+   "city": "Aurora",
+   "address": "6743 S Chambers Way, Aurora, CO 80015",
+   "website": "https://coloradostorm.com/"
+  },
+  {
+   "name": "Colorado United",
+   "city": "Littleton",
+   "address": "6558 S Acoma St, Littleton, CO 80120",
+   "website": "https://www.coloradounitedsoccer.com/"
+  },
+  {
+   "name": "C&C Soccer (Crestmoor/Cranmer)",
+   "city": "Denver",
+   "address": "6100 E Cedar Ave, Denver, CO 80224",
+   "website": "https://clubs.bluesombrero.com/candcsoccer"
+  },
+  {
+   "name": "Delta County Youth Soccer",
+   "city": "Delta",
+   "address": "791 1675 Rd, Delta, CO 81416",
+   "website": null
+  },
+  {
+   "name": "Denver Kickers Sports Club",
+   "city": "Golden",
+   "address": "16776 W 50th Ave, Golden, CO 80403",
+   "website": "https://denverkickers.com/youth-soccer/"
+  },
+  {
+   "name": "Downtown Denver Soccer Club",
+   "city": null,
+   "address": "Denver, CO 80205",
+   "website": "https://www.downtowndenversoccerclub.org/"
+  },
+  {
+   "name": "Ethio Walya",
+   "city": "Aurora",
+   "address": "1450 S Havana St, #803, Aurora, CO 80012",
+   "website": null
+  },
+  {
+   "name": "FC Brighton",
+   "city": "Brighton",
+   "address": "4204 Crestone Peak St, Brighton, CO 80601",
+   "website": "https://www.fcbrighton.com/"
+  },
+  {
+   "name": "FC Colorado",
+   "city": null,
+   "address": "Greeley, CO, USA",
+   "website": "https://www.fccolorado.org/"
+  },
+  {
+   "name": "Flatirons Rush",
+   "city": null,
+   "address": "Superior, CO 80027",
+   "website": "https://www.flatironsrush.com/"
+  },
+  {
+   "name": "Forge A.C.",
+   "city": "Colorado Springs",
+   "address": "2204 Hagerman St, Colorado Springs, CO 80904",
+   "website": "https://www.forgeac.com/"
+  },
+  {
+   "name": "Grand County SC",
+   "city": "Fraser",
+   "address": "220 County Rd 522, Fraser, CO 80442",
+   "website": "https://www.grandcountysoccer.com/"
+  },
+  {
+   "name": "Grand Junction Fire FC",
+   "city": "Grand Junction",
+   "address": "2791 Printers Ct, Grand Junction, CO 81506",
+   "website": "https://www.gjsoccer.org/"
+  },
+  {
+   "name": "Gunnison Parks & Rec",
+   "city": "Gunnison",
+   "address": "501 E Tomichi Ave, Gunnison, CO 81230",
+   "website": "https://www.gunnisonco.gov/departments/parks___recreation/soccer.php"
+  },
+  {
+   "name": "High Country Soccer Association",
+   "city": "Breckenridge",
+   "address": "880 Airport Rd, Breckenridge, CO 80424",
+   "website": "https://www.highcountrysoccer.com/"
+  },
+  {
+   "name": "Indios Denver FC",
+   "city": null,
+   "address": "Denver, CO 80219",
+   "website": "https://indiosdenverfc.org/"
+  },
+  {
+   "name": "Kick2Build",
+   "city": "Lafayette",
+   "address": "10455 Dawson Dr, Lafayette, CO 80026",
+   "website": "https://kick2build.org/"
+  },
+  {
+   "name": "Longs Peak Futbol Academy",
+   "city": null,
+   "address": "Berthoud, CO 80513",
+   "website": "https://www.lfarush.com/"
+  },
+  {
+   "name": "Montrose Avalanche SC",
+   "city": null,
+   "address": "Montrose, CO 81403",
+   "website": "https://www.montroseavalanche.org/"
+  },
+  {
+   "name": "Nido Aguila Denver",
+   "city": null,
+   "address": "Denver, CO 80236",
+   "website": "https://www.nidodenver.com/"
+  },
+  {
+   "name": "Ouray County SC",
+   "city": null,
+   "address": "Ridgway, CO 81432",
+   "website": "https://ouraycountysoccer.com/"
+  },
+  {
+   "name": "Pagosa Youth Soccer",
+   "city": null,
+   "address": "Pagosa Springs, Colorado 81147",
+   "website": "https://pagosayouthsoccer.org/"
+  },
+  {
+   "name": "Palmer Divide SC",
+   "city": null,
+   "address": "Monument, CO 80132",
+   "website": "https://www.palmerdividesoccer.com/"
+  },
+  {
+   "name": "Parker United",
+   "city": null,
+   "address": "Parker, CO 80134",
+   "website": "https://parkerunited.com/soccer/"
+  },
+  {
+   "name": "Pikes Peak FC",
+   "city": null,
+   "address": "Colorado Springs, Colorado 80906",
+   "website": "https://www.pikespeakfc.com/"
+  },
+  {
+   "name": "Pirate Youth Sports",
+   "city": null,
+   "address": "Englewood, CO 80110",
+   "website": "https://www.pirateyouthsports.com/program/109106/rec-soccer"
+  },
+  {
+   "name": "Pride SC",
+   "city": "Colorado Springs",
+   "address": "5955 Lehman Dr #100, Colorado Springs, CO 80918",
+   "website": "https://pridesoccer.com/"
+  },
+  {
+   "name": "Pueblo Rangers SC",
+   "city": null,
+   "address": "803 W. 4th St. Suite D Pueblo, Colorado 81003",
+   "website": "https://pueblorangers.net/"
+  },
+  {
+   "name": "Real Colorado North",
+   "city": "Longmont",
+   "address": "1823 Sunset Pl, Suite F, Longmont, CO 80501",
+   "website": "https://www.realcolorado.net/"
+  },
+  {
+   "name": "Real Colorado South",
+   "city": "Highlands Ranch",
+   "address": "9651 S Quebec St, Highlands Ranch, CO 80130",
+   "website": "https://www.realcolorado.net/"
+  },
+  {
+   "name": "Rifle United FC",
+   "city": null,
+   "address": "Rifle, CO 81650",
+   "website": "https://www.rifleunitedfc.com/"
+  },
+  {
+   "name": "Rio Rapids Durango SC",
+   "city": "Durango",
+   "address": "700 Talon Ln, Durango, CO 81301",
+   "website": "https://www.durangosoccer.com/"
+  },
+  {
+   "name": "Roaring Fork United",
+   "city": "El Jebel",
+   "address": "501 Eagle County Drive, El Jebel, CO 81623",
+   "website": "https://www.roaringforkunited.org/"
+  },
+  {
+   "name": "Rocky Mountain Soccer Academy",
+   "city": null,
+   "address": "Aurora, CO 80047",
+   "website": "https://www.rmsasoccer.org/"
+  },
+  {
+   "name": "Skyline Soccer Association",
+   "city": "Denver",
+   "address": "9700 E Hampden Ave, Denver, CO 80231",
+   "website": "https://www.skylinesoccer.org/"
+  },
+  {
+   "name": "Steamboat SC",
+   "city": "Steamboat Springs",
+   "address": "2667 Copper Ridge Cir, #2, Steamboat Springs, CO 80487",
+   "website": "https://www.steamboat-soccer.com/"
+  },
+  {
+   "name": "Telluride Youth Soccer",
+   "city": "Telluride",
+   "address": "500 E Colorado Ave, Telluride, CO 81435",
+   "website": "https://www.telluridesoccer.com/"
+  },
+  {
+   "name": "Thunder Mountain United",
+   "city": "Grand Junction",
+   "address": "2536 Rimrock Ave, Ste 400-241, Grand Junction, CO 81505",
+   "website": "https://www.thundermountainunited.com/"
+  },
+  {
+   "name": "Tri-City SA",
+   "city": null,
+   "address": "Cortez, Colorado 81321",
+   "website": "https://www.tricitysoccer.com/"
+  },
+  {
+   "name": "United SC",
+   "city": "Loveland",
+   "address": "1327 W Eisenhower Blvd, #2, Loveland, CO 80537",
+   "website": "https://www.unitedsoccerco.org/"
+  },
+  {
+   "name": "Vail Valley SC",
+   "city": "Edwards",
+   "address": "300 Miller Ranch Rd, Edwards, CO 81632",
+   "website": "https://www.vailsoccer.com/"
+  },
+  {
+   "name": "Victory FC & Academy",
+   "city": null,
+   "address": "Englewood, CO 80112",
+   "website": "https://us.victory-fc.com/"
+  },
+  {
+   "name": "West Elk Soccer Association",
+   "city": "Crested Butte",
+   "address": "601 Elk Ave, Crested Butte, CO 81224",
+   "website": "https://www.westelksoccer.org/"
+  },
+  {
+   "name": "Westy SC",
+   "city": "Westminster",
+   "address": "9035 Wadsworth Pkwy, Westminster, CO 80021",
+   "website": "https://westysoccer.org/"
+  },
+  {
+   "name": "Windsor Athletic SC",
+   "city": null,
+   "address": "Windsor, CO 80550",
+   "website": "www.windsorathleticfc.com"
+  },
+  {
+   "name": "WOW FC",
+   "city": null,
+   "address": "Denver, CO 80249",
+   "website": "https://sports.bluesombrero.com/wowfc"
+  }
+ ]
+}

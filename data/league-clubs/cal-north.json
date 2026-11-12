@@ -1,0 +1,1296 @@
+{
+ "source": "https://www.calnorth.org/find-a-league",
+ "fetchedAt": "2026-11-10",
+ "association": "CAN",
+ "clubs": [
+  {
+   "name": "AC Marin",
+   "city": "Petaluma",
+   "district": "D5",
+   "website": "https://northbayysl.com/",
+   "isLeague": false,
+   "gotsportClubLogoId": 19760
+  },
+  {
+   "name": "Alameda Contra Costa Youth Soccer League",
+   "city": "Alameda County",
+   "district": "D4",
+   "website": "https://www.accysl.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Alameda SC",
+   "city": "Alameda",
+   "district": "D4",
+   "website": "https://www.alamedasoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Albany Berkeley Soccer League",
+   "city": "Albany Berkeley",
+   "district": "D4",
+   "website": "http://www.abscsoccer.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Albion SC Silicon Valley",
+   "city": "Redwood City",
+   "district": "D2",
+   "website": "https://albionscsiliconvalley.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Almaden Valley Youth Soccer League",
+   "city": "San Jose",
+   "district": "D2",
+   "website": "https://www.almadenfc.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Alum Rock F\u00fatbol Club",
+   "city": "San Jose",
+   "district": "D2",
+   "website": "https://www.alumrockysl.org",
+   "isLeague": false
+  },
+  {
+   "name": "Anderson Youth Soccer League",
+   "city": "Anderson",
+   "district": "D9",
+   "website": "https://www.ayslca.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Antelope AYSO Alliance",
+   "city": "Antelope",
+   "district": "D6",
+   "website": "https://www.antelopeayso.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Aptos Soccer Club",
+   "city": "Aptos",
+   "district": "D2",
+   "website": "https://www.aptossoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Aromas Youth Soccer Club",
+   "city": "Aromas",
+   "district": "D2",
+   "website": "https://www.aromassoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Atletico Santa Rosa",
+   "city": "Santa Rosa",
+   "district": "D5",
+   "website": "https://atleticosr.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Atwater Youth Soccer League",
+   "city": "Atwater",
+   "district": "D8",
+   "website": "https://www.facebook.com/p/Atwater-Youth-Soccer-League-100064721074737/",
+   "isLeague": false
+  },
+  {
+   "name": "AYSO Area 2C",
+   "city": "Concord",
+   "district": "D3/4",
+   "website": "https://www.ayso2c.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Ballistic United SC",
+   "city": "Pleasanton",
+   "district": "D3",
+   "website": "https://busc.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Boris Oraze SC",
+   "city": "Fresno",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/borisorazesc",
+   "isLeague": false
+  },
+  {
+   "name": "Bud Rank SC",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/budranksc",
+   "isLeague": false
+  },
+  {
+   "name": "Calaveras Youth Soccer League",
+   "city": "Valley Springs",
+   "district": "D8",
+   "website": "https://www.calaverassoccer.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Capitol City FC",
+   "city": "Sacramento",
+   "district": "D6",
+   "website": "https://www.facebook.com/profile.php?id=61555583922902",
+   "isLeague": false
+  },
+  {
+   "name": "Castro Valley Soccer Club",
+   "city": "Castro Valley",
+   "district": "D4",
+   "website": "https://www.castrovalleysoccer.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Cedarwood SC",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/cedarwoodsc",
+   "isLeague": false
+  },
+  {
+   "name": "Central Valley San Jose",
+   "city": "San Jose",
+   "district": "D2",
+   "website": "https://www.cvysl.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Century SC",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/centurysc",
+   "isLeague": false
+  },
+  {
+   "name": "Ceres Youth Soccer Organization",
+   "city": "Ceres",
+   "district": "D8",
+   "website": "https://www.cysosoccer.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Chowchilla Community Soccer League",
+   "city": "Chowchilla",
+   "district": "D7",
+   "website": "https://www.facebook.com/chowchillasoccer/",
+   "isLeague": false
+  },
+  {
+   "name": "Chowchilla Magic Soccer Club",
+   "city": "Chowchilla",
+   "district": "D7",
+   "website": "https://www.facebook.com/p/Magic-Soccer-Club-100052214514858/",
+   "isLeague": false
+  },
+  {
+   "name": "Clearlake Youth Soccer League",
+   "city": "Clearlake",
+   "district": "D5",
+   "website": "https://clearlakeysl.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Clippers Football Club",
+   "city": "Oakland",
+   "district": "D3/4",
+   "website": "https://www.clippersfc.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Cloverdale Youth Soccer League",
+   "city": "Cloverdale",
+   "district": "D5",
+   "website": "https://cloverdaleyouthsoccer.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Clovis Elementary SC",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/cloviselementarysc",
+   "isLeague": false
+  },
+  {
+   "name": "Clovis Junior Soccer League",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "https://cloviscrossfire.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Contra Costa Youth Soccer Club",
+   "city": "Concord",
+   "district": "D4",
+   "website": "https://clubs.bluesombrero.com/contracostayouthsoccerleague",
+   "isLeague": false
+  },
+  {
+   "name": "Copper Hills SC",
+   "city": "Fresno",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/default.aspx?portalid=50101",
+   "isLeague": false
+  },
+  {
+   "name": "Corning Youth Soccer League",
+   "city": "Corning",
+   "district": "D9",
+   "website": "http://clubs.bluesombrero.com/corningysl",
+   "isLeague": false
+  },
+  {
+   "name": "County Line Youth Soccer League",
+   "city": "Galt",
+   "district": "D8",
+   "website": "https://clubs.bluesombrero.com/countylineysa",
+   "isLeague": false
+  },
+  {
+   "name": "Cupertino FC",
+   "city": "Cupertino",
+   "district": "D2",
+   "website": "https://cupertinofc.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Davis AYSO Alliance",
+   "city": "Davis",
+   "district": "D6",
+   "website": "https://www.davisayso.org/",
+   "isLeague": false
+  },
+  {
+   "name": "De Anza Youth Soccer League",
+   "city": "Cupertino",
+   "district": "D2",
+   "website": "http://www.deanzayouthsoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Diablo Valley Futbol Club",
+   "city": "Concord",
+   "district": "D4",
+   "website": "www.diablovalleyfc.com",
+   "isLeague": false
+  },
+  {
+   "name": "Dry Creek SC",
+   "city": "Dry Creek",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/drycreeksoccerclub",
+   "isLeague": false
+  },
+  {
+   "name": "Dublin United Soccer League",
+   "city": "Livermore",
+   "district": "D3/4",
+   "website": "https://www.dublinsoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "East Bay Eclipse Soccer Club",
+   "city": "Moraga",
+   "district": "D4",
+   "website": "https://clubs.bluesombrero.com/eclipsesc",
+   "isLeague": false
+  },
+  {
+   "name": "East Bay United",
+   "city": "Oakland",
+   "district": "D4",
+   "website": "http://www.eastbayunitedsoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "East County Revolution FC",
+   "city": "Brentwood",
+   "district": "D4",
+   "website": "https://www.revolutionfc.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Eastshore Alliance F\u00fatbol Club",
+   "city": "Berkeley",
+   "district": "D4",
+   "website": "https://www.eastshorealliancefc.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Ebbetts Pass Youth Soccer League",
+   "city": "Ebbets Pass",
+   "district": "D8",
+   "website": "https://www.epysl.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Eclipse Soccer Academy",
+   "city": "Santa Cruz",
+   "district": "D2",
+   "website": "https://www.eclipsesocceracademy.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Eel River Valley Youth Soccer League",
+   "city": "Fortuna",
+   "district": "D5",
+   "website": "https://www.facebook.com/p/Eel-River-Valley-Youth-Soccer-League-61559649303232/",
+   "isLeague": false
+  },
+  {
+   "name": "El Dorado Hills Soccer Club",
+   "city": "El Dorado Hills",
+   "district": "D6",
+   "website": "http://clubs.bluesombrero.com/rollinghillsyouthsoccerleague",
+   "isLeague": false,
+   "gotsportClubLogoId": 5055
+  },
+  {
+   "name": "Elk Grove Soccer",
+   "city": "Elk Grove",
+   "district": "D6",
+   "website": "https://elkgrovesoccer.com/",
+   "isLeague": false,
+   "gotsportClubLogoId": 16279
+  },
+  {
+   "name": "Empire SC",
+   "city": "Santa Rosa",
+   "district": "D5",
+   "website": "https://www.empiresoccerclub.net/",
+   "isLeague": false
+  },
+  {
+   "name": "F.C. Real Libertad",
+   "city": "San Jose",
+   "district": "D2",
+   "website": "https://www.fc-real-libertad.org/",
+   "isLeague": false
+  },
+  {
+   "name": "FC Clovis",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/clovisfc",
+   "isLeague": false
+  },
+  {
+   "name": "Firebaugh FC",
+   "city": "Firebaugh",
+   "district": "D7",
+   "website": "https://www.facebook.com/FYSFC33",
+   "isLeague": false
+  },
+  {
+   "name": "Fort Washington SC",
+   "city": "Fort Washington",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/fortwashingtonsc",
+   "isLeague": false
+  },
+  {
+   "name": "Freedom Elementary",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/freedomelementary",
+   "isLeague": false
+  },
+  {
+   "name": "Fremont Rush Soccer",
+   "city": "Fremont",
+   "district": "D4",
+   "website": "http://www.fremontrush.com",
+   "isLeague": false
+  },
+  {
+   "name": "Fresno Christian SC",
+   "city": "Fresno",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/fresnochristiansc",
+   "isLeague": false
+  },
+  {
+   "name": "Fresno Metropolitan Youth Soccer League",
+   "city": "Fresno",
+   "district": "D7",
+   "website": "https://fmysl.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Fruitridge Soccer Club",
+   "city": "Sacramento",
+   "district": "D6",
+   "website": "https://www.facebook.com/FruitridgeSoccer",
+   "isLeague": false
+  },
+  {
+   "name": "Fugman Soccer Club",
+   "city": "Fresno",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/fugmansoccerclub",
+   "isLeague": false
+  },
+  {
+   "name": "Garfield Soccer Club",
+   "city": "clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=638996",
+   "isLeague": false
+  },
+  {
+   "name": "Gettysburg SC",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/gettysburgsc",
+   "isLeague": false
+  },
+  {
+   "name": "Gold Nugget Soccer Club",
+   "city": "Cool",
+   "district": "D6",
+   "website": "https://clubs.bluesombrero.com/goldnuggetsoccerclub",
+   "isLeague": false
+  },
+  {
+   "name": "Golden Valley Youth Soccer League",
+   "city": "Caruthers",
+   "district": "D7",
+   "website": null,
+   "isLeague": false
+  },
+  {
+   "name": "Hanford Youth Soccer League",
+   "city": "Hanford",
+   "district": "D7",
+   "website": "https://www.hanfordyouthsoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Hayward Youth Soccer League",
+   "city": "Hayward",
+   "district": "D4",
+   "website": "https://clubs.bluesombrero.com/haywardyouthsoccerleague",
+   "isLeague": false
+  },
+  {
+   "name": "Healdsburg Futbol Club",
+   "city": "Healdsburg",
+   "district": "D5",
+   "website": "https://www.healdsburgfc.club/",
+   "isLeague": false
+  },
+  {
+   "name": "Healdsburg Youth Soccer Association",
+   "city": "Healdsburg",
+   "district": "D5",
+   "website": "https://www.facebook.com/healdsburgsoccer",
+   "isLeague": false
+  },
+  {
+   "name": "Hollister Tremors",
+   "city": "Hollister",
+   "district": "D2",
+   "website": "http://hollistertremors.org/",
+   "isLeague": false,
+   "gotsportClubLogoId": 5251
+  },
+  {
+   "name": "Humboldt Youth Soccer League",
+   "city": "Humboldt",
+   "district": "D5",
+   "website": "http://www.humboldtysl.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Jack London Youth Soccer Sports League",
+   "city": "Oakland",
+   "district": "D4",
+   "website": "http://jlysl.org",
+   "isLeague": false
+  },
+  {
+   "name": "Jefferson SC",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/jeffersonsoccerclub",
+   "isLeague": false
+  },
+  {
+   "name": "Kerman Youth Soccer League",
+   "city": "Kerman",
+   "district": "D7",
+   "website": "https://www.facebook.com/p/Kerman-Revolution-Soccer-100057654692758/",
+   "isLeague": false
+  },
+  {
+   "name": "Kingsburg Youth Soccer League",
+   "city": "Kingsburg",
+   "district": "D7",
+   "website": "https://www.facebook.com/kingsburgsoccer/",
+   "isLeague": false
+  },
+  {
+   "name": "Konocti Youth Soccer League",
+   "city": "Lakeport",
+   "district": "D5",
+   "website": "https://clubs.bluesombrero.com/konoctiyouthsoccerleague",
+   "isLeague": false
+  },
+  {
+   "name": "Lamorinda SC",
+   "city": "Moraga",
+   "district": "D4",
+   "website": "https://lamorindasc.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Lassen Youth Soccer League",
+   "city": "Susanville",
+   "district": "D9",
+   "website": "https://www.lassensoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Legends FC",
+   "city": "San Jose",
+   "district": "D2",
+   "website": "https://www.legendsfcnorcal.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Lemoore Youth Soccer League",
+   "city": "Lemoore",
+   "district": "D7",
+   "website": "https://www.lemooreyouthsoccerleague.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Liberty Soccer Club",
+   "city": "clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=638971&mid=688087&newskeyid=HN1&ctl=viewallnews",
+   "isLeague": false
+  },
+  {
+   "name": "Lincoln Soccer Club",
+   "city": "Lincoln",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=638969",
+   "isLeague": false
+  },
+  {
+   "name": "Linden Soccer Association",
+   "city": "Linden",
+   "district": "D8",
+   "website": "https://www.facebook.com/LindenYouthSoccerAssociation/",
+   "isLeague": false
+  },
+  {
+   "name": "Livermore Fusion SC",
+   "city": "Livermore",
+   "district": "D3",
+   "website": "https://www.fusionsc.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Mad River Youth Soccer League",
+   "city": "Arcata",
+   "district": "D5",
+   "website": "https://mrysl.net/",
+   "isLeague": false
+  },
+  {
+   "name": "Madera Roja FC",
+   "city": "Redwood City",
+   "district": "D2",
+   "website": "https://www.maderarojafc.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Madera Youth Soccer League",
+   "city": "Madera",
+   "district": "D7",
+   "website": "https://www.facebook.com/officialMYSL/",
+   "isLeague": false
+  },
+  {
+   "name": "Manteca Area Soccer League",
+   "city": "Manteca",
+   "district": "D8",
+   "website": "https://mantecasoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Maple Creek SC",
+   "city": "fresno",
+   "district": "D7",
+   "website": "https://www.facebook.com/MapleCreekSC/",
+   "isLeague": false
+  },
+  {
+   "name": "McSwain Soccer League",
+   "city": "McSwain",
+   "district": "D8",
+   "website": "https://www.facebook.com/McSwainSoccerLeague/",
+   "isLeague": false
+  },
+  {
+   "name": "Merced Youth Soccer Association",
+   "city": "Merced",
+   "district": "D8",
+   "website": "https://www.mercedsoccer.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Mickey Cox Soccer Club",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=638938&mid=688069&newskeyid=HN1&ctl=viewallnews",
+   "isLeague": false
+  },
+  {
+   "name": "Milpitas Youth Soccer League",
+   "city": "Milpitas",
+   "district": "D2",
+   "website": "https://milpitasyouthsoccerleague.teampages.com/organizations/18217",
+   "isLeague": false,
+   "gotsportClubLogoId": 11994
+  },
+  {
+   "name": "Miramonte SC",
+   "city": "Miramonte",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/miramontesc",
+   "isLeague": false
+  },
+  {
+   "name": "Modesto Youth Soccer Association",
+   "city": "Modesto",
+   "district": "D8",
+   "website": "https://www.mysa-ajax.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Monterey Condors Soccer Club",
+   "city": "Salinas",
+   "district": "D2",
+   "website": "https://montereycondorsclub.com",
+   "isLeague": false
+  },
+  {
+   "name": "Mother Lode Youth Soccer League",
+   "city": "Jackson",
+   "district": "D8",
+   "website": "https://www.mlysl.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Mountain Area Youth Soccer League",
+   "city": "Oakhurst",
+   "district": "D7",
+   "website": "https://maysl.soccer/",
+   "isLeague": false
+  },
+  {
+   "name": "Mountain View SC",
+   "city": "Fresno",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/mountainviewscs",
+   "isLeague": false
+  },
+  {
+   "name": "Mustang Soccer League",
+   "city": "Danville",
+   "district": "D3",
+   "website": "http://www.mustangsoccer.com/",
+   "isLeague": false
+  },
+  {
+   "name": "N Highlands/Antelope",
+   "city": "N. Highlands/Antelope",
+   "district": "D6",
+   "website": "https://www.nhaysc.com/home",
+   "isLeague": false
+  },
+  {
+   "name": "Napa United",
+   "city": "Napa",
+   "district": "D5",
+   "website": "https://napaunited.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Natomas FA",
+   "city": "Sacramento",
+   "district": "D6",
+   "website": "https://www.natomasfa.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Nelson Soccer Club",
+   "city": "Nelson",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/nelsonsoccerclub",
+   "isLeague": false
+  },
+  {
+   "name": "Newark Soccer Club",
+   "city": "Newark",
+   "district": "D3",
+   "website": "https://clubs.bluesombrero.com/newarksc",
+   "isLeague": false
+  },
+  {
+   "name": "North Fresno Youth Soccer League",
+   "city": "North Fresno",
+   "district": "D7",
+   "website": "https://nfysl.org/",
+   "isLeague": false
+  },
+  {
+   "name": "North Valley Youth Soccer League",
+   "city": "San Jose",
+   "district": "D2",
+   "website": "https://clubs.bluesombrero.com/northvalley",
+   "isLeague": false
+  },
+  {
+   "name": "Oakland Genesis",
+   "city": "Oakland",
+   "district": "D3/4",
+   "website": "https://www.oaklandgenesis.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Oakland Soccer Club",
+   "city": "Oakland",
+   "district": "D4",
+   "website": "www.oaklandsoccer.org",
+   "isLeague": false
+  },
+  {
+   "name": "OLPH Soccer Club",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=638903",
+   "isLeague": false
+  },
+  {
+   "name": "Orangevale SC",
+   "city": "Orangevale",
+   "district": "D6",
+   "website": "https://ovalesoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Oroville YSC",
+   "city": "Oroville",
+   "district": "D6",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=754904",
+   "isLeague": false
+  },
+  {
+   "name": "OV Toros",
+   "city": "Morgan Hill",
+   "district": "D2",
+   "website": "https://ovysl.org",
+   "isLeague": false
+  },
+  {
+   "name": "Pajaro Valley Youth Soccer Club",
+   "city": "Pajaro Valley",
+   "district": "D2",
+   "website": "https://pvysc.net/",
+   "isLeague": false
+  },
+  {
+   "name": "Palo Alto SC",
+   "city": "Palo Alto",
+   "district": "D2",
+   "website": "https://www.pasoccerclub.org/home-pasc",
+   "isLeague": false
+  },
+  {
+   "name": "Palo Cedro Youth Soccer Organization",
+   "city": "Palo Cedro",
+   "district": "D9",
+   "website": "http://clubs.bluesombrero.com/palocedroyouthsoccer",
+   "isLeague": false
+  },
+  {
+   "name": "Paradise Ridge YSC",
+   "city": "Paradise Ridge",
+   "district": "D6",
+   "website": "https://www.paradiseridgesoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Petaluma Youth Soccer League",
+   "city": "Petaluma",
+   "district": "D5",
+   "website": "https://clubs.bluesombrero.com/petaluma",
+   "isLeague": false
+  },
+  {
+   "name": "Piedmont Soccer Club",
+   "city": "Oakland",
+   "district": "D4",
+   "website": "https://www.piedmontsoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Pinedale Soccer",
+   "city": "clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/pinedalesoccer",
+   "isLeague": false
+  },
+  {
+   "name": "Pittsburg Youth Soccer Club",
+   "city": "Pittsburg",
+   "district": "D4",
+   "website": "https://www.pittsburgyouthsoccerassociation.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Pleasanton Rage",
+   "city": "Pleasanton",
+   "district": "D3",
+   "website": "http://clubs.bluesombrero.com/ragesoccerclub",
+   "isLeague": false
+  },
+  {
+   "name": "Prospector Soccer Club",
+   "city": "Shingle Springs",
+   "district": "D6",
+   "website": "https://clubs.bluesombrero.com/prospectorsoccer",
+   "isLeague": false
+  },
+  {
+   "name": "Ranchos FC",
+   "city": "Madera Ranchos",
+   "district": "D7",
+   "website": "https://ranchosfc.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Ravenswood Youth Soccer Club",
+   "city": "East Palo Alto",
+   "district": "D2",
+   "website": "https://www.ravenswoodsoccer.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Reagan SC",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "sports.bluesombrero.com/reagansc",
+   "isLeague": false
+  },
+  {
+   "name": "Red Bank SC",
+   "city": "clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/redbanksc",
+   "isLeague": false
+  },
+  {
+   "name": "Red Bluff Youth Soccer League",
+   "city": "Red Bluff",
+   "district": "D9",
+   "website": "https://rbysl.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Redding Youth Soccer League",
+   "city": "Redding",
+   "district": "D9",
+   "website": "https://www.reddingsoccer.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Reedley-Kings Canyon Youth Soccer",
+   "city": "Reedley/Kings Canyon",
+   "district": "D7",
+   "website": "https://reedleysoccer.com/",
+   "isLeague": false
+  },
+  {
+   "name": "River City Youth Soccer League",
+   "city": "River City",
+   "district": "D6",
+   "website": "https://www.rivercitysoccerleague.org/home",
+   "isLeague": false
+  },
+  {
+   "name": "Riverview SC",
+   "city": "Fresno",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/riverviewsc",
+   "isLeague": false
+  },
+  {
+   "name": "Rohnert Park FC",
+   "city": "Rohnert Park",
+   "district": "D5",
+   "website": "https://rpsoccerclub.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Rohnert Park Soccer Club",
+   "city": "Rohnert Park",
+   "district": "D5",
+   "website": "https://clubs.bluesombrero.com/rohnertparksoccerclub",
+   "isLeague": false,
+   "gotsportClubLogoId": 19724
+  },
+  {
+   "name": "Roosevelt Youth Soccer League",
+   "city": "Roosevelt",
+   "district": "D7",
+   "website": "https://www.sportsengine.com/org/roosevelt-youth-soccer-league",
+   "isLeague": false
+  },
+  {
+   "name": "Sacramento United",
+   "city": "Sacramento",
+   "district": "D6",
+   "website": "https://www.sacunited.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Salinas Fuego FC",
+   "city": "Salinas",
+   "district": "D2",
+   "website": "https://salinasfuegofc.wordpress.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Salinas Soccer Femenil Academy",
+   "city": "Salinas",
+   "district": "D2",
+   "website": "https://www.facebook.com/profile.php?id=100091530110732",
+   "isLeague": false
+  },
+  {
+   "name": "San Francisco Glens Soccer Club",
+   "city": "San Francisco",
+   "district": "D1",
+   "website": "https://www.sfglensacademy.com/",
+   "isLeague": false
+  },
+  {
+   "name": "San Francisco Youth Soccer",
+   "city": "San Francisco",
+   "district": "D1",
+   "website": "http://sfyouthsoccer.org",
+   "isLeague": false
+  },
+  {
+   "name": "San Joaquin United",
+   "city": "Tranquillity",
+   "district": "D7",
+   "website": null,
+   "isLeague": false
+  },
+  {
+   "name": "San Jose Police Activities League",
+   "city": "San Jose",
+   "district": "D2",
+   "website": "www.sjpdpal.com",
+   "isLeague": false
+  },
+  {
+   "name": "San Jose Rush",
+   "city": "San Jose",
+   "district": "D2",
+   "website": "https://www.sanjoserush.com/",
+   "isLeague": false
+  },
+  {
+   "name": "San Juan Bautista Soccer Club",
+   "city": "San Juan Bautista",
+   "district": "D2",
+   "website": "https://www.facebook.com/p/San-Juan-Bautista-Soccer-Club-61556864285948/",
+   "isLeague": false
+  },
+  {
+   "name": "San Ramon SC",
+   "city": "San Ramon",
+   "district": "D3/4",
+   "website": "https://www.sanramonfc.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Sanger Youth Soccer League",
+   "city": "Sanger",
+   "district": "D7",
+   "website": "https://www.facebook.com/sangeryouthsoccer/",
+   "isLeague": false
+  },
+  {
+   "name": "Santa Clara Youth Soccer League",
+   "city": "Santa Clara Valley",
+   "district": "D2",
+   "website": "https://www.scysl.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Santa Cruz City Soccer Club",
+   "city": "Santa Cruz",
+   "district": "D2",
+   "website": "http://www.santacruzsoccer.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Santa Rosa City Soccer Club",
+   "city": "Santa Rosa",
+   "district": "D5",
+   "website": "https://srssoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "SC Pro Soccer Academy",
+   "city": "Saratoga",
+   "district": "D2",
+   "website": "https://scprosocceracademy.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Scotts Valley San Lorenzo Valley Youth Soccer Club",
+   "city": "Scotts Valley",
+   "district": "D2",
+   "website": "www.svslvsoccerclub.org",
+   "isLeague": false
+  },
+  {
+   "name": "Selma Youth Soccer League",
+   "city": "Selma",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/selmasoccer",
+   "isLeague": false
+  },
+  {
+   "name": "Sierra Gold Soccer Club",
+   "city": "Placerville",
+   "district": "D6",
+   "website": "https://clubs.bluesombrero.com/sierragoldsoccerclub",
+   "isLeague": false
+  },
+  {
+   "name": "Siskiyou Soccer League (Yreka)",
+   "city": "Yreka",
+   "district": "D9",
+   "website": "https://www.facebook.com/SiskiyouSoccerLeague",
+   "isLeague": false
+  },
+  {
+   "name": "Soccer League for East Fresno Boys and Girls",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "https://eastfresnosoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "South San Jose Soccer League",
+   "city": "South San Jose",
+   "district": "D2",
+   "website": "http://www.ssjysl.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Stockton Youth Soccer Association",
+   "city": "Stockton",
+   "district": "D8",
+   "website": "https://www.stocktonyouthsoccer.com/stocktonyouthsoccer",
+   "isLeague": false
+  },
+  {
+   "name": "Sunnyvale Alliance SC",
+   "city": "Sunnyvale",
+   "district": "D2",
+   "website": "https://www.sunnyvalesoccer.org/",
+   "isLeague": false,
+   "gotsportClubLogoId": 16185
+  },
+  {
+   "name": "SYSL Sacramento TOPSoccer",
+   "city": "Sacramento",
+   "district": "D6",
+   "website": "https://sysl.com/Layouts/evolved/Content.aspx?d=qnRns1Tzp7Z6RxUGBj3Ght7023gBo74idwfS9JSB8lI%3D",
+   "isLeague": false
+  },
+  {
+   "name": "Terra Bella FC",
+   "city": "Terra Bella",
+   "district": "D7",
+   "website": "https://terrabellafc.com/",
+   "isLeague": false
+  },
+  {
+   "name": "TK Soccer Club",
+   "city": "Fresno",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=638828&mid=688009&newskeyid=HN1&ctl=viewallnews",
+   "isLeague": false
+  },
+  {
+   "name": "TOPSoccer",
+   "city": null,
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=638749",
+   "isLeague": false
+  },
+  {
+   "name": "Tracy Youth Soccer League",
+   "city": "Tracy",
+   "district": "D8",
+   "website": "https://tracyyouthsoccer.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Trinity Youth Soccer League",
+   "city": "Weaverville",
+   "district": "D9",
+   "website": "https://clubs.bluesombrero.com/trinitysoccer",
+   "isLeague": false
+  },
+  {
+   "name": "Tulare Youth Soccer",
+   "city": "Tulare",
+   "district": "D7",
+   "website": "https://www.tulareforce.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Tuolumne County Youth Soccer League",
+   "city": "Sonora",
+   "district": "D8",
+   "website": "https://clubs.bluesombrero.com/tuolumne",
+   "isLeague": false
+  },
+  {
+   "name": "Turlock Youth Soccer Association",
+   "city": "Turlock",
+   "district": "D8",
+   "website": "https://www.academicajrs.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Ukiah Valley Youth Soccer League",
+   "city": "Ukiah",
+   "district": "D5",
+   "website": "https://www.uvysl.com/",
+   "isLeague": false
+  },
+  {
+   "name": "United Sports FC",
+   "city": "East Bay",
+   "district": "D3/4",
+   "website": "https://www.unitedsportsfc.org/east-bay",
+   "isLeague": false
+  },
+  {
+   "name": "Vacaville United",
+   "city": "Vacaville",
+   "district": "D6",
+   "website": "https://www.vacavilleunitedsoccerclub.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Valley Oak SC",
+   "city": "Fresno",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=638820",
+   "isLeague": false
+  },
+  {
+   "name": "Valley Youth Soccer League",
+   "city": "Fresno",
+   "district": "D7",
+   "website": "http://clubs.bluesombrero.com/valleyyouthsoccerleague",
+   "isLeague": false
+  },
+  {
+   "name": "Visalia United FC",
+   "city": "Visalia",
+   "district": "D7",
+   "website": "https://www.visaliaunited.com/teams/?u=VISALIAUNITED&s=soccer",
+   "isLeague": false
+  },
+  {
+   "name": "Visalia Youth Soccer Association",
+   "city": "Visalia",
+   "district": "D7",
+   "website": "https://visaliasoccer.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Walnut Creek Surf Soccer Club",
+   "city": "Walnut Creek",
+   "district": "D4",
+   "website": "http://clubs.bluesombrero.com/walnutcreeksc",
+   "isLeague": false,
+   "gotsportClubLogoId": 5228
+  },
+  {
+   "name": "West Contra Costa Youth Soccer League",
+   "city": "Pinole",
+   "district": "D4",
+   "website": "www.wccysl.com",
+   "isLeague": false
+  },
+  {
+   "name": "West Marin Youth Soccer League",
+   "city": "Fairfax",
+   "district": "D5",
+   "website": "https://westmarinsoccer.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Windsor Youth Soccer League",
+   "city": "Windsor",
+   "district": "D5",
+   "website": "https://clubs.bluesombrero.com/windsoryouthsoccer",
+   "isLeague": false
+  },
+  {
+   "name": "Winters AYSO",
+   "city": "Winters",
+   "district": "D6",
+   "website": "https://www.wintersayso.org/",
+   "isLeague": false
+  },
+  {
+   "name": "Woodland Alianza",
+   "city": "Woodland",
+   "district": "D6",
+   "website": "https://www.woodlandalianzafc.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Woodland Soccer Club",
+   "city": "Woodland",
+   "district": "D6",
+   "website": "https://www.woodlandsoccerclub.com/",
+   "isLeague": false
+  },
+  {
+   "name": "Woods Soccer Club",
+   "city": "Clovis",
+   "district": "D7",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=638804",
+   "isLeague": false
+  },
+  {
+   "name": "Yuba Sutter Youth Soccer League",
+   "city": "Yuba City",
+   "district": "D6",
+   "website": "https://clubs.bluesombrero.com/yubasutter",
+   "isLeague": false
+  }
+ ]
+}

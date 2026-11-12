@@ -1,0 +1,1484 @@
+{
+ "source": "https://socalsoccerleague.org/about/member-club-map/",
+ "league": "socal-soccer-league",
+ "fetchedAt": "2026-11-10",
+ "association": "CAS",
+ "clubs": [
+  {
+   "name": "AC Brea Soccer",
+   "city": "Brea",
+   "website": "https://www.breasoccer.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Academia de Futbol Tigres",
+   "city": "San Diego",
+   "website": "https://www.tigressoccerclub.com",
+   "association": "CAS"
+  },
+  {
+   "name": "ALBION SC Riverside",
+   "city": "Riverside",
+   "website": "https://www.albionscriverside.org",
+   "association": "CAS"
+  },
+  {
+   "name": "ALBION SC San Diego",
+   "city": "San Diego",
+   "website": "http://www.albionsoccer.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "ALBION SC Santa Ana",
+   "city": "Santa Ana",
+   "website": "http://albionscsantaana.org",
+   "association": "CAS"
+  },
+  {
+   "name": "ALBION SC Santa Monica",
+   "city": "Santa Monica",
+   "website": "https://santa-monica-utd.sportngin.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Anaheim Futbol Club",
+   "city": "Anaheim",
+   "website": "https://www.anaheimfc.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Antelope Valley Futbol Club",
+   "city": "Lancaster",
+   "website": "https://www.avfcsoccer.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Apple Valley SC Storm",
+   "city": "Apple Valley",
+   "website": "https://www.avscstorm.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Bakersfield Alliance",
+   "city": "Bakersfield",
+   "website": "https://www.bakersfieldalliancesc.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Beach Futbol Club",
+   "city": "Torrance",
+   "website": "https://beachfutbolclub.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Bell Gardens FC",
+   "city": "Los Angeles",
+   "website": "https://www.bellgardensfc.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "Bell Gardens FC - Beaumont",
+   "city": "Beaumont",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Boca Orange County",
+   "city": "Anaheim Hills",
+   "website": "https://www.chsasoccer.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Borussia Del Mar Soccer Club",
+   "city": "San Diego",
+   "website": "https://clubs.bluesombrero.com/borussiadelmar",
+   "association": "CAS"
+  },
+  {
+   "name": "California Athletic SC",
+   "city": "La Crescenta-Montrose",
+   "website": "https://athleticsc.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "California Football Academy",
+   "city": "Aliso Viejo",
+   "website": "https://www.elitesoccerleague.com/clubleague",
+   "association": "CAS"
+  },
+  {
+   "name": "California Rush Soccer Club",
+   "city": "Huntington Beach",
+   "website": "https://www.californiarushsoccer.com",
+   "association": "CAS"
+  },
+  {
+   "name": "California Rush SC - Moreno Valley",
+   "city": "Moreno Valley",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Capo FC",
+   "city": "San Juan Capistrano",
+   "website": "https://www.capofc.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Cardiff Sockers",
+   "city": "Cardiff By The Sea",
+   "website": "https://www.cardiffsockers.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "CDA Slammers",
+   "city": "Cerritos",
+   "website": "https://cdaslammers.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "CDA Slammers - Diamond Bar/ Walnut Valley",
+   "city": "Diamond Bar",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "CDA Slammers - Huntington Beach",
+   "city": "Huntington Beach",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "CDA Slammers - Long Beach",
+   "city": "Long Beach",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "CDA Slammers - North OC",
+   "city": "North Orange County",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "CDA Slammers - Whittier",
+   "city": "Whittier",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Celtic Soccer Club (S-CA)",
+   "city": "Ontario",
+   "website": "https://celticsoccerclub.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Central Cal Aztecs",
+   "city": "Bakersfield",
+   "website": "https://www.centralcalaztecs.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "Chelsea OC",
+   "city": "Yoba Linda",
+   "website": "https://www.jusa.org/chelsea-sc#gsc.tab=0",
+   "association": "CAS"
+  },
+  {
+   "name": "Chula Vista FC",
+   "city": "Chula Vista",
+   "website": "https://chulavistafc.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "City SC",
+   "city": "Carlsbad",
+   "website": "https://ourcitysc.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "City SC - San Marcos",
+   "city": "San Marcos",
+   "website": "https://cityscsanmarcos.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "City SC Central Valley",
+   "city": "Bakersfield",
+   "website": "https://citysc-bakersfield.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "City SC Chula Vista",
+   "city": "Chula Vista",
+   "website": "https://cityscchulavista.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "City SC Southwest",
+   "city": "Temecula",
+   "website": "https://www.cityscsouthwest.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Claremont Stars Soccer Club",
+   "city": "Claremont",
+   "website": "https://claremontstars.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Club Deportivo La Esperanza",
+   "city": "Port Hueneme",
+   "website": "http://cdlaesperanza.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Coronado FC",
+   "city": "Coronado",
+   "website": "https://www.coronadoyouthsoccerleague.com/coronado-fc-overview.html",
+   "association": "CAS"
+  },
+  {
+   "name": "Crusaders Soccer League",
+   "city": "San Diego",
+   "website": "https://crusaderssoccer.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Culture FC",
+   "city": "Huntington Beach",
+   "website": "https://culturefc.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Culver City Football Club",
+   "city": "Culver City",
+   "website": "https://www.culvercityfootballclub.com",
+   "association": "CAS"
+  },
+  {
+   "name": "CZ Elite (CA-S)",
+   "city": "Pasadena",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Desert Empire Surf",
+   "city": "Palm Desert",
+   "website": "https://www.palmdesertsoccer.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Downey Futbol Club",
+   "city": "Downey",
+   "website": "https://WWW.DOWNEYFC.NET",
+   "association": "CAS"
+  },
+  {
+   "name": "Downey United Football Club",
+   "city": "Downey",
+   "website": "https://downeyunitedfootballclub.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Dynamo SC",
+   "city": "Lake Balboa",
+   "website": "https://www.fcdynamosfv.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Dynamo El Centro Soccer Club",
+   "city": "El Centro",
+   "website": "http://www.dynamoelcentrosoccerclub.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Eagles SC",
+   "city": "Camarillo",
+   "website": "https://www.eaglessc.com",
+   "association": "CAS"
+  },
+  {
+   "name": "ELI7E FC",
+   "city": "Chula Vista",
+   "website": "https://eli7efc.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Empire SC",
+   "city": "Eastvale",
+   "website": "https://empiresoccerclub.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Empire Surf",
+   "city": "Escondido",
+   "website": "https://empiresurfsoccer.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Express Soccer",
+   "city": "Encinitas",
+   "website": "https://www.encinitas-soccer.org",
+   "association": "CAS"
+  },
+  {
+   "name": "FASC",
+   "city": "Los Angeles",
+   "website": "https://www.futbolacademyofsocal.org",
+   "association": "CAS"
+  },
+  {
+   "name": "FC Balboa",
+   "city": "San Diego",
+   "website": "https://www.fcbalboa.org",
+   "association": "CAS"
+  },
+  {
+   "name": "FC Golden State",
+   "city": "Pomona",
+   "website": "https://www.fcgsforce.com",
+   "association": "CAS"
+  },
+  {
+   "name": "FC Man United",
+   "city": "Walnut",
+   "website": "https://FCMANUNITED.COM",
+   "association": "CAS"
+  },
+  {
+   "name": "FC Premier (CA)",
+   "city": "Huntington Beach",
+   "website": "https://www.fcpremier97.com",
+   "association": "CAS"
+  },
+  {
+   "name": "FC Premier (CA) - Anaheim",
+   "city": "Anaheim",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "FC Premier (CA) - Cerritos",
+   "city": "Cerritos",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "FC Premier (CA) - Fullerton",
+   "city": "Fullerton",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "FC Premier (CA) - Long Beach",
+   "city": "Long Beach",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "FC Premier (CA) - Whittier",
+   "city": "Whittier",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "FC Premier Elite",
+   "city": "Hemet",
+   "website": "https://www.fcpremierelite.org",
+   "association": "CAS"
+  },
+  {
+   "name": "FC Scorpions (CA)",
+   "city": "Lynwood",
+   "website": "http://www.fcscorpions.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Fellowship of Christian Athletes",
+   "city": "Coachella",
+   "website": "https://coachellavalleyfca.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "Foothill Storm",
+   "city": "Claremont",
+   "website": "https://foothillstormsc.org",
+   "association": "CAS"
+  },
+  {
+   "name": "FRAM SC",
+   "city": "Torrance",
+   "website": "https://www.framsoccer.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Fury FC (S-CA)",
+   "city": "Rancho Cucamonga",
+   "website": "https://freedom-fc.sportngin.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Future FC (CAS)",
+   "city": "Corona",
+   "website": "https://future-fc.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "FYSL",
+   "city": "Fallbrook",
+   "website": "https://www.fallbrooksoccer.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Golden Eagles FC",
+   "city": "Chula Vista",
+   "website": "https://www.goldeneaglesfc.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Gremio Football Club (CA)",
+   "city": "San Diego",
+   "website": "https://www.Gremiofcsd.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Inland Empire Futbol Club",
+   "city": "Fontana",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Inland Surf",
+   "city": "Guasti",
+   "website": "https://www.inlandsurfsoccer.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Inland United Soccer Club",
+   "city": "Moreno Valley",
+   "website": "https://www.leaguelineup.com/welcome.asp?url=iusoccerleague",
+   "association": "CAS"
+  },
+  {
+   "name": "Inter Academy Rockers",
+   "city": "Irvine",
+   "website": "https://interacademyrockers.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Intra FC",
+   "city": "Ramona",
+   "website": "https://Www.ramonasoccer.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Irvine Futbol Club",
+   "city": "Irvine",
+   "website": "https://www.irvinesocceracademy.com/ifc",
+   "association": "CAS"
+  },
+  {
+   "name": "Kickers FC (CA)",
+   "city": "Oxnard",
+   "website": "https://www.kickersfc.club/",
+   "association": "CAS"
+  },
+  {
+   "name": "La Academia SC",
+   "city": "Perris",
+   "website": "https://laligaintercities.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "LA Breakers FC",
+   "city": "Los Angeles",
+   "website": "https://www.labreakersfc.com",
+   "association": "CAS"
+  },
+  {
+   "name": "LA Breakers FC - Long Beach",
+   "city": "Long Beach",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "LA City United",
+   "city": "Los Angeles",
+   "website": "https://www.laparks.org/lacityunited",
+   "association": "CAS"
+  },
+  {
+   "name": "La Jolla Impact",
+   "city": "La Jolla",
+   "website": "https://www.lajollasoccer.org/Default.aspx?tabid=1029174",
+   "association": "CAS"
+  },
+  {
+   "name": "LA Monsters FC",
+   "city": "San Pedro",
+   "website": "https://la-monsters-sports-academy.sportngin.com",
+   "association": "CAS"
+  },
+  {
+   "name": "LA Surf Soccer Club",
+   "city": "Pasadena",
+   "website": "https://wearelasurf.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "LA Surf SC - Hollywood",
+   "city": "Hollywood",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "LA Surf SC - La Canada",
+   "city": "La Canada",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "LA Surf SC - San Marino",
+   "city": "San Marino",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "LA Surf SC - SFV",
+   "city": "San Fernando Valley",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "LA Surf SC - Sherman Oaks",
+   "city": "Sherman Oaks",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "LA Surf SC - Torrance",
+   "city": "Torrance",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "LAFC So Cal",
+   "city": "Woodland Hills",
+   "website": "https://www.lafcsocalyouth.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Laguna Beach Football Club",
+   "city": "Laguna Beach",
+   "website": "https://www.lagunabeachfc.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Laguna FC",
+   "city": "Los Angeles",
+   "website": "https://Lagunafutbolclub.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Laguna United FC",
+   "city": "Laguna Niguel",
+   "website": "https://www.lagunaunited.org",
+   "association": "CAS"
+  },
+  {
+   "name": "LASC-SCV",
+   "city": "Santa Clarita",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Lazers SC",
+   "city": "La Verne",
+   "website": "https://www.lazerssc.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC - San Diego",
+   "city": "San Diego",
+   "website": "https://www.legendssandiego.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC (CA)",
+   "city": "Eastvale",
+   "website": "https://www.legendsfc.net",
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC (CA) - Antelope Valley",
+   "city": "Antelope Valley",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC (CA) - Los Angeles",
+   "city": "Los Angeles",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC (CA) - Orange County",
+   "city": "Orange County",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC (CA) - San Bernardino",
+   "city": "San Bernardino",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC (CA) - SGV",
+   "city": "San Gabriel Valley",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC (CA) - Tustin",
+   "city": "Tustin",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC (CA) - Yucaipa",
+   "city": "Yucaipa",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC Desert Cities",
+   "city": "Palm Desert",
+   "website": "https://www.desert-united.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC Santa Clarita",
+   "city": "Santa Clarita",
+   "website": "https://www.legendsfc.net",
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC SD",
+   "city": "San Diego",
+   "website": "https://legendsfcsd.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC SD North",
+   "city": "San Marcos",
+   "website": "https://www.legendsfcsdnorth.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Los Angeles Bulls Soccer Club",
+   "city": "Santa Monica",
+   "website": "https://www.labulls.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Los Angeles SC",
+   "city": "Pasadena",
+   "website": "https://www.wearelasc.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Los Angeles United FC",
+   "city": "Los Angeles",
+   "website": "https://losangeles-united.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Milan International Soccer Academy",
+   "city": "Riverside",
+   "website": "https://milan-academy-43817.sportngin.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Moorpark SC",
+   "city": "Moorpark",
+   "website": "https://www.moorparksoccerclub.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Murrieta Soccer Academy",
+   "city": "Murrieta",
+   "website": "https://murrietasocceracademy.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Natives FA",
+   "city": "Cathedral City",
+   "website": "https://nativesfa.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Newbury Park Elite",
+   "city": "Newbury Park",
+   "website": "https://leagues.bluesombrero.com/newburyparkelite",
+   "association": "CAS"
+  },
+  {
+   "name": "NHB FC",
+   "city": "Huntington Beach",
+   "website": "https://www.nhbfutbol.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Nido Aguila San Diego",
+   "city": "San Ysidro",
+   "website": "https://www.nidoaguilasd.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Nomads",
+   "city": "San Diego",
+   "website": "https://www.nomadssoccer.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Oaks FC",
+   "city": "Thousand Oaks",
+   "website": "https://www.oaksfc.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "Oceanside",
+   "city": "Oceanside",
+   "website": "https://oceansidebreakers.org/home",
+   "association": "CAS"
+  },
+  {
+   "name": "Ocelot Academy",
+   "city": "Highland",
+   "website": "https://www.instagram.com/ocelotacademy/",
+   "association": "CAS"
+  },
+  {
+   "name": "Ole Soccer Club",
+   "city": "Burbank",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Olympicos Soccer Club",
+   "city": "San Diego",
+   "website": "https://www.leaguelineup.com/welcome.asp?url=olympicos",
+   "association": "CAS"
+  },
+  {
+   "name": "One Ivy FC",
+   "city": "Los Angeles",
+   "website": "https://oneivyfc.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Oxnard FC",
+   "city": "Oxnard",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Oxnard United SC",
+   "city": "Oxnard",
+   "website": "https://www.oxnardunitedsc.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Oxnard Wave FC",
+   "city": "Oxnard",
+   "website": "https://www.oxnardwavesoccer.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Paris Saint-Germain Academy Los Angeles",
+   "city": "Los Angeles",
+   "website": "https://www.psgacademyla.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Pateadores Soccer Club",
+   "city": "Costa Mesa",
+   "website": "https://www.pateadores.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Pateadores SC - Huntington Beach",
+   "city": "Huntington Beach",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Pateadores SC - Irvine",
+   "city": "Irvine",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Pateadores SC - Lakewood",
+   "city": "Lakewood",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Pateadores SC - Newport Beach",
+   "city": "Newport Beach",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Pateadores SC - Santa Clarita",
+   "city": "Santa Clarita",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Pateadores SC - South Orange County",
+   "city": "South Orange County",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Premier SC",
+   "city": "Bakersfield",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Prestige FC",
+   "city": "Jurupa Valley",
+   "website": "https://www.prestigefootballclub.net",
+   "association": "CAS"
+  },
+  {
+   "name": "Progressive Soccer Ozzy",
+   "city": "Asuza",
+   "website": "https://progressivesoccerozzy.com",
+   "association": "CAS"
+  },
+  {
+   "name": "PSC Soccer Academy",
+   "city": "Irvine",
+   "website": "https://psc-soccer-academy.sportngin.com",
+   "association": "CAS"
+  },
+  {
+   "name": "PYSL Blast SC",
+   "city": "San Diego",
+   "website": "https://pyslblast.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "PYSO Paramount FC",
+   "city": "Paramount",
+   "website": "https://www.paramountfc.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Rangers FC",
+   "city": "Fullerton",
+   "website": "https://www.rangers-fc.org/information-page",
+   "association": "CAS"
+  },
+  {
+   "name": "Rangers FC - Ventura",
+   "city": "Ventura",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Rayados Academy San Diego",
+   "city": "Chula Vista",
+   "website": "https://rayadossandiego.leagueapps.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Rebels Central",
+   "city": "San Diego",
+   "website": "https://rebelscentral.gotsportsites.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Rebels Football Club",
+   "city": "Simi Valley",
+   "website": "https://www.rebelsfootballclub.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Rebels North",
+   "city": "Ramona",
+   "website": "https://www.rebelsnorthsc.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Rebels San Diego",
+   "city": "La Mesa",
+   "website": "https://rebelssandiego.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Rebels Soccer Club",
+   "city": "Bonita",
+   "website": "https://www.rebelssc.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Renegades FC",
+   "city": "Sherman Oaks",
+   "website": "https://renegadesfc.net/",
+   "association": "CAS"
+  },
+  {
+   "name": "RSF Attack",
+   "city": "Rancho Santa Fe",
+   "website": "https://www.rsfsoccer.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "San Clemente Surf Soccer",
+   "city": "San Clemente",
+   "website": "https://scsurfsoccer.com",
+   "association": "CAS"
+  },
+  {
+   "name": "San Diego FORCE FC",
+   "city": "San Diego",
+   "website": "https://san-diego-force-fc.sportngin.com",
+   "association": "CAS"
+  },
+  {
+   "name": "San Diego Motion FC",
+   "city": "San Diego",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "San Diego Rush",
+   "city": "San Diego",
+   "website": "https://www.sandiegorush.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "San Diego Surf Soccer Club",
+   "city": "Del Mar",
+   "website": "https://san-diego-surf-soccer-club.sportngin.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Sand and Surf SC",
+   "city": "Manhattan Beach",
+   "website": "https://sandandsurfsoccer.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Santa Ana United FC",
+   "city": "Santa Ana",
+   "website": "https://www.gowinsa.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Santa Barbara Soccer Club / Central Coast Academy",
+   "city": "Goleta",
+   "website": "https://santabarbarasc.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "Scripps Ranch SC",
+   "city": "San Diego",
+   "website": "https://www.scrippsranchsc.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "SDSC Surf",
+   "city": "San Diego",
+   "website": "https://www.sdscsurf.com",
+   "association": "CAS"
+  },
+  {
+   "name": "SDSC Surf - ESC",
+   "city": "Escondido",
+   "website": "https://www.escondidosoccerclub.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Sherman Oaks Extreme SC",
+   "city": "Reseda",
+   "website": "https://www.extremesoccerclub.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Simi Valley Soccer Club",
+   "city": "Simi Valley",
+   "website": "https://eclipsesoccer.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Slammers FC",
+   "city": "Anaheim",
+   "website": "https://slammersfc.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "Slammers FC Newport Mesa",
+   "city": "Costa Mesa",
+   "website": "https://www.newportmesasoccer.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "So Cal Rush",
+   "city": "Hesperia",
+   "website": "https://www.socalrush.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "Socal Blaze SC",
+   "city": "El Segundo",
+   "website": "https://scblaze.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Socal Pride Futbol Club",
+   "city": "Canoga Park",
+   "website": "https://Socalpridefc.org",
+   "association": "CAS"
+  },
+  {
+   "name": "SoCal Reds FC",
+   "city": "Irvine",
+   "website": "https://www.socalredsfc.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "South Bay FC",
+   "city": "Imperial Beach",
+   "website": "https://leagues.bluesombrero.com/default.aspx?portalid=13844",
+   "association": "CAS"
+  },
+  {
+   "name": "South Valley Surf SC",
+   "city": "Bakersfield",
+   "website": "https://www.svthunder.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "So Cal Blues Soccer Club",
+   "city": "Laguna Hills",
+   "website": "https://www.scblues.com",
+   "association": "CAS"
+  },
+  {
+   "name": "So Cal Blues SC - Redlands",
+   "city": "Redlands",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Southwest Soccer Club",
+   "city": "Temecula",
+   "website": "https://www.southwestsc.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "Spartans FC CA",
+   "city": "Yucaipa",
+   "website": "https://www.spartansfc.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting California USA",
+   "city": "Ontario",
+   "website": "https://www.sportingca.us",
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting California USA - North",
+   "city": "Ontario, Chino",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting California USA - Valley",
+   "city": "Canoga Park",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting California USA - Coachella Valley",
+   "city": "Coachella Valley",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting California USA - Corona",
+   "city": "Corona",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting California USA - Los Angeles",
+   "city": "Downey, Torrance",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting California USA - Perris",
+   "city": "Perris",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting California USA - Bakersfield",
+   "city": "Bakersfield",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting California USA - SGV",
+   "city": "San Gabriel Valley",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting California USA - Southwest",
+   "city": "Temecula, Murrieta",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting California USA - Mission Viejo",
+   "city": "Mission Viejo",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting California USA - West",
+   "city": "Monrovia, La Verne",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting Football Club",
+   "city": "Westlake Village",
+   "website": "https://sporting-football-club.sportngin.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting San Diego",
+   "city": "La Mesa",
+   "website": "https://sporting-san-diego.sportngin.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting Slammers FC",
+   "city": "Irvine",
+   "website": "https://sportingslammers.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting So-Cal Soccer Club",
+   "city": "Glendale",
+   "website": "https://sportingsocal.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Steel United California",
+   "city": "Conejo Valley",
+   "website": "https://cv.steelunited.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Steel United - Bakersfield",
+   "city": "Bakersfield",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Strikers FC",
+   "city": "Irvine",
+   "website": "https://www.strikersfc.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Strikers FC - CM/NB",
+   "city": "Newport Beach",
+   "website": "https://www.strikersfccostamesa.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Strikers FC North",
+   "city": "Costa Mesa",
+   "website": "https://www.strikersfcnorth.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Strikers FC Orange",
+   "city": "Orange",
+   "website": "https://www.ojsc.org/Default.aspx?tabid=1270474",
+   "association": "CAS"
+  },
+  {
+   "name": "SWAP",
+   "city": "Alhambra",
+   "website": "https://soccerwithapurpose.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Tehachapi Gryphons SFC",
+   "city": "Tehachapi",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Temecula FC",
+   "city": "Temecula",
+   "website": "https://temeculafc.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "<![CDATA[Tiffiny's Soccer Club]]>",
+   "city": "Vista",
+   "website": "https://tiffinyssoccer.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "Titans SC",
+   "city": "Highland",
+   "website": "https://www.titansfcie.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Torino FC Soccer Club",
+   "city": "Oxford",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "TOTAL FUTBOL ACADEMY (CA)",
+   "city": "Los Angeles",
+   "website": "https://total-futbol-academy-ca.sportngin.com",
+   "association": "CAS"
+  },
+  {
+   "name": "TFA - Antelope Valley",
+   "city": "Antelope Valley",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "TFA - Glendale",
+   "city": "Glendale",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "TFA - Hollywood",
+   "city": "Hollywood",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "TFA - Inland Empire",
+   "city": "Inland Empire",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "TFA - Orange County",
+   "city": "Orange County",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "TFA - South Bay",
+   "city": null,
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "TFA - Santa Clarita Valley",
+   "city": "Santa Clarita Valley",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "TFA -\u00a0 SGV",
+   "city": "San Gabriel Valley",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "TFA - Ventura County",
+   "city": "Ventura County",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Tudela FC Los Angeles",
+   "city": "Glendale",
+   "website": "https://tudelafcla.com",
+   "association": "CAS"
+  },
+  {
+   "name": "United SoCal",
+   "city": "Brea",
+   "website": "https://www.aysounitedsocal.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "United SoCal - Antelope Valley",
+   "city": "Antelope Valley",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "United SoCal - Burbank",
+   "city": "Burbank",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "United SoCal - Canejo Valley",
+   "city": "Conejo Valley",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "United SoCal - Claremont",
+   "city": "Claremont",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "United SoCal - Los Angeles",
+   "city": "Los Angeles",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "United SoCal - North Orange County",
+   "city": "North Orange County",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "United SoCal - Redlands",
+   "city": "Redlands",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "United SoCal -\u00a0 San Diego",
+   "city": "San Diego",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "United SoCal - Santa Clarita",
+   "city": "Santa Clarita",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "United SoCal - South Bay",
+   "city": null,
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "United SoCal - South Orange County",
+   "city": "South Orange County",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "United SoCal - Ventura",
+   "city": "Ventura",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Valley Center Hurricanes",
+   "city": "Valley Center",
+   "website": null,
+   "association": "CAS"
+  },
+  {
+   "name": "Valley United SC",
+   "city": "Winnetka",
+   "website": "https://valleyunitedsoccerclub.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Vaqueros FC",
+   "city": "Poway",
+   "website": "https://www.vaquerosfc.org",
+   "association": "CAS"
+  },
+  {
+   "name": "Ventura County Fusion",
+   "city": "Ventura",
+   "website": "https://www.vcfusion.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Ventura Surf Soccer Club",
+   "city": "Ventura",
+   "website": "https://venturasurfsoccer.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Views FC",
+   "city": "Malibu",
+   "website": "https://WWW.VIEWSFC.ORG",
+   "association": "CAS"
+  },
+  {
+   "name": "Vista Storm Soccer Club",
+   "city": "Vista",
+   "website": "https://vista-storm-soccer-club.sportngin.com",
+   "association": "CAS"
+  },
+  {
+   "name": "West Coast F.C.",
+   "city": "San Juan Capistrano",
+   "website": "https://www.westcoastfc.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "West Covina Youth Soccer Corporation",
+   "city": "West Covina",
+   "website": "https://www.wcysc.com/",
+   "association": "CAS"
+  },
+  {
+   "name": "Whittier Area Youth Soccer",
+   "city": "Whittier",
+   "website": "https://www.whittiersoccer.org/",
+   "association": "CAS"
+  },
+  {
+   "name": "Xolos Academy FC",
+   "city": "Chula Vista",
+   "website": "http://www.xolosacademy.com/where-we-train",
+   "association": "CAS"
+  },
+  {
+   "name": "Xplosion SC",
+   "city": "Whittier",
+   "website": "https://www.xplosionsc.com",
+   "association": "CAS"
+  },
+  {
+   "name": "Zeta Academy",
+   "city": "Irvine",
+   "website": "https://zetafcacademy.sprocketsports.com/",
+   "association": "CAS"
+  }
+ ]
+}

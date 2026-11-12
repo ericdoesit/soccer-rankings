@@ -1,0 +1,310 @@
+{
+  "gotsport": {
+    "teams": 33571,
+    "clubs": 1578,
+    "teamsWithoutClub": 1822
+  },
+  "csv": {
+    "clubs.csv": {
+      "rows": 1170,
+      "west": 623,
+      "matched": 561,
+      "created": 205,
+      "unmatched": [
+        "956 United",
+        "AC Pacifico",
+        "AC River",
+        "ALBION SC Silicon Valley East Bay",
+        "Alliance Futbol Club (MO)",
+        "ASG",
+        "Aspire FC",
+        "Atlantic United",
+        "Atletico FC",
+        "Basin Sounders",
+        "Beachside of Connecticut",
+        "Black Hills Rapids SC",
+        "Black Watch Premier",
+        "Blast FC Academy",
+        "Brentwood SC",
+        "Brooklyn United",
+        "Capital City South",
+        "Carolina Velocity FC",
+        "CAU Force",
+        "Cedar Stars Academy Newark",
+        "Celtic Storm",
+        "Charleston SC",
+        "Charlotte Independence SC",
+        "Charlotte SA Blue",
+        "Chesterfield Sunday League",
+        "Chicago Fire Youth SC",
+        "Cincinnati Elite FC",
+        "Cleveland Force SC White",
+        "Croatia Juniors",
+        "Cuyahoga Valley SA - CVSA 2013 Boys",
+        "Dallas Hornets North",
+        "Eastern FC",
+        "Elite FC - Elite FC 2013 Boys",
+        "FC Harlem",
+        "FC Hudson Valley",
+        "FC Richmond",
+        "FC Salmon Creek",
+        "FC United Iowa",
+        "Galacticos Soccer Academy",
+        "GFI Academy South"
+      ],
+      "unmatchedCount": 115
+    },
+    "ecnl_clubs.csv": {
+      "rows": 53,
+      "west": 53,
+      "matched": 53,
+      "created": 0,
+      "unmatched": [],
+      "unmatchedCount": 0
+    },
+    "ecnl_rl_clubs.csv": {
+      "rows": 83,
+      "west": 0,
+      "matched": 73,
+      "created": 0,
+      "unmatched": [
+        "Eastside Timbers",
+        "Oregon Premier FC",
+        "Portland City United",
+        "FC Arizona",
+        "NM Rapids",
+        "Pride SC",
+        "Utah Surf",
+        "Legends FC (SJ)",
+        "Columbia Premier SC",
+        "PacNW SC"
+      ],
+      "unmatchedCount": 10
+    },
+    "girls_academy_clubs.csv": {
+      "rows": 35,
+      "west": 35,
+      "matched": 33,
+      "created": 2,
+      "unmatched": [],
+      "unmatchedCount": 0
+    },
+    "nal_clubs.csv": {
+      "rows": 0,
+      "west": 0,
+      "matched": 0,
+      "created": 0,
+      "unmatched": [],
+      "unmatchedCount": 0
+    },
+    "usl_youth_clubs.csv": {
+      "rows": 0,
+      "west": 0,
+      "matched": 0,
+      "created": 0,
+      "unmatched": [],
+      "unmatchedCount": 0
+    },
+    "mlsnext_club_programs_scrape.csv": {
+      "rows": 15,
+      "west": 15,
+      "matched": 15,
+      "created": 0,
+      "unmatched": [],
+      "unmatchedCount": 0
+    },
+    "socal_soccer_clubs.csv": {
+      "rows": 170,
+      "west": 170,
+      "matched": 170,
+      "created": 0,
+      "unmatched": [],
+      "unmatchedCount": 0
+    },
+    "coast_soccer_clubs.csv": {
+      "rows": 186,
+      "west": 186,
+      "matched": 185,
+      "created": 1,
+      "unmatched": [],
+      "unmatchedCount": 0
+    },
+    "npl_teams.csv": {
+      "rows": 666,
+      "west": 198,
+      "matched": 235,
+      "created": 0,
+      "unmatched": [
+        "ALBION SC Silicon Valley East Bay (CA)",
+        "Northern Nevada Soccer Club (CA)",
+        "Reno APEX Soccer Club (CA)",
+        "Sierra Surf SC (CA)",
+        "Stanislaus United (CA)",
+        "Broken Arrow Soccer Club",
+        "FC Wichita",
+        "Kernow Storm FC",
+        "NE Oklahoma FC",
+        "South Lakes SC",
+        "Southwest MO Rush",
+        "Tulsa Sheffield United SC",
+        "Tulsa Soccer Club",
+        "Black Hills Rapids SC",
+        "Idaho Storm",
+        "Missoula Surf",
+        "AC Pacifico (WA)",
+        "Basin Sounders (WA)",
+        "Hermiston FC (WA)",
+        "J&S Futbol Academy (WA)",
+        "Skagit Premier Football Club (WA)",
+        "Tri-Cities FC (WA)"
+      ],
+      "unmatchedCount": 22
+    }
+  },
+  "totals": {
+    "clubs": 1786,
+    "clubsWithMetro": 550,
+    "teams": 33571,
+    "teamsWithClub": 31749,
+    "teamLeagueLinks": 21750
+  },
+  "byState": {
+    "CA-N": {
+      "clubs": 393,
+      "withMetro": 163,
+      "teams": 7199
+    },
+    "AZ": {
+      "clubs": 107,
+      "withMetro": 28,
+      "teams": 2232
+    },
+    "MT": {
+      "clubs": 31,
+      "withMetro": 6,
+      "teams": 421
+    },
+    "NM": {
+      "clubs": 50,
+      "withMetro": 2,
+      "teams": 364
+    },
+    "CO": {
+      "clubs": 96,
+      "withMetro": 40,
+      "teams": 1764
+    },
+    "OR": {
+      "clubs": 75,
+      "withMetro": 23,
+      "teams": 1645
+    },
+    "NV": {
+      "clubs": 63,
+      "withMetro": 25,
+      "teams": 748
+    },
+    "CA-S": {
+      "clubs": 480,
+      "withMetro": 182,
+      "teams": 10548
+    },
+    "ID": {
+      "clubs": 54,
+      "withMetro": 7,
+      "teams": 957
+    },
+    "UT": {
+      "clubs": 122,
+      "withMetro": 19,
+      "teams": 2005
+    },
+    "WA": {
+      "clubs": 159,
+      "withMetro": 36,
+      "teams": 3269
+    },
+    "WY": {
+      "clubs": 24,
+      "withMetro": 6,
+      "teams": 235
+    },
+    "HI": {
+      "clubs": 26,
+      "withMetro": 9,
+      "teams": 220
+    },
+    "AK": {
+      "clubs": 13,
+      "withMetro": 4,
+      "teams": 142
+    },
+    "CA": {
+      "clubs": 93,
+      "withMetro": 0,
+      "teams": 0
+    }
+  },
+  "unplacedClubSample": [
+    "Legends FC (CA) [CAS] 365",
+    "United SoCal [CAS] 241",
+    "TOTAL FUTBOL ACADEMY (CA) [CAS] 218",
+    "Athletic Soccer Club [CAS] 200",
+    "Sporting California USA [CAS] 197",
+    "Washington East Surf Soccer Club [WA] 186",
+    "NPSA [WA] 172",
+    "Utah Avalanche [UT] 143",
+    "So Cal Blues [CAS] 136",
+    "FBSL [AZ] 132",
+    "FC Premier (CA) [CAS] 127",
+    "CCV STARS [AZ] 114",
+    "LA Breakers FC [CAS] 113",
+    "City SC Utah [UT] 106",
+    "PacNW [WA] 106",
+    "Capital FC [OR] 105",
+    "Oregon Premier FC [OR] 98",
+    "Soccer Chance Academy [OR] 89",
+    "Copper Mountain [UT] 89",
+    "LA City United [CAS] 87",
+    "Columbia Premier Soccer Club [WA] 86",
+    "California Football Academy [CAS] 85",
+    "FRAM SC [CAS] 83",
+    "Arsenal Colorado [CO] 78",
+    "Valley United SC [CAN] 77",
+    "SF United FC [CAN] 77",
+    "United PDX [OR] 77",
+    "Washington Premier FC [WA] 76",
+    "Arizona Soccer Club [AZ] 75",
+    "FLYTE SC IE [CAS] 75",
+    "Next Level Soccer (AZ) [AZ] 74",
+    "Oregon Surf SC [OR] 74",
+    "West Coast F.C.  [CAS] 71",
+    "IFFC [ID] 70",
+    "Three Rivers Soccer Club [WA] 70",
+    "Crusaders Soccer League [CAS] 67",
+    "NOS Santos SC [AZ] 67",
+    "Cottonwood FC [UT] 66",
+    "Washington Rush [WA] 66",
+    "Whatcom FC Rangers [WA] 66",
+    "Cardiff Sockers [CAS] 66",
+    "Utah Celtic [UT] 65",
+    "Force [CAN] 64",
+    "LV Heat Surf SC  [NV] 64",
+    "Eastshore Alliance FC [CAN] 62",
+    "Solano Surf [CAN] 61",
+    "Chelsea OC [CAS] 60",
+    "NM Rapids SC [NM] 60",
+    "Skyline [CO] 59",
+    "Arizona Surf Soccer Club [AZ] 58",
+    "Stanford Strikers FC [CAN] 57",
+    "FC Golden State [CAS] 57",
+    "Ballistic United [CAN] 56",
+    "Eagle Soccer Club KC [CAS] 56",
+    "Aggies FC [UT] 56",
+    "Peak Soccer Club [UT] 55",
+    "TC United [WA] 54",
+    "Montana Surf [MT] 53",
+    "Revolution FC [CAN] 53",
+    "Eagles SC [CAS] 52"
+  ]
+}

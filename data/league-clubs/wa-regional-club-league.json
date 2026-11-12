@@ -1,0 +1,113 @@
+{
+ "source": "https://washingtonyouthsoccer.org/leagues/regional-club-league/",
+ "league": "wa-regional-club-league",
+ "fetchedAt": "2026-11-10",
+ "association": "WA",
+ "clubs": [
+  {
+   "name": "Blackhills FC",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Cascade FC",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Crossfire Premier SC",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Eastside FC",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Harbor Soccer Club",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Kitsap Alliance FC",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Northwest United FC",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "PacNW SC",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Seattle United",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Snohomish United",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Sound Football Club",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Valor",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Washington Premier FC",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Washington Rush",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Whatcom FC Rangers",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Highline Premier SC",
+   "website": null,
+   "membership": "full"
+  },
+  {
+   "name": "Wenatchee FC",
+   "website": null,
+   "membership": "provisional"
+  },
+  {
+   "name": "Club SOZO Santos FC",
+   "website": null,
+   "membership": "non-voting"
+  },
+  {
+   "name": "Columbia Premier",
+   "website": null,
+   "membership": "non-voting"
+  },
+  {
+   "name": "Spokane Shadow",
+   "website": null,
+   "membership": "non-voting"
+  },
+  {
+   "name": "Three Rivers Soccer Club",
+   "website": null,
+   "membership": "non-voting"
+  }
+ ]
+}

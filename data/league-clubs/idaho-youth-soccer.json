@@ -1,0 +1,247 @@
+{
+ "source": "https://www.idahoyouthsoccer.org/iysa-club-directory/",
+ "fetchedAt": "2026-11-10",
+ "association": "ID",
+ "clubs": [
+  {
+   "name": "Greater St Maries",
+   "area": null,
+   "website": null
+  },
+  {
+   "name": "Hells Canyon FC",
+   "area": null,
+   "website": "http://www.hellscanyonfc.org"
+  },
+  {
+   "name": "Sting Soccer Club",
+   "area": null,
+   "website": "https://stingsc.com/"
+  },
+  {
+   "name": "Sandpoint Soccer Club",
+   "area": null,
+   "website": "https://www.sandpointsoccer.com/"
+  },
+  {
+   "name": "Ambush FC",
+   "area": null,
+   "website": "https://www.ambushfc.com/"
+  },
+  {
+   "name": "Bonneville Youth Soccer League",
+   "area": null,
+   "website": "https://www.byslsoccer.org/"
+  },
+  {
+   "name": "CGA Academy SC",
+   "area": null,
+   "website": "https://cgaacademysc.com/"
+  },
+  {
+   "name": "City SC East Idaho",
+   "area": null,
+   "website": "https://blackfootsoccer.com/"
+  },
+  {
+   "name": "Jefferson Youth Soccer",
+   "area": null,
+   "website": "https://jysasoccer.blogspot.com/"
+  },
+  {
+   "name": "Legacy Soccer",
+   "area": null,
+   "website": "https://www.legacysoccerclub.com/"
+  },
+  {
+   "name": "Malad Soccer Club",
+   "area": null,
+   "website": null
+  },
+  {
+   "name": "Palacios Futbol Club (PFC)",
+   "area": null,
+   "website": "https://pfc-academy.com/"
+  },
+  {
+   "name": "PVSC",
+   "area": null,
+   "website": "https://pvscunited.com/"
+  },
+  {
+   "name": "Shelley Soccer",
+   "area": null,
+   "website": null
+  },
+  {
+   "name": "South Fremont",
+   "area": null,
+   "website": null
+  },
+  {
+   "name": "Sugar City Soccer",
+   "area": null,
+   "website": null
+  },
+  {
+   "name": "Timberwolves Futbol Club",
+   "area": null,
+   "website": "https://www.timberwolvesfcid.org/"
+  },
+  {
+   "name": "Teton FC",
+   "area": null,
+   "website": "https://tetonfc.org/"
+  },
+  {
+   "name": "Upper Valley Soccer Club",
+   "area": null,
+   "website": "https://rexburgsoccer.com/"
+  },
+  {
+   "name": "Valley Soccer Club",
+   "area": null,
+   "website": null
+  },
+  {
+   "name": "Albion Soccer Club \u2013 Idaho",
+   "area": null,
+   "website": "https://www.albionscidaho.org/"
+  },
+  {
+   "name": "Boise Timbers Thorns Soccer Club",
+   "area": null,
+   "website": "https://boisetimbersthorns.org/"
+  },
+  {
+   "name": "Boise Wolves Soccer Club",
+   "area": null,
+   "website": null
+  },
+  {
+   "name": "City of Eagle",
+   "area": null,
+   "website": "https://www.cityofeagle.org/456/Eagle-Youth-Soccer-League"
+  },
+  {
+   "name": "City of Star",
+   "area": null,
+   "website": "https://www.staridaho.org/recreation"
+  },
+  {
+   "name": "Global Sports Academy",
+   "area": null,
+   "website": "https://www.global-sports-academy.com/"
+  },
+  {
+   "name": "Idaho Rush Soccer Club",
+   "area": null,
+   "website": "https://www.idahorush.com/"
+  },
+  {
+   "name": "Idaho Slammers FC",
+   "area": null,
+   "website": "https://idahoslammers.com/"
+  },
+  {
+   "name": "Idaho Legends Soccer Club",
+   "area": null,
+   "website": "https://www.idaholegendssoccerclub.com/"
+  },
+  {
+   "name": "Idaho Storm",
+   "area": null,
+   "website": "https://idahostormsoccer.com/"
+  },
+  {
+   "name": "Idaho Surf SC",
+   "area": null,
+   "website": "https://www.idahosurfsc.org"
+  },
+  {
+   "name": "Ida-Ore",
+   "area": null,
+   "website": null
+  },
+  {
+   "name": "Indie Chicas FC",
+   "area": null,
+   "website": "https://indiechicas.org/"
+  },
+  {
+   "name": "Inferno Soccer Club",
+   "area": null,
+   "website": "https://idahoinfernosc.org/"
+  },
+  {
+   "name": "Kuna PAL",
+   "area": null,
+   "website": "https://kunapal.leagueapps.com/"
+  },
+  {
+   "name": "McCall United Soccer Association",
+   "area": null,
+   "website": "https://mccallunited.com"
+  },
+  {
+   "name": "Middleton Soccer Club",
+   "area": null,
+   "website": "https://www.middletonsoccer.org/"
+  },
+  {
+   "name": "Nampa Premier Soccer Club",
+   "area": null,
+   "website": "https://nampapremiersoccer.com/"
+  },
+  {
+   "name": "North Boise FC",
+   "area": null,
+   "website": "https://northboisefc.org/"
+  },
+  {
+   "name": "Real Soccer Club",
+   "area": null,
+   "website": "https://realsoccerclub.org/"
+  },
+  {
+   "name": "Red Paws Soccer Club",
+   "area": null,
+   "website": null
+  },
+  {
+   "name": "Western Elite Soccer Club",
+   "area": null,
+   "website": null
+  },
+  {
+   "name": "Idaho Magic Futbol Club",
+   "area": null,
+   "website": null
+  },
+  {
+   "name": "Project 208 FC",
+   "area": null,
+   "website": "https://www.project208fc.org"
+  },
+  {
+   "name": "Snake River Soccer Association",
+   "area": null,
+   "website": "https://snakeriverstrikers.com/"
+  },
+  {
+   "name": "Sun Valley Soccer Club",
+   "area": null,
+   "website": "https://sunvalleysoccer.com/"
+  },
+  {
+   "name": "Twin Falls Rapids SC",
+   "area": null,
+   "website": "https://www.twinfallsrapids.com/"
+  },
+  {
+   "name": "Villarreal Academy Idaho",
+   "area": null,
+   "website": "https://www.villarrealidahoacademy.com/"
+  }
+ ]
+}

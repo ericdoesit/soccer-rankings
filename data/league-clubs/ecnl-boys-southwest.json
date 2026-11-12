@@ -1,0 +1,61 @@
+{
+ "source": "https://lasvegasheatsurf.com/boys-2/",
+ "fetchedAt": "2026-11-11",
+ "league": "ecnl-boys",
+ "association": "",
+ "note": "ECNL Boys Southwest Conference, 13 clubs, as listed on LV Heat Surf's boys page (12 Southern California + 1 Nevada). ECNL schedules not collected yet.",
+ "clubs": [
+  {
+   "name": "LV Heat Surf SC",
+   "association": "NV"
+  },
+  {
+   "name": "Beach Futbol Club",
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC (CA)",
+   "association": "CAS"
+  },
+  {
+   "name": "Legends FC - San Diego",
+   "association": "CAS"
+  },
+  {
+   "name": "LA Breakers",
+   "association": "CAS"
+  },
+  {
+   "name": "LAFC So Cal",
+   "association": "CAS"
+  },
+  {
+   "name": "Pateadores Soccer Club",
+   "association": "CAS"
+  },
+  {
+   "name": "Rebels Soccer Club",
+   "association": "CAS"
+  },
+  {
+   "name": "San Diego Surf Soccer Club",
+   "association": "CAS"
+  },
+  {
+   "name": "SDSC Surf",
+   "association": "CAS"
+  },
+  {
+   "name": "Slammers FC",
+   "association": "CAS"
+  },
+  {
+   "name": "Sporting California USA",
+   "association": "CAS"
+  },
+  {
+   "name": "West Coast FC",
+   "association": "CAS"
+  }
+ ]
+}

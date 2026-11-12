@@ -1,0 +1,85 @@
+{
+ "source": "https://eliteacademyleague.com/southwest-desert/",
+ "fetchedAt": "2026-11-11",
+ "league": "eal",
+ "association": "",
+ "note": "from the page's logo titles (read in the browser; Cloudflare blocks scripts) plus the user's member list (Sparta United SC, RSL-AZ West Valley/North/South; BVBIA LV and ALBION SC Utah joined 2026/27; Colorado United listed as 'Colorado United / LSC'). Names are the GotSport club names. Left out: El Paso Surf (TX), the 'Spartans FC' logo (several West clubs carry that name).",
+ "clubs": [
+  {
+   "name": "ALBION SC Boulder County",
+   "association": "CO"
+  },
+  {
+   "name": "Albion SC Denver",
+   "association": "CO"
+  },
+  {
+   "name": "City SC NOCO",
+   "association": "CO"
+  },
+  {
+   "name": "CO Elevation FC",
+   "association": "CO"
+  },
+  {
+   "name": "Colorado Rush",
+   "association": "CO"
+  },
+  {
+   "name": "Colorado Storm",
+   "association": "CO"
+  },
+  {
+   "name": "Colorado United",
+   "association": "CO"
+  },
+  {
+   "name": "Denver Kickers Sport Club",
+   "association": "CO"
+  },
+  {
+   "name": "BVB IA Las Vegas",
+   "association": "NV"
+  },
+  {
+   "name": "Albion SC Las Vegas",
+   "association": "NV"
+  },
+  {
+   "name": "Villarreal Las Vegas Academy",
+   "association": "NV"
+  },
+  {
+   "name": "Inter Utah SC",
+   "association": "UT"
+  },
+  {
+   "name": "Albion SC Utah",
+   "association": "UT"
+  },
+  {
+   "name": "Utah Athletic Club",
+   "association": "UT"
+  },
+  {
+   "name": "Sparta United",
+   "association": "UT"
+  },
+  {
+   "name": "BVB International Academy Arizona",
+   "association": "AZ"
+  },
+  {
+   "name": "RSL-AZ West Valley",
+   "association": "AZ"
+  },
+  {
+   "name": "RSL-AZ North",
+   "association": "AZ"
+  },
+  {
+   "name": "RSL-AZ South",
+   "association": "AZ"
+  }
+ ]
+}

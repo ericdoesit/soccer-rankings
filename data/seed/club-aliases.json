@@ -1,0 +1,19 @@
+{
+  "_note": "Short names teams use that can't be resolved automatically (ambiguous initials). Per association. Add the evidence for each.",
+  "WA": {
+    "NSC": {
+      "club": "Northshore Select Club",
+      "evidence": "club calls itself 'North Shore Select Club (NSC)' (northshoreselect.demosphere-secure.com/why-nsc); NPSL member"
+    },
+    "PSA": {
+      "club": "Pilchuck Soccer Alliance - Force",
+      "evidence": "NPSL schedule lists 'PSA Pilchuck Force' teams; the select program is PSA Force (psaforce.soccer), GotSport club 'Pilchuck Soccer Alliance - Force'. Confirmed by the user 2026-11-11."
+    }
+  },
+  "NV": {
+    "VILLARREAL": {
+      "club": "Villarreal Las Vegas Academy",
+      "evidence": "'VILLARREAL LV' / 'Villarreal Las' teams in Nevada leagues; the only Villarreal club in Nevada (GotSport 'Villarreal Las Vegas Academy'). EA Southwest Desert member."
+    }
+  }
+}

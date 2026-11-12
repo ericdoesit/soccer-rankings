@@ -1,0 +1,117 @@
+{
+ "source": "https://www.wyomingsoccer.com/find-a-club/",
+ "fetchedAt": "2026-11-10",
+ "association": "WY",
+ "clubs": [
+  {
+   "name": "Casper Soccer Club",
+   "city": "Casper",
+   "website": "http://caspersoccerclub.gotsport.com/clubsite/?p=19252"
+  },
+  {
+   "name": "Cheyenne Soccer Club",
+   "city": "Cheyenne",
+   "website": "http://www.cheyennesoccer.com/clubsite/?p=12515"
+  },
+  {
+   "name": "Douglas Youth Soccer Association",
+   "city": "Douglas",
+   "website": "https://www.facebook.com/DSATravelingsoccer/"
+  },
+  {
+   "name": "Evanston Youth Soccer Club",
+   "city": "Evanston",
+   "website": "https://evanstonyouthsoccer.com/"
+  },
+  {
+   "name": "Gillette Soccer Club",
+   "city": null,
+   "website": "http://gilletteedge.com/"
+  },
+  {
+   "name": "GoWyo Youth Soccer",
+   "city": "Torrington",
+   "website": "http://gowyosoccer.com/"
+  },
+  {
+   "name": "Green River Soccer Association",
+   "city": "Green River",
+   "website": "http://www.greenriverspurs.com/"
+  },
+  {
+   "name": "Heart Mountain USA",
+   "city": "Powell",
+   "website": "http://www.facebook.com/PowellHMUSA/"
+  },
+  {
+   "name": "Jackson Hole Youth Soccer",
+   "city": "Jackson",
+   "website": "http://jacksonholeyouthsoccer.org/"
+  },
+  {
+   "name": "Johnson County Soccer Association",
+   "city": "Buffalo",
+   "website": "http://johnsoncountysoccer.gotsport.com/clubsite/?p=14677"
+  },
+  {
+   "name": "Lander Strikers Soccer Club",
+   "city": "Lander",
+   "website": "https://landerstrikers.org/"
+  },
+  {
+   "name": "Laramie Soccer Club",
+   "city": "Laramie",
+   "website": "https://laramiesoccer.org/"
+  },
+  {
+   "name": "Newcastle Soccer League",
+   "city": "Newcastle",
+   "website": "https://www.facebook.com/Newcastle-Soccer-League-583731591654896/"
+  },
+  {
+   "name": "Rawlins Futbol Club",
+   "city": "Rawlins",
+   "website": "http://www.facebook.com/rawlinsfc/"
+  },
+  {
+   "name": "Sublette United Soccer Club",
+   "city": null,
+   "website": "http://www.subletteunited.com"
+  },
+  {
+   "name": "Riverton Youth Soccer Association",
+   "city": "Riverton",
+   "website": "http://rivertonsoccer.org"
+  },
+  {
+   "name": "Rock Springs Avengers Soccer Club",
+   "city": "Rocksprings",
+   "website": "http://rsavengers.org"
+  },
+  {
+   "name": "Sheridan County Soccer Association",
+   "city": "Sheridan",
+   "website": "https://sheridansoccer.org/"
+  },
+  {
+   "name": "Star Valley Soccer Club",
+   "city": null,
+   "website": "https://www.starvalleysoccerclub.org/"
+  },
+  {
+   "name": "Upton Soccer Club",
+   "city": "Upton",
+   "website": "http://www.uptonwy.com/about/business-directory/p/item/17665/upton-soccer-league"
+  },
+  {
+   "name": "Worland Soccer Association",
+   "city": "Worland",
+   "website": "https://worlandsoccer.teamapp.com/?_webpage=v1"
+  },
+  {
+   "name": "Yellowstone Fire Soccer",
+   "city": "Cody",
+   "website": "http://www.yellowstonefire.com/"
+  }
+ ]
+}

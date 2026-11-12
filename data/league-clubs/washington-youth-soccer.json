@@ -1,0 +1,1244 @@
+{
+ "source": "https://washingtonyouthsoccer.org/find-a-club/",
+ "fetchedAt": "2026-11-10",
+ "association": "WA",
+ "clubs": [
+  {
+   "name": "Anacortes Youth Soccer",
+   "city": "Anacortes",
+   "website": "http://www.skvysa.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Mount Vernon"
+  },
+  {
+   "name": "Bainbridge Island FC",
+   "city": "Bainbridge Island",
+   "website": "http://www.bifc.net",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "OLYMPIC PENINSULA"
+  },
+  {
+   "name": "Ballard Youth Soccer Club",
+   "city": "Seattle",
+   "website": "https://ballardsoccer.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "NORTH SEATTLE/EASTSIDE"
+  },
+  {
+   "name": "Beacon Hill Youth Soccer Club",
+   "city": "Seattle",
+   "website": "http://bhys.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "NORTH SEATTLE/EASTSIDE"
+  },
+  {
+   "name": "Bellevue FC",
+   "city": "Bellevue",
+   "website": "https://www.bellevuefc.org/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "North Seattle/eastside"
+  },
+  {
+   "name": "Blackhills Football Club",
+   "city": "Olympia",
+   "website": "http://www.blackhillsfc.org/",
+   "types": [
+    "Premier"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Blaine Soccer Club",
+   "city": "Blaine",
+   "website": "https://clubs.bluesombrero.com/blainesoccer",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "Bremerton Soccer Club",
+   "city": "Bremerton",
+   "website": "http://www.bremertonsc.org",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "OLYMPIC PENINSULA"
+  },
+  {
+   "name": "Burlington Edison Youth Soccer",
+   "city": "Burlington",
+   "website": "https://clubs.bluesombrero.com/burlingtonpr",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "Capitol Hill Youth Soccer Club",
+   "city": "Capitol Hill",
+   "website": "https://capitolhillsoccerclub.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "NORTH SEATTLE/EASTSIDE"
+  },
+  {
+   "name": "Carnation Soccer Club",
+   "city": "Carnation",
+   "website": "http://www.snvysa.org",
+   "types": [
+    "Recreational"
+   ],
+   "area": "North Seattle/eastside"
+  },
+  {
+   "name": "Cascade FC",
+   "city": "Snoqualmie",
+   "website": "http://www.cascadefc.org",
+   "types": [
+    "Select"
+   ],
+   "area": "North Seattle/eastside"
+  },
+  {
+   "name": "Cascade Foothills Soccer Club",
+   "city": "Enumclaw",
+   "website": "http://www.cascadefoothillssoccer.org/home",
+   "types": [
+    "Recreational"
+   ],
+   "area": "SOUTH SEATTLE"
+  },
+  {
+   "name": "Castle Rock/Toutle Lake Soccer Club",
+   "city": "Castle Rock",
+   "website": "https://leagues.bluesombrero.com/castlerocktoutlelakesc",
+   "types": [
+    "Recreational"
+   ],
+   "area": "VANCOUVER"
+  },
+  {
+   "name": "Central Kitsap Soccer Club",
+   "city": "Silverdale",
+   "website": "https://clubs.bluesombrero.com/cksoccer",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "OLYMPIC PENINSULA"
+  },
+  {
+   "name": "Central Whidbey Soccer Club",
+   "city": "Coupeville",
+   "website": "https://www.centralwhidbeysoccer.com/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Centralia Youth Soccer Club",
+   "city": "Centralia",
+   "website": "http://www.centraliayouthsoccer.com/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Chehalis Youth Soccer Club",
+   "city": "Chehalis",
+   "website": "http://www.chehalissoccer.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Chinqually Booters Soccer Club",
+   "city": "Lacey",
+   "website": "https://www.chinqually.org/home",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Columbia Premier SC",
+   "city": "Vancouver",
+   "website": "https://www.columbiapremier.com",
+   "types": [
+    "Premier"
+   ],
+   "area": null
+  },
+  {
+   "name": "Conway Youth Soccer",
+   "city": "Conway",
+   "website": "https://www.conwaysoccer.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Crossfire Premier Soccer Club",
+   "city": "Kirkland",
+   "website": "http://www.crossfiresoccer.org/",
+   "types": [
+    "Premier"
+   ],
+   "area": "North Seattle/eastside"
+  },
+  {
+   "name": "Crossfire Recreational Soccer Club",
+   "city": "Kirkland",
+   "website": "https://www.orcasislandfc.org/",
+   "types": [
+    "Select"
+   ],
+   "area": "North Seattle/Eastside"
+  },
+  {
+   "name": "Crossfire Select Soccer Club",
+   "city": "Kirkland",
+   "website": "http://www.crossfireselect.org",
+   "types": [
+    "Select"
+   ],
+   "area": "North Seattle/eastside"
+  },
+  {
+   "name": "CYSA Timber Barons",
+   "city": "Kelso",
+   "website": "https://www.timberbaronsfc.com/",
+   "types": [
+    "Select"
+   ],
+   "area": "VANCOUVER"
+  },
+  {
+   "name": "Duvall Soccer Club",
+   "city": "Duvall",
+   "website": "http://www.snvysa.org",
+   "types": [
+    "Recreational"
+   ],
+   "area": null
+  },
+  {
+   "name": "Eastside Football Club",
+   "city": "Preston",
+   "website": "http://www.eastsidefc.org/",
+   "types": [
+    "Premier"
+   ],
+   "area": "North Seattle/eastside"
+  },
+  {
+   "name": "Eastside Soccer Club",
+   "city": "Bellingham",
+   "website": "https://clubs.bluesombrero.com/eastsidesoccerclub",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "Elma McCleary Youth Soccer Club",
+   "city": "Elma",
+   "website": "https://www.emysc.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Fall City Soccer Club",
+   "city": "Fall City",
+   "website": "http://www.snvysa.org",
+   "types": [
+    "Recreational"
+   ],
+   "area": "North Seattle/eastside"
+  },
+  {
+   "name": "Federal Way Pac NW Soccer",
+   "city": "Federal Way",
+   "website": "http:////www.federalwaysoccer.com/Default.aspx?tabid=2592735",
+   "types": [
+    "Recreational",
+    "Select"
+   ],
+   "area": "SOUTH SEATTLE"
+  },
+  {
+   "name": "Ferndale Red Lion Soccer CLub",
+   "city": "Ferndale",
+   "website": "https://clubs.bluesombrero.com/ferndalesoccer",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "Fife Milton Edgewood Soccer Club",
+   "city": "Milton",
+   "website": "http://www.fmesoccer.org/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "TACOMA"
+  },
+  {
+   "name": "Fircrest Soccer Club",
+   "city": "Fircrest",
+   "website": "http://www.fircrestsc.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "TACOMA"
+  },
+  {
+   "name": "Friday Harbor FC",
+   "city": "Friday Harbor",
+   "website": "http://www.fridayharborfc.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Harbor Soccer Club",
+   "city": "Gig Harbor",
+   "website": "http://www.harborsoccerclub.com",
+   "types": [
+    "Premier",
+    "Recreational"
+   ],
+   "area": "TACOMA"
+  },
+  {
+   "name": "Harbor Youth Soccer Club",
+   "city": "Aberdeen",
+   "website": "http://www.harborsoccer.com",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Highline Premier FC",
+   "city": "Burien",
+   "website": "https://www.highlinepremier.com/",
+   "types": [
+    "Premier"
+   ],
+   "area": null
+  },
+  {
+   "name": "Highline Soccer Club",
+   "city": "Burien",
+   "website": "http://www.highlinesoccerclub.com",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "SOUTH SEATTLE"
+  },
+  {
+   "name": "Hillwood Youth Soccer Club",
+   "city": "Shoreline",
+   "website": "http://www.hillwoodsoccer.com/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "NORTH SEATTLE/EASTSIDE"
+  },
+  {
+   "name": "HSA Select",
+   "city": "Des Moines",
+   "website": "https://www.hsaselect.org/",
+   "types": [
+    "Select"
+   ],
+   "area": "SOUTH SEATTLE"
+  },
+  {
+   "name": "Irish Soccer Club",
+   "city": "Everett",
+   "website": "http://www.irishsoccer.org/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Issaquah FC",
+   "city": "Issaquah",
+   "website": "http://www.issaquahfc.org/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "SOUTH SEATTLE"
+  },
+  {
+   "name": "Jefferson County Soccer Club",
+   "city": "Port Townsend",
+   "website": "http://www.jcsoccerclub.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIC PENINSULA"
+  },
+  {
+   "name": "Kalama Youth Soccer Club",
+   "city": "Kalama",
+   "website": "https://clubs.bluesombrero.com/kalama",
+   "types": [
+    "Recreational"
+   ],
+   "area": "VANCOUVER"
+  },
+  {
+   "name": "Kelso Soccer Club",
+   "city": "Kelso",
+   "website": "https://www.kelsosoccerclub.com/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "VANCOUVER"
+  },
+  {
+   "name": "Kitsap Alliance FC",
+   "city": "Silverdale",
+   "website": "http://kitsapalliancefc.com/",
+   "types": [
+    "Premier"
+   ],
+   "area": "OLYMPIC PENINSULA"
+  },
+  {
+   "name": "Kittitas Valley Junior Soccer",
+   "city": "Kittitas County",
+   "website": "https://www.kvjsa.com/",
+   "types": [
+    "Recreational",
+    "Select"
+   ],
+   "area": null
+  },
+  {
+   "name": "La Conner Youth Soccer",
+   "city": "La Conner",
+   "website": "https://clubs.bluesombrero.com/laconneryouthsoccer",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Lake City Soccer Club",
+   "city": "Seattle",
+   "website": "https://www.lakecitysoccer.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "NORTH SEATTLE/EASTSIDE"
+  },
+  {
+   "name": "Lake Hills Soccer Club",
+   "city": "Bellevue",
+   "website": "http://www.lakehillssoccer.org",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "North Seattle/eastside"
+  },
+  {
+   "name": "Lake Stevens Youth Soccer Club",
+   "city": "Lake Stevens",
+   "website": "http://www.lakestevenssoccer.com/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Lakeside Soccer Club",
+   "city": "Bellingham",
+   "website": "https://clubs.bluesombrero.com/lakesidesoccer",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "Lakewood-Steilacoom-Dupont Soccer Club",
+   "city": "Lakewood",
+   "website": "http://tshq.bluesombrero.com/LSDSC",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "TACOMA"
+  },
+  {
+   "name": "Laurelhurst-View Ridge-Ravenna Soccer Club",
+   "city": "Seattle",
+   "website": "https://www.lvr-soccer.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "NORTH SEATTLE/EASTSIDE"
+  },
+  {
+   "name": "Longview Soccer Club",
+   "city": "Longview",
+   "website": "http://www.longviewsoccerclub.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "VANCOUVER"
+  },
+  {
+   "name": "Lynden Action Soccer",
+   "city": "Lynden",
+   "website": "https://clubs.bluesombrero.com/lyndenaction",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "Magnolia Soccer Club",
+   "city": "Seattle",
+   "website": "http://www.magnoliasoccer.org",
+   "types": [
+    "Recreational"
+   ],
+   "area": "NORTH SEATTLE/EASTSIDE"
+  },
+  {
+   "name": "McGilvra Youth Soccer Club",
+   "city": "Seattle",
+   "website": "http://www.mcgilvrasoccer.org",
+   "types": [
+    "Recreational"
+   ],
+   "area": "NORTH SEATTLE/EASTSIDE"
+  },
+  {
+   "name": "Mercer Island FC",
+   "city": "Mercer Island",
+   "website": "http://www.mercerislandfc.org/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "North Seattle/eastside"
+  },
+  {
+   "name": "Meridian Soccer Club",
+   "city": "Ferndale",
+   "website": "https://clubs.bluesombrero.com/meridiansoccerclub",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "Montesano Youth Soccer Club",
+   "city": "Montesano",
+   "website": "http://www.montesoccer.org",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Morton/White Pass Soccer",
+   "city": "Morton",
+   "website": "https://lcysa.net/Org/Content.aspx?d=XzwPmPTRDZl%2FFAd6Eb830%2BNprZ6lc0pqWCNXScCMX9E%3D",
+   "types": [
+    "Recreational"
+   ],
+   "area": "VANCOUVER"
+  },
+  {
+   "name": "Mossyrock Youth Soccer Club",
+   "city": "Silver Creek",
+   "website": "http://lcysa.net/sites/lcysa/home",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Mount Vernon Youth Soccer",
+   "city": "Mt Vernon",
+   "website": "https://www.mvysa.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Mt. Baker Soccer Club",
+   "city": "Bellingham",
+   "website": "https://clubs.bluesombrero.com/mtbakersoccer",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "Napavine Youth Soccer Club",
+   "city": "Napavine",
+   "website": "http://www.lcysa.net/home",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Nooksack Soccer Club",
+   "city": "Everson",
+   "website": "https://whatcomsoccer.com/youth-soccer/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "Norpoint Soccer Club",
+   "city": "Tacoma",
+   "website": "http://www.norpointsoccer.org",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "TACOMA"
+  },
+  {
+   "name": "North Bend Soccer Club",
+   "city": "North Bend",
+   "website": "http://www.snvysa.org",
+   "types": [
+    "Recreational"
+   ],
+   "area": null
+  },
+  {
+   "name": "North Kitsap Soccer Club",
+   "city": "Poulsbo",
+   "website": "https://www.northkitsapsoccer.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIC PENINSULA"
+  },
+  {
+   "name": "North Mason Youth Soccer Club",
+   "city": "Belfair",
+   "website": "https://clubs.bluesombrero.com/nmysc",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "North Tacoma Soccer Club",
+   "city": "Tacoma",
+   "website": "http://www.nortac.org",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "TACOMA"
+  },
+  {
+   "name": "North Whidbey Soccer Club",
+   "city": "Oak Harbor",
+   "website": "https://www.nwsc-soccer.com/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Northshore Select Club",
+   "city": "Woodinville",
+   "website": "http://www.northshoreselect.org/",
+   "types": [
+    "Select"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Northshore Youth Soccer",
+   "city": "Woodinville",
+   "website": "http://www.northshoresoccer.org/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Northside Soccer Club",
+   "city": "Bellingham",
+   "website": "https://whatcomsoccer.com/youth-soccer/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "Northwest United",
+   "city": "Mt Vernon",
+   "website": "http://www.nwunited.org/",
+   "types": [
+    "Premier"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Olympia United Soccer Club",
+   "city": "Olympia",
+   "website": "http://www.olyunited.com/home",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Onalaska Youth Soccer Club",
+   "city": "Onalaska",
+   "website": "http://www.onysoccer.com",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Orcas Island FC",
+   "city": "Eastsound",
+   "website": "https://www.orcasislandfc.org/",
+   "types": [
+    "Select"
+   ],
+   "area": "ORCAS ISLAND"
+  },
+  {
+   "name": "Pacific NW Soccer Club",
+   "city": "Tukwila",
+   "website": "http://www.pacificnorthwestsoccerclub.org",
+   "types": [
+    "Premier"
+   ],
+   "area": "SOUTH SEATTLE"
+  },
+  {
+   "name": "Pacific Soccer Club",
+   "city": "Brush Prairie",
+   "website": "http://www.pacificsc.com/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "VANCOUVER"
+  },
+  {
+   "name": "Pilchuck Soccer Alliance",
+   "city": "Marysville",
+   "website": "http://www.pilchucksocceralliance.com/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Port Angeles Youth Soccer Club",
+   "city": "Port Angeles",
+   "website": "http://www.paysc.com/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIC PENINSULA"
+  },
+  {
+   "name": "Prairie Soccer Club (Yelm)",
+   "city": "Yelm",
+   "website": "http://yelmpsc.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Rainier Clatskanie Soccer Club",
+   "city": null,
+   "website": "https://www.facebook.com/RCYSCBoardMember/",
+   "types": [
+    "Recreational"
+   ],
+   "area": null
+  },
+  {
+   "name": "Rainier Clatskanie Youth Soccer Club",
+   "city": "Clatskanie",
+   "website": "https://www.facebook.com/RCYSCBoardMember/",
+   "types": [
+    "Recreational"
+   ],
+   "area": null
+  },
+  {
+   "name": "Rainier Soccer Alliance",
+   "city": "Puyallup",
+   "website": "https://www.rsasoccer.net/",
+   "types": [
+    "Recreational",
+    "Select"
+   ],
+   "area": "TACOMA"
+  },
+  {
+   "name": "Rainier Valley Soccer Club",
+   "city": "Seattle",
+   "website": "https://www.rainiervalleysoccer.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "NORTH SEATTLE/EASTSIDE"
+  },
+  {
+   "name": "Rochester Youth Soccer Club",
+   "city": "Rochester",
+   "website": "http://www.rochesteryouthsoccer.org/Org/Home.aspx?d=wLvFm5vHm8B5LEJicY9CmQ%3d%3d",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Salmon Creek Soccer Club",
+   "city": "Vancouver",
+   "website": "http://www.salmoncreeksoccer.net/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "VANCOUVER"
+  },
+  {
+   "name": "SC Queen Anne",
+   "city": "Seattle",
+   "website": "http://www.qasoccer.org",
+   "types": [
+    "Recreational"
+   ],
+   "area": "NORTH SEATTLE/EASTSIDE"
+  },
+  {
+   "name": "Seattle United",
+   "city": "Seattle",
+   "website": "http://www.seattleunited.com/",
+   "types": [
+    "Premier",
+    "Select"
+   ],
+   "area": "SOUTH SEATTLE"
+  },
+  {
+   "name": "Sedro-Woolley Soccer Club",
+   "city": "Sedro-Wooley",
+   "website": "https://www.swyouthsoccer.com/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "Sequim Junior Soccer Club",
+   "city": "Sequim",
+   "website": "http://www.sequimjuniorsoccer.com",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIC PENINSULA"
+  },
+  {
+   "name": "Shorelake Soccer Club",
+   "city": "Shoreline",
+   "website": "https://shorelake.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": null
+  },
+  {
+   "name": "Silver Lake Youth Soccer Club",
+   "city": "Mill Creek",
+   "website": "http://www.silverlakesoccerclub.com/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Sky River Soccer Club",
+   "city": "Monroe",
+   "website": "https://clubs.bluesombrero.com/skyriversoccer",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Snohomish Youth Soccer Club",
+   "city": "Snohomish",
+   "website": "https://snohomishunited.org/",
+   "types": [
+    "Premier"
+   ],
+   "area": null
+  },
+  {
+   "name": "Snoqualmie Soccer Club",
+   "city": "Snoqualmie",
+   "website": "http://www.snvysa.org",
+   "types": [
+    "Recreational"
+   ],
+   "area": "NORTH SEATTLE/EASTSIDE"
+  },
+  {
+   "name": "Sound Football Club",
+   "city": "Bothell",
+   "website": "https://soundfc.org/",
+   "types": [
+    "Premier",
+    "Select",
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "South Kitsap Soccer Club",
+   "city": "Port Orchard",
+   "website": "http://www.sksoccer.com",
+   "types": [
+    "Recreational"
+   ],
+   "area": null
+  },
+  {
+   "name": "South Mason Youth Soccer Club",
+   "city": "Shelton",
+   "website": "http://www.smysc.org",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "South Tacoma United Soccer Club",
+   "city": "Tacoma",
+   "website": "http://www.stsoccer.org/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "TACOMA"
+  },
+  {
+   "name": "South Whidbey Youth Soccer Club",
+   "city": "Clinton",
+   "website": "http://www.swysc.com/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "Everett / Lynwood"
+  },
+  {
+   "name": "Southlake Soccer",
+   "city": "Tukwila",
+   "website": "https://www.southlakesoccer.org/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "SOUTH SEATTLE"
+  },
+  {
+   "name": "Southside Soccer Club",
+   "city": "Bellingham",
+   "website": "https://clubs.bluesombrero.com/southsidesoccer",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "SOZO FC",
+   "city": "Yakima",
+   "website": "https://www.sozofc.com/",
+   "types": [
+    "Recreational",
+    "Select",
+    "Premier"
+   ],
+   "area": "YAKIMA/TRI-CITIES"
+  },
+  {
+   "name": "Spokane Shadow",
+   "city": "Spokane",
+   "website": "https://spokanesounders.org/",
+   "types": [
+    "Premier",
+    "Select"
+   ],
+   "area": "Spokane"
+  },
+  {
+   "name": "Spokane Youth Sports Association - Soccer",
+   "city": "Spokane",
+   "website": "https://www.sysa.com/sysa-soccer/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "Spokane"
+  },
+  {
+   "name": "Storm King Soccer Club",
+   "city": "Port Angeles",
+   "website": "http://www.stormkingsoccer.com/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "OLYMPIC PENINSULA"
+  },
+  {
+   "name": "Tenino Youth Soccer Club",
+   "city": "Tenino",
+   "website": "https://www.teamsideline.com/teninoysc",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Three Rivers Soccer Club",
+   "city": "Pasco",
+   "website": "http://www.3rsc.org/",
+   "types": [
+    "Premier",
+    "Select",
+    "Recreational"
+   ],
+   "area": "YAKIMA/TRI-CITIES"
+  },
+  {
+   "name": "Toledo Youth Soccer Club",
+   "city": "Toledo",
+   "website": "http://lcysa.net/Org/Home.aspx?d=2eRW1wwXz8%2bCr8U4VTdd8g%3d%3d",
+   "types": [
+    "Recreational"
+   ],
+   "area": null
+  },
+  {
+   "name": "Tracyton Soccer Club",
+   "city": "Tracyton",
+   "website": "http://www.tracytonsoccer.com/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "OLYMPIC PENINSULA"
+  },
+  {
+   "name": "Tumwater Soccer Club",
+   "city": "Tumwater",
+   "website": "http://www.tumwatersoccerclub.org",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "University Place Soccer Club",
+   "city": "University Place",
+   "website": "http://www.upsc.org/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "TACOMA"
+  },
+  {
+   "name": "Valor Soccer Club (Kent)",
+   "city": "Kent",
+   "website": "https://www.valorsoccer.com/",
+   "types": [
+    "Premier",
+    "Select",
+    "Recreational"
+   ],
+   "area": "SOUTH SEATTLE"
+  },
+  {
+   "name": "Valor Soccer Club (MvP)",
+   "city": "Maple Valley",
+   "website": "https://www.valorsoccer.com/",
+   "types": [
+    "Premier",
+    "Select",
+    "Recreational"
+   ],
+   "area": "SOUTH SEATTLE"
+  },
+  {
+   "name": "Vancouver West",
+   "city": "Vancouver",
+   "website": "https://www.vancouverwestsc.org/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "VANCOUVER"
+  },
+  {
+   "name": "Vashon Island Soccer Club",
+   "city": "Vashon",
+   "website": "http://www.vashonsoccer.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "SOUTH SEATTLE"
+  },
+  {
+   "name": "Washington Premier Football Club",
+   "city": "Puyallup",
+   "website": "http://www.washingtonpremierfc.com/",
+   "types": [
+    "Premier"
+   ],
+   "area": "TACOMA"
+  },
+  {
+   "name": "Washington Rush",
+   "city": "Everett",
+   "website": "http://www.washingtonrush.com",
+   "types": [
+    "Premier",
+    "Select"
+   ],
+   "area": "SOUTH SEATTLE"
+  },
+  {
+   "name": "Washington United",
+   "city": "Puyallup",
+   "website": "https://www.washingtonpremierfc.com/programs/recreational-soccer/",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "TACOMA"
+  },
+  {
+   "name": "Wenatchee FC",
+   "city": "Wenatchee",
+   "website": "https://wenatcheefc.com/",
+   "types": [
+    "Recreational",
+    "Select",
+    "Premier"
+   ],
+   "area": "Central Washington"
+  },
+  {
+   "name": "West Seattle Soccer Club",
+   "city": "Seattle",
+   "website": "https://clubs.bluesombrero.com/westseattlesoccer",
+   "types": [
+    "Select",
+    "Recreational"
+   ],
+   "area": "NORTH SEATTLE/EASTSIDE"
+  },
+  {
+   "name": "Whatcom County Select",
+   "city": "Bellingham",
+   "website": "https://whatcomsoccer.com/select-program/",
+   "types": [
+    "Select"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "Whatcom FC Rangers",
+   "city": "Bellingham",
+   "website": "https://whatcomfcrangers.org/",
+   "types": [
+    "Premier"
+   ],
+   "area": "Bellingham"
+  },
+  {
+   "name": "Willapa Harbor Youth Soccer Club",
+   "city": "Willapa Harbor",
+   "website": "https://www.willapaharboryouthsoccer.com/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Winlock Youth Soccer Club",
+   "city": "Winlock",
+   "website": "http://lcysa.net/Org/Home.aspx?d=2eRW1wwXz8%2bCr8U4VTdd8g%3d%3d",
+   "types": [
+    "Recreational"
+   ],
+   "area": "OLYMPIA"
+  },
+  {
+   "name": "Woodland Soccer Club",
+   "city": "Seattle",
+   "website": "http://www.woodlandsoccer.org/",
+   "types": [
+    "Recreational"
+   ],
+   "area": "NORTH SEATTLE/EASTSIDE"
+  }
+ ]
+}

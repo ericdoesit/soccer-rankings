@@ -1,0 +1,137 @@
+{
+ "source": "https://www.hawaiisoccer.com/clubs-2/",
+ "fetchedAt": "2026-11-11",
+ "association": "HI",
+ "clubs": [
+  {
+   "name": "Hawaii Rush Big Island",
+   "area": "Big Island",
+   "website": null
+  },
+  {
+   "name": "Kona Crush",
+   "area": "Big Island",
+   "website": "http://www.konacrushacademy.com/"
+  },
+  {
+   "name": "Na Hoa O Puna",
+   "area": "Big Island",
+   "website": "http://sports.bluesombrero.com/Default.aspx?tabid=578933"
+  },
+  {
+   "name": "Parker Bulls Soccer Club",
+   "area": "Big Island",
+   "website": "http://www.parkerschoolhawaii.org/athletics/parker-bulls-soccer-club"
+  },
+  {
+   "name": "Keahi Soccer Club",
+   "area": "Kauai",
+   "website": "http://www.keahisoccerclub.org/"
+  },
+  {
+   "name": "Po'ohala FC",
+   "area": "Kauai",
+   "website": "http://poohala.org/"
+  },
+  {
+   "name": "Albion Hawaii Soccer Club",
+   "area": "Maui",
+   "website": "http://www.albionschawaii.org/"
+  },
+  {
+   "name": "Excel",
+   "area": "Maui",
+   "website": null
+  },
+  {
+   "name": "FA Maui",
+   "area": "Maui",
+   "website": "https://famaui.com/"
+  },
+  {
+   "name": "Maui Strikers",
+   "area": "Maui",
+   "website": "http://mauistrikers.weebly.com/"
+  },
+  {
+   "name": "Valley Isle Soccer Academy",
+   "area": "Maui",
+   "website": "http://www.valleyislesoccer.com/"
+  },
+  {
+   "name": "Arsenal FC Hawaii",
+   "area": "Oahu",
+   "website": "https://www.arsenalfchawaii.us/"
+  },
+  {
+   "name": "AYSO United Hawaii",
+   "area": "Oahu",
+   "website": "https://www.aysounitedhi.org/"
+  },
+  {
+   "name": "Ballistic Soccer Hawaii",
+   "area": "Oahu",
+   "website": "http://www.ballisticsoccerhawaii.com/"
+  },
+  {
+   "name": "Crush Soccer Academy",
+   "area": "Oahu",
+   "website": "https://www.crushsocceracademy.com/"
+  },
+  {
+   "name": "FC Hawaii",
+   "area": "Oahu",
+   "website": "https://fchawaii.org/"
+  },
+  {
+   "name": "Hawaii Rush Soccer Club",
+   "area": "Oahu",
+   "website": "http://hawaiirushsoccer.com/"
+  },
+  {
+   "name": "Hawaii Soccer Academy",
+   "area": "Oahu",
+   "website": "https://hisocceracademy.com/"
+  },
+  {
+   "name": "Hawaii United FC",
+   "area": "Oahu",
+   "website": "http://hawaiiunited.org/"
+  },
+  {
+   "name": "Hawaii Surf Soccer Club",
+   "area": "Oahu",
+   "website": "http://surfsoccerhawaii.com/"
+  },
+  {
+   "name": "Honolulu Bulls Soccer Club",
+   "area": "Oahu",
+   "website": "http://www.hscbulls.com/"
+  },
+  {
+   "name": "Ka'oi Soccer Club",
+   "area": "Oahu",
+   "website": "http://www.kaoisoccerclub.org/"
+  },
+  {
+   "name": "Leahi Soccer Club",
+   "area": "Oahu",
+   "website": "http://leahisoccer.com/"
+  },
+  {
+   "name": "LeJardin Soccer Academy",
+   "area": "Oahu",
+   "website": "http://www.lejardinsoccer.org/"
+  },
+  {
+   "name": "Shockers Soccer Club",
+   "area": "Oahu",
+   "website": "http://www.shockershi.org/"
+  },
+  {
+   "name": "Whitfield SC",
+   "area": "Oahu",
+   "website": "https://www.whitfieldschawaii.com/"
+  }
+ ]
+}

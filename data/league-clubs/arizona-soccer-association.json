@@ -1,0 +1,327 @@
+{
+ "source": "https://www.azsoccerassociation.org/member-clubs/",
+ "fetchedAt": "2026-11-10",
+ "association": "AZ",
+ "clubs": [
+  {
+   "name": "Arizona Soccer Academy",
+   "area": "Phoenix",
+   "website": "https://www.azsocceracademy.com/"
+  },
+  {
+   "name": "Arizona Storm",
+   "area": "Phoenix",
+   "website": "https://www.azstormfc.com/"
+  },
+  {
+   "name": "AZ Athletic Club",
+   "area": "Phoenix",
+   "website": "http://www.arizonaathletic.org"
+  },
+  {
+   "name": "AZ Arsenal",
+   "area": "Phoenix",
+   "website": "https://www.azarsenalsc.org/"
+  },
+  {
+   "name": "AZFC Select",
+   "area": "Phoenix",
+   "website": "https://azfcselect.com/"
+  },
+  {
+   "name": "AZ Golden Eagles FC",
+   "area": "Phoenix",
+   "website": "https://www.azgesoccerafc.org/"
+  },
+  {
+   "name": "Arizona Soccer Club",
+   "area": "Phoenix",
+   "website": "https://www.arizonasoccerclub.com/"
+  },
+  {
+   "name": "AZ Inferno",
+   "area": "Phoenix",
+   "website": "https://www.azinfernosoccerclub.net/"
+  },
+  {
+   "name": "Brazas Futebol Club",
+   "area": "Phoenix",
+   "website": "https://brazas.org/"
+  },
+  {
+   "name": "CCV Stars",
+   "area": "Phoenix",
+   "website": "https://ccvstars.com/soccer"
+  },
+  {
+   "name": "East Valley NSFC",
+   "area": "Phoenix",
+   "website": "https://evnsfc.com/"
+  },
+  {
+   "name": "Epic Soccer Club",
+   "area": "Phoenix",
+   "website": "https://www.epicazsoccer.org/"
+  },
+  {
+   "name": "Excel Soccer Academy",
+   "area": "Phoenix",
+   "website": "https://www.excelsocceracademy.com/"
+  },
+  {
+   "name": "FC Arizona",
+   "area": "Phoenix",
+   "website": "https://fcarizona.com/"
+  },
+  {
+   "name": "FC Batavia",
+   "area": "Phoenix",
+   "website": "https://fcbatavia.com/"
+  },
+  {
+   "name": "FC Deportivo Arizona",
+   "area": "Phoenix",
+   "website": "https://www.fcdeportivoaz.com/"
+  },
+  {
+   "name": "FC Elite Arizona",
+   "area": "Phoenix",
+   "website": "https://www.fcelitearizona.org/"
+  },
+  {
+   "name": "Futbolito Bimbo Soccer League",
+   "area": "Phoenix",
+   "website": "https://www.tuzosphoenix.com/"
+  },
+  {
+   "name": "Gilbert Youth Soccer Association",
+   "area": "Phoenix",
+   "website": "https://www.azgysa.com/"
+  },
+  {
+   "name": "Barca Residency Academy USA",
+   "area": "Phoenix",
+   "website": "https://barcaresidencyacademyusa.com/"
+  },
+  {
+   "name": "La Academia FC",
+   "area": "Phoenix",
+   "website": "https://www.socceracademia.com/"
+  },
+  {
+   "name": "Madison FC",
+   "area": "Phoenix",
+   "website": "https://www.madisonfutbol.com/"
+  },
+  {
+   "name": "North Scottsdale Soccer Club",
+   "area": "Phoenix",
+   "website": "https://www.northscottsdalesoccerclub.com/"
+  },
+  {
+   "name": "Nos Santos SC",
+   "area": "Phoenix",
+   "website": "https://santossc.com/"
+  },
+  {
+   "name": "Paris Saint-Germain Academy Phoenix",
+   "area": "Phoenix",
+   "website": "https://www.psgacademyphoenix.com/"
+  },
+  {
+   "name": "Paladin SC",
+   "area": "Phoenix",
+   "website": "https://paladinsports.org/sports/soccer/club-soccer/"
+  },
+  {
+   "name": "Phoenix Surf",
+   "area": "Phoenix",
+   "website": "https://phoenixsurfsoccer.com/"
+  },
+  {
+   "name": "Phoenix United FC",
+   "area": "Phoenix",
+   "website": "https://www.phoenixunitedfc.com/"
+  },
+  {
+   "name": "Phoenix Rush",
+   "area": "Phoenix",
+   "website": "https://www.phoenixrushsoccer.com/"
+  },
+  {
+   "name": "Phoenix Rising FC Youth Soccer",
+   "area": "Phoenix",
+   "website": "https://www.prfcyouthsoccer.com/"
+  },
+  {
+   "name": "Phoenix Premier",
+   "area": "Phoenix",
+   "website": "https://www.phoenixpremierfc.com/page/show/842250-home"
+  },
+  {
+   "name": "SC del Sol",
+   "area": "Phoenix",
+   "website": "https://www.scdelsol.com/"
+  },
+  {
+   "name": "Playmaker FC",
+   "area": "Phoenix",
+   "website": "https://www.playmakerfutbolacademy.com/"
+  },
+  {
+   "name": "Real Arizona FC",
+   "area": "Phoenix",
+   "website": "https://www.realarizonafc.org/"
+  },
+  {
+   "name": "Real Salt Lake Arizona",
+   "area": "Phoenix",
+   "website": "https://www.rsl-az.com/"
+  },
+  {
+   "name": "RSL-AZ West Valley",
+   "area": "Phoenix",
+   "website": "https://rslazwestvalley.org/"
+  },
+  {
+   "name": "Scottsdale City FC",
+   "area": "Phoenix",
+   "website": "https://scottsdalecityfc.com/"
+  },
+  {
+   "name": "Scottsdale Premier SC",
+   "area": "Phoenix",
+   "website": "https://www.scottsdalepremier.com/"
+  },
+  {
+   "name": "State 48 FC",
+   "area": "Phoenix",
+   "website": "https://state48fc.com/"
+  },
+  {
+   "name": "Sun Warriors",
+   "area": "Phoenix",
+   "website": "https://sunwarriorsazfc.wixsite.com/website?fbclid=IwAR3Ze-CMA_DI3VZWJswpg68JjQ3HaHbsTiZ107EkCv1hG0qU3D7qm0UwMwU"
+  },
+  {
+   "name": "Synergy FC",
+   "area": "Phoenix",
+   "website": "https://www.facebook.com/profile.php?id=100057577984359&amp;fbclid=IwAR1dzUZF4NTsWln6FLf1TQgnQ_uLnKwcEpbsMYi1s9TnmG-5oCUkcbokBpA"
+  },
+  {
+   "name": "Thunderbird FC",
+   "area": "Phoenix",
+   "website": "https://thunderbirdfc.org/"
+  },
+  {
+   "name": "United Latinos SC",
+   "area": "Phoenix",
+   "website": "http://latinossoccer.com/"
+  },
+  {
+   "name": "CDO Soccer Club",
+   "area": "Tucson",
+   "website": "https://www.cdosoccer.com/home"
+  },
+  {
+   "name": "RSL-AZ Souther",
+   "area": "Tucson",
+   "website": "https://www.cdosoccer.com/home"
+  },
+  {
+   "name": "FC Tucson Youth SC",
+   "area": "Tucson",
+   "website": "https://fctucsonyouth.com/"
+  },
+  {
+   "name": "Pima County Surf",
+   "area": "Tucson",
+   "website": "https://pimacountysurf.com/"
+  },
+  {
+   "name": "Renegades Soccer Club",
+   "area": "Tucson",
+   "website": "http://renegadessc.arizonasoccerlive.org/home.php"
+  },
+  {
+   "name": "BVB International Academy Arizona",
+   "area": "Tucson",
+   "website": "https://www.bvbia-arizona.com/"
+  },
+  {
+   "name": "Sonoita-Elgin Soccer Club",
+   "area": "Tucson",
+   "website": "https://www.facebook.com/SonoitaElginSoccerClub/"
+  },
+  {
+   "name": "Southern Arizona Soccer Club",
+   "area": "Tucson",
+   "website": "https://southernarizonasoccerclub.org/"
+  },
+  {
+   "name": "Spartans FC",
+   "area": "Tucson",
+   "website": "https://fcspartans.org/"
+  },
+  {
+   "name": "Vail SC",
+   "area": "Tucson",
+   "website": "https://vailsoccer.club/"
+  },
+  {
+   "name": "Tucson Elite SC",
+   "area": "Tucson",
+   "website": "https://tucsonelitesc.com/"
+  },
+  {
+   "name": "FC Sonora",
+   "area": "Tucson",
+   "website": "https://fcsonoratucson.com/"
+  },
+  {
+   "name": "Bisbee Youth Soccer",
+   "area": "Sierra Vista/Bisbee",
+   "website": "https://www.facebook.com/BisbeeYouthSoccerAssociation/?ref=page_internal"
+  },
+  {
+   "name": "RSL-AZ Yuma",
+   "area": "Yuma/ San Luis",
+   "website": "https://www.rsl-az.com/yuma"
+  },
+  {
+   "name": "Yuma Youth Soccer Association",
+   "area": "Yuma/ San Luis",
+   "website": "https://yumayouthsoccer.gotsportsites.com/"
+  },
+  {
+   "name": "Kingman Youth Soccer League",
+   "area": "Kingman/Lake Havasu",
+   "website": "http://kingmansoccer.arizonasoccerlive.org/home"
+  },
+  {
+   "name": "Havasu Lions FC",
+   "area": "Kingman/Lake Havasu",
+   "website": "http://www.lakehavasusoccerleague.com/home.php"
+  },
+  {
+   "name": "Flagstaff Soccer Club",
+   "area": "Flagstaff/Prescott",
+   "website": "https://www.flagstaffsoccerclub.com/"
+  },
+  {
+   "name": "OJB FC",
+   "area": "Flagstaff/Prescott",
+   "website": "https://www.ojbfc.com/"
+  },
+  {
+   "name": "Yavapai Soccer Club",
+   "area": "Flagstaff/Prescott",
+   "website": "https://yavapaisoccer.com/"
+  },
+  {
+   "name": "Sports Relationship Management",
+   "area": "Flagstaff/Prescott",
+   "website": "https://www.sportsengine.com/hq/"
+  }
+ ]
+}

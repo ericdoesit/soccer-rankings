@@ -1,0 +1,385 @@
+{
+ "source": "https://www.utahyouthsoccer.net/youth-members/",
+ "fetchedAt": "2026-11-10",
+ "association": "UT",
+ "clubs": [
+  {
+   "name": "Box Elder United",
+   "area": "Box Elder",
+   "website": "https://www.boxelderunitedfc.com/home",
+   "programs": "Competition, Academy, Challenger, Provisional"
+  },
+  {
+   "name": "Northern Utah United",
+   "area": "Logan",
+   "website": "https://nuu.soccer/#/home",
+   "programs": "Competition, Academy, Challenger, Provisional"
+  },
+  {
+   "name": "South Cache Soccer",
+   "area": "Cache Valley",
+   "website": "https://www.southcachesoccer.com",
+   "programs": "Recreation, Academy"
+  },
+  {
+   "name": "Athletic Soccer Club",
+   "area": "Weber and Davis Counties",
+   "website": "https://www.athleticsoccerclub.org/utah",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Club America",
+   "area": "Layton",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=464511&amp;mid=518335&amp;newskeyid=HN1&amp;ctl=viewallnews",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Gremio FC Utah",
+   "area": "Ogden",
+   "website": "https://www.gremiofcutah.org",
+   "programs": "Competition"
+  },
+  {
+   "name": "La Roca FC",
+   "area": "Layton",
+   "website": "https://larocafc.com",
+   "programs": "Competition, Academy, Recreation, District"
+  },
+  {
+   "name": "Ogden Soccer",
+   "area": "Ogden",
+   "website": "https://www.ogdensoccer.com",
+   "programs": "Competition, Academy, Recreation"
+  },
+  {
+   "name": "Peak Soccer Club",
+   "area": "Davis County",
+   "website": "https://peaksoccerclub.com/tryout_info/",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Rampage Soccer Club",
+   "area": "Roy",
+   "website": "https://rampagesoccerclub.com/2/",
+   "programs": "Competition, Academy, District"
+  },
+  {
+   "name": "Strikers FC",
+   "area": "Layton",
+   "website": "https://laytonstrikers.com",
+   "programs": "Competition, Academy, District"
+  },
+  {
+   "name": "Summit FC",
+   "area": "Ogden to SLC",
+   "website": "https://www.summitfcutah.com",
+   "programs": "Competition, Recreation, Academy and Tournament Only"
+  },
+  {
+   "name": "Utah Avalanche",
+   "area": "Davis and Salt Lake County",
+   "website": "https://utahavalanche.com",
+   "programs": "Competition, Recreation, Girls/Boys Academy"
+  },
+  {
+   "name": "Utah Real FC",
+   "area": "Layton/Kaysville",
+   "website": "https://utahrealfc.com/",
+   "programs": "Competition"
+  },
+  {
+   "name": "Wasatch Soccer Club",
+   "area": "Kaysville",
+   "website": "https://wasatchsoccer.org",
+   "programs": "Competition, Academy, District, Provisional"
+  },
+  {
+   "name": "Blast SC",
+   "area": "Holladay",
+   "website": "https://blastsoccerofutah.com",
+   "programs": "Competition"
+  },
+  {
+   "name": "Blue Knights Soccer",
+   "area": "Sandy",
+   "website": "https://www.blueknightssoccer.org",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Cottonwood FC",
+   "area": "Cottonwood Heights",
+   "website": "http://www.cottonwoodfc.org",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Impact City FC",
+   "area": "Millcreek",
+   "website": "https://www.impactcityfc.com",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Impact United",
+   "area": "Salt Lake City",
+   "website": "https://impactunited.com",
+   "programs": "Competition, Academy, Recreation"
+  },
+  {
+   "name": "Murray Soccer Club",
+   "area": "Murray",
+   "website": "https://www.murraysoccer.com/home",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Park City Soccer Club",
+   "area": "Park City",
+   "website": "https://www.parkcitysoccer.org",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Sparta United",
+   "area": "Salt Lake City",
+   "website": "https://spartaunited.org",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Atomic Athletics",
+   "area": "Bluffdale",
+   "website": "https://atomicathleticsutah.com",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "City SC",
+   "area": "Riverton",
+   "website": "https://cityscutah.com",
+   "programs": "Competition"
+  },
+  {
+   "name": "Copper Mountain Soccer Club",
+   "area": "Greater Salt Lake Area",
+   "website": "https://coppermountainsoccer.com",
+   "programs": "Competition, TOP Soccer"
+  },
+  {
+   "name": "Razzia Futbol Club",
+   "area": "Salt Lake Valley",
+   "website": "https://www.razziafc.com",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "TC United",
+   "area": "Tooele",
+   "website": "https://tcunitedsoccer.teamsnapsites.com",
+   "programs": "Competition, Academy, Recreation"
+  },
+  {
+   "name": "Utah Athletic Club",
+   "area": "Draper",
+   "website": "https://www.utathletic-club.com",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Utah Avalanche",
+   "area": "Salt Lake City",
+   "website": "https://utahavalanche.com",
+   "programs": "Competition, Recreation, Girls/Boys Academy"
+  },
+  {
+   "name": "Utah Development Academy",
+   "area": "Salt Lake City",
+   "website": "https://www.udasoccer.org",
+   "programs": "Competition"
+  },
+  {
+   "name": "Utah Glory",
+   "area": "South Jordan",
+   "website": "https://www.utahglorysoccer.com",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "VK Cobras",
+   "area": "Salt Lake City",
+   "website": "https://www.fccobras.com",
+   "programs": "Competition, Academy, Recreation, TOP Soccer"
+  },
+  {
+   "name": "West Jordan Youth Soccer",
+   "area": "West Jordan",
+   "website": "https://www.wjysoccer.com",
+   "programs": "Recreation"
+  },
+  {
+   "name": "West United",
+   "area": "West Valley City",
+   "website": "https://westunitedsoccer.org",
+   "programs": "Recreation"
+  },
+  {
+   "name": "7 Elite Academy",
+   "area": "West Jordan",
+   "website": "https://us.7eliteacademy.com",
+   "programs": "Competition, Pre-Academy, Provisional"
+  },
+  {
+   "name": "Cougar FC",
+   "area": "Roosevelt",
+   "website": "https://www.rooseveltcity.com/309/Youth-Soccer",
+   "programs": "Competition, Recreation"
+  },
+  {
+   "name": "Heber Valley United Soccer",
+   "area": "Heber",
+   "website": "https://hvusoccer.com",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "La Roca FC",
+   "area": "Lehi",
+   "website": "https://larocafc.com",
+   "programs": "Competition, Academy, Recreation, District"
+  },
+  {
+   "name": "LFC International Academy UT",
+   "area": "Provo/Orem",
+   "website": "http://www.lfcacademyut.com/",
+   "programs": "Competition and District"
+  },
+  {
+   "name": "Nebo United",
+   "area": "Payson",
+   "website": "http://nebounited.com",
+   "programs": "Competition, Academy, District"
+  },
+  {
+   "name": "NUCS/UCSC",
+   "area": "North Utah County",
+   "website": "https://www.northutahcountysoccer.com",
+   "programs": "Competition, Recreation, District"
+  },
+  {
+   "name": "Octane FC",
+   "area": "Uintah",
+   "website": "https://www.octanefc.com",
+   "programs": "Competition"
+  },
+  {
+   "name": "Orem Youth Soccer",
+   "area": "Orem",
+   "website": "https://www.oremyouthsoccer.com",
+   "programs": "Recreation"
+  },
+  {
+   "name": "Price Youth Soccer",
+   "area": "Price",
+   "website": "https://www.priceyouthsoccer.com/home",
+   "programs": "Recreation"
+  },
+  {
+   "name": "Provo Athletic Club",
+   "area": "Provo",
+   "website": "https://provoathletic.com",
+   "programs": "Competition"
+  },
+  {
+   "name": "Saratoga Springs FC",
+   "area": "Saratoga Springs",
+   "website": "https://saratogaspringsfc.com",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Shooters Soccer Club",
+   "area": "Southern Utah County",
+   "website": "https://www.shooterssoccer.org",
+   "programs": "Competition, District"
+  },
+  {
+   "name": "Utah Avalanche",
+   "area": "Utah County",
+   "website": "https://utahavalanche.com/",
+   "programs": "Competition, Recreation, Girls/Boys Academy"
+  },
+  {
+   "name": "Utah Celtic FC",
+   "area": "Orem",
+   "website": "https://www.utahceltic.com",
+   "programs": "Competition"
+  },
+  {
+   "name": "Utah Rush",
+   "area": "Orem",
+   "website": "https://www.utah-rush.com",
+   "programs": "Competition, Recreation"
+  },
+  {
+   "name": "Utah Surf Soccer Club",
+   "area": "Utah County",
+   "website": "https://utahsurfsoccer.com",
+   "programs": "Competition, Academy, District"
+  },
+  {
+   "name": "Xolos Utah",
+   "area": "Provo",
+   "website": "http://www.xolosacademy.com",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "7 Elite Academy",
+   "area": "Lehi",
+   "website": "https://us.7eliteacademy.com/",
+   "programs": "Competition, Pre-Academy, Provisional"
+  },
+  {
+   "name": "7 Elite Academy",
+   "area": "St. George",
+   "website": "https://us.7eliteacademy.com",
+   "programs": "Competition, Pre-Academy, Provisional"
+  },
+  {
+   "name": "FC Mesquite",
+   "area": "Mesquite",
+   "website": "https://fcmesquitesoccer.com",
+   "programs": "RCL, Recreation"
+  },
+  {
+   "name": "Fire FC",
+   "area": "St. George",
+   "website": "https://firefutbolclub.com",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Ignite FC",
+   "area": "St. George",
+   "website": "https://www.ignitefc.com",
+   "programs": "Competition"
+  },
+  {
+   "name": "La Roca FC",
+   "area": "St. George",
+   "website": "https://larocafc.com",
+   "programs": "Competition, Academy, Recreation, District"
+  },
+  {
+   "name": "Premier FC",
+   "area": "St. George",
+   "website": "https://www.stgpremierfc.com",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Southern Utah Soccer Association",
+   "area": "Southern Utah",
+   "website": "https://www.susakicks.com",
+   "programs": "Competition, Recreation, TOP Soccer"
+  },
+  {
+   "name": "St. George FC",
+   "area": "St. George",
+   "website": "https://www.stgeorgefc.com",
+   "programs": "Competition, Academy"
+  },
+  {
+   "name": "Utah FC",
+   "area": "Cedar City",
+   "website": "https://utahfccedarcity.com",
+   "programs": "Competition, Academy, Recreation"
+  }
+ ]
+}

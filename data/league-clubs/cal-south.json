@@ -1,0 +1,1057 @@
+{
+ "source": "https://calsouth.com/find-a-place-to-play/",
+ "fetchedAt": "2026-11-10",
+ "association": "CAS",
+ "clubs": [
+  {
+   "name": "Desert Communities Soccer Club",
+   "city": "Helendale",
+   "website": "https://clubs.bluesombrero.com/desertcommsoccer",
+   "type": null
+  },
+  {
+   "name": "Albion SC Central Cal (Bakersfield)",
+   "city": null,
+   "website": "https://www.albionsccentralcal.org",
+   "type": null
+  },
+  {
+   "name": "Albion SC Central Cal (Santa Maria)",
+   "city": null,
+   "website": "https://www.albionsccentralcal.org",
+   "type": null
+  },
+  {
+   "name": "Albion SC Central Cal (Antelope Valley)",
+   "city": null,
+   "website": "https://www.albionsccentralcal.org",
+   "type": null
+  },
+  {
+   "name": "Foothill Superliga",
+   "city": "El Monte",
+   "website": "https://www.facebook.com/socalsuperliga/",
+   "type": null
+  },
+  {
+   "name": "Kickers FC",
+   "city": "Oxnard",
+   "website": "https://kickersfc.club/",
+   "type": null
+  },
+  {
+   "name": "ZeroGravity Academy",
+   "city": "Oxnard",
+   "website": "https://zerogravityusa.org/",
+   "type": null
+  },
+  {
+   "name": "Sporting F.C. Inc.",
+   "city": "Westlake Village",
+   "website": null,
+   "type": null
+  },
+  {
+   "name": "Oxnard FC",
+   "city": "Oxnard",
+   "website": "https://oxnard-fc.com/",
+   "type": null
+  },
+  {
+   "name": "Santa Paula Futbol Club Academy",
+   "city": "Santa Paula",
+   "website": "https://www.santapaulafcx.org/",
+   "type": null
+  },
+  {
+   "name": "California United Futbol Club",
+   "city": "Fillmore",
+   "website": "https://sites.google.com/view/californiaunitedfc/",
+   "type": null
+  },
+  {
+   "name": "Crusaders Futbol Club",
+   "city": "Orcutt",
+   "website": "https://orcuttcrusadersfc.com/",
+   "type": null
+  },
+  {
+   "name": "Futbol Legacy Development Program",
+   "city": "Oxnard",
+   "website": "https://www.facebook.com/imperioFLOfficial",
+   "type": null
+  },
+  {
+   "name": "CC Dynasty Futbol Club",
+   "city": null,
+   "website": "https://www.ccdynastyfc.com/",
+   "type": null
+  },
+  {
+   "name": "VC Galaxy",
+   "city": "Oxnard",
+   "website": "https://www.sportingca.us/",
+   "type": null
+  },
+  {
+   "name": "La Jolla Youth Soccer League",
+   "city": null,
+   "website": "https://www.lajollasoccer.org",
+   "type": null
+  },
+  {
+   "name": "Ramona Soccer League",
+   "city": "Ramona",
+   "website": "http://www.ramonasoccer.com",
+   "type": null
+  },
+  {
+   "name": "Oxnard Athletic Club",
+   "city": "Port Hueneme",
+   "website": "http://www.oxnardac.org/",
+   "type": null
+  },
+  {
+   "name": "MSA FC",
+   "city": "Camarillo",
+   "website": "https://www.monkasocceracademy.com/",
+   "type": null
+  },
+  {
+   "name": "Club Santos Laguna Oxnard",
+   "city": "Oxnard",
+   "website": "https://upvsl.org/home",
+   "type": null
+  },
+  {
+   "name": "FC United Academy",
+   "city": "Thousand Oaks",
+   "website": "http://fcuacademy.com/",
+   "type": null
+  },
+  {
+   "name": "Barcelona Santa Paula",
+   "city": "Santa Paula",
+   "website": "https://www.sportsengine.com/org/barcelona-santa-paula",
+   "type": null
+  },
+  {
+   "name": "Club Deportivo La Esperanza",
+   "city": "Port Hueneme",
+   "website": "http://cdlaesperanza.org/",
+   "type": null
+  },
+  {
+   "name": "Oxnard United Soccer Club",
+   "city": "Oxnard",
+   "website": "https://www.oxnardunitedsc.org/",
+   "type": null
+  },
+  {
+   "name": "DMS 11 Academy",
+   "city": "Thousand Oaks",
+   "website": "https://dms11.com/index.html",
+   "type": null
+  },
+  {
+   "name": "Newbury Park Soccer Club",
+   "city": "Thousand Oaks",
+   "website": "http://www.newburyparksoccerclub.com",
+   "type": null
+  },
+  {
+   "name": "Oxnard PAL Youth Soccer",
+   "city": "Oxnard",
+   "website": "https://www.oxnardpal.org/soccer",
+   "type": null
+  },
+  {
+   "name": "Ventura County Fusion Youth Soccer Academy",
+   "city": "Ventura",
+   "website": "https://www.vcfusion.com/",
+   "type": null
+  },
+  {
+   "name": "IV United Soccer Association",
+   "city": null,
+   "website": "https://www.facebook.com/profile.php?id=100057570785327",
+   "type": null
+  },
+  {
+   "name": "San Diego Real Madrid Elite",
+   "city": null,
+   "website": "https://camelitefc.com/",
+   "type": null
+  },
+  {
+   "name": "Soccer Club of Oceanside",
+   "city": null,
+   "website": "http://oceansidebreakers.org/",
+   "type": null
+  },
+  {
+   "name": "ALBION SC North",
+   "city": null,
+   "website": "http://www.albionscnorth.org",
+   "type": null
+  },
+  {
+   "name": "Barcelona California",
+   "city": "Burbank",
+   "website": "https://www.barcelonaca.com/page/show/942532-home",
+   "type": null
+  },
+  {
+   "name": "Eagles Soccer Club",
+   "city": "Camarillo",
+   "website": "https://eaglessc.com/",
+   "type": null
+  },
+  {
+   "name": "Templeton Youth Soccer League",
+   "city": "Templeton",
+   "website": "https://www.leaguelineup.com/welcome.asp?url=tys",
+   "type": null
+  },
+  {
+   "name": "Legends Futbol Academy",
+   "city": "Santa Barbara",
+   "website": "https://legendsfutbol.org/",
+   "type": null
+  },
+  {
+   "name": "Central Coast United",
+   "city": "San Luis Obispo",
+   "website": "https://centralcoastunitedsc.com/",
+   "type": null
+  },
+  {
+   "name": "Ventura County United",
+   "city": null,
+   "website": "https://www.vcunitedsoccerclub.com/",
+   "type": null
+  },
+  {
+   "name": "Santa Barbara Soccer Club",
+   "city": "Goleta",
+   "website": "https://santabarbarasc.org/",
+   "type": null
+  },
+  {
+   "name": "Ventura Surf Soccer Club",
+   "city": null,
+   "website": "https://venturasurfsoccer.com",
+   "type": null
+  },
+  {
+   "name": "South Bay Soccer Association",
+   "city": "Los Osos",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=1254764",
+   "type": null
+  },
+  {
+   "name": "Orcutt United Soccer League",
+   "city": null,
+   "website": "http://www.ouslsoccer.org",
+   "type": null
+  },
+  {
+   "name": "Simi Valley Youth Soccer League",
+   "city": null,
+   "website": "https://www.simiyouthsoccer.org/",
+   "type": null
+  },
+  {
+   "name": "Oxnard Wave Soccer Club",
+   "city": "Oxnard",
+   "website": "http://www.oxnardwave-sc.org/",
+   "type": null
+  },
+  {
+   "name": "Oxnard Real Athletic",
+   "city": "Oxnard",
+   "website": "https://www.oxnardreal.com/",
+   "type": null
+  },
+  {
+   "name": "Bakersfield Legacy Soccer Club",
+   "city": "Bakersfield",
+   "website": "https://www.facebook.com/bakersfield.legacysoccer/",
+   "type": null
+  },
+  {
+   "name": "Soccer Club Antelope",
+   "city": "Lancaster",
+   "website": "http://www.antelopesoccerleague.com/",
+   "type": null
+  },
+  {
+   "name": "Lightning SC",
+   "city": "Palmdale",
+   "website": "https://www.lightningsc.com/",
+   "type": null
+  },
+  {
+   "name": "Antelope Valley Futbol Club",
+   "city": "Palmdale",
+   "website": "https://www.avfcsoccer.com/",
+   "type": null
+  },
+  {
+   "name": "Palmdale Youth Soccer League",
+   "city": "Palmdale",
+   "website": "https://palmdaleyouthsoccerleague.com/",
+   "type": null
+  },
+  {
+   "name": "Coachella Youth Sports Association Soccer League",
+   "city": null,
+   "website": "https://www.cysasl.com",
+   "type": null
+  },
+  {
+   "name": "Fontana Futbol Club",
+   "city": null,
+   "website": "https://coastsoccer.us/web/coastsoccer/clubs?YEAR=2022&SEASON=fall&CLUB=887",
+   "type": null
+  },
+  {
+   "name": "Hemet Juventus Football Club",
+   "city": "Hemet",
+   "website": "https://coastsoccer.us/web/coastsoccer/clubs?CLUB=835",
+   "type": null
+  },
+  {
+   "name": "La Academia Soccer Club",
+   "city": "Perris",
+   "website": "https://laligaintercities.com/",
+   "type": null
+  },
+  {
+   "name": "Riverside Futbol Club",
+   "city": "Riverside",
+   "website": "https://coastsoccer.us/web/coastsoccer/clubs?YEAR=2022&SEASON=fall&CLUB=805&Send+Form=Go%21",
+   "type": null
+  },
+  {
+   "name": "Empire Soccer Club",
+   "city": "Corona",
+   "website": "https://www.empiresoccerclub.org/",
+   "type": null
+  },
+  {
+   "name": "Magnus Football Club",
+   "city": null,
+   "website": "https://magnusfc.sportngin.com/",
+   "type": null
+  },
+  {
+   "name": "Desert United Soccer Club",
+   "city": "Indio",
+   "website": "https://desertunitedsoccer.com/",
+   "type": null
+  },
+  {
+   "name": "Riverside MGFM Soccer Organization",
+   "city": "Riverside",
+   "website": "https://riversidemgfm.teamsnapsites.com/",
+   "type": null
+  },
+  {
+   "name": "Milan Academy",
+   "city": "Riverside",
+   "website": "https://coastsoccer.us/web/coastsoccer/clubs?YEAR=2018&CLUB=557&SEASON=fall#:~:text=3498%20Castaic%20St,(951)%20743%2D2374",
+   "type": null
+  },
+  {
+   "name": "Apple Valley Soccer Club",
+   "city": "Apple Valley",
+   "website": "https://www.avscstorm.org/",
+   "type": null
+  },
+  {
+   "name": "Victorville Youth Soccer League",
+   "city": "Victorville",
+   "website": "https://tshq.bluesombrero.com/victorvilleyslca",
+   "type": null
+  },
+  {
+   "name": "Murrieta Youth Soccer League",
+   "city": "Murrieta",
+   "website": "https://myslsoccer.org/",
+   "type": null
+  },
+  {
+   "name": "Futbol Club California Velocity",
+   "city": "Chino",
+   "website": "https://velocityfc.com/",
+   "type": null
+  },
+  {
+   "name": "Rancho Challenge FC",
+   "city": "Rancho Cucamonga",
+   "website": "https://computer1996.wixsite.com/website",
+   "type": null
+  },
+  {
+   "name": "Olimpico FC",
+   "city": "Fontana",
+   "website": "https://www.facebook.com/OlimpusFClub/",
+   "type": null
+  },
+  {
+   "name": "Man U Soccer Inc.",
+   "city": "Rancho Cucamonga",
+   "website": "https://www.manusoccerclub.org/",
+   "type": null
+  },
+  {
+   "name": "Inland United Soccer Club",
+   "city": "Moreno Valley",
+   "website": "http://www.iuscmv.com/",
+   "type": null
+  },
+  {
+   "name": "Temecula Valley Soccer Association",
+   "city": "Temecula",
+   "website": "https://www.tvsa.org/",
+   "type": null
+  },
+  {
+   "name": "Barstow Youth Soccer League",
+   "city": "Barstow",
+   "website": "https://barstowyouthsoccer.teampages.com/",
+   "type": null
+  },
+  {
+   "name": "Grand Terrace Community Soccer Club",
+   "city": "Grand Terrace",
+   "website": "https://www.gtsoccer.org/",
+   "type": null
+  },
+  {
+   "name": "Rialto Youth Soccer League",
+   "city": "Rialto",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=1290096",
+   "type": null
+  },
+  {
+   "name": "TUSA Soccer Club",
+   "city": "Fontana",
+   "website": "https://coastsoccer.us/web/coastsoccer/clubs?YEAR=2022&SEASON=fall&CLUB=947",
+   "type": null
+  },
+  {
+   "name": "Big Bear Soccer League",
+   "city": null,
+   "website": "https://www.facebook.com/BIGBEARSOCCER/",
+   "type": null
+  },
+  {
+   "name": "Colton Youth Soccer Organization",
+   "city": "Colton",
+   "website": "https://www.coltonyouthsoccerorganizations.com/",
+   "type": null
+  },
+  {
+   "name": "Palm Desert Youth Soccer League",
+   "city": "Palm Desert",
+   "website": "https://www.palmdesertsoccer.com/",
+   "type": null
+  },
+  {
+   "name": "Morongo Basin Youth Soccer Association",
+   "city": null,
+   "website": "https://www.mbysasoccer.org/",
+   "type": null
+  },
+  {
+   "name": "Yucaipa Valley Youth Soccer",
+   "city": null,
+   "website": "https://www.yucaipasoccer.org/",
+   "type": null
+  },
+  {
+   "name": "High Desert Youth Soccer League",
+   "city": "Apple Valley",
+   "website": "https://www.hdysl.soccer/",
+   "type": null
+  },
+  {
+   "name": "Universal Soccer League",
+   "city": "Moreno Valley",
+   "website": "https://universalsoccerleague.com/",
+   "type": null
+  },
+  {
+   "name": "Fellowship of Christian Athletes",
+   "city": "Palm Springs",
+   "website": "https://coastsoccer.us/web/coastsoccer/clubs?YEAR=2022&SEASON=fall&CLUB=486",
+   "type": null
+  },
+  {
+   "name": "Foothill Superliga",
+   "city": "El Monte",
+   "website": "https://www.facebook.com/socalsuperliga/",
+   "type": null
+  },
+  {
+   "name": "Sporting So-Cal SC",
+   "city": "Glendale",
+   "website": "https://sportingsocal.com/",
+   "type": null
+  },
+  {
+   "name": "LA Power SL",
+   "city": "South Gate",
+   "website": "https://www.lapowerfc.org/",
+   "type": null
+  },
+  {
+   "name": "Pro Alliance FC",
+   "city": "La Puente",
+   "website": "https://www.proalliancefc.com/",
+   "type": null
+  },
+  {
+   "name": "Farwest United FC",
+   "city": null,
+   "website": "https://coastsoccer.us/web/coastsoccer/clubs?YEAR=2022&SEASON=fall&CLUB=466",
+   "type": null
+  },
+  {
+   "name": "USARMS",
+   "city": null,
+   "website": "https://usarmsclub.com/",
+   "type": null
+  },
+  {
+   "name": "Brazil Stars Soccer Club",
+   "city": "Redondo Beach",
+   "website": "https://www.brazilianpremierleague.net/teams/?u=BRAZILSTARSSOCCERCLU&s=soccer",
+   "type": null
+  },
+  {
+   "name": "HG Eagles Soccer Club",
+   "city": "Hawaiian Gardens",
+   "website": "https://www.hawaiiangardenseaglessc.com/",
+   "type": null
+  },
+  {
+   "name": "Downtown LA Soccer Club",
+   "city": "Los Angeles",
+   "website": "https://downtownlasoccerclub.com/",
+   "type": null
+  },
+  {
+   "name": "Spartans FC",
+   "city": "El Monte",
+   "website": "https://www.spartansfcla.com/",
+   "type": null
+  },
+  {
+   "name": "Pacific Coast Soccer Club",
+   "city": "Santa Monica",
+   "website": "https://www.pacificcoastsc.com",
+   "type": null
+  },
+  {
+   "name": "Sherman Oaks Extreme Soccer Club",
+   "city": "Reseda",
+   "website": "https://www.extremesoccerclub.com/",
+   "type": null
+  },
+  {
+   "name": "Glendale FC",
+   "city": "Glendale",
+   "website": "https://glendalefc.org/",
+   "type": null
+  },
+  {
+   "name": "La Mirada Soccer Association, Inc.",
+   "city": null,
+   "website": "https://www.lamiradasoccer.org/",
+   "type": null
+  },
+  {
+   "name": "Atletico Southern California",
+   "city": "Santa Clarita",
+   "website": "https://www.goatletico.com/",
+   "type": null
+  },
+  {
+   "name": "Guadalajara Valley Futbol Club",
+   "city": "Tarzana",
+   "website": "https://www.guadalajaravalleyfc.com/",
+   "type": null
+  },
+  {
+   "name": "Pumas La Habra Soccer Club",
+   "city": "Fullerton",
+   "website": "http://pumaslh.org/",
+   "type": null
+  },
+  {
+   "name": "Academia Futbol Central Los Angeles",
+   "city": "Los Angeles",
+   "website": "https://www.linkedin.com/company/academia-futbol-central-los-angeles/about/",
+   "type": null
+  },
+  {
+   "name": "Necaxa USA Futbol Club",
+   "city": "West Covina",
+   "website": "http://www.necaxausa.com/",
+   "type": null
+  },
+  {
+   "name": "California Stars Soccer Club",
+   "city": "Agoura Hills",
+   "website": "https://www.californiastars.org/",
+   "type": null
+  },
+  {
+   "name": "Project 2000 Soccer League",
+   "city": "Palmdale",
+   "website": "https://coastsoccer.us/web/coastsoccer/clubs?YEAR=2022&SEASON=fall&CLUB=927",
+   "type": null
+  },
+  {
+   "name": "Anahuak Youth Sports Association",
+   "city": "Los Angeles",
+   "website": "http://www.anahuakyouthsoccer.org/",
+   "type": null
+  },
+  {
+   "name": "Autobahn Soccer Club",
+   "city": "Santa Monica",
+   "website": "https://www.autobahnsoccer.com/",
+   "type": null
+  },
+  {
+   "name": "North Valley Soccer League",
+   "city": "Northridge",
+   "website": "https://Northvalleysc.org",
+   "type": null
+  },
+  {
+   "name": "Futbol Foundation of Santa Clarita",
+   "city": "Santa Clarita",
+   "website": "https://www.ffsc.net/",
+   "type": null
+  },
+  {
+   "name": "AYSO United",
+   "city": "Torrance",
+   "website": "https://aysounited.org/",
+   "type": null
+  },
+  {
+   "name": "Nitemares Soccer Club Inc.",
+   "city": "Chino",
+   "website": "https://coastsoccer.us/web/coastsoccer/clubs?CLUB=821",
+   "type": null
+  },
+  {
+   "name": "Pumas USA",
+   "city": "Lynwood",
+   "website": "https://coastsoccer.us/web/coastsoccer/clubs?YEAR=2022&SEASON=fall&CLUB=975",
+   "type": null
+  },
+  {
+   "name": "West Covina Youth Soccer Corp.",
+   "city": null,
+   "website": "https://www.wcysc.com/",
+   "type": null
+  },
+  {
+   "name": "Santa Anita Soccer Club",
+   "city": null,
+   "website": "https://www.sasc.org/",
+   "type": null
+  },
+  {
+   "name": "La Verne Soccer Club",
+   "city": "L A",
+   "website": "https://www.lazerssc.org/",
+   "type": null
+  },
+  {
+   "name": "Whittier Area Youth Soccer",
+   "city": null,
+   "website": "https://www.whittiersoccer.org/",
+   "type": null
+  },
+  {
+   "name": "South Bay Falcons FC",
+   "city": "Los Angeles",
+   "website": "https://www.vermontfalconsfc.com/",
+   "type": null
+  },
+  {
+   "name": "Inter-America Soccer League",
+   "city": "El Monte",
+   "website": "https://www.sportsengine.com/org/inter-america-soccer-league",
+   "type": null
+  },
+  {
+   "name": "Long Beach Youth Soccer Organization",
+   "city": null,
+   "website": "http://www.lbyso.org",
+   "type": null
+  },
+  {
+   "name": "Xplosion Soccer Club",
+   "city": "Whittier",
+   "website": "https://www.xplosionsc.com",
+   "type": null
+  },
+  {
+   "name": "Laguna Niguel Youth Soccer Association",
+   "city": "Laguna Niguel",
+   "website": "https://www.lnysa.org/",
+   "type": null
+  },
+  {
+   "name": "Orange County United Futbol Club",
+   "city": null,
+   "website": "https://www.orangecountysoccer.org",
+   "type": null
+  },
+  {
+   "name": "Elite Development Academy",
+   "city": null,
+   "website": "http://socaleda.com/",
+   "type": null
+  },
+  {
+   "name": "AC Brea",
+   "city": null,
+   "website": "https://www.breasoccer.org/",
+   "type": null
+  },
+  {
+   "name": "Junior United Soccer Association",
+   "city": null,
+   "website": "https://www.jusa.org/#gsc.tab=0",
+   "type": null
+  },
+  {
+   "name": "Newbury Park Elite Football Club",
+   "city": "Newbury Park",
+   "website": "https://npelitespringleague.com",
+   "type": null
+  },
+  {
+   "name": "FC Warriors",
+   "city": "Santa Clarita",
+   "website": "https://www.fcwfoundation.org",
+   "type": null
+  },
+  {
+   "name": "TAG FC",
+   "city": null,
+   "website": "https://www.tagfc.org/",
+   "type": null
+  },
+  {
+   "name": "FC Leon",
+   "city": "Los Angeles",
+   "website": "https://fcleon.com",
+   "type": null
+  },
+  {
+   "name": "Calexico Parents Athletic Association (CPAA)",
+   "city": "Calexico",
+   "website": "https://www.facebook.com/profile.php?id=100089530643057",
+   "type": null
+  },
+  {
+   "name": "San Pedro Pachuca FC",
+   "city": "Long Beach",
+   "website": "https://sanpedrofutbolclub.com",
+   "type": null
+  },
+  {
+   "name": "Azusa Aztecs FC",
+   "city": "San Bernardino",
+   "website": "https://www.instagram.com/azusaaztec2022/",
+   "type": null
+  },
+  {
+   "name": "SoCal Blaze SC",
+   "city": "El Segundo",
+   "website": "https://scblaze.org/",
+   "type": null
+  },
+  {
+   "name": "Gauchos Intercontinental FC",
+   "city": "San Bernardino",
+   "website": "https://www.instagram.com/gauchos_intercontinental_fc/",
+   "type": null
+  },
+  {
+   "name": "Spartans Youth Soccer Academy",
+   "city": "Covina",
+   "website": "https://www.instagram.com/spartansyouthsocceracademy",
+   "type": null
+  },
+  {
+   "name": "Aret\u00e8 F\u00fatbol Academy",
+   "city": "Hesperia",
+   "website": "https://aretefutbol.com/",
+   "type": null
+  },
+  {
+   "name": "Joga Bonito Central Coast",
+   "city": "Morro Bay",
+   "website": "https://jogabonitocc.com/",
+   "type": null
+  },
+  {
+   "name": "Aspire LAFC",
+   "city": "Los Angeles",
+   "website": "https://www.aspirelasc.com",
+   "type": null
+  },
+  {
+   "name": "Los Angeles United FC",
+   "city": "Hollywood",
+   "website": "https://losangeles-united.com/",
+   "type": null
+  },
+  {
+   "name": "Galacticos Soccer Club",
+   "city": "Fontana",
+   "website": "https://www.instagram.com/galacticos_soccer_club",
+   "type": null
+  },
+  {
+   "name": "GB United Soccer Club",
+   "city": "Studio City",
+   "website": "https://gbsoccerschool.com/",
+   "type": null
+  },
+  {
+   "name": "Los Futboleros FC",
+   "city": "Carson",
+   "website": "https://www.instagram.com/losfutbolerosfcest.2011?igsh=MzRlODBiNWFlZA==",
+   "type": null
+  },
+  {
+   "name": "Juniors Soccer Academy",
+   "city": "Oxnard",
+   "website": "https://sites.google.com/view/juniorssocceracademy",
+   "type": null
+  },
+  {
+   "name": "Dynamo LA SC",
+   "city": "Glendale",
+   "website": "https://www.dynamola.com/",
+   "type": null
+  },
+  {
+   "name": "Progressive Soccer Ozzy",
+   "city": "Azusa",
+   "website": "https://www.facebook.com/ProgSocOzzy/",
+   "type": null
+  },
+  {
+   "name": "Inner City Sports Connection [DBA CALIFUT]",
+   "city": "Los Angeles",
+   "website": "https://icsoccer.org/",
+   "type": null
+  },
+  {
+   "name": "Valley SC Roma",
+   "city": "Hemet",
+   "website": "https://www.valleyscroma.com/",
+   "type": null
+  },
+  {
+   "name": "A1 Since Day1 FC",
+   "city": "Menifee",
+   "website": "https://a1d1athletics.com/club-soccer/",
+   "type": null
+  },
+  {
+   "name": "United FC",
+   "city": "Santa Ana",
+   "website": "https://www.instagram.com/mi_united_fc_23?igsh=MmVlMjlkMTBhMg%3D%3D&utm_source=qr",
+   "type": null
+  },
+  {
+   "name": "Leopardos Soccer League",
+   "city": "Palmdale",
+   "website": "https://www.leopardossoccerleague.com/",
+   "type": null
+  },
+  {
+   "name": "Formadores",
+   "city": "Simi Valley",
+   "website": "https://www.instagram.com/formadores_soccer_club?igsh=ejJjdW8yamNpZnNt ",
+   "type": null
+  },
+  {
+   "name": "Club Real Atotonilco",
+   "city": "San Bernardino",
+   "website": "https://www.instagram.com/real_atotonilco10",
+   "type": null
+  },
+  {
+   "name": "Paramount FC",
+   "city": "Compton",
+   "website": "https://paramountfc.net/",
+   "type": null
+  },
+  {
+   "name": "AYSO Menifee Strykers",
+   "city": "Menifee",
+   "website": "https://ayso.bluesombrero.com/Region820",
+   "type": null
+  },
+  {
+   "name": "Mesa Verde Youth Soccer League",
+   "city": "Santa Ana",
+   "website": "https://mesa-verde-youth-soccer-league.ueniweb.com/",
+   "type": null
+  },
+  {
+   "name": "Atleticos FC",
+   "city": "Baldwin Park",
+   "website": "https://www.instagram.com/atleticos_fc_club",
+   "type": null
+  },
+  {
+   "name": "West Coast Elite Football Club",
+   "city": "Los Angeles",
+   "website": null,
+   "type": null
+  },
+  {
+   "name": "San Gabriel Valley Soccer Club",
+   "city": "La Puente",
+   "website": "https://www.sgvsoccerleague.com",
+   "type": null
+  },
+  {
+   "name": "SC Fire Legacy",
+   "city": "Los Angeles",
+   "website": "https://www.instagram.com/southcentralfire",
+   "type": null
+  },
+  {
+   "name": "Inland Empire Coyotes FC",
+   "city": "Fontana",
+   "website": "https://www.instagram.com/iecoyotesyouthfc/",
+   "type": null
+  },
+  {
+   "name": "Chautengo FC",
+   "city": "Los Angeles",
+   "website": "https://www.instagram.com/chautengofc",
+   "type": null
+  },
+  {
+   "name": "Gre\u0302mio Escola de Futebol San Diego",
+   "city": "San Diego",
+   "website": "https://www.instagram.com/losfutbolerosfcest.2011?igsh=MzRlODBiNWFlZA==",
+   "type": null
+  },
+  {
+   "name": "Cal Elite FC",
+   "city": "Palmdale",
+   "website": "https://www.cesoccer.com/",
+   "type": null
+  },
+  {
+   "name": "Development Academy of California",
+   "city": "Westlake Village",
+   "website": "https://dacalifornia.com/",
+   "type": null
+  },
+  {
+   "name": "Galaxy United SC",
+   "city": "Sunland",
+   "website": "https://www.instagram.com/GALAXYUNITEDLA",
+   "type": null
+  },
+  {
+   "name": "SD Lions FC",
+   "city": "Chula Vista",
+   "website": "https://www.sdlionsfc.com/",
+   "type": null
+  },
+  {
+   "name": "1570 FC",
+   "city": "Rancho Cucamonga",
+   "website": "https://www.instagram.com/1570FC",
+   "type": null
+  },
+  {
+   "name": "Gladiators FC",
+   "city": null,
+   "website": "https://www.gladiatorsfc.org/",
+   "type": null
+  },
+  {
+   "name": "One United Academy",
+   "city": "Bakersfield",
+   "website": "https://www.oneunitedacademy.org/",
+   "type": null
+  },
+  {
+   "name": "West Torrance SC",
+   "city": null,
+   "website": "https://wtsoccer.org/",
+   "type": null
+  },
+  {
+   "name": "Union Independiente Youth Soccer",
+   "city": "Norwalk",
+   "website": "http://uiysl.com",
+   "type": null
+  },
+  {
+   "name": "Nido \u00c1guila",
+   "city": "Pico Rivera",
+   "website": "https://www.facebook.com/nidoaguilaelmonte/?locale",
+   "type": null
+  },
+  {
+   "name": "La Familia Sports Inc.",
+   "city": "Glassell Park",
+   "website": "https://www.instagram.com/lafamiliasoccer/",
+   "type": null
+  },
+  {
+   "name": "FC Riverside County",
+   "city": "Corona",
+   "website": "https://fcriversidecounty.com/",
+   "type": null
+  },
+  {
+   "name": "Liga de Futbol Femenil del Valle Imperial",
+   "city": null,
+   "website": "https://www.instagram.com/lffvalleimperial",
+   "type": null
+  },
+  {
+   "name": "Royalty Soccer",
+   "city": "Ontario",
+   "website": "https://www.royaltysoccer.us/",
+   "type": null
+  },
+  {
+   "name": "City of Commerce",
+   "city": "Commerce",
+   "website": "https://www.commerceca.gov/",
+   "type": null
+  },
+  {
+   "name": "Club Le\u00f3n Los Angeles",
+   "city": "Los Angeles",
+   "website": "https://www.clubleonlosangeles.com/",
+   "type": null
+  }
+ ]
+}

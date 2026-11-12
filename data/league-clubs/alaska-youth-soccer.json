@@ -1,0 +1,67 @@
+{
+ "source": "https://www.alaskayouthsoccer.org/affiliate-clubs/",
+ "fetchedAt": "2026-11-10",
+ "association": "AK",
+ "clubs": [
+  {
+   "name": "Alaska Rush",
+   "area": "Anchorage",
+   "website": "https://www.ak-rush.com/"
+  },
+  {
+   "name": "Anchorage Youth Soccer",
+   "area": "Anchorage",
+   "website": "http://www.anchorageyouthsoccer.org"
+  },
+  {
+   "name": "Chugiak Soccer",
+   "area": "Anchorage",
+   "website": "https://chugiaksoccerclub.com/"
+  },
+  {
+   "name": "Cook Inlet Soccer Club",
+   "area": "Anchorage",
+   "website": "https://cookinletsc.com"
+  },
+  {
+   "name": "Polar Vortex Futbol Club",
+   "area": "Mat-Su",
+   "website": "https://www.polarvortexfc.com/"
+  },
+  {
+   "name": "Palmer Soccer Club",
+   "area": "Mat-Su",
+   "website": "https://palmersoccerclub.com/"
+  },
+  {
+   "name": "Valley Revolution",
+   "area": "Mat-Su",
+   "website": "http://www.wasillayouthsoccer.org"
+  },
+  {
+   "name": "Eclipse Soccer Club",
+   "area": "Interior",
+   "website": "https://www.eclipsesoccer.net/"
+  },
+  {
+   "name": "Homer United FC",
+   "area": "Kenai Peninsula",
+   "website": "https://homerunitedfc.org/"
+  },
+  {
+   "name": "Kenai Peninsula Soccer Club",
+   "area": "Kenai Peninsula",
+   "website": "https://kpsoccerclub.com/"
+  },
+  {
+   "name": "Juneau Soccer Club",
+   "area": "Southeast",
+   "website": "https://www.juneausoccer.org/"
+  },
+  {
+   "name": "Ketchikan Youth Soccer & Tongass Timbers",
+   "area": "Southeast",
+   "website": "https://www.ketchikanyouthsoccer.com/"
+  }
+ ]
+}

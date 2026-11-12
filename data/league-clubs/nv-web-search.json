@@ -1,0 +1,32 @@
+{
+ "source": "web search / club sites, 2026-11-11",
+ "fetchedAt": "2026-11-11",
+ "association": "NV",
+ "note": "clubs the Nevada lists name differently or lack a site for",
+ "clubs": [
+  {
+   "name": "Sporting Nevada USA Magnifico",
+   "city": "Las Vegas",
+   "website": "https://www.magnificofc.com/",
+   "evidence": "Nevada Youth Soccer lists 'MAGNIFICO FC' (magnificofc.com); the site's page says SPORTING NEVADA"
+  },
+  {
+   "name": "Nevada Rush",
+   "city": "Las Vegas",
+   "website": "https://forms.360player.com/nevadarush",
+   "evidence": "no homepage found; club registration portal"
+  },
+  {
+   "name": "Nevada Youth Soccer",
+   "city": "Las Vegas",
+   "website": "https://www.nevadayouthsoccer.org/",
+   "evidence": "GotSport club for association-registered teams; the state association's site"
+  },
+  {
+   "name": "Great Basin Youth Soccer League",
+   "city": "Reno",
+   "website": "https://gbysl.org/",
+   "evidence": "GotSport club for GBYSL independent teams; the league's site"
+  }
+ ]
+}

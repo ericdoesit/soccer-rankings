@@ -1,0 +1,44 @@
+{
+ "source": "https://www.nwrgsl.com/clubs",
+ "fetchedAt": "2026-11-11",
+ "league": "nwrgsl",
+ "association": "NM",
+ "note": "names inferred from each club's website link; the page shows only 'View Website' buttons",
+ "clubs": [
+  {
+   "name": "Alameda Soccer Club",
+   "city": "Albuquerque area",
+   "website": "https://clubs.bluesombrero.com/alamedasoccerclub"
+  },
+  {
+   "name": "Bernalillo Soccer Club",
+   "city": "Albuquerque area",
+   "website": null
+  },
+  {
+   "name": "Corrales Soccer Club",
+   "city": "Albuquerque area",
+   "website": "https://corralessoccer.com/"
+  },
+  {
+   "name": "Rio Rancho United Soccer Club",
+   "city": "Albuquerque area",
+   "website": null
+  },
+  {
+   "name": "South Valley Soccer Club",
+   "city": "Albuquerque area",
+   "website": null
+  },
+  {
+   "name": "Valencia Del Rio FC Soccer Club",
+   "city": "Albuquerque area",
+   "website": "https://sites.google.com/site/vdrsoccerclub"
+  },
+  {
+   "name": "Westside United Soccer Club",
+   "city": "Albuquerque area",
+   "website": "http://www.westsideunitedsc.com/"
+  }
+ ]
+}

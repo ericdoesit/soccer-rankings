@@ -1,0 +1,122 @@
+{
+ "source": "https://www.findyourclub.com/clubs/new-mexico",
+ "fetchedAt": "2026-11-11",
+ "association": "NM",
+ "clubs": [
+  {
+   "name": "Alameda Soccer Club",
+   "city": "Albuquerque",
+   "website": "https://alamedasoccerclubnm.com"
+  },
+  {
+   "name": "Atletico New Mexico FC",
+   "city": "Rio Rancho",
+   "website": "https://www.atleticonm.org/"
+  },
+  {
+   "name": "AYSO Region 1447",
+   "city": "Albuquerque",
+   "website": "https://www.ayso1447.org/"
+  },
+  {
+   "name": "AYSO United New Mexico",
+   "city": "Albuquerque",
+   "website": "https://aysounited.org/new-mexico/"
+  },
+  {
+   "name": "Aztec Youth Soccer",
+   "city": "Aztec",
+   "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=777864"
+  },
+  {
+   "name": "Bernalillo Soccer Club",
+   "city": "Bernalillo",
+   "website": "https://bernalillosoccer.club/"
+  },
+  {
+   "name": "Bloomfield Youth Soccer",
+   "city": "Bloomfield",
+   "website": "https://clubs.bluesombrero.com/bloomfieldyouthsoccer"
+  },
+  {
+   "name": "Classic Futbol Club",
+   "city": "Albuquerque",
+   "website": "https://www.classicfcnm.com/"
+  },
+  {
+   "name": "Corrales Soccer Club",
+   "city": "Corrales",
+   "website": "https://corralessoccer.com/"
+  },
+  {
+   "name": "Cruces FC",
+   "city": "Las Cruces",
+   "website": "https://clubs.bluesombrero.com/crucesfc"
+  },
+  {
+   "name": "Elite Football Club",
+   "city": "Albuquerque",
+   "website": "http://www.elitefc.com/"
+  },
+  {
+   "name": "Four Corners United",
+   "city": "Bernalillo",
+   "website": "https://www.fcysl.soccer/"
+  },
+  {
+   "name": "High Noon Soccer Club",
+   "city": "Las Cruces",
+   "website": "https://clubs.bluesombrero.com/highnoonsc"
+  },
+  {
+   "name": "Los Alamos Youth Soccer",
+   "city": "Los Alamos",
+   "website": "https://laysl.org/"
+  },
+  {
+   "name": "New Mexico Rapids Soccer Club",
+   "city": "Albuquerque",
+   "website": "https://www.nmrapids.org/"
+  },
+  {
+   "name": "New Mexico Soccer Academy",
+   "city": "Albuquerque",
+   "website": "https://www.nmsocceracademy.com/"
+  },
+  {
+   "name": "New Mexico United Academy",
+   "city": "Albuquerque",
+   "website": "https://www.newmexicoutd.com/"
+  },
+  {
+   "name": "Northern Soccer Club",
+   "city": "Santa Fe",
+   "website": "https://www.northernsoccerclub.com/"
+  },
+  {
+   "name": "South Valley Soccer Club",
+   "city": "Albuquerque",
+   "website": "https://clubs.bluesombrero.com/southvalleysc"
+  },
+  {
+   "name": "Valencia Del Rio FC Soccer Club",
+   "city": "Los Lunas",
+   "website": "https://clubs.bluesombrero.com/vdr"
+  },
+  {
+   "name": "Vamos Soccer Academy",
+   "city": "Albuquerque",
+   "website": "https://leagues.bluesombrero.com/vamossocceracademy"
+  },
+  {
+   "name": "Warsawa Soccer Club",
+   "city": "Las Cruces",
+   "website": "https://clubs.bluesombrero.com/warsawasc"
+  },
+  {
+   "name": "Westside United Soccer Club",
+   "city": "Albuquerque",
+   "website": "https://www.westsideunitedsc.com/"
+  }
+ ]
+}

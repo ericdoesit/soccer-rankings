@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YSR Style Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Stack+Sans+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --fg: #1a1919;
+      --card: #ffffff;
+      --muted: #807f7d;
+      --border: #d4d3cf;
+      --border-light: rgba(212, 211, 207, 0.5);
+      --sand: #f2f0e9;
+      --footer-bg: #1a1a1a;
+      --footer-fg: #b3b2af;
+      --green: #16a34a;
+      --red: #dc2626;
+      --yellow: #ca8a04;
+      --radius: 10px;
+      --font-sans: 'Manrope', system-ui, sans-serif;
+      --font-heading: 'Stack Sans Text', 'Manrope', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font-sans); background: var(--bg); color: var(--fg); padding: 2rem; max-width: 1200px; margin: 0 auto; }
+
+    .section { margin-bottom: 4rem; }
+    .section-title { font-family: var(--font-heading); font-size: 1.75rem; font-weight: 600; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; }
+    .label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+    .sample-row { display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-end; margin-bottom: 1.5rem; }
+    .color-swatch { width: 80px; height: 80px; border-radius: var(--radius); border: 1px solid var(--border-light); display: inline-flex; align-items: flex-end; padding: 0.4rem; font-size: 0.65rem; color: white; }
+
+    /* ================================================
+       SITE STYLES
+       ================================================ */
+
+    /* --- PAGE TITLE (h1) --- */
+    .page-title {
+      font-family: var(--font-heading);
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+    }
+
+    /* --- PAGE SUBTITLE --- */
+    .page-subtitle {
+      font-family: var(--font-sans);
+      font-size: 1.125rem;
+      color: var(--muted);
+    }
+
+    /* --- SECTION HEADING (h2 — cards, tables) --- */
+    .section-heading {
+      font-family: var(--font-heading);
+      font-size: 1.25rem; /* text-xl */
+      font-weight: 600;
+      color: var(--fg);
+    }
+
+    /* --- STAT NUMBER (ticker) --- */
+    .stat-number {
+      font-family: var(--font-sans);
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: -0.025em;
+      line-height: 1;
+      color: var(--fg);
+    }
+
+    /* --- STAT CARD NUMBER --- */
+    .stat-card-number {
+      font-family: var(--font-sans);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--fg);
+    }
+
+    /* --- LOWBROW (stat labels, table footers, metadata) --- */
+    .lowbrow {
+      font-size: 0.75rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      color: var(--muted) !important;
+    }
+
+    /* --- BODY TEXT --- */
+    .body-text {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* --- BODY TEXT STRONG --- */
+    .body-strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+
+    /* --- NAV LINK --- */
+    .nav-link {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .nav-link:hover { color: var(--fg); }
+
+    /* --- LOGO TEXT --- */
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    /* --- TABLE HEADER --- */
+    .table-header {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* --- TABLE CELL --- */
+    .table-cell {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      padding: 0.625rem 1rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    /* --- TABLE CELL BOLD --- */
+    .table-cell-bold {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.625rem 1rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    /* --- BADGE --- */
+    .badge { font-family: var(--font-sans); font-size: 0.625rem; font-weight: 600; padding: 0.125rem 0.5rem; border-radius: var(--radius); background: var(--sand); color: var(--fg); }
+
+    /* --- FORM BADGE (W/L/D) --- */
+    .form-badge { display: inline-flex; width: 1.5rem; height: 1.5rem; align-items: center; justify-content: center; border-radius: 4px; font-size: 0.75rem; font-weight: 700; color: white; }
+    .form-badge.win { background: var(--green); }
+    .form-badge.loss { background: var(--red); }
+    .form-badge.draw { background: var(--yellow); }
+
+    /* --- RANK CHANGE --- */
+    .rank-change { display: inline-flex; align-items: center; justify-content: center; height: 1.25rem; font-size: 0.75rem; font-weight: 500; }
+    .rank-change.up { color: var(--green); }
+    .rank-change.down { color: var(--red); }
+    .rank-change.same { color: var(--muted); }
+
+    /* --- CARD --- */
+    .card { background: var(--card); border: 1px solid var(--border-light); border-radius: var(--radius); overflow: hidden; }
+
+    /* --- SCORE DISPLAY --- */
+    .score-display { font-family: var(--font-sans); font-size: 2.25rem; font-weight: 700; }
+    .score-winner { color: var(--fg); }
+    .score-loser { color: var(--muted); }
+
+    /* --- COMPARISON VALUE --- */
+    .comparison-value { font-family: var(--font-sans); font-size: 0.875rem; font-weight: 600; color: var(--fg); }
+
+    /* --- FOOTER --- */
+    .footer { background: var(--footer-bg); color: var(--footer-fg); font-size: 0.875rem; padding: 2rem; text-align: center; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+    .mt { margin-top: 1rem; }
+  </style>
+</head>
+<body>
+
+  <!-- COLORS -->
+  <div class="section">
+    <h1 class="section-title">Colors</h1>
+    <div class="sample-row">
+      <div class="color-swatch" style="background:#faf9f5; color:#1a1919; border:1px solid #d4d3cf;">#faf9f5<br>Background</div>
+      <div class="color-swatch" style="background:#1a1919;">#1a1919<br>Foreground</div>
+      <div class="color-swatch" style="background:#ffffff; color:#1a1919; border:1px solid #d4d3cf;">#ffffff<br>Card</div>
+      <div class="color-swatch" style="background:#f2f0e9; color:#1a1919; border:1px solid #d4d3cf;">#f2f0e9<br>Sand/Muted</div>
+      <div class="color-swatch" style="background:#807f7d;">#807f7d<br>Muted FG</div>
+      <div class="color-swatch" style="background:#d4d3cf; color:#1a1919;">#d4d3cf<br>Border</div>
+      <div class="color-swatch" style="background:#16a34a;">#16a34a<br>Win/Up</div>
+      <div class="color-swatch" style="background:#dc2626;">#dc2626<br>Loss/Down</div>
+      <div class="color-swatch" style="background:#ca8a04;">#ca8a04<br>Draw</div>
+      <div class="color-swatch" style="background:#1a1a1a;">#1a1a1a<br>Footer</div>
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <div class="section">
+    <h1 class="section-title">Typography</h1>
+
+    <div class="label">Heading Font: Stack Sans Text — used for h1, h2, section headings, logo</div>
+    <div class="label" style="margin-top:0.25rem; margin-bottom:1.5rem;">Body Font: Manrope — used for everything else (body, tables, nav, stats, labels)</div>
+
+    <div style="margin-bottom:1.5rem">
+      <p class="label">h1 — Page Title — Stack Sans Text 700, text-3xl / text-4xl / text-5xl</p>
+      <p class="page-title">Youth Soccer Rankings</p>
+    </div>
+
+    <div style="margin-bottom:1.5rem">
+      <p class="label">h2 — Section Heading — Stack Sans Text 600, text-xl</p>
+      <p class="section-heading">Top 25 Rankings</p>
+      <p class="section-heading" style="margin-top:0.25rem">How the Score Works</p>
+      <p class="section-heading" style="margin-top:0.25rem">Game History</p>
+      <p class="section-heading" style="margin-top:0.25rem">Recent Results</p>
+    </div>
+
+    <div style="margin-bottom:1.5rem">
+      <p class="label">Logo — Stack Sans Text 600, text-xl</p>
+      <p class="logo-text">Youth Soccer Rankings</p>
+    </div>
+
+    <div style="margin-bottom:1.5rem">
+      <p class="label">Subtitle — Manrope 400, text-lg, muted</p>
+      <p class="page-subtitle">The most accurate rankings for youth soccer club teams in the USA</p>
+    </div>
+
+    <div style="margin-bottom:1.5rem">
+      <p class="label">Body — Manrope 400, text-sm, muted (with strong in foreground)</p>
+      <p class="body-text">Each team is assigned a score measured in <strong class="body-strong">goals</strong>. To predict the goal difference when two teams play, subtract one score from the other.</p>
+    </div>
+
+    <div style="margin-bottom:1.5rem">
+      <p class="label">Nav Links — Manrope 500, text-sm, muted → foreground on hover</p>
+      <a class="nav-link" href="#">Rankings</a> &nbsp;&nbsp;&nbsp;
+      <a class="nav-link" href="#">Flight Planner</a> &nbsp;&nbsp;&nbsp;
+      <a class="nav-link" href="#">About</a>
+    </div>
+  </div>
+
+  <!-- LOWBROW -->
+  <div class="section">
+    <h1 class="section-title">Lowbrow</h1>
+    <p class="label">Manrope 500, 0.75rem, UPPERCASE, letter-spacing 0.08em, muted</p>
+    <p class="label">Used for: stat labels, table footers, comparison labels, metadata captions</p>
+    <div class="sample-row mt">
+      <div style="text-align:center">
+        <p class="stat-card-number">4,741</p>
+        <p class="lowbrow" style="margin-top:0.25rem">Teams Ranked</p>
+      </div>
+      <div style="text-align:center">
+        <p class="stat-card-number">#38</p>
+        <p class="lowbrow" style="margin-top:0.25rem">National Rank</p>
+      </div>
+      <div style="text-align:center">
+        <p class="comparison-value">3.1</p>
+        <p class="lowbrow" style="margin-top:0.25rem">Rating</p>
+      </div>
+      <div>
+        <p class="lowbrow">Last updated: 2026-06-21</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAT TICKER -->
+  <div class="section">
+    <h1 class="section-title">Stat Ticker</h1>
+    <p class="label">Manrope 300 (light), text-5xl/6xl, tight tracking</p>
+    <div class="grid-3 mt">
+      <div>
+        <p class="stat-number">4,741</p>
+        <p class="lowbrow" style="margin-top:0.5rem">Teams Ranked</p>
+        <p class="body-text" style="font-size:0.8rem; opacity:0.7">Across the Southwest region</p>
+      </div>
+      <div style="text-align:center">
+        <p class="stat-number">121,644</p>
+        <p class="lowbrow" style="margin-top:0.5rem">Games Tracked</p>
+        <p class="body-text" style="font-size:0.8rem; opacity:0.7">Individual match results</p>
+      </div>
+      <div style="text-align:right">
+        <p class="stat-number">5,298</p>
+        <p class="lowbrow" style="margin-top:0.5rem">Total Teams</p>
+        <p class="body-text" style="font-size:0.8rem; opacity:0.7">In our database</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPONENTS -->
+  <div class="section">
+    <h1 class="section-title">Components</h1>
+
+    <div style="margin-bottom:2rem">
+      <p class="label">Card — white bg, 1px border, 10px radius</p>
+      <div class="card" style="padding:1.5rem; max-width:400px;">
+        <p class="section-heading">Card Title</p>
+        <p class="body-text mt">Card content with body text styling.</p>
+      </div>
+    </div>
+
+    <div style="margin-bottom:2rem">
+      <p class="label">Badges</p>
+      <div class="sample-row">
+        <span class="badge">FT</span> <span class="badge">U14</span> <span class="badge">Boys</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom:2rem">
+      <p class="label">Form Badges (W/L/D) — 24x24px, 4px radius</p>
+      <div class="sample-row">
+        <span class="form-badge win">W</span>
+        <span class="form-badge loss">L</span>
+        <span class="form-badge draw">D</span>
+        <span class="form-badge win">W</span>
+        <span class="form-badge win">W</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom:2rem">
+      <p class="label">Rank Change — fixed h-5 (1.25rem) for consistent row height</p>
+      <div class="sample-row">
+        <span class="rank-change up">&#9650; 2</span>
+        <span class="rank-change down">&#9660; 1</span>
+        <span class="rank-change same">&mdash;</span>
+        <span class="rank-change same">NEW</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom:2rem">
+      <p class="label">Score Display (match page) — Manrope 700, text-4xl, winner=fg / loser=muted</p>
+      <div class="sample-row" style="align-items:center; gap:0.75rem;">
+        <span class="score-display score-winner">3</span>
+        <span style="font-size:1.25rem; color:var(--muted)">-</span>
+        <span class="score-display score-loser">1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="section">
+    <h1 class="section-title">Table</h1>
+    <div class="card" style="max-width:700px;">
+      <div style="padding:1rem 1.25rem; display:flex; justify-content:space-between; align-items:center;">
+        <p class="section-heading">Top 25 Rankings</p>
+        <a class="nav-link" href="#" style="font-size:0.75rem;">View All &rarr;</a>
+      </div>
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th class="table-header" style="width:3rem">#</th>
+            <th class="table-header" style="width:3rem; text-align:center"></th>
+            <th class="table-header">Team</th>
+            <th class="table-header">State</th>
+            <th class="table-header" style="text-align:right">Score</th>
+            <th class="table-header" style="text-align:center">Record</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="table-cell-bold">1</td>
+            <td class="table-cell" style="text-align:center"><span class="rank-change up">&#9650; 2</span></td>
+            <td class="table-cell"><strong>Albion SC San Diego B16 Academy</strong> <span style="color:var(--muted); font-size:0.75rem;">Albion SC</span></td>
+            <td class="table-cell" style="color:var(--muted)">CAS</td>
+            <td class="table-cell-bold" style="text-align:right">3.1</td>
+            <td class="table-cell" style="text-align:center; color:var(--muted)">11-0-1</td>
+          </tr>
+          <tr>
+            <td class="table-cell-bold">2</td>
+            <td class="table-cell" style="text-align:center"><span class="rank-change same">&mdash;</span></td>
+            <td class="table-cell"><strong>Beach Futbol Club B16 Premier</strong> <span style="color:var(--muted); font-size:0.75rem;">Beach FC</span></td>
+            <td class="table-cell" style="color:var(--muted)">CAS</td>
+            <td class="table-cell-bold" style="text-align:right">2.8</td>
+            <td class="table-cell" style="text-align:center; color:var(--muted)">14-3-0</td>
+          </tr>
+          <tr style="border-bottom:none">
+            <td class="table-cell-bold">3</td>
+            <td class="table-cell" style="text-align:center"><span class="rank-change down">&#9660; 1</span></td>
+            <td class="table-cell"><strong>Surf SC B16 Elite</strong> <span style="color:var(--muted); font-size:0.75rem;">Surf SC</span></td>
+            <td class="table-cell" style="color:var(--muted)">CAS</td>
+            <td class="table-cell-bold" style="text-align:right">2.6</td>
+            <td class="table-cell" style="text-align:center; color:var(--muted)">12-0-0</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="padding:0.75rem 1rem;">
+        <p class="lowbrow">Last updated: 2026-06-21</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="section">
+    <h1 class="section-title">Comparison Table (Match Page)</h1>
+    <p class="label">table-fixed, 3 equal w-1/3 columns, all center-aligned, Manrope 600 values, lowbrow labels</p>
+    <div class="card" style="max-width:500px; padding:1.5rem;">
+      <table style="width:100%; table-layout:fixed; border-collapse:collapse; text-align:center; font-size:0.875rem;">
+        <thead>
+          <tr>
+            <th style="padding-bottom:0.75rem; font-weight:600; width:33.3%">Albion SC B16</th>
+            <th style="width:33.3%"></th>
+            <th style="padding-bottom:0.75rem; font-weight:600; width:33.3%">Beach FC B16</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid rgba(212,211,207,0.3)">
+            <td class="comparison-value" style="padding:0.625rem 0">3.1</td>
+            <td style="padding:0.625rem 0"><span class="lowbrow">Rating</span></td>
+            <td class="comparison-value" style="padding:0.625rem 0">2.8</td>
+          </tr>
+          <tr style="border-top:1px solid rgba(212,211,207,0.3)">
+            <td class="comparison-value" style="padding:0.625rem 0">#1</td>
+            <td style="padding:0.625rem 0"><span class="lowbrow">Rank</span></td>
+            <td class="comparison-value" style="padding:0.625rem 0">#2</td>
+          </tr>
+          <tr style="border-top:1px solid rgba(212,211,207,0.3)">
+            <td class="comparison-value" style="padding:0.625rem 0">11-0-1</td>
+            <td style="padding:0.625rem 0"><span class="lowbrow">Record</span></td>
+            <td class="comparison-value" style="padding:0.625rem 0">14-3-0</td>
+          </tr>
+          <tr style="border-top:1px solid rgba(212,211,207,0.3)">
+            <td class="comparison-value" style="padding:0.625rem 0">12</td>
+            <td style="padding:0.625rem 0"><span class="lowbrow">Games</span></td>
+            <td class="comparison-value" style="padding:0.625rem 0">17</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SPACING -->
+  <div class="section">
+    <h1 class="section-title">Spacing &amp; Layout</h1>
+    <table style="border-collapse:collapse; font-size:0.875rem;">
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Border radius</td><td><strong>10px</strong> — all cards, badges, inputs</td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Max width</td><td><strong>max-w-7xl</strong> (80rem) — all pages</td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Page padding</td><td><strong>px-4 py-8</strong></td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Card padding</td><td><strong>py-5 to py-6</strong></td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Table cell padding</td><td><strong>px-4 py-2.5</strong></td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Table header padding</td><td><strong>px-4 py-3</strong></td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Section gap</td><td><strong>gap-6 to gap-8</strong></td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Header height</td><td><strong>h-16</strong> (4rem)</td></tr>
+    </table>
+  </div>
+
+  <!-- DECISION TREE -->
+  <div class="section">
+    <h1 class="section-title">Decision Tree — Which Style to Use</h1>
+    <table style="border-collapse:collapse; font-size:0.875rem; width:100%;">
+      <thead>
+        <tr>
+          <th class="table-header">Element</th>
+          <th class="table-header">Font</th>
+          <th class="table-header">Size</th>
+          <th class="table-header">Weight</th>
+          <th class="table-header">Color</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="table-cell">Page title (h1)</td><td class="table-cell">Stack Sans Text</td><td class="table-cell">text-3xl to text-5xl</td><td class="table-cell">700 (bold)</td><td class="table-cell">foreground</td></tr>
+        <tr><td class="table-cell">Section heading (h2)</td><td class="table-cell">Stack Sans Text</td><td class="table-cell">text-xl</td><td class="table-cell">600 (semibold)</td><td class="table-cell">foreground</td></tr>
+        <tr><td class="table-cell">Logo text</td><td class="table-cell">Stack Sans Text</td><td class="table-cell">text-xl</td><td class="table-cell">600</td><td class="table-cell">foreground</td></tr>
+        <tr><td class="table-cell">Body / card text</td><td class="table-cell">Manrope</td><td class="table-cell">text-sm (0.875rem)</td><td class="table-cell">400</td><td class="table-cell">muted #807f7d</td></tr>
+        <tr><td class="table-cell">Body strong / emphasis</td><td class="table-cell">Manrope</td><td class="table-cell">text-sm</td><td class="table-cell">600</td><td class="table-cell">foreground #1a1919</td></tr>
+        <tr><td class="table-cell">Table cell values (bold)</td><td class="table-cell">Manrope</td><td class="table-cell">text-sm</td><td class="table-cell">600 (semibold)</td><td class="table-cell">foreground</td></tr>
+        <tr><td class="table-cell">Table cell values (muted)</td><td class="table-cell">Manrope</td><td class="table-cell">text-sm</td><td class="table-cell">400</td><td class="table-cell">muted</td></tr>
+        <tr><td class="table-cell">Table headers</td><td class="table-cell">Manrope</td><td class="table-cell">text-xs (0.75rem)</td><td class="table-cell">400</td><td class="table-cell">muted</td></tr>
+        <tr><td class="table-cell">Lowbrow labels</td><td class="table-cell">Manrope</td><td class="table-cell">0.75rem</td><td class="table-cell">500, UPPERCASE</td><td class="table-cell">muted</td></tr>
+        <tr><td class="table-cell">Stat ticker numbers</td><td class="table-cell">Manrope</td><td class="table-cell">text-5xl / 6xl</td><td class="table-cell">300 (light)</td><td class="table-cell">foreground</td></tr>
+        <tr><td class="table-cell">Stat card numbers</td><td class="table-cell">Manrope</td><td class="table-cell">text-2xl</td><td class="table-cell">700</td><td class="table-cell">foreground</td></tr>
+        <tr><td class="table-cell">Score display (match)</td><td class="table-cell">Manrope</td><td class="table-cell">text-4xl</td><td class="table-cell">700</td><td class="table-cell">fg (winner) / muted (loser)</td></tr>
+        <tr><td class="table-cell">Rating number (team)</td><td class="table-cell">Manrope</td><td class="table-cell">text-4xl</td><td class="table-cell">700</td><td class="table-cell">foreground</td></tr>
+        <tr><td class="table-cell">Nav links</td><td class="table-cell">Manrope</td><td class="table-cell">text-sm</td><td class="table-cell">500</td><td class="table-cell">muted → fg on hover</td></tr>
+        <tr><td class="table-cell">Subtitle</td><td class="table-cell">Manrope</td><td class="table-cell">text-lg</td><td class="table-cell">400</td><td class="table-cell">muted</td></tr>
+        <tr style="border-bottom:none"><td class="table-cell">Age table cells</td><td class="table-cell">Manrope</td><td class="table-cell">text-xs</td><td class="table-cell">400</td><td class="table-cell">foreground</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ALGORITHM -->
+  <div class="section">
+    <h1 class="section-title">Algorithm Parameters</h1>
+    <table style="border-collapse:collapse; font-size:0.875rem;">
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">System</td><td><strong>Enhanced Massey Rating</strong></td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Margin cap</td><td><strong>6 goals</strong> — r=0.661, accuracy=66.6%</td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Home advantage</td><td><strong>0.1 goals</strong> — from 24K rematch analysis</td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Decay half-life</td><td><strong>105 days</strong> (~3.5 months)</td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Min games</td><td><strong>10</strong></td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Solver</td><td><strong>Jacobi iteration</strong> (500 max iterations, 1e-8 tolerance)</td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Shutout bonus</td><td><strong>None</strong> — no additional predictive signal</td></tr>
+      <tr><td style="padding:0.5rem 2rem 0.5rem 0; color:var(--muted)">Validation</td><td>Grid search on 81,588 games (65K train / 16K test)</td></tr>
+    </table>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer" style="margin-top:3rem; border-radius:var(--radius);">
+    Footer — bg #1a1a1a, text #b3b2af, Manrope text-sm
+  </div>
+
+</body>
+</html>

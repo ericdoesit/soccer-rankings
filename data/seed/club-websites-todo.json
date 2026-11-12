@@ -1,0 +1,330 @@
+[
+ {
+  "gotsportOrgId": 13101,
+  "name": "AC Los Banos",
+  "city": "Los Banos",
+  "league": "norcal-premier",
+  "website": "https://www.athleticclublb.com/",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 13093,
+  "name": "Alliance FC",
+  "city": "Union City",
+  "league": "norcal-premier",
+  "website": "https://alliance-fc-ca-13133.sportngin.com/",
+  "problem": "HTTP 404"
+ },
+ {
+  "gotsportOrgId": 18476,
+  "name": "Alum Rock Futbol Club",
+  "city": "San Jose",
+  "league": "norcal-premier",
+  "website": "http://alumrockysl.org/",
+  "problem": "HTTP 404"
+ },
+ {
+  "gotsportOrgId": 10941,
+  "name": "Aptos Soccer Club",
+  "city": "Aptos",
+  "league": "norcal-premier",
+  "website": "https://aptossoccer.org/",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 34931,
+  "name": "Athletics Academy",
+  "city": "Citrus Heights",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 13102,
+  "name": "Atletico United FC",
+  "city": "Stockton",
+  "league": "norcal-premier",
+  "website": "http://www.atleticoufc.com/",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 13055,
+  "name": "Cal Cougars Soccer Club",
+  "city": "Stockton",
+  "league": "norcal-premier",
+  "website": "https://www.californiacougarssoccer.com/",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 11156,
+  "name": "Cal Victory FC",
+  "city": "Petaluma",
+  "league": "norcal-premier",
+  "website": "https://www.calvictoryfc.com/",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 18473,
+  "name": "CV Futbol Academy",
+  "city": "Turlock",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 30107,
+  "name": "Delhi Futbol Club",
+  "city": "Delhi",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 13115,
+  "name": "DEPORTIVO BARCELONA SOCCER CLUB",
+  "city": "San lorenzo",
+  "league": "norcal-premier",
+  "website": "https://deportivo-barcelona-soccer-club-r1025./",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 12994,
+  "name": "Earthquakes - East Valley",
+  "city": "Riverbank",
+  "league": "norcal-premier",
+  "website": "https://www.eastvalleyfc.com/",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 25214,
+  "name": "EastBay FC",
+  "city": "Eastbay",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 13635,
+  "name": "Escuela Oficial Richmond-Rayados",
+  "city": "Richmond",
+  "league": "norcal-premier",
+  "website": "https://escuela-oficial-richmond-rayados.sportngin.com/",
+  "problem": "HTTP 404"
+ },
+ {
+  "gotsportOrgId": 30266,
+  "name": "F.C. Real Libertad",
+  "city": "San Jose",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 11077,
+  "name": "Fruitridge Soccer Club",
+  "city": "Sacramento",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 13116,
+  "name": "Hughson United",
+  "city": "Hughson",
+  "league": "norcal-premier",
+  "website": "https://hughson-united.sportngin.com/",
+  "problem": "HTTP 404"
+ },
+ {
+  "gotsportOrgId": 18475,
+  "name": "Konocti Premier Soccer Club",
+  "city": "Lakeport",
+  "league": "norcal-premier",
+  "website": "https://www.konoctisoccer.com/",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 13931,
+  "name": "Land Park Soccer",
+  "city": "Sacramento",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 13122,
+  "name": "Livingston Surf",
+  "city": "Livingston",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 13047,
+  "name": "Lobitos Soccer Club",
+  "city": "San Jose",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 23473,
+  "name": "Los Banos Valley Soccer Club",
+  "city": "Los banos",
+  "league": "norcal-premier",
+  "website": "https://www.losbanosvalleysoccerleague.com/",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 35647,
+  "name": "Mexico Futbol Club",
+  "city": "Watsonville",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 10948,
+  "name": "MVLA San Jose",
+  "city": "San Jose",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 13016,
+  "name": "Napa Soccer Academy",
+  "city": "Napa Valley",
+  "league": "norcal-premier",
+  "website": "https://www.napasocceracademy.com/",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 32909,
+  "name": "NorCal Premier Assigning",
+  "city": "Sacramento",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 12999,
+  "name": "North Coast Futbol Club",
+  "city": "Petaluma",
+  "league": "norcal-premier",
+  "website": "https://www.northcoastfc.org/",
+  "problem": "HTTP 404"
+ },
+ {
+  "gotsportOrgId": 13817,
+  "name": "Northern Nevada Soccer Club",
+  "city": "Reno",
+  "league": "norcal-premier",
+  "website": "https://northern-nevada-soccer-club-rec.sportngin.com/",
+  "problem": "HTTP 404"
+ },
+ {
+  "gotsportOrgId": 13094,
+  "name": "Real Salinas",
+  "city": "Salinas",
+  "league": "norcal-premier",
+  "website": "http://elcaminorealfutbol.org/",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 13114,
+  "name": "Revolution SC",
+  "city": "Fresno",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 35439,
+  "name": "Richmond Quakes",
+  "city": "Richmond",
+  "league": "norcal-premier",
+  "website": "https://richmondquakes.org/",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 11064,
+  "name": "San Pablo United YSC",
+  "city": "San Pablo",
+  "league": "norcal-premier",
+  "website": "https://san-pablo-united-youth-soccer-club.sportngin.com/",
+  "problem": "HTTP 404"
+ },
+ {
+  "gotsportOrgId": 25027,
+  "name": "Santa Clara Rush",
+  "city": "Santa Clara",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 10933,
+  "name": "Santa Clara Youth Soccer League",
+  "city": "Santa Clara",
+  "league": "norcal-premier",
+  "website": "https://www.scysl.org/",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 18471,
+  "name": "Silicon Valley Alliance",
+  "city": "Sunnyvale",
+  "league": "norcal-premier",
+  "website": "http://www.aysounited.org/silicon-valley/",
+  "problem": "HTTP 404"
+ },
+ {
+  "gotsportOrgId": 13078,
+  "name": "Tahuichi F.C. Youth Soccer",
+  "city": "SANTA ROSA",
+  "league": "norcal-premier",
+  "website": "http://www.fctahuichi.com/",
+  "problem": "HTTP 500"
+ },
+ {
+  "gotsportOrgId": 8985,
+  "name": "US Club JFC - TEST",
+  "city": "Jacksonville",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 37000,
+  "name": "West Sacramento Futbol Club",
+  "city": "West Sacramento",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 10976,
+  "name": "Windsor Youth Soccer League",
+  "city": "Windsor",
+  "league": "norcal-premier",
+  "website": null,
+  "problem": "no website listed"
+ },
+ {
+  "gotsportOrgId": 13068,
+  "name": "Yuba City Rayados",
+  "city": "Yuba City",
+  "league": "norcal-premier",
+  "website": "https://www.yubacityrayados.com/",
+  "problem": "unreachable"
+ },
+ {
+  "gotsportOrgId": 30158,
+  "name": "Yuba Elite FC",
+  "city": "Marysville",
+  "league": "norcal-premier",
+  "website": "https://www.yubaelitefc.org/",
+  "problem": "unreachable"
+ }
+]

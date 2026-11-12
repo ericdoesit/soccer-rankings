@@ -1,0 +1,197 @@
+[
+ {
+  "gotsportOrgId": 30549,
+  "name": "Zorritos F.C",
+  "website": "https://zorritosfc.com/",
+  "source": "web search (not linked on norcalpremier.com/club/30549/)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 12999,
+  "name": "North Coast Futbol Club",
+  "website": "https://northcoastfc.org/",
+  "source": "checked league link www.northcoastfc.org is 'Site Not Configured'; bare domain loads",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 30158,
+  "name": "Yuba Elite FC",
+  "website": "https://yubaelitefc.org/",
+  "source": "checked https://www. fails; bare domain loads",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 13016,
+  "name": "Napa Soccer Academy",
+  "website": "http://www.napasocceracademy.com/",
+  "source": "checked https fails; http loads",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 10941,
+  "name": "Aptos Soccer Club",
+  "website": "https://www.aptossoccer.org/",
+  "source": "checked bare domain fails; www loads",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 10933,
+  "name": "Santa Clara Youth Soccer League",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 18476,
+  "name": "Alum Rock Futbol Club",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 13101,
+  "name": "AC Los Banos",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 23473,
+  "name": "Los Banos Valley Soccer Club",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 13094,
+  "name": "Real Salinas",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 13102,
+  "name": "Atletico United FC",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 11156,
+  "name": "Cal Victory FC",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 12994,
+  "name": "Earthquakes - East Valley",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 18475,
+  "name": "Konocti Premier Soccer Club",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 35439,
+  "name": "Richmond Quakes",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 13078,
+  "name": "Tahuichi F.C. Youth Soccer",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 13055,
+  "name": "Cal Cougars Soccer Club",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 13068,
+  "name": "Yuba City Rayados",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 18473,
+  "name": "CV Futbol Academy",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 11077,
+  "name": "Fruitridge Soccer Club",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "gotsportOrgId": 25027,
+  "name": "Santa Clara Rush",
+  "website": null,
+  "source": "league link dead or missing; web search found no official site (third-party listings / Facebook only)",
+  "verifiedAt": "2026-11-10"
+ },
+ {
+  "name": "Pilchuck Soccer Alliance",
+  "website": "https://www.psaforce.soccer/",
+  "source": "user: use the select program (PSA Force), not the recreational alliance site",
+  "verifiedAt": "2026-11-11"
+ },
+ {
+  "name": "Sparta United",
+  "website": "https://spartaunitedsc.org/",
+  "source": "spartaunited.org (Utah Youth Soccer list) does not respond; club site is spartaunitedsc.org (Salt Lake City), found via the user",
+  "verifiedAt": "2026-11-11"
+ },
+ {
+  "name": "ROA Soccer Academy",
+  "website": null,
+  "source": "web search 2026-11-11: no club website found (only rankings/third-party listings)",
+  "verifiedAt": "2026-11-11"
+ },
+ {
+  "name": "APD F.C.",
+  "website": null,
+  "source": "web search 2026-11-11: no club website found (only rankings/third-party listings)",
+  "verifiedAt": "2026-11-11"
+ },
+ {
+  "name": "Las Vegas Storm FC",
+  "website": null,
+  "source": "web search 2026-11-11: no club website found (only rankings/third-party listings)",
+  "verifiedAt": "2026-11-11"
+ },
+ {
+  "name": "Rayados Las Vegas Soccer Academy",
+  "website": null,
+  "source": "web search 2026-11-11: no club website found (only rankings/third-party listings)",
+  "verifiedAt": "2026-11-11"
+ },
+ {
+  "name": "Juventus Academy Las Vegas",
+  "website": null,
+  "source": "web search 2026-11-11: no club website found (only rankings/third-party listings)",
+  "verifiedAt": "2026-11-11"
+ },
+ {
+  "name": "Nevada Rush",
+  "website": "https://forms.360player.com/nevadarush",
+  "source": "web search 2026-11-11: no homepage; club registration portal",
+  "verifiedAt": "2026-11-11"
+ }
+]

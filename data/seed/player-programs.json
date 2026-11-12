@@ -1,0 +1,26 @@
+{
+  "_note": "Player-development programs (roadmap step 7: player layer). Recognitions only from what the program itself publishes; named players only U15+; no birthdates/photos/login-gated rosters; honor removal requests. Recognition kind: odp_selection.",
+  "programs": [
+    {
+      "slug": "us-youth-soccer-odp",
+      "name": "US Youth Soccer Olympic Development Program (ODP)",
+      "scope": "national",
+      "url": "https://www.usyouthsoccer.org/olympic-development-program/",
+      "levels": ["state pool", "region pool (ODP West = Region IV)", "national pool"],
+      "recognitionKind": "odp_selection"
+    },
+    {
+      "slug": "wa-epd",
+      "name": "Washington Youth Soccer Elite Player Development (EPD)",
+      "scope": "state",
+      "association": "WA",
+      "url": "https://washingtonyouthsoccer.org/elite-player-development/wa-epd/",
+      "ages": "U12-U17 (birth years 2015-2009) pools/teams; 2016 training cycles",
+      "calendar": "birth year (calendar year), not school year",
+      "feeds": "ODP West Region Championships (January 2027), Ibercup, Friendship Cup, England Experience",
+      "publishesPlayerPools": false,
+      "recognitionKind": "odp_selection",
+      "checkedAt": "2026-11-10"
+    }
+  ]
+}
