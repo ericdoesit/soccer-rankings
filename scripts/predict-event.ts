@@ -116,6 +116,41 @@ const slot = (x: Entry, y: Entry) => {
   const m = scheduled.get([x, y].map((e) => label(e)).sort().join("|"));
   return m ? { match: m.match, date: m.date, time: m.time, field: m.field, home: label(m.homeEntry!) } : null;
 };
+// optional knockout brackets: division · group · match · round · date · time · field · home · away,
+// where later rounds name earlier ones: "W:Round of 16 A" (winner) / "L:…" (loser)
+const bracketRows = readTsv(path.join(FIX, `${eventId}-bracket.tsv`)).map(([division, group, match, round, date, time, field, home, away]) => ({ division, group, match, round, date, time, field, home, away }));
+type BRow = (typeof bracketRows)[number];
+const STAGE: Array<[RegExp, "qf" | "sf" | "final" | "title"]> = [[/^round of 16/i, "qf"], [/^quarter/i, "sf"], [/^semi/i, "final"], [/^final/i, "title"]];
+/** Play a knockout bracket 10,000 times. Draws go to penalties (50/50). */
+function simulateBracket(rows: BRow[], division: string, runs = 10000) {
+  const teamOf = (name: string) => (/^[WL]:/.test(name) ? null : findEntry(division, name) ?? null);
+  const reach = new Map<Entry, Record<"qf" | "sf" | "final" | "title", number>>();
+  const pairings = new Map<string, Map<string, number>>(); // match → "a|b" → count
+  const ordered = [...rows].sort((a, b) => Number(a.match) - Number(b.match));
+  for (let k = 0; k < runs; k++) {
+    const res = new Map<string, { w: Entry; l: Entry }>();
+    let pending = ordered;
+    while (pending.length) {
+      const next: BRow[] = [];
+      for (const m of pending) {
+        const side = (s: string) => { const ref = s.match(/^([WL]):(.+)$/); if (!ref) return teamOf(s); const r0 = res.get(ref[2]); return r0 ? (ref[1] === "W" ? r0.w : r0.l) : undefined; };
+        const h = side(m.home), a = side(m.away);
+        if (h === undefined || a === undefined) { next.push(m); continue; }
+        if (!h || !a) continue; // a team we couldn't place: skip that branch
+        const o = predict(rr(h), rr(a)), x = Math.random();
+        const homeWins = x < o.win || (x < o.win + o.draw && Math.random() < 0.5);
+        res.set(m.round, homeWins ? { w: h, l: a } : { w: a, l: h });
+        const key = [label(h), label(a)].join("|");
+        const pm = pairings.get(m.match) ?? new Map<string, number>(); pm.set(key, (pm.get(key) ?? 0) + 1); pairings.set(m.match, pm);
+        const stage = STAGE.find(([re]) => re.test(m.round))?.[1];
+        if (stage) { const w = homeWins ? h : a; const t = reach.get(w) ?? { qf: 0, sf: 0, final: 0, title: 0 }; t[stage]++; reach.set(w, t); }
+      }
+      if (next.length === pending.length) break;
+      pending = next;
+    }
+  }
+  return { reach, pairings, runs };
+}
 const metaFile = path.join(FIX, `${eventId}-event.json`);
 const event: Prediction["event"] = fs.existsSync(metaFile) ? JSON.parse(fs.readFileSync(metaFile, "utf8")) : { id: Number(eventId), name: `Event ${eventId}` };
 const out: Prediction = {
@@ -142,8 +177,31 @@ for (const div of divisions) {
     const grp = inDiv.filter((e) => e.group === g);
     // SuperGroups of 8–16 teams are championship brackets, not round robins: ranked only
     if (grp.length > 6) {
-      console.log(`  ${g}: ${grp.length}-team championship bracket (ranked by rating)`);
-      groups.push({ name: g, kind: "bracket", teams: [...grp].sort((a, b) => rr(b) - rr(a)).map((e) => teamOut(e, rank)), matches: [] });
+      const rows = bracketRows.filter((b) => b.division === div && b.group === g);
+      if (!rows.length) {
+        console.log(`  ${g}: ${grp.length}-team championship bracket (no bracket file: ranked by rating)`);
+        groups.push({ name: g, kind: "bracket", teams: [...grp].sort((a, b) => rr(b) - rr(a)).map((e) => teamOut(e, rank)), matches: [] });
+        continue;
+      }
+      const ko = simulateBracket(rows, div);
+      const rate = (e: Entry) => { const t = ko.reach.get(e) ?? { qf: 0, sf: 0, final: 0, title: 0 }; return { qf: t.qf / ko.runs, sf: t.sf / ko.runs, final: t.final / ko.runs, title: t.title / ko.runs }; };
+      const teams = [...grp].sort((a, b) => rate(b).title - rate(a).title || rr(b) - rr(a)).map((e) => ({ ...teamOut(e, rank), reach: rate(e) }));
+      console.log(`  ${g}: knockout bracket`);
+      teams.slice(0, 5).forEach((t) => console.log(`    ${pct(t.reach.title)} title · ${pct(t.reach.final)} final · ${pct(t.reach.sf)} semis  ${t.label}`));
+      const firstRound = rows.filter((b) => !/^[WL]:/.test(b.home) && !/^[WL]:/.test(b.away)).map((b) => {
+        const h = findEntry(div, b.home), a = findEntry(div, b.away);
+        if (!h || !a) return null;
+        const o = predict(rr(h), rr(a));
+        return { a: teamOut(h, rank), b: teamOut(a, rank), win: o.win, draw: o.draw, loss: o.loss, margin: o.margin,
+          schedule: { match: b.match, date: b.date, time: b.time, field: b.field, home: label(h), round: b.round } };
+      }).filter((m): m is NonNullable<typeof m> => m !== null).sort((x, y) => Number(x.schedule.match) - Number(y.schedule.match));
+      const later = rows.filter((b) => /^[WL]:/.test(b.home)).sort((x, y) => Number(x.match) - Number(y.match)).map((b) => {
+        const top = [...(ko.pairings.get(b.match) ?? new Map<string, number>())].sort((x, y) => y[1] - x[1])[0];
+        return { match: b.match, round: b.round, date: b.date, time: b.time, field: b.field,
+          home: b.home.replace(/^W:/, "Winner ").replace(/^L:/, "Loser "), away: b.away.replace(/^W:/, "Winner ").replace(/^L:/, "Loser "),
+          likely: top ? { home: top[0].split("|")[0], away: top[0].split("|")[1], chance: top[1] / ko.runs } : null };
+      });
+      groups.push({ name: g, kind: "bracket", teams, matches: firstRound, knockout: later });
       continue;
     }
     const sim = simulate(grp);

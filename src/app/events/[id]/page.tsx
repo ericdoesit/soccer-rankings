@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getPrediction, formatDates, type PredTeam, type PredMatch, type PredGroup } from "@/lib/events";
+import { getPrediction, formatDates, type PredTeam, type PredMatch, type PredGroup, type KnockoutRow } from "@/lib/events";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -53,7 +53,7 @@ function MatchRow({ m: raw }: { m: PredMatch }) {
     <div className="py-2.5">
       {m.schedule && (
         <p className="text-[11px] text-muted-foreground mb-1">
-          #{m.schedule.match} · {formatDates(m.schedule.date)} {m.schedule.time} · {m.schedule.field.replace("Arizona Athletic Grounds - ", "")}
+          #{m.schedule.match}{m.schedule.round ? ` · ${m.schedule.round}` : ""} · {formatDates(m.schedule.date)} {m.schedule.time} · {m.schedule.field.replace("Arizona Athletic Grounds - ", "")}
         </p>
       )}
       <div className="flex items-center justify-between gap-3 text-sm">
@@ -96,24 +96,89 @@ function GroupCard({ g }: { g: PredGroup }) {
   );
 }
 
+function KnockoutList({ rows }: { rows: KnockoutRow[] }) {
+  return (
+    <div className="divide-y divide-border/50">
+      {rows.map((k) => (
+        <div key={k.match} className="py-2 text-sm">
+          <p className="text-[11px] text-muted-foreground">
+            #{k.match} · {k.round} · {formatDates(k.date)} {k.time} · {k.field.replace("Arizona Athletic Grounds - ", "")}
+          </p>
+          <p>{k.home} vs {k.away}</p>
+          {k.likely && (
+            <p className="text-[11px] text-muted-foreground">
+              Most likely: {k.likely.home} vs {k.likely.away} ({pct(k.likely.chance)})
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function BracketCard({ g }: { g: PredGroup }) {
+  const sim = g.teams.some((t) => t.reach);
+  const main = (g.knockout ?? []).filter((k) => !/consolation/i.test(k.round));
+  const consolation = (g.knockout ?? []).filter((k) => /consolation/i.test(k.round));
   return (
     <Card className="mb-6">
       <CardHeader className="pb-2">
         <CardTitle className="heading-sm">{g.name}</CardTitle>
-        <p className="text-xs text-muted-foreground">Championship bracket: teams ranked by rating.</p>
+        <p className="text-xs text-muted-foreground">
+          {sim
+            ? "Single-elimination bracket, played out 10,000 times. A draw goes to penalties (counted as 50/50)."
+            : "Championship bracket: teams ranked by rating until the bracket is posted."}
+        </p>
       </CardHeader>
       <CardContent className="p-0">
+        {sim && (
+          <div className="flex items-center gap-3 px-4 pb-1 lowbrow">
+            <span className="flex-1">Team</span>
+            <span className="w-14 text-right">Rating</span>
+            <span className="w-14 text-right">Quarters</span>
+            <span className="w-14 text-right">Semis</span>
+            <span className="w-14 text-right">Final</span>
+            <span className="w-14 text-right">Title</span>
+          </div>
+        )}
         <div className="divide-y divide-border/50">
           {g.teams.map((t, i) => (
             <div key={t.label} className="flex items-center gap-3 px-4 py-2 text-sm">
-              <span className="w-6 text-right tabular-nums text-muted-foreground">{i + 1}</span>
+              {!sim && <span className="w-6 text-right tabular-nums text-muted-foreground">{i + 1}</span>}
               <span className="flex-1 min-w-0"><TeamName t={t} /></span>
-              <span className="w-16 text-right tabular-nums text-muted-foreground">{t.record ?? ""}</span>
-              <span className="w-12 text-right tabular-nums font-semibold">{t.rating !== null ? t.rating.toFixed(2) : "—"}</span>
+              {!sim && <span className="w-16 text-right tabular-nums text-muted-foreground">{t.record ?? ""}</span>}
+              <span className={`${sim ? "w-14" : "w-12"} text-right tabular-nums ${sim ? "text-muted-foreground" : "font-semibold"}`}>{t.rating !== null ? t.rating.toFixed(2) : "—"}</span>
+              {t.reach && (
+                <>
+                  <span className="w-14 text-right tabular-nums text-muted-foreground">{pct(t.reach.qf)}</span>
+                  <span className="w-14 text-right tabular-nums text-muted-foreground">{pct(t.reach.sf)}</span>
+                  <span className="w-14 text-right tabular-nums">{pct(t.reach.final)}</span>
+                  <span className="w-14 text-right tabular-nums font-semibold">{pct(t.reach.title)}</span>
+                </>
+              )}
             </div>
           ))}
         </div>
+        {g.matches.length > 0 && (
+          <div className="border-t border-border/50 px-4 pt-3">
+            <p className="lowbrow">First round</p>
+            <div className="grid gap-x-8 md:grid-cols-2">
+              {g.matches.map((m) => <MatchRow key={`${m.a.label}|${m.b.label}`} m={m} />)}
+            </div>
+          </div>
+        )}
+        {main.length > 0 && (
+          <div className="border-t border-border/50 px-4 pt-3 pb-2">
+            <p className="lowbrow">Later rounds</p>
+            <KnockoutList rows={main} />
+          </div>
+        )}
+        {consolation.length > 0 && (
+          <details className="border-t border-border/50 px-4 py-3">
+            <summary className="cursor-pointer lowbrow">Consolation rounds ({consolation.length} matches)</summary>
+            <KnockoutList rows={consolation} />
+          </details>
+        )}
       </CardContent>
     </Card>
   );

@@ -12,12 +12,18 @@ export interface PredTeam {
   match: "exact" | "club" | "none"; rating: number | null; assumedRating: number | null;
   record: string | null; rankInDivision: number | null;
   winGroup?: number; expPoints?: number; group?: string | null; beatsAverage?: number;
+  /** knockout brackets: chance to win each round (reach the next stage) */
+  reach?: { qf: number; sf: number; final: number; title: number };
 }
 export interface PredMatch {
   a: PredTeam; b: PredTeam; win: number; draw: number; loss: number; margin: number;
-  schedule: { match: string; date: string; time: string; field: string; home: string } | null;
+  schedule: { match: string; date: string; time: string; field: string; home: string; round?: string } | null;
 }
-export interface PredGroup { name: string; kind: "round-robin" | "bracket"; teams: PredTeam[]; matches: PredMatch[] }
+export interface KnockoutRow {
+  match: string; round: string; date: string; time: string; field: string; home: string; away: string;
+  likely: { home: string; away: string; chance: number } | null;
+}
+export interface PredGroup { name: string; kind: "round-robin" | "bracket"; teams: PredTeam[]; matches: PredMatch[]; knockout?: KnockoutRow[] }
 export interface Prediction {
   event: { id: number; name: string; fullName?: string; league?: string; gender?: string; start?: string; end?: string;
     venue?: string; city?: string; state?: string; format?: string };
