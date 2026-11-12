@@ -75,6 +75,12 @@ export default function RootLayout({
                 Events
               </Link>
               <Link
+                href="/mls-next"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                MLS NEXT
+              </Link>
+              <Link
                 href="/power-rankings"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >

@@ -379,6 +379,9 @@ export function loadGotsportData() {
   /** team names from Modular11 and the MLS NEXT Cup file, for merging with their GotSport twins */
   const modularTeamNames = new Set<string>();
   const mlsNextFile = path.join(process.cwd(), "data", "mlsnext", "games.json");
+  // MLS NEXT 2026-27 (Homegrown + Academy) via mlsnexttracker.com (scripts/scrape-mlsnext-tracker.ts):
+  // named like Modular11 ("<club> MLS NEXT U15") so it joins last season's teams
+  const mlsTrackerFile = path.join(process.cwd(), "data", "mlsnext-tracker", "games.json");
   const ecnlFile = path.join(process.cwd(), "data", "ecnl", "games.json");
   const additionalSources = [
     { file: path.join(DATA_DIR, "az-nv-games", "games.json"), fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "eventName"] },
@@ -391,6 +394,7 @@ export function loadGotsportData() {
     // ECNL, ECNL RL, Pre-ECNL (data/ecnl, collected by the user from the AthleteOne API)
     { file: ecnlFile, fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "eventName"] },
     { file: modularFile, fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "eventName"] },
+    { file: mlsTrackerFile, fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "eventName"] },
     // data/ysg is NOT used: its away scores are corrupt (2026-11-10 check against the
     // GotSport API on the same matches: 29% agreement, e.g. "2-37" vs "2-3"; average
     // margin 26 goals vs ~3 for every other source). Its GotSport events are queued in
@@ -428,7 +432,8 @@ export function loadGotsportData() {
           if (!d || d > new Date().toISOString().slice(0, 10) || g.status !== "final") continue;
           modularTeamNames.add(t1); modularTeamNames.add(t2);
         }
-        if (source.file === modularFile || source.file === mlsNextFile) {
+        if (source.file === mlsTrackerFile && !g.completed) continue; // fixtures: predicted, not rated
+        if (source.file === modularFile || source.file === mlsNextFile || source.file === mlsTrackerFile) {
           if (source.file === mlsNextFile && g.ageGroup) { t1 = `${t1} MLS NEXT ${g.ageGroup}`; t2 = `${t2} MLS NEXT ${g.ageGroup}`; }
           const d = normalizeDate(String(g.date ?? ""));
           const end = d && /^\d{4}-\d{2}-\d{2}/.test(d) ? seasonEndOf(new Date(d)) : null;
