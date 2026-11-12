@@ -23,11 +23,11 @@ const CLIP: Record<string, string> = {
   CAS: `${CA_SPLIT.coast[0]},${CA_SPLIT.coast[1]} ${CA_SPLIT.east[0]},${CA_SPLIT.east[1]} 400,600 0,600`,
 };
 
-// Label positions (map coordinates), tuned by eye
+// Label positions (map coordinates): area centroids, CA halves measured within their clip
 const LABEL: Record<string, [number, number]> = {
-  WA: [118, 52], OR: [92, 118], CAN: [70, 222], CAS: [112, 338], NV: [128, 236], ID: [190, 150],
+  WA: [118, 52], OR: [92, 118], CAN: [56, 218], CAS: [101, 330], NV: [128, 236], ID: [190, 150],
   MT: [275, 88], WY: [294, 183], UT: [216, 252], CO: [318, 275], AZ: [192, 368], NM: [296, 376],
-  AK: [96, 520], HI: [300, 560],
+  AK: [116, 500], HI: [300, 560],
 };
 
 /**
@@ -36,7 +36,8 @@ const LABEL: Record<string, [number, number]> = {
  */
 export function WestMap({ areas, className }: { areas: MapArea[]; className?: string }) {
   const max = Math.max(1, ...areas.map((a) => a.teams));
-  const shade = (n: number) => 0.18 + 0.72 * Math.sqrt(n / max);
+  // light tonal range so the black labels read without a halo
+  const shade = (n: number) => 0.08 + 0.32 * Math.sqrt(n / max);
   return (
     <svg viewBox="0 0 390 595" className={className} role="img" aria-label="Map of the West: choose a state">
       <defs>
@@ -59,14 +60,14 @@ export function WestMap({ areas, className }: { areas: MapArea[]; className?: st
               fillOpacity={shade(a.teams)}
               stroke="var(--background)"
               strokeWidth={1.2}
-              className="transition-[fill-opacity] duration-150 group-hover:[fill-opacity:1] group-focus-visible:[fill-opacity:1]"
+              className="transition-[fill-opacity] duration-150 group-hover:[fill-opacity:0.55] group-focus-visible:[fill-opacity:0.55]"
             />
             <text
               x={lx} y={ly} textAnchor="middle" dominantBaseline="middle"
               className="pointer-events-none select-none text-[11px] font-semibold"
-              fill="var(--foreground)" stroke="var(--background)" strokeWidth={3} paintOrder="stroke"
+              fill="var(--foreground)"
             >
-              {a.code === "CAS" ? "Cal S" : a.code === "CAN" ? "Cal N" : a.code}
+              {a.code === "CAS" ? "CA-S" : a.code === "CAN" ? "CA-N" : a.code}
             </text>
           </Link>
         );

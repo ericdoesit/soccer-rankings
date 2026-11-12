@@ -1,4 +1,4 @@
-import { getRankings, getLeagues, getLeagueStrength } from "@/lib/data";
+import { getRankings, getLeagues, getLeagueStrength, getCoverage } from "@/lib/data";
 
 const MAX_LIMIT = 500;
 
@@ -7,6 +7,10 @@ export async function GET(request: Request) {
 
   if (searchParams.get("leagues") === "list") {
     return Response.json(getLeagues());
+  }
+  // listed teams per state / region (which places the filter offers)
+  if (searchParams.get("coverage")) {
+    return Response.json(getCoverage());
   }
   // league comparison for one age group + gender
   if (searchParams.get("strength")) {

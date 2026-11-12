@@ -499,6 +499,22 @@ function buildRankedBase(
     .sort((a, b) => b.score - a.score);
 }
 
+/** Listed teams per state and region: the rankings page only offers places we rank. */
+const coverageCache = new WeakMap<RankedTeam[], { states: Record<string, number>; regions: Record<string, number> }>();
+export function getCoverage(): { states: Record<string, number>; regions: Record<string, number> } {
+  const { rankedBase } = getIndex();
+  const hit = coverageCache.get(rankedBase);
+  if (hit) return hit;
+  const states: Record<string, number> = {}, regions: Record<string, number> = {};
+  for (const t of rankedBase) {
+    if (t.state) states[t.state] = (states[t.state] ?? 0) + 1;
+    if (t.region) regions[t.region] = (regions[t.region] ?? 0) + 1;
+  }
+  const out = { states, regions };
+  coverageCache.set(rankedBase, out);
+  return out;
+}
+
 export function getRankings(filter: RankingsFilter = {}): RankedTeam[] {
   const { teamById: teamMap, rankedBase, gamesByTournament } = getIndex();
   let rankedTeams: RankedTeam[] = rankedBase;
@@ -681,14 +697,30 @@ export function getTournamentGames(name: string): Game[] {
   return getIndex().gamesByTournament.get(name) ?? [];
 }
 
+/**
+ * Home page numbers, West only: teams listed on /rankings, completed games involving a
+ * West team, and West teams that played in the last 15 months.
+ */
+const statsCache = new WeakMap<object, { rankedTeams: number; westGames: number; activeWestTeams: number }>();
 export function getStats() {
-  const { teams, games, rankings } = getData();
-  return {
-    totalTeams: teams.length,
-    rankedTeams: rankings.length,
-    totalGames: games.filter((g) => g.status === "completed").length,
-    lastUpdated: new Date().toISOString().split("T")[0],
-  };
+  const data = getData();
+  let st = statsCache.get(data);
+  if (!st) {
+    const west = new Set(data.teams.filter((t) => t.region === "Region4").map((t) => t.id));
+    const since = new Date(Date.now() - 455 * 864e5).toISOString().slice(0, 10);
+    const active = new Set<number>();
+    let westGames = 0;
+    for (const g of data.games) {
+      if (g.status !== "completed") continue;
+      const a = west.has(g.team1Id), b = west.has(g.team2Id);
+      if (!a && !b) continue;
+      westGames++;
+      if (g.date && g.date >= since) { if (a) active.add(g.team1Id); if (b) active.add(g.team2Id); }
+    }
+    st = { rankedTeams: getIndex().rankedBase.length, westGames, activeWestTeams: active.size };
+    statsCache.set(data, st);
+  }
+  return { ...st, lastUpdated: new Date().toISOString().split("T")[0] };
 }
 
 export interface PowerRankedTeam extends RankedTeam {

@@ -152,6 +152,18 @@ export default function RankingsPage() {
     return sortDir === "asc" ? cmp : -cmp;
   });
 
+  // only offer states and regions that have listed teams
+  const [coverage, setCoverage] = useState<{ states: Record<string, number>; regions: Record<string, number> } | null>(null);
+  useEffect(() => {
+    fetch("/api/rankings?coverage=1")
+      .then((r) => r.json())
+      .then(setCoverage)
+      .catch(() => {});
+  }, []);
+  const places = REGIONS.filter((r) => r.value === "National" || !coverage ||
+    (r.value.startsWith("Region") ? (coverage.regions[r.value] ?? 0) > 0 : (coverage.states[r.value] ?? 0) > 0));
+  const coveredNames = coverage ? REGIONS.filter((r) => !r.value.startsWith("Region") && r.value !== "National" && (coverage.states[r.value] ?? 0) > 0).map((r) => r.label) : [];
+
   useEffect(() => {
     fetch("/api/rankings?leagues=list")
       .then((r) => r.json())
@@ -190,16 +202,34 @@ export default function RankingsPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
-      <h1 className="mb-6 text-3xl font-bold">Rankings</h1>
+      <h1 className="mb-4 text-3xl font-bold">Rankings</h1>
+
+      <div className="mb-6 rounded-lg border bg-muted/40 p-4 text-sm text-muted-foreground">
+        <p className="mb-2 font-medium text-foreground">What we rank</p>
+        <p className="mb-2">
+          These rankings cover the Western US{coveredNames.length ? <> ({coveredNames.join(", ")})</> : null}. Other states
+          aren&apos;t ranked yet: ranking a state fairly takes its league and tournament results, and we don&apos;t collect
+          those yet. Teams from other states still count in the ratings whenever they play Western teams, so the rankings
+          reflect national competition. Hawaii isn&apos;t ranked because its teams rarely play mainland opponents.
+        </p>
+        <p className="mb-2">
+          Within the West, a team is listed when it plays in tracked competitions (elite leagues, State Cups,
+          championships and major showcases) and has enough recent games. Teams that only play in local leagues stay in
+          the directory, and their games still count.
+        </p>
+        <p>
+          Next: tracking teams from outside the West that compete nationally in Los Angeles.
+        </p>
+      </div>
 
       {/* Filters */}
       <div className="mb-6 flex flex-wrap items-center gap-3">
-        <Select value={region} onValueChange={(v) => v !== null && setRegion(v)}>
+        <Select items={places} value={region} onValueChange={(v) => v !== null && setRegion(v)}>
           <SelectTrigger className="w-[160px]">
             <SelectValue placeholder="Region" />
           </SelectTrigger>
           <SelectContent>
-            {REGIONS.map((r) => (
+            {places.map((r) => (
               <SelectItem key={r.value} value={r.value}>
                 {r.label}
               </SelectItem>

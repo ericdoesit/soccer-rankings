@@ -11,8 +11,8 @@ export default function AboutPage() {
             <h2 className="heading mb-3">How It Works</h2>
             <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
               <p>
-                Youth Soccer Rankings USA provides the most accurate rankings for
-                youth soccer club teams in the United States. Each team is assigned
+                Youth Soccer Rankings ranks competitive youth soccer club teams in
+                the Western US. Each team is assigned
                 a score measured in <strong className="text-foreground">goals</strong>. To predict the goal difference when two
                 teams play each other, subtract the score of one team from the
                 other.
@@ -58,8 +58,8 @@ export default function AboutPage() {
             <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
               <p>
                 Game results are collected from tournament and league websites
-                across the Southwest region. We currently track over{" "}
-                <strong className="text-foreground">120,000 games</strong> from multiple platforms
+                across the Western US. We currently track over{" "}
+                <strong className="text-foreground">470,000 games</strong> from multiple platforms
                 including GotSport, Coast Soccer League, Total Global Sports,
                 and state association sites.
               </p>
@@ -185,125 +185,68 @@ export default function AboutPage() {
         </Card>
         <Card>
           <CardContent className="py-6">
-            <h2 className="heading mb-4">Regions</h2>
+            <h2 className="heading mb-4">Coverage: Region IV</h2>
             <p className="body-text mb-6">
-              Rankings are organized into eight conferences based on the{" "}
-              <strong className="text-foreground">National 1 League</strong> district structure.
-              Each conference contains multiple districts grouped by geography.
+              We rank teams in <strong className="text-foreground">US Youth Soccer Region IV</strong>, the 13 Western
+              states. California is split into Cal South and Cal North, the way its two state associations run it, so the
+              West has 14 areas.
             </p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/us-regions-map.svg"
-              alt="US map color-coded by N1L region"
+              src="/region-iv-map.svg"
+              alt="US map with the 13 Region IV states highlighted: Alaska, Arizona, California, Colorado, Hawaii, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, Washington and Wyoming"
               className="w-full max-w-2xl mx-auto mb-6"
             />
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2 mb-6">
               {[
                 {
                   name: "West",
-                  color: "bg-blue-500",
-                  districts: [
-                    "D1: Colorado, Wyoming (Cheyenne)",
-                    "D2: Arizona",
-                    "D3: Southern California",
-                    "D4: Northern California",
-                    "D5: Las Vegas, Nevada",
-                    "D6: Utah",
-                  ],
+                  note: "N1 League West conference, plus New Mexico",
+                  states: ["Arizona", "Cal North", "Cal South", "Colorado", "Nevada", "New Mexico", "Utah", "Wyoming"],
                 },
                 {
                   name: "Northwest",
-                  color: "bg-teal-500",
-                  districts: [
-                    "D1: Idaho, Montana",
-                    "D2: Oregon",
-                    "D3: Washington",
-                    "D4: Alaska",
-                    "D5: Hawaii",
-                  ],
+                  note: "N1 League Northwest conference",
+                  states: ["Alaska", "Hawaii (not ranked yet)", "Idaho", "Montana", "Oregon", "Washington"],
                 },
-                {
-                  name: "South",
-                  color: "bg-red-500",
-                  districts: [
-                    "D1: Oklahoma, Arkansas",
-                    "D2: North Texas",
-                    "D3: South Texas",
-                    "D4: West Texas, New Mexico",
-                  ],
-                },
-                {
-                  name: "Southeast",
-                  color: "bg-orange-500",
-                  districts: [
-                    "D1: Georgia, South Carolina",
-                    "D2: Florida",
-                    "D3: Alabama, FL Panhandle",
-                    "D4: Louisiana, Mississippi",
-                  ],
-                },
-                {
-                  name: "Mid-Atlantic",
-                  color: "bg-purple-500",
-                  districts: [
-                    "D1: Delaware, Maryland, DC",
-                    "D2: Virginia",
-                    "D3: North Carolina",
-                    "D4: Tennessee",
-                  ],
-                },
-                {
-                  name: "Northeast",
-                  color: "bg-indigo-500",
-                  districts: [
-                    "D1: ME, VT, NH, MA, RI",
-                    "D2: Eastern New York, CT",
-                    "D3: New Jersey, Eastern PA",
-                    "D4: Upstate New York",
-                  ],
-                },
-                {
-                  name: "Midwest",
-                  color: "bg-green-600",
-                  districts: [
-                    "D1: N. Ohio, W. PA, W. NY, WV",
-                    "D2: S. Ohio, S. Indiana, KY",
-                    "D3: Wisconsin, Illinois",
-                    "D4: Chicago",
-                    "D5: Michigan, N. Indiana",
-                  ],
-                },
-                {
-                  name: "Central",
-                  color: "bg-yellow-600",
-                  districts: [
-                    "D1: Minnesota, W. Wisconsin",
-                    "D2: MO, KS, NE, IA",
-                  ],
-                },
-              ].map((region) => (
-                <div
-                  key={region.name}
-                  className="rounded-[10px] border border-border p-4"
-                >
-                  <div className="flex items-center gap-2 mb-2">
-                    <div
-                      className={`h-3 w-3 rounded-full ${region.color}`}
-                    />
-                    <span className="font-semibold text-foreground">
-                      {region.name}
-                    </span>
+              ].map((group) => (
+                <div key={group.name} className="rounded-[10px] border border-border p-4">
+                  <div className="flex items-center gap-2 mb-1">
+                    <div className="h-3 w-3 rounded-full bg-blue-600" />
+                    <span className="font-semibold text-foreground">{group.name}</span>
                   </div>
+                  <p className="text-xs text-muted-foreground mb-2">{group.note}</p>
                   <ul className="space-y-0.5">
-                    {region.districts.map((d) => (
-                      <li key={d} className="text-xs text-muted-foreground">
-                        {d}
-                      </li>
+                    {group.states.map((st) => (
+                      <li key={st} className="text-xs text-muted-foreground">{st}</li>
                     ))}
                   </ul>
                 </div>
               ))}
             </div>
+            <h3 className="font-semibold text-foreground mb-2">Why Region IV</h3>
+            <ul className="body-text space-y-2 list-disc pl-5">
+              <li>
+                <strong className="text-foreground">It&apos;s how Western youth soccer is organized.</strong>{" "}Region IV is
+                US Youth Soccer&apos;s Western region: its state associations, State Cups, Far West Regional Championships
+                and Olympic Development Program all run on these 13 states.
+              </li>
+              <li>
+                <strong className="text-foreground">Western teams play each other.</strong>{" "}The elite leagues group the
+                West the same way: the N1 League&apos;s West and Northwest conferences together cover every Region IV state except New Mexico,
+                and ECNL, Girls Academy and DPL run Western conferences and showcases (Surf Cup, DPL Western Regional,
+                GA West). Teams that play each other often can be compared accurately.
+              </li>
+              <li>
+                <strong className="text-foreground">Depth over breadth.</strong>{" "}We&apos;d rather cover every competitive
+                league, club and team in the West than rank the whole country thinly. Teams from other regions still
+                count in the ratings when they play Western teams, so national strength is reflected.
+              </li>
+              <li>
+                <strong className="text-foreground">Hawaii</strong>{" "}is part of Region IV, but its teams rarely play
+                mainland opponents, so they can&apos;t yet be rated on the same scale.
+              </li>
+            </ul>
           </CardContent>
         </Card>
       </div>

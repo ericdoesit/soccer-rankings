@@ -15,16 +15,16 @@ export default function HomePage() {
           Youth Soccer Rankings
         </h1>
         <p className="mt-3 text-lg text-muted-foreground">
-          The most accurate rankings for youth soccer club teams in the USA
+          Rankings for competitive youth soccer teams in the Western US
         </p>
       </section>
 
       {/* Stats Ticker */}
       <section className="mb-10 grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-0">
         {[
-          { value: stats.rankedTeams.toLocaleString(), label: "Teams Ranked", desc: "Across the Southwest region", align: "sm:items-start sm:text-left" },
-          { value: stats.totalGames.toLocaleString(), label: "Games Tracked", desc: "Individual match results", align: "sm:items-center sm:text-center" },
-          { value: stats.totalTeams.toLocaleString(), label: "Total Teams", desc: "In our database", align: "sm:items-end sm:text-right" },
+          { value: stats.rankedTeams.toLocaleString(), label: "Teams Ranked", desc: "Across the 13 Western states", align: "sm:items-start sm:text-left" },
+          { value: stats.westGames.toLocaleString(), label: "Games Tracked", desc: "Involving Western teams", align: "sm:items-center sm:text-center" },
+          { value: stats.activeWestTeams.toLocaleString(), label: "Western Teams", desc: "Active in our directory", align: "sm:items-end sm:text-right" },
         ].map((s) => (
           <div
             key={s.label}

@@ -211,9 +211,10 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
             the last 15 months. Each group is then played out 10,000 times to get every team&apos;s chance of finishing first.
           </p>
           <p>
-            Bars show <span className="font-medium text-foreground">left team wins</span> · draw · right team wins.
-            {" "}{p.teams.rated} of {p.teams.total} teams have a rating; teams marked &ldquo;no data&rdquo; (mostly from outside
-            the West) count as an average team in their age group.
+            {"Each bar shows the chance of a "}
+            <span className="font-medium text-foreground">left-team win</span>
+            {", a draw and a right-team win. "}
+            {`${p.teams.rated} of ${p.teams.total} teams have a rating. Teams marked “no data,” mostly from outside the West, are treated as an average team in their age group.`}
           </p>
           {p.score && (
             <p className="text-foreground">

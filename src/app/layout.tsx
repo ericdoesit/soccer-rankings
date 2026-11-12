@@ -12,7 +12,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Youth Soccer Rankings",
   description:
-    "The most accurate rankings for youth soccer club teams in the USA.",
+    "Rankings for competitive youth soccer teams in the Western US.",
 };
 
 export default function RootLayout({
