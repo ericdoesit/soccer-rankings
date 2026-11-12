@@ -81,7 +81,11 @@ const rr = (e: Entry) => r(e) ?? divMedian.get(e.division)!;
 function simulate(group: Entry[], runs = 10000) {
   const firsts = new Array(group.length).fill(0), pts = new Array(group.length).fill(0);
   const pairs: Array<[number, number, Outcome]> = [];
+  // once a group's schedule is known, simulate only the games actually scheduled
+  // (big groups, e.g. 6 teams, don't play a full round robin)
+  const hasSchedule = group.some((x, i) => group.some((y, j) => j > i && slot(x, y)));
   for (let i = 0; i < group.length; i++) for (let j = i + 1; j < group.length; j++) {
+    if (hasSchedule && !slot(group[i], group[j])) continue;
     pairs.push([i, j, predict(rr(group[i]), rr(group[j]))]);
   }
   for (let k = 0; k < runs; k++) {

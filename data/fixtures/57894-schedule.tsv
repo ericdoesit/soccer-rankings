@@ -1,8 +1,5 @@
 # Event 57894 match schedule (from 57894-schedule-paste.txt).
 # division	match	date	time (local)	field	home team (as shown)	away team (as shown)
-U15	323	2026-11-20	3:00 PM MST	Arizona Athletic Grounds - Field 21	San Diego Rush Soccer Club GU15 DPL	Houston Futsal Soccer Club U15G DPL
-U15	347	2026-11-21	1:15 PM MST	Arizona Athletic Grounds - Field 21	Albion SC Antelope Valley GU15 DPL	San Diego Rush Soccer Club GU15 DPL
-U15	371	2026-11-22	12:00 PM MST	Arizona Athletic Grounds - Field 16	San Diego Rush Soccer Club GU15 DPL	Colorado Rush East U15G DPL
 U16	240	2026-11-20	6:30 PM MST	Arizona Athletic Grounds - Field 11	Houston Surf Soccer Club 10/11 DPL	Boca Orange County U16G DPL
 U16	239	2026-11-20	6:30 PM MST	Arizona Athletic Grounds - Field 10	Chicago City Soccer Club U16G DPL	City SC Kings County U16G DPL
 U16	242	2026-11-20	6:30 PM MST	Arizona Athletic Grounds - Field 13	Texas Premier SC (STX) TXP U16G Gold DPL	Oaks FC U16G DPL
@@ -81,3 +78,234 @@ U16	314	2026-11-22	11:40 AM MST	Arizona Athletic Grounds - Field 21	Visalia Unit
 U16	313	2026-11-22	1:30 PM MST	Arizona Athletic Grounds - Field 21	Sparta United U16G DPL	Arizona Soccer Club U16G DPL
 U16	316	2026-11-22	8:00 AM MST	Arizona Athletic Grounds - Field 20	City SC El Paso U16G DPL	FC Man United U16G DPLO
 U16	315	2026-11-22	9:50 AM MST	Arizona Athletic Grounds - Field 20	Arizona Surf Soccer Club East Valley U16 G N1	Indie Chicas U16G DPL
+U17	161	2026-11-19	6:00 PM MST	Arizona Athletic Grounds - Field 12	NM Rapids SC U17G DPL	Denver Kickers Sport Club U17G DPL
+U17	162	2026-11-19	6:00 PM MST	Arizona Athletic Grounds - Field 13	Texas Premier SC (STX) TXP U17G Navy DPL	Albion SC Santa Monica U17G DPL
+U17	163	2026-11-19	12:00 PM MST	Arizona Athletic Grounds - Field 09	CDA Slammers U17G DPL	HTX West U17G DPL
+U17	164	2026-11-19	12:00 PM MST	Arizona Athletic Grounds - Field 08	Oaks FC U17G DPL	ALBION SC Boulder County GU17 DPL
+U17	165	2026-11-19	12:45 PM MST	Arizona Athletic Grounds - Field 18	Ventura County Fusion VC U17 DPL	Houston Futsal Soccer Club U17G DPL
+U17	166	2026-11-19	12:45 PM MST	Arizona Athletic Grounds - Field 19	City SC - San Marcos GU17 DPL	TOTAL FUTBOL ACADEMY (CA) TFA-SGV GU17 DPLO
+U17	168	2026-11-19	12:00 PM MST	Arizona Athletic Grounds - Field 07	Phoenix Rising FC U17G DPL	Culver City Football Club U17G DPL
+U17	167	2026-11-19	4:45 PM MST	Arizona Athletic Grounds - Field 17	Central Coast United SC CCU U17 DPL	Pateadores Soccer Club U17G DPL
+U17	170	2026-11-19	6:45 PM MST	Arizona Athletic Grounds - Field 21	FLYTE SC IE GU17 DPL	City SC South Bay GU17 DPLO
+U17	169	2026-11-19	6:45 PM MST	Arizona Athletic Grounds - Field 20	Colorado Storm CR U17G DPL	Houston Surf Soccer Club u17 DPL
+U17	172	2026-11-19	4:45 PM MST	Arizona Athletic Grounds - Field 20	Idaho Surf SC ID U17G DPL	SoCal Reds FC U17G DPLO
+U17	171	2026-11-19	6:45 PM MST	Arizona Athletic Grounds - Field 22	Inter Atlanta FC U17G DPL	Central Cal Aztecs GU17 DPL
+U17	174	2026-11-19	2:45 PM MST	Arizona Athletic Grounds - Field 21	Arizona Surf Soccer Club East Valley U17 G DPL	Colorado Rush East U17G DPL
+U17	173	2026-11-19	4:45 PM MST	Arizona Athletic Grounds - Field 21	FLYTE SC IE GU17 DPLO	Visalia United FC U17G DPL
+U17	175	2026-11-19	10:45 AM MST	Arizona Athletic Grounds - Field 19	Chicago City Soccer Club U17G DPL	Chula Vista FC U17G DPL
+U17	176	2026-11-19	2:45 PM MST	Arizona Athletic Grounds - Field 20	Steel United Texas TX 09/10G DPL	Valley United SC U17G DPL
+U17	177	2026-11-19	10:45 AM MST	Arizona Athletic Grounds - Field 22	La Roca FC U17G DPL	City SC Kings County U17G DPL
+U17	178	2026-11-19	12:45 PM MST	Arizona Athletic Grounds - Field 22	CO Elevation FC U17G DPL	Pateadores Soccer Club U17G DPLO
+U17	180	2026-11-19	10:45 AM MST	Arizona Athletic Grounds - Field 21	GFI Academy U17G DPL	Boca Orange County U17G DPLO
+U17	179	2026-11-19	10:45 AM MST	Arizona Athletic Grounds - Field 20	City SC El Paso U17G DPL	Rangers FC U17G DPL
+U17	181	2026-11-19	10:45 AM MST	Arizona Athletic Grounds - Field 17	Arizona Soccer Club U17G DPL	Inland Surf U17G DPL
+U17	182	2026-11-19	10:45 AM MST	Arizona Athletic Grounds - Field 18	Dallas Surf U17G DPL	City SC Santa Clarita GU17 Gold DPLO
+U17	184	2026-11-19	12:45 PM MST	Arizona Athletic Grounds - Field 21	Phoenix Premier FC U17G DPL	Desert Empire Surf U17G DPLO
+U17	183	2026-11-19	2:00 PM MST	Arizona Athletic Grounds - Field 14	ALBION SC Central Valley N1 G2009/10 DPL (CA)	Skyline U17 DPL
+U17	185	2026-11-19	12:45 PM MST	Arizona Athletic Grounds - Field 20	El Paso Surf Soccer Club U17G DPL	Indie Chicas U17G DPL
+U17	187	2026-11-20	4:30 PM MST	Arizona Athletic Grounds - Field 09	Texas Premier SC (STX) TXP U17G Navy DPL	NM Rapids SC U17G DPL
+U17	188	2026-11-20	4:30 PM MST	Arizona Athletic Grounds - Field 08	Albion SC Santa Monica U17G DPL	Denver Kickers Sport Club U17G DPL
+U17	190	2026-11-20	4:30 PM MST	Arizona Athletic Grounds - Field 06	ALBION SC Boulder County GU17 DPL	HTX West U17G DPL
+U17	189	2026-11-20	4:30 PM MST	Arizona Athletic Grounds - Field 07	Oaks FC U17G DPL	CDA Slammers U17G DPL
+U17	192	2026-11-20	4:30 PM MST	Arizona Athletic Grounds - Field 11	TOTAL FUTBOL ACADEMY (CA) TFA-SGV GU17 DPLO	Houston Futsal Soccer Club U17G DPL
+U17	191	2026-11-20	4:30 PM MST	Arizona Athletic Grounds - Field 10	City SC - San Marcos GU17 DPL	Ventura County Fusion VC U17 DPL
+U17	193	2026-11-20	4:30 PM MST	Arizona Athletic Grounds - Field 12	Phoenix Rising FC U17G DPL	Central Coast United SC CCU U17 DPL
+U17	194	2026-11-20	4:30 PM MST	Arizona Athletic Grounds - Field 13	Culver City Football Club U17G DPL	Pateadores Soccer Club U17G DPL
+U17	196	2026-11-20	11:00 AM MST	Arizona Athletic Grounds - Field 18	City SC South Bay GU17 DPLO	Houston Surf Soccer Club u17 DPL
+U17	195	2026-11-20	11:00 AM MST	Arizona Athletic Grounds - Field 17	FLYTE SC IE GU17 DPL	Colorado Storm CR U17G DPL
+U17	198	2026-11-20	8:30 AM MST	Arizona Athletic Grounds - Field 13	SoCal Reds FC U17G DPLO	Central Cal Aztecs GU17 DPL
+U17	197	2026-11-20	8:30 AM MST	Arizona Athletic Grounds - Field 14	Idaho Surf SC ID U17G DPL	Inter Atlanta FC U17G DPL
+U17	199	2026-11-20	9:00 AM MST	Arizona Athletic Grounds - Field 17	Arizona Surf Soccer Club East Valley U17 G DPL	FLYTE SC IE GU17 DPLO
+U17	200	2026-11-20	9:00 AM MST	Arizona Athletic Grounds - Field 18	Colorado Rush East U17G DPL	Visalia United FC U17G DPL
+U17	201	2026-11-20	8:30 AM MST	Arizona Athletic Grounds - Field 06	Steel United Texas TX 09/10G DPL	Chicago City Soccer Club U17G DPL
+U17	202	2026-11-20	10:30 AM MST	Arizona Athletic Grounds - Field 07	Valley United SC U17G DPL	Chula Vista FC U17G DPL
+U17	204	2026-11-20	10:30 AM MST	Arizona Athletic Grounds - Field 09	Pateadores Soccer Club U17G DPLO	City SC Kings County U17G DPL
+U17	203	2026-11-20	10:30 AM MST	Arizona Athletic Grounds - Field 08	CO Elevation FC U17G DPL	La Roca FC U17G DPL
+U17	205	2026-11-20	8:30 AM MST	Arizona Athletic Grounds - Field 07	GFI Academy U17G DPL	City SC El Paso U17G DPL
+U17	206	2026-11-20	8:30 AM MST	Arizona Athletic Grounds - Field 08	Boca Orange County U17G DPLO	Rangers FC U17G DPL
+U17	207	2026-11-20	8:30 AM MST	Arizona Athletic Grounds - Field 09	Dallas Surf U17G DPL	Arizona Soccer Club U17G DPL
+U17	208	2026-11-20	8:30 AM MST	Arizona Athletic Grounds - Field 10	City SC Santa Clarita GU17 Gold DPLO	Inland Surf U17G DPL
+U17	210	2026-11-20	8:30 AM MST	Arizona Athletic Grounds - Field 12	Desert Empire Surf U17G DPLO	Skyline U17 DPL
+U17	209	2026-11-20	8:30 AM MST	Arizona Athletic Grounds - Field 11	Phoenix Premier FC U17G DPL	ALBION SC Central Valley N1 G2009/10 DPL (CA)
+U17	390	2026-11-20	1:00 PM MST	Arizona Athletic Grounds - Field 18	Indie Chicas U17G DPL	FC Man United U17G DPLO
+U17	213	2026-11-21	8:00 AM MST	Arizona Athletic Grounds - Field 19	Denver Kickers Sport Club U17G DPL	Texas Premier SC (STX) TXP U17G Navy DPL
+U17	214	2026-11-21	9:50 AM MST	Arizona Athletic Grounds - Field 19	NM Rapids SC U17G DPL	Albion SC Santa Monica U17G DPL
+U17	215	2026-11-21	8:00 AM MST	Arizona Athletic Grounds - Field 20	HTX West U17G DPL	Oaks FC U17G DPL
+U17	216	2026-11-21	11:40 AM MST	Arizona Athletic Grounds - Field 18	CDA Slammers U17G DPL	ALBION SC Boulder County GU17 DPL
+U17	217	2026-11-21	11:40 AM MST	Arizona Athletic Grounds - Field 19	Houston Futsal Soccer Club U17G DPL	City SC - San Marcos GU17 DPL
+U17	218	2026-11-21	1:30 PM MST	Arizona Athletic Grounds - Field 19	Ventura County Fusion VC U17 DPL	TOTAL FUTBOL ACADEMY (CA) TFA-SGV GU17 DPLO
+U17	220	2026-11-21	11:40 AM MST	Arizona Athletic Grounds - Field 20	Central Coast United SC CCU U17 DPL	Culver City Football Club U17G DPL
+U17	219	2026-11-21	1:30 PM MST	Arizona Athletic Grounds - Field 20	Pateadores Soccer Club U17G DPL	Phoenix Rising FC U17G DPL
+U17	221	2026-11-21	11:40 AM MST	Arizona Athletic Grounds - Field 17	Houston Surf Soccer Club u17 DPL	FLYTE SC IE GU17 DPL
+U17	222	2026-11-21	1:30 PM MST	Arizona Athletic Grounds - Field 17	Colorado Storm CR U17G DPL	City SC South Bay GU17 DPLO
+U17	224	2026-11-21	9:50 AM MST	Arizona Athletic Grounds - Field 18	Inter Atlanta FC U17G DPL	SoCal Reds FC U17G DPLO
+U17	223	2026-11-21	9:50 AM MST	Arizona Athletic Grounds - Field 17	Central Cal Aztecs GU17 DPL	Idaho Surf SC ID U17G DPL
+U17	226	2026-11-21	9:50 AM MST	Arizona Athletic Grounds - Field 20	FLYTE SC IE GU17 DPLO	Colorado Rush East U17G DPL
+U17	225	2026-11-21	1:30 PM MST	Arizona Athletic Grounds - Field 18	Visalia United FC U17G DPL	Arizona Surf Soccer Club East Valley U17 G DPL
+U17	228	2026-11-21	8:00 AM MST	Arizona Athletic Grounds - Field 18	Chicago City Soccer Club U17G DPL	Valley United SC U17G DPL
+U17	227	2026-11-21	8:00 AM MST	Arizona Athletic Grounds - Field 17	Chula Vista FC U17G DPL	Steel United Texas TX 09/10G DPL
+U17	229	2026-11-21	8:00 AM MST	Arizona Athletic Grounds - Field 16	City SC Kings County U17G DPL	CO Elevation FC U17G DPL
+U17	230	2026-11-21	8:00 AM MST	Arizona Athletic Grounds - Field 15	La Roca FC U17G DPL	Pateadores Soccer Club U17G DPLO
+U17	232	2026-11-21	9:50 AM MST	Arizona Athletic Grounds - Field 16	City SC El Paso U17G DPL	Boca Orange County U17G DPLO
+U17	231	2026-11-21	9:50 AM MST	Arizona Athletic Grounds - Field 15	Rangers FC U17G DPL	GFI Academy U17G DPL
+U17	233	2026-11-21	9:50 AM MST	Arizona Athletic Grounds - Field 14	Inland Surf U17G DPL	Dallas Surf U17G DPL
+U17	234	2026-11-21	11:40 AM MST	Arizona Athletic Grounds - Field 14	Arizona Soccer Club U17G DPL	City SC Santa Clarita GU17 Gold DPLO
+U17	237	2026-11-21	8:00 AM MST	Arizona Athletic Grounds - Field 14	ALBION SC Central Valley N1 G2009/10 DPL (CA)	Desert Empire Surf U17G DPLO
+U17	235	2026-11-21	1:30 PM MST	Arizona Athletic Grounds - Field 14	Skyline U17 DPL	Phoenix Premier FC U17G DPL
+U17	236	2026-11-21	11:40 AM MST	Arizona Athletic Grounds - Field 15	El Paso Surf Soccer Club U17G DPL	FC Man United U17G DPLO
+U19	77	2026-11-19	6:00 PM MST	Arizona Athletic Grounds - Field 02	El Paso Surf Soccer Club U19G DPL	Central Coast Surf Soccer Club U19G DPL
+U19	76	2026-11-19	6:00 PM MST	Arizona Athletic Grounds - Field 01	Inland Surf U19G DPL	FC Premier (CA) U19G DPLO
+U19	79	2026-11-19	6:00 PM MST	Arizona Athletic Grounds - Field 04	San Diego Rush Soccer Club GU19 DPL	Albion SC Riverside GU19 DPL
+U19	78	2026-11-19	6:00 PM MST	Arizona Athletic Grounds - Field 03	RSL-AZ North U19G Hansen Royals DPL	Los Angeles Bulls Soccer Club U19G DPLO
+U19	81	2026-11-20	5:00 PM MST	Arizona Athletic Grounds - Field 02	FC Premier (CA) U19G DPLO	El Paso Surf Soccer Club U19G DPL
+U19	80	2026-11-20	5:00 PM MST	Arizona Athletic Grounds - Field 01	Central Coast Surf Soccer Club U19G DPL	Inland Surf U19G DPL
+U19	83	2026-11-20	5:00 PM MST	Arizona Athletic Grounds - Field 04	Los Angeles Bulls Soccer Club U19G DPLO	San Diego Rush Soccer Club GU19 DPL
+U19	82	2026-11-20	5:00 PM MST	Arizona Athletic Grounds - Field 03	Albion SC Riverside GU19 DPL	RSL-AZ North U19G Hansen Royals DPL
+U19	84	2026-11-21	2:45 PM MST	Arizona Athletic Grounds - Field 01	Inland Surf U19G DPL	El Paso Surf Soccer Club U19G DPL
+U19	85	2026-11-21	2:45 PM MST	Arizona Athletic Grounds - Field 02	Central Coast Surf Soccer Club U19G DPL	FC Premier (CA) U19G DPLO
+U19	86	2026-11-21	2:45 PM MST	Arizona Athletic Grounds - Field 03	RSL-AZ North U19G Hansen Royals DPL	San Diego Rush Soccer Club GU19 DPL
+U19	87	2026-11-21	2:45 PM MST	Arizona Athletic Grounds - Field 04	Albion SC Riverside GU19 DPL	Los Angeles Bulls Soccer Club U19G DPLO
+U19	89	2026-11-19	2:00 PM MST	Arizona Athletic Grounds - Field 08	Chicago City Soccer Club U18G DPL	NM Rapids SC U19G DPL
+U19	90	2026-11-19	4:00 PM MST	Arizona Athletic Grounds - Field 08	Central Cal Aztecs GU19 DPL	FLYTE SC IE GU19 DPL
+U19	91	2026-11-19	4:00 PM MST	Arizona Athletic Grounds - Field 09	Texas Premier SC (STX) TXP U19G Gold DPL	Denver Kickers Sport Club U19G DPL
+U19	92	2026-11-19	6:00 PM MST	Arizona Athletic Grounds - Field 11	CDA Slammers U19G DPL	Arizona Surf Soccer Club Pima U18G DPL - Torres
+U19	94	2026-11-19	2:00 PM MST	Arizona Athletic Grounds - Field 09	City SC Southwest U19G DPL	City SC Kings County U19G DPL
+U19	93	2026-11-19	6:00 PM MST	Arizona Athletic Grounds - Field 10	Inter Atlanta FC U19G DPL	Steel United Texas TX 08/09G DPL
+U19	95	2026-11-19	6:00 PM MST	Arizona Athletic Grounds - Field 08	Central Coast United SC CCU U19 DPL	Chula Vista FC U19G DPL
+U19	96	2026-11-19	6:45 PM MST	Arizona Athletic Grounds - Field 17	CO Elevation FC U19G DPL	SoCal Reds FC U19G DPLO
+U19	97	2026-11-19	6:00 PM MST	Arizona Athletic Grounds - Field 09	HTX North U19G DPL	Excel Soccer Academy U19G DPL
+U19	98	2026-11-19	6:00 PM MST	Arizona Athletic Grounds - Field 07	LA Surf Soccer Club DPL U19	TOTAL FUTBOL ACADEMY (CA) TFA-Glendale GU19 DPLO
+U19	99	2026-11-19	2:45 PM MST	Arizona Athletic Grounds - Field 22	City SC Utah UT U18G DPL - JC	Pateadores Soccer Club U18G DPL
+U19	100	2026-11-19	4:00 PM MST	Arizona Athletic Grounds - Field 07	Colorado Rush East U19G DPL	Desert Empire Surf U19G DPLO
+U19	102	2026-11-19	12:00 PM MST	Arizona Athletic Grounds - Field 14	SoCal Elite FC GU19 DPL	FLYTE SC IE GU19 DPLO
+U19	101	2026-11-19	2:45 PM MST	Arizona Athletic Grounds - Field 17	Houston Futsal Soccer Club U19G DPL	RSL-AZ Southern AZ U19G DPL
+U19	104	2026-11-19	2:00 PM MST	Arizona Athletic Grounds - Field 07	HTX West U19G DPL	Culver City Football Club U19G DPL
+U19	103	2026-11-19	4:00 PM MST	Arizona Athletic Grounds - Field 14	Albion SC Antelope Valley GU19 DPL	Phoenix Premier FC U19G DPL
+U19	105	2026-11-19	6:45 PM MST	Arizona Athletic Grounds - Field 18	Visalia United FC U19G DPL	Albion SC Santa Monica U19G DPL
+U19	106	2026-11-19	6:45 PM MST	Arizona Athletic Grounds - Field 19	Phoenix Rising FC U19G DPL	Valley United SC U19G DPL
+U19	107	2026-11-19	4:45 PM MST	Arizona Athletic Grounds - Field 19	ALBION SC Boulder County GU19 DPL	Rangers FC South 19G DPL
+U19	108	2026-11-19	6:00 PM MST	Arizona Athletic Grounds - Field 14	City SC South Bay GU19 DPLO	Arizona Arsenal Soccer Club U19G DPL
+U19	110	2026-11-19	2:45 PM MST	Arizona Athletic Grounds - Field 18	City SC - San Marcos GU19 DPL	FC Man United U19G DPLO
+U19	109	2026-11-19	4:45 PM MST	Arizona Athletic Grounds - Field 18	Arizona Soccer Club U19G DPL	La Roca FC U19G DPL
+U19	111	2026-11-19	12:45 PM MST	Arizona Athletic Grounds - Field 17	Premier Futbol Academy of San Antonio U19 G DPL	Ventura County Fusion VC GU19
+U19	117	2026-11-20	2:30 PM MST	Arizona Athletic Grounds - Field 09	City SC Kings County U19G DPL	Inter Atlanta FC U19G DPL
+U19	118	2026-11-20	2:30 PM MST	Arizona Athletic Grounds - Field 08	Steel United Texas TX 08/09G DPL	City SC Southwest U19G DPL
+U19	120	2026-11-20	12:30 PM MST	Arizona Athletic Grounds - Field 07	CO Elevation FC U19G DPL	Chula Vista FC U19G DPL
+U19	119	2026-11-20	2:30 PM MST	Arizona Athletic Grounds - Field 07	SoCal Reds FC U19G DPLO	Central Coast United SC CCU U19 DPL
+U19	121	2026-11-20	12:30 PM MST	Arizona Athletic Grounds - Field 08	TOTAL FUTBOL ACADEMY (CA) TFA-Glendale GU19 DPLO	HTX North U19G DPL
+U19	122	2026-11-20	12:30 PM MST	Arizona Athletic Grounds - Field 09	LA Surf Soccer Club DPL U19	Excel Soccer Academy U19G DPL
+U19	123	2026-11-20	10:30 AM MST	Arizona Athletic Grounds - Field 06	Desert Empire Surf U19G DPLO	City SC Utah UT U18G DPL - JC
+U19	124	2026-11-20	12:30 PM MST	Arizona Athletic Grounds - Field 06	Pateadores Soccer Club U18G DPL	Colorado Rush East U19G DPL
+U19	114	2026-11-21	8:00 AM MST	Arizona Athletic Grounds - Field 08	NM Rapids SC U19G DPL	Central Cal Aztecs GU19 DPL
+U19	113	2026-11-21	8:00 AM MST	Arizona Athletic Grounds - Field 09	FLYTE SC IE GU19 DPL	Chicago City Soccer Club U18G DPL
+U19	116	2026-11-21	8:00 AM MST	Arizona Athletic Grounds - Field 06	Denver Kickers Sport Club U19G DPL	CDA Slammers U19G DPL
+U19	115	2026-11-21	8:00 AM MST	Arizona Athletic Grounds - Field 07	Arizona Surf Soccer Club Pima U18G DPL - Torres	Texas Premier SC (STX) TXP U19G Gold DPL
+U19	125	2026-11-21	10:00 AM MST	Arizona Athletic Grounds - Field 09	FLYTE SC IE GU19 DPLO	Houston Futsal Soccer Club U19G DPL
+U19	126	2026-11-21	12:00 PM MST	Arizona Athletic Grounds - Field 09	RSL-AZ Southern AZ U19G DPL	SoCal Elite FC GU19 DPL
+U19	128	2026-11-21	10:00 AM MST	Arizona Athletic Grounds - Field 07	Phoenix Premier FC U19G DPL	HTX West U19G DPL
+U19	127	2026-11-21	10:00 AM MST	Arizona Athletic Grounds - Field 06	Culver City Football Club U19G DPL	Albion SC Antelope Valley GU19 DPL
+U19	129	2026-11-21	10:00 AM MST	Arizona Athletic Grounds - Field 08	Valley United SC U19G DPL	Visalia United FC U19G DPL
+U19	130	2026-11-21	12:00 PM MST	Arizona Athletic Grounds - Field 08	Albion SC Santa Monica U19G DPL	Phoenix Rising FC U19G DPL
+U19	132	2026-11-21	12:00 PM MST	Arizona Athletic Grounds - Field 06	Rangers FC South 19G DPL	City SC South Bay GU19 DPLO
+U19	131	2026-11-21	2:00 PM MST	Arizona Athletic Grounds - Field 07	Arizona Arsenal Soccer Club U19G DPL	ALBION SC Boulder County GU19 DPL
+U19	134	2026-11-21	2:00 PM MST	Arizona Athletic Grounds - Field 08	La Roca FC U19G DPL	City SC - San Marcos GU19 DPL
+U19	133	2026-11-21	2:00 PM MST	Arizona Athletic Grounds - Field 09	FC Man United U19G DPLO	Arizona Soccer Club U19G DPL
+U19	136	2026-11-21	2:00 PM MST	Arizona Athletic Grounds - Field 06	Ventura County Fusion VC GU19	City SC El Paso U19G DPL
+U19	137	2026-11-22	8:00 AM MST	Arizona Athletic Grounds - Field 09	Chicago City Soccer Club U18G DPL	Central Cal Aztecs GU19 DPL
+U19	138	2026-11-22	9:50 AM MST	Arizona Athletic Grounds - Field 09	NM Rapids SC U19G DPL	FLYTE SC IE GU19 DPL
+U19	139	2026-11-22	8:00 AM MST	Arizona Athletic Grounds - Field 10	Texas Premier SC (STX) TXP U19G Gold DPL	CDA Slammers U19G DPL
+U19	140	2026-11-22	9:50 AM MST	Arizona Athletic Grounds - Field 10	Denver Kickers Sport Club U19G DPL	Arizona Surf Soccer Club Pima U18G DPL - Torres
+U19	142	2026-11-22	8:00 AM MST	Arizona Athletic Grounds - Field 07	Steel United Texas TX 08/09G DPL	City SC Kings County U19G DPL
+U19	141	2026-11-22	8:00 AM MST	Arizona Athletic Grounds - Field 08	Inter Atlanta FC U19G DPL	City SC Southwest U19G DPL
+U19	143	2026-11-22	11:40 AM MST	Arizona Athletic Grounds - Field 09	Central Coast United SC CCU U19 DPL	CO Elevation FC U19G DPL
+U19	144	2026-11-22	1:30 PM MST	Arizona Athletic Grounds - Field 09	Chula Vista FC U19G DPL	SoCal Reds FC U19G DPLO
+U19	145	2026-11-22	9:50 AM MST	Arizona Athletic Grounds - Field 07	HTX North U19G DPL	LA Surf Soccer Club DPL U19
+U19	146	2026-11-22	9:50 AM MST	Arizona Athletic Grounds - Field 08	Excel Soccer Academy U19G DPL	TOTAL FUTBOL ACADEMY (CA) TFA-Glendale GU19 DPLO
+U19	147	2026-11-22	9:50 AM MST	Arizona Athletic Grounds - Field 11	City SC Utah UT U18G DPL - JC	Colorado Rush East U19G DPL
+U19	148	2026-11-22	1:30 PM MST	Arizona Athletic Grounds - Field 10	Pateadores Soccer Club U18G DPL	Desert Empire Surf U19G DPLO
+U19	149	2026-11-22	11:40 AM MST	Arizona Athletic Grounds - Field 08	Houston Futsal Soccer Club U19G DPL	SoCal Elite FC GU19 DPL
+U19	150	2026-11-22	1:30 PM MST	Arizona Athletic Grounds - Field 12	RSL-AZ Southern AZ U19G DPL	FLYTE SC IE GU19 DPLO
+U19	151	2026-11-22	1:30 PM MST	Arizona Athletic Grounds - Field 07	Albion SC Antelope Valley GU19 DPL	HTX West U19G DPL
+U19	152	2026-11-22	1:30 PM MST	Arizona Athletic Grounds - Field 08	Phoenix Premier FC U19G DPL	Culver City Football Club U19G DPL
+U19	154	2026-11-22	11:40 AM MST	Arizona Athletic Grounds - Field 10	Albion SC Santa Monica U19G DPL	Valley United SC U19G DPL
+U19	153	2026-11-22	1:30 PM MST	Arizona Athletic Grounds - Field 11	Visalia United FC U19G DPL	Phoenix Rising FC U19G DPL
+U19	155	2026-11-22	8:00 AM MST	Arizona Athletic Grounds - Field 11	ALBION SC Boulder County GU19 DPL	City SC South Bay GU19 DPLO
+U19	156	2026-11-22	11:40 AM MST	Arizona Athletic Grounds - Field 11	Rangers FC South 19G DPL	Arizona Arsenal Soccer Club U19G DPL
+U19	157	2026-11-22	8:00 AM MST	Arizona Athletic Grounds - Field 12	Arizona Soccer Club U19G DPL	City SC - San Marcos GU19 DPL
+U19	158	2026-11-22	9:50 AM MST	Arizona Athletic Grounds - Field 12	La Roca FC U19G DPL	FC Man United U19G DPLO
+U19	159	2026-11-22	11:40 AM MST	Arizona Athletic Grounds - Field 12	Premier Futbol Academy of San Antonio U19 G DPL	City SC El Paso U19G DPL
+U15	318	2026-11-20	1:00 PM MST	Arizona Athletic Grounds - Field 20	Dallas Surf N1 DPL G2011/2012 Rovira	Chula Vista FC U15G DPL
+U15	317	2026-11-20	1:00 PM MST	Arizona Athletic Grounds - Field 19	Arizona Surf Soccer Club East Valley U15 G DPL	Central Cal Aztecs GU15 DPL
+U15	319	2026-11-20	11:00 AM MST	Arizona Athletic Grounds - Field 19	Boca Orange County U15G DPL	Visalia United FC U15G DPL
+U15	320	2026-11-20	11:00 AM MST	Arizona Athletic Grounds - Field 20	ALBION SC Boulder County GU15 DPL	Capital City SC U15G DPL
+U15	321	2026-11-20	9:00 AM MST	Arizona Athletic Grounds - Field 19	FLYTE SC IE GU15 DPL	HTX West U15G DPL
+U15	322	2026-11-20	9:00 AM MST	Arizona Athletic Grounds - Field 20	Denver Kickers Sport Club U15G DPL	Ventura County Fusion VC U15 DPL
+U15	323	2026-11-20	3:00 PM MST	Arizona Athletic Grounds - Field 21	San Diego Rush Soccer Club GU15 DPL	Houston Futsal Soccer Club U15G DPL
+U15	324	2026-11-20	3:00 PM MST	Arizona Athletic Grounds - Field 22	Colorado Rush East U15G DPL	Albion SC Antelope Valley GU15 DPL
+U15	325	2026-11-20	9:00 AM MST	Arizona Athletic Grounds - Field 21	Rangers FC U15G DPL	Steel United Texas TX 11/12G DPL
+U15	326	2026-11-20	9:00 AM MST	Arizona Athletic Grounds - Field 22	City SC Kings County U15G DPL	SoCal Reds FC U15G DPLO
+U15	327	2026-11-20	1:00 PM MST	Arizona Athletic Grounds - Field 21	Pateadores Soccer Club U15G DPL	City SC South Bay GU15 DPLO
+U15	328	2026-11-20	1:00 PM MST	Arizona Athletic Grounds - Field 22	Central Coast United SC CCU U15 DPL	Skyline U15 DPL
+U15	329	2026-11-20	11:00 AM MST	Arizona Athletic Grounds - Field 23	Albion SC Riverside GU15 DPL	El Paso Surf Soccer Club U15G DPL
+U15	330	2026-11-20	11:00 AM MST	Arizona Athletic Grounds - Field 24	FLYTE SC IE GU15 DPLO	Premier Futbol Academy of San Antonio U15G DPL
+U15	331	2026-11-20	11:00 AM MST	Arizona Athletic Grounds - Field 21	Phoenix Premier FC U15G DPL	GFI Academy U15G DPL
+U15	332	2026-11-20	11:00 AM MST	Arizona Athletic Grounds - Field 22	Culver City Football Club U15G DPL	Chicago City Soccer Club U15G DPL
+U15	333	2026-11-20	1:00 PM MST	Arizona Athletic Grounds - Field 23	Houston Surf Soccer Club 11/12 DPL	Arizona Arsenal Soccer Club U15G DPL
+U15	334	2026-11-20	3:00 PM MST	Arizona Athletic Grounds - Field 23	Boca Orange County U15G DPLO	Oaks FC U15G DPL
+U15	336	2026-11-20	5:00 PM MST	Arizona Athletic Grounds - Field 22	Idaho Surf SC ID U15G DPL	TOTAL FUTBOL ACADEMY (CA) TFA-Glendale GU15 DPLO
+U15	335	2026-11-20	5:00 PM MST	Arizona Athletic Grounds - Field 21	SoCal Elite FC GU15 DPL	Phoenix Rising FC U15G DPL
+U15	337	2026-11-20	1:00 PM MST	Arizona Athletic Grounds - Field 24	La Roca FC U15G DPL	Texas Premier SC (STX) TXP U15G Navy DPL
+U15	338	2026-11-20	3:00 PM MST	Arizona Athletic Grounds - Field 24	City SC El Paso U15G DPL	FC Man United U15G DPLO
+U15	392	2026-11-20	5:00 PM MST	Arizona Athletic Grounds - Field 23	Indie Chicas U15G DPL	Pateadores Soccer Club U15G DPLO
+U15	340	2026-11-20	7:00 PM MST	Arizona Athletic Grounds - Field 22	Arizona Soccer Club U15G DPL	Valley United SC U15G DPL
+U15	339	2026-11-20	7:00 PM MST	Arizona Athletic Grounds - Field 21	CO Elevation FC U15G DPL	ALBION SC Central Valley GU15 DPL
+U15	342	2026-11-21	1:15 PM MST	Arizona Athletic Grounds - Field 22	Central Cal Aztecs GU15 DPL	Dallas Surf N1 DPL G2011/2012 Rovira
+U15	341	2026-11-21	3:20 PM MST	Arizona Athletic Grounds - Field 14	Chula Vista FC U15G DPL	Arizona Surf Soccer Club East Valley U15 G DPL
+U15	343	2026-11-21	9:45 AM MST	Arizona Athletic Grounds - Field 21	Capital City SC U15G DPL	Boca Orange County U15G DPL
+U15	344	2026-11-21	9:45 AM MST	Arizona Athletic Grounds - Field 22	Visalia United FC U15G DPL	ALBION SC Boulder County GU15 DPL
+U15	346	2026-11-21	8:00 AM MST	Arizona Athletic Grounds - Field 22	HTX West U15G DPL	Denver Kickers Sport Club U15G DPL
+U15	345	2026-11-21	8:00 AM MST	Arizona Athletic Grounds - Field 21	Ventura County Fusion VC U15 DPL	FLYTE SC IE GU15 DPL
+U15	347	2026-11-21	1:15 PM MST	Arizona Athletic Grounds - Field 21	Albion SC Antelope Valley GU15 DPL	San Diego Rush Soccer Club GU15 DPL
+U15	348	2026-11-21	3:00 PM MST	Arizona Athletic Grounds - Field 21	Colorado Rush East U15G DPL	Houston Futsal Soccer Club U15G DPL
+U15	350	2026-11-21	11:30 AM MST	Arizona Athletic Grounds - Field 22	City SC Kings County U15G DPL	Steel United Texas TX 11/12G DPL
+U15	349	2026-11-21	11:30 AM MST	Arizona Athletic Grounds - Field 21	SoCal Reds FC U15G DPLO	Rangers FC U15G DPL
+U15	351	2026-11-21	4:45 PM MST	Arizona Athletic Grounds - Field 21	Skyline U15 DPL	Pateadores Soccer Club U15G DPL
+U15	352	2026-11-21	4:45 PM MST	Arizona Athletic Grounds - Field 22	City SC South Bay GU15 DPLO	Central Coast United SC CCU U15 DPL
+U15	353	2026-11-21	3:00 PM MST	Arizona Athletic Grounds - Field 22	Premier Futbol Academy of San Antonio U15G DPL	Albion SC Riverside GU15 DPL
+U15	354	2026-11-21	5:00 PM MST	Arizona Athletic Grounds - Field 14	El Paso Surf Soccer Club U15G DPL	FLYTE SC IE GU15 DPLO
+U15	355	2026-11-21	6:30 PM MST	Arizona Athletic Grounds - Field 12	Chicago City Soccer Club U15G DPL	Phoenix Premier FC U15G DPL
+U15	356	2026-11-21	6:30 PM MST	Arizona Athletic Grounds - Field 13	GFI Academy U15G DPL	Culver City Football Club U15G DPL
+U15	358	2026-11-21	6:00 PM MST	Arizona Athletic Grounds - Field 06	Arizona Arsenal Soccer Club U15G DPL	Boca Orange County U15G DPLO
+U15	357	2026-11-21	6:00 PM MST	Arizona Athletic Grounds - Field 07	Oaks FC U15G DPL	Houston Surf Soccer Club 11/12 DPL
+U15	359	2026-11-21	6:30 PM MST	Arizona Athletic Grounds - Field 21	TOTAL FUTBOL ACADEMY (CA) TFA-Glendale GU15 DPLO	SoCal Elite FC GU15 DPL
+U15	360	2026-11-21	6:30 PM MST	Arizona Athletic Grounds - Field 22	Phoenix Rising FC U15G DPL	Idaho Surf SC ID U15G DPL
+U15	361	2026-11-21	6:00 PM MST	Arizona Athletic Grounds - Field 08	FC Man United U15G DPLO	La Roca FC U15G DPL
+U15	362	2026-11-21	6:00 PM MST	Arizona Athletic Grounds - Field 09	Texas Premier SC (STX) TXP U15G Navy DPL	City SC El Paso U15G DPL
+U15	364	2026-11-21	6:30 PM MST	Arizona Athletic Grounds - Field 11	ALBION SC Central Valley GU15 DPL	Pateadores Soccer Club U15G DPLO
+U15	363	2026-11-21	6:30 PM MST	Arizona Athletic Grounds - Field 10	Valley United SC U15G DPL	CO Elevation FC U15G DPL
+U15	393	2026-11-21	6:45 PM MST	Arizona Athletic Grounds - Field 14	Arizona Soccer Club U15G DPL	Indie Chicas U15G DPL
+U15	366	2026-11-22	8:30 AM MST	Arizona Athletic Grounds - Field 17	Central Cal Aztecs GU15 DPL	Chula Vista FC U15G DPL
+U15	365	2026-11-22	8:30 AM MST	Arizona Athletic Grounds - Field 16	Arizona Surf Soccer Club East Valley U15 G DPL	Dallas Surf N1 DPL G2011/2012 Rovira
+U15	367	2026-11-22	10:15 AM MST	Arizona Athletic Grounds - Field 16	Boca Orange County U15G DPL	ALBION SC Boulder County GU15 DPL
+U15	368	2026-11-22	10:15 AM MST	Arizona Athletic Grounds - Field 17	Visalia United FC U15G DPL	Capital City SC U15G DPL
+U15	370	2026-11-22	11:45 AM MST	Arizona Athletic Grounds - Field 20	HTX West U15G DPL	Ventura County Fusion VC U15 DPL
+U15	369	2026-11-22	1:30 PM MST	Arizona Athletic Grounds - Field 20	FLYTE SC IE GU15 DPL	Denver Kickers Sport Club U15G DPL
+U15	372	2026-11-22	12:00 PM MST	Arizona Athletic Grounds - Field 17	Houston Futsal Soccer Club U15G DPL	Albion SC Antelope Valley GU15 DPL
+U15	371	2026-11-22	12:00 PM MST	Arizona Athletic Grounds - Field 16	San Diego Rush Soccer Club GU15 DPL	Colorado Rush East U15G DPL
+U15	374	2026-11-22	1:45 PM MST	Arizona Athletic Grounds - Field 17	Steel United Texas TX 11/12G DPL	SoCal Reds FC U15G DPLO
+U15	373	2026-11-22	1:45 PM MST	Arizona Athletic Grounds - Field 16	Rangers FC U15G DPL	City SC Kings County U15G DPL
+U15	376	2026-11-22	8:00 AM MST	Arizona Athletic Grounds - Field 19	City SC South Bay GU15 DPLO	Skyline U15 DPL
+U15	375	2026-11-22	8:30 AM MST	Arizona Athletic Grounds - Field 18	Pateadores Soccer Club U15G DPL	Central Coast United SC CCU U15 DPL
+U15	378	2026-11-22	8:30 AM MST	Arizona Athletic Grounds - Field 15	El Paso Surf Soccer Club U15G DPL	Premier Futbol Academy of San Antonio U15G DPL
+U15	377	2026-11-22	10:15 AM MST	Arizona Athletic Grounds - Field 18	Albion SC Riverside GU15 DPL	FLYTE SC IE GU15 DPLO
+U15	380	2026-11-22	11:20 AM MST	Arizona Athletic Grounds - Field 19	GFI Academy U15G DPL	Chicago City Soccer Club U15G DPL
+U15	379	2026-11-22	1:45 PM MST	Arizona Athletic Grounds - Field 18	Phoenix Premier FC U15G DPL	Culver City Football Club U15G DPL
+U15	381	2026-11-22	10:15 AM MST	Arizona Athletic Grounds - Field 15	Houston Surf Soccer Club 11/12 DPL	Boca Orange County U15G DPLO
+U15	382	2026-11-22	2:40 PM MST	Arizona Athletic Grounds - Field 19	Arizona Arsenal Soccer Club U15G DPL	Oaks FC U15G DPL
+U15	383	2026-11-22	9:40 AM MST	Arizona Athletic Grounds - Field 19	SoCal Elite FC GU15 DPL	Idaho Surf SC ID U15G DPL
+U15	384	2026-11-22	1:00 PM MST	Arizona Athletic Grounds - Field 19	Phoenix Rising FC U15G DPL	TOTAL FUTBOL ACADEMY (CA) TFA-Glendale GU15 DPLO
+U15	385	2026-11-22	12:00 PM MST	Arizona Athletic Grounds - Field 15	La Roca FC U15G DPL	City SC El Paso U15G DPL
+U15	386	2026-11-22	1:45 PM MST	Arizona Athletic Grounds - Field 15	Texas Premier SC (STX) TXP U15G Navy DPL	FC Man United U15G DPLO
+U15	394	2026-11-22	12:00 PM MST	Arizona Athletic Grounds - Field 18	CO Elevation FC U15G DPL	Pateadores Soccer Club U15G DPLO
+U15	388	2026-11-22	1:30 PM MST	Arizona Athletic Grounds - Field 14	Valley United SC U15G DPL	Indie Chicas U15G DPL
+U15	387	2026-11-22	1:30 PM MST	Arizona Athletic Grounds - Field 13	ALBION SC Central Valley GU15 DPL	Arizona Soccer Club U15G DPL
