@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTeamById } from "@/lib/data";
+import { getTeamContext } from "@/lib/team-context";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -27,6 +28,7 @@ export default async function TeamPage({
   };
 
   const recentForm = team.games.slice(0, 5);
+  const ctx = getTeamContext(team.gotsportTeamId, !!team.clubVerified);
 
   // Records by season (Aug 1 – Jul 31). Rosters turn over each August, so the headline
   // record is this season's; earlier seasons are listed separately below.
@@ -58,12 +60,17 @@ export default async function TeamPage({
           <div>
             <h1 className="heading">{team.name}</h1>
             <p className="mt-1 text-muted-foreground">
-              <Link
-                href={`/club/${encodeURIComponent(team.club)}`}
-                className="hover:text-primary transition-colors"
-              >
-                {team.club}
-              </Link>
+              {team.clubVerified ? (
+                <Link
+                  href={`/club/${encodeURIComponent(team.club)}`}
+                  className="hover:text-primary transition-colors"
+                >
+                  {team.club}
+                </Link>
+              ) : (
+                // GotSport lists the team without a club; its stand-in "club" is a piece of its own name
+                <span>Club not listed{ctx?.likelyClub ? ` (possibly ${ctx.likelyClub.club})` : ""}</span>
+              )}
               {" "}&middot; {team.state} &middot; {team.ageGroup} {team.gender}
             </p>
           </div>
@@ -126,6 +133,53 @@ export default async function TeamPage({
           ))}
         </div>
       </div>
+
+      {/* About this team */}
+      {ctx && (
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="heading">About this team</CardTitle>
+          </CardHeader>
+          <CardContent className="grid gap-3 text-sm sm:grid-cols-2">
+            <div>
+              <p className="lowbrow">Club</p>
+              {team.clubVerified ? (
+                <p className="mt-1"><Link href={`/club/${encodeURIComponent(team.club)}`} className="hover:text-primary">{team.club}</Link></p>
+              ) : (
+                <div className="mt-1">
+                  <p>Not listed. GotSport publishes this team without a club.</p>
+                  {ctx.likelyClub && (
+                    <p className="mt-1 text-muted-foreground">
+                      Possibly <span className="font-medium text-foreground">{ctx.likelyClub.club}</span>: its teams play {ctx.likelyClub.games} home games at {ctx.likelyClub.field}, this team&apos;s home field.
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
+            <div>
+              <p className="lowbrow">GotSport team</p>
+              <p className="mt-1 tabular-nums">#{ctx.gotsportTeamId}</p>
+              {ctx.otherNames.length > 0 && <p className="mt-1 text-xs text-muted-foreground">Listed as: {ctx.otherNames.join(" · ")}</p>}
+            </div>
+            {ctx.divisions.length > 0 && (
+              <div>
+                <p className="lowbrow">This season</p>
+                <ul className="mt-1 space-y-0.5">
+                  {ctx.divisions.map((d) => <li key={d.event + d.division}>{d.event} · <span className="text-muted-foreground">{d.division}</span></li>)}
+                </ul>
+              </div>
+            )}
+            {ctx.homeFields.length > 0 && (
+              <div>
+                <p className="lowbrow">Home fields</p>
+                <ul className="mt-1 space-y-0.5">
+                  {ctx.homeFields.map((f) => <li key={f.field}>{f.field} <span className="text-xs text-muted-foreground">({f.games} games)</span></li>)}
+                </ul>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      )}
 
       {/* Season by season */}
       {seasonRows.length > 0 && (
