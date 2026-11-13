@@ -472,6 +472,14 @@ export function loadGotsportData() {
         // …and in some rows the "home team" was the away team plus a venue: the real
         // home team was lost, so the game can't be used.
         if (!isApi && t1 === t2) continue;
+        // Coast Soccer League: when a team withdraws it is renamed "… DROP(PED)" and every game
+        // left on its schedule is entered as a 1-0 forfeit, future dates included. Forfeits aren't
+        // results; games it really played before dropping (other scores) still count.
+        if (source.file.includes("coast-soccer")) {
+          if (date0(g) > new Date().toISOString().slice(0, 10)) continue;
+          const forfeit = Number(g.homeScore) + Number(g.awayScore) === 1;
+          if (forfeit && /\bDROP(PED)?\b/i.test(`${t1} ${t2}`)) continue;
+        }
         if (!isApi && g.league && demoAssoc.has(g.league)) {
           if (date0(g) > new Date().toISOString().slice(0, 10)) continue;
           sourceAssocByName.set(t1, demoAssoc.get(g.league)!); sourceAssocByName.set(t2, demoAssoc.get(g.league)!);

@@ -9,7 +9,12 @@
  * Bracket codes: 0P=Premier, 1G=Gold, 1N=Champ North, 1S=Champ South,
  *   2N=Div1 North, 2S=Div1 South, 3E/3N/3S/3W=Div2, 4C/4N/4S/4W=Div3, etc.
  *
- * Usage: npx tsx scripts/scrape-coast-soccer.ts
+ * Usage: npx tsx scripts/scrape-coast-soccer.ts                 # current season (fall 2026)
+ *        npx tsx scripts/scrape-coast-soccer.ts --season spring-2026 --season fall-2025
+ *
+ * coastsoccer.us robots.txt allows all crawlers. ~830 pages per season at 1 request/second
+ * (~14 min), with an honest User-Agent. New games are merged into data/coast-soccer/games.json
+ * (keyed by season + game number), so earlier seasons are kept.
  */
 
 import * as fs from "fs";
@@ -17,7 +22,8 @@ import * as path from "path";
 
 const BASE_URL = "https://coastsoccer.us/coastsoccer/schedule";
 const OUTPUT_DIR = path.join(process.cwd(), "data", "coast-soccer");
-const DELAY_MS = 200;
+const DELAY_MS = 1000;
+const USER_AGENT = "soccer-rankings research (youth soccer ratings; low volume, 1 request/s)";
 
 interface GameRecord {
   gameNumber: string;
@@ -46,10 +52,13 @@ const BRACKETS = [
 
 const AGES = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
 const GENDERS = ["B", "G"];
-const SEASONS = [
-  { year: 2025, season: "fall" },
-  { year: 2026, season: "spring" },
-];
+// --season fall-2026 (repeatable); default: the current season
+const seasonArgs = process.argv.flatMap((a, i, all) => (a === "--season" && all[i + 1] ? [all[i + 1]] : []));
+const SEASONS = (seasonArgs.length ? seasonArgs : ["fall-2026"]).map((s) => {
+  const [season, year] = s.split("-");
+  if (!/^(fall|spring)$/.test(season) || !/^\d{4}$/.test(year)) throw new Error(`bad --season ${s} (use fall-2026)`);
+  return { year: Number(year), season };
+});
 
 function sleep(ms: number) {
   return new Promise((r) => setTimeout(r, ms));
@@ -129,7 +138,7 @@ async function fetchSchedule(
 ): Promise<string> {
   const url = `${BASE_URL}?BRACKET=${bracket}&AGE=${age.toString().padStart(2, "0")}&YEAR=${year}&SEX=${sex}&SEASON=${season}`;
   const response = await fetch(url, {
-    headers: { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)" },
+    headers: { "User-Agent": USER_AGENT },
   });
   return response.text();
 }
@@ -175,14 +184,17 @@ async function main() {
     }
   }
 
-  // Deduplicate by game number
+  // Merge with games already saved (other seasons kept; re-scraped games replaced), dedupe by game number
+  const gamesFile = path.join(OUTPUT_DIR, "games.json");
   const unique = new Map<string, GameRecord>();
+  if (fs.existsSync(gamesFile)) {
+    for (const g of JSON.parse(fs.readFileSync(gamesFile, "utf8")) as GameRecord[]) unique.set(`${g.year}_${g.season}_${g.gameNumber}`, g);
+  }
   for (const g of allGames) {
     unique.set(`${g.year}_${g.season}_${g.gameNumber}`, g);
   }
 
   // Save JSON
-  const gamesFile = path.join(OUTPUT_DIR, "games.json");
   fs.writeFileSync(gamesFile, JSON.stringify(Array.from(unique.values()), null, 2));
 
   // Save CSV

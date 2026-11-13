@@ -173,6 +173,11 @@ export default function RankingsPage() {
   }, []);
   const places = REGIONS.filter((r) => r.value === "National" || !coverage ||
     (r.value.startsWith("Region") ? (coverage.regions[r.value] ?? 0) > 0 : (coverage.states[r.value] ?? 0) > 0));
+  // Labels for the closed menus: without items the trigger shows the raw value ("All")
+  const ageItems = [{ value: "All", label: "All Ages" }, ...["U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17", "U18", "U19"].map((a) => ({ value: a, label: a })), { value: "U20", label: "U20 (USL Academy)" }];
+  const genderItems = [{ value: "Both", label: "Boys & Girls" }, { value: "Boys", label: "Boys" }, { value: "Girls", label: "Girls" }];
+  const programItems = [{ value: "All", label: "All Leagues" }, ...PROGRAMS.map((p) => ({ value: p, label: p }))];
+  const eventItems = [{ value: "All", label: "All Events" }, ...leagues.map((l) => ({ value: l, label: l }))];
   const coveredNames = coverage ? REGIONS.filter((r) => !r.value.startsWith("Region") && r.value !== "National" && (coverage.states[r.value] ?? 0) > 0).map((r) => r.label) : [];
 
   useEffect(() => {
@@ -249,7 +254,7 @@ export default function RankingsPage() {
           </SelectContent>
         </Select>
 
-        <Select value={ageGroup} onValueChange={(v) => v !== null && setAgeGroup(v)}>
+        <Select items={ageItems} value={ageGroup} onValueChange={(v) => v !== null && setAgeGroup(v)}>
           <SelectTrigger className="w-[120px]">
             <SelectValue placeholder="Age" />
           </SelectTrigger>
@@ -271,18 +276,18 @@ export default function RankingsPage() {
           </SelectContent>
         </Select>
 
-        <Select value={gender} onValueChange={(v) => v !== null && setGender(v)}>
-          <SelectTrigger className="w-[140px]">
+        <Select items={genderItems} value={gender} onValueChange={(v) => v !== null && setGender(v)}>
+          <SelectTrigger className="w-auto min-w-[150px] whitespace-nowrap">
             <SelectValue placeholder="Gender" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="Both">Girls &amp; Boys</SelectItem>
-            <SelectItem value="Girls">Girls</SelectItem>
+            <SelectItem value="Both">Boys &amp; Girls</SelectItem>
             <SelectItem value="Boys">Boys</SelectItem>
+            <SelectItem value="Girls">Girls</SelectItem>
           </SelectContent>
         </Select>
 
-        <Select value={program} onValueChange={(v) => v !== null && setProgram(v)}>
+        <Select items={programItems} value={program} onValueChange={(v) => v !== null && setProgram(v)}>
           <SelectTrigger className="w-[160px]">
             <SelectValue placeholder="League" />
           </SelectTrigger>
@@ -294,7 +299,7 @@ export default function RankingsPage() {
           </SelectContent>
         </Select>
 
-        <Select value={league} onValueChange={(v) => v !== null && setLeague(v)}>
+        <Select items={eventItems} value={league} onValueChange={(v) => v !== null && setLeague(v)}>
           <SelectTrigger className="w-[220px]">
             <SelectValue placeholder="Event" />
           </SelectTrigger>

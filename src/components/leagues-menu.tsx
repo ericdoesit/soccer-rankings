@@ -47,6 +47,7 @@ export function LeaguesMenu() {
           <DropdownMenuLabel>Local league rankings</DropdownMenuLabel>
           <DropdownMenuItem render={<Link href="/league/socal-soccer-league#rankings" />}>SoCal Soccer League</DropdownMenuItem>
           <DropdownMenuItem render={<Link href="/league/norcal-premier#rankings" />}>NorCal Premier</DropdownMenuItem>
+          <DropdownMenuItem render={<Link href="/league/coast-soccer-league#rankings" />}>Coast Soccer League (CSL)</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>

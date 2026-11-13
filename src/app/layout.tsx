@@ -78,6 +78,12 @@ export default function RootLayout({
               </Link>
               <LeaguesMenu />
               <Link
+                href="/map"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Map
+              </Link>
+              <Link
                 href="/power-rankings"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >

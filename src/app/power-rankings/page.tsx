@@ -11,6 +11,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+/** labels for the closed menus (without items the trigger shows the raw value, "All" / "Both") */
+const AGE_ITEMS = [{ value: "All", label: "All Ages" }, ...["U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17", "U18", "U19"].map((a) => ({ value: a, label: a })), { value: "U20", label: "U20 (USL Academy)" }];
+const GENDER_ITEMS = [{ value: "Both", label: "Boys & Girls" }, { value: "Boys", label: "Boys" }, { value: "Girls", label: "Girls" }];
+
 interface PowerTeam {
   id: number;
   name: string;
@@ -90,7 +94,7 @@ export default function PowerRankingsPage() {
       </div>
 
       <div className="mb-6 flex flex-wrap items-center gap-3">
-        <Select value={ageGroup} onValueChange={(v) => v !== null && setAgeGroup(v)}>
+        <Select items={AGE_ITEMS} value={ageGroup} onValueChange={(v) => v !== null && setAgeGroup(v)}>
           <SelectTrigger className="w-[120px]">
             <SelectValue />
           </SelectTrigger>
@@ -112,14 +116,14 @@ export default function PowerRankingsPage() {
           </SelectContent>
         </Select>
 
-        <Select value={gender} onValueChange={(v) => v !== null && setGender(v)}>
-          <SelectTrigger className="w-[100px]">
+        <Select items={GENDER_ITEMS} value={gender} onValueChange={(v) => v !== null && setGender(v)}>
+          <SelectTrigger className="w-auto min-w-[150px] whitespace-nowrap">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="Both">All</SelectItem>
-            <SelectItem value="Girls">Girls</SelectItem>
+            <SelectItem value="Both">Boys &amp; Girls</SelectItem>
             <SelectItem value="Boys">Boys</SelectItem>
+            <SelectItem value="Girls">Girls</SelectItem>
           </SelectContent>
         </Select>
 

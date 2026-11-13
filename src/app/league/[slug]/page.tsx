@@ -38,7 +38,7 @@ export default async function LeaguePage({
     .sort((a, b) => AGE_ORDER.indexOf(a) - AGE_ORDER.indexOf(b)) : [];
   const age = ages.find((a) => a === ageParam) ?? (ages.includes("U13") ? "U13" : ages[0]);
   const group = lr && gender && age ? lr.groups.get(`${age}|${gender}`) ?? [] : [];
-  const LEVEL_ORDER = ["Premier", "Elite", "Gold", "Silver", "Bronze", "Copper", "Classic", "Select"];
+  const LEVEL_ORDER = ["Premier", "Elite", "Gold", "Champions", "Division 1", "Division 2", "Division 3", "Silver", "Bronze", "Copper", "Classic", "Select"];
   const levels = [...new Set(group.map((r) => r.level).filter((l): l is string => !!l))]
     .sort((a, b) => (LEVEL_ORDER.indexOf(a) + 1 || 99) - (LEVEL_ORDER.indexOf(b) + 1 || 99) || a.localeCompare(b));
   const level = levels.find((l) => l === levelParam) ?? null;

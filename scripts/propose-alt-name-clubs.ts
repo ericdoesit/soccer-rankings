@@ -73,12 +73,15 @@ for (const t of snap.teams) {
   const confidence = h.words >= 2 && sameState(t.state, h.club.association) ? "high" : "medium";
   // The other name only identifies the club; the team keeps its current label (the other name
   // is often an older season's entry: "Yuba Sutter U16G - United" for today's "YSYSL Sharks").
-  // the team's current label, minus the stand-in "club" it got from its own name ("WSM FC 10B …"
-  // had club "WSM FC"): the real club replaces it
-  let label = (t.sourceName ?? "").replace(/\s*#\d+$/, "").trim();
-  if (t.club && label.toLowerCase().startsWith(`${t.club.toLowerCase()} `)) label = label.slice(t.club.length).trim();
+  // The proposed name is built the way the data build will build it (team-identity.ts): the
+  // team's current name formatted with the club, then the repeated short form tidied away.
   const clubName = standardizeAbbreviations(h.club.name);
-  const newName = standardizeAbbreviations(formatTeamName(`${clubName} ${standardizeAbbreviations(label)}`, clubName, t.ageGroup === "Unknown" ? null : t.ageGroup));
+  const raw = standardizeAbbreviations((t.sourceName ?? "").trim());
+  let newName = standardizeAbbreviations(formatTeamName(raw, clubName, t.ageGroup === "Unknown" ? null : t.ageGroup));
+  if (newName.startsWith(`${clubName} `)) {
+    const rest = newName.slice(clubName.length + 1).replace(/^[A-Z]{2,5}\s+(FC|SC)\s+(?=\S)/, "").replace(/^[A-Za-z]{1,4}-\s+(?=\S)/, "");
+    newName = `${clubName} ${rest}`;
+  }
   proposals.push({ ...base, via: h.via, club: clubName, clubState: h.club.association, confidence, newName });
 }
 

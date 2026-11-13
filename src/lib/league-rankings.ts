@@ -24,14 +24,27 @@ export interface LeagueRankings {
 }
 
 /** Leagues with a rankings view (shown in the Leagues menu) */
-export const RANKED_LOCAL_LEAGUES = ["socal-soccer-league", "norcal-premier"];
+export const RANKED_LOCAL_LEAGUES = ["socal-soccer-league", "norcal-premier", "coast-soccer-league"];
+
+/** Coast Soccer League (coastsoccer.us, scripts/scrape-coast-soccer.ts): bracket code → division */
+const CSL_BRACKETS: Record<string, string> = { "0P": "Premier", "1G": "Gold", "1N": "Champions North", "1S": "Champions South" };
+const cslDivision = (code: string) => CSL_BRACKETS[code]
+  ?? (code.startsWith("2") ? `Division 1 ${code.slice(1)}` : code.startsWith("3") ? `Division 2 ${code.slice(1)}` : code.startsWith("4") ? `Division 3 ${code.slice(1)}` : code);
+/** CSL seasons as the importer names them ("Coast Soccer League 2026-27 Fall") */
+function cslSeason(data: DataSet): { season: string; events: string[] } | null {
+  const names = [...new Set(data.games.map((g) => g.tournamentName).filter((n) => n?.startsWith("Coast Soccer League ")))];
+  const season = names.map((n) => n.match(/(\d{4}-\d{2})/)?.[1]).filter(Boolean).sort().at(-1);
+  return season ? { season: season!, events: names.filter((n) => n.includes(season!)) } : null;
+}
 
 const cache = new WeakMap<DataSet, Map<string, LeagueRankings | null>>();
 
 /** "U13B BU13 - F1 Central" → "BU13 - F1 Central"; "U9B Bronze Central - Region 6" → "Bronze Central - Region 6" */
 const cleanDivision = (d: string) => d.replace(/^U\d{1,2}[BG]\s+/, "").trim();
 const levelOf = (division: string | null) =>
-  !division ? null : division.match(/\bF\d\b/)?.[0] ?? division.match(/^(Premier|Gold|Silver|Bronze|Copper|Elite|Classic|Select)\b/i)?.[1] ?? null;
+  !division ? null : division.match(/\bF\d\b/)?.[0]
+    ?? division.match(/^(Premier|Gold|Silver|Bronze|Copper|Elite|Classic|Select|Champions)\b/i)?.[1]
+    ?? division.match(/^(Division \d)\b/)?.[1] ?? null;
 
 export function getLeagueRankings(slug: string): LeagueRankings | null {
   const data = getDataSet();
@@ -40,14 +53,28 @@ export function getLeagueRankings(slug: string): LeagueRankings | null {
   if (byLeague.has(slug)) return byLeague.get(slug)!;
 
   const def = LEAGUES.find((l) => l.slug === slug);
+  const csl = slug === "coast-soccer-league" ? cslSeason(data) : null;
   const events = def?.gotsportEvents ?? [];
-  const season = events.map(([, s]) => s).sort().at(-1);
+  const season = csl?.season ?? events.map(([, s]) => s).sort().at(-1);
   if (!def || !season) { byLeague.set(slug, null); return null; }
-  const current = events.filter(([, s]) => s === season);
-  const eventNames = new Set(current.map(([, , name]) => name));
+  const current = csl ? [] : events.filter(([, s]) => s === season);
+  const eventNames = new Set(csl ? csl.events : current.map(([, , name]) => name));
 
-  // division of each GotSport team in this season's league event(s)
+  // division of each team: GotSport league events by team id; CSL by team name (its source)
   const divisionByGs = new Map<number, string>();
+  const divisionByName = new Map<string, string>();
+  if (csl) {
+    const file = path.join(process.cwd(), "data", "coast-soccer", "games.json");
+    const [start] = season.split("-").map(Number);
+    if (fs.existsSync(file)) {
+      for (const g of JSON.parse(fs.readFileSync(file, "utf8")) as Array<{ homeTeam: string; awayTeam: string; bracket: string; season: string; year: number }>) {
+        const inSeason = g.season === "fall" ? g.year === start : g.year === start + 1;
+        if (!inSeason) continue;
+        divisionByName.set(g.homeTeam.trim(), cslDivision(g.bracket));
+        divisionByName.set(g.awayTeam.trim(), cslDivision(g.bracket));
+      }
+    }
+  }
   for (const [id] of current) {
     const file = path.join(process.cwd(), "data", "discovery", "games", `${id}.json`);
     if (!fs.existsSync(file)) continue;
@@ -81,7 +108,8 @@ export function getLeagueRankings(slug: string): LeagueRankings | null {
     const rows = groups.get(key) ?? [];
     rows.push({
       rank: 0, teamId: id, name: t.name, club: t.club, ageGroup: t.ageGroup, gender: t.gender, rating: score,
-      division: (t.gotsportTeamId !== undefined ? divisionByGs.get(t.gotsportTeamId) : undefined) ?? null,
+      division: (t.gotsportTeamId !== undefined ? divisionByGs.get(t.gotsportTeamId) : undefined)
+        ?? divisionByName.get((t.sourceName ?? "").trim()) ?? null,
       level: null,
       ...r, westListed: !!t.rankable,
     });
