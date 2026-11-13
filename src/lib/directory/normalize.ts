@@ -12,6 +12,24 @@ const STOPWORDS = new Set([
 /** Tokens that identify a team/league rather than a club ("ECNL RL B08/07"). */
 const TEAM_SUFFIX = /\b(ecnl|rl|pre|ga|aspire|mlsn|mls next|npl|dpl|eal|nal|b\d{2,4}(\/\d{2,4})?|g\d{2,4}(\/\d{2,4})?|u\d{1,2})\b.*$/i;
 
+/**
+ * Write club abbreviations without dots, as most clubs do: "Alianza F.C." → "Alianza FC",
+ * "F.C .KATANA" → "FC KATANA", "Palmeras S.C" → "Palmeras SC", "A.F.C." → "AFC", "C.F." → "CF".
+ * For display names; matching already ignores these words (normalizeClubName).
+ */
+export function standardizeAbbreviations(name: string): string {
+  return name
+    // (?<![A-Za-z]\.) leaves other dotted initials alone ("U.S.C.")
+    .replace(/(?<![A-Za-z]\.\s?)\b(A\s?\.\s?)?F\s?\.\s?C\b\s?\.?\s*/gi, (_m, a: string | undefined) => (a ? "AFC " : "FC "))
+    .replace(/(?<![A-Za-z]\.\s?)\bS\s?\.\s?C\b(?!\s?\.\s?[A-Za-z]\.)\s?\.?\s*/g, "SC ")
+    .replace(/(?<![A-Za-z]\.\s?)\bC\s?\.\s?F\b\s?\.?\s*/g, "CF ")
+    .replace(/\s+([),])/g, "$1")
+    .replace(/\s{2,}/g, " ")
+    // "Union Sacramento FC FC ADP" (club + a short name "Union FC …"): one FC is enough
+    .replace(/\b(FC|SC|AFC)(\s+\1)+\b/g, "$1")
+    .trim();
+}
+
 export function normalizeClubName(name: string): string {
   const key = normalizeTokens(name);
   // Names made only of stopwords ("Soccer Club", "FC") keep their raw tokens

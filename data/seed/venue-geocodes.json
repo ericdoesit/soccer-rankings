@@ -2778,5 +2778,11 @@
   "lng": -118.405151,
   "label": "6952, Whitsett Avenue, North Hollywood Northeast Neighborhood Council District, Los Angeles, Los Angeles County, California, 91605, United States",
   "city": "Los Angeles"
+ },
+ "Adelanto HS, California": {
+  "lat": 34.5310652,
+  "lng": -117.4413088,
+  "label": "Adelanto High School, 15620, Joshua Road, Adelanto, San Bernardino County, California, 92301, United States",
+  "city": "Adelanto"
  }
 }

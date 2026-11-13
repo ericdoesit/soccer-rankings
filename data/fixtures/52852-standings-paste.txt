@@ -16,3 +16,63 @@ Team    MP    W    L    D    GF    GA    GD    PTS
 2    Slammers FC BU8 WL II    3    1    0    2    8    4    10    5
 3    Coastal United FC BU08 Navy    3    1    1    1    7    6    5    4
 4    SoCal Reds FC BU08-WHITE II CW    3    0    3    0    2    12    -22    0
+
+Male U9 - BU9 Black
+1    Legends FC (CA) SGV BU9    0
+2    Empire Surf BU09 Academy-1    0
+3    Strikers FC - CM/NB BU09 Arriaga Costa Mesa    0
+4    Laguna United FC BU09-Navy    0
+5    Coastal United FC BU09 Gray    0
+6    Laguna United FC BU08-Blue    0
+7    Albion SC Riverside BU08 Academy    0
+8    SoCal Reds FC BU09-WHITE JW    0
+
+Male U9 - BU9 Blue
+1    LA Breakers FC BU09 Red    0
+2    Coastal United FC BU09 Navy    0
+3    Sol FC B2017/18 Blue    0
+4    Laguna United FC LUFC BU09-Gold    0
+5    Beach Futbol Club BU09 LB Melendez    0
+6    SoCal Reds FC BU09-RED SC    0
+
+Male U9 - BU9 White
+1    Culver City Football Club CCFC BU09 Blue    0
+2    Laguna United FC BU09-White    0
+3    AYSO Area 11K U9B 56 Breakers    0
+4    Laguna Legends FC    0
+
+Male U8 - BU8 Blue
+1    Culver City Football Club CCFC BU08    0
+2    Slammers FC BU8 WL II    0
+3    Coastal United FC BU08 Navy    0
+4    SoCal Reds FC BU08-WHITE II CW    0
+
+Male U10 - BU10 Blue
+1    Anaheim Futbol Club BU10Rondo-IRV-Filipovic    0
+2    Laguna United FC BU10-Blue    0
+3    Slammers FC BU10 ES I    0
+4    Coastal United FC BU10 Navy    0
+5    Culver City Football Club CCFC BU10 Grey    0
+6    Albion SC Riverside BU10 Academy    0
+
+Male U10 - BU10 White
+1    Bell Gardens FC BU10 SB    0
+2    Laguna United FC LUFC BU09-Blue    0
+3    SOUTHBAY PRIME FC U10    0
+4    LA Surf Soccer Club LC BU10 Black - SOCAL    0
+5    SoCal Reds FC BU10-RED II LL    0
+6    Laguna United FC BU10-White    0
+
+Male U10 - BU10 Black
+1    SoCal Reds FC BU10-RED III CW    0
+2    Laguna United FC BU10-Navy    0
+3    Coastal United FC BU10 Gray    0
+4    SoCal Reds FC BU10-WHITE II LL    0
+5    Slammers FC Newport Mesa BU10 MD II    0
+6    SoCal Reds FC BU10-WHITE SC    0
+
+Male U14 - BU14 Blue
+1    Sporting California USA BU13 ECNL GARCIA    0
+2    Laguna United FC BU13 MLS Next AD    0
+3    SDSC Surf Escondido RL B2012/13 BLUE-ESC (CA)    0
+4    Laguna United FC BU14 EA    0

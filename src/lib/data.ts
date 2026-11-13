@@ -220,7 +220,16 @@ function currentSeason(now = new Date()) {
   };
 }
 
+/** data/seed/select-teams.json: composite showcase teams that aren't listed (see that file) */
+function loadSelectTeams(): RegExp[] {
+  try {
+    const d = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "seed", "select-teams.json"), "utf8")) as { teams: Array<{ pattern: string }> };
+    return d.teams.map((t) => new RegExp(t.pattern, "i"));
+  } catch { return []; }
+}
+
 function markRankable(teams: Team[], games: Game[], rankings: DataSet["rankings"]): { teams: Team[]; stats: string } {
+  const selectTeams = loadSelectTeams();
   const byId = new Map(teams.map((t) => [t.id, t]));
   const score = new Map(rankings.map((r) => [r.teamId, r.score]));
   const since = new Date(Date.now() - TRACKED_DAYS * 864e5).toISOString().slice(0, 10);
@@ -263,6 +272,7 @@ function markRankable(teams: Team[], games: Game[], rankings: DataSet["rankings"
       // State ODP / EPD squads are all-star selections, not club teams: their games still
       // count for their opponents' ratings, but they aren't listed
       /\b(ODP|EPD)\b|olympic development/i.test(`${t.name} ${t.sourceName ?? ""} ${t.club}`) ? "state select team (ODP), not a club team" :
+      selectTeams.some((re) => re.test(`${t.name} ${t.sourceName ?? ""}`)) ? "select team (players from several clubs), not a club team" :
       !score.has(t.id) || !x || x.games < RANK_RULES.minGames ? `fewer than ${RANK_RULES.minGames} games in the last 15 months` :
       !t.tracked || x.tracked < RANK_RULES.minTrackedGames ? `fewer than ${RANK_RULES.minTrackedGames} games in tracked competitions` :
       x.quality < RANK_RULES.minQualityOpponentGames ? `fewer than ${RANK_RULES.minQualityOpponentGames} games against ranked-level opponents` :

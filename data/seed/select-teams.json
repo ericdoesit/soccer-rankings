@@ -1,0 +1,9 @@
+{
+  "_note": "Composite / select teams built from players of several clubs or states for showcases: rated (their games count for opponents) but not listed in rankings, like state ODP teams. One regex per entry, matched against the team's name; add the evidence. Used by src/lib/data.ts (markRankable).",
+  "teams": [
+    {
+      "pattern": "\\b(AK|Alaska) Select Chicas\\b",
+      "evidence": "Eagle River Soccer Association's Chicas/Chico travel program: rosters of players from Alaska, California, New Mexico, Mississippi, Arizona, Virginia and Florida for showcases (club website text pasted by the user 2026-11-13). User: go with the best decision; decided to unlist like ODP."
+    }
+  ]
+}

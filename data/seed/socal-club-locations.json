@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-13T18:31:20.641Z",
+ "generatedAt": "2026-11-13T20:11:23.135Z",
  "source": "OpenStreetMap Nominatim",
  "clubs": [
   {
@@ -9,8 +9,8 @@
    "source": "home field",
    "venue": "Westminster High School",
    "city": "Westminster",
-   "teams": 244,
-   "listed": 98,
+   "teams": 259,
+   "listed": 101,
    "programs": [
     "DPL",
     "ECNL",
@@ -27,8 +27,8 @@
    "source": "home field",
    "venue": "Sierra Vista Elementary School",
    "city": "Los Angeles",
-   "teams": 485,
-   "listed": 87,
+   "teams": 519,
+   "listed": 93,
    "programs": [
     "ECNL",
     "ECNL RL",
@@ -44,7 +44,7 @@
    "source": "home field",
    "venue": "Dignity Health Sports Park",
    "city": "Carson",
-   "teams": 296,
+   "teams": 316,
    "listed": 75,
    "programs": [
     "ECNL",
@@ -61,7 +61,7 @@
    "source": "home field",
    "venue": "Los Alisos Intermediate School",
    "city": "Mission Viejo",
-   "teams": 406,
+   "teams": 408,
    "listed": 74,
    "programs": [
     "DPL",
@@ -79,8 +79,8 @@
    "source": "home field",
    "venue": "Azusa High School",
    "city": "Azusa",
-   "teams": 199,
-   "listed": 65,
+   "teams": 207,
+   "listed": 67,
    "programs": [
     "EA",
     "EA2",
@@ -96,7 +96,7 @@
    "source": "home field",
    "venue": "San Marino High School",
    "city": "San Marino",
-   "teams": 244,
+   "teams": 245,
    "listed": 59,
    "programs": [
     "DPL",
@@ -116,7 +116,7 @@
    "source": "home field",
    "venue": "Orange County Great Park",
    "city": "Irvine",
-   "teams": 226,
+   "teams": 228,
    "listed": 55,
    "programs": [
     "DPL",
@@ -138,7 +138,6 @@
    "teams": 230,
    "listed": 53,
    "programs": [
-    "DPL",
     "EA",
     "ECNL",
     "ECNL RL",
@@ -155,7 +154,7 @@
    "venue": "Charter Oak High School",
    "city": "Covina",
    "teams": 130,
-   "listed": 51,
+   "listed": 53,
    "programs": [
     "EA",
     "EA2",
@@ -172,8 +171,8 @@
    "source": "home field",
    "venue": "ROBB",
    "city": "San Diego",
-   "teams": 229,
-   "listed": 50,
+   "teams": 233,
+   "listed": 51,
    "programs": [
     "EA",
     "EA2",
@@ -190,8 +189,8 @@
    "source": "home field",
    "venue": "El Cerrito Sports Park",
    "city": "El Cerrito",
-   "teams": 188,
-   "listed": 50,
+   "teams": 198,
+   "listed": 51,
    "programs": [
     "ECNL",
     "ECNL RL",
@@ -207,8 +206,8 @@
    "source": "home field",
    "venue": "Surf Sports Park",
    "city": "San Diego",
-   "teams": 284,
-   "listed": 43,
+   "teams": 314,
+   "listed": 44,
    "programs": [
     "ECNL",
     "ECNL RL",
@@ -224,8 +223,8 @@
    "source": "home field",
    "venue": "Aviara Park",
    "city": "Carlsbad",
-   "teams": 239,
-   "listed": 43,
+   "teams": 231,
+   "listed": 44,
    "programs": [
     "DPL",
     "EA",
@@ -236,14 +235,31 @@
    ]
   },
   {
+   "club": "So Cal Blues",
+   "lat": 34.0615,
+   "lng": -117.1397,
+   "source": "home field",
+   "venue": "Crafton Park",
+   "city": "Redlands",
+   "teams": 192,
+   "listed": 44,
+   "programs": [
+    "DPL",
+    "ECNL",
+    "ECNL RL",
+    "N1",
+    "NPL"
+   ]
+  },
+  {
    "club": "City SC Southwest",
    "lat": 33.4532,
    "lng": -117.09565,
    "source": "home field",
    "venue": "Patricia H. Birdsall Sports Park",
    "city": "Temecula",
-   "teams": 232,
-   "listed": 43,
+   "teams": 250,
+   "listed": 42,
    "programs": [
     "DPL",
     "EA",
@@ -255,31 +271,14 @@
    ]
   },
   {
-   "club": "So Cal Blues",
-   "lat": 34.0615,
-   "lng": -117.1397,
-   "source": "home field",
-   "venue": "Crafton Park",
-   "city": "Redlands",
-   "teams": 191,
-   "listed": 43,
-   "programs": [
-    "DPL",
-    "ECNL",
-    "ECNL RL",
-    "N1",
-    "NPL"
-   ]
-  },
-  {
-   "club": "West Coast F.C.",
+   "club": "West Coast FC",
    "lat": 34.08543,
    "lng": -118.22945,
    "source": "home field",
    "venue": "Oso Park",
    "city": "Los Angeles",
-   "teams": 91,
-   "listed": 43,
+   "teams": 92,
+   "listed": 42,
    "programs": [
     "DPL",
     "ECNL",
@@ -306,13 +305,29 @@
    ]
   },
   {
+   "club": "FC Premier (CA)",
+   "lat": 33.73144,
+   "lng": -118.02785,
+   "source": "home field",
+   "venue": "Marina High School",
+   "city": "Huntington Beach",
+   "teams": 182,
+   "listed": 38,
+   "programs": [
+    "DPL",
+    "EA2",
+    "N1",
+    "NPL"
+   ]
+  },
+  {
    "club": "Rangers FC",
    "lat": 33.81629,
    "lng": -117.81774,
    "source": "home field",
    "venue": "Villa Park High School",
    "city": "Villa Park",
-   "teams": 142,
+   "teams": 146,
    "listed": 38,
    "programs": [
     "DPL",
@@ -332,7 +347,7 @@
    "source": "home field",
    "venue": "4S Ranch Sports Park",
    "city": "4S Ranch",
-   "teams": 170,
+   "teams": 190,
    "listed": 37,
    "programs": [
     "ECNL",
@@ -344,19 +359,19 @@
    ]
   },
   {
-   "club": "FC Premier (CA)",
-   "lat": 33.73144,
-   "lng": -118.02785,
+   "club": "FC Golden State",
+   "lat": 34.12426,
+   "lng": -117.89784,
    "source": "home field",
-   "venue": "Marina High School",
-   "city": "Huntington Beach",
-   "teams": 191,
-   "listed": 36,
+   "venue": "Azusa High School",
+   "city": "Azusa",
+   "teams": 93,
+   "listed": 37,
    "programs": [
-    "DPL",
+    "EA",
     "EA2",
-    "N1",
-    "NPL"
+    "MLS NEXT",
+    "N1"
    ]
   },
   {
@@ -366,7 +381,7 @@
    "source": "home field",
    "venue": "North Ranch Playfields",
    "city": "Thousand Oaks",
-   "teams": 141,
+   "teams": 154,
    "listed": 36,
    "programs": [
     "ECNL",
@@ -376,29 +391,13 @@
    ]
   },
   {
-   "club": "FC Golden State",
-   "lat": 34.12426,
-   "lng": -117.89784,
-   "source": "home field",
-   "venue": "Azusa High School",
-   "city": "Azusa",
-   "teams": 90,
-   "listed": 36,
-   "programs": [
-    "EA",
-    "EA2",
-    "MLS NEXT",
-    "N1"
-   ]
-  },
-  {
    "club": "Empire Surf",
    "lat": 33.48826,
    "lng": -117.03148,
    "source": "home field",
    "venue": "Galway Downs",
    "city": "Escondido",
-   "teams": 161,
+   "teams": 177,
    "listed": 34,
    "programs": [
     "ECNL RL",
@@ -414,11 +413,26 @@
    "source": "home field",
    "venue": "Encinitas Community Park",
    "city": "Encinitas",
-   "teams": 69,
+   "teams": 75,
    "listed": 34,
    "programs": [
     "N1",
     "NPL"
+   ]
+  },
+  {
+   "club": "SoCal Elite FC",
+   "lat": 33.95999,
+   "lng": -117.71075,
+   "source": "home field",
+   "venue": "Rincon Park",
+   "city": "Chino Hills",
+   "teams": 85,
+   "listed": 31,
+   "programs": [
+    "DPL",
+    "EA",
+    "EA2"
    ]
   },
   {
@@ -438,28 +452,13 @@
    ]
   },
   {
-   "club": "SoCal Elite FC",
-   "lat": 33.95999,
-   "lng": -117.71075,
-   "source": "home field",
-   "venue": "Rincon Park",
-   "city": "Chino Hills",
-   "teams": 83,
-   "listed": 30,
-   "programs": [
-    "DPL",
-    "EA",
-    "EA2"
-   ]
-  },
-  {
    "club": "LA Breakers FC",
    "lat": 34.00066,
    "lng": -118.44667,
    "source": "home field",
    "venue": "Mark Twain Middle School",
    "city": "Los Angeles",
-   "teams": 144,
+   "teams": 152,
    "listed": 29,
    "programs": [
     "ECNL",
@@ -471,14 +470,15 @@
   },
   {
    "club": "California Football Academy",
-   "lat": 33.59072,
-   "lng": -117.71077,
+   "lat": 33.70641,
+   "lng": -117.98784,
    "source": "home field",
-   "venue": "Sheep Hills Park",
-   "city": "Laguna Hills",
-   "teams": 99,
+   "venue": "Liberty Park",
+   "city": "Huntington Beach",
+   "teams": 120,
    "listed": 29,
    "programs": [
+    "DPL",
     "EA",
     "EA2",
     "GA Aspire",
@@ -493,7 +493,7 @@
    "source": "home field",
    "venue": "Ashley Falls Elementary Park",
    "city": "San Diego",
-   "teams": 110,
+   "teams": 118,
    "listed": 28,
    "programs": [
     "ECNL",
@@ -509,7 +509,7 @@
    "source": "home field",
    "venue": "Matthew Gage Middle School",
    "city": "Riverside",
-   "teams": 102,
+   "teams": 103,
    "listed": 28,
    "programs": [
     "DPL",
@@ -517,6 +517,24 @@
     "EA2",
     "MLS NEXT",
     "N1"
+   ]
+  },
+  {
+   "club": "Oaks FC",
+   "lat": 34.21407,
+   "lng": -118.87278,
+   "source": "home field",
+   "venue": "Thousand Oaks Community Park",
+   "city": "Thousand Oaks",
+   "teams": 105,
+   "listed": 27,
+   "programs": [
+    "DPL",
+    "EA",
+    "EA2",
+    "MLS NEXT",
+    "N1",
+    "NPL"
    ]
   },
   {
@@ -530,6 +548,23 @@
    "listed": 26,
    "programs": [
     "N1"
+   ]
+  },
+  {
+   "club": "Laguna United FC",
+   "lat": 33.55372,
+   "lng": -117.71137,
+   "source": "home field",
+   "venue": "La Paz Sports Park",
+   "city": "Laguna Niguel",
+   "teams": 135,
+   "listed": 26,
+   "programs": [
+    "EA",
+    "EA2",
+    "MLS NEXT",
+    "N1",
+    "NPL"
    ]
   },
   {
@@ -552,36 +587,17 @@
    ]
   },
   {
-   "club": "Laguna United FC",
-   "lat": 33.55372,
-   "lng": -117.71137,
+   "club": "Strikers FC North",
+   "lat": 33.87585,
+   "lng": -117.86811,
    "source": "home field",
-   "venue": "La Paz Sports Park",
-   "city": "Laguna Niguel",
-   "teams": 130,
-   "listed": 25,
+   "venue": "Kraemer Middle School",
+   "city": "Placentia",
+   "teams": 53,
+   "listed": 26,
    "programs": [
     "EA",
-    "EA2",
-    "MLS NEXT",
     "N1",
-    "NPL"
-   ]
-  },
-  {
-   "club": "Oaks FC",
-   "lat": 34.21407,
-   "lng": -118.87278,
-   "source": "home field",
-   "venue": "Thousand Oaks Community Park",
-   "city": "Thousand Oaks",
-   "teams": 95,
-   "listed": 25,
-   "programs": [
-    "DPL",
-    "EA",
-    "EA2",
-    "MLS NEXT",
     "NPL"
    ]
   },
@@ -593,7 +609,7 @@
    "venue": "Bakersfield College",
    "city": "Bakersfield",
    "teams": 43,
-   "listed": 25,
+   "listed": 26,
    "programs": [
     "DPL",
     "EA",
@@ -607,75 +623,13 @@
    "source": "home field",
    "venue": "John Adams Middle School",
    "city": "Los Angeles",
-   "teams": 96,
-   "listed": 24,
-   "programs": [
-    "DPL",
-    "EA",
-    "N1",
-    "NPL"
-   ]
-  },
-  {
-   "club": "Strikers FC North",
-   "lat": 33.87585,
-   "lng": -117.86811,
-   "source": "home field",
-   "venue": "Kraemer Middle School",
-   "city": "Placentia",
-   "teams": 51,
-   "listed": 24,
-   "programs": [
-    "EA",
-    "N1",
-    "NPL"
-   ]
-  },
-  {
-   "club": "Santa Barbara Soccer Club",
-   "lat": 34.42572,
-   "lng": -119.87426,
-   "source": "home field",
-   "venue": "Girsh Park",
-   "city": "Goleta",
-   "teams": 60,
-   "listed": 23,
-   "programs": [
-    "GA Aspire",
-    "MLS NEXT",
-    "N1",
-    "NPL"
-   ]
-  },
-  {
-   "club": "City SC - San Marcos",
-   "lat": 34.18379,
-   "lng": -118.89685,
-   "source": "home field",
-   "venue": "Walnut Grove Park",
-   "city": "Thousand Oaks",
-   "teams": 101,
-   "listed": 22,
-   "programs": [
-    "DPL",
-    "EA",
-    "N1"
-   ]
-  },
-  {
-   "club": "Legends FC - San Diego",
-   "lat": 32.80555,
-   "lng": -117.16551,
-   "source": "home field",
-   "venue": "Merrill Douglas Stadium",
-   "city": "San Diego",
    "teams": 97,
-   "listed": 22,
+   "listed": 25,
    "programs": [
-    "ECNL",
-    "ECNL RL",
+    "DPL",
+    "EA",
     "N1",
-    "Pre-ECNL"
+    "NPL"
    ]
   },
   {
@@ -686,12 +640,62 @@
    "venue": "Terra Nova Park",
    "city": "Chula Vista",
    "teams": 95,
-   "listed": 22,
+   "listed": 23,
    "programs": [
     "DPL",
     "EA",
     "EA2",
     "MLS NEXT"
+   ]
+  },
+  {
+   "club": "Santa Barbara Soccer Club",
+   "lat": 34.42572,
+   "lng": -119.87426,
+   "source": "home field",
+   "venue": "Girsh Park",
+   "city": "Goleta",
+   "teams": 61,
+   "listed": 23,
+   "programs": [
+    "GA Aspire",
+    "MLS NEXT",
+    "N1",
+    "NPL"
+   ]
+  },
+  {
+   "club": "Legends FC - San Diego",
+   "lat": 32.80555,
+   "lng": -117.16551,
+   "source": "home field",
+   "venue": "Merrill Douglas Stadium",
+   "city": "San Diego",
+   "teams": 96,
+   "listed": 22,
+   "programs": [
+    "ECNL",
+    "ECNL RL",
+    "N1",
+    "Pre-ECNL"
+   ]
+  },
+  {
+   "club": "Sporting Football Club",
+   "lat": 34.27326,
+   "lng": -118.89074,
+   "source": "home field",
+   "venue": "Arroyo Vista Community Park",
+   "city": "Moorpark",
+   "teams": 82,
+   "listed": 22,
+   "programs": [
+    "DPL",
+    "ECNL",
+    "ECNL RL",
+    "MLS NEXT",
+    "N1",
+    "Pre-ECNL"
    ]
   },
   {
@@ -701,7 +705,7 @@
    "source": "home field",
    "venue": "Walnut Ranch Park",
    "city": "Walnut",
-   "teams": 63,
+   "teams": 70,
    "listed": 22,
    "programs": [
     "DPL",
@@ -748,45 +752,12 @@
    "source": "home field",
    "venue": "Celebration Park North",
    "city": "Ontario",
-   "teams": 56,
+   "teams": 57,
    "listed": 22,
    "programs": [
     "DPL",
     "EA",
     "N1"
-   ]
-  },
-  {
-   "club": "San Diego Rush Soccer Club",
-   "lat": 32.76951,
-   "lng": -117.06185,
-   "source": "home field",
-   "venue": "Language Academy",
-   "city": "San Diego",
-   "teams": 125,
-   "listed": 21,
-   "programs": [
-    "DPL",
-    "ECNL RL",
-    "N1",
-    "Pre-ECNL"
-   ]
-  },
-  {
-   "club": "Sporting Football Club",
-   "lat": 34.15583,
-   "lng": -118.80772,
-   "source": "home field",
-   "venue": "Westlake Village Community Park",
-   "city": "Westlake Village",
-   "teams": 85,
-   "listed": 21,
-   "programs": [
-    "DPL",
-    "ECNL",
-    "ECNL RL",
-    "MLS NEXT",
-    "Pre-ECNL"
    ]
   },
   {
@@ -796,12 +767,43 @@
    "source": "home field",
    "venue": "Doty Middle School",
    "city": "Downey",
-   "teams": 50,
-   "listed": 21,
+   "teams": 51,
+   "listed": 22,
    "programs": [
     "EA2",
     "N1",
     "NPL"
+   ]
+  },
+  {
+   "club": "San Diego Rush Soccer Club",
+   "lat": 32.76951,
+   "lng": -117.06185,
+   "source": "home field",
+   "venue": "Language Academy",
+   "city": "San Diego",
+   "teams": 144,
+   "listed": 21,
+   "programs": [
+    "DPL",
+    "ECNL RL",
+    "N1",
+    "Pre-ECNL"
+   ]
+  },
+  {
+   "club": "City SC - San Marcos",
+   "lat": 34.18379,
+   "lng": -118.89685,
+   "source": "home field",
+   "venue": "Walnut Grove Park",
+   "city": "Thousand Oaks",
+   "teams": 110,
+   "listed": 21,
+   "programs": [
+    "DPL",
+    "EA",
+    "N1"
    ]
   },
   {
@@ -811,7 +813,7 @@
    "source": "home field",
    "venue": "St Pius x St Matthias Academy",
    "city": "Downey",
-   "teams": 47,
+   "teams": 49,
    "listed": 21,
    "programs": [
     "EA",
@@ -826,13 +828,59 @@
    "source": "home field",
    "venue": "Rancho Jurupa Regional Sports Park",
    "city": "Jurupa Valley",
-   "teams": 74,
-   "listed": 19,
+   "teams": 81,
+   "listed": 20,
    "programs": [
     "DPL",
     "EA",
     "EA2",
-    "GA Aspire"
+    "GA Aspire",
+    "N1"
+   ]
+  },
+  {
+   "club": "Valley United SC",
+   "lat": 34.18862,
+   "lng": -118.50432,
+   "source": "home field",
+   "venue": "Birmingham Community Charter High School",
+   "city": "Los Angeles",
+   "teams": 51,
+   "listed": 20,
+   "programs": [
+    "DPL",
+    "EA",
+    "EA2"
+   ]
+  },
+  {
+   "club": "AC Brea Soccer",
+   "lat": 33.91952,
+   "lng": -117.85085,
+   "source": "home field",
+   "venue": "Brea Sports Park",
+   "city": "Brea",
+   "teams": 50,
+   "listed": 20,
+   "programs": [
+    "EA",
+    "EA2",
+    "N1"
+   ]
+  },
+  {
+   "club": "Albion SC Antelope Valley",
+   "lat": 35.37683,
+   "lng": -119.00814,
+   "source": "home field",
+   "venue": "Central Park",
+   "city": "Bakersfield",
+   "teams": 49,
+   "listed": 20,
+   "programs": [
+    "DPL",
+    "EA",
+    "EA2"
    ]
   },
   {
@@ -850,6 +898,20 @@
    ]
   },
   {
+   "club": "ALBION SC Santa Ana",
+   "lat": 33.7626,
+   "lng": -117.90197,
+   "source": "home field",
+   "venue": "Samueli Academy",
+   "city": "Santa Ana",
+   "teams": 59,
+   "listed": 19,
+   "programs": [
+    "EA",
+    "EA2"
+   ]
+  },
+  {
    "club": "Oceanside",
    "lat": 33.20565,
    "lng": -117.32247,
@@ -863,43 +925,13 @@
    ]
   },
   {
-   "club": "Albion SC Antelope Valley",
-   "lat": 35.37683,
-   "lng": -119.00814,
-   "source": "home field",
-   "venue": "Central Park",
-   "city": "Bakersfield",
-   "teams": 48,
-   "listed": 19,
-   "programs": [
-    "DPL",
-    "EA",
-    "EA2"
-   ]
-  },
-  {
-   "club": "AC Brea Soccer",
-   "lat": 33.91952,
-   "lng": -117.85085,
-   "source": "home field",
-   "venue": "Brea Sports Park",
-   "city": "Brea",
-   "teams": 45,
-   "listed": 19,
-   "programs": [
-    "EA",
-    "EA2",
-    "N1"
-   ]
-  },
-  {
    "club": "Strikers FC",
    "lat": 33.67464,
    "lng": -117.77913,
    "source": "home field",
    "venue": "Irvine Valley College",
    "city": "Irvine",
-   "teams": 98,
+   "teams": 105,
    "listed": 18,
    "programs": [
     "EA",
@@ -907,20 +939,6 @@
     "MLS NEXT",
     "N1",
     "NPL"
-   ]
-  },
-  {
-   "club": "ALBION SC Santa Ana",
-   "lat": 33.7626,
-   "lng": -117.90197,
-   "source": "home field",
-   "venue": "Samueli Academy",
-   "city": "Santa Ana",
-   "teams": 62,
-   "listed": 18,
-   "programs": [
-    "EA",
-    "EA2"
    ]
   },
   {
@@ -939,18 +957,20 @@
    ]
   },
   {
-   "club": "Valley United SC",
-   "lat": 34.18862,
-   "lng": -118.50432,
+   "club": "Boca Orange County",
+   "lat": 33.85773,
+   "lng": -117.76802,
    "source": "home field",
-   "venue": "Birmingham Community Charter High School",
-   "city": "Los Angeles",
-   "teams": 45,
-   "listed": 18,
+   "venue": "El Rancho Charter School",
+   "city": "Anaheim",
+   "teams": 86,
+   "listed": 16,
    "programs": [
     "DPL",
     "EA",
-    "EA2"
+    "EA2",
+    "N1",
+    "NPL"
    ]
   },
   {
@@ -975,7 +995,7 @@
    "source": "home field",
    "venue": "Pleasant Valley",
    "city": "Camarillo",
-   "teams": 72,
+   "teams": 75,
    "listed": 16,
    "programs": [
     "ECNL",
@@ -983,6 +1003,35 @@
     "N1",
     "NPL",
     "Pre-ECNL"
+   ]
+  },
+  {
+   "club": "Culver City Football Club",
+   "lat": 33.83783,
+   "lng": -118.02519,
+   "source": "home field",
+   "venue": "El Marino Elementary School",
+   "city": "Buena Park",
+   "teams": 50,
+   "listed": 16,
+   "programs": [
+    "DPL",
+    "EA2",
+    "NPL"
+   ]
+  },
+  {
+   "club": "Titans FC Inland Empire",
+   "lat": 34.12743,
+   "lng": -117.23685,
+   "source": "home field",
+   "venue": "San Gorgonio High School",
+   "city": "San Bernardino",
+   "teams": 33,
+   "listed": 16,
+   "programs": [
+    "N1",
+    "NPL"
    ]
   },
   {
@@ -1037,7 +1086,7 @@
    "source": "home field",
    "venue": "McPherson Athletic Facility",
    "city": "Orange",
-   "teams": 71,
+   "teams": 74,
    "listed": 15,
    "programs": [
     "MLS NEXT",
@@ -1052,26 +1101,11 @@
    "source": "home field",
    "venue": "Los Coches Creek Middle School",
    "city": "La Mesa",
-   "teams": 69,
+   "teams": 72,
    "listed": 15,
    "programs": [
     "MLS NEXT",
     "N1",
-    "NPL"
-   ]
-  },
-  {
-   "club": "Culver City Football Club",
-   "lat": 34.0064,
-   "lng": -118.40258,
-   "source": "home field",
-   "venue": "Culver City High School",
-   "city": "Culver City",
-   "teams": 48,
-   "listed": 15,
-   "programs": [
-    "DPL",
-    "EA2",
     "NPL"
    ]
   },
@@ -1082,7 +1116,7 @@
    "source": "home field",
    "venue": "El Roble Intermediate School Mountain Ave",
    "city": "Claremont",
-   "teams": 42,
+   "teams": 44,
    "listed": 15,
    "programs": [
     "N1",
@@ -1128,27 +1162,10 @@
    "source": "home field",
    "venue": "Los Angeles Valley College",
    "city": "Los Angeles",
-   "teams": 26,
+   "teams": 29,
    "listed": 15,
    "programs": [
     "N1"
-   ]
-  },
-  {
-   "club": "Boca Orange County",
-   "lat": 33.85773,
-   "lng": -117.76802,
-   "source": "home field",
-   "venue": "El Rancho Charter School",
-   "city": "Anaheim",
-   "teams": 65,
-   "listed": 14,
-   "programs": [
-    "DPL",
-    "EA",
-    "EA2",
-    "N1",
-    "NPL"
    ]
   },
   {
@@ -1158,12 +1175,25 @@
    "source": "home field",
    "venue": "Talley",
    "city": "Arroyo Grande",
-   "teams": 49,
+   "teams": 50,
    "listed": 14,
    "programs": [
     "DPL",
     "EA",
     "EA2"
+   ]
+  },
+  {
+   "club": "FC Scorpions (CA)",
+   "lat": 33.92969,
+   "lng": -118.19087,
+   "source": "home field",
+   "venue": "Lynwood High School",
+   "city": "Lynwood",
+   "teams": 41,
+   "listed": 14,
+   "programs": [
+    "N1"
    ]
   },
   {
@@ -1173,7 +1203,7 @@
    "source": "home field",
    "venue": "Ventura Community Park",
    "city": "Ventura",
-   "teams": 103,
+   "teams": 104,
    "listed": 13,
    "programs": [
     "N1",
@@ -1187,7 +1217,7 @@
    "source": "home field",
    "venue": "Eagle Glen Community Park",
    "city": "Corona",
-   "teams": 42,
+   "teams": 45,
    "listed": 13,
    "programs": [
     "N1",
@@ -1195,16 +1225,35 @@
    ]
   },
   {
-   "club": "FC Scorpions (CA)",
-   "lat": 33.92969,
-   "lng": -118.19087,
+   "club": "Empire SC",
+   "lat": 33.9487,
+   "lng": -117.56284,
    "source": "home field",
-   "venue": "Lynwood High School",
-   "city": "Lynwood",
-   "teams": 37,
+   "venue": "Eastvale Community Park",
+   "city": "Eastvale",
+   "teams": 65,
    "listed": 12,
    "programs": [
-    "N1"
+    "EA",
+    "EA2",
+    "ECNL RL",
+    "N1",
+    "NPL"
+   ]
+  },
+  {
+   "club": "Bell Gardens FC",
+   "lat": 33.89995,
+   "lng": -118.07202,
+   "source": "home field",
+   "venue": "Waite Middle School",
+   "city": "Norwalk",
+   "teams": 64,
+   "listed": 12,
+   "programs": [
+    "EA2",
+    "N1",
+    "NPL"
    ]
   },
   {
@@ -1214,7 +1263,7 @@
    "source": "home field",
    "venue": "Ventura Community Park",
    "city": "Ventura",
-   "teams": 28,
+   "teams": 30,
    "listed": 12,
    "programs": [
     "DPL",
@@ -1253,33 +1302,16 @@
    ]
   },
   {
-   "club": "Empire SC",
-   "lat": 33.9487,
-   "lng": -117.56284,
-   "source": "home field",
-   "venue": "Eastvale Community Park",
-   "city": "Eastvale",
-   "teams": 64,
+   "club": "Desert Empire Surf",
+   "lat": 33.72882,
+   "lng": -116.38257,
+   "source": "club city",
+   "venue": null,
+   "city": "Palm Desert",
+   "teams": 73,
    "listed": 11,
    "programs": [
-    "EA",
-    "EA2",
-    "ECNL RL",
-    "N1",
-    "NPL"
-   ]
-  },
-  {
-   "club": "Bell Gardens FC",
-   "lat": 33.89995,
-   "lng": -118.07202,
-   "source": "home field",
-   "venue": "Waite Middle School",
-   "city": "Norwalk",
-   "teams": 57,
-   "listed": 11,
-   "programs": [
-    "EA2",
+    "DPL",
     "N1",
     "NPL"
    ]
@@ -1305,24 +1337,9 @@
    "source": "home field",
    "venue": "Tierra Grande Park",
    "city": "San Clemente",
-   "teams": 40,
+   "teams": 43,
    "listed": 11,
    "programs": [
-    "N1",
-    "NPL"
-   ]
-  },
-  {
-   "club": "Desert Empire Surf",
-   "lat": 33.72882,
-   "lng": -116.38257,
-   "source": "club city",
-   "venue": null,
-   "city": "Palm Desert",
-   "teams": 70,
-   "listed": 10,
-   "programs": [
-    "DPL",
     "N1",
     "NPL"
    ]
@@ -1354,27 +1371,13 @@
    "programs": []
   },
   {
-   "club": "Titans FC Inland Empire",
-   "lat": 34.12743,
-   "lng": -117.23685,
-   "source": "home field",
-   "venue": "San Gorgonio High School",
-   "city": "San Bernardino",
-   "teams": 32,
-   "listed": 10,
-   "programs": [
-    "N1",
-    "NPL"
-   ]
-  },
-  {
    "club": "Steel United California",
    "lat": 34.1003,
    "lng": -117.43358,
    "source": "home field",
    "venue": "Miller Park",
    "city": "Fontana",
-   "teams": 32,
+   "teams": 33,
    "listed": 10,
    "programs": [
     "N1"
@@ -1401,12 +1404,40 @@
    "source": "home field",
    "venue": "AV Event Center",
    "city": "San Bernardino",
-   "teams": 36,
+   "teams": 39,
    "listed": 9,
    "programs": [
     "EA2",
     "N1",
     "NPL"
+   ]
+  },
+  {
+   "club": "Zeta Academy",
+   "lat": 33.67618,
+   "lng": -117.89578,
+   "source": "home field",
+   "venue": "Sonora Elementary School",
+   "city": "Costa Mesa",
+   "teams": 36,
+   "listed": 9,
+   "programs": [
+    "EA2",
+    "N1"
+   ]
+  },
+  {
+   "club": "AYSO UNITED",
+   "lat": 34.71137,
+   "lng": -120.47491,
+   "source": "home field",
+   "venue": "Cabrillo High School",
+   "city": "Vandenberg Village",
+   "teams": 26,
+   "listed": 9,
+   "programs": [
+    "DPL",
+    "EA2"
    ]
   },
   {
@@ -1429,7 +1460,7 @@
    "source": "home field",
    "venue": "Ryan Park",
    "city": "Riverside",
-   "teams": 75,
+   "teams": 77,
    "listed": 8,
    "programs": [
     "ECNL RL",
@@ -1453,26 +1484,13 @@
    ]
   },
   {
-   "club": "Chelsea OC",
-   "lat": 33.87843,
-   "lng": -117.70073,
-   "source": "home field",
-   "venue": "Brush Canyon Park",
-   "city": "Yorba Linda",
-   "teams": 62,
-   "listed": 8,
-   "programs": [
-    "N1"
-   ]
-  },
-  {
    "club": "Los Angeles Bulls Soccer Club",
    "lat": 34.05745,
    "lng": -118.495,
    "source": "home field",
    "venue": "Paul Revere Charter Middle School",
    "city": "Los Angeles",
-   "teams": 51,
+   "teams": 52,
    "listed": 8,
    "programs": [
     "DPL",
@@ -1494,34 +1512,6 @@
    ]
   },
   {
-   "club": "Zeta Academy",
-   "lat": 33.67618,
-   "lng": -117.89578,
-   "source": "home field",
-   "venue": "Sonora Elementary School",
-   "city": "Costa Mesa",
-   "teams": 36,
-   "listed": 8,
-   "programs": [
-    "EA2",
-    "N1"
-   ]
-  },
-  {
-   "club": "AYSO UNITED",
-   "lat": 34.71137,
-   "lng": -120.47491,
-   "source": "home field",
-   "venue": "Cabrillo High School",
-   "city": "Vandenberg Village",
-   "teams": 26,
-   "listed": 8,
-   "programs": [
-    "DPL",
-    "EA2"
-   ]
-  },
-  {
    "club": "NHB FC",
    "lat": 33.70889,
    "lng": -117.98218,
@@ -1532,6 +1522,33 @@
    "listed": 8,
    "programs": [
     "N1"
+   ]
+  },
+  {
+   "club": "Chelsea OC",
+   "lat": 33.87843,
+   "lng": -117.70073,
+   "source": "home field",
+   "venue": "Brush Canyon Park",
+   "city": "Yorba Linda",
+   "teams": 62,
+   "listed": 7,
+   "programs": [
+    "N1"
+   ]
+  },
+  {
+   "club": "Sporting So-Cal Soccer Club",
+   "lat": 34.14481,
+   "lng": -118.2327,
+   "source": "home field",
+   "venue": "Glendale High School",
+   "city": "Glendale",
+   "teams": 46,
+   "listed": 7,
+   "programs": [
+    "EA2",
+    "NPL"
    ]
   },
   {
@@ -1556,6 +1573,19 @@
    "venue": "Rancho Santa Susana Community Park",
    "city": "Simi Valley",
    "teams": 28,
+   "listed": 7,
+   "programs": [
+    "N1"
+   ]
+  },
+  {
+   "club": "One Ivy FC",
+   "lat": 34.07367,
+   "lng": -118.35497,
+   "source": "home field",
+   "venue": "Pan Pacific Park",
+   "city": "Los Angeles",
+   "teams": 27,
    "listed": 7,
    "programs": [
     "N1"
@@ -1590,26 +1620,13 @@
    ]
   },
   {
-   "club": "One Ivy FC",
-   "lat": 34.07367,
-   "lng": -118.35497,
-   "source": "home field",
-   "venue": "Pan Pacific Park",
-   "city": "Los Angeles",
-   "teams": 21,
-   "listed": 7,
-   "programs": [
-    "N1"
-   ]
-  },
-  {
    "club": "Progressive Soccer Ozzy",
    "lat": 34.12907,
    "lng": -117.79935,
    "source": "home field",
    "venue": "Horsethief Canyon Park",
    "city": "San Dimas",
-   "teams": 20,
+   "teams": 21,
    "listed": 7,
    "programs": []
   },
@@ -1627,13 +1644,41 @@
    ]
   },
   {
+   "club": "Dynamo",
+   "lat": 34.19233,
+   "lng": -118.91231,
+   "source": "home field",
+   "venue": "Rancho Conejo Playfields",
+   "city": "Thousand Oaks",
+   "teams": 17,
+   "listed": 7,
+   "programs": [
+    "EA2"
+   ]
+  },
+  {
+   "club": "San Diego FORCE FC",
+   "lat": 33.01402,
+   "lng": -117.12246,
+   "source": "home field",
+   "venue": "Del Norte High School",
+   "city": "San Diego",
+   "teams": 136,
+   "listed": 6,
+   "programs": [
+    "GA",
+    "N1",
+    "NPL"
+   ]
+  },
+  {
    "club": "South Valley Surf SC",
    "lat": 35.37387,
    "lng": -119.01946,
    "source": "club city",
    "venue": null,
    "city": "Bakersfield",
-   "teams": 75,
+   "teams": 83,
    "listed": 6,
    "programs": [
     "GA",
@@ -1641,17 +1686,16 @@
    ]
   },
   {
-   "club": "Sporting So-Cal Soccer Club",
-   "lat": 34.14481,
-   "lng": -118.2327,
+   "club": "Inland United Soccer Club",
+   "lat": 33.87473,
+   "lng": -117.21306,
    "source": "home field",
-   "venue": "Glendale High School",
-   "city": "Glendale",
-   "teams": 46,
+   "venue": "El Potrero Park",
+   "city": "Moreno Valley",
+   "teams": 58,
    "listed": 6,
    "programs": [
-    "EA2",
-    "NPL"
+    "N1"
    ]
   },
   {
@@ -1736,43 +1780,18 @@
    ]
   },
   {
-   "club": "Dynamo",
-   "lat": 34.19233,
-   "lng": -118.91231,
+   "club": "California Rush Soccer Club",
+   "lat": 33.71411,
+   "lng": -118.00226,
    "source": "home field",
-   "venue": "Rancho Conejo Playfields",
-   "city": "Thousand Oaks",
-   "teams": 17,
-   "listed": 6,
-   "programs": [
-    "EA2"
-   ]
-  },
-  {
-   "club": "San Diego FORCE FC",
-   "lat": 33.01402,
-   "lng": -117.12246,
-   "source": "home field",
-   "venue": "Del Norte High School",
-   "city": "San Diego",
-   "teams": 121,
+   "venue": "Ocean View High School",
+   "city": "Huntington Beach",
+   "teams": 53,
    "listed": 5,
    "programs": [
-    "GA",
-    "N1",
-    "NPL"
+    "EA2",
+    "N1"
    ]
-  },
-  {
-   "club": "Inland United Soccer Club",
-   "lat": 33.87473,
-   "lng": -117.21306,
-   "source": "home field",
-   "venue": "El Potrero Park",
-   "city": "Moreno Valley",
-   "teams": 54,
-   "listed": 5,
-   "programs": []
   },
   {
    "club": "San Diego Sockers Youth",
@@ -1794,7 +1813,7 @@
    "source": "home field",
    "venue": "Mission Bay High School",
    "city": "San Diego",
-   "teams": 41,
+   "teams": 46,
    "listed": 5,
    "programs": [
     "N1"
@@ -1807,7 +1826,7 @@
    "source": "home field",
    "venue": "Yukon Elementary School",
    "city": "Torrance",
-   "teams": 37,
+   "teams": 41,
    "listed": 5,
    "programs": [
     "EA"
@@ -1820,7 +1839,7 @@
    "source": "home field",
    "venue": "San Juan Sports Park",
    "city": "San Juan Capistrano",
-   "teams": 35,
+   "teams": 40,
    "listed": 5,
    "programs": [
     "N1",
@@ -1849,7 +1868,7 @@
    "source": "home field",
    "venue": "Hollywood High School",
    "city": "Los Angeles",
-   "teams": 19,
+   "teams": 20,
    "listed": 5,
    "programs": [
     "N1"
@@ -1906,20 +1925,6 @@
    ]
   },
   {
-   "club": "California Rush Soccer Club",
-   "lat": 33.71411,
-   "lng": -118.00226,
-   "source": "home field",
-   "venue": "Ocean View High School",
-   "city": "Huntington Beach",
-   "teams": 53,
-   "listed": 4,
-   "programs": [
-    "EA2",
-    "N1"
-   ]
-  },
-  {
    "club": "FC Premier Elite",
    "lat": 33.82408,
    "lng": -116.47476,
@@ -1939,7 +1944,7 @@
    "source": "home field",
    "venue": "Fairfax High School",
    "city": "Los Angeles",
-   "teams": 18,
+   "teams": 20,
    "listed": 4,
    "programs": [
     "N1"
@@ -1965,11 +1970,24 @@
    "source": "home field",
    "venue": "Ross Snyder Recreation Center",
    "city": "Los Angeles",
-   "teams": 14,
+   "teams": 13,
    "listed": 4,
    "programs": [
     "N1",
     "NPL"
+   ]
+  },
+  {
+   "club": "Strikers FC - CM/NB",
+   "lat": 33.6878,
+   "lng": -117.92478,
+   "source": "home field",
+   "venue": "TeWinkle Middle School",
+   "city": "Costa Mesa",
+   "teams": 12,
+   "listed": 4,
+   "programs": [
+    "N1"
    ]
   },
   {
@@ -1986,12 +2004,12 @@
    ]
   },
   {
-   "club": "Strikers FC - CM/NB",
-   "lat": 33.6878,
-   "lng": -117.92478,
-   "source": "home field",
-   "venue": "TeWinkle Middle School",
-   "city": "Costa Mesa",
+   "club": "Club Deportivo La Esperanza",
+   "lat": 34.14776,
+   "lng": -119.19516,
+   "source": "club city",
+   "venue": null,
+   "city": "Port Hueneme",
    "teams": 11,
    "listed": 4,
    "programs": [
@@ -2027,7 +2045,7 @@
    "source": "home field",
    "venue": "Grand Avenue Park",
    "city": "Fontana",
-   "teams": 46,
+   "teams": 47,
    "listed": 3,
    "programs": [
     "N1"
@@ -2065,9 +2083,25 @@
    "source": "home field",
    "venue": "Nunez Park",
    "city": "San Bernardino",
-   "teams": 32,
+   "teams": 35,
    "listed": 3,
-   "programs": []
+   "programs": [
+    "DPL"
+   ]
+  },
+  {
+   "club": "Natives FA",
+   "lat": 33.80283,
+   "lng": -116.45223,
+   "source": "home field",
+   "venue": "Cathedral City High School",
+   "city": "Cathedral City",
+   "teams": 34,
+   "listed": 3,
+   "programs": [
+    "N1",
+    "NPL"
+   ]
   },
   {
    "club": "Socal Pride Futbol Club",
@@ -2076,10 +2110,24 @@
    "source": "home field",
    "venue": "One Generation",
    "city": "Glendale",
-   "teams": 27,
+   "teams": 29,
    "listed": 3,
    "programs": [
     "EA2",
+    "NPL"
+   ]
+  },
+  {
+   "club": "Foothill Storm",
+   "lat": 34.09668,
+   "lng": -117.71978,
+   "source": "club city",
+   "venue": null,
+   "city": "Claremont",
+   "teams": 27,
+   "listed": 3,
+   "programs": [
+    "N1",
     "NPL"
    ]
   },
@@ -2090,9 +2138,23 @@
    "source": "home field",
    "venue": "Logan Memorial Educational Campus",
    "city": "San Diego",
-   "teams": 23,
+   "teams": 26,
    "listed": 3,
    "programs": []
+  },
+  {
+   "club": "Los Angeles International FC",
+   "lat": 34.18409,
+   "lng": -118.21487,
+   "source": "home field",
+   "venue": "Glendale Sports Complex",
+   "city": "Glendale",
+   "teams": 21,
+   "listed": 3,
+   "programs": [
+    "EA",
+    "EA2"
+   ]
   },
   {
    "club": "Antelope Valley Futbol Club",
@@ -2159,26 +2221,13 @@
    ]
   },
   {
-   "club": "Club Deportivo La Esperanza",
-   "lat": 34.14776,
-   "lng": -119.19516,
-   "source": "club city",
-   "venue": null,
-   "city": "Port Hueneme",
-   "teams": 9,
-   "listed": 3,
-   "programs": [
-    "N1"
-   ]
-  },
-  {
    "club": "South Bay FC",
    "lat": 32.54652,
    "lng": -117.04566,
    "source": "home field",
    "venue": "Larsen",
    "city": "San Diego",
-   "teams": 62,
+   "teams": 63,
    "listed": 2,
    "programs": []
   },
@@ -2215,23 +2264,9 @@
    "source": "home field",
    "venue": "Bonita Canyon Sports Park",
    "city": "Newport Beach",
-   "teams": 31,
+   "teams": 34,
    "listed": 2,
    "programs": [
-    "NPL"
-   ]
-  },
-  {
-   "club": "Natives FA",
-   "lat": 33.80283,
-   "lng": -116.45223,
-   "source": "home field",
-   "venue": "Cathedral City High School",
-   "city": "Cathedral City",
-   "teams": 30,
-   "listed": 2,
-   "programs": [
-    "N1",
     "NPL"
    ]
   },
@@ -2249,17 +2284,16 @@
    ]
   },
   {
-   "club": "Foothill Storm",
-   "lat": 34.09668,
-   "lng": -117.71978,
-   "source": "club city",
-   "venue": null,
-   "city": "Claremont",
-   "teams": 25,
+   "club": "City SC East County",
+   "lat": 32.82975,
+   "lng": -117.09189,
+   "source": "home field",
+   "venue": "De Portola Middle School",
+   "city": "San Diego",
+   "teams": 29,
    "listed": 2,
    "programs": [
-    "N1",
-    "NPL"
+    "N1"
    ]
   },
   {
@@ -2269,37 +2303,10 @@
    "source": "home field",
    "venue": "River Ridge",
    "city": "Oxnard",
-   "teams": 23,
+   "teams": 25,
    "listed": 2,
    "programs": [
     "N1"
-   ]
-  },
-  {
-   "club": "City SC East County",
-   "lat": 32.82975,
-   "lng": -117.09189,
-   "source": "home field",
-   "venue": "De Portola Middle School",
-   "city": "San Diego",
-   "teams": 20,
-   "listed": 2,
-   "programs": [
-    "N1"
-   ]
-  },
-  {
-   "club": "Los Angeles International FC",
-   "lat": 34.18409,
-   "lng": -118.21487,
-   "source": "home field",
-   "venue": "Glendale Sports Complex",
-   "city": "Glendale",
-   "teams": 19,
-   "listed": 2,
-   "programs": [
-    "EA",
-    "EA2"
    ]
   },
   {
@@ -2309,7 +2316,7 @@
    "source": "home field",
    "venue": "El Dorado FS 3",
    "city": "San Diego",
-   "teams": 18,
+   "teams": 20,
    "listed": 2,
    "programs": [
     "MLS NEXT"
@@ -2322,7 +2329,7 @@
    "source": "club city",
    "venue": null,
    "city": "Temecula",
-   "teams": 18,
+   "teams": 19,
    "listed": 2,
    "programs": [
     "N1"
@@ -2412,6 +2419,19 @@
    ]
   },
   {
+   "club": "Spartans FC CA",
+   "lat": 34.04928,
+   "lng": -117.04279,
+   "source": "home field",
+   "venue": "Yucaipa Community Park",
+   "city": "Yucaipa",
+   "teams": 7,
+   "listed": 2,
+   "programs": [
+    "NPL"
+   ]
+  },
+  {
    "club": "Ocelot Academy",
    "lat": 34.05479,
    "lng": -117.44214,
@@ -2426,29 +2446,16 @@
    ]
   },
   {
-   "club": "Spartans FC CA",
-   "lat": 34.04928,
-   "lng": -117.04279,
+   "club": "Coronado FC",
+   "lat": 32.62159,
+   "lng": -117.1353,
    "source": "home field",
-   "venue": "Yucaipa Community Park",
-   "city": "Yucaipa",
-   "teams": 6,
-   "listed": 2,
-   "programs": [
-    "NPL"
-   ]
-  },
-  {
-   "club": "Elite FC",
-   "lat": 33.83801,
-   "lng": -117.8425,
-   "source": "home field",
-   "venue": "Olive",
-   "city": "Olive",
-   "teams": 32,
+   "venue": "Coronado Cays Park",
+   "city": "Coronado",
+   "teams": 36,
    "listed": 1,
    "programs": [
-    "NPL"
+    "N1"
    ]
   },
   {
@@ -2461,19 +2468,6 @@
    "teams": 31,
    "listed": 1,
    "programs": []
-  },
-  {
-   "club": "Coronado FC",
-   "lat": 32.62159,
-   "lng": -117.1353,
-   "source": "home field",
-   "venue": "Coronado Cays Park",
-   "city": "Coronado",
-   "teams": 30,
-   "listed": 1,
-   "programs": [
-    "N1"
-   ]
   },
   {
    "club": "Rebels Central",
@@ -2499,6 +2493,30 @@
    "venue": "Horsethief Canyon Park",
    "city": "San Dimas",
    "teams": 28,
+   "listed": 1,
+   "programs": []
+  },
+  {
+   "club": "Elite FC",
+   "lat": 33.83801,
+   "lng": -117.8425,
+   "source": "home field",
+   "venue": "Olive",
+   "city": "Olive",
+   "teams": 28,
+   "listed": 1,
+   "programs": [
+    "NPL"
+   ]
+  },
+  {
+   "club": "Santa Anita SC",
+   "lat": 34.12963,
+   "lng": -118.03637,
+   "source": "home field",
+   "venue": "Arcadia High School",
+   "city": "Arcadia",
+   "teams": 27,
    "listed": 1,
    "programs": []
   },
@@ -2536,7 +2554,7 @@
    "source": "club city",
    "venue": null,
    "city": "West Covina",
-   "teams": 23,
+   "teams": 24,
    "listed": 1,
    "programs": []
   },
@@ -2552,28 +2570,28 @@
    "programs": []
   },
   {
-   "club": "1570 FC",
-   "lat": 33.95999,
-   "lng": -117.71075,
-   "source": "home field",
-   "venue": "Rincon Park",
-   "city": "Chino Hills",
-   "teams": 15,
-   "listed": 1,
-   "programs": []
-  },
-  {
    "club": "Fellowship Of Christian Athletes",
    "lat": 34.38677,
    "lng": -117.38361,
    "source": "home field",
    "venue": "Oak hills high school",
    "city": "Oak Hills",
-   "teams": 13,
+   "teams": 16,
    "listed": 1,
    "programs": [
     "NPL"
    ]
+  },
+  {
+   "club": "1570 FC",
+   "lat": 33.95999,
+   "lng": -117.71075,
+   "source": "home field",
+   "venue": "Rincon Park",
+   "city": "Chino Hills",
+   "teams": 16,
+   "listed": 1,
+   "programs": []
   },
   {
    "club": "CZ Elite (CA-S)",
@@ -2582,7 +2600,18 @@
    "source": "home field",
    "venue": "Sonrise Christian School",
    "city": "Covina",
-   "teams": 13,
+   "teams": 14,
+   "listed": 1,
+   "programs": []
+  },
+  {
+   "club": "San Diego Machine",
+   "lat": 32.71596,
+   "lng": -117.09202,
+   "source": "home field",
+   "venue": "Gompers Preparatory Academy",
+   "city": "San Diego",
+   "teams": 14,
    "listed": 1,
    "programs": []
   },
@@ -2609,17 +2638,6 @@
    "programs": [
     "N1"
    ]
-  },
-  {
-   "club": "San Diego Machine",
-   "lat": 32.71596,
-   "lng": -117.09202,
-   "source": "home field",
-   "venue": "Gompers Preparatory Academy",
-   "city": "San Diego",
-   "teams": 12,
-   "listed": 1,
-   "programs": []
   },
   {
    "club": "Tiffiny's Soccer Club",
@@ -2678,7 +2696,7 @@
    "source": "home field",
    "venue": "Del Monte 1A",
    "city": "Chino Hills",
-   "teams": 6,
+   "teams": 5,
    "listed": 1,
    "programs": [
     "MLS NEXT"
@@ -2761,7 +2779,7 @@
    "source": "home field",
    "venue": "Ada Harris Elementary",
    "city": "Encinitas",
-   "teams": 76,
+   "teams": 87,
    "listed": 0,
    "programs": [
     "NPL"
@@ -2790,7 +2808,7 @@
    "source": "home field",
    "venue": "Cypress Canyon Park",
    "city": "San Diego",
-   "teams": 43,
+   "teams": 47,
    "listed": 0,
    "programs": []
   },
@@ -2801,18 +2819,18 @@
    "source": "club city",
    "venue": null,
    "city": "El Monte",
-   "teams": 42,
+   "teams": 44,
    "listed": 0,
    "programs": []
   },
   {
    "club": "Irvine Futbol Club",
-   "lat": 33.67464,
-   "lng": -117.77913,
-   "source": "home field",
-   "venue": "Irvine Valley College",
+   "lat": 33.6857,
+   "lng": -117.82598,
+   "source": "club city",
+   "venue": null,
    "city": "Irvine",
-   "teams": 36,
+   "teams": 33,
    "listed": 0,
    "programs": []
   },
@@ -2850,17 +2868,6 @@
    "programs": []
   },
   {
-   "club": "Santa Anita SC",
-   "lat": 34.12963,
-   "lng": -118.03637,
-   "source": "home field",
-   "venue": "Arcadia High School",
-   "city": "Arcadia",
-   "teams": 26,
-   "listed": 0,
-   "programs": []
-  },
-  {
    "club": "Oxnard FC",
    "lat": 34.19763,
    "lng": -119.18038,
@@ -2889,20 +2896,20 @@
    "source": "club city",
    "venue": null,
    "city": "Oxnard",
-   "teams": 20,
+   "teams": 22,
    "listed": 0,
    "programs": [
     "NPL"
    ]
   },
   {
-   "club": "Intra FC",
-   "lat": 33.05395,
-   "lng": -116.85812,
+   "club": "Arete Futbol",
+   "lat": 34.53107,
+   "lng": -117.44131,
    "source": "home field",
-   "venue": "Ramona Community Park",
-   "city": "Ramona",
-   "teams": 18,
+   "venue": "Adelanto HS",
+   "city": "Adelanto",
+   "teams": 21,
    "listed": 0,
    "programs": []
   },
@@ -2913,6 +2920,39 @@
    "source": "home field",
    "venue": "Providence Community Health Center",
    "city": "Santa Monica",
+   "teams": 20,
+   "listed": 0,
+   "programs": []
+  },
+  {
+   "club": "Coastal United FC",
+   "lat": 33.91911,
+   "lng": -117.5712,
+   "source": "home field",
+   "venue": "Norco College",
+   "city": "Norco",
+   "teams": 19,
+   "listed": 0,
+   "programs": []
+  },
+  {
+   "club": "Sherman Oaks Extreme SC",
+   "lat": 34.22195,
+   "lng": -118.43897,
+   "source": "home field",
+   "venue": "Saint Genevieve High School",
+   "city": "Los Angeles",
+   "teams": 19,
+   "listed": 0,
+   "programs": []
+  },
+  {
+   "club": "Intra FC",
+   "lat": 33.05395,
+   "lng": -116.85812,
+   "source": "home field",
+   "venue": "Ramona Community Park",
+   "city": "Ramona",
    "teams": 18,
    "listed": 0,
    "programs": []
@@ -2951,29 +2991,18 @@
    "programs": []
   },
   {
-   "club": "Coastal United FC",
-   "lat": 33.91911,
-   "lng": -117.5712,
+   "club": "Chivas Academy LA",
+   "lat": 33.90004,
+   "lng": -118.11486,
    "source": "home field",
-   "venue": "Norco College",
-   "city": "Norco",
-   "teams": 17,
-   "listed": 0,
-   "programs": []
-  },
-  {
-   "club": "Sherman Oaks Extreme SC",
-   "lat": 34.22195,
-   "lng": -118.43897,
-   "source": "home field",
-   "venue": "Saint Genevieve High School",
-   "city": "Los Angeles",
+   "venue": "Ernie Pyle Elementary School",
+   "city": "Bellflower",
    "teams": 16,
    "listed": 0,
    "programs": []
   },
   {
-   "club": "Rising Stars F.C",
+   "club": "Rising Stars FC",
    "lat": 33.90004,
    "lng": -118.11486,
    "source": "home field",
@@ -3002,17 +3031,6 @@
    "venue": "Hovley Soccer Park",
    "city": "Palm Desert",
    "teams": 15,
-   "listed": 0,
-   "programs": []
-  },
-  {
-   "club": "Chivas Academy LA",
-   "lat": 33.90004,
-   "lng": -118.11486,
-   "source": "home field",
-   "venue": "Ernie Pyle Elementary School",
-   "city": "Bellflower",
-   "teams": 14,
    "listed": 0,
    "programs": []
   },
@@ -3197,6 +3215,17 @@
    "programs": []
   },
   {
+   "club": "Pro Alliance FC",
+   "lat": 34.02806,
+   "lng": -117.9531,
+   "source": "club city",
+   "venue": null,
+   "city": "La Puente",
+   "teams": 6,
+   "listed": 0,
+   "programs": []
+  },
+  {
    "club": "One United Academy",
    "lat": 35.37387,
    "lng": -119.01946,
@@ -3215,17 +3244,6 @@
    "venue": "(club's own listing)",
    "city": "Los Angeles",
    "teams": 5,
-   "listed": 0,
-   "programs": []
-  },
-  {
-   "club": "Pro Alliance FC",
-   "lat": 34.02806,
-   "lng": -117.9531,
-   "source": "club city",
-   "venue": null,
-   "city": "La Puente",
-   "teams": 4,
    "listed": 0,
    "programs": []
   },

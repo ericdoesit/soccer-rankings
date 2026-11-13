@@ -14,7 +14,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import { ASSOCIATIONS, METROS } from "./geo";
-import { normalizeClubName } from "./normalize";
+import { normalizeClubName, standardizeAbbreviations } from "./normalize";
 import { currentAgeGroup, formatTeamName, parseTeamName } from "./team-names";
 import { clubMatcher } from "./club-match";
 
@@ -270,7 +270,34 @@ export function buildTeamIdentity<T extends TeamLike>(
     return !!m && m[1] !== "CA" && !WEST_ASSOC.has(m[1]) && US_STATES.has(m[1]);
   };
 
-  const s = { mlsConference: 0, league: 0, directory: 0, clubMatch: 0, eventState: 0, unknownState: 0, unknownAge: 0, outOfRegion: 0 };
+  const s = { orgClub: 0, mlsConference: 0, league: 0, directory: 0, clubMatch: 0, eventState: 0, unknownState: 0, unknownAge: 0, outOfRegion: 0 };
+  // GotSport organization (club account) per team, from the discovery crawl. Teams GotSport
+  // publishes without a club ("B2016 LB Payeras") share an organization with named teams of
+  // their club ("Beach FC B2016 LB Tostado"): when 80%+ of an organization's directory teams
+  // (2 or more) are one club, its unnamed teams are that club.
+  const orgByGs = new Map<number, number>();
+  // data/discovery/teams.json is keyed by team id ({ "522": { teamId, orgId, … } })
+  const discovered = loadJson<Record<string, { teamId: number; orgId: number | null }> | Array<{ teamId: number; orgId: number | null }>>(
+    path.join(process.cwd(), "data", "discovery", "teams.json"), {});
+  for (const x of Array.isArray(discovered) ? discovered : Object.values(discovered)) {
+    if (x?.orgId) orgByGs.set(x.teamId, x.orgId);
+  }
+  const orgVotes = new Map<number, Map<string, number>>();
+  for (const d of dir) {
+    const org = orgByGs.get(d.teamId);
+    if (!org) continue;
+    const k = `${d.clubName.trim()}\u0000${d.association}`;
+    const m = orgVotes.get(org) ?? new Map<string, number>();
+    m.set(k, (m.get(k) ?? 0) + 1);
+    orgVotes.set(org, m);
+  }
+  const orgClub = new Map<number, { name: string; association: string }>();
+  for (const [org, m] of orgVotes) {
+    const total = [...m.values()].reduce((a, b) => a + b, 0);
+    const [k, n] = [...m].sort((a, b) => b[1] - a[1])[0];
+    if (n >= 2 && n / total >= 0.8) { const [name, association] = k.split("\u0000"); orgClub.set(org, { name, association }); }
+  }
+
   const out = teams.map((t) => {
     const raw = t.sourceName ?? t.name;
     const gsId = gsIdByName.get(raw) ?? (dirById.has(t.id) ? t.id : undefined);
@@ -290,8 +317,11 @@ export function buildTeamIdentity<T extends TeamLike>(
     const gsOutside = !d && gsId !== undefined && !(es && WEST_ASSOC.has(es));
     const srcAssoc = sourceAssocByName.get(raw);
     const pat = !d ? patternAliases.find((a) => a.re.test(raw)) : undefined;
+    const org = !d && !pat && gsId !== undefined ? orgClub.get(orgByGs.get(gsId) ?? -1) : undefined;
+    if (org) s.orgClub++;
     const club = d ? { name: d.clubName.trim(), association: d.association }
       : pat ? { name: pat.club, association: pat.association }
+      : org ? org
       : srcAssoc ? matchInAssoc(raw, srcAssoc)
       : gsOutside || outsideTag(raw) ? null : matchClub(raw, (esAny && esAny !== "CA" ? esAny : null) ?? opponentState(t.id) ?? tagState(raw) ?? esAny);
     if (d) s.directory++; else if (club) s.clubMatch++;
@@ -324,8 +354,11 @@ export function buildTeamIdentity<T extends TeamLike>(
     return {
       ...t,
       sourceName: raw,
-      name: formatTeamName(nameSource, club?.name ?? null, ageGroup === "Unknown" ? null : ageGroup),
-      club: club?.name ?? mlsClub ?? t.club,
+      // "F.C." → "FC", "S.C." → "SC" (standardizeAbbreviations), so one club isn't split in two
+      // (both inputs first, so "West Coast F.C. White" with club "West Coast F.C." drops the club cleanly)
+      name: standardizeAbbreviations(formatTeamName(standardizeAbbreviations(nameSource),
+        club?.name ? standardizeAbbreviations(club.name) : null, ageGroup === "Unknown" ? null : ageGroup)),
+      club: standardizeAbbreviations(club?.name ?? mlsClub ?? t.club),
       state, region, ageGroup, gender,
       ...(gsId !== undefined ? { gotsportTeamId: gsId } : {}),
       // club from the GotSport directory, a league club list or a directory club-name match
@@ -334,6 +367,6 @@ export function buildTeamIdentity<T extends TeamLike>(
   });
 
   const stats = `${out.length} teams · directory ${s.directory} · club-name match ${s.clubMatch} · state from events ${s.eventState}` +
-    ` · MLS NEXT conference ${s.mlsConference} · from league club lists ${s.league} · state unknown ${s.unknownState} · out of region ${s.outOfRegion} · age unknown ${s.unknownAge}`;
+    ` · club from GotSport organization ${s.orgClub} · MLS NEXT conference ${s.mlsConference} · from league club lists ${s.league} · state unknown ${s.unknownState} · out of region ${s.outOfRegion} · age unknown ${s.unknownAge}`;
   return { teams: out, stats };
 }

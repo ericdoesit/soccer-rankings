@@ -12,6 +12,13 @@ const data = buildData();
 
 const undated = data.games.filter((g) => !/^\d{4}-\d{2}-\d{2}$/.test(g.date)).length;
 
+// buildData() falls back to the 50-team sample when loading the real data throws. Never let that
+// replace a real snapshot: the site would quietly serve sample data.
+if (data.teams.length < 1000) {
+  console.error(`Not writing ${SNAPSHOT_FILE}: only ${data.teams.length} teams (the build fell back to sample data; see the error above). The existing snapshot is unchanged.`);
+  process.exit(1);
+}
+
 fs.writeFileSync(SNAPSHOT_FILE, JSON.stringify(data));
 fs.writeFileSync(DROPPED_EVENTS_FILE, JSON.stringify(lastDroppedEvents, null, 1));
 const mb = (fs.statSync(SNAPSHOT_FILE).size / 1e6).toFixed(1);

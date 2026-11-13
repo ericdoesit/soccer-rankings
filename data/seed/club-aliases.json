@@ -22,5 +22,12 @@
       "pattern": "^(Obama|Whitsett|Wilmington) [BG]U\\d{2}\\b",
       "evidence": "recreation.parks.lacity.gov/lacityunited: LA City United competitive teams play at Michelle and Barack Obama Sports Complex, Whitsett Soccer Field and Wilmington Athletic Center; its GotSport teams are named after the site ('LA City United Obama B12'). Clubless teams 'Obama BU09', 'Whitsett BU15', 'Wilmington BU08' follow the same naming. 'Wilmington Jrs' is a different club, hence the age-code pattern. Pasted by the user 2026-11-13."
     }
+  },
+  "AK": {
+    "Alaska Select Chicas": {
+      "club": "Eagle River Soccer Association",
+      "pattern": "^(AK|Alaska) Select Chicas\\b",
+      "evidence": "Eagle River Soccer Association's Chicas/Chico travel program (club website text pasted by the user 2026-11-13). Its other GotSport teams are already named 'Eagle River Soccer Association Alaska Select Chicas 2008/2010/2012-13'; the 2011 team was entered as 'AK Select Chicas 2011' and had become its own club in NV."
+    }
   }
 }

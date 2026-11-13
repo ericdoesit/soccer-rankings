@@ -79,3 +79,6 @@ next-env.d.ts
 /data/predictions/
 /data/upcoming-events.json
 /logs/
+
+# GotSport standings pages saved by hand (scripts/import-standings-paste.ts)
+/data/gotsport-pages/

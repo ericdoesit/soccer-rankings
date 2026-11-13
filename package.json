@@ -35,7 +35,8 @@
     "predict": "tsx scripts/predict-event.ts",
     "events:upcoming": "tsx scripts/upcoming-events.ts",
     "schedule:import": "tsx scripts/import-schedule-paste.ts",
-    "standings:import": "tsx scripts/import-standings-paste.ts"
+    "standings:import": "tsx scripts/import-standings-paste.ts",
+    "standings:todo": "tsx scripts/standings-todo.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
