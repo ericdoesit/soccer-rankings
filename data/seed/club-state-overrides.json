@@ -3,5 +3,21 @@
   "Capital City SC": {
     "state": "TX",
     "evidence": "League home fields are BuildSoccer Park at Marbridge and Buda Sportsplex (Austin, Texas area); its six DPL teams were marked CAS. Found with the review-page clues, user agreed it's a problem (2026-11-13)."
+  },
+  "RSL EP": {
+    "state": "TX",
+    "evidence": "RSL El Paso (El Paso, Texas): league home fields East Side / West Side Sports Complex, Parkland HS, Andress HS in El Paso; none of its teams are in GotSport's Region IV directory, and our data had them scattered across CAS, AZ, CO and TX (2026-11-13)."
+  },
+  "RSL El Paso": {
+    "state": "TX",
+    "evidence": "RSL El Paso (El Paso, Texas): league home fields East Side / West Side Sports Complex, Parkland HS, Andress HS in El Paso; none of its teams are in GotSport's Region IV directory, and our data had them scattered across CAS, AZ, CO and TX (2026-11-13)."
+  },
+  "RSL EL PASO": {
+    "state": "TX",
+    "evidence": "RSL El Paso (El Paso, Texas): league home fields East Side / West Side Sports Complex, Parkland HS, Andress HS in El Paso; none of its teams are in GotSport's Region IV directory, and our data had them scattered across CAS, AZ, CO and TX (2026-11-13)."
+  },
+  "RSL El": {
+    "state": "TX",
+    "evidence": "RSL El Paso (El Paso, Texas): league home fields East Side / West Side Sports Complex, Parkland HS, Andress HS in El Paso; none of its teams are in GotSport's Region IV directory, and our data had them scattered across CAS, AZ, CO and TX (2026-11-13)."
   }
 }

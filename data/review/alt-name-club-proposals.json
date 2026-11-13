@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-13T21:19:55.700Z",
+ "generatedAt": "2026-11-13T22:13:01.513Z",
  "proposals": [
   {
    "teamId": 941285,
@@ -238,46 +238,6 @@
     "those fields are home to El Paso Premier League (NM)",
     "team plays in AZ, proposed club is in CAS",
     "clubs with \"city\" in AZ: Scottsdale City FC"
-   ]
-  },
-  {
-   "teamId": 919349,
-   "gs": 516006,
-   "team": "RSL EP DPL U16",
-   "current": "RSL EP",
-   "state": "CAS",
-   "age": "U16",
-   "gender": "Girls",
-   "ranked": true,
-   "via": "City SC El Paso N1 G2010/11",
-   "club": "City SC",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "City SC RSL EP DPL U16",
-   "hints": [
-    "home fields: east side sports complex, parkland high school, andress high school",
-    "those fields are home to El Paso Premier League (NM)",
-    "clubs with \"city\" in CAS: City SC Southwest, City SC, LA City United"
-   ]
-  },
-  {
-   "teamId": 919015,
-   "gs": 516003,
-   "team": "RSL EP DPL U18",
-   "current": "RSL EP",
-   "state": "CAS",
-   "age": "U18",
-   "gender": "Girls",
-   "ranked": true,
-   "via": "City SC El Paso N1 G2008",
-   "club": "City SC",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "City SC RSL EP DPL U18",
-   "hints": [
-    "home fields: east side sports complex, west side sports complex, parkland high school",
-    "those fields are home to El Paso Premier League (NM)",
-    "clubs with \"city\" in CAS: City SC Southwest, City SC, LA City United"
    ]
   },
   {
