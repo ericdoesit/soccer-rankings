@@ -29,5 +29,12 @@
       "pattern": "^(AK|Alaska) Select Chicas\\b",
       "evidence": "Eagle River Soccer Association's Chicas/Chico travel program (club website text pasted by the user 2026-11-13). Its other GotSport teams are already named 'Eagle River Soccer Association Alaska Select Chicas 2008/2010/2012-13'; the 2011 team was entered as 'AK Select Chicas 2011' and had become its own club in NV."
     }
+  },
+  "OR": {
+    "WSM FC": {
+      "club": "Westside Metros FC",
+      "pattern": "^WSM\\s+FC\\b",
+      "evidence": "GotSport team 371887 was entered as both 'WSM FC 10B WSM South MLS NEXT AD' and 'Westside Metros 10B WSM South MLS NEXT AD'; the user approved WSM FC teams as Westside Metros FC on the review page (2026-11-13)."
+    }
   }
 }

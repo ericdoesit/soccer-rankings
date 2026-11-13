@@ -1,0 +1,845 @@
+{
+ "_note": "Clubs for teams GotSport lists without one, approved by the user on the Club Name Proposals review page (2026-11-13; scripts/propose-alt-name-clubs.ts). Keyed by GotSport team id. Applied in src/lib/directory/team-identity.ts before automatic matches.",
+ "teams": {
+  "12552": {
+   "club": "Las Vegas Sports Academy",
+   "association": "NV",
+   "newName": "Las Vegas Sports Academy Next AD U19",
+   "seenAs": "Las Vegas Sports Academy U18/19 Boys 08/07 MLS NEXT AD"
+  },
+  "15035": {
+   "club": "CO Elevation FC",
+   "association": "CO",
+   "newName": "CO Elevation FC Summit U19+",
+   "seenAs": "CO Elevation 07/08G Summit Elite"
+  },
+  "31979": {
+   "club": "Albion SC San Diego",
+   "association": "CAS",
+   "newName": "Albion SC San Diego NEXT HD U19+",
+   "seenAs": "ALBION SC San Diego B08/07 MLS NEXT HD"
+  },
+  "90818": {
+   "club": "Albion SC San Diego",
+   "association": "CAS",
+   "newName": "Albion SC San Diego EA2 U17",
+   "seenAs": "ALBION SC San Diego EC B10 EA2"
+  },
+  "92702": {
+   "club": "Albion SC San Diego",
+   "association": "CAS",
+   "newName": "Albion SC San Diego NEXT AD U19+",
+   "seenAs": "ALBION SC San Diego B07-08 MLS NEXT AD"
+  },
+  "95583": {
+   "club": "LASC-SCV",
+   "association": "CAS",
+   "newName": "LASC-SCV Gold U16",
+   "seenAs": "LASC-SCV B2011 EA2"
+  },
+  "95589": {
+   "club": "LASC-SCV",
+   "association": "CAS",
+   "newName": "LASC-SCV EA2 U19",
+   "seenAs": "LASC-SCV B2007/2008 EA2"
+  },
+  "108278": {
+   "club": "San Diego FORCE FC",
+   "association": "CAS",
+   "newName": "San Diego FORCE FC Academy I U18",
+   "seenAs": "San Diego FORCE FC 2009 Girls Academy I"
+  },
+  "117750": {
+   "club": "LT Delfines FC",
+   "association": "WA",
+   "newName": "LT Delfines FC 80-07 U19+",
+   "seenAs": "LT Delfines Boys 08-07"
+  },
+  "125031": {
+   "club": "SoCal Elite FC",
+   "association": "CAS",
+   "newName": "SoCal Elite FC EA2 U18",
+   "seenAs": "SoCal Elite FC B09 EA2"
+  },
+  "137708": {
+   "club": "Albion SC San Diego",
+   "association": "CAS",
+   "newName": "Albion SC San Diego EA U17",
+   "seenAs": "ALBION SC San Diego B10 EA"
+  },
+  "224518": {
+   "club": "Pueblo Rangers SC",
+   "association": "CO",
+   "newName": "Pueblo Rangers SC Romero Lightning U10",
+   "seenAs": "Pueblo Rangers SC U9G Maroon Lightning"
+  },
+  "250201": {
+   "club": "Westside Metros FC",
+   "association": "OR",
+   "newName": "Westside Metros FC Samba U14",
+   "seenAs": "Westside Metros 13B Samba"
+  },
+  "252895": {
+   "club": "Lake Oswego SC",
+   "association": "OR",
+   "newName": "LOSC Lake Oswego SC U15",
+   "seenAs": "Lake Oswego SC 2012 Girls"
+  },
+  "253097": {
+   "club": "AYSO UNITED",
+   "association": "CAS",
+   "newName": "AYSO UNITED 25/26 U19+",
+   "seenAs": "AYSO United Davis 2007B Blue 25/26"
+  },
+  "371887": {
+   "club": "Westside Metros FC",
+   "association": "OR",
+   "newName": "Westside Metros FC WSM South MLS NEXT AD U17",
+   "seenAs": "Westside Metros 10B WSM South MLS NEXT AD"
+  },
+  "407894": {
+   "club": "Valley United SC",
+   "association": "NM",
+   "newName": "Valley United SC U9",
+   "seenAs": "Valley United U9- Cepeda"
+  },
+  "419389": {
+   "club": "Las Vegas Elite FC",
+   "association": "NV",
+   "newName": "Las Vegas Elite FC Gold U10",
+   "seenAs": "Las Vegas Elite FC B17 Gold"
+  },
+  "445620": {
+   "club": "FC Salmon Creek",
+   "association": "OR",
+   "newName": "FC Salmon Creek White U17",
+   "seenAs": "FC Salmon Creek 10B White"
+  },
+  "464568": {
+   "club": "Columbia Premier Soccer Club",
+   "association": "OR",
+   "newName": "Columbia Premier Soccer Club Black 4 U13",
+   "seenAs": "Columbia Premier SC 2014G Black 4"
+  },
+  "475907": {
+   "club": "SoCal Elite FC",
+   "association": "CAS",
+   "newName": "SoCal Elite FC EA2 U19",
+   "seenAs": "SoCal Elite High Desert B08 NL 2 West"
+  },
+  "481981": {
+   "club": "FC California Velocity",
+   "association": "CAS",
+   "newName": "FC California Velocity U19",
+   "seenAs": "FC California Velocity G2008 White"
+  },
+  "491042": {
+   "club": "West Coast FC",
+   "association": "CAS",
+   "newName": "West Coast FC White U13",
+   "seenAs": "West Coast F.C. G2014 White"
+  },
+  "491602": {
+   "club": "SoCal Elite FC",
+   "association": "CAS",
+   "newName": "SoCal Elite FC EA2 U12",
+   "seenAs": "SoCal Elite B15 Gold"
+  },
+  "495691": {
+   "club": "Westside Metros FC",
+   "association": "OR",
+   "newName": "Westside Metros FC Copa U17",
+   "seenAs": "Westside Metros 10B Copa"
+  },
+  "495706": {
+   "club": "Columbia Premier Soccer Club",
+   "association": "OR",
+   "newName": "Columbia Premier Soccer Club White 1 U17",
+   "seenAs": "Columbia Premier 10G White 1"
+  },
+  "495894": {
+   "club": "Lake Oswego SC",
+   "association": "OR",
+   "newName": "Lake Oswego SC White U11",
+   "seenAs": "Lake Oswego SC 2016B White"
+  },
+  "501672": {
+   "club": "Next Level Soccer (AZ)",
+   "association": "AZ",
+   "newName": "Next Level Soccer (AZ) Black U9",
+   "seenAs": "Next Level Soccer Southeast 2018 Boys Black"
+  },
+  "502893": {
+   "club": "Columbia Premier Soccer Club",
+   "association": "OR",
+   "newName": "Columbia Premier Soccer Club ECNL U18",
+   "seenAs": "COLUMBIA PREMIER SC 09B ECNL"
+  },
+  "504546": {
+   "club": "Columbia Premier Soccer Club",
+   "association": "OR",
+   "newName": "Columbia Premier Soccer Club GA Aspire U14",
+   "seenAs": "Columbia Premier SC 13G GA Aspire"
+  },
+  "520308": {
+   "club": "ALBION SC Boulder County",
+   "association": "CO",
+   "newName": "ALBION SC Boulder County Academy I U10",
+   "seenAs": "ALBION SC Boulder County B17 Academy I"
+  },
+  "521803": {
+   "club": "Granite Bay FC",
+   "association": "CAN",
+   "newName": "Granite Bay FC Green 18 U9",
+   "seenAs": "Granite Bay Green 18"
+  },
+  "526847": {
+   "club": "Yuba Sutter Youth Soccer League",
+   "association": "CAN",
+   "newName": "Yuba Sutter Youth Soccer League Stingers U15",
+   "seenAs": "Yuba Sutter U14B - Stingers"
+  },
+  "529931": {
+   "club": "Colorado Rapids",
+   "association": "CO",
+   "newName": "Colorado Rapids III U13",
+   "seenAs": "Colorado Rapids YSC 14B Pre-Elite III"
+  },
+  "568307": {
+   "club": "AYSO UNITED",
+   "association": "CAS",
+   "newName": "AYSO UNITED U14",
+   "seenAs": "AYSO United RC UNITED B13"
+  },
+  "585388": {
+   "club": "A1 Since Day1 FC",
+   "association": "CAS",
+   "newName": "A1 Since Day1 FC U8",
+   "seenAs": "A1 Since Day1 FC G2019"
+  },
+  "593760": {
+   "club": "Ventura Surf Soccer Club",
+   "association": "CAS",
+   "newName": "Ventura Surf Soccer Club Arsenal U10",
+   "seenAs": "Ventura Surf TO B17"
+  },
+  "609476": {
+   "club": "Development Academy of CA",
+   "association": "CAS",
+   "newName": "Development Academy of CA Premier U13",
+   "seenAs": "Development Academy of CA B14 Premier"
+  },
+  "616423": {
+   "club": "Central Coast FC",
+   "association": "CAN",
+   "newName": "Central Coast FC White U9",
+   "seenAs": "Central Coast FC 2018B White"
+  },
+  "616858": {
+   "club": "Westside Metros FC",
+   "association": "OR",
+   "newName": "Westside Metros FC Copa Red U10",
+   "seenAs": "Westside Metros 17B Copa Red"
+  },
+  "616860": {
+   "club": "Westside Metros FC",
+   "association": "OR",
+   "newName": "Westside Metros FC Copa White U10",
+   "seenAs": "Westside Metros 17B Copa White"
+  },
+  "616865": {
+   "club": "Westside Metros FC",
+   "association": "OR",
+   "newName": "Westside Metros FC Copa TS U10",
+   "seenAs": "Westside Metros 17B TS Copa"
+  },
+  "619027": {
+   "club": "Lake Oswego SC",
+   "association": "OR",
+   "newName": "Lake Oswego SC Gold U14",
+   "seenAs": "Lake Oswego Soccer Club- 2013 Gold"
+  },
+  "623868": {
+   "club": "Lake Oswego SC",
+   "association": "OR",
+   "newName": "Lake Oswego SC Gold U11",
+   "seenAs": "Lake Oswego SC 2016B Gold"
+  },
+  "624437": {
+   "club": "Juventus Academy Las Vegas",
+   "association": "NV",
+   "newName": "Juventus Academy Las Vegas B18E Arredondo U10",
+   "seenAs": "Juventus Academy Las Vegas U8 Nedved"
+  },
+  "626856": {
+   "club": "Columbia Premier Soccer Club",
+   "association": "OR",
+   "newName": "Columbia Premier Soccer Club GA U14",
+   "seenAs": "Columbia Premier 2013 GA"
+  },
+  "629161": {
+   "club": "Elk Grove Soccer",
+   "association": "CAN",
+   "newName": "Elk Grove Soccer 2 U10",
+   "seenAs": "Elk Grove Soccer 2017G Elite 2"
+  },
+  "629162": {
+   "club": "Elk Grove Soccer",
+   "association": "CAN",
+   "newName": "Elk Grove Soccer Elite U9",
+   "seenAs": "Elk Grove 2018B Elite"
+  },
+  "629164": {
+   "club": "Elk Grove Soccer",
+   "association": "CAN",
+   "newName": "Elk Grove Soccer 1 U9",
+   "seenAs": "Elk Grove Soccer 2018G Elite 1"
+  },
+  "629165": {
+   "club": "Elk Grove Soccer",
+   "association": "CAN",
+   "newName": "Elk Grove Soccer 2 U9",
+   "seenAs": "Elk Grove Soccer 2018G Elite 2"
+  },
+  "644085": {
+   "club": "SC del Sol",
+   "association": "AZ",
+   "newName": "SC del Sol Pre Academy Blue U9",
+   "seenAs": "SC del Sol 18B Blue"
+  },
+  "663827": {
+   "club": "One United Academy",
+   "association": "CAS",
+   "newName": "One United Academy U8",
+   "seenAs": "One United Academy B2019"
+  },
+  "668347": {
+   "club": "Clovis Crossfire",
+   "association": "CAN",
+   "newName": "Clovis Crossfire FCS Eagles U15",
+   "seenAs": "Clovis Crossfire U14G FCS Eagles"
+  },
+  "668350": {
+   "club": "Clovis Crossfire",
+   "association": "CAN",
+   "newName": "Clovis Crossfire Cheetahs U15",
+   "seenAs": "Clovis Crossfire U14G Cheetahs"
+  },
+  "668352": {
+   "club": "Clovis Crossfire",
+   "association": "CAN",
+   "newName": "Clovis Crossfire Lightning U15",
+   "seenAs": "Clovis Crossfire U14G Lightning"
+  },
+  "668353": {
+   "club": "Clovis Crossfire",
+   "association": "CAN",
+   "newName": "Clovis Crossfire Tornados U15",
+   "seenAs": "Clovis Crossfire U14B Tornados"
+  },
+  "668359": {
+   "club": "Clovis Crossfire",
+   "association": "CAN",
+   "newName": "Clovis Crossfire Hornets-Alex U15",
+   "seenAs": "Clovis Crossfire U14B Alex Heat"
+  },
+  "675811": {
+   "club": "Necaxa USA Futbol Club",
+   "association": "CAS",
+   "newName": "Necaxa USA Futbol Club U10",
+   "seenAs": "Necaxa USA InlandEmpire Red -B2017"
+  },
+  "682159": {
+   "club": "NM Rapids SC",
+   "association": "NM",
+   "newName": "NM Rapids SC U9",
+   "seenAs": "NM Rapids Tango"
+  },
+  "694658": {
+   "club": "SDSC Surf Escondido",
+   "association": "CAS",
+   "newName": "SDSC Surf Escondido BLUE-ESC U8",
+   "seenAs": "SDSC Surf Escondido BU8 BLUE-ESC"
+  },
+  "697640": {
+   "club": "CDA Slammers",
+   "association": "CAS",
+   "newName": "CDA Slammers Castaneda U8",
+   "seenAs": "CDA Slammers North GU8 Castaneda"
+  },
+  "697848": {
+   "club": "CDA Slammers",
+   "association": "CAS",
+   "newName": "CDA Slammers Verdin U9",
+   "seenAs": "CDA Slammers LB GU9 Verdin"
+  },
+  "698116": {
+   "club": "La Mirada FC",
+   "association": "CAS",
+   "newName": "La Mirada FC U9",
+   "seenAs": "La Mirada FC GU9"
+  },
+  "700475": {
+   "club": "FC Premier Elite",
+   "association": "CAS",
+   "newName": "FC Premier Elite Marisela U8",
+   "seenAs": "FC Premier Elite BU8 - Marisela"
+  },
+  "701329": {
+   "club": "Albion SC Santa Monica",
+   "association": "CAS",
+   "newName": "Albion SC Santa Monica Academy U8",
+   "seenAs": "ALBION SC Santa Monica BU08 Academy"
+  },
+  "702419": {
+   "club": "SoCal Reds FC",
+   "association": "CAS",
+   "newName": "SoCal Reds FC WHITE BM U8",
+   "seenAs": "SoCal Reds FC GU08 White - IH"
+  },
+  "702421": {
+   "club": "SoCal Reds FC",
+   "association": "CAS",
+   "newName": "SoCal Reds FC BM U9",
+   "seenAs": "SoCal Reds FC GU09-WHITE BM"
+  },
+  "702422": {
+   "club": "SoCal Reds FC",
+   "association": "CAS",
+   "newName": "SoCal Reds FC JM* U9",
+   "seenAs": "SoCal Reds FC GU09-WHITE III JM"
+  },
+  "702428": {
+   "club": "SoCal Reds FC",
+   "association": "CAS",
+   "newName": "SoCal Reds FC RED GD U8",
+   "seenAs": "SoCal Reds BU08-RED GD"
+  },
+  "702429": {
+   "club": "SoCal Reds FC",
+   "association": "CAS",
+   "newName": "SoCal Reds FC WHITE JW* U8",
+   "seenAs": "SoCal Reds FC BU08-WHITE JW"
+  },
+  "702438": {
+   "club": "SoCal Reds FC",
+   "association": "CAS",
+   "newName": "SoCal Reds FC EM U9",
+   "seenAs": "SoCal Reds BU09-Red II EM"
+  },
+  "702439": {
+   "club": "SoCal Reds FC",
+   "association": "CAS",
+   "newName": "SoCal Reds FC JW U9",
+   "seenAs": "SoCal Reds FC BU09-RED III JW"
+  },
+  "704899": {
+   "club": "Albion SC Santa Monica",
+   "association": "CAS",
+   "newName": "Albion SC Santa Monica Academy U9",
+   "seenAs": "ALBION SC Santa Monica GU09 Academy"
+  },
+  "705142": {
+   "club": "Orange County Soccer Club",
+   "association": "CAS",
+   "newName": "Orange County Soccer Club U9",
+   "seenAs": "Orange County BU09 Kovach"
+  },
+  "705900": {
+   "club": "LA Surf Soccer Club",
+   "association": "CAS",
+   "newName": "LA Surf Soccer Club SOCAL U9",
+   "seenAs": "LA Surf LC GU9- SOCAL"
+  },
+  "707438": {
+   "club": "Albion SC Santa Monica",
+   "association": "CAS",
+   "newName": "Albion SC Santa Monica Academy U9",
+   "seenAs": "ALBION SC Santa Monica BU09 Academy"
+  },
+  "707698": {
+   "club": "LA Surf Soccer Club",
+   "association": "CAS",
+   "newName": "LA Surf Soccer Club SOCAL U8",
+   "seenAs": "LA Surf LC BU8- SOCAL"
+  },
+  "708045": {
+   "club": "CDA Slammers",
+   "association": "CAS",
+   "newName": "CDA Slammers Valverde U9",
+   "seenAs": "CDA Slammers DBWV BU9 Valverde"
+  },
+  "710824": {
+   "club": "Ventura Surf Soccer Club",
+   "association": "CAS",
+   "newName": "Ventura Surf Soccer Club TO U10",
+   "seenAs": "Ventura Surf GU09 TO"
+  },
+  "711245": {
+   "club": "Valley Center Hurricanes",
+   "association": "CAS",
+   "newName": "Valley Center Hurricanes U9",
+   "seenAs": "Valley Center Hurricanes BU9"
+  },
+  "711289": {
+   "club": "Yuba Sutter Youth Soccer League",
+   "association": "CAN",
+   "newName": "Yuba Sutter Youth Soccer League Champions U13",
+   "seenAs": "Yuba Sutter U12B - America FC"
+  },
+  "711294": {
+   "club": "Yuba Sutter Youth Soccer League",
+   "association": "CAN",
+   "newName": "YSYSL Yuba Sutter Youth Soccer League Sharks U17",
+   "seenAs": "Yuba Sutter U16G - United"
+  },
+  "712206": {
+   "club": "Inter Academy Rockers",
+   "association": "CAS",
+   "newName": "Inter Academy Rockers U9",
+   "seenAs": "Inter Academy Rockers BU09**"
+  },
+  "712207": {
+   "club": "Inter Academy Rockers",
+   "association": "CAS",
+   "newName": "Inter Academy Rockers Blue U8",
+   "seenAs": "Inter Academy Rockers BU08 Blue**"
+  },
+  "713545": {
+   "club": "Laguna United FC",
+   "association": "CAS",
+   "newName": "Laguna United FC Select Azure U8",
+   "seenAs": "Laguna United FC GU08-Select Azure"
+  },
+  "713645": {
+   "club": "Albion SC San Diego",
+   "association": "CAS",
+   "newName": "Albion SC San Diego Academy U8",
+   "seenAs": "ALBION SC San Diego GU08 Academy"
+  },
+  "713646": {
+   "club": "Albion SC San Diego",
+   "association": "CAS",
+   "newName": "Albion SC San Diego Academy U9",
+   "seenAs": "ALBION SC San Diego GU09 Academy"
+  },
+  "713660": {
+   "club": "Albion SC San Diego",
+   "association": "CAS",
+   "newName": "Albion SC San Diego Academy U15",
+   "seenAs": "ALBION SC San Diego CS GU15 Academy"
+  },
+  "714025": {
+   "club": "City SC Antelope Valley",
+   "association": "CAS",
+   "newName": "City SC Antelope Valley U9",
+   "seenAs": "City SC Antelope Valley BU9"
+  },
+  "714398": {
+   "club": "Apple Valley SC Storm",
+   "association": "CAS",
+   "newName": "Apple Valley SC Storm Black U9",
+   "seenAs": "Apple Valley SC Storm GU09 Black"
+  },
+  "714623": {
+   "club": "LA Surf Soccer Club",
+   "association": "CAS",
+   "newName": "LA Surf Soccer Club SOCAL U8",
+   "seenAs": "LA SURF- SO BU8 - SOCAL"
+  },
+  "714645": {
+   "club": "City SC South Bay",
+   "association": "CAS",
+   "newName": "City SC South Bay Pre-Academy U7",
+   "seenAs": "City SC South Bay BU7 Pre-Academy"
+  },
+  "714650": {
+   "club": "City SC South Bay",
+   "association": "CAS",
+   "newName": "City SC South Bay Pre-Academy U7",
+   "seenAs": "City SC South Bay GU7 Pre-Academy"
+  },
+  "715646": {
+   "club": "Inter Academy Rockers",
+   "association": "CAS",
+   "newName": "Inter Academy Rockers Black U8",
+   "seenAs": "Inter Academy Rockers BU08 Black**"
+  },
+  "715712": {
+   "club": "Albion SC San Diego",
+   "association": "CAS",
+   "newName": "Albion SC San Diego Academy U8",
+   "seenAs": "ALBION SC San Diego BU8 Academy"
+  },
+  "715719": {
+   "club": "Albion SC San Diego",
+   "association": "CAS",
+   "newName": "Albion SC San Diego Academy U9",
+   "seenAs": "ALBION SC San Diego BU9 Academy"
+  },
+  "715720": {
+   "club": "Albion SC San Diego",
+   "association": "CAS",
+   "newName": "Albion SC San Diego I U9",
+   "seenAs": "ALBION SC San Diego BU9 Academy I"
+  },
+  "715721": {
+   "club": "Albion SC San Diego",
+   "association": "CAS",
+   "newName": "Albion SC San Diego II U9",
+   "seenAs": "ALBION SC San Diego BU9 Academy II"
+  },
+  "716238": {
+   "club": "Laguna United FC",
+   "association": "CAS",
+   "newName": "Laguna United FC Select Azure U8",
+   "seenAs": "Laguna United FC BU08-Select Azure"
+  },
+  "716245": {
+   "club": "Laguna United FC",
+   "association": "CAS",
+   "newName": "Laguna United FC Blue U8",
+   "seenAs": "Laguna United FC GU08-Blue"
+  },
+  "716250": {
+   "club": "Laguna United FC",
+   "association": "CAS",
+   "newName": "Laguna United FC Blue U9",
+   "seenAs": "Laguna United FC GU09-Blue"
+  },
+  "716534": {
+   "club": "Santa Barbara Soccer Club",
+   "association": "CAS",
+   "newName": "Santa Barbara Soccer Club Sims U9",
+   "seenAs": " Santa Barbara SC BU9 White - Sims"
+  },
+  "716551": {
+   "club": "City SC Southwest",
+   "association": "CAS",
+   "newName": "City SC Southwest Emerson Serrano U10",
+   "seenAs": "CITY SC SOUTHWEST MV SERRANO"
+  },
+  "716606": {
+   "club": "Strikers FC North",
+   "association": "CAS",
+   "newName": "Strikers FC North Red U8",
+   "seenAs": "Strikers FC North IE B2019"
+  },
+  "717071": {
+   "club": "Strikers FC North",
+   "association": "CAS",
+   "newName": "Strikers FC North Black U8",
+   "seenAs": "Strikers FC North BU8 B19 Black"
+  },
+  "717225": {
+   "club": "Desert Empire Surf",
+   "association": "CAS",
+   "newName": "Desert Empire Surf Academy U9",
+   "seenAs": " Desert Empire Surf GU9 Academy"
+  },
+  "718136": {
+   "club": "City SC Chula Vista",
+   "association": "CAS",
+   "newName": "City SC Chula Vista Barranco U9",
+   "seenAs": "City SC Chula Vista BU9 - Barranco"
+  },
+  "718615": {
+   "club": "Albion SC San Diego",
+   "association": "CAS",
+   "newName": "Albion SC San Diego Academy U8",
+   "seenAs": "ALBION SC San Diego CV GU8 Academy"
+  },
+  "719853": {
+   "club": "City SC South Bay",
+   "association": "CAS",
+   "newName": "City SC South Bay Gold U9",
+   "seenAs": "City SC South Bay BU9 Gold"
+  },
+  "721573": {
+   "club": "LA Surf Soccer Club",
+   "association": "CAS",
+   "newName": "LA Surf Soccer Club SOCAL U8",
+   "seenAs": "LA Surf LC GU8 - SOCAL"
+  },
+  "721755": {
+   "club": "CDA Slammers",
+   "association": "CAS",
+   "newName": "CDA Slammers Bermudez U13",
+   "seenAs": "CDA SLAMMERS FC Long Beach GU13 Bermudez/Soler"
+  },
+  "722973": {
+   "club": "Albion SC Riverside",
+   "association": "CAS",
+   "newName": "Albion SC Riverside Academy U9",
+   "seenAs": "ALBION SC Riverside GU09 Academy"
+  },
+  "722992": {
+   "club": "Albion SC Riverside",
+   "association": "CAS",
+   "newName": "Albion SC Riverside Academy U7",
+   "seenAs": "Albion SC Riverside BU07 Academy"
+  },
+  "724215": {
+   "club": "West Coast FC",
+   "association": "CAS",
+   "newName": "West Coast FC Navy U8",
+   "seenAs": "West Coast FC BU08 Navy"
+  },
+  "724767": {
+   "club": "Laguna United FC",
+   "association": "CAS",
+   "newName": "Laguna United FC Select Azure U9",
+   "seenAs": "Laguna United FC BU09-Select Azure"
+  },
+  "725207": {
+   "club": "SoCal Reds FC",
+   "association": "CAS",
+   "newName": "SoCal Reds FC CW U9",
+   "seenAs": "SoCal Reds FC BU09-WHITE III CW"
+  },
+  "725226": {
+   "club": "SoCal Reds FC",
+   "association": "CAS",
+   "newName": "SoCal Reds FC RED RS U11",
+   "seenAs": "SoCal Reds FC BU11-RED CK"
+  },
+  "725328": {
+   "club": "SoCal Reds FC",
+   "association": "CAS",
+   "newName": "SoCal Reds FC WHITE KH* U9",
+   "seenAs": "SoCal Reds FC GU09-WHITE KH"
+  },
+  "725365": {
+   "club": "ALBION SC Santa Ana",
+   "association": "CAS",
+   "newName": "ALBION SC Santa Ana Academy U7",
+   "seenAs": "Albion SC Santa Ana BU07 Academy"
+  },
+  "725367": {
+   "club": "ALBION SC Santa Ana",
+   "association": "CAS",
+   "newName": "ALBION SC Santa Ana Academy U7",
+   "seenAs": "ALBION SC Santa Ana GU07 Academy"
+  },
+  "725496": {
+   "club": "City SC Southwest",
+   "association": "CAS",
+   "newName": "City SC Southwest GOLD U9",
+   "seenAs": "City SC Southwest BU9 MUR Gold"
+  },
+  "725503": {
+   "club": "City SC Southwest",
+   "association": "CAS",
+   "newName": "City SC Southwest WHITE U9",
+   "seenAs": "City SC Southwest GU9 MV WHITE"
+  },
+  "727211": {
+   "club": "City SC Carlsbad",
+   "association": "CAS",
+   "newName": "City SC Carlsbad JRS II Medina U8",
+   "seenAs": "City SC Carlsbad BU8 JRS II - Medina"
+  },
+  "727216": {
+   "club": "City SC Carlsbad",
+   "association": "CAS",
+   "newName": "City SC Carlsbad JRS Rodriguez U8",
+   "seenAs": "City SC Carlsbad BU8 JRS - Rodriguez"
+  },
+  "727220": {
+   "club": "City SC Carlsbad",
+   "association": "CAS",
+   "newName": "City SC Carlsbad Gold Dieguez U9",
+   "seenAs": "City SC Carlsbad BU9 - Dieguez"
+  },
+  "727708": {
+   "club": "City SC Carlsbad",
+   "association": "CAS",
+   "newName": "City SC Carlsbad JRS Prieto U8",
+   "seenAs": "City SC Carlsbad GU8 JRS - Prieto"
+  },
+  "727722": {
+   "club": "City SC Carlsbad",
+   "association": "CAS",
+   "newName": "City SC Carlsbad Pre Academy II Sanger U9",
+   "seenAs": "City SC Carlsbad GU9 Pre Academy II - Sanger"
+  },
+  "727737": {
+   "club": "City SC Carlsbad",
+   "association": "CAS",
+   "newName": "City SC Carlsbad Premier Cordeiro U9",
+   "seenAs": "City SC Carlsbad GU9 Premier - Cordeiro"
+  },
+  "727740": {
+   "club": "City SC Carlsbad",
+   "association": "CAS",
+   "newName": "City SC Carlsbad White Cardenas U9",
+   "seenAs": "City SC Carlsbad GU9 White - Cardenas"
+  },
+  "729688": {
+   "club": "Hawaiian Gardens Eagles Soccer Club",
+   "association": "CAS",
+   "newName": "Hawaiian Gardens Eagles Soccer Club U7",
+   "seenAs": "Hawaiian Gardens Eagles SC GU7"
+  },
+  "730166": {
+   "club": "So Cal Blues",
+   "association": "CAS",
+   "newName": "So Cal Blues Redlands U9",
+   "seenAs": "So Cal Blues BU9 Redlands"
+  },
+  "730168": {
+   "club": "So Cal Blues",
+   "association": "CAS",
+   "newName": "So Cal Blues Black U9",
+   "seenAs": "So Cal Blues BU09 Redlands Black"
+  },
+  "730950": {
+   "club": "Central Cal Aztecs",
+   "association": "CAS",
+   "newName": "Central Cal Aztecs Academy U9",
+   "seenAs": "Central Cal Aztecs U9G Academy"
+  },
+  "731070": {
+   "club": "Phenom Soccer Academy",
+   "association": "CAS",
+   "newName": "Phenom Soccer Academy II U7",
+   "seenAs": "Phenom Soccer Academy BU7 II"
+  },
+  "731752": {
+   "club": "Santa Barbara Soccer Club",
+   "association": "CAS",
+   "newName": "Santa Barbara Soccer Club Hansen U9",
+   "seenAs": "Santa Barbara Soccer Club GU9 White"
+  },
+  "733313": {
+   "club": "Phenom Soccer Academy",
+   "association": "CAS",
+   "newName": "Phenom Soccer Academy II U8",
+   "seenAs": "Phenom Soccer Academy BU8 II"
+  },
+  "745912": {
+   "club": "Central Cal Aztecs",
+   "association": "CAS",
+   "newName": "Central Cal Aztecs Academy U9",
+   "seenAs": " Central Cal Aztecs Academy U9B"
+  },
+  "752390": {
+   "club": "FC Premier Elite",
+   "association": "CAS",
+   "newName": "FC Premier Elite Blue U9",
+   "seenAs": "FC Premier Elite BU9 Blue"
+  },
+  "752391": {
+   "club": "FC Premier Elite",
+   "association": "CAS",
+   "newName": "FC Premier Elite Blue U7",
+   "seenAs": "FC Premier Elite BU7 Blue"
+  },
+  "754558": {
+   "club": "FLYTE SC IE",
+   "association": "CAS",
+   "newName": "FLYTE SC IE Blue U9",
+   "seenAs": "FLYTE SC IE BU9 Blue"
+  }
+ }
+}

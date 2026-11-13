@@ -270,7 +270,7 @@ export function buildTeamIdentity<T extends TeamLike>(
     return !!m && m[1] !== "CA" && !WEST_ASSOC.has(m[1]) && US_STATES.has(m[1]);
   };
 
-  const s = { orgClub: 0, mlsConference: 0, league: 0, directory: 0, clubMatch: 0, eventState: 0, unknownState: 0, unknownAge: 0, outOfRegion: 0 };
+  const s = { approved: 0, orgClub: 0, mlsConference: 0, league: 0, directory: 0, clubMatch: 0, eventState: 0, unknownState: 0, unknownAge: 0, outOfRegion: 0 };
   // GotSport organization (club account) per team, from the discovery crawl. Teams GotSport
   // publishes without a club ("B2016 LB Payeras") share an organization with named teams of
   // their club ("Beach FC B2016 LB Tostado"): when 80%+ of an organization's directory teams
@@ -298,6 +298,10 @@ export function buildTeamIdentity<T extends TeamLike>(
     if (n >= 2 && n / total >= 0.8) { const [name, association] = k.split("\u0000"); orgClub.set(org, { name, association }); }
   }
 
+  // clubs the user approved for club-less teams (data/seed/approved-team-clubs.json, by GotSport team id)
+  const approved = new Map(Object.entries(loadJson<{ teams?: Record<string, { club: string; association: string }> }>(
+    path.join(process.cwd(), "data", "seed", "approved-team-clubs.json"), {}).teams ?? {}).map(([id, v]) => [Number(id), v]));
+
   const out = teams.map((t) => {
     const raw = t.sourceName ?? t.name;
     const gsId = gsIdByName.get(raw) ?? (dirById.has(t.id) ? t.id : undefined);
@@ -316,10 +320,13 @@ export function buildTeamIdentity<T extends TeamLike>(
     // dropped 4,956 real West teams: the crawler's league flags are too sparse.
     const gsOutside = !d && gsId !== undefined && !(es && WEST_ASSOC.has(es));
     const srcAssoc = sourceAssocByName.get(raw);
-    const pat = !d ? patternAliases.find((a) => a.re.test(raw)) : undefined;
-    const org = !d && !pat && gsId !== undefined ? orgClub.get(orgByGs.get(gsId) ?? -1) : undefined;
+    const ok = !d && gsId !== undefined ? approved.get(gsId) : undefined;
+    if (ok) s.approved++;
+    const pat = !d && !ok ? patternAliases.find((a) => a.re.test(raw)) : undefined;
+    const org = !d && !ok && !pat && gsId !== undefined ? orgClub.get(orgByGs.get(gsId) ?? -1) : undefined;
     if (org) s.orgClub++;
     const club = d ? { name: d.clubName.trim(), association: d.association }
+      : ok ? { name: ok.club, association: ok.association }
       : pat ? { name: pat.club, association: pat.association }
       : org ? org
       : srcAssoc ? matchInAssoc(raw, srcAssoc)
@@ -351,13 +358,24 @@ export function buildTeamIdentity<T extends TeamLike>(
 
     // Prefer the directory's current team name ("GU12 SB Souza") over an old one
     const nameSource = d ? d.teamName : raw;
+    /** When the club came from elsewhere (approval, alias, organization), the team's own name may
+     *  start with the club's short form: drop an all-caps short form ending in FC/SC ("WSM FC
+     *  Samba" for Westside Metros FC) or a dangling prefix ending in a hyphen ("TR- Cheetahs"). */
+    const tidy = (name: string, clubName: string) => {
+      if (!(ok || pat || org) || !name.startsWith(`${clubName} `)) return name;
+      const rest = name.slice(clubName.length + 1)
+        .replace(/^[A-Z]{2,5}\s+(FC|SC)\s+(?=\S)/, "")
+        .replace(/^[A-Za-z]{1,4}-\s+(?=\S)/, "");
+      return `${clubName} ${rest}`;
+    };
     return {
       ...t,
       sourceName: raw,
       // "F.C." → "FC", "S.C." → "SC" (standardizeAbbreviations), so one club isn't split in two
       // (both inputs first, so "West Coast F.C. White" with club "West Coast F.C." drops the club cleanly)
-      name: standardizeAbbreviations(formatTeamName(standardizeAbbreviations(nameSource),
+      name: tidy(standardizeAbbreviations(formatTeamName(standardizeAbbreviations(nameSource),
         club?.name ? standardizeAbbreviations(club.name) : null, ageGroup === "Unknown" ? null : ageGroup)),
+        standardizeAbbreviations(club?.name ?? "")),
       club: standardizeAbbreviations(club?.name ?? mlsClub ?? t.club),
       state, region, ageGroup, gender,
       ...(gsId !== undefined ? { gotsportTeamId: gsId } : {}),
@@ -367,6 +385,6 @@ export function buildTeamIdentity<T extends TeamLike>(
   });
 
   const stats = `${out.length} teams · directory ${s.directory} · club-name match ${s.clubMatch} · state from events ${s.eventState}` +
-    ` · club from GotSport organization ${s.orgClub} · MLS NEXT conference ${s.mlsConference} · from league club lists ${s.league} · state unknown ${s.unknownState} · out of region ${s.outOfRegion} · age unknown ${s.unknownAge}`;
+    ` · approved clubs ${s.approved} · club from GotSport organization ${s.orgClub} · MLS NEXT conference ${s.mlsConference} · from league club lists ${s.league} · state unknown ${s.unknownState} · out of region ${s.outOfRegion} · age unknown ${s.unknownAge}`;
   return { teams: out, stats };
 }
