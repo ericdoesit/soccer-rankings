@@ -170,15 +170,15 @@ export default function AboutPage() {
               <p>
                 A ranking system&apos;s accuracy is measured by its{" "}
                 <strong className="text-foreground">Predictive Power</strong> — how often a higher-ranked team beats
-                a lower-ranked team. A Predictive Power of 0% is equivalent to
-                flipping a coin. 100% would mean the rankings always predict the
-                result (impossible given the random nature of the sport).
+                a lower-ranked team. Flipping a coin would be right 50% of the time; 100% would mean the
+                rankings always predict the result (impossible given the random nature of the sport).
               </p>
               <p>
-                Our algorithm achieves <strong className="text-foreground">66.6% prediction accuracy</strong> on
-                a test set of 16,000 games, validated through grid search
-                optimization across margin caps, home advantage, and recency
-                weighting parameters.
+                In a test on this fall&apos;s games, we rated teams using only games played before
+                October 1, 2026, then predicted the next six weeks (about 44,000 games). The higher-rated
+                team won <strong className="text-foreground">77% of the games that weren&apos;t draws</strong>.
+                The same test settled how much last season counts: a quarter of its normal weight
+                predicted better than full weight or this season alone.
               </p>
             </div>
           </CardContent>

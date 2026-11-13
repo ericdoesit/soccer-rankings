@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,6 +16,16 @@ import {
 import { LeagueStrength } from "@/components/rankings/league-strength";
 
 const PROGRAMS = ["MLS NEXT", "ECNL", "ECNL RL", "Pre-ECNL", "GA", "GA Aspire", "DPL", "EA", "EA2", "USL Academy", "N1", "NPL"];
+
+/** Applies ?program=… from the URL (the header's Leagues menu links here). Reads the URL in
+ *  its own Suspense boundary so the rest of the page still prerenders. */
+function ProgramFromUrl({ onProgram }: { onProgram: (p: string) => void }) {
+  const program = useSearchParams().get("program");
+  useEffect(() => {
+    if (program && PROGRAMS.includes(program)) onProgram(program);
+  }, [program, onProgram]);
+  return null;
+}
 
 interface RankedTeam {
   id: number;
@@ -202,6 +213,7 @@ export default function RankingsPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
+      <Suspense fallback={null}><ProgramFromUrl onProgram={setProgram} /></Suspense>
       <h1 className="mb-4 text-3xl font-bold">Rankings</h1>
 
       <div className="mb-6 rounded-lg border bg-muted/40 p-4 text-sm text-muted-foreground">

@@ -1,0 +1,24 @@
+{
+  "_note": "Clubs whose home ground can't be found from game data, or that play at several sites. Keyed by our club name. 'query' is geocoded (or give lat/lng); 'sites' gives one dot per site (name + address). Add the evidence. Used by scripts/geocode-socal-clubs.ts.",
+  "Venice Beach FC": {
+    "query": "Venice, Los Angeles, California",
+    "evidence": "venicebeachfc.com/academy: home ground 'Estadio De Dogtown' (Venice); plays friendlies, not a league (checked 2026-11-13)"
+  },
+  "LA City United": {
+    "sites": [
+      {
+        "name": "Wilmington Athletic Center",
+        "address": "1700 S Figueroa St, Wilmington, CA 90744"
+      },
+      {
+        "name": "Michelle and Barack Obama Sports Complex",
+        "address": "5001 Obama Blvd, Los Angeles, CA 90016"
+      },
+      {
+        "name": "Whitsett Soccer Field",
+        "address": "6952 Whitsett Ave, North Hollywood, CA 91605"
+      }
+    ],
+    "evidence": "LA City United competitive boys program locations (recreation.parks.lacity.gov/lacityunited), pasted by the user 2026-11-13"
+  }
+}

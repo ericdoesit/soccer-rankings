@@ -357,6 +357,14 @@ export function loadGotsportData() {
     }
   }
 
+  // Full names copied from event standings pages (scripts/import-standings-paste.ts)
+  const pastedNamesFile = path.join(process.cwd(), "data", "seed", "pasted-team-names.json");
+  if (fs.existsSync(pastedNamesFile)) {
+    for (const [id, name] of Object.entries(JSON.parse(fs.readFileSync(pastedNamesFile, "utf-8")) as Record<string, string>)) {
+      if (!apiTeamName.has(Number(id))) apiTeamName.set(Number(id), name.trim());
+    }
+  }
+
   // Teams still unnamed: "<club> <team name>" from the directory.
   for (const t of directory) {
     if (apiTeamName.has(t.teamId) || !t.clubName) continue;

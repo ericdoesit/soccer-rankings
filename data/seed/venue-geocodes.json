@@ -1,0 +1,2782 @@
+{
+ "Westminster High School, California": {
+  "lat": 33.7537524,
+  "lng": -118.0110522,
+  "label": "Westminster High School, 14325, Goldenwest Street, Westminster, Orange County, California, 92683, United States",
+  "city": "Westminster"
+ },
+ "SilverLakes Soccer Complex, California": null,
+ "Eastvale, California": {
+  "lat": 33.9747067,
+  "lng": -117.566541,
+  "label": "Eastvale, Riverside County, California, 92880, United States",
+  "city": "Eastvale"
+ },
+ "Dignity Health Sports Park, California": {
+  "lat": 33.8623767,
+  "lng": -118.2629113,
+  "label": "Dignity Health Sports Park, 18400, South Avalon Boulevard, Carson, Los Angeles County, California, 90746, United States",
+  "city": "Carson"
+ },
+ "Los Alisos Intermediate School, California": {
+  "lat": 33.617486,
+  "lng": -117.6901386,
+  "label": "Los Alisos Intermediate School, Brasilia Street, Mission Viejo, Orange County, California, 92691, United States",
+  "city": "Mission Viejo"
+ },
+ "Bellflower High School, California": {
+  "lat": 33.8930608,
+  "lng": -118.115186,
+  "label": "Bellflower Middle & High School, 15301, McNab Avenue, Bellflower, Los Angeles County, California, 90706, United States",
+  "city": "Bellflower"
+ },
+ "San Marino High School, California": {
+  "lat": 34.1271742,
+  "lng": -118.0989214,
+  "label": "San Marino High School, 2701, Huntington Drive, San Marino, Los Angeles County, California, 91108, United States",
+  "city": "San Marino"
+ },
+ "Mark Daily Athletic, California": {
+  "lat": 33.6806299,
+  "lng": -117.8095499,
+  "label": "Mark Daily Athletic Park, 308, Woodbridge, Irvine, Orange County, California, 92604, United States",
+  "city": "Irvine"
+ },
+ "Cottonwood Park, California": {
+  "lat": 33.8213332,
+  "lng": -117.9207016,
+  "label": "Cottonwood Park, West Anaheim, Anaheim, Orange County, California, United States",
+  "city": "Anaheim"
+ },
+ "Charter Oak High School, California": {
+  "lat": 34.097941,
+  "lng": -117.8599533,
+  "label": "Charter Oak High School, 1430, East Covina Boulevard, Covina, Los Angeles County, California, 91724, United States",
+  "city": "Covina"
+ },
+ "ROBB, California": {
+  "lat": 32.7538853,
+  "lng": -117.2417525,
+  "label": "Robb Field Ocean Beach Athletic Area, Ocean Beach, San Diego, San Diego County, California, United States",
+  "city": "San Diego"
+ },
+ "El Cerrito Sports Park, California": {
+  "lat": 33.8343943,
+  "lng": -117.5290556,
+  "label": "El Cerrito Sports Park, El Cerrito, Riverside County, California, United States",
+  "city": "El Cerrito"
+ },
+ "Surf Sports Park, California": {
+  "lat": 32.9808427,
+  "lng": -117.2259359,
+  "label": "Surf Cup Sports Park, San Diego, San Diego County, California, United States",
+  "city": "San Diego"
+ },
+ "Aviara Park, California": {
+  "lat": 33.1147292,
+  "lng": -117.2811418,
+  "label": "Aviara Community Park, Carlsbad, San Diego County, California, United States",
+  "city": "Carlsbad"
+ },
+ "Murrieta Mesa High School, California": {
+  "lat": 33.5635757,
+  "lng": -117.198783,
+  "label": "Murrieta Mesa High School, Monroe Avenue, Murrieta, Riverside County, California, 92562, United States",
+  "city": "Murrieta"
+ },
+ "Crafton Park, California": {
+  "lat": 34.0615035,
+  "lng": -117.1396959,
+  "label": "Crafton Park, Redlands, San Bernardino County, California, United States",
+  "city": "Redlands"
+ },
+ "OC Great Park, California": null,
+ "San Juan Capistrano, California": {
+  "lat": 33.5016932,
+  "lng": -117.6625509,
+  "label": "San Juan Capistrano, Orange County, California, United States",
+  "city": "San Juan Capistrano"
+ },
+ "Redlands Sports Complex, California": null,
+ "Brea, California": {
+  "lat": 33.9170444,
+  "lng": -117.888855,
+  "label": "Brea, Orange County, California, United States",
+  "city": "Brea"
+ },
+ "Villa Park High School, California": {
+  "lat": 33.816288,
+  "lng": -117.817744,
+  "label": "Villa Park High School, 18042, East Taft Avenue, Villa Park, Orange County, California, 92861, United States",
+  "city": "Villa Park"
+ },
+ "4S Ranch Sports Park, California": {
+  "lat": 33.0043946,
+  "lng": -117.119511,
+  "label": "4S Ranch Sports Park, Dove Creek Road, Ivygate, Heritage Bluffs, Black Mountain Ranch, 4S Ranch, San Diego County, California, 92127, United States",
+  "city": "4S Ranch"
+ },
+ "Marina High School, California": {
+  "lat": 33.7314408,
+  "lng": -118.0278457,
+  "label": "Marina High School, Cross Drive, Huntington Beach, Orange County, California, 92649, United States",
+  "city": "Huntington Beach"
+ },
+ "North Ranch Playfields, California": null,
+ "Woodland Hills, California": {
+  "lat": 34.1684364,
+  "lng": -118.6058382,
+  "label": "Woodland Hills, Woodland Hills-Warner Center Neighborhood Council District, Los Angeles, Los Angeles County, California, 91364, United States",
+  "city": "Los Angeles"
+ },
+ "Azusa High School, California": {
+  "lat": 34.1242608,
+  "lng": -117.8978358,
+  "label": "Azusa High School, 240, North Cerritos Avenue, Azusa, Los Angeles County, California, 91702, United States",
+  "city": "Azusa"
+ },
+ "Galway Downs, California": {
+  "lat": 33.4882636,
+  "lng": -117.031479,
+  "label": "Galway Downs, Pauba Road, Riverside County, California, 92592, United States",
+  "city": null
+ },
+ "Encinitas Community Park, California": {
+  "lat": 33.0320679,
+  "lng": -117.2803916,
+  "label": "Encinitas Community Park, Cardiff-by-the-Sea, Encinitas, San Diego County, California, United States",
+  "city": "Encinitas"
+ },
+ "Irvine Terrace Park, California": null,
+ "Anaheim, California": {
+  "lat": 33.8347516,
+  "lng": -117.911732,
+  "label": "Anaheim, Orange County, California, United States",
+  "city": "Anaheim"
+ },
+ "Fairplex Sports Complex, California": null,
+ "Mark Twain Middle School, California": {
+  "lat": 34.0006643,
+  "lng": -118.4466675,
+  "label": "Mark Twain Middle School, Victoria Avenue, Mar Vista, Los Angeles, Los Angeles County, California, 90292, United States",
+  "city": "Los Angeles"
+ },
+ "Sheep Hills Park, California": {
+  "lat": 33.5907219,
+  "lng": -117.71077,
+  "label": "Sheep Hills Park, Laguna Hills, Orange County, California, United States",
+  "city": "Laguna Hills"
+ },
+ "Ashley Falls Elementary Park, California": null,
+ "Matthew Gage Middle School, California": {
+  "lat": 33.9397581,
+  "lng": -117.3782386,
+  "label": "Matthew Gage Middle School, 6400, Lincoln Avenue, Victoria, Riverside, Riverside County, California, 92506, United States",
+  "city": "Riverside"
+ },
+ "San Bernardino Soccer Complex, California": {
+  "lat": 34.1318015,
+  "lng": -117.2326913,
+  "label": "San Bernardino Soccer Complex, 2500, Highland, San Bernardino County, California, 92346, United States",
+  "city": "Highland"
+ },
+ "Miraleste Intermediate School, California": {
+  "lat": 33.7536011,
+  "lng": -118.3289901,
+  "label": "Miraleste Intermediate School, 29323, Palos Verdes Drive East, Miraleste, Rancho Palos Verdes, Los Angeles County, California, 90275, United States",
+  "city": "Rancho Palos Verdes"
+ },
+ "La Paz Sports Park, California": {
+  "lat": 33.5537232,
+  "lng": -117.7113738,
+  "label": "La Paz Sports Park, 28051, La Paz Road, Laguna Niguel, Orange County, California, 92677, United States",
+  "city": "Laguna Niguel"
+ },
+ "Thousand Oaks Community Park, California": {
+  "lat": 34.2140688,
+  "lng": -118.8727811,
+  "label": "Thousand Oaks Community Park, Thousand Oaks, Ventura County, California, United States",
+  "city": "Thousand Oaks"
+ },
+ "Kern County Soccer Park, California": {
+  "lat": 35.4369478,
+  "lng": -118.8994546,
+  "label": "Kern County Soccer Park, Kern County, California, United States",
+  "city": null
+ },
+ "John Adams Middle School, California": {
+  "lat": 34.0229257,
+  "lng": -118.27148,
+  "label": "John Adams Middle School, 151, West 30th Street, Jefferson, Historic South-Central, Los Angeles, Los Angeles County, California, 90007, United States",
+  "city": "Los Angeles"
+ },
+ "Kraemer Middle School, California": {
+  "lat": 33.8758481,
+  "lng": -117.8681141,
+  "label": "Kraemer Middle School, North Bradford Avenue, Old Town Placentia, Placentia, Orange County, California, 92970, United States",
+  "city": "Placentia"
+ },
+ "Girsh Park, California": {
+  "lat": 34.4257188,
+  "lng": -119.8742614,
+  "label": "Girsh Park, Goleta, Santa Barbara County, California, United States",
+  "city": "Goleta"
+ },
+ "Walnut Grove Park, California": {
+  "lat": 34.1837854,
+  "lng": -118.8968538,
+  "label": "Walnut Grove Park, Newbury Park, Thousand Oaks, Ventura County, California, United States",
+  "city": "Thousand Oaks"
+ },
+ "Merrill Douglas Stadium, California": {
+  "lat": 32.8055463,
+  "lng": -117.1655114,
+  "label": "Merrill Douglas Stadium, Mesa College Circle, Mesa College Area, Linda Vista, San Diego, San Diego County, California, 92111, United States",
+  "city": "San Diego"
+ },
+ "Terra Nova Park, California": {
+  "lat": 32.6451009,
+  "lng": -117.0428892,
+  "label": "Terra Nova Park, Terra Nova, Chula Vista, San Diego County, California, United States",
+  "city": "Chula Vista"
+ },
+ "Walnut Ranch Park, California": {
+  "lat": 34.0389977,
+  "lng": -117.8638754,
+  "label": "Walnut Ranch Park, 20101, Walnut, Los Angeles County, California, 91789, United States",
+  "city": "Walnut"
+ },
+ "Lawndale High School, California": {
+  "lat": 33.8958854,
+  "lng": -118.3640415,
+  "label": "Lawndale High School, 14901, Inglewood Avenue, Lawndale, Los Angeles County, California, 90260, United States",
+  "city": "Lawndale"
+ },
+ "Central Park*, California": {
+  "lat": 35.3768307,
+  "lng": -119.008137,
+  "label": "Central Park, Bakersfield, Kern County, California, United States",
+  "city": "Bakersfield"
+ },
+ "Celebration Park North, California": {
+  "lat": 33.983299,
+  "lng": -117.5868657,
+  "label": "Celebration Park North, Ontario Ranch, Ontario, San Bernardino County, California, United States",
+  "city": "Ontario"
+ },
+ "Language Academy, California": {
+  "lat": 32.7695078,
+  "lng": -117.0618456,
+  "label": "Language Academy Joint Use Field, 4961, Rolando, Montezuma Mesa, San Diego, San Diego County, California, 92115, United States",
+  "city": "San Diego"
+ },
+ "Westlake Village Community Park, California": null,
+ "Westlake Village, California": {
+  "lat": 34.1460234,
+  "lng": -118.8061794,
+  "label": "Westlake Village, Los Angeles County, California, United States",
+  "city": "Westlake Village"
+ },
+ "Doty Middle School, California": {
+  "lat": 33.942395,
+  "lng": -118.1127999,
+  "label": "Wendy Lopour Doty Middle School, 10301, Woodruff Avenue, Downey, Los Angeles County, California, 90241, United States",
+  "city": "Downey"
+ },
+ "Rancho Jurupa Regional Sports Park, California": {
+  "lat": 33.9859617,
+  "lng": -117.4102834,
+  "label": "Rancho Jurupa Regional Sports Park, 5249, Jurupa Valley, Riverside County, California, 92509, United States",
+  "city": "Jurupa Valley"
+ },
+ "San Elijo Park Hilltop, California": null,
+ "SoCal Sports Complex, California": {
+  "lat": 33.2056536,
+  "lng": -117.322469,
+  "label": "SoCal Sports Complex, Oceanside, San Diego County, California, United States",
+  "city": "Oceanside"
+ },
+ "Lancaster National Soccer Center, California": null,
+ "Brea Sports Park, California": {
+  "lat": 33.919517,
+  "lng": -117.8508547,
+  "label": "Brea Sports Park, Valencia Avenue, Brea, Orange County, California, 92823, United States",
+  "city": "Brea"
+ },
+ "Irvine Valley College, California": {
+  "lat": 33.6746378,
+  "lng": -117.779133,
+  "label": "Irvine Valley College, 5500, Irvine Center Drive, Oak Creek, Irvine, Orange County, California, 92618, United States",
+  "city": "Irvine"
+ },
+ "Santa Ana, California": {
+  "lat": 33.7494951,
+  "lng": -117.873221,
+  "label": "Santa Ana, Orange County, California, United States",
+  "city": "Santa Ana"
+ },
+ "Los Angeles Valley College, California": {
+  "lat": 34.1757583,
+  "lng": -118.4203406,
+  "label": "Los Angeles Valley College, 5800, Fulton Avenue, Valley Glen, Greater Valley Glen Neighborhood Council District, Los Angeles, Los Angeles County, California, 91401, United States",
+  "city": "Los Angeles"
+ },
+ "Valley United Soccer Complex, California": null,
+ "Winnetka, California": {
+  "lat": 34.2013207,
+  "lng": -118.5711037,
+  "label": "Winnetka Neighborhood Council District, Los Angeles, Los Angeles County, California, 91306, United States",
+  "city": "Los Angeles"
+ },
+ "Allied Garden Recreation Center, California": null,
+ "San Diego, California": {
+  "lat": 32.7157062,
+  "lng": -117.1638284,
+  "label": "San Diego, San Diego County, California, United States",
+  "city": "San Diego"
+ },
+ "Pleasant Valley, California": {
+  "lat": 33.9045345,
+  "lng": -115.9846242,
+  "label": "Pleasant Valley, Riverside County, California, United States",
+  "city": null
+ },
+ "Wilmington Athletic Complex, California": null,
+ "Los Angeles, California": {
+  "lat": 34.0536923,
+  "lng": -118.2427676,
+  "label": "Los Angeles, Los Angeles County, California, United States",
+  "city": "Los Angeles"
+ },
+ "McPherson Athletic Facility, California": {
+  "lat": 33.7829542,
+  "lng": -117.8152928,
+  "label": "McPherson Athletic Facility, Hewes Park, Orange, Orange County, California, United States",
+  "city": "Orange"
+ },
+ "Los Coches Creek Middle School, California": {
+  "lat": 32.8609993,
+  "lng": -116.8183079,
+  "label": "Los Coches Creek Middle School, Dunbar Lane, San Diego County, California, United States",
+  "city": null
+ },
+ "Culver City High School, California": {
+  "lat": 34.0064006,
+  "lng": -118.4025775,
+  "label": "Culver City High School, Huron Avenue, Culver City, Los Angeles County, California, 90230, United States",
+  "city": "Culver City"
+ },
+ "El Roble Intermediate School Mountain Ave, California": {
+  "lat": 34.0997493,
+  "lng": -117.7306306,
+  "label": "El Roble Intermediate School, 665, North Mountain Avenue, Claremont, Los Angeles County, California, 91711, United States",
+  "city": "Claremont"
+ },
+ "Lenny Brewster Sports Center, California": {
+  "lat": 34.5463372,
+  "lng": -117.204226,
+  "label": "Lenny Brewster Sports Center, 21024, Apple Valley, San Bernardino County, California, 92307, United States",
+  "city": "Apple Valley"
+ },
+ "El Rancho Charter School, California": {
+  "lat": 33.8577267,
+  "lng": -117.7680235,
+  "label": "El Rancho Charter Middle School, 181, South del Giorgio Road, Anaheim Hills, Anaheim, Orange County, California, 92808, United States",
+  "city": "Anaheim"
+ },
+ "Talley, California": {
+  "lat": 35.1296228,
+  "lng": -120.5734997,
+  "label": "Talley Ho Creek, Arroyo Grande, San Luis Obispo County, California, 93420, United States",
+  "city": "Arroyo Grande"
+ },
+ "Ventura Community Park, California": {
+  "lat": 34.2709722,
+  "lng": -119.1927461,
+  "label": "Ventura Community Park, Ventura, Ventura County, California, United States",
+  "city": "Ventura"
+ },
+ "Eagle Glen Community Park, California": {
+  "lat": 33.8156564,
+  "lng": -117.5321774,
+  "label": "Eagle Glen Community Park, Corona, Riverside County, California, United States",
+  "city": "Corona"
+ },
+ "CMT Ranch, California": null,
+ "Lynwood High School, California": {
+  "lat": 33.9296933,
+  "lng": -118.1908724,
+  "label": "Lynwood High School, 4050, Lynwood, Los Angeles County, California, 90262, United States",
+  "city": "Lynwood"
+ },
+ "Vista Sports Park, California": {
+  "lat": 33.2267772,
+  "lng": -117.2583416,
+  "label": "Vista Sports Park, Adobe Estates Drive, Vista, San Diego County, California, 92083, United States",
+  "city": "Vista"
+ },
+ "Eastvale Community Park, California": {
+  "lat": 33.9487028,
+  "lng": -117.562839,
+  "label": "Eastvale Community Park, 12750, Eastvale, Riverside County, California, 92880, United States",
+  "city": "Eastvale"
+ },
+ "Waite Middle School, California": {
+  "lat": 33.8999462,
+  "lng": -118.07202,
+  "label": "Waite Middle School, 14320, Norwalk Boulevard, Norwalk, Los Angeles County, California, 90650, United States",
+  "city": "Norwalk"
+ },
+ "Portola Middle School, California": {
+  "lat": 34.1660751,
+  "lng": -118.5424697,
+  "label": "Portola Middle School, Yolanda Avenue, Tarzana Neighborhood Council District, Los Angeles, Los Angeles County, California, 91356, United States",
+  "city": "Los Angeles"
+ },
+ "Tierra Grande Park, California": {
+  "lat": 33.4805751,
+  "lng": -117.5849164,
+  "label": "Tierra Grande Park, 399, San Rafael, San Clemente, Orange County, California, 92673, United States",
+  "city": "San Clemente"
+ },
+ "Hovely Soccer Park, California": null,
+ "Palm Desert, California": {
+  "lat": 33.7288179,
+  "lng": -116.382571,
+  "label": "Palm Desert, Riverside County, California, United States",
+  "city": "Palm Desert"
+ },
+ "College Park, California": {
+  "lat": 33.7049508,
+  "lng": -117.7932752,
+  "label": "College Park, Walnut, Irvine, Orange County, California, United States",
+  "city": "Irvine"
+ },
+ "Santa Venetia Park, California": null,
+ "Chula Vista, California": {
+  "lat": 32.6400541,
+  "lng": -117.084195,
+  "label": "Chula Vista, San Diego County, California, United States",
+  "city": "Chula Vista"
+ },
+ "Irvine, California": {
+  "lat": 33.6856969,
+  "lng": -117.825981,
+  "label": "Irvine, Orange County, California, United States",
+  "city": "Irvine"
+ },
+ "La Quinta High School, California": {
+  "lat": 33.7359525,
+  "lng": -117.9484019,
+  "label": "La Quinta High School, 10372, McFadden Avenue, Bolsa, Westminster, Orange County, California, 92683, United States",
+  "city": "Westminster"
+ },
+ "Lovell, California": {
+  "lat": 33.7190686,
+  "lng": -118.0223182,
+  "label": "Lovell Lane, Huntington Beach, Orange County, California, 92647, United States",
+  "city": "Huntington Beach"
+ },
+ "Crossbar Academy Spring, California": null,
+ "Ryan Park, California": {
+  "lat": 33.9749117,
+  "lng": -117.395653,
+  "label": "Ryan Bonaminio Park, Riverside, Riverside County, California, United States",
+  "city": "Riverside"
+ },
+ "Eastside Community Park, California": null,
+ "Yoba Linda, California": null,
+ "Paul Revere Charter Middle School, California": {
+  "lat": 34.0574507,
+  "lng": -118.4950009,
+  "label": "Paul Revere Charter Middle School, 1450, Allenford Avenue, Riviera, Los Angeles, Los Angeles County, California, 90049, United States",
+  "city": "Los Angeles"
+ },
+ "Kinsell, California": null,
+ "Sonora Elementary School, California": {
+  "lat": 33.6761796,
+  "lng": -117.8957778,
+  "label": "Sonora Elementary School, 966, Sonora Road, Costa Mesa, Orange County, California, 92626, United States",
+  "city": "Costa Mesa"
+ },
+ "Cabrillo High School, California": {
+  "lat": 34.7113663,
+  "lng": -120.4749092,
+  "label": "Cabrillo High School, Polaris Avenue, Vandenberg Village, Santa Barbara County, California, United States",
+  "city": "Vandenberg Village"
+ },
+ "Lake View Elementary School, California": {
+  "lat": 33.7088907,
+  "lng": -117.9821836,
+  "label": "Lake View Elementary School, 17431, Jefferson Lane, Liberty Park, Huntington Beach, Orange County, California, 92647, United States",
+  "city": "Huntington Beach"
+ },
+ "Chaffey High School, California": {
+  "lat": 34.0811216,
+  "lng": -117.651721,
+  "label": "Chaffey High School, 211, West 5th Street, Ontario, San Bernardino County, California, 91762, United States",
+  "city": "Ontario"
+ },
+ "Rancho Santa Susana Community Park, California": {
+  "lat": 34.2734527,
+  "lng": -118.6948204,
+  "label": "Rancho Santa Susana Community Park, Tradewinds Club, Simi Valley, Ventura County, California, United States",
+  "city": "Simi Valley"
+ },
+ "Lennox Middle School, California": {
+  "lat": 33.9352719,
+  "lng": -118.3655003,
+  "label": "Lennox Middle School, 11033, South Buford Avenue, Lennox, Los Angeles County, California, 90304, United States",
+  "city": "Lennox"
+ },
+ "Central Park, California": {
+  "lat": 35.3768307,
+  "lng": -119.008137,
+  "label": "Central Park, Bakersfield, Kern County, California, United States",
+  "city": "Bakersfield"
+ },
+ "Helen Bernstein High School, California": null,
+ "Horsethief Canyon Park, California": {
+  "lat": 34.1290669,
+  "lng": -117.7993484,
+  "label": "Horsethief Canyon Park, 301, San Dimas, Los Angeles County, California, 91773, United States",
+  "city": "San Dimas"
+ },
+ "Bridgeview, California": {
+  "lat": 33.6802442,
+  "lng": -117.7984345,
+  "label": "Bridgeview, Woodbridge, Irvine, Orange County, California, 92604, United States",
+  "city": "Irvine"
+ },
+ "South Fontana Sports Park, California": {
+  "lat": 34.0547859,
+  "lng": -117.4421404,
+  "label": "South Fontana Sports Park, Fontana, San Bernardino County, California, United States",
+  "city": "Fontana"
+ },
+ "John Ferraro Athletic, California": null,
+ "Glendale, California": {
+  "lat": 34.1469416,
+  "lng": -118.2478471,
+  "label": "Glendale, Los Angeles County, California, United States",
+  "city": "Glendale"
+ },
+ "Patriot Park 7V7, California": null,
+ "Perris, California": {
+  "lat": 33.7818729,
+  "lng": -117.2298477,
+  "label": "Perris, Riverside County, California, 92571, United States",
+  "city": "Perris"
+ },
+ "Otay Park, California": {
+  "lat": 32.5975385,
+  "lng": -117.0570131,
+  "label": "Otay Park, Otay, Chula Vista, San Diego County, California, United States",
+  "city": "Chula Vista"
+ },
+ "Ingold Sports Park, California": {
+  "lat": 33.3479214,
+  "lng": -117.2464421,
+  "label": "Ingold Sports Park, Fallbrook, San Diego County, California, United States",
+  "city": "Fallbrook"
+ },
+ "Sarah Mcgarvin Intermediate School, California": {
+  "lat": 33.7407272,
+  "lng": -117.9589346,
+  "label": "Sarah McGarvin Intermediate School, Belgrade Street, Little Saigon, Bolsa, Westminster, Orange County, California, 92683, United States",
+  "city": "Westminster"
+ },
+ "Bonita HS Sports Complex, California": null,
+ "La Verne, California": {
+  "lat": 34.1008426,
+  "lng": -117.7678355,
+  "label": "La Verne, Los Angeles County, California, 91750, United States",
+  "city": "La Verne"
+ },
+ "Jefferson Middle School, California": {
+  "lat": 33.7762882,
+  "lng": -118.1480886,
+  "label": "Jefferson Middle School, East 8th Street, Los Altos, Long Beach, Los Angeles County, California, 90804, United States",
+  "city": "Long Beach"
+ },
+ "Rancho Conejo Playfields, California": {
+  "lat": 34.1923261,
+  "lng": -118.912306,
+  "label": "Rancho Conejo Playfields, Newbury Park, Thousand Oaks, Ventura County, California, United States",
+  "city": "Thousand Oaks"
+ },
+ "J. Frank Dobie High School, California": null,
+ "Lusitano Stadium 11v11, California": null,
+ "St. Ignatius, California": {
+  "lat": 34.1138237,
+  "lng": -118.1908635,
+  "label": "Saint Ignatius of Loyola Catholic School, 6025, Monte Vista Street, Highland Park, Los Angeles, Los Angeles County, California, 90042, United States",
+  "city": "Los Angeles"
+ },
+ "Augusta Soccer Park, California": null,
+ "JIYSC Bayview Complex, California": null,
+ "Buda Sportsplex, California": null,
+ "Eastside Sports Complex, California": null,
+ "Parkland High School, California": null,
+ "Niles West HS, California": {
+  "lat": 35.3842027,
+  "lng": -119.0063619,
+  "label": "West Niles Street, Bakersfield, Kern County, California, 93301, United States",
+  "city": "Bakersfield"
+ },
+ "315 Sports Park, California": {
+  "lat": 33.5649171,
+  "lng": -117.6477382,
+  "label": "Sports Park, Ladera Ranch, Orange County, California, 92690, United States",
+  "city": "Ladera Ranch"
+ },
+ "Design 39 Campus, California": null,
+ "El Potrero Park, California": {
+  "lat": 33.8747293,
+  "lng": -117.2130597,
+  "label": "El Potrero Park, Moreno Valley, Riverside County, California, United States",
+  "city": "Moreno Valley"
+ },
+ "Church of the Nativity, California": {
+  "lat": 33.9908472,
+  "lng": -118.2911856,
+  "label": "Church of the Nativity, South Vermont Avenue, Vermont-Slauson, Vermont Square, Los Angeles, Los Angeles County, California, 90037, United States",
+  "city": "Los Angeles"
+ },
+ "Mission Bay High School, California": {
+  "lat": 32.7989655,
+  "lng": -117.2237268,
+  "label": "Mission Bay Senior High School, Grand Avenue, Pacific Beach, San Diego, San Diego County, California, 92109, United States",
+  "city": "San Diego"
+ },
+ "Lincoln Elementary School, California": {
+  "lat": 33.7811286,
+  "lng": -118.1770123,
+  "label": "Lincoln Elementary School, East 11th Street, Long Beach, Los Angeles County, California, 90813, United States",
+  "city": "Long Beach"
+ },
+ "San Juan Sports Park, California": {
+  "lat": 33.4890374,
+  "lng": -117.6768811,
+  "label": "San Juan Capistrano Community Center And Sports Park, San Juan Capistrano, Orange County, California, United States",
+  "city": "San Juan Capistrano"
+ },
+ "Hollywood High School, California": {
+  "lat": 34.0994532,
+  "lng": -118.340077,
+  "label": "Hollywood High School, North Orange Drive, Hollywood, Los Angeles, Los Angeles County, California, 90028, United States",
+  "city": "Los Angeles"
+ },
+ "Paramount High school west campus, California": {
+  "lat": 33.9000437,
+  "lng": -118.1579168,
+  "label": "Paramount High School West Campus, 14708, Paramount Boulevard, Clearwater, Paramount, Los Angeles County, California, 90723, United States",
+  "city": "Paramount"
+ },
+ "Marathon, California": {
+  "lat": 34.0841267,
+  "lng": -118.3180406,
+  "label": "Marathon Park, Hollywood, Los Angeles, Los Angeles County, California, United States",
+  "city": "Los Angeles"
+ },
+ "Sid Fay / Houlihan, California": null,
+ "Rancho Los Amigos Sports Center, California": {
+  "lat": 33.9206759,
+  "lng": -118.1622831,
+  "label": "Rancho Los Amigos Sports Center, 7651, Workman, Downey, Los Angeles County, California, 90242, United States",
+  "city": "Downey"
+ },
+ "El Centro, California": {
+  "lat": 32.792,
+  "lng": -115.563051,
+  "label": "El Centro, Imperial County, California, 92243, United States",
+  "city": "El Centro"
+ },
+ "Hannaford, California": {
+  "lat": 33.7558623,
+  "lng": -117.7707601,
+  "label": "Hannaford Drive, Tustin Ranch Estates, Tustin Ranch, Tustin, Orange County, California, 92602, United States",
+  "city": "Tustin"
+ },
+ "Anchor Bay High School, California": null,
+ "The Clubhouse, California": {
+  "lat": 33.6897907,
+  "lng": -117.8877457,
+  "label": "The Clubhouse, Bristol Street, Costa Mesa, Orange County, California, 92626, United States",
+  "city": "Costa Mesa"
+ },
+ "Matthews Sportsplex, California": null,
+ "GVTC., California": null,
+ "East Side Sports Complex, California": null,
+ "Oak Brook Sportscore, California": null,
+ "Soccer.com, California": null,
+ "Michigan Stars Sports Center, California": null,
+ "Ocean View High School, California": {
+  "lat": 33.7141063,
+  "lng": -118.0022621,
+  "label": "Ocean View High School, Warner Avenue, Wintersburg, Huntington Beach, Orange County, California, 92647, United States",
+  "city": "Huntington Beach"
+ },
+ "San Jacinto High School, California": {
+  "lat": 33.8240797,
+  "lng": -116.4747648,
+  "label": "Mount San Jacinto Continuation High School, 30800, Landau Boulevard, Cathedral City, Riverside County, California, 92234, United States",
+  "city": "Cathedral City"
+ },
+ "Fairfax High School, California": {
+  "lat": 34.0818144,
+  "lng": -118.3599147,
+  "label": "Fairfax Senior High School, 7850, Melrose Avenue, Beverly Grove, Fairfax, Los Angeles, Los Angeles County, California, 90046, United States",
+  "city": "Los Angeles"
+ },
+ "TeWinkle Middle School, California": {
+  "lat": 33.6877968,
+  "lng": -117.9247801,
+  "label": "Charles W TeWinkle Middle School, 3224, California Street, Costa Mesa, Orange County, California, 92626, United States",
+  "city": "Costa Mesa"
+ },
+ "Lynnfield High School, California": null,
+ "Monte Vista Elementary School, California": {
+  "lat": 34.1105469,
+  "lng": -118.1980606,
+  "label": "Monte Vista Elementary School, 1720, Ash Street, Highland Park, Los Angeles, Los Angeles County, California, 90042, United States",
+  "city": "Los Angeles"
+ },
+ "Wheeler Farm, California": null,
+ "Westfield State University, California": null,
+ "Cherokee Joint Use, California": null,
+ "Dicaprio Park, California": null,
+ "O'Fallon Sports Park, California": null,
+ "Brook Run Park, California": null,
+ "Sweetapple Park, California": null,
+ "Cornelius Road Park, California": null,
+ "De Leon Soccer Complex, California": null,
+ "SJWAA Soccer Complex, California": null,
+ "Turkey Brook Park, California": null,
+ "Riverfront Park, California": {
+  "lat": 33.9850572,
+  "lng": -118.1727201,
+  "label": "Riverfront Park, Maywood, Los Angeles County, California, United States",
+  "city": "Maywood"
+ },
+ "Spartan Greens, California": null,
+ "Uihlein Soccer Park, California": null,
+ "Cathedral City High School, California": {
+  "lat": 33.8028283,
+  "lng": -116.4522283,
+  "label": "Cathedral City High School, Ortega Road, Cathedral City, Riverside County, California, 92276, United States",
+  "city": "Cathedral City"
+ },
+ "Albertus Magnus High School, California": null,
+ "Grand Avenue Park, California": {
+  "lat": 34.113743,
+  "lng": -117.5001326,
+  "label": "Grand Avenue Park, Village of Heritage, Fontana, San Bernardino County, California, United States",
+  "city": "Fontana"
+ },
+ "Sweetwater Lane County Park, California": {
+  "lat": 32.7171157,
+  "lng": -117.0066883,
+  "label": "Sweetwater Lane County Park, 1312, Spring Valley, San Diego County, California, 91977, United States",
+  "city": "Spring Valley"
+ },
+ "Del Prado Playfield, California": {
+  "lat": 34.1704135,
+  "lng": -118.9697826,
+  "label": "Del Prado Playfield, Thousand Oaks, Ventura County, California, United States",
+  "city": "Thousand Oaks"
+ },
+ "Nunez Park, California": {
+  "lat": 34.1074835,
+  "lng": -117.32574,
+  "label": "Nunez Park, 1717, San Bernardino, San Bernardino County, California, 92411, United States",
+  "city": "San Bernardino"
+ },
+ "One Generation, California": {
+  "lat": 34.1533713,
+  "lng": -118.1929358,
+  "label": "Scholl Biogas Renewable Generation Project, 3001, Eagle Rock, Glendale, Los Angeles County, California, United States",
+  "city": "Glendale"
+ },
+ "Logan Memorial Educational Campus, California": {
+  "lat": 32.6993546,
+  "lng": -117.1327436,
+  "label": "Logan Memorial Educational Campus, South 28th Street, Historic Logan Avenue, Barrio Logan, San Diego, San Diego County, California, 92136, United States",
+  "city": "San Diego"
+ },
+ "Lancaster, California": {
+  "lat": 34.6981064,
+  "lng": -118.1366153,
+  "label": "Lancaster, Los Angeles County, California, United States",
+  "city": "Lancaster"
+ },
+ "Ramona Community Park, California": {
+  "lat": 33.0539455,
+  "lng": -116.8581226,
+  "label": "Ramona Community Park, Ramona, San Diego County, California, United States",
+  "city": "Ramona"
+ },
+ "IE Soccer Complex, California": null,
+ "Edgewood High School, California": null,
+ "College of the Desert, California": {
+  "lat": 33.7324667,
+  "lng": -116.3868288,
+  "label": "College of the Desert, 43500, Monterey Avenue, Palm Desert, Riverside County, California, 92260, United States",
+  "city": "Palm Desert"
+ },
+ "Katherine Edwards Middle School, California": {
+  "lat": 33.982879,
+  "lng": -118.0688484,
+  "label": "Katherine Edwards Middle School, 6812, Norwalk Boulevard, West Whittier, Whittier, Los Angeles County, California, 90606, United States",
+  "city": "Whittier"
+ },
+ "Copper Sky Recreation Complex, California": null,
+ "Valley Center Elementary School, California": {
+  "lat": 33.235314,
+  "lng": -117.0222519,
+  "label": "Valley Center Elementary School, Valley Center School Road, Valley Center, San Diego County, California, 92082, United States",
+  "city": "Valley Center"
+ },
+ "Hillside School, California": {
+  "lat": 34.0949948,
+  "lng": -117.6799958,
+  "label": "Hillside High School, 1558, West 9th Street, Upland, Los Angeles County, California, 91786, United States",
+  "city": "Upland"
+ },
+ "Rio Vista School, California": {
+  "lat": 32.7710006,
+  "lng": -117.131855,
+  "label": "California College - San Diego, Jacob Dekema Freeway, Rio Vista Plaza, Rio Vista, Mission Valley, San Diego, San Diego County, California, 92108, United States",
+  "city": "San Diego"
+ },
+ "Norton High School, California": null,
+ "North Mount Carmel Park, California": null,
+ "Accelerate Sports Complex, California": null,
+ "Creve Coeur Park Soccer Complex, California": null,
+ "Eagle Harbor Soccer Complex, California": null,
+ "Croatian Park, California": null,
+ "Cesar Solis Comm. Park, California": null,
+ "Imperial Beach, California": {
+  "lat": 32.583893,
+  "lng": -117.1130487,
+  "label": "Imperial Beach, San Diego County, California, United States",
+  "city": "Imperial Beach"
+ },
+ "Allen, California": {
+  "lat": 34.1524415,
+  "lng": -118.11356,
+  "label": "Allen, Foothill Freeway, Pasadena Council District 2, Pasadena, Los Angeles County, California, 91104, United States",
+  "city": "Pasadena"
+ },
+ "Arbolitos Sport, California": null,
+ "Poway, California": {
+  "lat": 32.9628234,
+  "lng": -117.035864,
+  "label": "Poway, San Diego County, California, 92064, United States",
+  "city": "Poway"
+ },
+ "Costa Mesa, California": {
+  "lat": 33.6633386,
+  "lng": -117.903317,
+  "label": "Costa Mesa, Orange County, California, United States",
+  "city": "Costa Mesa"
+ },
+ "Campus Canyon Park, California": {
+  "lat": 34.3012489,
+  "lng": -118.8419228,
+  "label": "Campus Canyon Park, Moorpark, Ventura County, California, United States",
+  "city": "Moorpark"
+ },
+ "June Vail Park, California": null,
+ "Claremont, California": {
+  "lat": 34.0966764,
+  "lng": -117.7197785,
+  "label": "Claremont, Los Angeles County, California, 91711, United States",
+  "city": "Claremont"
+ },
+ "De Portola Middle School, California": {
+  "lat": 32.8297547,
+  "lng": -117.0918862,
+  "label": "Gaspar de Portola Middle School, Clairemont Mesa Boulevard, Villa Martinique, Tierrasanta Town Center, Tierrasanta, San Diego, San Diego County, California, 92124, United States",
+  "city": "San Diego"
+ },
+ "Glendale Sports Complex, California": {
+  "lat": 34.1840948,
+  "lng": -118.2148714,
+  "label": "Glendale Sports Complex, 2200, Fern Lane, Glendale, Los Angeles County, California, 91208, United States",
+  "city": "Glendale"
+ },
+ "Artesia High School, California": {
+  "lat": 33.8445852,
+  "lng": -118.0746486,
+  "label": "Artesia High School, 12108, Del Amo Boulevard, Lakewood, Los Angeles County, California, 90715, United States",
+  "city": "Lakewood"
+ },
+ "Gahr High School, California": {
+  "lat": 33.8748732,
+  "lng": -118.096358,
+  "label": "Richard Gahr High School, 11111, Artesia Boulevard, Cerritos, Los Angeles County, California, 90703, United States",
+  "city": "Cerritos"
+ },
+ "Harvest Park, California": {
+  "lat": 32.6295977,
+  "lng": -116.9909989,
+  "label": "Harvest Park, Lomas Verdes, Otay Ranch, Chula Vista, San Diego County, California, United States",
+  "city": "Chula Vista"
+ },
+ "Fontana, California": {
+  "lat": 34.0922947,
+  "lng": -117.43433,
+  "label": "Fontana, San Bernardino County, California, United States",
+  "city": "Fontana"
+ },
+ "Carmel Creek Elementary School, California": {
+  "lat": 32.9515943,
+  "lng": -117.2257194,
+  "label": "Carmel Creek Elementary School, 4210, Carmel Center Road, Carmel Creek, Carmel Del Mar, Carmel Valley, San Diego, San Diego County, California, 92130, United States",
+  "city": "San Diego"
+ },
+ "Fedde Academy Middle School, California": {
+  "lat": 33.835813,
+  "lng": -118.0781675,
+  "label": "Fedde Academy, 21409, Elaine Avenue, Hawaiian Gardens, Los Angeles County, California, 90716, United States",
+  "city": "Hawaiian Gardens"
+ },
+ "Craig Ranch MSA, California": null,
+ "Rick McCown Soccer Complex, California": null,
+ "Yucaipa, California": {
+  "lat": 34.033625,
+  "lng": -117.0430865,
+  "label": "Yucaipa, San Bernardino County, California, 92399, United States",
+  "city": "Yucaipa"
+ },
+ "Arizona Avenue Soccer, California": null,
+ "Badger Creek Soccer Complex, California": null,
+ "Albertus Magnus College, California": null,
+ "Minuteman Regional High School, California": null,
+ "Crago Park, California": null,
+ "Meadows Soccer Complex, California": null,
+ "Rolling Hills Soccer Complex, California": null,
+ "All Saints Catholic School, California": null,
+ "Washington Elementary, California": {
+  "lat": 33.8377776,
+  "lng": -117.9121376,
+  "label": "George Washington Park, 250, Anaheim, Orange County, California, 92805, United States",
+  "city": "Anaheim"
+ },
+ "San Juan Hills Golf Club, California": {
+  "lat": 33.4933355,
+  "lng": -117.6532794,
+  "label": "San Juan Hills Golf Club, La Novia Avenue, San Juan Capistrano, Orange County, California, 92675, United States",
+  "city": "San Juan Capistrano"
+ },
+ "Olive, California": {
+  "lat": 33.8380121,
+  "lng": -117.842504,
+  "label": "Olive, Orange County, California, United States",
+  "city": "Olive"
+ },
+ "Schmidt Park, California": {
+  "lat": 34.5802156,
+  "lng": -117.3674144,
+  "label": "Schmidt Park, 13576, Victorville, San Bernardino County, California, 92394, United States",
+  "city": "Victorville"
+ },
+ "Coronado Cays Park, California": {
+  "lat": 32.6215941,
+  "lng": -117.1353003,
+  "label": "Coronado Cays Park, Coronado Cays, Coronado, San Diego County, California, United States",
+  "city": "Coronado"
+ },
+ "Cubberley Elementary School, California": {
+  "lat": 33.8147453,
+  "lng": -118.1018906,
+  "label": "Cubberley Elementary School, Killdee Street, Long Beach, Los Angeles County, California, 90808, United States",
+  "city": "Long Beach"
+ },
+ "El Morro Elementary School, California": {
+  "lat": 33.5642942,
+  "lng": -117.8241687,
+  "label": "El Morro Elementary School, 8681, Pacific Coast Highway, Laguna Beach, Orange County, California, 92651, United States",
+  "city": "Laguna Beach"
+ },
+ "Perry Lindsey Academy Middle School, California": null,
+ "Sparks Elementary School, California": {
+  "lat": 34.034733,
+  "lng": -117.9592309,
+  "label": "Sparks Elementary School, Temple Avenue, La Puente, Los Angeles County, California, 91744, United States",
+  "city": "La Puente"
+ },
+ "Richard L. Graves Middle School, California": {
+  "lat": 33.9439545,
+  "lng": -118.0498421,
+  "label": "Richard L. Graves Middle School, 13243, Los Nietos Road, Whittier, Los Angeles County, California, 90605, United States",
+  "city": "Whittier"
+ },
+ "Rancho Cucamonga, California": {
+  "lat": 34.1218412,
+  "lng": -117.5701482,
+  "label": "Rancho Cucamonga, San Bernardino County, California, United States",
+  "city": "Rancho Cucamonga"
+ },
+ "Avenue 53 Soccer, California": null,
+ "Coachella, California": {
+  "lat": 33.6794956,
+  "lng": -116.17628,
+  "label": "Coachella, Riverside County, California, 92236, United States",
+  "city": "Coachella"
+ },
+ "Sonrise Christian School, California": {
+  "lat": 34.0888681,
+  "lng": -117.8653878,
+  "label": "Sonrise Christian School, North Nearglen Avenue, Covina, Los Angeles County, California, 91724, United States",
+  "city": "Covina"
+ },
+ "Riverside, California": {
+  "lat": 33.9732079,
+  "lng": -117.3730926,
+  "label": "Riverside, Riverside County, California, United States",
+  "city": "Riverside"
+ },
+ "Bakersfield Sports Village, California": {
+  "lat": 35.2720905,
+  "lng": -119.0769384,
+  "label": "Bakersfield Sports Village Soccer Complex, Bakersfield, Kern County, California, 93313, United States",
+  "city": "Bakersfield"
+ },
+ "Gompers Preparatory Academy, California": {
+  "lat": 32.7159598,
+  "lng": -117.0920177,
+  "label": "Gompers Preparatory Academy, Hilltop Drive, Chollas View, South Chollas Valley, San Diego, San Diego County, California, 92105, United States",
+  "city": "San Diego"
+ },
+ "Luz Duran Park, California": {
+  "lat": 33.2127809,
+  "lng": -117.2415673,
+  "label": "Luz Duran Park, Vista, San Diego County, California, United States",
+  "city": "Vista"
+ },
+ "Lexington Park, California": {
+  "lat": 33.809454,
+  "lng": -118.0529619,
+  "label": "Lexington Park, Cypress, Orange County, California, United States",
+  "city": "Cypress"
+ },
+ "Serrano Intermediate, California": {
+  "lat": 33.6362302,
+  "lng": -117.7019674,
+  "label": "Serrano Intermediate School, 24642, Jeronimo Road, Parkwood Estates II, Lake Forest, Orange County, California, 92630, United States",
+  "city": "Lake Forest"
+ },
+ "Ericson Elementary, California": {
+  "lat": 32.9276348,
+  "lng": -117.1371354,
+  "label": "Ericson Elementary School, Keystone Court, Camino Village, Mira Mesa, San Diego, San Diego County, California, 92126, United States",
+  "city": "San Diego"
+ },
+ "Day Hill Dome, California": null,
+ "Del Monte 1A, California": {
+  "lat": 33.9792289,
+  "lng": -117.6982243,
+  "label": "Del Monte, Los Serranos, Chino Hills, San Bernardino County, California, 91709, United States",
+  "city": "Chino Hills"
+ },
+ "Vista Park, California": {
+  "lat": 33.9697717,
+  "lng": -118.4281384,
+  "label": "Vista Park, Playa Vista, Los Angeles, Los Angeles County, California, United States",
+  "city": "Los Angeles"
+ },
+ "Hourglass Community Park, California": {
+  "lat": 32.9071285,
+  "lng": -117.1221586,
+  "label": "Hourglass Field Community Park, Mira Mesa Gateway, Scripps Ranch, San Diego, San Diego County, California, United States",
+  "city": "San Diego"
+ },
+ "UCSB Rec Cen, California": null,
+ "APS Soccer Complex, California": null,
+ "Port Hueneme, California": {
+  "lat": 34.1477558,
+  "lng": -119.1951559,
+  "label": "Port Hueneme, Ventura County, California, United States",
+  "city": "Port Hueneme"
+ },
+ "San Bernardino, California": {
+  "lat": 34.8253019,
+  "lng": -116.0833144,
+  "label": "San Bernardino County, California, United States",
+  "city": null
+ },
+ "Thayer Academy Main Campus, California": null,
+ "Chateau Park, California": null,
+ "King Center Park, California": {
+  "lat": 32.696178,
+  "lng": -117.0855449,
+  "label": "King-Chavez Health Center, 950, South Euclid Avenue, Valencia Park, South Chollas Valley, San Diego, San Diego County, California, 92114, United States",
+  "city": "San Diego"
+ },
+ "Walter Knott Elementary School, California": {
+  "lat": 33.8449498,
+  "lng": -118.0056607,
+  "label": "Walter Knott Elementary School, 7300, La Palma Avenue, Buena Park, Orange County, California, 90620, United States",
+  "city": "Buena Park"
+ },
+ "ABC Adult School Cabrillo Lane, California": null,
+ "Metro North Park, California": {
+  "lat": 34.0667194,
+  "lng": -118.134208,
+  "label": "Metro, North Atlantic Boulevard, Monterey Park, Los Angeles County, California, 91803, United States",
+  "city": "Monterey Park"
+ },
+ "Allen Creek Soccer Complex, California": null,
+ "UTC Sports Complex, California": null,
+ "North Main Athletic Complex, California": null,
+ "Richard Barry Park, California": null,
+ "Womble Park, California": null,
+ "Manchester Meadows, California": null,
+ "Gosling Sportsfields, California": null,
+ "Alden Bridge Sports Park, California": null,
+ "KU SuperField, California": null,
+ "Geneseo High School, California": null,
+ "Lakeside Sports Complex, California": null,
+ "Northeast Regional Park, California": null,
+ "CSSUS Twin Lakes, California": null,
+ "Bomberos, California": {
+  "lat": 34.9495672,
+  "lng": -120.439279,
+  "label": "Santa Maria Fire Department Station #1, West Cook Street, North Santa Maria, Santa Maria, Santa Barbara County, California, 93548, United States",
+  "city": "Santa Maria"
+ },
+ "JC Handly, California": null,
+ "GFI Performance Center, California": null,
+ "Tesoro High School, California": {
+  "lat": 33.5810597,
+  "lng": -117.6126274,
+  "label": "Tesoro High School, 1, Tesoro Creek Road, Las Flores, Ladera Ranch, Orange County, California, 92688, United States",
+  "city": "Ladera Ranch"
+ },
+ "Union Point, California": {
+  "lat": 32.7063031,
+  "lng": -117.239059,
+  "label": "Point Loma Credit Union, Rosecrans Street, La Playa, San Diego, San Diego County, California, 92106, United States",
+  "city": "San Diego"
+ },
+ "Stuart Country Day School, California": null,
+ "Elgin Sports Complex, California": null,
+ "Opportunity Way Park, California": null,
+ "Malia's Park at XL Soccer World Lake Nona, California": null,
+ "Endeavor Health Performance Center, California": null,
+ "Bear Branch Sportsfields, California": null,
+ "Pingry School, California": null,
+ "Rivertown Fields II, California": null,
+ "Valley Middle School, California": {
+  "lat": 33.1575356,
+  "lng": -117.3292381,
+  "label": "Valley Middle School, Valley Street, Olde Carlsbad, Makusah, Carlsbad, San Diego County, California, 92008, United States",
+  "city": "Carlsbad"
+ },
+ "Ada Harris Elementary, California": {
+  "lat": 33.0310377,
+  "lng": -117.2744255,
+  "label": "Ada W Harris Elementary School, Windsor Road, Cardiff Highlands, Poinsettia Heights, Cardiff-by-the-Sea, Encinitas, San Diego County, California, 92007, United States",
+  "city": "Encinitas"
+ },
+ "Cypress Canyon Park, California": {
+  "lat": 32.9254749,
+  "lng": -117.0651918,
+  "label": "Cypress Canyon Park, San Diego, San Diego County, California, United States",
+  "city": "San Diego"
+ },
+ "El Monte, California": {
+  "lat": 34.0751571,
+  "lng": -118.036849,
+  "label": "El Monte, Los Angeles County, California, United States",
+  "city": "El Monte"
+ },
+ "Belmont Shores, California": {
+  "lat": 33.7672721,
+  "lng": -118.1119834,
+  "label": "Belmont Shores Mobile Estates, Naples, Long Beach, Los Angeles County, California, United States",
+  "city": "Long Beach"
+ },
+ "Arcadia High School, California": {
+  "lat": 34.1296343,
+  "lng": -118.0363726,
+  "label": "Arcadia High School, El Monte Avenue, Arcadia, Los Angeles County, California, 91007, United States",
+  "city": "Arcadia"
+ },
+ "Oxnard, California": {
+  "lat": 34.1976308,
+  "lng": -119.180381,
+  "label": "Oxnard, Ventura County, California, United States",
+  "city": "Oxnard"
+ },
+ "Los Coyotes/El Camino Cont HS, California": null,
+ "Adelanto Stadium, California": null,
+ "Providence Community Health Center, California": null,
+ "San Pedro, California": {
+  "lat": 33.7358518,
+  "lng": -118.2922934,
+  "label": "San Pedro, Los Angeles, Los Angeles County, California, 90732, United States",
+  "city": "Los Angeles"
+ },
+ "Sierra Middle School, California": {
+  "lat": 33.9525408,
+  "lng": -117.4106369,
+  "label": "Sierra Middle School, 4950, Central Avenue, Magnolia Center, Riverside, Riverside County, California, 92504, United States",
+  "city": "Riverside"
+ },
+ "Raney Intermediate School, California": {
+  "lat": 33.862236,
+  "lng": -117.5826887,
+  "label": "Letha Raney Intermediate School, Cordoza Street, Corona, Riverside County, California, 92882, United States",
+  "city": "Corona"
+ },
+ "Osornio Park, California": {
+  "lat": 33.9456524,
+  "lng": -117.9657355,
+  "label": "Osornio Park, La Habra Heights, La Habra, Orange County, California, United States",
+  "city": "La Habra"
+ },
+ "Mcdermott Soccer, California": null,
+ "Saint Genevieve High School, California": {
+  "lat": 34.2219483,
+  "lng": -118.4389714,
+  "label": "Saint Genevieve High School, Roscoe Boulevard, Panorama City, Panorama City Neighborhood Council District, Los Angeles, Los Angeles County, California, 91402, United States",
+  "city": "Los Angeles"
+ },
+ "Montgomery Waller Park, California": {
+  "lat": 32.5805949,
+  "lng": -117.0687513,
+  "label": "Montgomery Waller Community Park, South San Diego, San Diego, San Diego County, California, United States",
+  "city": "San Diego"
+ },
+ "Hovley Soccer Park, California": {
+  "lat": 33.7452389,
+  "lng": -116.3642815,
+  "label": "Hovley Soccer Park, Palm Desert, Riverside County, California, United States",
+  "city": "Palm Desert"
+ },
+ "Liberty Park, California": {
+  "lat": 33.7064067,
+  "lng": -117.9878373,
+  "label": "Liberty Park, Huntington Beach, Orange County, California, 92647, United States",
+  "city": "Huntington Beach"
+ },
+ "Nelson Elementary School, California": {
+  "lat": 34.0344128,
+  "lng": -117.9651181,
+  "label": "Nelson Elementary School, 330, North California Avenue, City of Industry, La Puente, Los Angeles County, California, 91745, United States",
+  "city": "La Puente"
+ },
+ "Sycamore Academy, California": {
+  "lat": 33.584334,
+  "lng": -117.2473672,
+  "label": "Sycamore Academy - Wildomar, 23151, Palomar Street, Wildomar, Riverside County, California, 92595, United States",
+  "city": "Wildomar"
+ },
+ "MALIBU BLUFFS PARK, California": {
+  "lat": 34.0324164,
+  "lng": -118.707062,
+  "label": "Malibu Bluffs Park, Malibu, Los Angeles County, California, United States",
+  "city": "Malibu"
+ },
+ "Montebello High School, California": {
+  "lat": 34.0159256,
+  "lng": -118.1220756,
+  "label": "Montebello High School, 2100, Cleveland Avenue, Montebello, Los Angeles County, California, 90610, United States",
+  "city": "Montebello"
+ },
+ "Camarillo, California": {
+  "lat": 34.2176371,
+  "lng": -119.0383541,
+  "label": "Camarillo, Ventura County, California, United States",
+  "city": "Camarillo"
+ },
+ "Santa Clarita, California": {
+  "lat": 34.4127963,
+  "lng": -118.5538088,
+  "label": "Santa Clarita, Los Angeles County, California, United States",
+  "city": "Santa Clarita"
+ },
+ "Patriot Park, California": {
+  "lat": 33.8026768,
+  "lng": -116.4575289,
+  "label": "Patriot Park, Cathedral City, Riverside County, California, United States",
+  "city": "Cathedral City"
+ },
+ "Horace Mann Middle School, California": null,
+ "Dolores Huerta Middle School, California": null,
+ "Sherman Oaks, California": {
+  "lat": 34.1508718,
+  "lng": -118.448986,
+  "label": "Sherman Oaks Neighborhood Council District, Los Angeles, Los Angeles County, California, United States",
+  "city": "Los Angeles"
+ },
+ "Deleo Regional Sports Park, California": {
+  "lat": 33.7452515,
+  "lng": -117.4660868,
+  "label": "Deleo Regional Sports Park, 25655, Corona, Riverside County, California, 92883, United States",
+  "city": "Corona"
+ },
+ "Giano Intermediate School, California": {
+  "lat": 34.0153912,
+  "lng": -117.9087479,
+  "label": "Giano Intermediate School, Giano Avenue, Woodside Village, West Covina, Los Angeles County, California, 91744, United States",
+  "city": "West Covina"
+ },
+ "Moreno Valley Community Park, California": {
+  "lat": 33.9259213,
+  "lng": -117.2601147,
+  "label": "Moreno Valley Community Park, Moreno Valley, Riverside County, California, United States",
+  "city": "Moreno Valley"
+ },
+ "Benz Visco Youth Sports & Cultural Park, California": null,
+ "Tehachapi, California": {
+  "lat": 35.1321878,
+  "lng": -118.4489739,
+  "label": "Tehachapi, Kern County, California, 93561, United States",
+  "city": "Tehachapi"
+ },
+ "Vista Terrace Neighborhood Park, California": null,
+ "Mesa Linda School, California": null,
+ "Lindero Canyon Middle School, California": {
+  "lat": 34.1572812,
+  "lng": -118.7851043,
+  "label": "Lindero Canyon Middle School, Rainbow View Drive, Agoura Hills, Los Angeles County, California, 91377, United States",
+  "city": "Agoura Hills"
+ },
+ "LA Galaxy Sports Complex, California": null,
+ "Saint John Bosco HS, California": null,
+ "La Puente, California": {
+  "lat": 34.0280619,
+  "lng": -117.953097,
+  "label": "La Puente, Los Angeles County, California, United States",
+  "city": "La Puente"
+ },
+ "Taunton High School, California": null,
+ "Cardiff Elementary School, California": {
+  "lat": 33.0248851,
+  "lng": -117.2837664,
+  "label": "Cardiff Elementary School, San Elijo Avenue, Composer District, Cardiff-by-the-Sea, Encinitas, San Diego County, California, 92007, United States",
+  "city": "Encinitas"
+ },
+ "Citrus College, California": {
+  "lat": 34.1343151,
+  "lng": -117.8856927,
+  "label": "Citrus College, 1000, West Foothill Boulevard, La Fetra, Glendora, Los Angeles County, California, 91741, United States",
+  "city": "Glendora"
+ },
+ "Rincon Park, California": {
+  "lat": 33.9599876,
+  "lng": -117.7107472,
+  "label": "Rincon Park, 16202, Chino Hills, San Bernardino County, California, 91709, United States",
+  "city": "Chino Hills"
+ },
+ "El dorado, California": {
+  "lat": 32.8143125,
+  "lng": -117.0836157,
+  "label": "El Dorado, Tierrasanta, San Diego, San Diego County, California, 92124, United States",
+  "city": "San Diego"
+ },
+ "Del Cerro Elementary School, California": {
+  "lat": 33.6076067,
+  "lng": -117.6809959,
+  "label": "Del Cerro Elementary School, Regina Street, Mission Viejo, Orange County, California, 92691, United States",
+  "city": "Mission Viejo"
+ },
+ "Grant Howald Park, California": {
+  "lat": 33.6015003,
+  "lng": -117.8690008,
+  "label": "Grant Howald Park, Corona del Mar, Newport Beach, Orange County, California, 92625, United States",
+  "city": "Newport Beach"
+ },
+ "Mira Costa High School, California": {
+  "lat": 33.8742887,
+  "lng": -118.3895412,
+  "label": "Mira Costa High School, 1401, Artesia Boulevard, Manhattan Beach, Los Angeles County, California, 90266, United States",
+  "city": "Manhattan Beach"
+ },
+ "Los Alamos Hills Sports Park, California": {
+  "lat": 33.5921484,
+  "lng": -117.1703121,
+  "label": "Los Alamos Hills Sports Park, 37000, Murrieta, Riverside County, California, 92563, United States",
+  "city": "Murrieta"
+ },
+ "Sportsworld, California": null,
+ "Rio de Los Angeles Park, California": {
+  "lat": 34.0985627,
+  "lng": -118.2361795,
+  "label": "Rio de Los Angeles State Park, Echo Park, Los Angeles, Los Angeles County, California, United States",
+  "city": "Los Angeles"
+ },
+ "Westview High School, California": {
+  "lat": 32.9660984,
+  "lng": -117.1500689,
+  "label": "Westview High School, 13500, Camino del Sur, Torrey Glenn, Torrey Meadows, Torrey Highlands, San Diego, San Diego County, California, 92129, United States",
+  "city": "San Diego"
+ },
+ "Tucker Elementary, California": {
+  "lat": 33.7969284,
+  "lng": -118.1370383,
+  "label": "Tucker Elementary School, Los Altos, Long Beach, Los Angeles County, California, United States",
+  "city": "Long Beach"
+ },
+ "Fountain Valley High School, California": {
+  "lat": 33.7057887,
+  "lng": -117.9605593,
+  "label": "Fountain Valley High School, 17816, Bushard Street, Talbert, Fountain Valley, Orange County, California, 92708, United States",
+  "city": "Fountain Valley"
+ },
+ "Eagle Crest Park, California": {
+  "lat": 33.6082203,
+  "lng": -117.0810962,
+  "label": "Eagle Crest Park, 35298, Country Road Estates, Winchester, Riverside County, California, 92596, United States",
+  "city": "Winchester"
+ },
+ "Coastal Peak Park, California": {
+  "lat": 33.6043514,
+  "lng": -117.8043742,
+  "label": "Coastal Peak Park, Newport Coast, Newport Beach, Orange County, California, United States",
+  "city": "Newport Beach"
+ },
+ "Innovation Middle School, California": null,
+ "El Segundo Middle School, California": {
+  "lat": 33.9207027,
+  "lng": -118.4036767,
+  "label": "El Segundo Middle School, 332, Center Street, El Segundo, Los Angeles County, California, 90245, United States",
+  "city": "El Segundo"
+ },
+ "Sparks Middle School, California": {
+  "lat": 34.0366774,
+  "lng": -117.957842,
+  "label": "Sparks Middle School, East Giordano Street, La Puente, Los Angeles County, California, 91744, United States",
+  "city": "La Puente"
+ },
+ "RNY FC Youth Soccer Complex, California": null,
+ "Kilbourne Run Sports Park, California": null,
+ "Winfield Elementary School, California": null,
+ "San Gabriel Valley, California": {
+  "lat": 33.7263142,
+  "lng": -117.9256426,
+  "label": "San Gabriel Street, Fountain Valley, Orange County, California, 92708, United States",
+  "city": "Fountain Valley"
+ },
+ "Rancho Starbuck Intermediate School, California": {
+  "lat": 33.9200429,
+  "lng": -117.9786322,
+  "label": "Rancho-Starbuck Intermediate, 16430, Maybrook Avenue, East La Mirada, Whittier, Los Angeles County, California, 90604, United States",
+  "city": "Whittier"
+ },
+ "Heroes Regional Park, California": null,
+ "Gilbert Park, California": {
+  "lat": 33.857849,
+  "lng": -117.96679,
+  "label": "Gilbert Park, Fullerton, Orange County, California, United States",
+  "city": "Fullerton"
+ },
+ "West Jackson Middle School, California": null,
+ "Binghamton University, California": null,
+ "Foster, California": {
+  "lat": 32.9083813,
+  "lng": -116.9261385,
+  "label": "Foster, San Diego County, California, United States",
+  "city": null
+ },
+ "The Football Farm, California": null,
+ "South Bay Tennis Center, California": {
+  "lat": 33.7887723,
+  "lng": -118.3376455,
+  "label": "South Bay Tennis Center, 25924, Rolling Hills Road, Torrance, Los Angeles County, California, 90505, United States",
+  "city": "Torrance"
+ },
+ "Pinecrest Park, California": {
+  "lat": 33.6538928,
+  "lng": -117.6362277,
+  "label": "Pinecrest Park, Mission Viejo, Orange County, California, United States",
+  "city": "Mission Viejo"
+ },
+ "Santiago Charter Middle School, California": {
+  "lat": 33.7955474,
+  "lng": -117.798896,
+  "label": "Santiago Charter Middle School, 515, North Rancho Santiago Boulevard, La Paloma, Orange, Orange County, California, 92869, United States",
+  "city": "Orange"
+ },
+ "Griffith Park Soccer, California": null,
+ "Lynwood, California": {
+  "lat": 33.924831,
+  "lng": -118.2024154,
+  "label": "Lynwood, Los Angeles County, California, United States",
+  "city": "Lynwood"
+ },
+ "Victoria Regional Park, California": {
+  "lat": 33.8567637,
+  "lng": -118.2722349,
+  "label": "Victoria Community Regional Park, Carson, Los Angeles County, California, United States",
+  "city": "Carson"
+ },
+ "Ronald Reagan Park, California": {
+  "lat": 33.8595685,
+  "lng": -117.7292535,
+  "label": "Ronald Reagan Park, 945, Anaheim, Orange County, California, United States",
+  "city": "Anaheim"
+ },
+ "Arroyo Vista Community Park, California": {
+  "lat": 34.273263,
+  "lng": -118.8907441,
+  "label": "Arroyo Vista Community Park, Moorpark, Ventura County, California, United States",
+  "city": "Moorpark"
+ },
+ "Juaneno Soccer, California": null,
+ "Bonita Canyon Sports Park, California": {
+  "lat": 33.6276954,
+  "lng": -117.8533086,
+  "label": "Bonita Canyon Sports Park, 1990, Bonita Canyon, Newport Beach, Orange County, California, 92660, United States",
+  "city": "Newport Beach"
+ },
+ "Thurston Middle School, California": {
+  "lat": 33.5499331,
+  "lng": -117.7654146,
+  "label": "Thurston Middle School, Park Avenue, Canyon Acres, Laguna Beach, Orange County, California, 92651, United States",
+  "city": "Laguna Beach"
+ },
+ "First Avenue Middle School, California": {
+  "lat": 34.136028,
+  "lng": -118.0298149,
+  "label": "First Avenue Middle School, 301, South 1st Avenue, Arcadia, Los Angeles County, California, 91006, United States",
+  "city": "Arcadia"
+ },
+ "Foothill High School, California": {
+  "lat": 33.7672417,
+  "lng": -117.7987192,
+  "label": "Foothill High School, Shepard Way, North Tustin, Orange County, California, 92705, United States",
+  "city": "North Tustin"
+ },
+ "Marina Hills  Park, California": {
+  "lat": 33.5194588,
+  "lng": -117.6979069,
+  "label": "Marina Hills Park, 28402, Laguna Niguel, Orange County, California, 92677, United States",
+  "city": "Laguna Niguel"
+ },
+ "Valley View Park, California": {
+  "lat": 34.2350067,
+  "lng": -117.3081,
+  "label": "Valley View Park, Crestline, San Bernardino County, California, 92322, United States",
+  "city": "Crestline"
+ },
+ "Luther Burbank Middle School, California": {
+  "lat": 34.1187351,
+  "lng": -118.1825553,
+  "label": "Luther Burbank Middle School, 6460, North Figueroa Street, Highland Park, Los Angeles, Los Angeles County, California, 90042, United States",
+  "city": "Los Angeles"
+ },
+ "Dorsey, California": {
+  "lat": 34.0231869,
+  "lng": -118.34778,
+  "label": "Susan Miller Dorsey Senior High School, 3537, Farmdale Avenue, Crenshaw, West Adams, Los Angeles, Los Angeles County, California, 90016, United States",
+  "city": "Los Angeles"
+ },
+ "Cerro De Las Posas Park, California": {
+  "lat": 33.1599896,
+  "lng": -117.1876243,
+  "label": "Cerro de Las Posas Park, Santa Fe Hills, San Marcos, San Diego County, California, United States",
+  "city": "San Marcos"
+ },
+ "Pacific Highlands Ranch Community Park, California": {
+  "lat": 32.960482,
+  "lng": -117.186053,
+  "label": "Pacific Highlands Ranch Community Park, 5977, Pacific Highlands Ranch Village, Pacific Highlands Ranch, San Diego, San Diego County, California, 92130, United States",
+  "city": "San Diego"
+ },
+ "Discovery Charter Preparatory School, California": {
+  "lat": 34.3190963,
+  "lng": -118.4252009,
+  "label": "Discovery Charter Preparatory School, 13570, Eldridge Avenue, Sylmar, Sylmar Neighborhood Council District, Los Angeles, Los Angeles County, California, 91342, United States",
+  "city": "Los Angeles"
+ },
+ "San Antonio Park, California": {
+  "lat": 33.8350764,
+  "lng": -118.0143876,
+  "label": "San Antonio Park, Buena Park, Orange County, California, United States",
+  "city": "Buena Park"
+ },
+ "Robert C. Fisler Elementary School, California": null,
+ "Beaumont Sports Park, California": {
+  "lat": 33.9588614,
+  "lng": -116.9762096,
+  "label": "Beaumont Sports Park, Beaumont, Riverside County, California, United States",
+  "city": "Beaumont"
+ },
+ "North Mountain Middle School, California": {
+  "lat": 33.778756,
+  "lng": -116.9384948,
+  "label": "North Mountain Middle School, Las Rosas Drive, San Jacinto, Riverside County, California, 92644, United States",
+  "city": "San Jacinto"
+ },
+ "Los Angeles Pierce College, California": {
+  "lat": 34.1833973,
+  "lng": -118.5797892,
+  "label": "Los Angeles Pierce College, 6201, Winnetka Avenue, Woodland Hills-Warner Center Neighborhood Council District, Los Angeles, Los Angeles County, California, 91371, United States",
+  "city": "Los Angeles"
+ },
+ "Providencia Elementary School, California": {
+  "lat": 34.189053,
+  "lng": -118.3458146,
+  "label": "Providencia Elementary School, Pacific Avenue, Burbank, Los Angeles County, California, 91504, United States",
+  "city": "Burbank"
+ },
+ "Kaiser Permanente Sports Village, California": null,
+ "Whitman Elementary School, California": {
+  "lat": 32.836701,
+  "lng": -117.2032275,
+  "label": "Whitman Elementary School, Galt Street, Westridge, North Clairemont, Bay Ho, San Diego, San Diego County, California, 92117, United States",
+  "city": "San Diego"
+ },
+ "North Park Recreation Center, California": {
+  "lat": 32.7510044,
+  "lng": -117.1343433,
+  "label": "North Park Recreation Center, North Park, San Diego, San Diego County, California, United States",
+  "city": "San Diego"
+ },
+ "Valley Center Primary School, California": {
+  "lat": 33.2408693,
+  "lng": -117.0216962,
+  "label": "Valley Center Primary School, Fruitvale Road, Valley Center, San Diego County, California, 92082, United States",
+  "city": "Valley Center"
+ },
+ "Los Altos Elementary, California": {
+  "lat": 32.5715825,
+  "lng": -117.0503451,
+  "label": "Los Altos Elementary School, Marcwade Drive, Otay Mesa West, San Diego, San Diego County, California, 92154, United States",
+  "city": "San Diego"
+ },
+ "Canyonside Park, California": {
+  "lat": 32.9418642,
+  "lng": -117.1327128,
+  "label": "Canyonside Community Park, 12350, Ridgewood, Rancho Peñasquitos, San Diego, San Diego County, California, 92129, United States",
+  "city": "San Diego"
+ },
+ "J Serra HS, California": null,
+ "WESCOVE ELEMENTARY, California": {
+  "lat": 34.0597322,
+  "lng": -117.940897,
+  "label": "Wescove Elementary School, West Vine Avenue, West Covina, Los Angeles County, California, 91790, United States",
+  "city": "West Covina"
+ },
+ "El Roble Intermediate School Harrison Ave*, California": null,
+ "Harbor Sports Complex, California": null,
+ "Hickman, California": {
+  "lat": 32.8375162,
+  "lng": -117.1651808,
+  "label": "Hickman Field, Kearny Mesa, San Diego, San Diego County, California, United States",
+  "city": "San Diego"
+ },
+ "Cypress College, California": {
+  "lat": 33.8278065,
+  "lng": -118.0240066,
+  "label": "Cypress College, 9200, Valley View Street, Cypress, Orange County, California, 90630, United States",
+  "city": "Cypress"
+ },
+ "El Marino Elementary School, California": null,
+ "Oak Park High School, California": {
+  "lat": 34.1791839,
+  "lng": -118.7650333,
+  "label": "Oak Park High School, Calle Rio Vista, Oak Park, Ventura County, California, 91377, United States",
+  "city": "Oak Park"
+ },
+ "Quail Hill, California": {
+  "lat": 33.6494952,
+  "lng": -117.7750403,
+  "label": "Quail Hill, Irvine, Orange County, California, United States",
+  "city": "Irvine"
+ },
+ "San Leandro Park, California": {
+  "lat": 33.6764284,
+  "lng": -117.820996,
+  "label": "San Leandro Park, 12, Westpark, Irvine, Orange County, California, 92614, United States",
+  "city": "Irvine"
+ },
+ "Moulton Elementary School, California": {
+  "lat": 33.5289715,
+  "lng": -117.7238294,
+  "label": "Moulton Elementary School, Highlands Avenue, Laguna Niguel, Orange County, California, 92607, United States",
+  "city": "Laguna Niguel"
+ },
+ "Valencia Park, California": {
+  "lat": 32.7047745,
+  "lng": -117.0850299,
+  "label": "Valencia Park, Lincoln Park, South Chollas Valley, San Diego, San Diego County, California, 91950, United States",
+  "city": "San Diego"
+ },
+ "La Mirada Elem., California": null,
+ "Tuffree Middle School, California": {
+  "lat": 33.9009877,
+  "lng": -117.8655834,
+  "label": "Colonel J K Tuffree Middle School, North Kraemer Boulevard, Hamer, Placentia, Orange County, California, 92870, United States",
+  "city": "Placentia"
+ },
+ "Ladera Vista Junior High School, California": {
+  "lat": 33.8713164,
+  "lng": -117.8960714,
+  "label": "Ladera Vista Junior High School, North Hale Avenue, Fullerton, Orange County, California, 92831, United States",
+  "city": "Fullerton"
+ },
+ "Orchard Park, California": {
+  "lat": 33.9165529,
+  "lng": -117.4578919,
+  "label": "Orchard Park, Riverside, Riverside County, California, United States",
+  "city": "Riverside"
+ },
+ "Stonegate Park, California": {
+  "lat": 33.7060393,
+  "lng": -117.7408413,
+  "label": "Stonegate Park, 280, Stonegate, Irvine, Orange County, California, United States",
+  "city": "Irvine"
+ },
+ "Furgeson Elementary School, California": {
+  "lat": 33.8268236,
+  "lng": -118.0770834,
+  "label": "Venn W Furgeson Elementary School, East 221st Street, Hawaiian Gardens, Los Angeles County, California, 90716, United States",
+  "city": "Hawaiian Gardens"
+ },
+ "Reginald M. Benton Middle School, California": null,
+ "Diamond Bar High School, California": {
+  "lat": 33.9813979,
+  "lng": -117.8389556,
+  "label": "Diamond Bar High School, 21400, Pathfinder Road, Diamond Bar, Los Angeles County, California, 91765, United States",
+  "city": "Diamond Bar"
+ },
+ "Allen Avenue Elementary School, California": {
+  "lat": 34.116953,
+  "lng": -117.7922809,
+  "label": "Allen Avenue Elementary School, East Allen Avenue, San Dimas, Los Angeles County, California, 91773, United States",
+  "city": "San Dimas"
+ },
+ "John Anson Ford Park, California": {
+  "lat": 33.9574399,
+  "lng": -118.153281,
+  "label": "John Anson Ford Park, Vinvale, Bell Gardens, Los Angeles County, California, United States",
+  "city": "Bell Gardens"
+ },
+ "Morley Field Sports Complex, California": {
+  "lat": 32.7380974,
+  "lng": -117.137637,
+  "label": "Morley Field Sports Complex, Morley Field Drive, North Park, San Diego, San Diego County, California, 92163, United States",
+  "city": "San Diego"
+ },
+ "Murrieta, California": {
+  "lat": 33.560832,
+  "lng": -117.210656,
+  "label": "Murrieta, Riverside County, California, United States",
+  "city": "Murrieta"
+ },
+ "Santa Barbara, California": {
+  "lat": 34.4221319,
+  "lng": -119.702667,
+  "label": "Santa Barbara, Santa Barbara County, California, United States",
+  "city": "Santa Barbara"
+ },
+ "Brentwood Park, California": {
+  "lat": 34.0550089,
+  "lng": -118.4881363,
+  "label": "Brentwood Park, Brentwood, Los Angeles, Los Angeles County, California, 90403, United States",
+  "city": "Los Angeles"
+ },
+ "Temecula, California": {
+  "lat": 33.4946353,
+  "lng": -117.147366,
+  "label": "Temecula, Riverside County, California, United States",
+  "city": "Temecula"
+ },
+ "Bonita Long Canyon Park, California": {
+  "lat": 32.655915,
+  "lng": -116.9964941,
+  "label": "Bonita Long Canyon Park, Bonita Long Canyon, Rancho del Rey, Chula Vista, San Diego County, California, United States",
+  "city": "Chula Vista"
+ },
+ "Larsen, California": {
+  "lat": 32.5465239,
+  "lng": -117.045657,
+  "label": "Larsen Field, 3986, El Pueblito Viejo, San Ysidro, San Diego, San Diego County, California, 92173, United States",
+  "city": "San Diego"
+ },
+ "Berens, California": null,
+ "Fischer, California": {
+  "lat": 32.9701766,
+  "lng": -117.1791218,
+  "label": "Fischer Way, Rancho del Sol, Pacific Highlands Ranch, San Diego, San Diego County, California, 92130, United States",
+  "city": "San Diego"
+ },
+ "Legion Memorial, California": {
+  "lat": 33.8814267,
+  "lng": -117.9204581,
+  "label": "American Legion WWII Memorial, East Valleyview Drive, Downtown Fullerton, Fullerton, Orange County, California, 92832, United States",
+  "city": "Fullerton"
+ },
+ "Total Sports, California": null,
+ "Bolsa Grande High School, California": {
+  "lat": 33.7617576,
+  "lng": -117.9644416,
+  "label": "Bolsa Grande High School, 9401, Westminster Avenue, Koreatown, Garden Grove, Orange County, California, 92844, United States",
+  "city": "Garden Grove"
+ },
+ "Herdklotz Park, California": null,
+ "Kincaide Park, California": null,
+ "Palisades High School, California": {
+  "lat": 34.0467121,
+  "lng": -118.5315792,
+  "label": "Palisades Charter High School, West Northfield Street, Pacific Palisades, Los Angeles, Los Angeles County, California, 90272, United States",
+  "city": "Los Angeles"
+ },
+ "Merrimack  Soccer Complex, California": null,
+ "Col Lewis Millet Park, California": null,
+ "La Canada High School, California": {
+  "lat": 34.1923421,
+  "lng": -118.179763,
+  "label": "La Cañada High School, 4490, Oak Grove Drive, La Cañada Flintridge, Los Angeles County, California, 91011, United States",
+  "city": "La Cañada Flintridge"
+ },
+ "Pomolita Middle School, California": null,
+ "Walnut, California": {
+  "lat": 34.0203253,
+  "lng": -117.8659441,
+  "label": "Walnut, Los Angeles County, California, 91789, United States",
+  "city": "Walnut"
+ },
+ "Sierra Vista Elementary School, California": {
+  "lat": 34.0956389,
+  "lng": -118.1588897,
+  "label": "Sierra Vista Elementary School, Alpha Street, Olga, Los Angeles, Los Angeles County, California, 91030, United States",
+  "city": "Los Angeles"
+ },
+ "Oak View, California": {
+  "lat": 34.398051,
+  "lng": -119.2990023,
+  "label": "Oak View, Ventura County, California, 93022, United States",
+  "city": null
+ },
+ "Orange County Great Park, California": {
+  "lat": 33.6673311,
+  "lng": -117.7242548,
+  "label": "Orange County Great Park, Irvine, Orange County, California, United States",
+  "city": "Irvine"
+ },
+ "Bell Middle School, California": {
+  "lat": 33.6734417,
+  "lng": -117.1620938,
+  "label": "Bell Mountain Middle School, 28525, La Piedra Road, Menifee Lakes, Menifee, Riverside County, California, 92584, United States",
+  "city": "Menifee"
+ },
+ "Alga Norte Community Park, California": {
+  "lat": 33.1161323,
+  "lng": -117.2635362,
+  "label": "Alga Norte Community Park, 6565, Bressi Ranch, Carlsbad, San Diego County, California, 92009, United States",
+  "city": "Carlsbad"
+ },
+ "Patricia H. Birdsall Sports Park, California": {
+  "lat": 33.453198,
+  "lng": -117.0956471,
+  "label": "Patricia H Birdsall Sports Park, Temecula, Riverside County, California, United States",
+  "city": "Temecula"
+ },
+ "Maranatha Christian School, California": {
+  "lat": 33.023325,
+  "lng": -117.1368974,
+  "label": "Maranatha Christian Schools, 9050, Maranatha Drive, Del Sur, 4S Ranch, San Diego County, California, 92127, United States",
+  "city": "4S Ranch"
+ },
+ "Fleming Middle School, California": {
+  "lat": 33.7921797,
+  "lng": -118.3133163,
+  "label": "Alexander Fleming Middle School, West 254th Street, Harbor City, Harbor Pines, Lomita, Los Angeles County, California, 90717, United States",
+  "city": "Lomita"
+ },
+ "photon:LA Galaxy Sports Complex": null,
+ "Ridgecrest Intermediate School, California": {
+  "lat": 33.766688,
+  "lng": -118.3794249,
+  "label": "Ridgecrest Intermediate School, 28915, Northbay Road, Rancho Palos Verdes, Los Angeles County, California, 90275, United States",
+  "city": "Rancho Palos Verdes"
+ },
+ "AV Event Center, California": {
+  "lat": 34.0865527,
+  "lng": -117.2917309,
+  "label": "National Orange Show & Event Center, 689, San Bernardino, San Bernardino County, California, 92408, United States",
+  "city": "San Bernardino"
+ },
+ "St Pius x St Matthias Academy, California": {
+  "lat": 33.9192951,
+  "lng": -118.1594214,
+  "label": "St. Pius X-St. Matthias Academy, 7851, Gardendale Street, Hollydale, Downey, Los Angeles County, California, 90242, United States",
+  "city": "Downey"
+ },
+ "South Fontana Park, California": {
+  "lat": 34.0547859,
+  "lng": -117.4421404,
+  "label": "South Fontana Sports Park, Fontana, San Bernardino County, California, United States",
+  "city": "Fontana"
+ },
+ "Mance Buchanan Park, California": null,
+ "Samueli Academy, California": {
+  "lat": 33.7625994,
+  "lng": -117.9019724,
+  "label": "Samueli Academy High School, 1901, Fairview Street, Edna Park, Santa Ana, Orange County, California, 92706, United States",
+  "city": "Santa Ana"
+ },
+ "Skyline Ranch Park, California": {
+  "lat": 34.4365252,
+  "lng": -118.4572781,
+  "label": "Skyline Ranch Park, Canyon Country, Santa Clarita, Los Angeles County, California, United States",
+  "city": "Santa Clarita"
+ },
+ "Birmingham Community Charter High School, California": {
+  "lat": 34.1886226,
+  "lng": -118.5043159,
+  "label": "Birmingham Community Charter High School, 17000, Haynes Street, Lake Balboa Neighborhood Council District, Los Angeles, Los Angeles County, California, 91406, United States",
+  "city": "Los Angeles"
+ },
+ "photon:Allied Garden Recreation Center": null,
+ "Pershing Middle School, California": null,
+ "photon:Pershing Middle School": null,
+ "McGrath YMCA, California": {
+  "lat": 32.735927,
+  "lng": -116.9404249,
+  "label": "McGrath Family YMCA, 12012, Campo Road, Jamacha Junction, Spring Valley, San Diego County, California, 91978, United States",
+  "city": "Spring Valley"
+ },
+ "Westwood Recreation Center, California": {
+  "lat": 34.0526307,
+  "lng": -118.448763,
+  "label": "Westwood Recreation Center, South Sepulveda Boulevard, Tehrangeles, Sawtelle, Veterans Administration, Los Angeles County, California, 90073, United States",
+  "city": "Veterans Administration"
+ },
+ "Poinsettia Community Park, California": null,
+ "Orange High School, California": {
+  "lat": 33.7974683,
+  "lng": -117.8467873,
+  "label": "Orange High School, 525, North Shaffer Street, Orange, Orange County, California, 92867, United States",
+  "city": "Orange"
+ },
+ "Santiago High School, California": {
+  "lat": 33.7652862,
+  "lng": -117.9148553,
+  "label": "Santiago High School, 12342, Trask Avenue, Garden Grove, Orange County, California, 91843, United States",
+  "city": "Garden Grove"
+ },
+ "photon:CMT Ranch": null,
+ "photon:Hovely Soccer Park": null,
+ "San Gorgonio High School, California": {
+  "lat": 34.1274336,
+  "lng": -117.2368547,
+  "label": "San Gorgonio High School, Pacific Street, Warm Springs, San Bernardino, San Bernardino County, California, 92404, United States",
+  "city": "San Bernardino"
+ },
+ "Miller Park, California": {
+  "lat": 34.1003017,
+  "lng": -117.4335779,
+  "label": "Miller Park, 17004, Downtown Fontana, Fontana, San Bernardino County, California, 92335, United States",
+  "city": "Fontana"
+ },
+ "Central City Park, California": {
+  "lat": 34.1014793,
+  "lng": -117.4466934,
+  "label": "Central City Park, 8380, Fontana, San Bernardino County, California, 92335, United States",
+  "city": "Fontana"
+ },
+ "photon:Eastside Community Park": null,
+ "Brush Canyon Park, California": {
+  "lat": 33.8784281,
+  "lng": -117.7007326,
+  "label": "Brush Canyon Park, Yorba Linda, Orange County, California, United States",
+  "city": "Yorba Linda"
+ },
+ "photon:Kinsell": null,
+ "Del Lago Academy, California": {
+  "lat": 33.0978467,
+  "lng": -117.103243,
+  "label": "Del Lago Academy, Citracado Parkway, Escondido, San Diego County, California, 92029, United States",
+  "city": "Escondido"
+ },
+ "Pan Pacific Park, California": {
+  "lat": 34.073671,
+  "lng": -118.3549711,
+  "label": "Pan Pacific Park, Fairfax, Los Angeles, Los Angeles County, California, United States",
+  "city": "Los Angeles"
+ },
+ "CSF Park, California": null,
+ "photon:CSF Park": null,
+ "Bakersfield, California": {
+  "lat": 35.3738712,
+  "lng": -119.019463,
+  "label": "Bakersfield, Kern County, California, United States",
+  "city": "Bakersfield"
+ },
+ "Glendale High School, California": {
+  "lat": 34.1448053,
+  "lng": -118.2326973,
+  "label": "Glendale Senior High School, Carlton Drive, Glendale, Los Angeles County, California, 91206, United States",
+  "city": "Glendale"
+ },
+ "photon:Bonita HS Sports Complex": null,
+ "Lutheran High School, California": {
+  "lat": 34.1152771,
+  "lng": -117.760446,
+  "label": "Lutheran High School, Hartshorn Ranch Place, La Verne, Los Angeles County, California, 91750, United States",
+  "city": "La Verne"
+ },
+ "photon:Merrimack  Soccer Complex": null,
+ "photon:Arizona Avenue Soccer": null,
+ "Franklin Gateway Sports Complex, California": null,
+ "photon:Franklin Gateway Sports Complex": null,
+ "photon:Lusitano Stadium 11v11": null,
+ "Lusitano Stadium 1, California": null,
+ "photon:Lusitano Stadium 1": null,
+ "Lusitano Stadium 2, California": null,
+ "photon:Lusitano Stadium 2": null,
+ "photon:Augusta Soccer Park": null,
+ "photon:JIYSC Bayview Complex": null,
+ "JIYSC Main Complex, California": null,
+ "photon:Buda Sportsplex": null,
+ "BuildSoccer Park at Marbridge, California": null,
+ "photon:BuildSoccer Park at Marbridge": null,
+ "photon:Eastside Sports Complex": null,
+ "Provencio Van Daam Soccer Complex, California": null,
+ "photon:Provencio Van Daam Soccer Complex": null,
+ "photon:Parkland High School": null,
+ "Chapin High School, California": null,
+ "photon:Chapin High School": null,
+ "Copper Sky Park, California": null,
+ "photon:Design 39 Campus": null,
+ "Del Norte High School, California": {
+  "lat": 33.0140216,
+  "lng": -117.1224627,
+  "label": "Del Norte High School, 16601, Nighthawk Lane, Nicole Ridge, Black Mountain Ranch, San Diego, San Diego County, California, 92127, United States",
+  "city": "San Diego"
+ },
+ "Centennial Park, California": {
+  "lat": 32.6996005,
+  "lng": -117.1718259,
+  "label": "Centennial Park, Coronado Ferry Landing, Coronado, San Diego County, California, United States",
+  "city": "Coronado"
+ },
+ "photon:Sid Fay / Houlihan": null,
+ "Paragon Star, California": null,
+ "Rio Hondo College, California": {
+  "lat": 34.0637089,
+  "lng": -118.0360641,
+  "label": "Rio Hondo College, Tyler Avenue, El Monte, Los Angeles County, California, 91731, United States",
+  "city": "El Monte"
+ },
+ "photon:Matthews Sportsplex": null,
+ "Field Day Park, California": null,
+ "photon:Field Day Park": null,
+ "George Poston Park, California": null,
+ "Paul D Rushing, California": null,
+ "photon:GVTC.": null,
+ "photon:East Side Sports Complex": null,
+ "West Side Sports Complex, California": null,
+ "photon:West Side Sports Complex": null,
+ "photon:Soccer.com": null,
+ "Southern Community Park, California": null,
+ "photon:Michigan Stars Sports Center": null,
+ "photon:Herdklotz Park": null,
+ "Westover Hills Soccer, California": null,
+ "Bakersfield Police Activities League, California": null,
+ "photon:Lynnfield High School": null,
+ "Pingree School, California": null,
+ "photon:Pingree School": null,
+ "photon:Wheeler Farm": null,
+ "Lincoln School Rehoboth, California": null,
+ "photon:Westfield State University": null,
+ "Roots Athletic Center, California": null,
+ "photon:Dicaprio Park": null,
+ "Afrims Sports Park, California": null,
+ "photon:Afrims Sports Park": null,
+ "Union College, California": {
+  "lat": 34.0258923,
+  "lng": -118.2831149,
+  "label": "Hebrew Union College - California Branch, University Avenue, Saint James Park, University Park, Historic South-Central, Los Angeles, Los Angeles County, California, 90089, United States",
+  "city": "Los Angeles"
+ },
+ "photon:O'Fallon Sports Park": null,
+ "photon:Creve Coeur Park Soccer Complex": null,
+ "OFSP, California": null,
+ "photon:OFSP": null,
+ "photon:Sweetapple Park": null,
+ "Grimes Bridge Park, California": null,
+ "Pleasant Park, California": {
+  "lat": 32.835048,
+  "lng": -117.0292366,
+  "label": "Pleasant Valley Mobile Home Park, Santee, San Diego County, California, United States",
+  "city": "Santee"
+ },
+ "photon:De Leon Soccer Complex": null,
+ "McAllen High School, California": null,
+ "photon:McAllen High School": null,
+ "Nikki Rowe High School, California": null,
+ "photon:Nikki Rowe High School": null,
+ "photon:SJWAA Soccer Complex": null,
+ "photon:Spartan Greens": null,
+ "Holt Old Varsity Soccer, California": null,
+ "photon:Holt Old Varsity Soccer": null,
+ "photon:Uihlein Soccer Park": null,
+ "Martin Luther High School, California": {
+  "lat": 33.8836048,
+  "lng": -117.3338478,
+  "label": "Martin Luther King High School, Newbridge Drive, Orangecrest, Riverside, Riverside County, California, 92508, United States",
+  "city": "Riverside"
+ },
+ "photon:Albertus Magnus High School": null,
+ "Germonds Park, California": null,
+ "photon:Germonds Park": null,
+ "Pelona Vista Park, California": {
+  "lat": 34.5694159,
+  "lng": -118.1374275,
+  "label": "Pelona Vista Park, Palmdale, Los Angeles County, California, United States",
+  "city": "Palmdale"
+ },
+ "photon:IE Soccer Complex": null,
+ "photon:Edgewood High School": null,
+ "photon:Copper Sky Recreation Complex": null,
+ "photon:Norton High School": null,
+ "Forekicks Taunton, California": null,
+ "photon:Forekicks Taunton": null,
+ "photon:North Mount Carmel Park": null,
+ "photon:Accelerate Sports Complex": null,
+ "Albany College of Pharmacy and Health Sciences Track and, California": null,
+ "photon:Albany College of Pharmacy and Health Sciences Track and": null,
+ "United Sports Complex, California": null,
+ "photon:United Sports Complex": null,
+ "photon:Eagle Harbor Soccer Complex": null,
+ "photon:Croatian Park": null,
+ "Franklin High School, California": {
+  "lat": 34.1165121,
+  "lng": -118.1983083,
+  "label": "Franklin High School, Baltimore Street, Highland Park, Los Angeles, Los Angeles County, California, 90042, United States",
+  "city": "Los Angeles"
+ },
+ "Demuth Park, California": {
+  "lat": 33.8079281,
+  "lng": -116.5019987,
+  "label": "Demuth Park, Palm Springs, Riverside County, California, United States",
+  "city": "Palm Springs"
+ },
+ "Pacific Community Center, California": {
+  "lat": 34.1392236,
+  "lng": -118.2647921,
+  "label": "Pacific Community Center, 501, South Pacific Avenue, Glendale, Los Angeles County, California, 91204, United States",
+  "city": "Glendale"
+ },
+ "photon:ABC Adult School Cabrillo Lane": null,
+ "Theodore Roosevelt  Elementary School, California": {
+  "lat": 33.8265173,
+  "lng": -117.8922768,
+  "label": "Theodore Roosevelt Elementary School, South Barnett Street, Anaheim, Orange County, California, 92805, United States",
+  "city": "Anaheim"
+ },
+ "Edward Vincent Jr Park, California": {
+  "lat": 33.9724773,
+  "lng": -118.3442956,
+  "label": "Edward Vincent Jr. Park, Inglewood, Los Angeles County, California, United States",
+  "city": "Inglewood"
+ },
+ "photon:Craig Ranch MSA": null,
+ "Carpenter Park, California": {
+  "lat": 34.0695966,
+  "lng": -117.5798057,
+  "label": "Carpenter's Union Park, Ontario, San Bernardino County, California, United States",
+  "city": "Ontario"
+ },
+ "photon:Rick McCown Soccer Complex": null,
+ "Yucaipa Community Park, California": {
+  "lat": 34.049285,
+  "lng": -117.0427909,
+  "label": "Yucaipa Community Park, Yucaipa, San Bernardino County, California, United States",
+  "city": "Yucaipa"
+ },
+ "photon:Badger Creek Soccer Complex": null,
+ "photon:Albertus Magnus College": null,
+ "Veterans Park Stadium, California": null,
+ "photon:Crago Park": null,
+ "photon:Meadows Soccer Complex": null,
+ "photon:Rolling Hills Soccer Complex": null,
+ "Alliance Park, California": {
+  "lat": 34.0928968,
+  "lng": -118.2098603,
+  "label": "Bobby Brown Uptown Gay and Lesbian Alliance Square, Montecito Heights, Los Angeles, Los Angeles County, California, 90065, United States",
+  "city": "Los Angeles"
+ },
+ "Coronado, California": {
+  "lat": 32.6915199,
+  "lng": -117.1766947,
+  "label": "Coronado, San Diego County, California, United States",
+  "city": "Coronado"
+ },
+ "Bancroft Middle School, California": {
+  "lat": 33.8410482,
+  "lng": -118.1291721,
+  "label": "Bancroft Middle School, 5301, Charlemagne Avenue, Long Beach, Los Angeles County, California, 90808, United States",
+  "city": "Long Beach"
+ },
+ "San Dieguito Sports Complex, California": null,
+ "photon:San Dieguito Sports Complex": null,
+ "photon:Avenue 53 Soccer": null,
+ "Oak hills high school, California": {
+  "lat": 34.3867687,
+  "lng": -117.3836089,
+  "label": "Oak Hills High School, 7625, Cataba Road, Oak Hills, San Bernardino County, California, 92344, United States",
+  "city": "Oak Hills"
+ },
+ "photon:Day Hill Dome": null,
+ "photon:Sportsworld": null,
+ "Sharp Healthcare Performance Center, California": null,
+ "photon:Sharp Healthcare Performance Center": null,
+ "Pine Avenue Park, California": {
+  "lat": 33.9926309,
+  "lng": -118.1873887,
+  "label": "Pine Avenue Park, Maywood, Los Angeles County, California, United States",
+  "city": "Maywood"
+ },
+ "photon:APS Soccer Complex": null,
+ "photon:Thayer Academy Main Campus": null,
+ "Big Corkscrew Island, California": null,
+ "photon:Big Corkscrew Island": null,
+ "Compton, California": {
+  "lat": 33.894927,
+  "lng": -118.226624,
+  "label": "Compton, Los Angeles County, California, 90220, United States",
+  "city": "Compton"
+ },
+ "Johnson High School, California": null,
+ "photon:Johnson High School": null,
+ "Camp Jordan Sports Complex, California": null,
+ "photon:Camp Jordan Sports Complex": null,
+ "Chattanooga School of Liberal Arts, California": null,
+ "photon:North Main Athletic Complex": null,
+ "photon:Womble Park": null,
+ "photon:Manchester Meadows": null,
+ "Holly Springs High School, California": null,
+ "photon:Gosling Sportsfields": null,
+ "photon:Bear Branch Sportsfields": null,
+ "photon:Alden Bridge Sports Park": null,
+ "photon:RNY FC Youth Soccer Complex": null,
+ "photon:Lakeside Sports Complex": null,
+ "photon:Elgin Sports Complex": null,
+ "Willow Hill, California": {
+  "lat": 33.9671913,
+  "lng": -117.7361728,
+  "label": "Willow Hill Drive, Chino Hills, San Bernardino County, California, 91709, United States",
+  "city": "Chino Hills"
+ },
+ "Clinton Youth Sports Complex, California": null,
+ "CSSUS Tatum Ridge, California": null,
+ "photon:CSSUS Tatum Ridge": null,
+ "photon:Malia's Park at XL Soccer World Lake Nona": null,
+ "photon:Pingry School": null,
+ "Moreno Valley, California": {
+  "lat": 33.9375177,
+  "lng": -117.2305791,
+  "label": "Moreno Valley, Riverside County, California, United States",
+  "city": "Moreno Valley"
+ },
+ "Northwood Community Park, California": {
+  "lat": 33.7122427,
+  "lng": -117.7677046,
+  "label": "Northwood Community Park, Frances, Northwood, Irvine, Orange County, California, United States",
+  "city": "Irvine"
+ },
+ "photon:Los Coyotes/El Camino Cont HS": null,
+ "photon:Adelanto Stadium": null,
+ "photon:Mcdermott Soccer": null,
+ "Norco College, California": {
+  "lat": 33.9191058,
+  "lng": -117.5712025,
+  "label": "Norco College, 2001, 3rd Street, Norco, Riverside County, California, 92860, United States",
+  "city": "Norco"
+ },
+ "Conejo Creek South Park, California": {
+  "lat": 34.1944817,
+  "lng": -118.8582797,
+  "label": "Conejo Creek Park South, Thousand Oaks, Ventura County, California, United States",
+  "city": "Thousand Oaks"
+ },
+ "photon:Benz Visco Youth Sports & Cultural Park": null,
+ "Fessenden School Upper, California": null,
+ "photon:Vista Terrace Neighborhood Park": null,
+ "photon:Mesa Linda School": null,
+ "CS Futsal Modesto, California": null,
+ "photon:CS Futsal Modesto": null,
+ "photon:Taunton High School": null,
+ "Ross Snyder Recreation Center, California": {
+  "lat": 34.0093993,
+  "lng": -118.2476286,
+  "label": "Ross Snyder Recreation Center, 1501, Central-Alameda, Los Angeles, Los Angeles County, California, 90011, United States",
+  "city": "Los Angeles"
+ },
+ "The Wiseburn Sports Complex, California": null,
+ "photon:The Wiseburn Sports Complex": null,
+ "Oso Park, California": {
+  "lat": 34.0854286,
+  "lng": -118.2294535,
+  "label": "Oso Park, Cypress Park, Lincoln Heights, Los Angeles, Los Angeles County, California, United States",
+  "city": "Los Angeles"
+ },
+ "Rancho Mission Viejo Riding Park, California": null,
+ "Eastlake Soccer League, California": null,
+ "Michelle and Barack Obama Sports Complex, California": {
+  "lat": 34.0229782,
+  "lng": -118.3514764,
+  "label": "Michelle and Barack Obama Sports Complex, 5001, Obama Boulevard, Baldwin Hills, West Adams, Los Angeles, Los Angeles County, California, 90016, United States",
+  "city": "Los Angeles"
+ },
+ "photon:Kilbourne Run Sports Park": null,
+ "photon:Winfield Elementary School": null,
+ "photon:Binghamton University": null,
+ "Arlington Elementary School, California": {
+  "lat": 33.8688816,
+  "lng": -118.3175179,
+  "label": "Arlington Elementary School, Van Ness Avenue, La Fresa, Torrance, Los Angeles County, California, 90504, United States",
+  "city": "Torrance"
+ },
+ "Buckingham Park, California": {
+  "lat": 33.7550008,
+  "lng": -118.0139315,
+  "label": "Buckingham Park, Westminster, Orange County, California, United States",
+  "city": "Westminster"
+ },
+ "photon:Juaneno Soccer": null,
+ "Harvard Westlake High School, California": null,
+ "Roosevelt Elementary School, California": {
+  "lat": 33.7864653,
+  "lng": -118.1858957,
+  "label": "Roosevelt Elementary School, East 15th Street, Long Beach, Los Angeles County, California, 90813, United States",
+  "city": "Long Beach"
+ },
+ "photon:Harbor Sports Complex": null,
+ "Bear Brand Soccer, California": null,
+ "photon:Kincaide Park": null,
+ "photon:Col Lewis Millet Park": null,
+ "photon:Pomolita Middle School": null,
+ "photon:SilverLakes Soccer Complex": null,
+ "photon:Redlands Sports Complex": null,
+ "Conejo Creek South Soccer Park, California": null,
+ "photon:Conejo Creek South Soccer Park": {
+  "lat": 34.1944817,
+  "lng": -118.8582797,
+  "label": "Conejo Creek Park South (Photon)",
+  "city": "Thousand Oaks"
+ },
+ "photon:North Ranch Playfields": {
+  "lat": 34.179822,
+  "lng": -118.7897831,
+  "label": "North Ranch Playfield (Photon)",
+  "city": "Thousand Oaks"
+ },
+ "Heroes, California": {
+  "lat": 34.2377004,
+  "lng": -118.5566326,
+  "label": "Heroes, Shirley Avenue, Northridge West Neighborhood Council District, Los Angeles, Los Angeles County, California, 00103, United States",
+  "city": "Los Angeles"
+ },
+ "photon:Irvine Terrace Park": null,
+ "Davis Magnet School, California": {
+  "lat": 33.6702726,
+  "lng": -117.9016179,
+  "label": "Davis Magnet School, 1050, Arlington Drive, Costa Mesa, Orange County, California, 92626, United States",
+  "city": "Costa Mesa"
+ },
+ "Ruben S. Ayala Park, California": {
+  "lat": 33.9958348,
+  "lng": -117.6835535,
+  "label": "Ruben S Ayala Park, Chino, San Bernardino County, California, United States",
+  "city": "Chino"
+ },
+ "photon:Ashley Falls Elementary Park": {
+  "lat": 32.9571617,
+  "lng": -117.2092412,
+  "label": "Ashley Falls Elementary (Photon)",
+  "city": "San Diego"
+ },
+ "Bakersfield College, California": {
+  "lat": 35.4087657,
+  "lng": -118.972026,
+  "label": "Bakersfield College, 1801, Panorama Drive, Bakersfield, Kern County, California, 93305, United States",
+  "city": "Bakersfield"
+ },
+ "Stryker, California": null,
+ "photon:Stryker": null,
+ "Stryker Soccer Complex, California": null,
+ "photon:Stryker Soccer Complex": null,
+ "KU Superfield, California": null,
+ "photon:KU Superfield": null,
+ "Palomar College Minkoff, California": null,
+ "photon:Palomar College Minkoff": null,
+ "Rancho Tesoro Park, California": null,
+ "photon:Rancho Tesoro Park": null,
+ "photon:Valley United Soccer Complex": null,
+ "Rancho Mission Park, California": {
+  "lat": 32.8069354,
+  "lng": -117.0645872,
+  "label": "Rancho Mission Canyon Park, Navajo, San Diego, San Diego County, California, United States",
+  "city": "San Diego"
+ },
+ "photon:Wilmington Athletic Complex": null,
+ "photon:Poinsettia Community Park": {
+  "lat": 33.11487,
+  "lng": -117.3071287,
+  "label": "Poinsettia Park (Photon)",
+  "city": "Carlsbad"
+ },
+ "photon:UCSB Rec Cen": null,
+ "Mission Oak High School, California": null,
+ "photon:Mission Oak High School": null,
+ "Ventura College, California": {
+  "lat": 34.2772814,
+  "lng": -119.2326722,
+  "label": "Ventura College, 4667, Telegraph Road, Ventura, Ventura County, California, 93003, United States",
+  "city": "Ventura"
+ },
+ "River Ridge, California": {
+  "lat": 34.2316111,
+  "lng": -119.1971356,
+  "label": "River Ridge Playing Fields, 2101, Oxnard, Ventura County, California, 93036, United States",
+  "city": "Oxnard"
+ },
+ "photon:Santa Venetia Park": {
+  "lat": 32.6219564,
+  "lng": -116.9832311,
+  "label": "Santa Venetia Street (Photon)",
+  "city": "Chula Vista"
+ },
+ "Quail Hill Community Park, California": {
+  "lat": 33.6520663,
+  "lng": -117.7825616,
+  "label": "Quail Hill Community Park, Quail Hill, Irvine, Orange County, California, United States",
+  "city": "Irvine"
+ },
+ "photon:Crossbar Academy Spring": null,
+ "photon:Helen Bernstein High School": null,
+ "photon:John Ferraro Athletic": null,
+ "photon:Patriot Park 7V7": null,
+ "SANTA ANA STADIUM, California": {
+  "lat": 33.7506468,
+  "lng": -117.8774695,
+  "label": "Santa Ana Stadium, 602, North Flower Street, Santa Ana, Orange County, California, 92703, United States",
+  "city": "Santa Ana"
+ },
+ "photon:West Jackson Middle School": null,
+ "Orosi Sports Complex, California": null,
+ "photon:Orosi Sports Complex": null,
+ "photon:JIYSC Main Complex": null,
+ "photon:Copper Sky Park": {
+  "lat": 33.958642,
+  "lng": -117.5662824,
+  "label": "Copper Sky Street (Photon)",
+  "city": "Eastvale"
+ },
+ "Yukon Elementary School, California": {
+  "lat": 33.8682409,
+  "lng": -118.3359571,
+  "label": "Yukon Elementary School, Yukon Avenue, La Fresa, Torrance, Los Angeles County, California, 90504, United States",
+  "city": "Torrance"
+ },
+ "Empower College & Career Center, California": null,
+ "photon:Empower College & Career Center": null,
+ "photon:Paragon Star": null,
+ "Wardlaw Hartridge School, California": null,
+ "photon:Wardlaw Hartridge School": null,
+ "Gosling Soccer Complex, California": null,
+ "photon:Gosling Soccer Complex": null,
+ "photon:Anchor Bay High School": null,
+ "Anchor Bay SportsPlex, California": null,
+ "photon:Anchor Bay SportsPlex": null,
+ "Fraser High School, California": null,
+ "photon:Fraser High School": null,
+ "photon:George Poston Park": null,
+ "photon:Paul D Rushing": null,
+ "Beckendorff, California": null,
+ "photon:Beckendorff": null,
+ "photon:Oak Brook Sportscore": null,
+ "Stuart Sports Complex, California": null,
+ "photon:Stuart Sports Complex": null,
+ "Timothy Christian High School, California": null,
+ "photon:Timothy Christian High School": null,
+ "photon:Southern Community Park": {
+  "lat": 32.7509519,
+  "lng": -117.1005647,
+  "label": "Southern Sudanese Community Center (Photon)",
+  "city": "San Diego"
+ },
+ "Texas Wesleyan University, California": null,
+ "photon:Texas Wesleyan University": null,
+ "Cincinnati Hills Christian Academy, California": null,
+ "photon:Cincinnati Hills Christian Academy": null,
+ "Cyntheanne Park, California": null,
+ "photon:Cyntheanne Park": null,
+ "photon:Bakersfield Police Activities League": {
+  "lat": 34.0199754,
+  "lng": -118.4806101,
+  "label": "Police Activities League Youth Center (Photon)",
+  "city": "Santa Monica"
+ },
+ "Cantwell Sacred Heart of Mary High School, California": {
+  "lat": 34.0175768,
+  "lng": -118.1314336,
+  "label": "Cantwell-Sacred Heart of Mary High School, 329, Garfield Avenue, Montebello, Los Angeles County, California, 90640, United States",
+  "city": "Montebello"
+ },
+ "photon:Griffith Park Soccer": {
+  "lat": 34.1344267,
+  "lng": -118.3050915,
+  "label": "Griffith Park (Photon)",
+  "city": "Los Angeles"
+ },
+ "photon:Lincoln School Rehoboth": null,
+ "Tucker, California": {
+  "lat": 35.5431688,
+  "lng": -118.6349557,
+  "label": "Tucker Creek, Kern County, California, United States",
+  "city": null
+ },
+ "photon:Roots Athletic Center": null,
+ "Whalley Park, California": null,
+ "photon:Whalley Park": null,
+ "photon:Cherokee Joint Use": null,
+ "photon:Brook Run Park": null,
+ "photon:Grimes Bridge Park": null,
+ "photon:Cornelius Road Park": null,
+ "Langtree Charter School, California": null,
+ "photon:Langtree Charter School": null,
+ "Jennings Park, California": {
+  "lat": 32.8595389,
+  "lng": -116.8848173,
+  "label": "Lake Jennings Country Park, Lakeside, San Diego County, California, United States",
+  "city": "Lakeside"
+ },
+ "photon:Turkey Brook Park": null,
+ "Ramona Park, California": {
+  "lat": 34.0716769,
+  "lng": -118.1228476,
+  "label": "Ramona Park, Alhambra, Los Angeles County, California, 91801, United States",
+  "city": "Alhambra"
+ },
+ "photon:Cesar Solis Comm. Park": null,
+ "photon:Arbolitos Sport": {
+  "lat": 32.976379,
+  "lng": -117.0617413,
+  "label": "Arbolitos Sports Fields (Photon)",
+  "city": "Poway"
+ },
+ "photon:June Vail Park": null,
+ "Tierra Santa Rec., California": null,
+ "photon:Tierra Santa Rec.": {
+  "lat": 32.5935392,
+  "lng": -115.3311516,
+  "label": "Tierra Santa (Photon)",
+  "city": "Islas Agrarias A"
+ },
+ "El Dorado FS 3, California": {
+  "lat": 32.8143125,
+  "lng": -117.0836157,
+  "label": "El Dorado, Tierrasanta, San Diego, San Diego County, California, 92124, United States",
+  "city": "San Diego"
+ },
+ "West High School, California": {
+  "lat": 35.3437373,
+  "lng": -119.0580772,
+  "label": "West High School, Fjord Drive, Bakersfield, Kern County, California, 93309, United States",
+  "city": "Bakersfield"
+ },
+ "Ross Academy of Creative and Media Arts Middle School, California": null,
+ "photon:Ross Academy of Creative and Media Arts Middle School": null,
+ "photon:Veterans Park Stadium": {
+  "lat": 33.8282786,
+  "lng": -118.1363966,
+  "label": "Veterans Memorial Stadium (Photon)",
+  "city": "Long Beach"
+ },
+ "photon:Minuteman Regional High School": null,
+ "photon:All Saints Catholic School": {
+  "lat": 35.3646433,
+  "lng": -119.0214667,
+  "label": "All Saints Catholic Store (Photon)",
+  "city": "Bakersfield"
+ },
+ "La Costa Canyon High School, California": {
+  "lat": 33.0722277,
+  "lng": -117.2304573,
+  "label": "La Costa Canyon High School, Via Ensenada, La Costa Oaks, La Costa, Carlsbad, San Diego County, California, 92009, United States",
+  "city": "Carlsbad"
+ },
+ "Marine Ave Park, California": {
+  "lat": 33.8954354,
+  "lng": -118.3842326,
+  "label": "Marine Avenue Park, Manhattan Village, Manhattan Beach, Los Angeles County, California, United States",
+  "city": "Manhattan Beach"
+ },
+ "Stockton Rec Center, California": null,
+ "photon:Stockton Rec Center": null,
+ "Canyon Hills High School, California": {
+  "lat": 32.8259873,
+  "lng": -117.1068471,
+  "label": "Canyon Hills High School, Porto Court, Villa Portofino, Tierrasanta Town Center, Tierrasanta, San Diego, San Diego County, California, 92124, United States",
+  "city": "San Diego"
+ },
+ "West Covina, California": {
+  "lat": 34.0686208,
+  "lng": -117.9389526,
+  "label": "West Covina, Los Angeles County, California, United States",
+  "city": "West Covina"
+ },
+ "photon:Chateau Park": {
+  "lat": 34.0392046,
+  "lng": -117.50854,
+  "label": "Chateau Court (Photon)",
+  "city": "Fontana"
+ },
+ "North Collier Regional Park, California": null,
+ "photon:North Collier Regional Park": null,
+ "photon:Chattanooga School of Liberal Arts": null,
+ "photon:Holly Springs High School": null,
+ "photon:Opportunity Way Park": {
+  "lat": 33.8928997,
+  "lng": -117.2831665,
+  "label": "Opportunity Way (Photon)",
+  "city": "March Air Reserve Base"
+ },
+ "photon:Clinton Youth Sports Complex": null,
+ "photon:Rivertown Fields II": null,
+ "Carson, California": {
+  "lat": 33.8322043,
+  "lng": -118.2517547,
+  "label": "Carson, Los Angeles County, California, United States",
+  "city": "Carson"
+ },
+ "Harvard Community Athletic Park, California": null,
+ "photon:Harvard Community Athletic Park": null,
+ "photon:Reginald M. Benton Middle School": null,
+ "photon:Providence Community Health Center": {
+  "lat": 34.0305994,
+  "lng": -118.4794585,
+  "label": "Providence Saint John's Health Center (Photon)",
+  "city": "Santa Monica"
+ },
+ "Ernie Pyle Elementary School, California": {
+  "lat": 33.9000424,
+  "lng": -118.1148593,
+  "label": "Ernie Pyle Elementary School, McNab Avenue, Bellflower, Los Angeles County, California, 90706, United States",
+  "city": "Bellflower"
+ },
+ "photon:Horace Mann Middle School": {
+  "lat": 34.0653493,
+  "lng": -118.3820773,
+  "label": "Horace Mann Elementary School (Photon)",
+  "city": "Beverly Hills"
+ },
+ "photon:Dolores Huerta Middle School": {
+  "lat": 34.0196168,
+  "lng": -118.268753,
+  "label": "Dolores Huerta Elementary School (Photon)",
+  "city": "Los Angeles"
+ },
+ "Naranca Elementary School, California": {
+  "lat": 32.8044952,
+  "lng": -116.9480821,
+  "label": "Naranca Elementary School, Naranca Avenue, Bostonia, El Cajon, San Diego County, California, 92022, United States",
+  "city": "El Cajon"
+ },
+ "photon:Fessenden School Upper": null,
+ "Union Point Sports Complex, California": null,
+ "photon:Union Point Sports Complex": null,
+ "Will Rogers ES, California": null,
+ "photon:Will Rogers ES": {
+  "lat": 34.0320093,
+  "lng": -118.529062,
+  "label": "Will Rogers State Beach (Photon)",
+  "city": "Los Angeles"
+ },
+ "Santa Monica Airport, California": {
+  "lat": 34.0165213,
+  "lng": -118.4507048,
+  "label": "Santa Monica Municipal Airport, South Bundy Drive, Sawtelle, Los Angeles, Los Angeles County, California, 90025, United States",
+  "city": "Los Angeles"
+ },
+ "photon:La Mirada Elem.": null,
+ "East Lake soccer League ESL, California": null,
+ "photon:East Lake soccer League ESL": null,
+ "Venice, Los Angeles, California": {
+  "lat": 33.995044,
+  "lng": -118.4668875,
+  "label": "Venice, Los Angeles, Los Angeles County, California, 90291, United States",
+  "city": "Los Angeles"
+ },
+ "Bridgeport Park, California": {
+  "lat": 34.4268279,
+  "lng": -118.5477783,
+  "label": "Bridgeport Park, Bouquet Junction, Santa Clarita, Los Angeles County, California, United States",
+  "city": "Santa Clarita"
+ },
+ "photon:Rancho Mission Viejo Riding Park": {
+  "lat": 33.5156365,
+  "lng": -117.6244713,
+  "label": "Oaks Blenheim Rancho Mission Viejo Riding Park (Photon)",
+  "city": "San Juan Capistrano"
+ },
+ "photon:Eastlake Soccer League": null,
+ "El Segundo High School, California": {
+  "lat": 33.9247393,
+  "lng": -118.4141526,
+  "label": "El Segundo High School, 640, Main Street, El Segundo, Los Angeles County, California, 90245, United States",
+  "city": "El Segundo"
+ },
+ "photon:Heroes Regional Park": null,
+ "photon:The Football Farm": null,
+ "photon:Harvard Westlake High School": {
+  "lat": 34.1395013,
+  "lng": -118.4125781,
+  "label": "Harvard-Westlake Upper School (Photon)",
+  "city": "Los Angeles"
+ },
+ "photon:J Serra HS": null,
+ "photon:El Roble Intermediate School Harrison Ave*": null,
+ "photon:Bear Brand Soccer": {
+  "lat": 33.4943792,
+  "lng": -117.7039546,
+  "label": "Bear Brand Park (Photon)",
+  "city": "Laguna Niguel"
+ },
+ "photon:El Marino Elementary School": {
+  "lat": 33.8378313,
+  "lng": -118.0251871,
+  "label": "San Marino Elementary School (Photon)",
+  "city": "Buena Park"
+ },
+ "photon:Fairplex Sports Complex": null,
+ "photon:Kaiser Permanente Sports Village": null,
+ "photon:Westlake Village Community Park": {
+  "lat": 34.1558298,
+  "lng": -118.807718,
+  "label": "Westlake Village Industrial Park (Photon)",
+  "city": "Westlake Village"
+ },
+ "photon:Innovation Middle School": null,
+ "photon:Perry Lindsey Academy Middle School": null,
+ "1700 S Figueroa St, Wilmington, CA 90744": {
+  "lat": 33.795669,
+  "lng": -118.2825771,
+  "label": "1700, South Figueroa Street, Wilmington, Los Angeles, Los Angeles County, California, 90744, United States",
+  "city": "Los Angeles"
+ },
+ "5001 Obama Blvd, Los Angeles, CA 90016": {
+  "lat": 34.0229782,
+  "lng": -118.3514764,
+  "label": "Michelle and Barack Obama Sports Complex, 5001, Obama Boulevard, Baldwin Hills, West Adams, Los Angeles, Los Angeles County, California, 90016, United States",
+  "city": "Los Angeles"
+ },
+ "6952 Whitsett Ave, North Hollywood, CA 91605": {
+  "lat": 34.1975527,
+  "lng": -118.405151,
+  "label": "6952, Whitsett Avenue, North Hollywood Northeast Neighborhood Council District, Los Angeles, Los Angeles County, California, 91605, United States",
+  "city": "Los Angeles"
+ }
+}

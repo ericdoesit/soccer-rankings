@@ -174,8 +174,11 @@ export function buildTeamIdentity<T extends TeamLike>(
     }
     return x;
   };
-  const aliases = loadJson<Record<string, Record<string, { club: string }>>>(
+  const aliases = loadJson<Record<string, Record<string, { club: string; pattern?: string }>>>(
     path.join(process.cwd(), "data", "seed", "club-aliases.json"), {});
+  /** pattern aliases: a regex on the full team name names the club of a team listed without one */
+  const patternAliases = Object.entries(aliases).flatMap(([assoc, table]) =>
+    typeof table === "object" ? Object.values(table).filter((a) => a.pattern).map((a) => ({ re: new RegExp(a.pattern!, "i"), club: a.club, association: assoc })) : []);
   /** alias lookup by first word, any case ("PSA", "Villarreal") */
   function aliasFor(assoc: string, word: string | undefined): string | undefined {
     if (!word) return undefined;
@@ -286,7 +289,9 @@ export function buildTeamIdentity<T extends TeamLike>(
     // dropped 4,956 real West teams: the crawler's league flags are too sparse.
     const gsOutside = !d && gsId !== undefined && !(es && WEST_ASSOC.has(es));
     const srcAssoc = sourceAssocByName.get(raw);
+    const pat = !d ? patternAliases.find((a) => a.re.test(raw)) : undefined;
     const club = d ? { name: d.clubName.trim(), association: d.association }
+      : pat ? { name: pat.club, association: pat.association }
       : srcAssoc ? matchInAssoc(raw, srcAssoc)
       : gsOutside || outsideTag(raw) ? null : matchClub(raw, (esAny && esAny !== "CA" ? esAny : null) ?? opponentState(t.id) ?? tagState(raw) ?? esAny);
     if (d) s.directory++; else if (club) s.clubMatch++;
@@ -295,10 +300,13 @@ export function buildTeamIdentity<T extends TeamLike>(
     // MLS NEXT teams known only from the league schedule ("Classic FC MLS NEXT B2014") have
     // no GotSport record or West opponents to place them. If they play in a Western
     // conference, take the state of the directory club with exactly that name.
+    let mlsClub: string | null = null;
     if (!state && mlsWestNames.has(raw)) {
-      const cands = clubsByKey.get(normalizeClubName(raw.replace(/ MLS NEXT B\d{4}$/, "")));
+      // "LA Bulls" is "Los Angeles Bulls Soccer Club" in the directory: also try LA spelled out
+      const key = normalizeClubName(raw.replace(/ MLS NEXT B\d{4}$/, ""));
+      const cands = clubsByKey.get(key) ?? clubsByKey.get(key.replace(/^la /, "los angeles "));
       const best = cands?.reduce((a, b) => (b.n > a.n ? b : a));
-      if (best && WEST_ASSOC.has(best.association)) { state = best.association; s.mlsConference++; }
+      if (best && WEST_ASSOC.has(best.association)) { state = best.association; mlsClub = best.name; s.mlsConference++; }
     }
     if (!d && !club && state) s.eventState++;
     if (!state) s.unknownState++;
@@ -317,7 +325,7 @@ export function buildTeamIdentity<T extends TeamLike>(
       ...t,
       sourceName: raw,
       name: formatTeamName(nameSource, club?.name ?? null, ageGroup === "Unknown" ? null : ageGroup),
-      club: club?.name ?? t.club,
+      club: club?.name ?? mlsClub ?? t.club,
       state, region, ageGroup, gender,
       ...(gsId !== undefined ? { gotsportTeamId: gsId } : {}),
       // club from the GotSport directory, a league club list or a directory club-name match

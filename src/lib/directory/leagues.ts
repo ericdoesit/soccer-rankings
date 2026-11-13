@@ -96,6 +96,7 @@ export const LEAGUES: LeagueDef[] = [
       [41823, "2024-25", "2025 NorCal Spring NPL"],
       [44142, "2025-26", "2025-26 NorCal Premier Fall League U8-U19"],
       [49370, "2025-26", "2025-26 NorCal Premier Spring League U8-U19"],
+      [54541, "2026-27", "2026-27 NorCal Premier Fall League U8-U19"],
     ] },
   { slug: "wpl", name: "Washington Premier League", shortName: "WPL", tier: "L5", gender: "Both",
     scope: "state", states: ["WA", "OR", "ID"], website: "wplsoccer.com" },

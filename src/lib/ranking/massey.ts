@@ -23,6 +23,11 @@ export interface MasseyConfig {
   decayHalfLifeDays: number;
   minGames: number;
   homeAdvantage: number;
+  /** Games before `seasonStart` (e.g. "2026-08-01") are multiplied by this on top of the
+   *  decay: rosters turn over between seasons. 1 = no extra discount, 0 = this season only. */
+  priorSeasonWeight: number;
+  /** null = Aug 1 of the season containing the most recent game */
+  seasonStart: string | null;
 }
 
 // Tuned from grid search on 81,588 games (65K train / 16K test):
@@ -37,6 +42,12 @@ const DEFAULT_CONFIG: MasseyConfig = {
   decayHalfLifeDays: 105,
   minGames: 10,
   homeAdvantage: 0.1,
+  // Backtest (scripts/backtest-season-weight.ts, 2026-11-13): rating on games before Oct 1
+  // and predicting Oct 1 – Nov 12, last season × 0.25 beat decay-only in both 2025 and 2026
+  // (log loss 0.8087 → 0.7852 in 2026; 0.2–0.35 all similar). This-season-only was worse
+  // and left 8% more games unpredictable.
+  priorSeasonWeight: 0.25,
+  seasonStart: null,
 };
 
 function daysBetween(d1: string, d2: string): number {
@@ -79,6 +90,10 @@ export function calculateRankings(
     "1900-01-01"
   );
 
+  const seasonStart = cfg.seasonStart ?? (referenceDate > "1900-01-01"
+    ? `${Number(referenceDate.slice(5, 7)) >= 8 ? referenceDate.slice(0, 4) : Number(referenceDate.slice(0, 4)) - 1}-08-01`
+    : null);
+
   const teamIds = new Set<number>();
   for (const g of completedGames) {
     teamIds.add(g.team1Id);
@@ -112,7 +127,11 @@ export function calculateRankings(
 
     // Undated games get full weight; dated games decay and never exceed 1.
     const daysAgo = ISO_DATE.test(game.date) ? daysBetween(game.date, referenceDate) : NaN;
-    const weight = isNaN(daysAgo) ? 1 : Math.exp(-decayLambda * Math.max(0, daysAgo));
+    let weight = isNaN(daysAgo) ? 1 : Math.exp(-decayLambda * Math.max(0, daysAgo));
+    if (seasonStart && cfg.priorSeasonWeight !== 1 && ISO_DATE.test(game.date) && game.date < seasonStart) {
+      weight *= cfg.priorSeasonWeight;
+      if (weight === 0) continue;
+    }
 
     // Adjust for home advantage: subtract home edge from the raw differential
     // so ratings reflect neutral-site strength

@@ -49,7 +49,8 @@ export default function HomePage() {
           difference when two teams play, subtract one score from the other. For example, if Team A
           has a score of 2.4 and Team B has a score of 0.8, you can expect Team A to win by about
           1.6 goals. Scores are calculated using the Enhanced Massey Rating System, which analyzes
-          every game result with a 3-goal margin cap and weights recent games more heavily.
+          every game result with a 6-goal margin cap, weights recent games more heavily, and counts last
+          season&apos;s games at a quarter of their weight, since rosters change each August.
         </p>
       </section>
 

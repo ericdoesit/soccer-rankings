@@ -14,6 +14,9 @@ export default function StatesPage() {
         Pick a state to see its leagues, clubs and teams. California is split into Cal South and Cal North,
         the two state associations.
       </p>
+      <p className="mt-2 text-sm">
+        <Link href="/map" className="text-primary hover:underline">Map of Southern California clubs →</Link>
+      </p>
 
       <div className="mt-6 grid gap-6 md:grid-cols-[minmax(0,380px)_1fr] md:items-start">
         <WestMap

@@ -1,5 +1,5 @@
 {
-  "_note": "Short names teams use that can't be resolved automatically (ambiguous initials). Per association. Add the evidence for each.",
+  "_note": "Short names teams use that can't be resolved automatically (ambiguous initials). Per association. Add the evidence for each. An entry with \"pattern\" (a regex on the full team name) assigns teams GotSport lists without a club.",
   "WA": {
     "NSC": {
       "club": "Northshore Select Club",
@@ -14,6 +14,13 @@
     "VILLARREAL": {
       "club": "Villarreal Las Vegas Academy",
       "evidence": "'VILLARREAL LV' / 'Villarreal Las' teams in Nevada leagues; the only Villarreal club in Nevada (GotSport 'Villarreal Las Vegas Academy'). EA Southwest Desert member."
+    }
+  },
+  "CAS": {
+    "LA City United sites": {
+      "club": "LA City United",
+      "pattern": "^(Obama|Whitsett|Wilmington) [BG]U\\d{2}\\b",
+      "evidence": "recreation.parks.lacity.gov/lacityunited: LA City United competitive teams play at Michelle and Barack Obama Sports Complex, Whitsett Soccer Field and Wilmington Athletic Center; its GotSport teams are named after the site ('LA City United Obama B12'). Clubless teams 'Obama BU09', 'Whitsett BU15', 'Wilmington BU08' follow the same naming. 'Wilmington Jrs' is a different club, hence the age-code pattern. Pasted by the user 2026-11-13."
     }
   }
 }

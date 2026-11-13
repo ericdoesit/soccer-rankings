@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import { TableSorter } from "@/components/table-sorter";
+import { LeaguesMenu } from "@/components/leagues-menu";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -75,12 +76,7 @@ export default function RootLayout({
               >
                 Events
               </Link>
-              <Link
-                href="/mls-next"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                MLS NEXT
-              </Link>
+              <LeaguesMenu />
               <Link
                 href="/power-rankings"
                 className="text-muted-foreground hover:text-foreground transition-colors"

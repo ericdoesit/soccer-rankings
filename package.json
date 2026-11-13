@@ -34,7 +34,8 @@
     "load-test": "tsx scripts/load-test.ts",
     "predict": "tsx scripts/predict-event.ts",
     "events:upcoming": "tsx scripts/upcoming-events.ts",
-    "schedule:import": "tsx scripts/import-schedule-paste.ts"
+    "schedule:import": "tsx scripts/import-schedule-paste.ts",
+    "standings:import": "tsx scripts/import-standings-paste.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
@@ -44,6 +45,7 @@
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.45.2",
     "lucide-react": "^1.21.0",
+    "mapbox-gl": "^3.35.0",
     "next": "16.2.9",
     "playwright": "^1.61.0",
     "playwright-extra": "^4.3.6",
