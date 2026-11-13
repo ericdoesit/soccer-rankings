@@ -127,7 +127,7 @@ export const LEAGUES: LeagueDef[] = [
   // run as one GotSport league event per district. Tier L5 like the NPL/N1
   // conferences it replaces; each district is its own league for rankings.
   ...([
-    ["n1-west-1-csa", "N1 West District 1 (Colorado Soccer Association)", "N1 West 1", ["CO"], [[54030, "N1 I West District 1 (CSA) I 2026 - 2027"]], []],
+    ["n1-west-1-csa", "N1 West District 1 (Colorado Soccer Association)", "N1 West 1", ["CO", "WY"], [[54030, "N1 I West District 1 (CSA) I 2026 - 2027"]], []],
     ["n1-west-2-arizona", "N1 West District 2 (Arizona Soccer Association)", "N1 West 2", ["AZ"], [
       [54448, "N1 I West District 2 (Arizona Soccer Association) I 2026-27"],
       [54034, "N1 I West District 2 (Arizona Soccer Association-Club Based) I 2026-27"]], []],
@@ -143,6 +143,8 @@ export const LEAGUES: LeagueDef[] = [
       [57626, "N1 U15-U19 I Northwest District 2 (OYSA) I 2026-27"]], []],
     ["n1-northwest-3-rcl", "N1 Northwest District 3 (Regional Club League)", "N1 Northwest 3 RCL", ["WA"], [[54035, "N1 I Northwest District 3 (Regional Club League) I 2026-27"]], []],
     ["n1-northwest-3-wpl", "N1 Northwest District 3 (Washington Premier League)", "N1 Northwest 3 WPL", ["WA"], [[54050, "N1 I Northwest District 3 (Washington Premier League) I 2026-27"]], ["WPL N1 (Washington)"]],
+    // South conference, but its district covers West Texas, El Paso and New Mexico (eppremierleague.com/national-1)
+    ["n1-south-4-el-paso", "N1 South District 4 (El Paso Premier League)", "N1 South 4", ["NM"], [[54049, "N1 I South District 4 (El Paso Premier League) I 2026-27"]], []],
     ["n1-northwest-5-miso", "N1 Northwest District 5 (MISO Junior League)", "N1 Northwest 5", ["HI"], [[54048, "N1 I Northwest District 5 (MISO Junior League) I 2026-27"]], []],
   ] as Array<[string, string, string, WestState[], Array<[number, string]>, string[]]>).map(
     ([slug, name, shortName, states, events, csvNames]): LeagueDef => ({

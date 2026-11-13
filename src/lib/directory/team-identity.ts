@@ -91,6 +91,7 @@ export function buildTeamIdentity<T extends TeamLike>(
   gsIdByName: Map<string, number>,
   divisionByName: Map<string, { division: string; date: string }> = new Map(),
   sourceAssocByName: Map<string, string> = new Map(),
+  mlsWestNames: Set<string> = new Set(),
 ): { teams: T[]; stats: string } {
   const dir = loadJson<DirTeam[]>(path.join(process.cwd(), "data", "gotsport-teams", "region4.json"), []);
   const dirById = new Map(dir.map((t) => [t.teamId, t]));
@@ -266,7 +267,7 @@ export function buildTeamIdentity<T extends TeamLike>(
     return !!m && m[1] !== "CA" && !WEST_ASSOC.has(m[1]) && US_STATES.has(m[1]);
   };
 
-  const s = { league: 0, directory: 0, clubMatch: 0, eventState: 0, unknownState: 0, unknownAge: 0, outOfRegion: 0 };
+  const s = { mlsConference: 0, league: 0, directory: 0, clubMatch: 0, eventState: 0, unknownState: 0, unknownAge: 0, outOfRegion: 0 };
   const out = teams.map((t) => {
     const raw = t.sourceName ?? t.name;
     const gsId = gsIdByName.get(raw) ?? (dirById.has(t.id) ? t.id : undefined);
@@ -291,6 +292,14 @@ export function buildTeamIdentity<T extends TeamLike>(
     if (d) s.directory++; else if (club) s.clubMatch++;
 
     let state = d?.association ?? club?.association ?? srcAssoc ?? es ?? "";
+    // MLS NEXT teams known only from the league schedule ("Classic FC MLS NEXT B2014") have
+    // no GotSport record or West opponents to place them. If they play in a Western
+    // conference, take the state of the directory club with exactly that name.
+    if (!state && mlsWestNames.has(raw)) {
+      const cands = clubsByKey.get(normalizeClubName(raw.replace(/ MLS NEXT B\d{4}$/, "")));
+      const best = cands?.reduce((a, b) => (b.n > a.n ? b : a));
+      if (best && WEST_ASSOC.has(best.association)) { state = best.association; s.mlsConference++; }
+    }
     if (!d && !club && state) s.eventState++;
     if (!state) s.unknownState++;
     const region = gsOutside ? "Other" : WEST_ASSOC.has(state) ? "Region4" : state ? "Other" : "Unknown";
@@ -317,6 +326,6 @@ export function buildTeamIdentity<T extends TeamLike>(
   });
 
   const stats = `${out.length} teams · directory ${s.directory} · club-name match ${s.clubMatch} · state from events ${s.eventState}` +
-    ` · from league club lists ${s.league} · state unknown ${s.unknownState} · out of region ${s.outOfRegion} · age unknown ${s.unknownAge}`;
+    ` · MLS NEXT conference ${s.mlsConference} · from league club lists ${s.league} · state unknown ${s.unknownState} · out of region ${s.outOfRegion} · age unknown ${s.unknownAge}`;
   return { teams: out, stats };
 }

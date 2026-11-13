@@ -84,6 +84,8 @@ let _cache: {
   droppedEvents: string[];
   /** team name → association of the league it came from (sources outside GotSport, e.g. NPSL → WA) */
   sourceAssocByName: Map<string, string>;
+  /** MLS NEXT team names ("<club> MLS NEXT B2014") that play in a Western conference */
+  mlsWestNames: Set<string>;
   /** team names from Modular11 (MLS NEXT, EA, USL Academy) */
   modularTeamNames: Set<string>;
 } | null = null;
@@ -284,7 +286,10 @@ export function loadGotsportData() {
       const west = [...e.ids].filter((t) => westIds.has(t)).length;
       if (e.ids.size >= 20 && west / e.ids.size < 0.05) { outside.add(id); droppedEvents.push(e.name); }
     }
-    apiGames = apiGames.filter((g) => !outside.has(g.eventId));
+    // …but a West team's own games in such an event still count (NM teams in the El Paso
+    // Premier League, West teams at East Coast showcases). Only out-of-region vs
+    // out-of-region games, the closed pool, are dropped.
+    apiGames = apiGames.filter((g) => !outside.has(g.eventId) || westIds.has(g.homeTeamId) || westIds.has(g.awayTeamId));
   }
   const apiEventIds = new Set(apiGames.map((g) => g.eventId));
 
@@ -369,6 +374,10 @@ export function loadGotsportData() {
 
   const gsIdByName = new Map<string, number>();
   const sourceAssocByName = new Map<string, string>();
+  // MLS NEXT 2026-27 conferences made up of Western clubs (scripts/predict-mlsnext.ts flags the same set)
+  const MLS_WEST_CONFERENCES = new Set(["Desert", "Mountain", "Northern California Coast", "Northern California Redwood",
+    "Pacific Northwest", "South California", "Northwest", "Southwest"]);
+  const mlsWestNames = new Set<string>();
   const demoDir = path.join(process.cwd(), "data", "demosphere");
   const demoAssoc = new Map<string, string>(
     (fs.existsSync(path.join(demoDir, "leagues.json")) ? JSON.parse(fs.readFileSync(path.join(demoDir, "leagues.json"), "utf-8")) : [])
@@ -444,6 +453,9 @@ export function loadGotsportData() {
           // a few Modular11 fixtures months ahead carry placeholder scores
           if (!d || d > new Date().toISOString().slice(0, 10)) continue;
           modularTeamNames.add(t1); modularTeamNames.add(t2);
+          if (source.file === mlsTrackerFile && !g.flex && !g.proPathway && MLS_WEST_CONFERENCES.has(g.conference)) {
+            mlsWestNames.add(t1); mlsWestNames.add(t2);
+          }
         }
         // The TGS scrape glued a venue onto team names ("… Boys 2016 Surf Sports Park -
         // Field 14 7 v 7"), often one from a different row, splitting one team into
@@ -571,7 +583,7 @@ export function loadGotsportData() {
 
   const rankings = calculateRankings(gameInputs, { minGames: 10 });
 
-  _cache = { teams, games, rankings, teamNameToId, gsIdByName, droppedEvents, sourceAssocByName, modularTeamNames };
+  _cache = { teams, games, rankings, teamNameToId, gsIdByName, droppedEvents, sourceAssocByName, modularTeamNames, mlsWestNames };
   return _cache;
 }
 

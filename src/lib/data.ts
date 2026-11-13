@@ -123,12 +123,25 @@ export const SNAPSHOT_FILE = path.join(process.cwd(), "data", "snapshot.json");
 
 export function getDataSet(): DataSet { return getData(); }
 
+/** mtime of the snapshot _cache was read from, and when it was last checked */
+let _cacheMtime = 0;
+let _checkedAt = 0;
+
 function getData(): DataSet {
+  // After `npm run build:data` the running server picks up the new snapshot (checked at
+  // most every 10 s). Derived caches are keyed by this object, so they refresh with it.
+  if (_cache && _cacheMtime && Date.now() - _checkedAt > 10_000) {
+    _checkedAt = Date.now();
+    try { if (fs.statSync(SNAPSHOT_FILE).mtimeMs !== _cacheMtime) _cache = null; } catch { /* keep serving */ }
+  }
   if (_cache) return _cache;
 
   if (fs.existsSync(SNAPSHOT_FILE)) {
     try {
+      const mtime = fs.statSync(SNAPSHOT_FILE).mtimeMs;
       _cache = JSON.parse(fs.readFileSync(SNAPSHOT_FILE, "utf-8")) as DataSet;
+      _cacheMtime = mtime;
+      _checkedAt = Date.now();
       return _cache;
     } catch (e) {
       console.warn("[data] Failed to read data/snapshot.json, rebuilding from raw data:", e);
@@ -185,7 +198,27 @@ export const RANK_RULES = {
   minQualityOpponentGames: 5,
   /** average opponent rating must be above this percentile of its age group + gender */
   minSchedulePercentile: 0.2,
+  /** games this season (from Aug 1). A team that hasn't played may have folded, merged or
+   *  moved leagues, so its old rating is no longer a current team's. Applies once the
+   *  season is two months old (Oct 1), so nobody drops out in the first weeks. */
+  minSeasonGames: 1,
+  seasonGraceMonths: 2,
+  /** U15 and older: high school soccer is in the fall in many West states (NM, MT, NV, OR, …),
+   *  when club teams pause, so the check waits until Jan 1 */
+  highSchoolGraceMonths: 5,
 };
+
+/** Aug 1 that starts the current season, and whether the grace period after it is over. */
+function currentSeason(now = new Date()) {
+  const y = now.getUTCMonth() >= 7 ? now.getUTCFullYear() : now.getUTCFullYear() - 1;
+  const start = `${y}-08-01`;
+  const after = (months: number) => now >= new Date(Date.UTC(y, 7 + months, 1));
+  return {
+    start, label: `${y}-${String(y + 1).slice(2)}`,
+    /** whether the check applies yet for a team of this age group */
+    enforced: (ageGroup: string) => after(/^U(1[5-9]|20)$/.test(ageGroup) ? RANK_RULES.highSchoolGraceMonths : RANK_RULES.seasonGraceMonths),
+  };
+}
 
 function markRankable(teams: Team[], games: Game[], rankings: DataSet["rankings"]): { teams: Team[]; stats: string } {
   const byId = new Map(teams.map((t) => [t.id, t]));
@@ -193,14 +226,16 @@ function markRankable(teams: Team[], games: Game[], rankings: DataSet["rankings"
   const since = new Date(Date.now() - TRACKED_DAYS * 864e5).toISOString().slice(0, 10);
   const westCodes = new Set(teams.filter((t) => t.region === "Region4").map((t) => t.state));
   const comps = trackedCompetitions(games, (id) => { const t = byId.get(id); return t?.region === "Region4" ? t.state : undefined; }, westCodes);
-  const n = new Map<number, { games: number; tracked: number; quality: number; oppSum: number; oppN: number }>();
-  const get = (id: number) => { let x = n.get(id); if (!x) { x = { games: 0, tracked: 0, quality: 0, oppSum: 0, oppN: 0 }; n.set(id, x); } return x; };
+  const season = currentSeason();
+  const n = new Map<number, { games: number; season: number; tracked: number; quality: number; oppSum: number; oppN: number }>();
+  const get = (id: number) => { let x = n.get(id); if (!x) { x = { games: 0, season: 0, tracked: 0, quality: 0, oppSum: 0, oppN: 0 }; n.set(id, x); } return x; };
   for (const g of games) {
     if (!g.date || g.date < since) continue;
     const isTracked = comps.has(g.tournamentName);
     for (const [me, them] of [[g.team1Id, g.team2Id], [g.team2Id, g.team1Id]]) {
       const x = get(me);
       x.games++;
+      if (g.date >= season.start) x.season++;
       if (isTracked) x.tracked++;
       if (byId.get(them)?.tracked) x.quality++;
       const s = score.get(them);
@@ -225,9 +260,13 @@ function markRankable(teams: Team[], games: Game[], rankings: DataSet["rankings"
       t.region !== "Region4" ? "outside the West" :
       t.ageGroup === "U19+" ? "aged out (U19+)" :
       RANK_RULES.excludedStates.has(t.state) ? "Hawaii teams aren't ranked (too few games against mainland teams)" :
+      // State ODP / EPD squads are all-star selections, not club teams: their games still
+      // count for their opponents' ratings, but they aren't listed
+      /\b(ODP|EPD)\b|olympic development/i.test(`${t.name} ${t.sourceName ?? ""} ${t.club}`) ? "state select team (ODP), not a club team" :
       !score.has(t.id) || !x || x.games < RANK_RULES.minGames ? `fewer than ${RANK_RULES.minGames} games in the last 15 months` :
       !t.tracked || x.tracked < RANK_RULES.minTrackedGames ? `fewer than ${RANK_RULES.minTrackedGames} games in tracked competitions` :
       x.quality < RANK_RULES.minQualityOpponentGames ? `fewer than ${RANK_RULES.minQualityOpponentGames} games against ranked-level opponents` :
+      season.enforced(t.ageGroup) && x.season < RANK_RULES.minSeasonGames ? `no games yet this season (${season.label})` :
       // U20 is one closed league (USL Academy): every team plays the same field, so no schedule floor
       t.ageGroup !== "U20" && sos(t.id) < (floor.get(`${t.ageGroup}|${t.gender}`) ?? -Infinity) ? "schedule too weak (bottom 20% of its age group)" :
       null;
@@ -314,7 +353,7 @@ export function buildData(): DataSet {
         if (!g.division) continue;
         for (const n of [g.team1Name, g.team2Name]) if (!divisionByName.has(n)) divisionByName.set(n, { division: g.division, date: g.date });
       }
-      const identity = buildTeamIdentity(teams, games, real.gsIdByName, divisionByName, real.sourceAssocByName);
+      const identity = buildTeamIdentity(teams, games, real.gsIdByName, divisionByName, real.sourceAssocByName, real.mlsWestNames);
       if (real.droppedEvents.length) console.log(`  dropped ${real.droppedEvents.length} events outside the West: ${real.droppedEvents.join("; ")}`);
       console.log(`  team identity: ${identity.stats}`);
 

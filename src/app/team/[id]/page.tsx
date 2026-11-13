@@ -55,8 +55,17 @@ export default async function TeamPage({
         <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-5">
           <Card>
             <CardContent className="py-3 text-center">
-              <p className="text-2xl font-bold">#{team.rank}</p>
-              <p className="lowbrow mt-1">National Rank</p>
+              {team.rankable ? (
+                <>
+                  <p className="text-2xl font-bold">#{team.rank}</p>
+                  <p className="lowbrow mt-1">National Rank</p>
+                </>
+              ) : (
+                <>
+                  <p className="text-2xl font-bold text-muted-foreground">Unranked</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{team.notRankedReason ?? "not enough games"}</p>
+                </>
+              )}
             </CardContent>
           </Card>
           <Card>
