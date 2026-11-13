@@ -253,11 +253,25 @@
    "newName": "Westside Metros FC Copa TS U10",
    "seenAs": "Westside Metros 17B TS Copa"
   },
+  "617288": {
+   "club": "Sting Soccer Club",
+   "association": "ID",
+   "newName": "SSC Sting Soccer Club U9",
+   "seenAs": "Sting SC 17/18G (U9G) Yellow",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
+  },
   "619027": {
    "club": "Lake Oswego SC",
    "association": "OR",
    "newName": "Lake Oswego SC Gold U14",
    "seenAs": "Lake Oswego Soccer Club- 2013 Gold"
+  },
+  "621297": {
+   "club": "Avalanche SC",
+   "association": "CO",
+   "newName": "Avalanche SC Grey SL U10",
+   "seenAs": "Avalanche U10B Grey SL",
+   "approvedAt": "2026-11-13 round 2"
   },
   "623868": {
    "club": "Lake Oswego SC",
@@ -270,6 +284,13 @@
    "association": "NV",
    "newName": "Juventus Academy Las Vegas B18E Arredondo U10",
    "seenAs": "Juventus Academy Las Vegas U8 Nedved"
+  },
+  "625646": {
+   "club": "City SC",
+   "association": "ID",
+   "newName": "City SC U9",
+   "seenAs": "City SC East Idaho U9B - Navy",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
   },
   "626856": {
    "club": "Columbia Premier Soccer Club",
@@ -361,6 +382,20 @@
    "newName": "SDSC Surf Escondido BLUE-ESC U8",
    "seenAs": "SDSC Surf Escondido BU8 BLUE-ESC"
   },
+  "697278": {
+   "club": "Fallbrook (FYSL)",
+   "association": "CAS",
+   "newName": "Fallbrook (FYSL) U8",
+   "seenAs": "Fallbrook (FYSL) BU8",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
+  },
+  "697281": {
+   "club": "Fallbrook (FYSL)",
+   "association": "CAS",
+   "newName": "Fallbrook (FYSL) U9",
+   "seenAs": "Fallbrook Villa BU09",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
+  },
   "697640": {
    "club": "CDA Slammers",
    "association": "CAS",
@@ -379,17 +414,45 @@
    "newName": "La Mirada FC U9",
    "seenAs": "La Mirada FC GU9"
   },
+  "699387": {
+   "club": "Pateadores Soccer Club",
+   "association": "CAS",
+   "newName": "Pateadores Soccer Club SOC U9",
+   "seenAs": "Pateadores SC BU09",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
+  },
   "700475": {
    "club": "FC Premier Elite",
    "association": "CAS",
    "newName": "FC Premier Elite Marisela U8",
    "seenAs": "FC Premier Elite BU8 - Marisela"
   },
+  "701160": {
+   "club": "Pateadores Soccer Club",
+   "association": "CAS",
+   "newName": "Pateadores Soccer Club NB U8",
+   "seenAs": "Pateadores Soccer Club NB GU8",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
+  },
+  "701178": {
+   "club": "Pateadores Soccer Club",
+   "association": "CAS",
+   "newName": "Pateadores Soccer Club NB U9",
+   "seenAs": "Pateadores NB BU09",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
+  },
   "701329": {
    "club": "Albion SC Santa Monica",
    "association": "CAS",
    "newName": "Albion SC Santa Monica Academy U8",
    "seenAs": "ALBION SC Santa Monica BU08 Academy"
+  },
+  "701678": {
+   "club": "Beach Futbol Club",
+   "association": "CAS",
+   "newName": "Beach Futbol Club LB Valentin U9",
+   "seenAs": "Beach FC GU08 LB Valentin",
+   "approvedAt": "2026-11-13 round 2"
   },
   "702419": {
    "club": "SoCal Reds FC",
@@ -433,6 +496,13 @@
    "newName": "SoCal Reds FC JW U9",
    "seenAs": "SoCal Reds FC BU09-RED III JW"
   },
+  "704004": {
+   "club": "Rangers FC",
+   "association": "CAS",
+   "newName": "Rangers FC White U8",
+   "seenAs": "Rangers FC GU08-White",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
+  },
   "704899": {
    "club": "Albion SC Santa Monica",
    "association": "CAS",
@@ -451,6 +521,20 @@
    "newName": "LA Surf Soccer Club SOCAL U9",
    "seenAs": "LA Surf LC GU9- SOCAL"
   },
+  "706049": {
+   "club": "Rangers FC",
+   "association": "CAS",
+   "newName": "Rangers FC White U9",
+   "seenAs": "Rangers FC GU09-White",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
+  },
+  "706894": {
+   "club": "Rangers FC",
+   "association": "CAS",
+   "newName": "Rangers FC Orange U8",
+   "seenAs": "Rangers FC BU08-Orange",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
+  },
   "707438": {
    "club": "Albion SC Santa Monica",
    "association": "CAS",
@@ -463,11 +547,26 @@
    "newName": "LA Surf Soccer Club SOCAL U8",
    "seenAs": "LA Surf LC BU8- SOCAL"
   },
+  "707791": {
+   "club": "Anaheim Futbol Club",
+   "association": "CAS",
+   "newName": "Anaheim Futbol Club BU09PDA-Sandoval U9",
+   "seenAs": "Anaheim FC BU9 PDA-Sandoval",
+   "name": "Anaheim Futbol Club PDA-Sandoval U9",
+   "approvedAt": "2026-11-13 round 2"
+  },
   "708045": {
    "club": "CDA Slammers",
    "association": "CAS",
    "newName": "CDA Slammers Valverde U9",
    "seenAs": "CDA Slammers DBWV BU9 Valverde"
+  },
+  "710576": {
+   "club": "Rangers FC",
+   "association": "CAS",
+   "newName": "Rangers FC Orange U9",
+   "seenAs": "Rangers FC BU09-Orange",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
   },
   "710824": {
    "club": "Ventura Surf Soccer Club",
@@ -649,11 +748,25 @@
    "newName": "Albion SC San Diego Academy U8",
    "seenAs": "ALBION SC San Diego CV GU8 Academy"
   },
+  "719636": {
+   "club": "FRAM SC",
+   "association": "CAS",
+   "newName": "FRAM SC Pre Academy U7",
+   "seenAs": "FRAM SC GU07 Pre Academy",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
+  },
   "719853": {
    "club": "City SC South Bay",
    "association": "CAS",
    "newName": "City SC South Bay Gold U9",
    "seenAs": "City SC South Bay BU9 Gold"
+  },
+  "720856": {
+   "club": "Athletic Soccer Club",
+   "association": "CAS",
+   "newName": "Athletic Soccer Club San Marcos Navy U9",
+   "seenAs": "Athletic Soccer Club San Marcos GU9 Navy",
+   "approvedAt": "2026-11-13 round 2"
   },
   "721573": {
    "club": "LA Surf Soccer Club",
@@ -684,6 +797,13 @@
    "association": "CAS",
    "newName": "West Coast FC Navy U8",
    "seenAs": "West Coast FC BU08 Navy"
+  },
+  "724745": {
+   "club": "FRAM SC",
+   "association": "CAS",
+   "newName": "FRAM SC Pre Academy 2 U9",
+   "seenAs": "FRAM SC BU09 Pre Academy 2",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
   },
   "724767": {
    "club": "Laguna United FC",
@@ -793,6 +913,13 @@
    "newName": "So Cal Blues Black U9",
    "seenAs": "So Cal Blues BU09 Redlands Black"
   },
+  "730553": {
+   "club": "Rangers FC",
+   "association": "CAS",
+   "newName": "Rangers FC Black U8",
+   "seenAs": "RANGERS BU8-Black",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
+  },
   "730950": {
    "club": "Central Cal Aztecs",
    "association": "CAS",
@@ -811,6 +938,20 @@
    "newName": "Santa Barbara Soccer Club Hansen U9",
    "seenAs": "Santa Barbara Soccer Club GU9 White"
   },
+  "732796": {
+   "club": "Nomads",
+   "association": "CAS",
+   "newName": "Nomads North U7",
+   "seenAs": "Nomads BU7 North",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
+  },
+  "732812": {
+   "club": "Nomads",
+   "association": "CAS",
+   "newName": "Nomads North U8",
+   "seenAs": "Nomads BU8 North",
+   "approvedAt": "2026-11-13 rule: other name + own league home fields agree"
+  },
   "733313": {
    "club": "Phenom Soccer Academy",
    "association": "CAS",
@@ -822,6 +963,14 @@
    "association": "CAS",
    "newName": "Central Cal Aztecs Academy U9",
    "seenAs": " Central Cal Aztecs Academy U9B"
+  },
+  "746511": {
+   "club": "Alianza FC",
+   "association": "NM",
+   "newName": "Alianza FC Cobras FC Lopez U9",
+   "seenAs": "Alianza Cobras FC U9 Lopez",
+   "name": "Alianza Cobras FC Lopez U9",
+   "approvedAt": "2026-11-13 round 2"
   },
   "752390": {
    "club": "FC Premier Elite",

@@ -1,0 +1,7 @@
+{
+  "_note": "Clubs our data places in the wrong state. Teams whose club (or own name, for club-less teams) starts with the key get this state; a state outside the West takes them out of the West rankings, while their games still count for their opponents. Add the evidence. Used by src/lib/directory/team-identity.ts.",
+  "Capital City SC": {
+    "state": "TX",
+    "evidence": "League home fields are BuildSoccer Park at Marbridge and Buda Sportsplex (Austin, Texas area); its six DPL teams were marked CAS. Found with the review-page clues, user agreed it's a problem (2026-11-13)."
+  }
+}

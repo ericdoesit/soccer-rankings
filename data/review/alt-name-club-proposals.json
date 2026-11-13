@@ -1,50 +1,9 @@
 {
- "generatedAt": "2026-11-13T20:41:01.699Z",
+ "generatedAt": "2026-11-13T21:19:55.700Z",
  "proposals": [
   {
-   "teamId": 945925,
-   "team": "Alianza Cobras FC Lopez U9",
-   "current": "Alianza Cobras",
-   "state": "NV",
-   "age": "U9",
-   "gender": "Girls",
-   "ranked": false,
-   "via": "Alianza Cobras FC U9 Lopez",
-   "club": "Alianza FC",
-   "clubState": "NM",
-   "confidence": "medium",
-   "newName": "Alianza FC Cobras FC Lopez U9"
-  },
-  {
-   "teamId": 934129,
-   "team": "BU09PDA-Sandoval U9",
-   "current": "BU09PDA-Sandoval #707791",
-   "state": "CAS",
-   "age": "U9",
-   "gender": "Boys",
-   "ranked": false,
-   "via": "Anaheim FC BU9 PDA-Sandoval",
-   "club": "Anaheim Futbol Club",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Anaheim Futbol Club BU09PDA-Sandoval U9"
-  },
-  {
-   "teamId": 933400,
-   "team": "San Marcos Navy U9",
-   "current": "San Marcos",
-   "state": "CAS",
-   "age": "U9",
-   "gender": "Girls",
-   "ranked": false,
-   "via": "Athletic Soccer Club San Marcos GU9 Navy",
-   "club": "Athletic Soccer Club",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Athletic Soccer Club San Marcos Navy U9"
-  },
-  {
-   "teamId": 940415,
+   "teamId": 941285,
+   "gs": 463498,
    "team": "CP Athletic Club U17",
    "current": "CP Athletic",
    "state": "NM",
@@ -55,24 +14,15 @@
    "club": "Athletic Soccer Club (NM)",
    "clubState": "NM",
    "confidence": "medium",
-   "newName": "Athletic Soccer Club (NM) CP Athletic Club U17"
+   "newName": "Athletic Soccer Club (NM) CP Athletic Club U17",
+   "hints": [
+    "home fields: west side sports complex, east side sports complex",
+    "those fields are home to El Paso Premier League (NM)"
+   ]
   },
   {
-   "teamId": 924034,
-   "team": "Avalanche Grey SL U10",
-   "current": "Avalanche 17B",
-   "state": "UT",
-   "age": "U10",
-   "gender": "Boys",
-   "ranked": false,
-   "via": "Avalanche U10B Grey SL",
-   "club": "Avalanche SC",
-   "clubState": "CO",
-   "confidence": "medium",
-   "newName": "Avalanche SC Grey SL U10"
-  },
-  {
-   "teamId": 929192,
+   "teamId": 930062,
+   "gs": 173640,
    "team": "Barcelona West U13",
    "current": "Barcelona West",
    "state": "AZ",
@@ -83,10 +33,16 @@
    "club": "Barcelona FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Barcelona FC West U13"
+   "newName": "Barcelona FC West U13",
+   "hints": [
+    "home fields: west side sports complex, east side sports complex",
+    "those fields are home to El Paso Premier League (NM)",
+    "team plays in AZ, proposed club is in CAS"
+   ]
   },
   {
-   "teamId": 936401,
+   "teamId": 937271,
+   "gs": 693278,
    "team": "Blue star fc U18",
    "current": "Blue star",
    "state": "CAS",
@@ -97,24 +53,14 @@
    "club": "Barcelona FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Barcelona FC Blue star fc U18"
+   "newName": "Barcelona FC Blue star fc U18",
+   "hints": [
+    "clubs with \"barcelona\" in CAS: DEPORTIVO BARCELONA SOCCER CLUB, Futbol de Barcelona International Academy, Barcelona FC"
+   ]
   },
   {
-   "teamId": 931716,
-   "team": "LB Valentin U9",
-   "current": "GU08 LB",
-   "state": "CAS",
-   "age": "U9",
-   "gender": "Girls",
-   "ranked": false,
-   "via": "Beach FC GU08 LB Valentin",
-   "club": "Beach Futbol Club",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Beach Futbol Club LB Valentin U9"
-  },
-  {
-   "teamId": 931714,
+   "teamId": 932584,
+   "gs": 702046,
    "team": "Breakers Black Pre-NL U9",
    "current": "Breakers GU08",
    "state": "CAS",
@@ -125,10 +71,15 @@
    "club": "Breakers FC",
    "clubState": "CAN",
    "confidence": "medium",
-   "newName": "Breakers FC Black Pre-NL U9"
+   "newName": "Breakers FC Black Pre-NL U9",
+   "hints": [
+    "home fields: socal sports complex",
+    "clubs with \"breakers\" in CAS: LA Breakers FC, Ross Valley Breakers FC, Breakers FC"
+   ]
   },
   {
-   "teamId": 911918,
+   "teamId": 912788,
+   "gs": 327558,
    "team": "Broomfield Soccer Club Academy U19+",
    "current": "Broomfield Soccer",
    "state": "ID",
@@ -139,10 +90,14 @@
    "club": "Broomfield Soccer Club",
    "clubState": "CO",
    "confidence": "medium",
-   "newName": "Broomfield Soccer Club Academy U19+"
+   "newName": "Broomfield Soccer Club Academy U19+",
+   "hints": [
+    "team plays in ID, proposed club is in CO"
+   ]
   },
   {
-   "teamId": 924198,
+   "teamId": 925068,
+   "gs": 558583,
    "team": "U9",
    "current": "2018 #558583",
    "state": "NV",
@@ -153,94 +108,14 @@
    "club": "Calexico Earthquakes",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Calexico Earthquakes U9"
+   "newName": "Calexico Earthquakes U9",
+   "hints": [
+    "team plays in NV, proposed club is in CAS"
+   ]
   },
   {
-   "teamId": 918629,
-   "team": "Capital City SC DPL U14",
-   "current": "Capital City",
-   "state": "CAS",
-   "age": "U14",
-   "gender": "Girls",
-   "ranked": true,
-   "via": "Capital City SC U13G DPL",
-   "club": "Capital FC",
-   "clubState": "OR",
-   "confidence": "medium",
-   "newName": "Capital FC City SC DPL U14"
-  },
-  {
-   "teamId": 918645,
-   "team": "Capital City SC DPL U15",
-   "current": "Capital City",
-   "state": "CAS",
-   "age": "U15",
-   "gender": "Girls",
-   "ranked": true,
-   "via": "Capital City SC U14G DPL",
-   "club": "Capital FC",
-   "clubState": "OR",
-   "confidence": "medium",
-   "newName": "Capital FC City SC DPL U15"
-  },
-  {
-   "teamId": 918063,
-   "team": "Capital City SC DPL U16",
-   "current": "Capital City",
-   "state": "CAS",
-   "age": "U16",
-   "gender": "Girls",
-   "ranked": true,
-   "via": "Capital City SC U15G DPL",
-   "club": "Capital FC",
-   "clubState": "OR",
-   "confidence": "medium",
-   "newName": "Capital FC City SC DPL U16"
-  },
-  {
-   "teamId": 918182,
-   "team": "Capital City SC DPL U17",
-   "current": "Capital City",
-   "state": "CAS",
-   "age": "U17",
-   "gender": "Girls",
-   "ranked": true,
-   "via": "Capital City SC U16G DPL",
-   "club": "Capital FC",
-   "clubState": "OR",
-   "confidence": "medium",
-   "newName": "Capital FC City SC DPL U17"
-  },
-  {
-   "teamId": 918542,
-   "team": "Capital City SC DPL U18",
-   "current": "Capital City",
-   "state": "CAS",
-   "age": "U18",
-   "gender": "Girls",
-   "ranked": true,
-   "via": "Capital City SC U17G DPL",
-   "club": "Capital FC",
-   "clubState": "OR",
-   "confidence": "medium",
-   "newName": "Capital FC City SC DPL U18"
-  },
-  {
-   "teamId": 918077,
-   "team": "Capital City SC DPL U19",
-   "current": "Capital City",
-   "state": "CAS",
-   "age": "U19",
-   "gender": "Girls",
-   "ranked": true,
-   "via": "Capital City SC U19G DPL",
-   "club": "Capital FC",
-   "clubState": "OR",
-   "confidence": "medium",
-   "newName": "Capital FC City SC DPL U19"
-  },
-  {
-   "teamId": 934834,
+   "teamId": 935704,
+   "gs": 727215,
    "team": "Carlsbad JRS Onabanjo U8",
    "current": "Carlsbad BU8",
    "state": "CAS",
@@ -251,10 +126,22 @@
    "club": "Carlsbad Youth Soccer League",
    "clubState": "NM",
    "confidence": "medium",
-   "newName": "Carlsbad Youth Soccer League JRS Onabanjo U8"
+   "newName": "Carlsbad Youth Soccer League JRS Onabanjo U8",
+   "hints": [
+    "home fields: aviara park",
+    "those fields are home to City SC (CAS)",
+    "team plays in CAS, proposed club is in NM",
+    "clubs with \"carlsbad\" in CAS: City SC Carlsbad"
+   ],
+   "better": {
+    "club": "City SC",
+    "association": "CAS",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 933385,
+   "teamId": 934255,
+   "gs": 727223,
    "team": "Carlsbad White Onabanjo U9",
    "current": "Carlsbad BU9",
    "state": "CAS",
@@ -265,10 +152,22 @@
    "club": "Carlsbad Youth Soccer League",
    "clubState": "NM",
    "confidence": "medium",
-   "newName": "Carlsbad Youth Soccer League White Onabanjo U9"
+   "newName": "Carlsbad Youth Soccer League White Onabanjo U9",
+   "hints": [
+    "home fields: aviara park",
+    "those fields are home to City SC (CAS)",
+    "team plays in CAS, proposed club is in NM",
+    "clubs with \"carlsbad\" in CAS: City SC Carlsbad"
+   ],
+   "better": {
+    "club": "City SC",
+    "association": "CAS",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 917915,
+   "teamId": 918785,
+   "gs": 459021,
    "team": "CFC Black Dragons U14",
    "current": "CFC Black",
    "state": "NV",
@@ -279,10 +178,12 @@
    "club": "Carson FC",
    "clubState": "NV",
    "confidence": "medium",
-   "newName": "CFC Carson FC Black Dragons U14"
+   "newName": "CFC Carson FC Black Dragons U14",
+   "hints": []
   },
   {
-   "teamId": 924733,
+   "teamId": 925603,
+   "gs": 19185,
    "team": "U19",
    "current": "2008/07 #19185",
    "state": "UT",
@@ -293,10 +194,15 @@
    "club": "Chivas SA",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Chivas SA U19"
+   "newName": "Chivas SA U19",
+   "hints": [
+    "home fields: arizona athletic grounds",
+    "team plays in UT, proposed club is in CAS"
+   ]
   },
   {
-   "teamId": 922994,
+   "teamId": 923864,
+   "gs": 253790,
    "team": "City SC UT EA JE U18",
    "current": "City SC",
    "state": "UT",
@@ -307,10 +213,15 @@
    "club": "City SC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "City SC UT EA JE U18"
+   "newName": "City SC UT EA JE U18",
+   "hints": [
+    "team plays in UT, proposed club is in CAS",
+    "clubs with \"city\" in UT: City SC Utah, Park City SC, Impact City FC (Utah)"
+   ]
   },
   {
-   "teamId": 928059,
+   "teamId": 928929,
+   "gs": 701616,
    "team": "Eclipse FC U13",
    "current": "2014G Eclipse",
    "state": "AZ",
@@ -321,10 +232,17 @@
    "club": "City SC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "City SC Eclipse FC U13"
+   "newName": "City SC Eclipse FC U13",
+   "hints": [
+    "home fields: east side sports complex, west side sports complex",
+    "those fields are home to El Paso Premier League (NM)",
+    "team plays in AZ, proposed club is in CAS",
+    "clubs with \"city\" in AZ: Scottsdale City FC"
+   ]
   },
   {
-   "teamId": 918479,
+   "teamId": 919349,
+   "gs": 516006,
    "team": "RSL EP DPL U16",
    "current": "RSL EP",
    "state": "CAS",
@@ -335,10 +253,16 @@
    "club": "City SC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "City SC RSL EP DPL U16"
+   "newName": "City SC RSL EP DPL U16",
+   "hints": [
+    "home fields: east side sports complex, parkland high school, andress high school",
+    "those fields are home to El Paso Premier League (NM)",
+    "clubs with \"city\" in CAS: City SC Southwest, City SC, LA City United"
+   ]
   },
   {
-   "teamId": 918145,
+   "teamId": 919015,
+   "gs": 516003,
    "team": "RSL EP DPL U18",
    "current": "RSL EP",
    "state": "CAS",
@@ -349,24 +273,16 @@
    "club": "City SC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "City SC RSL EP DPL U18"
+   "newName": "City SC RSL EP DPL U18",
+   "hints": [
+    "home fields: east side sports complex, west side sports complex, parkland high school",
+    "those fields are home to El Paso Premier League (NM)",
+    "clubs with \"city\" in CAS: City SC Southwest, City SC, LA City United"
+   ]
   },
   {
-   "teamId": 939423,
-   "team": "U9",
-   "current": "2017/2018 Boys",
-   "state": "ID",
-   "age": "U9",
-   "gender": "Boys",
-   "ranked": false,
-   "via": "City SC East Idaho U9B - Navy",
-   "club": "City SC",
-   "clubState": "ID",
-   "confidence": "medium",
-   "newName": "City SC U9"
-  },
-  {
-   "teamId": 913263,
+   "teamId": 914133,
+   "gs": 637013,
    "team": "Zeta FC Gold Espinoza U9",
    "current": "Zeta FC",
    "state": "CAS",
@@ -377,10 +293,12 @@
    "club": "Coachella FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Coachella FC Zeta FC Gold Espinoza U9"
+   "newName": "Coachella FC Zeta FC Gold Espinoza U9",
+   "hints": []
   },
   {
-   "teamId": 945153,
+   "teamId": 946022,
+   "gs": 767774,
    "team": "South ECNL RL U13",
    "current": "South ECNL",
    "state": "AZ",
@@ -391,10 +309,14 @@
    "club": "Colorado Storm",
    "clubState": "CO",
    "confidence": "medium",
-   "newName": "Colorado Storm South ECNL RL U13"
+   "newName": "Colorado Storm South ECNL RL U13",
+   "hints": [
+    "team plays in AZ, proposed club is in CO"
+   ]
   },
   {
-   "teamId": 920853,
+   "teamId": 921723,
+   "gs": 178874,
    "team": "COSMOS FC U13",
    "current": "COSMOS FC",
    "state": "AZ",
@@ -405,10 +327,16 @@
    "club": "Cosmos FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Cosmos FC U13"
+   "newName": "Cosmos FC U13",
+   "hints": [
+    "home fields: east side sports complex, west side sports complex",
+    "those fields are home to El Paso Premier League (NM)",
+    "team plays in AZ, proposed club is in CAS"
+   ]
   },
   {
-   "teamId": 940354,
+   "teamId": 941224,
+   "gs": 497819,
    "team": "Dynamo Andrade U10",
    "current": "Dynamo Andrade",
    "state": "NM",
@@ -419,38 +347,16 @@
    "club": "Dynamo",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Dynamo Andrade U10"
+   "newName": "Dynamo Andrade U10",
+   "hints": [
+    "home fields: east side sports complex",
+    "those fields are home to El Paso Premier League (NM)",
+    "team plays in NM, proposed club is in CAS"
+   ]
   },
   {
-   "teamId": 935140,
-   "team": "U8",
-   "current": "BU08 #697278",
-   "state": "CAS",
-   "age": "U8",
-   "gender": "Boys",
-   "ranked": false,
-   "via": "Fallbrook (FYSL) BU8",
-   "club": "Fallbrook (FYSL)",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Fallbrook (FYSL) U8"
-  },
-  {
-   "teamId": 933388,
-   "team": "U9",
-   "current": "BU09 #697281",
-   "state": "CAS",
-   "age": "U9",
-   "gender": "Boys",
-   "ranked": false,
-   "via": "Fallbrook Villa BU09",
-   "club": "Fallbrook (FYSL)",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Fallbrook (FYSL) U9"
-  },
-  {
-   "teamId": 919034,
+   "teamId": 919904,
+   "gs": 142348,
    "team": "NL U19",
    "current": "07/08B NL",
    "state": "AZ",
@@ -461,10 +367,12 @@
    "club": "FC Tucson Youth Soccer",
    "clubState": "AZ",
    "confidence": "medium",
-   "newName": "FC Tucson Youth Soccer NL U19"
+   "newName": "FC Tucson Youth Soccer NL U19",
+   "hints": []
   },
   {
-   "teamId": 916238,
+   "teamId": 917108,
+   "gs": 357919,
    "team": "EA2 U14",
    "current": "EA2 B2013",
    "state": "CAS",
@@ -475,10 +383,16 @@
    "club": "FC United (NM)",
    "clubState": "NM",
    "confidence": "medium",
-   "newName": "FC United (NM) EA2 U14"
+   "newName": "FC United (NM) EA2 U14",
+   "hints": [
+    "home fields: port hueneme",
+    "team plays in CAS, proposed club is in NM",
+    "clubs with \"united\" in CAS: United SoCal, Laguna United FC, LA City United"
+   ]
   },
   {
-   "teamId": 944505,
+   "teamId": 945374,
+   "gs": 669048,
    "team": "United Javi U15",
    "current": "United 2012",
    "state": "CAN",
@@ -489,10 +403,22 @@
    "club": "FC United (NM)",
    "clubState": "NM",
    "confidence": "medium",
-   "newName": "FC United (NM) United Javi U15"
+   "newName": "FC United (NM) United Javi U15",
+   "hints": [
+    "home fields: orosi sports complex, san joaquin elementary",
+    "those fields are home to Visalia United FC (CAN)",
+    "team plays in CAN, proposed club is in NM",
+    "clubs with \"united\" in CAN: United SoCal, Laguna United FC, LA City United"
+   ],
+   "better": {
+    "club": "Visalia United FC",
+    "association": "CAN",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 947408,
+   "teamId": 948277,
+   "gs": 753125,
    "team": "Little Warriors Attack Blue U8",
    "current": "Little Warriors",
    "state": "WA",
@@ -503,10 +429,16 @@
    "club": "FC Warriors",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "FC Warriors Little Warriors Attack Blue U8"
+   "newName": "FC Warriors Little Warriors Attack Blue U8",
+   "hints": [
+    "home fields: starfire sports complex, ardmore elementary school, lake hills elementary school",
+    "team plays in WA, proposed club is in CAS",
+    "clubs with \"warriors\" in WA: Warriors Sports Academy"
+   ]
   },
   {
-   "teamId": 947398,
+   "teamId": 948267,
+   "gs": 594649,
    "team": "Little Warriors Attack Blue U9",
    "current": "Little Warriors",
    "state": "WA",
@@ -517,10 +449,16 @@
    "club": "FC Warriors",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "FC Warriors Little Warriors Attack Blue U9"
+   "newName": "FC Warriors Little Warriors Attack Blue U9",
+   "hints": [
+    "home fields: starfire sports complex",
+    "team plays in WA, proposed club is in CAS",
+    "clubs with \"warriors\" in WA: Warriors Sports Academy"
+   ]
   },
   {
-   "teamId": 918681,
+   "teamId": 919551,
+   "gs": 647859,
    "team": "Antelope Titans U15",
    "current": "Antelope Titans",
    "state": "CAN",
@@ -531,10 +469,15 @@
    "club": "Football Club Alliance",
    "clubState": "CAN",
    "confidence": "medium",
-   "newName": "Football Club Alliance Antelope Titans U15"
+   "newName": "Football Club Alliance Antelope Titans U15",
+   "hints": [
+    "home fields: lone oak park, cherry island soccer complex",
+    "clubs with \"alliance\" in CAN: Eastshore Alliance FC, Sunnyvale Alliance SC, AYSO S1 Alliance"
+   ]
   },
   {
-   "teamId": 943604,
+   "teamId": 944473,
+   "gs": 448918,
    "team": "DPL U16",
    "current": "U16G DPL",
    "state": "CAS",
@@ -545,38 +488,15 @@
    "club": "Football Club Alliance",
    "clubState": "CAN",
    "confidence": "medium",
-   "newName": "Football Club Alliance DPL U16"
+   "newName": "Football Club Alliance DPL U16",
+   "hints": [
+    "home fields: empower college & career center",
+    "clubs with \"alliance\" in CAS: Eastshore Alliance FC, Sunnyvale Alliance SC, AYSO S1 Alliance"
+   ]
   },
   {
-   "teamId": 933844,
-   "team": "Pre Academy 2 U9",
-   "current": "BU09 Pre",
-   "state": "CAS",
-   "age": "U9",
-   "gender": "Boys",
-   "ranked": false,
-   "via": "FRAM SC BU09 Pre Academy 2",
-   "club": "FRAM SC",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "FRAM SC Pre Academy 2 U9"
-  },
-  {
-   "teamId": 932505,
-   "team": "Pre Academy U7",
-   "current": "GU07 Pre",
-   "state": "CAS",
-   "age": "U7",
-   "gender": "Girls",
-   "ranked": false,
-   "via": "FRAM SC GU07 Pre Academy",
-   "club": "FRAM SC",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "FRAM SC Pre Academy U7"
-  },
-  {
-   "teamId": 924197,
+   "teamId": 925067,
+   "gs": 569361,
    "team": "U9",
    "current": "2018 #569361",
    "state": "CAS",
@@ -587,10 +507,14 @@
    "club": "Galacticos Soccer Club",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Galacticos Soccer Club U9"
+   "newName": "Galacticos Soccer Club U9",
+   "hints": [
+    "clubs with \"galacticos\" in CAS: Galacticos 916, Galacticos Soccer Club"
+   ]
   },
   {
-   "teamId": 927188,
+   "teamId": 928058,
+   "gs": 19709,
    "team": "Fire FC Premier U19+",
    "current": "Fire FC",
    "state": "UT",
@@ -601,10 +525,15 @@
    "club": "Grand Junction SC",
    "clubState": "CO",
    "confidence": "medium",
-   "newName": "Grand Junction SC Fire FC Premier U19+"
+   "newName": "Grand Junction SC Fire FC Premier U19+",
+   "hints": [
+    "home fields: arizona athletic grounds, denver kickers",
+    "team plays in UT, proposed club is in CO"
+   ]
   },
   {
-   "teamId": 924165,
+   "teamId": 925035,
+   "gs": 363315,
    "team": "U9",
    "current": "2018 #363315",
    "state": "NM",
@@ -615,10 +544,14 @@
    "club": "Guadalajara Soccer Club(NM)",
    "clubState": "NM",
    "confidence": "medium",
-   "newName": "Guadalajara Soccer Club(NM) U9"
+   "newName": "Guadalajara Soccer Club(NM) U9",
+   "hints": [
+    "clubs with \"guadalajara\" in NM: GUADALAJARA NM, Guadalajara Soccer Club(NM), Guadalajara Soccer Association"
+   ]
   },
   {
-   "teamId": 915757,
+   "teamId": 916627,
+   "gs": 633531,
    "team": "Harbor Premier Green U10",
    "current": "Harbor Premier",
    "state": "OR",
@@ -629,10 +562,14 @@
    "club": "Harbor FC",
    "clubState": "WA",
    "confidence": "medium",
-   "newName": "Harbor FC Premier Green U10"
+   "newName": "Harbor FC Premier Green U10",
+   "hints": [
+    "team plays in OR, proposed club is in WA"
+   ]
   },
   {
-   "teamId": 924571,
+   "teamId": 925441,
+   "gs": 186322,
    "team": "ODP U19",
    "current": "ODP 2007/2008",
    "state": "NV",
@@ -643,10 +580,14 @@
    "club": "Idaho Youth Soccer Association",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Idaho Youth Soccer Association ODP U19"
+   "newName": "Idaho Youth Soccer Association ODP U19",
+   "hints": [
+    "team plays in NV, proposed club is in ID"
+   ]
   },
   {
-   "teamId": 915255,
+   "teamId": 916125,
+   "gs": 371554,
    "team": "Blue U12",
    "current": "2015 Boys",
    "state": "WY",
@@ -657,10 +598,14 @@
    "club": "Ignite FC",
    "clubState": "UT",
    "confidence": "medium",
-   "newName": "Ignite FC Blue U12"
+   "newName": "Ignite FC Blue U12",
+   "hints": [
+    "team plays in WY, proposed club is in UT"
+   ]
   },
   {
-   "teamId": 944480,
+   "teamId": 945349,
+   "gs": 423890,
    "team": "Ignite Blue U11",
    "current": "Ignite U10",
    "state": "WY",
@@ -671,10 +616,14 @@
    "club": "Ignite FC",
    "clubState": "UT",
    "confidence": "medium",
-   "newName": "Ignite FC Blue U11"
+   "newName": "Ignite FC Blue U11",
+   "hints": [
+    "team plays in WY, proposed club is in UT"
+   ]
   },
   {
-   "teamId": 936276,
+   "teamId": 937146,
+   "gs": 371549,
    "team": "Ignite Blue U12",
    "current": "Ignite U11/U12",
    "state": "WY",
@@ -685,10 +634,14 @@
    "club": "Ignite FC",
    "clubState": "UT",
    "confidence": "medium",
-   "newName": "Ignite FC Blue U12"
+   "newName": "Ignite FC Blue U12",
+   "hints": [
+    "team plays in WY, proposed club is in UT"
+   ]
   },
   {
-   "teamId": 944473,
+   "teamId": 945342,
+   "gs": 371552,
    "team": "Ignite Blue U12",
    "current": "Ignite U11/U12",
    "state": "WY",
@@ -699,10 +652,14 @@
    "club": "Ignite FC",
    "clubState": "UT",
    "confidence": "medium",
-   "newName": "Ignite FC Blue U12"
+   "newName": "Ignite FC Blue U12",
+   "hints": [
+    "team plays in WY, proposed club is in UT"
+   ]
   },
   {
-   "teamId": 944475,
+   "teamId": 945344,
+   "gs": 400357,
    "team": "Ignite Yellow U10",
    "current": "Ignite U9/U10",
    "state": "WY",
@@ -713,10 +670,14 @@
    "club": "Ignite FC",
    "clubState": "UT",
    "confidence": "medium",
-   "newName": "Ignite FC Yellow U10"
+   "newName": "Ignite FC Yellow U10",
+   "hints": [
+    "team plays in WY, proposed club is in UT"
+   ]
   },
   {
-   "teamId": 934391,
+   "teamId": 935261,
+   "gs": 724655,
    "team": "U9",
    "current": "BU09 #724655",
    "state": "CAS",
@@ -727,10 +688,14 @@
    "club": "Irvine Futbol Club",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Irvine Futbol Club U9"
+   "newName": "Irvine Futbol Club U9",
+   "hints": [
+    "home fields: valencia park, san leandro park, stonegate park"
+   ]
   },
   {
-   "teamId": 914042,
+   "teamId": 914912,
+   "gs": 97335,
    "team": "Juventus 09-08 U19+",
    "current": "Juventus 09-08",
    "state": "AZ",
@@ -741,10 +706,17 @@
    "club": "Juventus FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Juventus FC 09-08 U19+"
+   "newName": "Juventus FC 09-08 U19+",
+   "hints": [
+    "home fields: east side sports complex, west side sports complex",
+    "those fields are home to El Paso Premier League (NM)",
+    "team plays in AZ, proposed club is in CAS",
+    "clubs with \"juventus\" in AZ: Juventus Academy Phoenix"
+   ]
   },
   {
-   "teamId": 929221,
+   "teamId": 930091,
+   "gs": 440307,
    "team": "JuventusFC U13",
    "current": "JuventusFC #440307",
    "state": "NM",
@@ -755,10 +727,14 @@
    "club": "Juventus FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Juventus FC JuventusFC U13"
+   "newName": "Juventus FC JuventusFC U13",
+   "hints": [
+    "team plays in NM, proposed club is in CAS"
+   ]
   },
   {
-   "teamId": 915867,
+   "teamId": 916737,
+   "gs": 619389,
    "team": "Kitsap Alliance FC White U19",
    "current": "Kitsap Alliance",
    "state": "OR",
@@ -769,10 +745,14 @@
    "club": "Kitsap Alliance FC",
    "clubState": "WA",
    "confidence": "medium",
-   "newName": "Kitsap Alliance FC White U19"
+   "newName": "Kitsap Alliance FC White U19",
+   "hints": [
+    "team plays in OR, proposed club is in WA"
+   ]
   },
   {
-   "teamId": 922139,
+   "teamId": 923009,
+   "gs": 259192,
    "team": "LA Power FC U17",
    "current": "LA Power",
    "state": "ID",
@@ -783,10 +763,16 @@
    "club": "LA Power FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "LA Power FC U17"
+   "newName": "LA Power FC U17",
+   "hints": [
+    "home fields: marina high school, bellflower high school, fedde academy middle school",
+    "those fields are home to FC Premier (CA) (CAS)",
+    "team plays in ID, proposed club is in CAS"
+   ]
   },
   {
-   "teamId": 920728,
+   "teamId": 921598,
+   "gs": 224070,
    "team": "FC Lake County Elite U14",
    "current": "FC Lake",
    "state": "AZ",
@@ -797,10 +783,14 @@
    "club": "Lake SC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Lake SC FC Lake County Elite U14"
+   "newName": "Lake SC FC Lake County Elite U14",
+   "hints": [
+    "team plays in AZ, proposed club is in CAS"
+   ]
   },
   {
-   "teamId": 928081,
+   "teamId": 928951,
+   "gs": 479132,
    "team": "Legacy FC U11",
    "current": "Legacy FC",
    "state": "AZ",
@@ -811,10 +801,14 @@
    "club": "Legacy SC (ID)",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Legacy SC (ID) FC U11"
+   "newName": "Legacy SC (ID) FC U11",
+   "hints": [
+    "team plays in AZ, proposed club is in ID"
+   ]
   },
   {
-   "teamId": 947670,
+   "teamId": 948539,
+   "gs": 763735,
    "team": "Legacy- Olsen U8",
    "current": "Legacy-U8 Olsen",
    "state": "WA",
@@ -825,10 +819,22 @@
    "club": "Legacy SC (ID)",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Legacy SC (ID) Olsen U8"
+   "newName": "Legacy SC (ID) Olsen U8",
+   "hints": [
+    "home fields: plantes ferry complex",
+    "those fields are home to Spokane Legacy Soccer Academy (WA)",
+    "team plays in WA, proposed club is in ID",
+    "clubs with \"legacy\" in WA: Spokane Legacy Soccer Academy"
+   ],
+   "better": {
+    "club": "Spokane Legacy Soccer Academy",
+    "association": "WA",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 920455,
+   "teamId": 921325,
+   "gs": 622699,
    "team": "LPR U16",
    "current": "U14G LPR",
    "state": "ID",
@@ -839,10 +845,12 @@
    "club": "Legacy SC (ID)",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Legacy SC (ID) LPR U16"
+   "newName": "Legacy SC (ID) LPR U16",
+   "hints": []
   },
   {
-   "teamId": 913624,
+   "teamId": 914494,
+   "gs": 344440,
    "team": "FC U15",
    "current": "B12 FC",
    "state": "CAS",
@@ -853,10 +861,12 @@
    "club": "Legends FC (CA)",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Legends FC (CA) FC U15"
+   "newName": "Legends FC (CA) FC U15",
+   "hints": []
   },
   {
-   "teamId": 918708,
+   "teamId": 919578,
+   "gs": 608640,
    "team": "NL II U18",
    "current": "B09 NL",
    "state": "AZ",
@@ -867,10 +877,14 @@
    "club": "Legends FC (CA)",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Legends FC (CA) NL II U18"
+   "newName": "Legends FC (CA) NL II U18",
+   "hints": [
+    "team plays in AZ, proposed club is in CAS"
+   ]
   },
   {
-   "teamId": 916364,
+   "teamId": 917234,
+   "gs": 624818,
    "team": "Realistic AV Soccer U15",
    "current": "Realistic AV",
    "state": "CAS",
@@ -881,10 +895,14 @@
    "club": "Legends FC (CA)",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Legends FC (CA) Realistic AV Soccer U15"
+   "newName": "Legends FC (CA) Realistic AV Soccer U15",
+   "hints": [
+    "home fields: belmont shores"
+   ]
   },
   {
-   "teamId": 934884,
+   "teamId": 935754,
+   "gs": 698796,
    "team": "SCV U8",
    "current": "SCV GU8",
    "state": "CAS",
@@ -895,10 +913,20 @@
    "club": "Legends FC (CA)",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Legends FC (CA) SCV U8"
+   "newName": "Legends FC (CA) SCV U8",
+   "hints": [
+    "home fields: central park*, college of the canyons",
+    "those fields are home to Legends FC Santa Clarita (CAS)"
+   ],
+   "better": {
+    "club": "Legends FC Santa Clarita",
+    "association": "CAS",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 933989,
+   "teamId": 934859,
+   "gs": 736865,
    "team": "SFV U9",
    "current": "SFV BU9",
    "state": "CAS",
@@ -909,10 +937,20 @@
    "club": "Legends FC (CA)",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Legends FC (CA) SFV U9"
+   "newName": "Legends FC (CA) SFV U9",
+   "hints": [
+    "home fields: central park*, college of the canyons",
+    "those fields are home to Legends FC Santa Clarita (CAS)"
+   ],
+   "better": {
+    "club": "Legends FC Santa Clarita",
+    "association": "CAS",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 931715,
+   "teamId": 932585,
+   "gs": 727487,
    "team": "U9",
    "current": "GU8 #727487",
    "state": "CAS",
@@ -923,10 +961,20 @@
    "club": "Legends FC (CA)",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Legends FC (CA) U9"
+   "newName": "Legends FC (CA) U9",
+   "hints": [
+    "home fields: pacific highlands ranch community park, ashley falls elementary park",
+    "those fields are home to Legends FC - Del Mar (CAS)"
+   ],
+   "better": {
+    "club": "Legends FC - Del Mar",
+    "association": "CAS",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 932866,
+   "teamId": 933736,
+   "gs": 727989,
    "team": "U9",
    "current": "BU9 #727989",
    "state": "CAS",
@@ -937,10 +985,20 @@
    "club": "Legends FC (CA)",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Legends FC (CA) U9"
+   "newName": "Legends FC (CA) U9",
+   "hints": [
+    "home fields: pacific highlands ranch community park, ashley falls elementary park",
+    "those fields are home to Legends FC - Del Mar (CAS)"
+   ],
+   "better": {
+    "club": "Legends FC - Del Mar",
+    "association": "CAS",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 926392,
+   "teamId": 927262,
+   "gs": 678456,
    "team": "Lightning U12",
    "current": "Lightning 2015",
    "state": "CAN",
@@ -951,10 +1009,20 @@
    "club": "Lightning SC (NH)",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Lightning SC (NH) Lightning U12"
+   "newName": "Lightning SC (NH) Lightning U12",
+   "hints": [
+    "GotSport organization 34068 belongs to Blue Lightning Soccer Club (CAN)",
+    "clubs with \"lightning\" in CAN: LA Lightning, Blue Lightning Soccer Club, Blue Lightning Soccer Club"
+   ],
+   "better": {
+    "club": "Blue Lightning Soccer Club",
+    "association": "CAN",
+    "why": "same GotSport organization"
+   }
   },
   {
-   "teamId": 918686,
+   "teamId": 919556,
+   "gs": 651037,
    "team": "U12G3 Metro Lightning Strikers U13",
    "current": "U12G3 Metro",
    "state": "CAN",
@@ -965,10 +1033,21 @@
    "club": "Lightning SC (NH)",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Lightning SC (NH) U12G3 Metro Lightning Strikers U13"
+   "newName": "Lightning SC (NH) U12G3 Metro Lightning Strikers U13",
+   "hints": [
+    "home fields: kalithea park, el dorado hills csd, lakeview elementary school",
+    "those fields are home to El Dorado Hills Soccer Club (CAN)",
+    "clubs with \"lightning\" in CAN: LA Lightning, Blue Lightning Soccer Club, Blue Lightning Soccer Club"
+   ],
+   "better": {
+    "club": "El Dorado Hills Soccer Club",
+    "association": "CAN",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 915364,
+   "teamId": 916234,
+   "gs": 644137,
    "team": "Elite U15",
    "current": "2012G Elite",
    "state": "CO",
@@ -979,10 +1058,14 @@
    "club": "Lincoln FC",
    "clubState": "OR",
    "confidence": "medium",
-   "newName": "Lincoln FC Elite U15"
+   "newName": "Lincoln FC Elite U15",
+   "hints": [
+    "team plays in CO, proposed club is in OR"
+   ]
   },
   {
-   "teamId": 931477,
+   "teamId": 932347,
+   "gs": 751518,
    "team": "MSC Red U10",
    "current": "MSC 17B",
    "state": "OR",
@@ -993,10 +1076,12 @@
    "club": "McMinnville SC",
    "clubState": "OR",
    "confidence": "medium",
-   "newName": "MSC McMinnville SC Red U10"
+   "newName": "MSC McMinnville SC Red U10",
+   "hints": []
   },
   {
-   "teamId": 935743,
+   "teamId": 936613,
+   "gs": 694678,
    "team": "Arbuckle (D6CL) U11",
    "current": "Arbuckle U10G",
    "state": "CAN",
@@ -1007,10 +1092,14 @@
    "club": "Mexico Futbol Club",
    "clubState": "CAN",
    "confidence": "medium",
-   "newName": "Mexico Futbol Club Arbuckle (D6CL) U11"
+   "newName": "Mexico Futbol Club Arbuckle (D6CL) U11",
+   "hints": [
+    "home fields: pierce high school, lloyd g johnson junior high"
+   ]
   },
   {
-   "teamId": 920371,
+   "teamId": 921241,
+   "gs": 656847,
    "team": "Nebo United TW U19+",
    "current": "Nebo United",
    "state": "ID",
@@ -1021,38 +1110,14 @@
    "club": "Nebo United",
    "clubState": "UT",
    "confidence": "medium",
-   "newName": "Nebo United TW U19+"
+   "newName": "Nebo United TW U19+",
+   "hints": [
+    "team plays in ID, proposed club is in UT"
+   ]
   },
   {
-   "teamId": 933510,
-   "team": "North U7",
-   "current": "BU07 North",
-   "state": "CAS",
-   "age": "U7",
-   "gender": "Boys",
-   "ranked": false,
-   "via": "Nomads BU7 North",
-   "club": "Nomads",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Nomads North U7"
-  },
-  {
-   "teamId": 933363,
-   "team": "North U8",
-   "current": "BU08 North",
-   "state": "CAS",
-   "age": "U8",
-   "gender": "Boys",
-   "ranked": false,
-   "via": "Nomads BU8 North",
-   "club": "Nomads",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Nomads North U8"
-  },
-  {
-   "teamId": 938780,
+   "teamId": 939650,
+   "gs": 706497,
    "team": "Yellow U13",
    "current": "14B Yellow",
    "state": "NM",
@@ -1063,10 +1128,12 @@
    "club": "Northern Soccer Club",
    "clubState": "NM",
    "confidence": "medium",
-   "newName": "Northern Soccer Club Yellow U13"
+   "newName": "Northern Soccer Club Yellow U13",
+   "hints": []
   },
   {
-   "teamId": 934801,
+   "teamId": 935671,
+   "gs": 699752,
    "team": "IRV * U8",
    "current": "IRV BU8*",
    "state": "CAS",
@@ -1077,10 +1144,14 @@
    "club": "Pateadores Soccer Club",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Pateadores Soccer Club IRV * U8"
+   "newName": "Pateadores Soccer Club IRV * U8",
+   "hints": [
+    "home fields: orchard park, san leandro park, stonegate park"
+   ]
   },
   {
-   "teamId": 934048,
+   "teamId": 934918,
+   "gs": 701901,
    "team": "IRV * U9",
    "current": "IRV BU9*",
    "state": "CAS",
@@ -1091,10 +1162,14 @@
    "club": "Pateadores Soccer Club",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Pateadores Soccer Club IRV * U9"
+   "newName": "Pateadores Soccer Club IRV * U9",
+   "hints": [
+    "home fields: mark daily athletic, orchard park, valencia park"
+   ]
   },
   {
-   "teamId": 935258,
+   "teamId": 936128,
+   "gs": 709240,
    "team": "IRV Blue U9",
    "current": "IRV GU9",
    "state": "CAS",
@@ -1105,10 +1180,20 @@
    "club": "Pateadores Soccer Club",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Pateadores Soccer Club IRV Blue U9"
+   "newName": "Pateadores Soccer Club IRV Blue U9",
+   "hints": [
+    "home fields: mark daily athletic, san leandro park, quail hill",
+    "those fields are home to SoCal Reds FC (CAS)"
+   ],
+   "better": {
+    "club": "SoCal Reds FC",
+    "association": "CAS",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 934843,
+   "teamId": 935713,
+   "gs": 701899,
    "team": "IRV Blue* U9",
    "current": "IRV BU9",
    "state": "CAS",
@@ -1119,10 +1204,20 @@
    "club": "Pateadores Soccer Club",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Pateadores Soccer Club IRV Blue* U9"
+   "newName": "Pateadores Soccer Club IRV Blue* U9",
+   "hints": [
+    "home fields: stonegate park, orchard park, cypress grove park a",
+    "those fields are home to SoCal Reds FC (CAS)"
+   ],
+   "better": {
+    "club": "SoCal Reds FC",
+    "association": "CAS",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 934560,
+   "teamId": 935430,
+   "gs": 709238,
    "team": "IRV White* U8",
    "current": "IRV GU8",
    "state": "CAS",
@@ -1133,52 +1228,14 @@
    "club": "Pateadores Soccer Club",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Pateadores Soccer Club IRV White* U8"
+   "newName": "Pateadores Soccer Club IRV White* U8",
+   "hints": [
+    "home fields: san leandro park, mark daily athletic, stonegate park"
+   ]
   },
   {
-   "teamId": 934766,
-   "team": "NB U8",
-   "current": "NB GU08",
-   "state": "CAS",
-   "age": "U8",
-   "gender": "Girls",
-   "ranked": false,
-   "via": "Pateadores Soccer Club NB GU8",
-   "club": "Pateadores Soccer Club",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Pateadores Soccer Club NB U8"
-  },
-  {
-   "teamId": 934653,
-   "team": "NB U9",
-   "current": "NB BU09",
-   "state": "CAS",
-   "age": "U9",
-   "gender": "Boys",
-   "ranked": false,
-   "via": "Pateadores NB BU09",
-   "club": "Pateadores Soccer Club",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Pateadores Soccer Club NB U9"
-  },
-  {
-   "teamId": 934047,
-   "team": "SOC U9",
-   "current": "SOC BU09",
-   "state": "CAS",
-   "age": "U9",
-   "gender": "Boys",
-   "ranked": false,
-   "via": "Pateadores SC BU09",
-   "club": "Pateadores Soccer Club",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Pateadores Soccer Club SOC U9"
-  },
-  {
-   "teamId": 915468,
+   "teamId": 916338,
+   "gs": 258588,
    "team": "Red U15",
    "current": "Red G12/11",
    "state": "CO",
@@ -1189,10 +1246,12 @@
    "club": "Pride SC",
    "clubState": "CO",
    "confidence": "medium",
-   "newName": "Pride SC Red U15"
+   "newName": "Pride SC Red U15",
+   "hints": []
   },
   {
-   "teamId": 913770,
+   "teamId": 914640,
+   "gs": 389476,
    "team": "Prime FC U13",
    "current": "Prime FC",
    "state": "AZ",
@@ -1203,80 +1262,16 @@
    "club": "PRIME Soccer Club",
    "clubState": "NV",
    "confidence": "medium",
-   "newName": "PRIME Soccer Club FC U13"
+   "newName": "PRIME Soccer Club FC U13",
+   "hints": [
+    "home fields: west side sports complex, east side sports complex",
+    "those fields are home to El Paso Premier League (NM)",
+    "team plays in AZ, proposed club is in NV"
+   ]
   },
   {
-   "teamId": 932923,
-   "team": "Black U8",
-   "current": "BU08-Black #730553",
-   "state": "CAS",
-   "age": "U8",
-   "gender": "Boys",
-   "ranked": false,
-   "via": "RANGERS BU8-Black",
-   "club": "Rangers FC",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Rangers FC Black U8"
-  },
-  {
-   "teamId": 932924,
-   "team": "Orange U8",
-   "current": "BU08-Orange #706894",
-   "state": "CAS",
-   "age": "U8",
-   "gender": "Boys",
-   "ranked": false,
-   "via": "Rangers FC BU08-Orange",
-   "club": "Rangers FC",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Rangers FC Orange U8"
-  },
-  {
-   "teamId": 934697,
-   "team": "Orange U9",
-   "current": "BU09-Orange #710576",
-   "state": "CAS",
-   "age": "U9",
-   "gender": "Boys",
-   "ranked": false,
-   "via": "Rangers FC BU09-Orange",
-   "club": "Rangers FC",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Rangers FC Orange U9"
-  },
-  {
-   "teamId": 934768,
-   "team": "White U8",
-   "current": "GU08-White #704004",
-   "state": "CAS",
-   "age": "U8",
-   "gender": "Girls",
-   "ranked": false,
-   "via": "Rangers FC GU08-White",
-   "club": "Rangers FC",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Rangers FC White U8"
-  },
-  {
-   "teamId": 934958,
-   "team": "White U9",
-   "current": "GU09-White #706049",
-   "state": "CAS",
-   "age": "U9",
-   "gender": "Girls",
-   "ranked": false,
-   "via": "Rangers FC GU09-White",
-   "club": "Rangers FC",
-   "clubState": "CAS",
-   "confidence": "medium",
-   "newName": "Rangers FC White U9"
-  },
-  {
-   "teamId": 946805,
+   "teamId": 947674,
+   "gs": 751416,
    "team": "FC Real U9",
    "current": "FC Real",
    "state": "UT",
@@ -1287,10 +1282,15 @@
    "club": "Real Soccer Club",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Real Soccer Club FC Real U9"
+   "newName": "Real Soccer Club FC Real U9",
+   "hints": [
+    "team plays in UT, proposed club is in ID",
+    "clubs with \"real\" in UT: Utah Real FC, Real Salt Lake"
+   ]
   },
   {
-   "teamId": 928223,
+   "teamId": 929093,
+   "gs": 324106,
    "team": "FCDA Pre Academy U11",
    "current": "FCDA 2015/16B",
    "state": "AZ",
@@ -1301,10 +1301,22 @@
    "club": "Real Soccer Club",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Real Soccer Club FCDA Pre Academy U11"
+   "newName": "Real Soccer Club FCDA Pre Academy U11",
+   "hints": [
+    "home fields: asu west",
+    "those fields are home to Real Deportivo Arizona (AZ)",
+    "team plays in AZ, proposed club is in ID",
+    "clubs with \"real\" in AZ: Real Deportivo Arizona, Real Arizona FC"
+   ],
+   "better": {
+    "club": "Real Deportivo Arizona",
+    "association": "AZ",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 929359,
+   "teamId": 930229,
+   "gs": 666724,
    "team": "FCDA Pre-Academy U8",
    "current": "FCDA 2018/19",
    "state": "AZ",
@@ -1315,10 +1327,15 @@
    "club": "Real Soccer Club",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Real Soccer Club FCDA Pre-Academy U8"
+   "newName": "Real Soccer Club FCDA Pre-Academy U8",
+   "hints": [
+    "team plays in AZ, proposed club is in ID",
+    "clubs with \"real\" in AZ: Real Deportivo Arizona, Real Arizona FC"
+   ]
   },
   {
-   "teamId": 926878,
+   "teamId": 927748,
+   "gs": 666723,
    "team": "FCDA Red U7",
    "current": "FCDA 2019/20B",
    "state": "AZ",
@@ -1329,10 +1346,15 @@
    "club": "Real Soccer Club",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Real Soccer Club FCDA Red U7"
+   "newName": "Real Soccer Club FCDA Red U7",
+   "hints": [
+    "team plays in AZ, proposed club is in ID",
+    "clubs with \"real\" in AZ: Real Deportivo Arizona, Real Arizona FC"
+   ]
   },
   {
-   "teamId": 938929,
+   "teamId": 939799,
+   "gs": 215606,
    "team": "REAL Billings FC Black U19",
    "current": "REAL Billings",
    "state": "CO",
@@ -1343,10 +1365,15 @@
    "club": "Real Soccer Club",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Real Soccer Club REAL Billings FC Black U19"
+   "newName": "Real Soccer Club REAL Billings FC Black U19",
+   "hints": [
+    "team plays in CO, proposed club is in ID",
+    "clubs with \"real\" in CO: Real Colorado"
+   ]
   },
   {
-   "teamId": 943013,
+   "teamId": 943882,
+   "gs": 713383,
    "team": "REAL Gold Two U8",
    "current": "REAL G2018/19",
    "state": "WY",
@@ -1357,10 +1384,14 @@
    "club": "Real Soccer Club",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Real Soccer Club REAL Gold Two U8"
+   "newName": "Real Soccer Club REAL Gold Two U8",
+   "hints": [
+    "team plays in WY, proposed club is in ID"
+   ]
   },
   {
-   "teamId": 944806,
+   "teamId": 945675,
+   "gs": 320527,
    "team": "REAL Gold U19",
    "current": "REAL B2007/08",
    "state": "MT",
@@ -1371,10 +1402,15 @@
    "club": "Real Soccer Club",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Real Soccer Club REAL Gold U19"
+   "newName": "Real Soccer Club REAL Gold U19",
+   "hints": [
+    "team plays in MT, proposed club is in ID",
+    "clubs with \"real\" in MT: Real Billings FC"
+   ]
   },
   {
-   "teamId": 923598,
+   "teamId": 924468,
+   "gs": 546275,
    "team": "Tuzos Nogales U10",
    "current": "Tuzos Nogales",
    "state": "AZ",
@@ -1385,10 +1421,15 @@
    "club": "Real Soccer Club",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Real Soccer Club Tuzos Nogales U10"
+   "newName": "Real Soccer Club Tuzos Nogales U10",
+   "hints": [
+    "team plays in AZ, proposed club is in ID",
+    "clubs with \"real\" in AZ: Real Deportivo Arizona, Real Arizona FC"
+   ]
   },
   {
-   "teamId": 931842,
+   "teamId": 932712,
+   "gs": 719698,
    "team": "Carlsbad U9",
    "current": "BU09 Carlsbad",
    "state": "CAS",
@@ -1399,10 +1440,20 @@
    "club": "Rebels Soccer Club",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Rebels Soccer Club Carlsbad U9"
+   "newName": "Rebels Soccer Club Carlsbad U9",
+   "hints": [
+    "home fields: aviara park, valley middle school, pine avenue park",
+    "those fields are home to City SC (CAS)"
+   ],
+   "better": {
+    "club": "City SC",
+    "association": "CAS",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 931528,
+   "teamId": 932398,
+   "gs": 767974,
    "team": "RYSC U10",
    "current": "RYSC 17G",
    "state": "OR",
@@ -1413,10 +1464,12 @@
    "club": "Reynolds Youth SC",
    "clubState": "OR",
    "confidence": "medium",
-   "newName": "RYSC Reynolds Youth SC U10"
+   "newName": "RYSC Reynolds Youth SC U10",
+   "hints": []
   },
   {
-   "teamId": 926167,
+   "teamId": 927037,
+   "gs": 479820,
    "team": "Rogue United FC_ U11",
    "current": "Rogue United",
    "state": "CAN",
@@ -1427,10 +1480,14 @@
    "club": "Rogue United FC",
    "clubState": "OR",
    "confidence": "medium",
-   "newName": "Rogue United FC FC_ U11"
+   "newName": "Rogue United FC FC_ U11",
+   "hints": [
+    "team plays in CAN, proposed club is in OR"
+   ]
   },
   {
-   "teamId": 915345,
+   "teamId": 916215,
+   "gs": 125225,
    "team": "Black U14",
    "current": "13B Black",
    "state": "CO",
@@ -1441,10 +1498,12 @@
    "club": "Skyline",
    "clubState": "CO",
    "confidence": "medium",
-   "newName": "Skyline Black U14"
+   "newName": "Skyline Black U14",
+   "hints": []
   },
   {
-   "teamId": 932634,
+   "teamId": 933504,
+   "gs": 730360,
    "team": "CS U9",
    "current": "GU9 CS",
    "state": "CAS",
@@ -1455,10 +1514,15 @@
    "club": "Slammers FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Slammers FC CS U9"
+   "newName": "Slammers FC CS U9",
+   "hints": [
+    "home fields: irvine terrace park, bonita canyon sports park",
+    "clubs with \"slammers\" in CAS: CDA Slammers, Slammers FC, Sporting Slammers FC"
+   ]
   },
   {
-   "teamId": 935086,
+   "teamId": 935956,
+   "gs": 716689,
    "team": "JL I U7",
    "current": "BU7 JL",
    "state": "CAS",
@@ -1469,10 +1533,15 @@
    "club": "Slammers FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Slammers FC JL I U7"
+   "newName": "Slammers FC JL I U7",
+   "hints": [
+    "home fields: coastal peak park, bonita canyon sports park, irvine terrace park",
+    "clubs with \"slammers\" in CAS: CDA Slammers, Slammers FC, Sporting Slammers FC"
+   ]
   },
   {
-   "teamId": 933756,
+   "teamId": 934626,
+   "gs": 716691,
    "team": "JL II U7",
    "current": "BU7 JL",
    "state": "CAS",
@@ -1483,10 +1552,15 @@
    "club": "Slammers FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Slammers FC JL II U7"
+   "newName": "Slammers FC JL II U7",
+   "hints": [
+    "home fields: coastal peak park, irvine terrace park, bonita canyon sports park",
+    "clubs with \"slammers\" in CAS: CDA Slammers, Slammers FC, Sporting Slammers FC"
+   ]
   },
   {
-   "teamId": 932446,
+   "teamId": 933316,
+   "gs": 732104,
    "team": "KW U7",
    "current": "GU7 KW",
    "state": "CAS",
@@ -1497,10 +1571,15 @@
    "club": "Slammers FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Slammers FC KW U7"
+   "newName": "Slammers FC KW U7",
+   "hints": [
+    "home fields: irvine terrace park, bonita canyon sports park, coastal peak park",
+    "clubs with \"slammers\" in CAS: CDA Slammers, Slammers FC, Sporting Slammers FC"
+   ]
   },
   {
-   "teamId": 935260,
+   "teamId": 936130,
+   "gs": 716146,
    "team": "MS U9",
    "current": "GU9 MS",
    "state": "CAS",
@@ -1511,10 +1590,15 @@
    "club": "Slammers FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Slammers FC MS U9"
+   "newName": "Slammers FC MS U9",
+   "hints": [
+    "home fields: irvine terrace park, bonita canyon sports park",
+    "clubs with \"slammers\" in CAS: CDA Slammers, Slammers FC, Sporting Slammers FC"
+   ]
   },
   {
-   "teamId": 934018,
+   "teamId": 934888,
+   "gs": 734560,
    "team": "RG U9",
    "current": "GU9 RG",
    "state": "CAS",
@@ -1525,10 +1609,15 @@
    "club": "Slammers FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Slammers FC RG U9"
+   "newName": "Slammers FC RG U9",
+   "hints": [
+    "home fields: irvine terrace park, bonita canyon sports park, coastal peak park",
+    "clubs with \"slammers\" in CAS: CDA Slammers, Slammers FC, Sporting Slammers FC"
+   ]
   },
   {
-   "teamId": 934228,
+   "teamId": 935098,
+   "gs": 716697,
    "team": "WL I U8",
    "current": "BU8 WL",
    "state": "CAS",
@@ -1539,10 +1628,15 @@
    "club": "Slammers FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Slammers FC WL I U8"
+   "newName": "Slammers FC WL I U8",
+   "hints": [
+    "home fields: irvine terrace park, coastal peak park, bonita canyon sports park",
+    "clubs with \"slammers\" in CAS: CDA Slammers, Slammers FC, Sporting Slammers FC"
+   ]
   },
   {
-   "teamId": 934126,
+   "teamId": 934996,
+   "gs": 716699,
    "team": "WL I U9",
    "current": "BU9 WL",
    "state": "CAS",
@@ -1553,10 +1647,15 @@
    "club": "Slammers FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Slammers FC WL I U9"
+   "newName": "Slammers FC WL I U9",
+   "hints": [
+    "home fields: irvine terrace park, coastal peak park",
+    "clubs with \"slammers\" in CAS: CDA Slammers, Slammers FC, Sporting Slammers FC"
+   ]
   },
   {
-   "teamId": 934652,
+   "teamId": 935522,
+   "gs": 716700,
    "team": "WL II U9",
    "current": "BU9 WL",
    "state": "CAS",
@@ -1567,10 +1666,15 @@
    "club": "Slammers FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Slammers FC WL II U9"
+   "newName": "Slammers FC WL II U9",
+   "hints": [
+    "home fields: irvine terrace park, coastal peak park",
+    "clubs with \"slammers\" in CAS: CDA Slammers, Slammers FC, Sporting Slammers FC"
+   ]
   },
   {
-   "teamId": 938773,
+   "teamId": 939643,
+   "gs": 656325,
    "team": "SV Inter U9",
    "current": "SV Inter",
    "state": "CO",
@@ -1581,10 +1685,14 @@
    "club": "South Valley Soccer Club",
    "clubState": "NM",
    "confidence": "medium",
-   "newName": "SV South Valley Soccer Club Inter U9"
+   "newName": "SV South Valley Soccer Club Inter U9",
+   "hints": [
+    "team plays in CO, proposed club is in NM"
+   ]
   },
   {
-   "teamId": 924272,
+   "teamId": 925142,
+   "gs": 348247,
    "team": "Southeast Black U17",
    "current": "Southeast Black",
    "state": "AZ",
@@ -1595,10 +1703,14 @@
    "club": "Southeast Soccer Club (OR)",
    "clubState": "OR",
    "confidence": "medium",
-   "newName": "Southeast Soccer Club (OR) Black U17"
+   "newName": "Southeast Soccer Club (OR) Black U17",
+   "hints": [
+    "team plays in AZ, proposed club is in OR"
+   ]
   },
   {
-   "teamId": 920896,
+   "teamId": 921766,
+   "gs": 687532,
    "team": "Southeast Blue U9",
    "current": "Southeast 2018",
    "state": "AZ",
@@ -1609,10 +1721,14 @@
    "club": "Southeast Soccer Club (OR)",
    "clubState": "OR",
    "confidence": "medium",
-   "newName": "Southeast Soccer Club (OR) Blue U9"
+   "newName": "Southeast Soccer Club (OR) Blue U9",
+   "hints": [
+    "team plays in AZ, proposed club is in OR"
+   ]
   },
   {
-   "teamId": 928909,
+   "teamId": 929779,
+   "gs": 679955,
    "team": "Southeast U8",
    "current": "Southeast 2019",
    "state": "AZ",
@@ -1623,10 +1739,14 @@
    "club": "Southeast Soccer Club (OR)",
    "clubState": "OR",
    "confidence": "medium",
-   "newName": "Southeast Soccer Club (OR) Southeast U8"
+   "newName": "Southeast Soccer Club (OR) Southeast U8",
+   "hints": [
+    "team plays in AZ, proposed club is in OR"
+   ]
   },
   {
-   "teamId": 926438,
+   "teamId": 927308,
+   "gs": 80151,
    "team": "SFC ACADEMY U19",
    "current": "SFC ACADEMY",
    "state": "AZ",
@@ -1637,10 +1757,14 @@
    "club": "Spartans FC (AZ)",
    "clubState": "AZ",
    "confidence": "medium",
-   "newName": "SFC Spartans FC (AZ) ACADEMY U19"
+   "newName": "SFC Spartans FC (AZ) ACADEMY U19",
+   "hints": [
+    "home fields: naranja park, bell road sports complex, reata sports complex"
+   ]
   },
   {
-   "teamId": 924454,
+   "teamId": 925324,
+   "gs": 127580,
    "team": "NPL NTX Pitcock/ Rodriguez U14",
    "current": "NPL NTX",
    "state": "NV",
@@ -1651,24 +1775,14 @@
    "club": "Sting Soccer Club",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Sting Soccer Club NPL NTX Pitcock/ Rodriguez U14"
+   "newName": "Sting Soccer Club NPL NTX Pitcock/ Rodriguez U14",
+   "hints": [
+    "team plays in NV, proposed club is in ID"
+   ]
   },
   {
-   "teamId": 940182,
-   "team": "SSC U9",
-   "current": "SSC 18G",
-   "state": "WA",
-   "age": "U9",
-   "gender": "Girls",
-   "ranked": false,
-   "via": "Sting SC 17/18G (U9G) Yellow",
-   "club": "Sting Soccer Club",
-   "clubState": "ID",
-   "confidence": "medium",
-   "newName": "SSC Sting Soccer Club U9"
-  },
-  {
-   "teamId": 937862,
+   "teamId": 938732,
+   "gs": 526703,
    "team": "Sting Lucero- 4/8 U9",
    "current": "Sting B18",
    "state": "NV",
@@ -1679,10 +1793,14 @@
    "club": "Sting Soccer Club",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Sting Soccer Club Lucero- 4/8 U9"
+   "newName": "Sting Soccer Club Lucero- 4/8 U9",
+   "hints": [
+    "team plays in NV, proposed club is in ID"
+   ]
   },
   {
-   "teamId": 937861,
+   "teamId": 938731,
+   "gs": 646179,
    "team": "Sting Ortiz- 13/77 U10",
    "current": "Sting B17",
    "state": "NV",
@@ -1693,10 +1811,14 @@
    "club": "Sting Soccer Club",
    "clubState": "ID",
    "confidence": "medium",
-   "newName": "Sting Soccer Club Ortiz- 13/77 U10"
+   "newName": "Sting Soccer Club Ortiz- 13/77 U10",
+   "hints": [
+    "team plays in NV, proposed club is in ID"
+   ]
   },
   {
-   "teamId": 928712,
+   "teamId": 929582,
+   "gs": 682897,
    "team": "FC United U12",
    "current": "FC United",
    "state": "CAN",
@@ -1707,10 +1829,14 @@
    "club": "Stockton Youth Soccer Association",
    "clubState": "CAN",
    "confidence": "medium",
-   "newName": "Stockton Youth Soccer Association FC United U12"
+   "newName": "Stockton Youth Soccer Association FC United U12",
+   "hints": [
+    "clubs with \"stockton\" in CAN: Stockton TLJ FC, Stockton Storm Futbol Club, Stockton Youth Soccer Association"
+   ]
   },
   {
-   "teamId": 941255,
+   "teamId": 942124,
+   "gs": 29525,
    "team": "SC Storm U14",
    "current": "SC Storm",
    "state": "WY",
@@ -1721,10 +1847,14 @@
    "club": "Storm FC",
    "clubState": "WA",
    "confidence": "medium",
-   "newName": "Storm FC SC Storm U14"
+   "newName": "Storm FC SC Storm U14",
+   "hints": [
+    "team plays in WY, proposed club is in WA"
+   ]
   },
   {
-   "teamId": 936328,
+   "teamId": 937198,
+   "gs": 29571,
    "team": "SC Storm Yellow U14",
    "current": "SC Storm",
    "state": "WY",
@@ -1735,10 +1865,14 @@
    "club": "Storm FC",
    "clubState": "WA",
    "confidence": "medium",
-   "newName": "Storm FC SC Storm Yellow U14"
+   "newName": "Storm FC SC Storm Yellow U14",
+   "hints": [
+    "team plays in WY, proposed club is in WA"
+   ]
   },
   {
-   "teamId": 936338,
+   "teamId": 937208,
+   "gs": 29536,
    "team": "SC Storm Yellow U9",
    "current": "SC Storm",
    "state": "WY",
@@ -1749,10 +1883,14 @@
    "club": "Storm FC",
    "clubState": "WA",
    "confidence": "medium",
-   "newName": "Storm FC SC Storm Yellow U9"
+   "newName": "Storm FC SC Storm Yellow U9",
+   "hints": [
+    "team plays in WY, proposed club is in WA"
+   ]
   },
   {
-   "teamId": 932607,
+   "teamId": 933477,
+   "gs": 744819,
    "team": "Hemet U8",
    "current": "BU08 Hemet",
    "state": "CAS",
@@ -1763,10 +1901,14 @@
    "club": "Temecula FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Temecula FC Hemet U8"
+   "newName": "Temecula FC Hemet U8",
+   "hints": [
+    "home fields: galway downs"
+   ]
   },
   {
-   "teamId": 932412,
+   "teamId": 933282,
+   "gs": 688211,
    "team": "U9",
    "current": "2018 #688211",
    "state": "CAS",
@@ -1777,10 +1919,14 @@
    "club": "Valencia FC",
    "clubState": "CAS",
    "confidence": "medium",
-   "newName": "Valencia FC U9"
+   "newName": "Valencia FC U9",
+   "hints": [
+    "home fields: bellflower high school, artesia high school, lynwood high school"
+   ]
   },
   {
-   "teamId": 926903,
+   "teamId": 927773,
+   "gs": 666433,
    "team": "Vipers FC U10",
    "current": "Vipers FC",
    "state": "AZ",
@@ -1791,10 +1937,15 @@
    "club": "Vipers FC",
    "clubState": "UT",
    "confidence": "medium",
-   "newName": "Vipers FC U10"
+   "newName": "Vipers FC U10",
+   "hints": [
+    "home fields: himmel",
+    "team plays in AZ, proposed club is in UT"
+   ]
   },
   {
-   "teamId": 914137,
+   "teamId": 915007,
+   "gs": 183565,
    "team": "West Valley Royals Ramirez Premier U19",
    "current": "West Valley",
    "state": "AZ",
@@ -1805,10 +1956,16 @@
    "club": "West Valley Soccer Club",
    "clubState": "CAN",
    "confidence": "medium",
-   "newName": "West Valley Soccer Club Royals Ramirez Premier U19"
+   "newName": "West Valley Soccer Club Royals Ramirez Premier U19",
+   "hints": [
+    "home fields: scottsdale sports complex, az athletic grounds, reata sports complex",
+    "team plays in AZ, proposed club is in CAN",
+    "clubs with \"west\" in AZ: RSL-AZ West Valley"
+   ]
   },
   {
-   "teamId": 928039,
+   "teamId": 928909,
+   "gs": 662036,
    "team": "West Valley Vasquez U9",
    "current": "West Valley",
    "state": "AZ",
@@ -1819,10 +1976,15 @@
    "club": "West Valley Soccer Club",
    "clubState": "CAN",
    "confidence": "medium",
-   "newName": "West Valley Soccer Club Vasquez U9"
+   "newName": "West Valley Soccer Club Vasquez U9",
+   "hints": [
+    "team plays in AZ, proposed club is in CAN",
+    "clubs with \"west\" in AZ: RSL-AZ West Valley"
+   ]
   },
   {
-   "teamId": 931702,
+   "teamId": 932572,
+   "gs": 673499,
    "team": "WPL Academy U19+",
    "current": "WPL Academy",
    "state": "CAS",
@@ -1833,10 +1995,14 @@
    "club": "WPL Academy",
    "clubState": "WA",
    "confidence": "medium",
-   "newName": "WPL Academy U19+"
+   "newName": "WPL Academy U19+",
+   "hints": [
+    "team plays in CAS, proposed club is in WA"
+   ]
   },
   {
-   "teamId": 926944,
+   "teamId": 927814,
+   "gs": 567735,
    "team": "07 WhiteG U19+",
    "current": "07 WhiteG",
    "state": "NM",
@@ -1850,10 +2016,14 @@
    "candidates": [
     "AYSO UNITED",
     "FC United (NM)"
+   ],
+   "hints": [
+    "clubs with \"ayso\" in NM: AYSO United Soccer Club (NM) Tournaments"
    ]
   },
   {
-   "teamId": 913112,
+   "teamId": 913982,
+   "gs": 219814,
    "team": "Sand and Surf SC EA2 U13",
    "current": "Sand and",
    "state": "CAS",
@@ -1867,10 +2037,14 @@
    "candidates": [
     "City SC",
     "City SC South Bay"
+   ],
+   "hints": [
+    "clubs with \"city\" in CAS: City SC Southwest, City SC, LA City United"
    ]
   },
   {
-   "teamId": 932443,
+   "teamId": 933313,
+   "gs": 720042,
    "team": "South County -Bautista U7",
    "current": "South County",
    "state": "CAS",
@@ -1884,10 +2058,21 @@
    "candidates": [
     "Strikers FC",
     "Irvine Futbol Club"
-   ]
+   ],
+   "hints": [
+    "home fields: del cerro elementary school",
+    "those fields are home to Strikers FC (CAS)",
+    "clubs with \"strikers\" in CAS: Strikers FC, Stanford Strikers FC, Strikers FC Orange"
+   ],
+   "better": {
+    "club": "Strikers FC",
+    "association": "CAS",
+    "why": "plays home games on that club's fields"
+   }
   },
   {
-   "teamId": 934010,
+   "teamId": 934880,
+   "gs": 724142,
    "team": "South County -Murphy U9",
    "current": "South County",
    "state": "CAS",
@@ -1901,7 +2086,17 @@
    "candidates": [
     "Irvine Futbol Club",
     "Strikers FC"
-   ]
+   ],
+   "hints": [
+    "home fields: del cerro elementary school",
+    "those fields are home to Strikers FC (CAS)",
+    "clubs with \"irvine\" in CAS: Irvine Futbol Club"
+   ],
+   "better": {
+    "club": "Strikers FC",
+    "association": "CAS",
+    "why": "plays home games on that club's fields"
+   }
   }
  ]
 }

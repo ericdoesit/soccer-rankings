@@ -299,8 +299,11 @@ export function buildTeamIdentity<T extends TeamLike>(
   }
 
   // clubs the user approved for club-less teams (data/seed/approved-team-clubs.json, by GotSport team id)
-  const approved = new Map(Object.entries(loadJson<{ teams?: Record<string, { club: string; association: string }> }>(
+  const approved = new Map(Object.entries(loadJson<{ teams?: Record<string, { club: string; association: string; name?: string }> }>(
     path.join(process.cwd(), "data", "seed", "approved-team-clubs.json"), {}).teams ?? {}).map(([id, v]) => [Number(id), v]));
+
+  const stateOverrides = Object.entries(loadJson<Record<string, { state: string }>>(
+    path.join(process.cwd(), "data", "seed", "club-state-overrides.json"), {})).filter(([k]) => !k.startsWith("_")).map(([k, v]) => [k, v.state] as const);
 
   const out = teams.map((t) => {
     const raw = t.sourceName ?? t.name;
@@ -334,6 +337,9 @@ export function buildTeamIdentity<T extends TeamLike>(
     if (d) s.directory++; else if (club) s.clubMatch++;
 
     let state = d?.association ?? club?.association ?? srcAssoc ?? es ?? "";
+    // data/seed/club-state-overrides.json: clubs we know are in another state (Capital City SC → TX)
+    const so = stateOverrides.find(([k]) => (club?.name ?? t.club ?? "").startsWith(k) || raw.startsWith(k));
+    if (so) state = so[1];
     // MLS NEXT teams known only from the league schedule ("Classic FC MLS NEXT B2014") have
     // no GotSport record or West opponents to place them. If they play in a Western
     // conference, take the state of the directory club with exactly that name.
@@ -373,7 +379,8 @@ export function buildTeamIdentity<T extends TeamLike>(
       sourceName: raw,
       // "F.C." → "FC", "S.C." → "SC" (standardizeAbbreviations), so one club isn't split in two
       // (both inputs first, so "West Coast F.C. White" with club "West Coast F.C." drops the club cleanly)
-      name: tidy(standardizeAbbreviations(formatTeamName(standardizeAbbreviations(nameSource),
+      // a name the user typed on the review page wins
+      name: ok?.name ?? tidy(standardizeAbbreviations(formatTeamName(standardizeAbbreviations(nameSource),
         club?.name ? standardizeAbbreviations(club.name) : null, ageGroup === "Unknown" ? null : ageGroup)),
         standardizeAbbreviations(club?.name ?? "")),
       club: standardizeAbbreviations(club?.name ?? mlsClub ?? t.club),
