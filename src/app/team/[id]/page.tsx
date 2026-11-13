@@ -158,7 +158,16 @@ export default async function TeamPage({
             </div>
             <div>
               <p className="lowbrow">GotSport team</p>
-              <p className="mt-1 tabular-nums">#{ctx.gotsportTeamId}</p>
+              <p className="mt-1 tabular-nums">
+                <a
+                  href={`https://rankings.gotsport.com/teams/${ctx.gotsportTeamId}/game-history`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  #{ctx.gotsportTeamId} on GotSport ↗
+                </a>
+              </p>
               {ctx.otherNames.length > 0 && <p className="mt-1 text-xs text-muted-foreground">Listed as: {ctx.otherNames.join(" · ")}</p>}
             </div>
             {ctx.divisions.length > 0 && (
