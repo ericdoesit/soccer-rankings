@@ -312,7 +312,7 @@ export default function RankingsPage() {
       <Card>
         <CardContent className="p-0">
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full text-sm" data-no-sort>
               <thead>
                 <tr className="border-b border-border text-left text-xs text-muted-foreground">
                   {[

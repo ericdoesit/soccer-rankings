@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
+import { TableSorter } from "@/components/table-sorter";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -102,6 +103,7 @@ export default function RootLayout({
           </div>
         </header>
         <main className="flex-1">{children}</main>
+        <TableSorter />
         <footer className="border-t border-border py-8 bg-footer text-footer-foreground">
           <div className="mx-auto max-w-7xl px-4 text-center text-sm">
             Youth Soccer Rankings USA &mdash; Powered by the Enhanced Massey

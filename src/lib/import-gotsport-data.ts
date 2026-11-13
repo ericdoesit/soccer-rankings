@@ -486,7 +486,11 @@ export function loadGotsportData() {
         // Some sources (Utah) only carry a kick-off time; normalizeDate
         // returns "" for those rather than a bogus string.
         const date = normalizeDate(g[source.fields[4]] || g.date || "");
-        const event = g[source.fields[5]] || g.eventName || g.tournament || "";
+        const event = g[source.fields[5]] || g.eventName || g.tournament
+          // Coast Soccer League rows carry season + year ("fall", 2025) but no event name
+          || (source.file.includes("coast-soccer") && g.season && g.year
+            ? `Coast Soccer League ${g.season === "fall" ? `${g.year}-${String(Number(g.year) + 1).slice(2)}` : `${Number(g.year) - 1}-${String(g.year).slice(2)}`} ${g.season[0].toUpperCase()}${g.season.slice(1)}`
+            : "");
 
         if (!t1 || !t2 || typeof s1 !== "number" || typeof s2 !== "number") continue;
         if (s1 > 20 || s2 > 20) continue;

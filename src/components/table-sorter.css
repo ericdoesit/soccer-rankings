@@ -1,0 +1,8 @@
+/* Click-to-sort tables (src/components/table-sorter.tsx) */
+th[data-sort-col] { cursor: pointer; user-select: none; white-space: nowrap; }
+th[data-sort-col]:hover, th[data-sort-col]:focus-visible { color: var(--foreground); }
+th[data-sort-col]::after { content: "▲"; font-size: 0.6rem; margin-left: 0.3rem; opacity: 0; }
+th[data-sort-col]:hover::after { opacity: 0.35; }
+th[aria-sort="ascending"]::after { content: "▲"; opacity: 1; }
+th[aria-sort="descending"]::after { content: "▼"; opacity: 1; }
+th[aria-sort="ascending"], th[aria-sort="descending"] { color: var(--foreground); }
