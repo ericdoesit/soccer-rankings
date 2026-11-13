@@ -11,6 +11,8 @@
  *   npm run standings:import -- --dir <folder>    # …or another folder (macOS may block Terminal from ~/Downloads)
  *   pbpaste | npm run standings:import --         # piped text or HTML
  *   npm run standings:import -- 52852             # re-match data/fixtures/52852-standings-paste.txt
+ * Schedule and results pages work too ("Match #  Time  Home Team  Results  Away Team"): each
+ * numbered match names both of its teams, which tells apart teams that share a short name.
  *   …add --build to rebuild the data afterwards (npm run build:data)
  *
  * The event id is read from the page source (/org_event/events/<id>/…). Copied page text has
@@ -35,6 +37,8 @@ const argEvent = args.find((a) => /^\d+$/.test(a));
 const outFile = path.join(ROOT, "data", "seed", "pasted-team-names.json");
 const pasteFileFor = (ev: string) => path.join(ROOT, "data", "fixtures", `${ev}-standings-paste.txt`);
 const HEADER = /^(?:Male|Female|Coed)\s+U\d{1,2}\s+-\s+\S/im;
+/** schedule / results pages: "Match #  Time  Home Team  Results  Away Team …" */
+const SCHEDULE = /Match #\s+Time\s+Home Team/i;
 
 const decode = (s: string) => s.replace(/&amp;/g, "&").replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&nbsp;/g, " ");
 
@@ -57,7 +61,7 @@ function readInput(raw: string, label: string): { event: string; text: string } 
   const isHtml = /<(?:div|table|html)\b/i.test(raw);
   const event = raw.match(/\/org_event\/events\/(\d+)\//)?.[1] ?? argEvent;
   const text = isHtml ? htmlToText(raw) : raw.trim();
-  if (!HEADER.test(text)) { console.warn(`  ${label}: doesn't look like a GotSport standings page (no "Male U12 - …" flight header), skipped`); return null; }
+  if (!HEADER.test(text) && !SCHEDULE.test(text)) { console.warn(`  ${label}: doesn't look like a GotSport standings page (no "Male U12 - …" flight header), skipped`); return null; }
   if (!event) { console.warn(`  ${label}: no event id in it; give one: npm run standings:import -- <eventId> --clip`); return null; }
   return { event, text };
 }
@@ -114,16 +118,52 @@ for (const eventId of events) {
   // short names per flight, from the event's published games
   type G = { division?: string; homeTeam: string; awayTeam: string; homeTeamId: number; awayTeamId: number };
   const flights = new Map<string, Map<string, number>>(); // division → short name → team id
+  // several teams can share one short name in a flight ("BU7" ×3): those can't be told apart by name
+  const shared = new Map<string, Set<string>>(); // division → short names used by 2+ teams
   for (const g of JSON.parse(fs.readFileSync(gamesFile, "utf8")) as G[]) {
     if (!g.division) continue;
     const m = flights.get(g.division) ?? new Map<string, number>();
-    if (g.homeTeamId) m.set(g.homeTeam.trim(), g.homeTeamId);
-    if (g.awayTeamId) m.set(g.awayTeam.trim(), g.awayTeamId);
+    for (const [name, id] of [[g.homeTeam.trim(), g.homeTeamId], [g.awayTeam.trim(), g.awayTeamId]] as const) {
+      if (!id) continue;
+      if (m.has(name) && m.get(name) !== id) { const sh = shared.get(g.division) ?? new Set<string>(); sh.add(name); shared.set(g.division, sh); }
+      m.set(name, id);
+    }
     flights.set(g.division, m);
   }
 
+  const unmatched = new Set<string>();
+  // Schedule/results pages name both teams of a numbered match: match the number to the event's
+  // published games, so teams sharing a short name ("BU7" ×3) are told apart by their opponent.
+  const byMatch = new Map<string, G & { matchNumber?: number | string }>();
+  for (const g of JSON.parse(fs.readFileSync(gamesFile, "utf8")) as Array<G & { matchNumber?: number | string }>) if (g.matchNumber != null) byMatch.set(String(g.matchNumber), g);
+  const fits = (full: string, short: string) => {
+    const f = norm(full), sh = norm(short);
+    if (f.endsWith(sh)) return true;
+    const words = new Set(f.split(/[\s/-]+/));
+    return sh.split(/[\s/-]+/).every((w) => words.has(w));
+  };
+  let matchNo: string | null = null, byNumber = 0;
+  const lines = fs.readFileSync(pasteFile, "utf8").split(/\r?\n/);
+  for (const raw of lines) {
+    const line = raw.trim();
+    const m = line.match(/^(\d+)\s+[A-Z][a-z]{2} \d{1,2}, \d{4}/);
+    if (m) { matchNo = m[1]; continue; }
+    const teams = matchNo && line.match(/^(.+?)\s{2,}(?:\d+\s*-\s*\d+|-)\s{2,}(.+?)\s*$/);
+    if (!teams || !matchNo) continue;
+    const g = byMatch.get(matchNo);
+    matchNo = null;
+    if (!g) continue;
+    const [home, away] = [teams[1].trim(), teams[2].trim()];
+    if (fits(home, g.homeTeam) && fits(away, g.awayTeam)) {
+      for (const [id, full] of [[g.homeTeamId, home], [g.awayTeamId, away]] as const) {
+        if (id && names[String(id)] !== full) { names[String(id)] = full; byNumber++; }
+      }
+    } else unmatched.add(`match ${teams[0].slice(0, 60)}: names don't fit GotSport's (${g.homeTeam} v ${g.awayTeam})`);
+  }
+  if (byNumber) console.log(`event ${eventId}: ${byNumber} teams named from numbered matches`);
+
   let flight: string | null = null, matched = 0;
-  const unmatched = new Set<string>(), seen = new Set<string>();
+  const seen = new Set<string>();
   for (const raw of fs.readFileSync(pasteFile, "utf8").split(/\r?\n/)) {
     const line = raw.trim();
     const header = line.match(/^(?:Male|Female|Coed)\s+U\d{1,2}\s+-\s+(.+)$/i);
@@ -140,6 +180,11 @@ for (const eventId of events) {
     if (seen.has(`${flight}|${full}`)) continue;
     seen.add(`${flight}|${full}`);
     let shorts = [...flights.get(flight)!].filter(([short]) => norm(full).endsWith(norm(short)));
+    if (shorts.some(([short]) => shared.get(flight!)?.has(short))) {
+      // already named by a numbered match (schedule/results page)? then nothing is missing
+      if (!Object.values(names).includes(full)) unmatched.add(`${full} (${flight}: several teams use that short name; paste a schedule or results page to tell them apart)`);
+      continue;
+    }
     // fallback: every word of the short name appears in the full name, and only one short name
     // in the flight fits ("BU09 Arriaga Strikers Costa Mesa" ⊂ "Strikers FC - CM/NB BU09 Arriaga Costa Mesa")
     if (!shorts.length) {
