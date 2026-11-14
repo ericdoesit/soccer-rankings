@@ -213,7 +213,7 @@
   "verifiedAt": "2026-11-13"
  },
  {
-  "name": "TOTAL FUTBOL ACADEMY (CA)",
+  "name": "Total Futbol Academy (CA)",
   "website": "https://www.totalfutbolacademy.com/",
   "source": "user-provided club site (the league list links an old sportngin page)",
   "verifiedAt": "2026-11-13"
@@ -228,6 +228,13 @@
   "name": "Express Soccer",
   "website": "https://www.express.soccer/",
   "source": "user-provided: Encinitas Express Soccer Club's competitive site (the league list links encinitas-soccer.org)",
+  "verifiedAt": "2026-11-13"
+ },
+ {
+  "name": "AYSO S1 Alliance",
+  "website": "https://aysoalliance.org/",
+  "city": "Inglewood",
+  "source": "user: the club lists itself as 'AYSO S1 Alliance, Inglewood 90302'; aysoalliance.org lists its teams",
   "verifiedAt": "2026-11-13"
  }
 ]

@@ -22,6 +22,7 @@ import { slugify } from "./directory/normalize";
 import { seasonEndYear } from "./directory/team-names";
 import { clubMatcher } from "./directory/club-match";
 import { normalizeWebsite } from "./directory/url";
+import { coachFor } from "./team-coaches";
 
 export interface Area { code: string; slug: string; name: string; short: string }
 
@@ -45,6 +46,8 @@ export interface TeamRow {
   leagues: string[]; // league slugs, latest season
   /** the club location (chapter) the team belongs to, from data/seed/club-locations.json */
   location?: string | null;
+  /** head coach from data/seed/team-coaches.json */
+  coach?: string | null;
 }
 export interface ClubRow {
   slug: string; name: string; area: Area | null; teams: TeamRow[];
@@ -210,7 +213,7 @@ function build(data: DataSet): ExploreIndex {
     }
     const r = rankBy.get(t.id);
     clubs.get(slug)!.teams.push({
-      id: t.id, name: t.name, ageGroup: t.ageGroup, gender: t.gender,
+      id: t.id, name: t.name, ageGroup: t.ageGroup, gender: t.gender, coach: coachFor(t.gotsportTeamId),
       rank: listedRank.get(t.id) ?? null, score: r?.score ?? null, wins: r?.wins ?? 0, losses: r?.losses ?? 0, draws: r?.draws ?? 0, lastPlayed: lastPlayed.get(t.id) ?? "", leagues: [],
     });
     const v = clubAreaVotes.get(slug) ?? new Map<string, number>();
@@ -357,13 +360,19 @@ function attachClubInfo(clubs: Map<string, ClubRow>, teams: Team[]) {
     club.website = normalizeWebsite(overrides.get(key));
     club.infoSource = "data/seed/club-websites.json";
   }
+  // …and a city given there ("AYSO S1 Alliance": Inglewood) replaces the league list's
+  for (const o of readJson<Array<{ name: string; city?: string }>>("data/seed/club-websites.json", [])) {
+    if (!o.city) continue;
+    const slug = [...clubs.values()].find((c) => c.name.toLowerCase() === o.name.toLowerCase());
+    if (slug) slug.city = o.city;
+  }
 }
 
 /** Newest modification time of the club-info sources, so new lists show up without a restart. */
 function sourcesStamp(): number {
   let t = 0;
   // (not frontier.json: the crawler rewrites it constantly; league data changes with the snapshot)
-  const files = ["data/norcal-premier/clubs.json", "data/seed/club-websites.json", "data/seed/club-locations.json"];
+  const files = ["data/norcal-premier/clubs.json", "data/seed/club-websites.json", "data/seed/club-locations.json", "data/seed/team-coaches.json"];
   const dir = path.join(process.cwd(), "data", "league-clubs");
   try { for (const f of fs.readdirSync(dir)) files.push(path.join("data", "league-clubs", f)); } catch { /* none */ }
   for (const f of files) { try { t = Math.max(t, fs.statSync(path.join(process.cwd(), f)).mtimeMs); } catch { /* missing */ } }

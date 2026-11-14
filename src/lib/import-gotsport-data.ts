@@ -86,6 +86,8 @@ let _cache: {
   sourceAssocByName: Map<string, string>;
   /** MLS NEXT team names ("<club> MLS NEXT B2014") that play in a Western conference */
   mlsWestNames: Set<string>;
+  /** team name → association its league is in, used only for state/region (Coast Soccer League → CAS) */
+  stateHintByName: Map<string, string>;
   /** team names from Modular11 (MLS NEXT, EA, USL Academy) */
   modularTeamNames: Set<string>;
 } | null = null;
@@ -144,6 +146,27 @@ function birthYearToAge(birthYear: number, gameDate?: string): string {
   const age = seasonEndYear - birthYear;
   if (age < 3 || age > 20) return "U14";
   return `U${age}`;
+}
+
+/**
+ * Coast Soccer League team key. One CSL name can be several teams ("RIVERSIDE ELITE" has nine
+ * birth years, "SLA MAMBAS" a boys and a girls team), so the schedule's gender + age group are
+ * turned into a birth year: "RIVERSIDE ELITE B2014". Same birth year next season = same team.
+ * CSL's age labels: spring 2026 and fall 2026 use the standard season age (next year − birth
+ * year: B2015 is U12 in fall 2026); the fall 2025 pages counted one year lower (B2015 listed as
+ * U10). Checked against names with a birth year and a club's coach list.
+ * A stray dash before the team's own name ("S1 ALLIANCE -SLA MAMBAS" one season, "S1 ALLIANCE
+ * SLA MAMBAS" the next) is dropped so one team isn't split in two.
+ */
+export function cslTeamName(name: string, g: { ageGroup?: string; gender?: string; season?: string; year?: number | string }): string {
+  let n = name.trim().replace(/\s+-(?=[A-Za-z])/g, " ");
+  const age = String(g.ageGroup ?? "").match(/^U(\d{1,2})$/);
+  if (age && (g.gender === "Boys" || g.gender === "Girls")) {
+    const base = g.season === "fall" && Number(g.year) <= 2025 ? Number(g.year) : Number(g.year) + 1;
+    const tag = `${g.gender === "Girls" ? "G" : "B"}${base - Number(age[1])}`;
+    if (!new RegExp(`\\b${tag}\\b`, "i").test(n)) n = `${n} ${tag}`;
+  }
+  return n;
 }
 
 export function inferAgeAndGender(
@@ -389,6 +412,7 @@ export function loadGotsportData() {
 
   const gsIdByName = new Map<string, number>();
   const sourceAssocByName = new Map<string, string>();
+  const stateHintByName = new Map<string, string>();
   // MLS NEXT 2026-27 conferences made up of Western clubs (scripts/predict-mlsnext.ts flags the same set)
   const MLS_WEST_CONFERENCES = new Set(["Desert", "Mountain", "Northern California Coast", "Northern California Redwood",
     "Pacific Northwest", "South California", "Northwest", "Southwest"]);
@@ -424,6 +448,9 @@ export function loadGotsportData() {
     // margin 26 goals vs ~3 for every other source). Its GotSport events are queued in
     // the discovery crawler instead (scripts/discover-west.ts, source "ysg").
     { file: path.join(process.cwd(), "data", "surfcup", "games.json"), fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "eventName"] },
+    // AthleteOne (TotalGlobalSports) schedules pasted by the user (scripts/import-athleteone-paste.ts);
+    // its robots.txt blocks automated access, so nothing is fetched
+    { file: path.join(process.cwd(), "data", "athleteone", "games.json"), fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "eventName"] },
     { file: mlsNextFile, fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "tournament"] },
     { file: path.join(process.cwd(), "data", "adidas-cup", "games.json"), fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "tournament"] },
     // Leagues not on GotSport, scraped from Demosphere (scripts/scrape-demosphere-league.ts)
@@ -486,6 +513,12 @@ export function loadGotsportData() {
           if (date0(g) > new Date().toISOString().slice(0, 10)) continue;
           const forfeit = Number(g.homeScore) + Number(g.awayScore) === 1;
           if (forfeit && /\bDROP(PED)?\b/i.test(`${t1} ${t2}`)) continue;
+          // One CSL name can be several teams ("RIVERSIDE ELITE" has nine birth years, "SLA MAMBAS"
+          // a boys and a girls team): the schedule gives age group and gender, so tell them apart
+          // by gender + birth year ("RIVERSIDE ELITE B2014"). Same birth year next season = same team.
+          t1 = cslTeamName(t1, g); t2 = cslTeamName(t2, g);
+          // a Southern California league: its teams are Cal South (club matching and region)
+          stateHintByName.set(t1, "CAS"); stateHintByName.set(t2, "CAS");
         }
         if (!isApi && g.league && demoAssoc.has(g.league)) {
           if (date0(g) > new Date().toISOString().slice(0, 10)) continue;
@@ -570,7 +603,9 @@ export function loadGotsportData() {
           team2Score: s2,
           date,
           eventName: event,
-          division: typeof g.division === "string" ? g.division : "",
+          division: typeof g.division === "string" ? g.division
+            // Coast Soccer League rows give the age group and gender ("U13", "Girls")
+            : source.file.includes("coast-soccer") && g.gender ? g.gender : "",
         });
       }
     } catch {
@@ -606,7 +641,7 @@ export function loadGotsportData() {
 
   const rankings = calculateRankings(gameInputs, { minGames: 10 });
 
-  _cache = { teams, games, rankings, teamNameToId, gsIdByName, droppedEvents, sourceAssocByName, modularTeamNames, mlsWestNames };
+  _cache = { teams, games, rankings, teamNameToId, gsIdByName, droppedEvents, sourceAssocByName, modularTeamNames, mlsWestNames, stateHintByName };
   return _cache;
 }
 

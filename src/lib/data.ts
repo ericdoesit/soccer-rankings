@@ -363,7 +363,7 @@ export function buildData(): DataSet {
         if (!g.division) continue;
         for (const n of [g.team1Name, g.team2Name]) if (!divisionByName.has(n)) divisionByName.set(n, { division: g.division, date: g.date });
       }
-      const identity = buildTeamIdentity(teams, games, real.gsIdByName, divisionByName, real.sourceAssocByName, real.mlsWestNames);
+      const identity = buildTeamIdentity(teams, games, real.gsIdByName, divisionByName, real.sourceAssocByName, real.mlsWestNames, real.stateHintByName);
       if (real.droppedEvents.length) console.log(`  dropped ${real.droppedEvents.length} events outside the West: ${real.droppedEvents.join("; ")}`);
       console.log(`  team identity: ${identity.stats}`);
 

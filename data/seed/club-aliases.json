@@ -23,7 +23,7 @@
       "evidence": "recreation.parks.lacity.gov/lacityunited: LA City United competitive teams play at Michelle and Barack Obama Sports Complex, Whitsett Soccer Field and Wilmington Athletic Center; its GotSport teams are named after the site ('LA City United Obama B12'). Clubless teams 'Obama BU09', 'Whitsett BU15', 'Wilmington BU08' follow the same naming. 'Wilmington Jrs' is a different club, hence the age-code pattern. Pasted by the user 2026-11-13."
     },
     "TFA chapters": {
-      "club": "TOTAL FUTBOL ACADEMY (CA)",
+      "club": "Total Futbol Academy (CA)",
       "pattern": "^(TFA\\b|Total Futbol Academy\\b)",
       "evidence": "Total Futbol Academy (totalfutbolacademy.com) names its chapter teams 'TFA-<chapter>' (TFA-AV, TFA-IE, TFA-SELA, TFA-SGV, TFA-OC...); GotSport lists ~40 of them without a club. Requested by the user 2026-11-13."
     },
@@ -46,6 +46,11 @@
       "club": "Express Soccer",
       "pattern": "^Encinitas Express\\b|^Express SC\\b.*\\bElite (Bello|Shuttleworth)\\b",
       "evidence": "Encinitas Express Soccer Club (express.soccer/page/show/3135104-teams) lists GU19 Elite Bello and GU14/BU14 Elite Shuttleworth; GotSport has these two without a club. Requested by the user 2026-11-13."
+    },
+    "S1 Alliance": {
+      "club": "AYSO S1 Alliance",
+      "pattern": "^S1 ?ALLIANCE\\b",
+      "evidence": "AYSO Section 1 Alliance (select teams of AYSO regions, wiki.ayso.org/wiki/Category:Alliance) plays the Coast Soccer League as 'AYSO S1 Alliance' (coastsoccer clubs list, club 417); CSL schedules write its teams 'S1 ALLIANCE <region code> <name>'. Requested by the user 2026-11-13 (their AYSO Region 1031 South LA select team)."
     }
   },
   "AK": {

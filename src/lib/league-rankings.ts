@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { getDataSet, type DataSet } from "@/lib/data";
 import { LEAGUES } from "@/lib/directory/leagues";
+import { cslTeamName } from "@/lib/import-gotsport-data";
 
 /**
  * Rankings inside one league (SoCal Soccer League, NorCal Premier, …): every rated team that
@@ -67,11 +68,11 @@ export function getLeagueRankings(slug: string): LeagueRankings | null {
     const file = path.join(process.cwd(), "data", "coast-soccer", "games.json");
     const [start] = season.split("-").map(Number);
     if (fs.existsSync(file)) {
-      for (const g of JSON.parse(fs.readFileSync(file, "utf8")) as Array<{ homeTeam: string; awayTeam: string; bracket: string; season: string; year: number }>) {
+      for (const g of JSON.parse(fs.readFileSync(file, "utf8")) as Array<{ homeTeam: string; awayTeam: string; bracket: string; season: string; year: number; ageGroup?: string; gender?: string }>) {
         const inSeason = g.season === "fall" ? g.year === start : g.year === start + 1;
         if (!inSeason) continue;
-        divisionByName.set(g.homeTeam.trim(), cslDivision(g.bracket));
-        divisionByName.set(g.awayTeam.trim(), cslDivision(g.bracket));
+        divisionByName.set(cslTeamName(g.homeTeam, g), cslDivision(g.bracket));
+        divisionByName.set(cslTeamName(g.awayTeam, g), cslDivision(g.bracket));
       }
     }
   }

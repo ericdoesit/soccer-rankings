@@ -30,7 +30,7 @@ export function ageGroupFromBirthYear(birthYear: number, seasonEnd = CURRENT_SEA
   return age > 19 ? "U19+" : `U${age}`;
 }
 
-const YEAR = "(20[01]\\d|0[5-9]|1\\d|2[0-2])";
+const YEAR = "(20[01]\\d|202[01]|0[5-9]|1\\d|2[0-2])";
 /** Birth-year / gender / age tokens inside a team name, in match order. */
 const AGE_TOKENS: Array<[RegExp, (m: RegExpMatchArray) => { years?: number[]; gender?: "Boys" | "Girls"; u?: number; keep?: string }]> = [
   // BU15A, GU9B: gender + U-age + team letter (keep the letter as the identifier)
@@ -153,6 +153,10 @@ export function formatTeamName(rawName: string, clubName: string | null, ageGrou
     // repeated one ("ALBION SC San Diego ALBION SC San Diego B16")
     rest = rest.replace(clubRe, "");
     rest = rest.replace(new RegExp(`\\b${escapeRe(matchName).replace(/\\ /g, "\\s+")}\\b`, "gi"), " ");
+    // the club name without its first word at the start: "S1 Alliance SLA" for AYSO S1 Alliance
+    const tail = matchName.split(/\s+/).slice(1);
+    if (tail.length >= 2)
+      rest = tidy(rest.replace(new RegExp(`^${escapeRe(tail.join(" ")).replace(/\\ /g, "\\s*")}(?![A-Za-z0-9])[\\s-]*`, "i"), ""));
     // the club's short form anywhere: "Beach FC" for Beach Futbol Club, "Arsenal SC" for Arsenal Soccer Club
     const shortForm = matchName.replace(/\b(?:Futbol|Football) Club\b/i, "FC").replace(/\bSoccer Club\b/i, "SC");
     if (shortForm !== matchName && shortForm.split(/\s+/).length >= 2)
@@ -168,9 +172,15 @@ export function formatTeamName(rawName: string, clubName: string | null, ageGrou
       if (anywhere) { acronym = anywhere; rest = rest.replace(new RegExp(`(?<![A-Za-z0-9])${anywhere}(?![A-Za-z0-9])\\s*`), ""); }
     }
   }
+  // colors and directions written in capitals ("SELA NAVY", "CENTRAL LA") read as words; codes stay
+  rest = rest.replace(CAPS_WORD, (w) => w[0] + w.slice(1).toLowerCase())
+    // a stray closing parenthesis: "Central LA Prado)"
+    .replace(/^([^(]*)\)/, "$1").trim();
   const age = ageGroup && ageGroup !== "U19+" ? ageGroup : ageGroup ?? "";
   return [acronym, clubName ?? "", rest, age].filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
 }
+
+const CAPS_WORD = /\b(RED|WHITE|BLUE|NAVY|BLACK|GOLD|GREEN|ORANGE|GREY|GRAY|SILVER|PURPLE|YELLOW|MAROON|PINK|ROYAL|TEAL|NORTH|SOUTH|EAST|WEST|CENTRAL)\b/g;
 
 /** Current-season age group for a team, from the best evidence available. */
 export function currentAgeGroup(opts: {

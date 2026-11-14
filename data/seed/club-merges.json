@@ -1,7 +1,11 @@
 {
   "_note": "Several GotSport club names for one club → the name the site shows. Key: a club name as GotSport (or an alias) gives it; value: the name to use. Applied in src/lib/directory/team-identity.ts.",
   "Total Futbol Academy": {
-    "into": "TOTAL FUTBOL ACADEMY (CA)",
+    "into": "Total Futbol Academy (CA)",
     "evidence": "same club (totalfutbolacademy.com); 18 teams under the short name, 214 under the (CA) name. Requested by the user 2026-11-13."
+  },
+  "TOTAL FUTBOL ACADEMY (CA)": {
+    "into": "Total Futbol Academy (CA)",
+    "evidence": "GotSport writes the club name in capitals; the club writes 'Total Futbol Academy' (totalfutbolacademy.com). Requested by the user 2026-11-13."
   }
 }

@@ -92,6 +92,8 @@ export function buildTeamIdentity<T extends TeamLike>(
   divisionByName: Map<string, { division: string; date: string }> = new Map(),
   sourceAssocByName: Map<string, string> = new Map(),
   mlsWestNames: Set<string> = new Set(),
+  /** association of a team's league, used only to place it (state, region), not to pick its club */
+  stateHintByName: Map<string, string> = new Map(),
 ): { teams: T[]; stats: string } {
   const dir = loadJson<DirTeam[]>(path.join(process.cwd(), "data", "gotsport-teams", "region4.json"), []);
   const dirById = new Map(dir.map((t) => [t.teamId, t]));
@@ -235,7 +237,7 @@ export function buildTeamIdentity<T extends TeamLike>(
   for (const t of teams) {
     const raw = t.sourceName ?? t.name;
     const id = gsIdByName.get(raw) ?? (dirById.has(t.id) ? t.id : undefined);
-    const a = (id !== undefined ? dirById.get(id)?.association : undefined) ?? sourceAssocByName.get(raw) ?? loose(raw);
+    const a = (id !== undefined ? dirById.get(id)?.association : undefined) ?? sourceAssocByName.get(raw) ?? stateHintByName.get(raw) ?? loose(raw);
     if (a) provAssoc.set(t.id, a);
   }
   const oppVotes = new Map<number, Map<string, number>>();
@@ -341,12 +343,12 @@ export function buildTeamIdentity<T extends TeamLike>(
       : pat ? { name: pat.club, association: pat.association }
       : org ? org
       : srcAssoc ? matchInAssoc(raw, srcAssoc)
-      : gsOutside || outsideTag(raw) ? null : matchClub(raw, (esAny && esAny !== "CA" ? esAny : null) ?? opponentState(t.id) ?? tagState(raw) ?? esAny);
+      : gsOutside || outsideTag(raw) ? null : matchClub(raw, (esAny && esAny !== "CA" ? esAny : null) ?? opponentState(t.id) ?? tagState(raw) ?? stateHintByName.get(raw) ?? esAny);
     const merged = club0 ? merges.get(club0.name.toLowerCase()) : undefined;
     const club = club0 && merged ? { ...club0, name: merged } : club0;
     if (d) s.directory++; else if (club) s.clubMatch++;
 
-    let state = d?.association ?? club?.association ?? srcAssoc ?? es ?? "";
+    let state = d?.association ?? club?.association ?? srcAssoc ?? stateHintByName.get(raw) ?? es ?? "";
     // data/seed/club-state-overrides.json: clubs we know are in another state (Capital City SC → TX)
     const so = stateOverrides.find(([k]) => (club?.name ?? t.club ?? "").startsWith(k) || raw.startsWith(k));
     if (so) state = so[1];

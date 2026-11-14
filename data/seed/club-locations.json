@@ -1,6 +1,6 @@
 {
   "_note": "Locations (chapters) of clubs with teams in several areas, keyed by the club name the site shows. Each location's 'match' is a regex (case-insensitive) tested against the team name with the club name removed; the first location that matches wins. 'programs' are club-wide programs (MLS NEXT, ECNL, GA...) for teams no location matches. Applied in src/lib/explore.ts; shown as a filter on the club page and on team pages.",
-  "TOTAL FUTBOL ACADEMY (CA)": {
+  "Total Futbol Academy (CA)": {
     "source": "https://www.totalfutbolacademy.com/page/show/44520--join-us- (14 chapters); TFA-PRO: https://www.totalfutbolacademy.com/page/show/1801677-tfa-pro",
     "locations": [
       {
@@ -223,5 +223,97 @@
       }
     ],
     "programs": "ECNL|\\bECRL\\d?\\b|\\bRL\\b|\\bN1\\b|\\bNPL\\b|WPSL"
+  },
+  "AYSO S1 Alliance": {
+    "source": "aysoalliance.org/?page_id=36 lists the 16 AYSO regions in the Section 1 Alliance; team codes match their initials (SLA South LA = Region 1031 'South LA Area 1P', WT West Torrance, NT North Torrance, PV Palos Verdes, SM Santa Monica, BH Beverly Hills, CC Culver City, MV/MOVAL Moreno Valley, CH Chino Hills). Team list: aysoalliance.org/?page_id=643; CSL club 417. RC, T and ROSE aren't mapped: not on the list.",
+    "locations": [
+      {
+        "name": "South Los Angeles",
+        "area": "AYSO Region 1031 (South LA Area 1P)",
+        "match": "\\bSLA\\b|South LA|South Los Angeles"
+      },
+      {
+        "name": "West Torrance",
+        "area": "AYSO Region 14",
+        "match": "\\bWT\\b|West Torrance"
+      },
+      {
+        "name": "North Torrance",
+        "area": "AYSO Region 16",
+        "match": "\\bNT\\b|North Torrance|\\bN\\.? ?TORRANCE\\b"
+      },
+      {
+        "name": "Palos Verdes",
+        "area": "AYSO Region 10",
+        "match": "\\bPV\\b|Palos Verdes"
+      },
+      {
+        "name": "Santa Monica",
+        "area": "AYSO Region 20",
+        "match": "\\bSM\\b|Santa Monica"
+      },
+      {
+        "name": "Beverly Hills",
+        "area": "AYSO Region 76",
+        "match": "\\bBH\\b|Beverly Hills"
+      },
+      {
+        "name": "Culver City",
+        "area": "AYSO Region 19",
+        "match": "\\bCC\\b|Culver"
+      },
+      {
+        "name": "Westchester / Inglewood",
+        "match": "Westchester|Inglewood"
+      },
+      {
+        "name": "Los Feliz",
+        "match": "Los Feliz"
+      },
+      {
+        "name": "South Pasadena",
+        "match": "South Pasadena|S\\.? ?Pasadena"
+      },
+      {
+        "name": "Chino Hills",
+        "match": "\\bCH\\b|Chino"
+      },
+      {
+        "name": "South Ontario",
+        "match": "Ontario"
+      },
+      {
+        "name": "Fontana",
+        "area": "AYSO Region 136",
+        "match": "Fontana"
+      },
+      {
+        "name": "Jurupa Valley",
+        "match": "Jurupa"
+      },
+      {
+        "name": "Moreno Valley",
+        "match": "\\bMV\\b|\\bMOVAL\\b|Moreno"
+      },
+      {
+        "name": "Menifee",
+        "match": "Menifee"
+      },
+      {
+        "name": "Redlands",
+        "area": "not on the Alliance list",
+        "match": "Redlands"
+      },
+      {
+        "name": "Beaumont",
+        "area": "not on the Alliance list",
+        "match": "Beaumont"
+      },
+      {
+        "name": "Corona/Norco",
+        "area": "not on the Alliance list",
+        "match": "Corona|Norco"
+      }
+    ]
   }
 }
