@@ -1,0 +1,70 @@
+{
+  "_note": "Head coaches by GotSport team id, from the club's own coach list. Shown on team pages and club pages (src/lib/team-coaches.ts). Add the source for each club.",
+  "_sources": {
+    "One Ivy FC": "https://www.oneivyfc.com/general-1 (coach list; Laurent's teams as in his header, confirmed by the user 2026-11-13). Not in our data: B2012 Pink (Jake), G2012 Grey (Thaabit). GU08 Pink: Coach Nadia and Coach Dan, from @oneivyfc on Instagram (about May 2026, 'U8 girls are Champions… this spring… wait until the little ones are in first grade'): kindergartners, so the 2019 team; not on the club's coach list."
+  },
+  "571213": {
+    "coach": "Alex Walsh",
+    "team": "One Ivy FC B2014 Pink"
+  },
+  "570617": {
+    "coach": "Alex Walsh",
+    "team": "One Ivy FC B2016 Pink"
+  },
+  "571211": {
+    "coach": "Coach Aaron",
+    "team": "One Ivy FC B2013 Pink"
+  },
+  "489662": {
+    "coach": "Coach Aaron",
+    "team": "One Ivy FC B2015 Pink"
+  },
+  "611401": {
+    "coach": "Coach Laurent",
+    "team": "One Ivy FC G2012 Pink"
+  },
+  "571212": {
+    "coach": "Coach Laurent",
+    "team": "One Ivy FC B2013 Grey"
+  },
+  "476580": {
+    "coach": "Coach Laurent",
+    "team": "One Ivy FC B2014 Grey"
+  },
+  "570616": {
+    "coach": "Coach Jake",
+    "team": "One Ivy FC B2017 Pink"
+  },
+  "570613": {
+    "coach": "Coach Lucas",
+    "team": "One Ivy FC B2018 Pink"
+  },
+  "596661": {
+    "coach": "Coach Lucas",
+    "team": "One Ivy FC B2018 Grey"
+  },
+  "571218": {
+    "coach": "Coach Claudia",
+    "team": "One Ivy FC G2015 Pink"
+  },
+  "571219": {
+    "coach": "Coach Claudia",
+    "team": "One Ivy FC G2016 Pink"
+  },
+  "571216": {
+    "coach": "Coach Thaabit",
+    "team": "One Ivy FC B2015 Grey"
+  },
+  "571217": {
+    "coach": "Coach Zak",
+    "team": "One Ivy FC B2016 Grey"
+  },
+  "596659": {
+    "coach": "Coach Zak",
+    "team": "One Ivy FC B2017 Grey"
+  },
+  "716610": {
+    "coach": "Coach Nadia & Coach Dan",
+    "team": "One Ivy FC GU08 Pink"
+  }
+}

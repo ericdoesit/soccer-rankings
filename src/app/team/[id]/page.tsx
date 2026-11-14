@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getTeamById } from "@/lib/data";
 import { getTeamContext } from "@/lib/team-context";
 import { getTeamClubInfo } from "@/lib/explore";
+import { coachFor } from "@/lib/team-coaches";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -33,6 +34,7 @@ export default async function TeamPage({
   // club page and location (chapter) for clubs with several locations
   const clubInfo = team.clubVerified ? getTeamClubInfo(team.id, team.club, team.name) : null;
   const clubHref = clubInfo ? `/club/${clubInfo.slug}` : `/club/${encodeURIComponent(team.club)}`;
+  const coach = coachFor(team.gotsportTeamId);
   const locHref = clubInfo?.location ? `${clubHref}?loc=${encodeURIComponent(clubInfo.location)}` : null;
 
   // Records by season (Aug 1 – Jul 31). Rosters turn over each August, so the headline
@@ -181,6 +183,12 @@ export default async function TeamPage({
               </p>
               {ctx.otherNames.length > 0 && <p className="mt-1 text-xs text-muted-foreground">Listed as: {ctx.otherNames.join(" · ")}</p>}
             </div>
+            {coach && (
+              <div>
+                <p className="lowbrow">Head coach</p>
+                <p className="mt-1">{coach}</p>
+              </div>
+            )}
             {ctx.divisions.length > 0 && (
               <div>
                 <p className="lowbrow">This season</p>

@@ -16,7 +16,10 @@ function TeamCell({ teams, clubName }: { teams: TeamRow[]; clubName: string }) {
     <ul className="space-y-1">
       {teams.map((t) => (
         <li key={t.id} className="flex items-baseline justify-between gap-2">
-          <Link href={`/team/${t.id}`} className="hover:text-primary transition-colors truncate" title={t.name}>{shortName(t, clubName)}</Link>
+          <span className="min-w-0 truncate">
+            <Link href={`/team/${t.id}`} className="hover:text-primary transition-colors" title={t.name}>{shortName(t, clubName)}</Link>
+            {t.coach && <span className="ml-1.5 text-xs text-muted-foreground">{t.coach}</span>}
+          </span>
           <span className="shrink-0 text-xs text-muted-foreground">{t.rank ? `#${t.rank}` : "unranked"}</span>
         </li>
       ))}

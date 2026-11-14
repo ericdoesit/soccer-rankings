@@ -1,0 +1,51 @@
+{
+  "_note": "AthleteOne (TotalGlobalSports) team names → the GotSport team they are, by GotSport team id, so pasted AthleteOne games join the team's record. Used by scripts/import-athleteone-paste.ts.",
+  "ONE IVY F.C - GU8 Pink": {
+    "gotsportTeamId": 716610,
+    "evidence": "LA Champions Cup GU8 (born 08/2018-07/2019); One Ivy FC's GotSport team 'GU08 Pink' is that age; coaches Nadia & Dan (club Instagram, U8 girls champions spring 2026)"
+  },
+  "ONE IVY F.C - BU7 Pink": {
+    "gotsportTeamId": 716607,
+    "evidence": "LA Champions Cup BU7 (born 08/2019-07/2020); One Ivy FC's GotSport team 'BU07 Pink' is that age"
+  },
+  "ONE IVY F.C - BU9 Pink": {
+    "gotsportTeamId": 570613,
+    "evidence": "LA Champions Cup BU9 (born 08/2017-07/2018); One Ivy FC's GotSport team 'B2018 Pink' (Coach Lucas; club Instagram 'BU9 Pink are Champions again! Congratulations Coach Lucas')"
+  },
+  "ONE IVY F.C - BU10 Pink": {
+    "gotsportTeamId": 570616,
+    "evidence": "LA Champions Cup BU10 (born 08/2016-07/2017); One Ivy FC's GotSport team 'B2017 Pink' (Coach Jake)"
+  },
+  "ONE IVY F.C - BU11 Pink": {
+    "gotsportTeamId": 570617,
+    "evidence": "LA Champions Cup BU11 (born 08/2015-07/2016); One Ivy FC's GotSport team 'B2016 Pink' (Alex Walsh)"
+  },
+  "ONE IVY F.C - BU12 Pink": {
+    "gotsportTeamId": 489662,
+    "evidence": "LA Champions Cup BU12 (born 08/2014-07/2015); One Ivy FC's GotSport team 'B2015 Pink' (Coach Aaron)"
+  },
+  "ONE IVY F.C - BU13 Grey": {
+    "gotsportTeamId": 476580,
+    "evidence": "LA Champions Cup BU13 (born 08/2013-07/2014); One Ivy FC's GotSport team 'B2014 Grey' (Coach Laurent)"
+  },
+  "ONE IVY F.C - BU13 Pink": {
+    "gotsportTeamId": 571213,
+    "evidence": "LA Champions Cup BU13 (born 08/2013-07/2014); One Ivy FC's GotSport team 'B2014 Pink' (Alex Walsh)"
+  },
+  "ONE IVY F.C - BU14 Pink": {
+    "gotsportTeamId": 571211,
+    "evidence": "LA Champions Cup BU14 (born 08/2012-07/2013); One Ivy FC's GotSport team 'B2013 Pink' (Coach Aaron)"
+  },
+  "ONE IVY F.C - GU9 Pink": {
+    "gotsportTeamId": 596660,
+    "evidence": "LA Champions Cup GU9 (born 08/2017-07/2018); One Ivy FC's GotSport team 'G2018 Pink'"
+  },
+  "ONE IVY F.C - GU11 Pink": {
+    "gotsportTeamId": 571219,
+    "evidence": "LA Champions Cup GU11 (born 08/2015-07/2016); One Ivy FC's GotSport team 'G2016 Pink' (Coach Claudia)"
+  },
+  "ONE IVY F.C - BU8 Pink": {
+    "gotsportTeamId": 716609,
+    "evidence": "LA Champions Cup BU8 (born 08/2018-07/2019); One Ivy FC's GotSport team 'BU08 Pink'"
+  }
+}
