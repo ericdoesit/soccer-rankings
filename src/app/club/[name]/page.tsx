@@ -25,16 +25,25 @@ function TeamCell({ teams, clubName }: { teams: TeamRow[]; clubName: string }) {
 }
 
 /** /club/<slug> (or a club name, for older links): teams by age group × gender */
-export default async function ClubPage({ params }: { params: Promise<{ name: string }> }) {
+export default async function ClubPage({ params, searchParams }: {
+  params: Promise<{ name: string }>; searchParams: Promise<{ loc?: string }>;
+}) {
   const { name } = await params;
+  const { loc } = await searchParams;
   const key = decodeURIComponent(name);
   const club = getClubRow(key);
   if (!club) return <LegacyClub clubName={key} />;
 
   const ages = [...new Set(club.teams.map((t) => t.ageGroup))]
     .sort((a, b) => (AGE_ORDER.indexOf(a) + 1 || 99) - (AGE_ORDER.indexOf(b) + 1 || 99));
+  // clubs with several locations: ?loc=<location> narrows the grid to one
+  const location = club.locations.find((l) => l.name === loc) ?? null;
+  const shown = location ? club.teams.filter((t) => t.location === location.name) : club.teams;
+  const locHref = (l: string | null) => `/club/${club.slug}${l ? `?loc=${encodeURIComponent(l)}` : ""}`;
+  const pill = (on: boolean) =>
+    `rounded-full border px-3 py-1 text-xs transition-colors ${on ? "border-primary bg-primary text-primary-foreground" : "border-border hover:bg-muted"}`;
   const cell = (age: string, gender: "Boys" | "Girls") =>
-    club.teams.filter((t) => t.ageGroup === age && t.gender === gender)
+    shown.filter((t) => t.ageGroup === age && t.gender === gender)
       .sort((a, b) => (a.rank ?? 1e9) - (b.rank ?? 1e9));
   const ranked = club.teams.filter((t) => t.rank !== null);
   const rec = ranked.reduce((r, t) => [r[0] + t.wins, r[1] + t.losses, r[2] + t.draws], [0, 0, 0]);
@@ -90,6 +99,26 @@ export default async function ClubPage({ params }: { params: Promise<{ name: str
         </div>
       )}
 
+      {club.locations.length > 0 && (
+        <div className="mt-6">
+          <p className="lowbrow">Locations</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            <Link href={locHref(null)} scroll={false} className={pill(!location)}>All · {club.teams.length}</Link>
+            {club.locations.filter((l) => l.teams > 0).map((l) => (
+              <Link key={l.name} href={locHref(l.name)} scroll={false} className={pill(location?.name === l.name)} title={l.area ?? undefined}>
+                {l.name} · {l.teams}
+              </Link>
+            ))}
+          </div>
+          {location?.area && <p className="mt-2 text-xs text-muted-foreground">{location.area}</p>}
+          {club.locationSource && (
+            <p className="mt-1 text-xs text-muted-foreground">
+              Locations from the club&apos;s site; a team&apos;s location is read from its name.
+            </p>
+          )}
+        </div>
+      )}
+
       <Card className="mt-6">
         <CardContent className="p-0 overflow-x-auto">
           <table className="w-full text-sm">
@@ -101,7 +130,7 @@ export default async function ClubPage({ params }: { params: Promise<{ name: str
               </tr>
             </thead>
             <tbody>
-              {ages.map((age) => (
+              {ages.filter((age) => cell(age, "Boys").length + cell(age, "Girls").length > 0).map((age) => (
                 <tr key={age} className="border-b last:border-b-0 border-border/50 align-top">
                   <td className="px-4 py-2.5 font-semibold">{age}</td>
                   <td className="px-4 py-2.5 w-1/2"><TeamCell teams={cell(age, "Boys")} clubName={club.name} /></td>

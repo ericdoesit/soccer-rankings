@@ -86,16 +86,17 @@ const STATE_TAG = /\(\s*(?:CA-?[SN]|[SN]-?CA|AK|AZ|CA|CO|HI|ID|MT|NV|NM|OR|UT|WA
 
 /** Drop separators left dangling at either end or doubled ("Club - ECNL" → "Club ECNL"). */
 function tidy(s: string): string {
-  return s.replace(/\s+[-–|/:]+(?=\s)/g, " ").replace(/^[\s\-–|/:,]+|[\s\-–|/:,]+$/g, "").replace(/\s+/g, " ").trim();
+  return s.replace(/\s+[-–|/:]+(?=\s)/g, " ").replace(/^[\s\-–|/:,._]+|[\s\-–|/:,_]+$/g, "").replace(/\s+/g, " ").trim();
 }
 
 const ACRONYM_SKIP = new Set(["of", "the", "and", "de", "&"]);
 /** Possible acronyms of a club name: "California Odyssey Soccer Club" → COSC, COS, CO. */
 export function clubAcronyms(clubName: string): string[] {
-  const words = clubName.replace(/[^A-Za-z0-9& ]+/g, " ").split(/\s+/).filter((w) => w && !ACRONYM_SKIP.has(w.toLowerCase()));
+  const words = clubName.replace(STATE_TAG, " ").replace(/[^A-Za-z0-9& ]+/g, " ").split(/\s+/).filter((w) => w && !ACRONYM_SKIP.has(w.toLowerCase()));
   const out = new Set<string>();
-  const initials = words.map((w) => (/^[A-Z0-9]{2,}$/.test(w) ? w : w[0].toUpperCase())).join("");
-  out.add(initials);
+  out.add(words.map((w) => (/^[A-Z0-9]{2,}$/.test(w) ? w : w[0].toUpperCase())).join(""));
+  // a name written in capitals: "TOTAL FUTBOL ACADEMY" → TFA
+  out.add(words.map((w) => w[0].toUpperCase()).join(""));
   // without trailing generic words ("Soccer Club", "FC", "SC")
   const core = words.filter((w) => !/^(soccer|club|fc|sc|jsc|futbol|football|academy|association|youth)$/i.test(w));
   if (core.length >= 2) out.add(core.map((w) => w[0].toUpperCase()).join(""));
@@ -131,25 +132,35 @@ export function formatTeamName(rawName: string, clubName: string | null, ageGrou
   let rest = parsed.rest;
   let acronym = "";
   if (clubName) {
+    // "TOTAL FUTBOL ACADEMY (CA)": the team name has had its state tag removed, so match without it
+    const matchName = clubName.replace(STATE_TAG, " ").replace(/\s+/g, " ").trim() || clubName;
     // drop the club name if the team name repeats it
-    const clubRe = new RegExp(`^${escapeRe(clubName).replace(/\\ /g, "\\s+")}\\b\\s*`, "i");
+    const clubRe = new RegExp(`^${escapeRe(matchName).replace(/\\ /g, "\\s+")}\\b\\s*`, "i");
     rest = rest.replace(clubRe, "");
     // "Sparta United Soccer Club …" for club "Sparta United": drop the leftover suffix
     if (rest !== parsed.rest) rest = rest.replace(/^(soccer club|futbol club|football club|soccer|sc|fc)\b\s*/i, "");
-    const acr = clubAcronyms(clubName);
+    const acr = clubAcronyms(matchName);
     // "FME SC Blue": the acronym may be followed by SC/FC, which belongs to it
-    const lead = rest.match(/^([A-Z][A-Z0-9]{1,6})\b(?:\s+(?:SC|FC|JSC))?\s*/);
-    if (lead && acr.some((a) => a === lead[1] || (lead[1].length >= 3 && a.startsWith(lead[1])))) {
-      acronym = lead[1]; rest = rest.slice(lead[0].length);
+    const lead = rest.match(/^([A-Z][A-Z0-9]{1,6})\b(?:\s+(?:SC|FC|JSC)\b)?\s*/);
+    const firstWord = matchName.split(/\s+/)[0];
+    if (lead && lead[1] === firstWord && /^[A-Z0-9]{4,}$/.test(firstWord)) {
+      // "PRIME SC White" for PRIME Soccer Club: the club's own first word, not an acronym
+      rest = tidy(rest.slice(lead[0].length));
+    } else if (lead && acr.some((a) => a === lead[1] || (lead[1].length >= 3 && a.startsWith(lead[1])))) {
+      acronym = lead[1]; rest = tidy(rest.slice(lead[0].length));
     }
     // a club-name copy after the acronym ("COSC California Odyssey …"), or a
     // repeated one ("ALBION SC San Diego ALBION SC San Diego B16")
     rest = rest.replace(clubRe, "");
-    rest = rest.replace(new RegExp(`\\b${escapeRe(clubName).replace(/\\ /g, "\\s+")}\\b`, "gi"), " ");
+    rest = rest.replace(new RegExp(`\\b${escapeRe(matchName).replace(/\\ /g, "\\s+")}\\b`, "gi"), " ");
+    // the club's short form anywhere: "Beach FC" for Beach Futbol Club, "Arsenal SC" for Arsenal Soccer Club
+    const shortForm = matchName.replace(/\b(?:Futbol|Football) Club\b/i, "FC").replace(/\bSoccer Club\b/i, "SC");
+    if (shortForm !== matchName && shortForm.split(/\s+/).length >= 2)
+      rest = rest.replace(new RegExp(`(?<![A-Za-z0-9])${escapeRe(shortForm).replace(/\\ /g, "[\\s,]+")}(?![A-Za-z0-9])[\\s,-]*`, "gi"), " ");
     rest = tidy(rest);
-    rest = stripClubPrefix(rest, clubName);
+    rest = stripClubPrefix(rest, matchName);
     // the club name's last word repeated: "Pilchuck Soccer Alliance - Force" + "Force N1 Black"
-    const last = clubName.trim().split(/\s+/).pop() ?? "";
+    const last = matchName.trim().split(/\s+/).pop() ?? "";
     if (last.length >= 4 && /^[A-Za-z]+$/.test(last) && !/^(club|soccer|futbol|football|academy|united|association|league)$/i.test(last))
       rest = rest.replace(new RegExp(`^${escapeRe(last)}\\b\\s*`, "i"), "");
     if (!acronym) {

@@ -305,6 +305,12 @@ export function buildTeamIdentity<T extends TeamLike>(
   const stateOverrides = Object.entries(loadJson<Record<string, { state: string }>>(
     path.join(process.cwd(), "data", "seed", "club-state-overrides.json"), {})).filter(([k]) => !k.startsWith("_")).map(([k, v]) => [k, v.state] as const);
 
+  // data/seed/club-merges.json: GotSport names for the same club ("Total Futbol Academy" and
+  // "TOTAL FUTBOL ACADEMY (CA)") → the one name the site shows
+  const merges = new Map(Object.entries(loadJson<Record<string, string | { into: string }>>(
+    path.join(process.cwd(), "data", "seed", "club-merges.json"), {})).filter(([k]) => !k.startsWith("_"))
+    .map(([k, v]) => [k.toLowerCase(), typeof v === "string" ? v : v.into]));
+
   const out = teams.map((t) => {
     const raw = t.sourceName ?? t.name;
     const gsId = gsIdByName.get(raw) ?? (dirById.has(t.id) ? t.id : undefined);
@@ -325,15 +331,19 @@ export function buildTeamIdentity<T extends TeamLike>(
     const srcAssoc = sourceAssocByName.get(raw);
     const ok = !d && gsId !== undefined ? approved.get(gsId) : undefined;
     if (ok) s.approved++;
-    const pat = !d && !ok ? patternAliases.find((a) => a.re.test(raw)) : undefined;
+    // also for teams the directory lists with a blank club
+    const blankDir = !!d && !d.clubName.trim();
+    const pat = (!d || blankDir) && !ok ? patternAliases.find((a) => a.re.test(raw) || (blankDir && a.re.test(d!.teamName))) : undefined;
     const org = !d && !ok && !pat && gsId !== undefined ? orgClub.get(orgByGs.get(gsId) ?? -1) : undefined;
     if (org) s.orgClub++;
-    const club = d ? { name: d.clubName.trim(), association: d.association }
+    const club0 = d && !(blankDir && pat) ? { name: d.clubName.trim(), association: d.association }
       : ok ? { name: ok.club, association: ok.association }
       : pat ? { name: pat.club, association: pat.association }
       : org ? org
       : srcAssoc ? matchInAssoc(raw, srcAssoc)
       : gsOutside || outsideTag(raw) ? null : matchClub(raw, (esAny && esAny !== "CA" ? esAny : null) ?? opponentState(t.id) ?? tagState(raw) ?? esAny);
+    const merged = club0 ? merges.get(club0.name.toLowerCase()) : undefined;
+    const club = club0 && merged ? { ...club0, name: merged } : club0;
     if (d) s.directory++; else if (club) s.clubMatch++;
 
     let state = d?.association ?? club?.association ?? srcAssoc ?? es ?? "";

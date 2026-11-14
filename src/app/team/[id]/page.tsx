@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTeamById } from "@/lib/data";
 import { getTeamContext } from "@/lib/team-context";
+import { getTeamClubInfo } from "@/lib/explore";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -29,6 +30,10 @@ export default async function TeamPage({
 
   const recentForm = team.games.slice(0, 5);
   const ctx = getTeamContext(team.gotsportTeamId, !!team.clubVerified);
+  // club page and location (chapter) for clubs with several locations
+  const clubInfo = team.clubVerified ? getTeamClubInfo(team.id, team.club, team.name) : null;
+  const clubHref = clubInfo ? `/club/${clubInfo.slug}` : `/club/${encodeURIComponent(team.club)}`;
+  const locHref = clubInfo?.location ? `${clubHref}?loc=${encodeURIComponent(clubInfo.location)}` : null;
 
   // Records by season (Aug 1 – Jul 31). Rosters turn over each August, so the headline
   // record is this season's; earlier seasons are listed separately below.
@@ -61,12 +66,10 @@ export default async function TeamPage({
             <h1 className="heading">{team.name}</h1>
             <p className="mt-1 text-muted-foreground">
               {team.clubVerified ? (
-                <Link
-                  href={`/club/${encodeURIComponent(team.club)}`}
-                  className="hover:text-primary transition-colors"
-                >
-                  {team.club}
-                </Link>
+                <>
+                  <Link href={clubHref} className="hover:text-primary transition-colors">{team.club}</Link>
+                  {locHref && <> &middot; <Link href={locHref} className="hover:text-primary transition-colors">{clubInfo!.location}</Link></>}
+                </>
               ) : (
                 // GotSport lists the team without a club; its stand-in "club" is a piece of its own name
                 <span>Club not listed{ctx?.likelyClub ? ` (possibly ${ctx.likelyClub.club})` : ""}</span>
@@ -144,7 +147,15 @@ export default async function TeamPage({
             <div>
               <p className="lowbrow">Club</p>
               {team.clubVerified ? (
-                <p className="mt-1"><Link href={`/club/${encodeURIComponent(team.club)}`} className="hover:text-primary">{team.club}</Link></p>
+                <>
+                  <p className="mt-1"><Link href={clubHref} className="hover:text-primary">{team.club}</Link></p>
+                  {locHref && (
+                    <p className="mt-1 text-muted-foreground">
+                      Location: <Link href={locHref} className="text-foreground hover:text-primary">{clubInfo!.location}</Link>
+                      {clubInfo!.area && <span className="text-xs"> ({clubInfo!.area})</span>}
+                    </p>
+                  )}
+                </>
               ) : (
                 <div className="mt-1">
                   <p>Not listed. GotSport publishes this team without a club.</p>

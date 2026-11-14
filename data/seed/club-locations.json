@@ -1,0 +1,227 @@
+{
+  "_note": "Locations (chapters) of clubs with teams in several areas, keyed by the club name the site shows. Each location's 'match' is a regex (case-insensitive) tested against the team name with the club name removed; the first location that matches wins. 'programs' are club-wide programs (MLS NEXT, ECNL, GA...) for teams no location matches. Applied in src/lib/explore.ts; shown as a filter on the club page and on team pages.",
+  "TOTAL FUTBOL ACADEMY (CA)": {
+    "source": "https://www.totalfutbolacademy.com/page/show/44520--join-us- (14 chapters); TFA-PRO: https://www.totalfutbolacademy.com/page/show/1801677-tfa-pro",
+    "locations": [
+      {
+        "name": "TFA-PRO",
+        "area": "Pico Rivera & Walnut",
+        "match": "\\bPro\\b"
+      },
+      {
+        "name": "Northeast L.A.",
+        "area": "Elysian Park, Silver Lake",
+        "match": "\\bNE\\b|Northeast"
+      },
+      {
+        "name": "Glendale",
+        "area": "Glendale, La Crescenta",
+        "match": "Glendale"
+      },
+      {
+        "name": "Hollywood",
+        "area": "Hollywood, Griffith Park",
+        "match": "Hollywood"
+      },
+      {
+        "name": "Central L.A.",
+        "area": "Boyle Heights, South Gate",
+        "match": "\\bCentral\\b"
+      },
+      {
+        "name": "Southeast L.A.",
+        "area": "Paramount, Downey, Bell",
+        "match": "\\bSELA\\b|Southeast"
+      },
+      {
+        "name": "Southwest L.A.",
+        "area": "Inglewood, LAX",
+        "match": "\\bSW\\b|Southwest"
+      },
+      {
+        "name": "Northwest L.A.",
+        "area": "Conejo Valley",
+        "match": "\\bNW\\b|Northwest"
+      },
+      {
+        "name": "Ventura County",
+        "area": "Ventura, Oxnard, Santa Barbara",
+        "match": "\\bVC\\b|Ventura"
+      },
+      {
+        "name": "San Gabriel Valley",
+        "area": "San Gabriel, Covina",
+        "match": "\\bSGV\\b|San Gabriel"
+      },
+      {
+        "name": "Antelope Valley",
+        "area": "Palmdale, Lancaster",
+        "match": "\\bAV\\b|Antelope"
+      },
+      {
+        "name": "Orange County",
+        "area": "Santa Ana, Costa Mesa",
+        "match": "\\bOC\\b|Orange County"
+      },
+      {
+        "name": "South Bay",
+        "area": "Torrance, Harbor City",
+        "match": "\\bSB\\b|South Bay"
+      },
+      {
+        "name": "Inland Empire",
+        "area": "Upland, Ontario, Riverside",
+        "match": "\\bIE\\b|Inland"
+      },
+      {
+        "name": "Santa Clarita Valley",
+        "area": "not on the chapter list",
+        "match": "\\bSCV\\b|Santa Clarita"
+      },
+      {
+        "name": "San Fernando Valley",
+        "area": "not on the chapter list",
+        "match": "\\bSFV\\b"
+      }
+    ],
+    "programs": "MLS[- ]?NEXT|\\bEA2?\\b|Elite Academy|\\bN1\\b"
+  },
+  "LA Surf Soccer Club": {
+    "source": "https://wearelasurf.com/ (9 locations). Codes from the location page addresses (lc-pas, sfv) and team names; SO = Sherman Oaks, SM = San Marino, HW = Hollywood, SW = Southwest, ARC = Arcadia, COV = Covina. RO/RM = Rosemead is inferred (the only location starting with R).",
+    "locations": [
+      {
+        "name": "La Cañada/Pasadena",
+        "match": "\\bLC\\b|La Ca[nñ]ada|Pasadena"
+      },
+      {
+        "name": "Sherman Oaks",
+        "match": "\\bSO\\b|Sherman Oaks"
+      },
+      {
+        "name": "San Fernando Valley",
+        "match": "\\bSFV\\b"
+      },
+      {
+        "name": "Southwest",
+        "match": "\\bSW\\b|Southwest"
+      },
+      {
+        "name": "Hollywood",
+        "match": "\\bHW\\b|Hollywood"
+      },
+      {
+        "name": "San Marino",
+        "match": "\\bSM\\b|San Marino"
+      },
+      {
+        "name": "Covina",
+        "match": "\\bCOV\\b|Covina"
+      },
+      {
+        "name": "Arcadia",
+        "match": "\\bARC\\b|Arcadia"
+      },
+      {
+        "name": "Rosemead",
+        "match": "\\bRO\\b|\\bRM\\b|Rosemead"
+      }
+    ],
+    "programs": "MLS[- ]?NEXT|\\bMLS\\b|Futures|\\bGA\\b|Aspire|\\bDPL\\b|\\bEAA?F?\\b|\\bEA2?\\b|\\bN1\\b|\\bNPL\\b"
+  },
+  "Sporting California USA": {
+    "source": "https://www.sportingca.us/ (Regions menu: 10 regions with their cities)",
+    "locations": [
+      {
+        "name": "Coachella Valley",
+        "area": "Palm Desert, Palm Springs, Indio",
+        "match": "Coachella|Palm Desert|Palm Springs|Rancho Mirage|Indian Wells|Indio"
+      },
+      {
+        "name": "Bakersfield",
+        "area": "Bakersfield, Delano, Shafter",
+        "match": "Bakersfield|Delano|Shafter"
+      },
+      {
+        "name": "Beaumont",
+        "area": "Beaumont, Banning, Yucaipa, Redlands",
+        "match": "Beaumont|Banning|Yucaipa|Redlands"
+      },
+      {
+        "name": "Corona",
+        "area": "Corona, Norco, Temescal Valley, Lake Elsinore, Riverside",
+        "match": "Corona|Norco|Temescal|Elsinore|Riverside"
+      },
+      {
+        "name": "Nevada",
+        "area": "Las Vegas",
+        "match": "Nevada|Las Vegas|\\bLV\\b"
+      },
+      {
+        "name": "North",
+        "area": "Ontario, Chino, Rancho Cucamonga, Fontana, Eastvale, Upland",
+        "match": "\\bNorth\\b|Ontario|Chino|Cucamonga|Fontana|Eastvale|Upland"
+      },
+      {
+        "name": "Perris",
+        "area": "Perris, Hemet, San Jacinto",
+        "match": "Perris|Hemet|San Jacinto"
+      },
+      {
+        "name": "San Gabriel Valley / Los Angeles",
+        "area": "Alhambra, Baldwin Park, Covina, Santa Fe Springs, Downey, Torrance",
+        "match": "\\bSGV\\b|Alhambra|Baldwin Park|Covina|Santa Fe Springs|Downey|Torrance|South Bay"
+      },
+      {
+        "name": "Valley",
+        "area": "Canoga Park, West Hills, Chatsworth",
+        "match": "Canoga|West Hills|Chatsworth|\\bValley\\b"
+      },
+      {
+        "name": "Ventura County",
+        "area": "Ventura, Oxnard, Camarillo",
+        "match": "Ventura|Oxnard|Camarillo"
+      }
+    ],
+    "programs": "\\bECNL\\b|\\bECRL\\b|\\bRL\\b|Pre-?ECNL|\\bNL\\b|\\bN1\\b"
+  },
+  "San Diego Surf Soccer Club": {
+    "source": "https://surfsoccer.com/del-mar/ (Our Locations: Del Mar, Central, South, North)",
+    "locations": [
+      {
+        "name": "Del Mar",
+        "match": "Del Mar"
+      },
+      {
+        "name": "Central",
+        "match": "\\bCentral\\b"
+      },
+      {
+        "name": "South",
+        "match": "\\bSouth\\b"
+      },
+      {
+        "name": "North",
+        "match": "\\bNorth\\b"
+      }
+    ],
+    "programs": "\\bECNL\\b|\\bECRL\\b|\\bRL\\b|Academy|\\bNPL\\b|\\bN1\\b"
+  },
+  "Beach Futbol Club": {
+    "source": "https://beachfutbolclub.com/ (three regions: El Segundo, South Bay, Long Beach). Team names carry the region: ES, SB, LB.",
+    "locations": [
+      {
+        "name": "South Bay",
+        "match": "\\bSB\\b|South Bay"
+      },
+      {
+        "name": "Long Beach",
+        "match": "\\bLB\\b|Long Beach"
+      },
+      {
+        "name": "El Segundo",
+        "match": "\\bES\\b|El Segundo"
+      }
+    ],
+    "programs": "ECNL|\\bECRL\\d?\\b|\\bRL\\b|\\bN1\\b|\\bNPL\\b|WPSL"
+  }
+}

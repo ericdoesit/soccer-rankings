@@ -193,5 +193,41 @@
   "website": "https://forms.360player.com/nevadarush",
   "source": "web search 2026-11-11: no homepage; club registration portal",
   "verifiedAt": "2026-11-11"
+ },
+ {
+  "name": "San Diego Sockers Youth",
+  "website": "https://www.sdsockersyouth.org/",
+  "source": "user-provided club site; runs the Attack Summer Classic (GotSport 42422, 53022) and Cardiff Sockers Cup (TGS)",
+  "verifiedAt": "2026-11-13"
+ },
+ {
+  "name": "San Diego Surf Soccer Club",
+  "website": "https://surfsoccer.com/del-mar/",
+  "source": "user-provided; replaces the SoCal Soccer League list link (sportngin)",
+  "verifiedAt": "2026-11-13"
+ },
+ {
+  "name": "San Diego FORCE FC",
+  "website": "https://sdforcefc.com/",
+  "source": "user-provided club site",
+  "verifiedAt": "2026-11-13"
+ },
+ {
+  "name": "TOTAL FUTBOL ACADEMY (CA)",
+  "website": "https://www.totalfutbolacademy.com/",
+  "source": "user-provided club site (the league list links an old sportngin page)",
+  "verifiedAt": "2026-11-13"
+ },
+ {
+  "name": "California Football Academy",
+  "website": "https://www.cfaorangecounty.com/",
+  "source": "user-provided, checked 2026-11-13: CFA Orange County, Aliso Viejo; runs Elite Academy, GA Aspire, N1 and SoCal League teams. The SoCal League list links elitesoccerleague.com, the club's recreational league.",
+  "verifiedAt": "2026-11-13"
+ },
+ {
+  "name": "Express Soccer",
+  "website": "https://www.express.soccer/",
+  "source": "user-provided: Encinitas Express Soccer Club's competitive site (the league list links encinitas-soccer.org)",
+  "verifiedAt": "2026-11-13"
  }
 ]

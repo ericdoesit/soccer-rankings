@@ -43,6 +43,8 @@ export interface TeamRow {
   rank: number | null; score: number | null; wins: number; losses: number; draws: number;
   lastPlayed: string;
   leagues: string[]; // league slugs, latest season
+  /** the club location (chapter) the team belongs to, from data/seed/club-locations.json */
+  location?: string | null;
 }
 export interface ClubRow {
   slug: string; name: string; area: Area | null; teams: TeamRow[];
@@ -52,7 +54,15 @@ export interface ClubRow {
   memberOf: string[];
   /** where the website / city came from */
   infoSource: string | null;
+  /** clubs with several locations (data/seed/club-locations.json); empty for single-site clubs */
+  locations: Array<{ name: string; area: string | null; teams: number }>;
+  locationSource: string | null;
 }
+
+/** Label for a team at a multi-location club that no location matches but a club-wide program does */
+export const CLUB_WIDE = "Club-wide programs";
+/** …and for one that matches neither */
+export const OTHER_LOCATION = "Location not given";
 export interface LeagueRow {
   slug: string; name: string; kind: "league" | "cup"; tier: string | null; def: LeagueDef | null;
   seasons: Array<{ season: string; events: string[]; teamIds: Set<number> }>;
@@ -67,6 +77,10 @@ interface ExploreIndex {
   clubs: Map<string, ClubRow>;
   clubSlugByName: Map<string, string>;
   areaStats: Map<string, { leagues: LeagueRow[]; clubs: ClubRow[]; teams: number; ranked: number }>;
+  teamRow: Map<number, TeamRow>;
+  clubOfTeam: Map<number, string>;
+  /** club slug → location of a team name, for multi-location clubs */
+  locate: Map<string, (teamName: string) => string>;
 }
 const cache = new WeakMap<DataSet, ExploreIndex>();
 
@@ -192,7 +206,7 @@ function build(data: DataSet): ExploreIndex {
       slug = slugify(t.club);
       if (clubs.has(slug)) slug = `${slug}-${t.state.toLowerCase()}`;
       clubSlugByName.set(key, slug);
-      clubs.set(slug, { slug, name: t.club, area: null, teams: [], leagues: [], ranked: 0, bestRank: null, website: null, city: null, infoSource: null, memberOf: [] });
+      clubs.set(slug, { slug, name: t.club, area: null, teams: [], leagues: [], ranked: 0, bestRank: null, website: null, city: null, infoSource: null, memberOf: [], locations: [], locationSource: null });
     }
     const r = rankBy.get(t.id);
     clubs.get(slug)!.teams.push({
@@ -211,6 +225,7 @@ function build(data: DataSet): ExploreIndex {
     club.bestRank = club.teams.reduce<number | null>((m, t) => (t.rank !== null && (m === null || t.rank < m) ? t.rank : m), null);
   }
   attachClubInfo(clubs, teams);
+  const locate = attachLocations(clubs);
   const teamRow = new Map<number, TeamRow>();
   for (const c of clubs.values()) for (const t of c.teams) teamRow.set(t.id, t);
   const clubOfTeam = new Map<number, string>();
@@ -242,7 +257,38 @@ function build(data: DataSet): ExploreIndex {
       ranked: cs.reduce((n, c) => n + c.ranked, 0),
     });
   }
-  return { leagues, clubs, clubSlugByName, areaStats };
+  return { leagues, clubs, clubSlugByName, areaStats, teamRow, clubOfTeam, locate };
+}
+
+/** data/seed/club-locations.json: which location (chapter) each team of a multi-location club belongs to */
+function attachLocations(clubs: Map<string, ClubRow>): Map<string, (teamName: string) => string> {
+  const locate = new Map<string, (teamName: string) => string>();
+  type Entry = { source?: string; locations: Array<{ name: string; area?: string; match: string }>; programs?: string };
+  const table = readJson<Record<string, Entry | string>>("data/seed/club-locations.json", {});
+  const byName = new Map(Object.entries(table).filter(([k, v]) => !k.startsWith("_") && typeof v === "object").map(([k, v]) => [k.toLowerCase(), v as Entry]));
+  for (const club of clubs.values()) {
+    const e = byName.get(club.name.toLowerCase());
+    if (!e) continue;
+    const locs = e.locations.map((l) => ({ ...l, re: new RegExp(l.match, "i") }));
+    const programs = e.programs ? new RegExp(e.programs, "i") : null;
+    const clubRe = new RegExp(club.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+    const find = (teamName: string) => {
+      const rest = teamName.replace(clubRe, " ");
+      return locs.find((l) => l.re.test(rest))?.name ?? (programs?.test(rest) ? CLUB_WIDE : OTHER_LOCATION);
+    };
+    locate.set(club.slug, find);
+    const counts = new Map<string, number>();
+    for (const t of club.teams) {
+      t.location = find(t.name);
+      counts.set(t.location, (counts.get(t.location) ?? 0) + 1);
+    }
+    club.locations = [
+      ...locs.map((l) => ({ name: l.name, area: l.area ?? null, teams: counts.get(l.name) ?? 0 })),
+      ...[CLUB_WIDE, OTHER_LOCATION].filter((n) => counts.has(n)).map((n) => ({ name: n, area: null, teams: counts.get(n)! })),
+    ];
+    club.locationSource = e.source ?? null;
+  }
+  return locate;
 }
 
 function readJson<T>(file: string, fallback: T): T {
@@ -303,13 +349,21 @@ function attachClubInfo(clubs: Map<string, ClubRow>, teams: Team[]) {
       club.infoSource = list.source;
     }
   }
+
+  // a website listed under the club's own name applies even when no league list names the club
+  for (const club of clubs.values()) {
+    const key = club.name.toLowerCase();
+    if (!overrides.has(key) || club.website === overrides.get(key)) continue;
+    club.website = normalizeWebsite(overrides.get(key));
+    club.infoSource = "data/seed/club-websites.json";
+  }
 }
 
 /** Newest modification time of the club-info sources, so new lists show up without a restart. */
 function sourcesStamp(): number {
   let t = 0;
   // (not frontier.json: the crawler rewrites it constantly; league data changes with the snapshot)
-  const files = ["data/norcal-premier/clubs.json", "data/seed/club-websites.json"];
+  const files = ["data/norcal-premier/clubs.json", "data/seed/club-websites.json", "data/seed/club-locations.json"];
   const dir = path.join(process.cwd(), "data", "league-clubs");
   try { for (const f of fs.readdirSync(dir)) files.push(path.join("data", "league-clubs", f)); } catch { /* none */ }
   for (const f of files) { try { t = Math.max(t, fs.statSync(path.join(process.cwd(), f)).mtimeMs); } catch { /* missing */ } }
@@ -349,5 +403,15 @@ export function getLeagueName(slug: string) { return index().leagues.get(slug)?.
 export function getClubRow(slugOrName: string) {
   const ix = index();
   return ix.clubs.get(slugOrName) ?? ix.clubs.get(ix.clubSlugByName.get(slugOrName.toLowerCase()) ?? "") ?? null;
+}
+/** The club page and location of a team, for teams of clubs we list */
+export function getTeamClubInfo(teamId: number, clubName: string, teamName: string) {
+  const ix = index();
+  // teams on the club page, or older ones (last season's copy) by the club's name
+  const slug = ix.clubOfTeam.get(teamId) ?? ix.clubSlugByName.get(clubName.toLowerCase());
+  const club = slug ? ix.clubs.get(slug) : undefined;
+  if (!club) return null;
+  const location = ix.teamRow.get(teamId)?.location ?? ix.locate.get(club.slug)?.(teamName) ?? null;
+  return { slug: club.slug, name: club.name, location, area: club.locations.find((l) => l.name === location)?.area ?? null };
 }
 export function clubSlugFor(name: string) { return index().clubSlugByName.get(name.toLowerCase()) ?? null; }

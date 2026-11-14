@@ -2316,10 +2316,10 @@
  "The Wiseburn Sports Complex, California": null,
  "photon:The Wiseburn Sports Complex": null,
  "Oso Park, California": {
-  "lat": 34.0854286,
-  "lng": -118.2294535,
-  "label": "Oso Park, Cypress Park, Lincoln Heights, Los Angeles, Los Angeles County, California, United States",
-  "city": "Los Angeles"
+  "lat": 33.603006,
+  "lng": -117.6506117,
+  "label": "Oso Viejo Community Park, 25001 Veterans Way, Mission Viejo, Orange County, California (corrected 2026-11-13: GotSport 'Oso Park' is this park, used by SoCal Orange County events; the geocoder had matched Oso Park in Cypress Park, Los Angeles)",
+  "city": "Mission Viejo"
  },
  "Rancho Mission Viejo Riding Park, California": null,
  "Eastlake Soccer League, California": null,
@@ -2784,5 +2784,18 @@
   "lng": -117.4413088,
   "label": "Adelanto High School, 15620, Joshua Road, Adelanto, San Bernardino County, California, 92301, United States",
   "city": "Adelanto"
- }
+ },
+ "Oso Viejo Community Park, California": {
+  "lat": 33.603006,
+  "lng": -117.6506117,
+  "label": "Oso Viejo Community Park, 25001 Veterans Way, Mission Viejo, Orange County, California (corrected 2026-11-13: GotSport 'Oso Park' is this park, used by SoCal Orange County events; the geocoder had matched Oso Park in Cypress Park, Los Angeles)",
+  "city": "Mission Viejo"
+ },
+ "Belmar Historic, California": {
+  "lat": 34.0098129,
+  "lng": -118.4884231,
+  "label": "Historic Belmar Park, Downtown Santa Monica, Santa Monica, Los Angeles County, California, United States",
+  "city": "Santa Monica"
+ },
+ "photon:San Elijo Park Hilltop": null
 }

@@ -21,6 +21,31 @@
       "club": "LA City United",
       "pattern": "^(Obama|Whitsett|Wilmington) [BG]U\\d{2}\\b",
       "evidence": "recreation.parks.lacity.gov/lacityunited: LA City United competitive teams play at Michelle and Barack Obama Sports Complex, Whitsett Soccer Field and Wilmington Athletic Center; its GotSport teams are named after the site ('LA City United Obama B12'). Clubless teams 'Obama BU09', 'Whitsett BU15', 'Wilmington BU08' follow the same naming. 'Wilmington Jrs' is a different club, hence the age-code pattern. Pasted by the user 2026-11-13."
+    },
+    "TFA chapters": {
+      "club": "TOTAL FUTBOL ACADEMY (CA)",
+      "pattern": "^(TFA\\b|Total Futbol Academy\\b)",
+      "evidence": "Total Futbol Academy (totalfutbolacademy.com) names its chapter teams 'TFA-<chapter>' (TFA-AV, TFA-IE, TFA-SELA, TFA-SGV, TFA-OC...); GotSport lists ~40 of them without a club. Requested by the user 2026-11-13."
+    },
+    "Sporting CA": {
+      "club": "Sporting California USA",
+      "pattern": "^Sporting (CA|California)\\b",
+      "evidence": "Sporting California USA (sportingca.us) teams GotSport lists without a club as 'Sporting CA …'/'Sporting California …'. Requested by the user 2026-11-13."
+    },
+    "SD Force": {
+      "club": "San Diego FORCE FC",
+      "pattern": "^SD Force\\b",
+      "evidence": "San Diego FORCE FC (sdforcefc.com) team listed by GotSport without a club as 'SD Force FC Academy …'. Requested by the user 2026-11-13."
+    },
+    "CFA OC": {
+      "club": "California Football Academy",
+      "pattern": "^CFA,?\\s+(OC|Orange|GA)\\b",
+      "evidence": "California Football Academy Orange County (cfaorangecounty.com, Aliso Viejo) names its teams 'CFA OC …'; GotSport lists some as 'CFA OC …', 'CFA Orange …', 'CFA GA …' without a club. Requested by the user 2026-11-13."
+    },
+    "Encinitas Express": {
+      "club": "Express Soccer",
+      "pattern": "^Encinitas Express\\b|^Express SC\\b.*\\bElite (Bello|Shuttleworth)\\b",
+      "evidence": "Encinitas Express Soccer Club (express.soccer/page/show/3135104-teams) lists GU19 Elite Bello and GU14/BU14 Elite Shuttleworth; GotSport has these two without a club. Requested by the user 2026-11-13."
     }
   },
   "AK": {
