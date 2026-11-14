@@ -11,6 +11,10 @@
  *   npm run standings:import -- --dir <folder>    # …or another folder (macOS may block Terminal from ~/Downloads)
  *   pbpaste | npm run standings:import --         # piped text or HTML
  *   npm run standings:import -- 52852             # re-match data/fixtures/52852-standings-paste.txt
+ * Saved schedule pages (HTML) are the fastest: the age-group "Schedule" button
+ * (schedules?age=9&gender=m) lists every flight of that age at once, and each row carries
+ * GotSport's game id, both full team names and the status, so games marked "Forfeit" are
+ * recorded in data/seed/forfeit-games.json and dropped from the ratings.
  * Schedule and results pages work too ("Match #  Time  Home Team  Results  Away Team"): each
  * numbered match names both of its teams, which tells apart teams that share a short name.
  *   …add --build to rebuild the data afterwards (npm run build:data)
@@ -53,15 +57,24 @@ function htmlToText(html: string): string {
     if (m[1]) { out.push("", decode(m[1]).replace(/\s+/g, " ").trim()); n = 0; }
     else if (m[2]) out.push(`${++n}    ${decode(m[2]).replace(/\s+/g, " ").trim()}    0`);
   }
+  // schedule / results tables: one row per match, with GotSport's game id in the result link
+  // (match=<id>, the same id as our published games), both full team names and a status label
+  for (const row of html.matchAll(/<tr class=["']fz-sm["']>([\s\S]*?)<\/tr>/g)) {
+    const gameId = row[1].match(/[?&;]match=(\d+)/)?.[1];
+    const teams = [...row[1].matchAll(/schedules\?team=\d+["']>([^<]+)<\/a>/g)].map((m) => decode(m[1]).replace(/\s+/g, " ").trim());
+    const status = decode(row[1].match(/<label class=["']label[^"']*["']>([^<]*)<\/label>/)?.[1] ?? "").trim();
+    if (gameId && teams.length === 2) out.push(`GAME\t${gameId}\t${status}\t${teams[0]}\t${teams[1]}`);
+  }
   return out.join("\n").trim();
 }
+const GAME_ROW = /^GAME\t\d+\t/m;
 
 /** One input (clipboard, pipe or file) → { event id, text } */
 function readInput(raw: string, label: string): { event: string; text: string } | null {
   const isHtml = /<(?:div|table|html)\b/i.test(raw);
   const event = raw.match(/\/org_event\/events\/(\d+)\//)?.[1] ?? argEvent;
   const text = isHtml ? htmlToText(raw) : raw.trim();
-  if (!HEADER.test(text) && !SCHEDULE.test(text)) { console.warn(`  ${label}: doesn't look like a GotSport standings page (no "Male U12 - …" flight header), skipped`); return null; }
+  if (!HEADER.test(text) && !SCHEDULE.test(text) && !GAME_ROW.test(text)) { console.warn(`  ${label}: doesn't look like a GotSport standings page (no "Male U12 - …" flight header), skipped`); return null; }
   if (!event) { console.warn(`  ${label}: no event id in it; give one: npm run standings:import -- <eventId> --clip`); return null; }
   return { event, text };
 }
@@ -107,6 +120,9 @@ for (const { event, text } of inputs) {
 if (!events.size) { console.error("nothing to import: use --clip, --dir <folder>, pipe a page in, or give an event id"); process.exit(1); }
 
 const norm = (s: string) => s.toLowerCase().replace(/\s+/g, " ").trim();
+const forfeitFile = path.join(ROOT, "data", "seed", "forfeit-games.json");
+const forfeits = new Set<number>(fs.existsSync(forfeitFile) ? JSON.parse(fs.readFileSync(forfeitFile, "utf8")) : []);
+const forfeitsBefore = forfeits.size;
 const names: Record<string, string> = fs.existsSync(outFile) ? JSON.parse(fs.readFileSync(outFile, "utf8")) : {};
 const before = Object.keys(names).length;
 
@@ -160,6 +176,24 @@ for (const eventId of events) {
       }
     } else unmatched.add(`match ${teams[0].slice(0, 60)}: names don't fit GotSport's (${g.homeTeam} v ${g.awayTeam})`);
   }
+  // saved schedule pages (HTML): rows carry GotSport's game id, so no guessing by match number
+  const byGame = new Map<string, G>();
+  for (const g of JSON.parse(fs.readFileSync(gamesFile, "utf8")) as Array<G & { gameId?: number }>) if (g.gameId != null) byGame.set(String(g.gameId), g);
+  let byId = 0, rows = 0, missing = 0;
+  for (const line of lines) {
+    const p = line.split("\t");
+    if (p[0] !== "GAME" || p.length < 5) continue;
+    rows++;
+    const g = byGame.get(p[1]);
+    if (!g) { missing++; continue; }
+    if (/forfeit/i.test(p[2])) forfeits.add(Number(p[1]));
+    const [home, away] = [p[3], p[4]];
+    if (!fits(home, g.homeTeam) || !fits(away, g.awayTeam)) { unmatched.add(`game ${p[1]}: ${home} v ${away} don't fit GotSport's (${g.homeTeam} v ${g.awayTeam})`); continue; }
+    for (const [id, full] of [[g.homeTeamId, home], [g.awayTeamId, away]] as const) {
+      if (id && names[String(id)] !== full) { names[String(id)] = full; byId++; }
+    }
+  }
+  if (rows) console.log(`event ${eventId}: ${rows} schedule rows, ${byId} team names set${missing ? `, ${missing} games not in our data yet (refresh discovery)` : ""}`);
   if (byNumber) console.log(`event ${eventId}: ${byNumber} teams named from numbered matches`);
 
   let flight: string | null = null, matched = 0;
@@ -203,5 +237,7 @@ for (const eventId of events) {
 }
 
 fs.writeFileSync(outFile, JSON.stringify(names, null, 1) + "\n");
+if (forfeits.size !== forfeitsBefore) fs.writeFileSync(forfeitFile, JSON.stringify([...forfeits].sort((a, b) => a - b)) + "\n");
+if (forfeits.size) console.log(`${forfeits.size - forfeitsBefore} new forfeits → ${path.relative(ROOT, forfeitFile)} (${forfeits.size} total; they no longer count as games)`);
 console.log(`${Object.keys(names).length - before} new names → ${path.relative(ROOT, outFile)} (${Object.keys(names).length} total)`);
 if (args.includes("--build")) execSync("npm run build:data", { stdio: "inherit" });

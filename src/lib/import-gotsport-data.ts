@@ -261,6 +261,13 @@ export function loadGotsportData() {
       .filter((g) => !discoveredEvents.has(g.eventId)),
     ...discovered,
   ];
+  // Games GotSport's schedule pages label "Forfeit" (entered as 1-0, not played), from saved
+  // schedule pages (scripts/import-standings-paste.ts). The API doesn't say which 1-0s are forfeits.
+  const forfeitFile = path.join(process.cwd(), "data", "seed", "forfeit-games.json");
+  if (fs.existsSync(forfeitFile)) {
+    const forfeits = new Set((JSON.parse(fs.readFileSync(forfeitFile, "utf-8")) as number[]).map(Number));
+    apiGames = apiGames.filter((g) => !forfeits.has(Number(g.gameId)));
+  }
 
   // GotSport Region IV directory (data/gotsport-teams/region4.json,
   // scripts/scrape-gotsport-team-directory.ts): every ranked West team by team_id.

@@ -36,7 +36,8 @@
     "events:upcoming": "tsx scripts/upcoming-events.ts",
     "schedule:import": "tsx scripts/import-schedule-paste.ts",
     "standings:import": "tsx scripts/import-standings-paste.ts",
-    "standings:todo": "tsx scripts/standings-todo.ts"
+    "standings:todo": "tsx scripts/standings-todo.ts",
+    "pages:open": "tsx scripts/open-gotsport-pages.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
