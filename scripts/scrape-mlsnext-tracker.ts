@@ -7,9 +7,15 @@
  * allows everything including /api/*. It's a one-person site that pays for its traffic,
  * so this script is deliberately light:
  *   - one request per conference + age group: /api/standings?team=<slug>&division=<d>
- *     returns that team's whole conference schedule (played and upcoming) plus its Flex
- *     group, so every other team in that schedule is skipped;
- *   - 3 s between requests, one pass, no retries beyond one; run it at most daily.
+ *     returns that team's whole conference schedule (played and upcoming) plus its own Flex
+ *     group, so every other team with regular conference games in it is skipped;
+ *   - then a gap pass for what that misses (checked against mlssoccer.com, Nov 2026):
+ *       · teams seen only in Pro Player Pathway games (the MLS club academies, e.g.
+ *         Minnesota United) — their own schedule has PP games against other conferences;
+ *       · Homegrown teams whose conference has Flex groups but whose own Flex group was
+ *         never fetched (one request covers every team in a newly found group).
+ *     Academy Flex is rare and would cost ~350 more requests, so it's opt-in: --academy-flex.
+ *   - 3 s between requests, no retries beyond one; run it at most daily.
  *
  * Team slugs come from the site's sitemap (/academy/<slug>, /homegrown/<slug>).
  *
@@ -20,6 +26,7 @@
  *
  *   npx tsx scripts/scrape-mlsnext-tracker.ts            # both divisions
  *   npx tsx scripts/scrape-mlsnext-tracker.ts --division homegrown
+ *   npx tsx scripts/scrape-mlsnext-tracker.ts --academy-flex   # also fill Academy Flex groups
  */
 import * as fs from "fs";
 import * as path from "path";
@@ -33,6 +40,7 @@ const SEASON = "2026-27";
 
 const arg = (k: string) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : undefined; };
 const DIVISIONS = (arg("--division") ? [arg("--division")!] : ["homegrown", "academy"]) as Array<"homegrown" | "academy">;
+const ACADEMY_FLEX = process.argv.includes("--academy-flex");
 const DIV_NAME = { homegrown: "Homegrown Division", academy: "Academy Division" } as const;
 
 export interface TrackerGame {
@@ -121,21 +129,33 @@ async function main() {
 
   for (const division of DIVISIONS) {
     const slugs = [...sitemap.matchAll(new RegExp(`<loc>${SITE}/${division}/([a-z0-9-]+-u\\d\\d)</loc>`, "g"))].map((m) => m[1]);
-    const covered = new Set<string>();
+    const requested = new Set<string>();
+    const confCovered = new Set<string>();   // seen in a regular (non-Pro-Pathway) conference game
+    const flexCovered = new Set<string>();   // seen in a fetched Flex group
+    const teamConf = new Map<string, string>();  // slug → "U15|Southwest"
+    const flexConfs = new Set<string>();     // conference + age groups that have Flex groups
+    const flexGroups = new Set<string>();
     console.log(`\n${DIV_NAME[division]}: ${slugs.length} teams in sitemap`);
-    for (const slug of slugs) {
-      if (covered.has(slug)) continue;
+
+    const fetchTeam = async (slug: string, why: string) => {
       await sleep(DELAY_MS);
       requests++;
+      requested.add(slug);
       const d = await get<ApiResponse>(`${SITE}/api/standings?team=${encodeURIComponent(slug)}&division=${division}`);
-      covered.add(slug);
-      if (!d?.team) continue;
+      if (!d?.team) return;
       const age = d.team.ageGroup;
+      const ck = `${age}|${d.team.conference}`;
+      confCovered.add(slug); teamConf.set(slug, ck);
+      let newFlex = 0;
       const add = (list: ApiGame[], flex: boolean, group: string) => {
         for (const g of list) {
-          covered.add(`${slugify(g.home)}-${age.toLowerCase()}`);
-          covered.add(`${slugify(g.away)}-${age.toLowerCase()}`);
+          for (const side of [g.home, g.away]) {
+            const s = `${slugify(side)}-${age.toLowerCase()}`;
+            if (flex) flexCovered.add(s);
+            else if (!g.proPathway) { confCovered.add(s); if (!teamConf.has(s)) teamConf.set(s, ck); }
+          }
           if (games.has(g.id)) continue;
+          if (flex) newFlex++;
           const hc = clubName(g.home), ac = clubName(g.away);
           for (const [raw, c] of [[g.home, hc], [g.away, ac]]) if (!m11.has(c.toLowerCase())) unmatchedClubs.add(raw.trim());
           games.set(g.id, {
@@ -150,10 +170,24 @@ async function main() {
         }
       };
       add(d.schedule ?? [], false, d.team.conference);
-      if (d.flex?.schedule) add(d.flex.schedule, true, d.flex.group);
-      const left = slugs.filter((s) => !covered.has(s)).length;
-      console.log(`  ${age} ${d.team.conference.padEnd(18)} via ${slug} → ${games.size} games so far, ${left} teams left`);
+      flexCovered.add(slug);  // its own Flex group (if any) is in this response
+      if (d.flex?.schedule) { flexConfs.add(ck); flexGroups.add(`${age}|${d.flex.group}`); add(d.flex.schedule, true, d.flex.group); }
+      console.log(`  ${age} ${d.team.conference.padEnd(18)} via ${slug} (${why})${newFlex ? `, ${newFlex} new Flex games` : ""} → ${games.size} games so far`);
+    };
+
+    // pass 1: one team per conference + age group (plus any team never seen in regular conference games)
+    for (const slug of slugs) if (!confCovered.has(slug) && !requested.has(slug)) await fetchTeam(slug, confCovered.size ? "not yet seen" : "first");
+
+    // pass 2: teams whose Flex group we haven't fetched, in conferences that play Flex
+    if (division === "homegrown" || ACADEMY_FLEX) {
+      const needsFlex = (s: string) => !requested.has(s) && !flexCovered.has(s) && flexConfs.has(teamConf.get(s) ?? "");
+      const before = requests;
+      console.log(`  Flex gap pass: ${slugs.filter(needsFlex).length} teams not in a fetched Flex group`);
+      for (const slug of slugs) if (needsFlex(slug)) await fetchTeam(slug, "Flex group");
+      console.log(`  Flex gap pass: ${requests - before} requests, ${flexGroups.size} Flex groups`);
     }
+    const missing = slugs.filter((s) => !confCovered.has(s));
+    if (missing.length) console.log(`  ${missing.length} sitemap teams with no games found: ${missing.slice(0, 15).join(", ")}${missing.length > 15 ? " …" : ""}`);
   }
 
   // a one-division run keeps the other division's rows from the last run

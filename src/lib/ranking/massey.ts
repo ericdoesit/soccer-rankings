@@ -6,6 +6,8 @@ export interface GameInput {
   date: string;
   status: "completed" | "forfeited" | "cancelled";
   isTeam1Home?: boolean;
+  /** the competition ("MLS NEXT 2026-27 Homegrown Division"): ties a team to its league, see `leagueTie` */
+  tournamentName?: string;
 }
 
 export interface RankingResult {
@@ -28,6 +30,16 @@ export interface MasseyConfig {
   priorSeasonWeight: number;
   /** null = Aug 1 of the season containing the most recent game */
   seasonStart: string | null;
+  /** Weight of a pseudo-game (margin 0) between each team and its league: the competition
+   *  it plays most, season stripped (+ age group and gender with `leagueOf`). Teams only meet
+   *  their own conference, and our data is deep in the West (top leagues down to local) but
+   *  only MLS NEXT elsewhere, so whole pools can be unconnected by games: each pool's average
+   *  then floats to zero on its own and a West conference sat ~15 goals above equal teams
+   *  elsewhere (MLS NEXT Cup 2026). The tie gives every league one level shared across pools;
+   *  where real games connect them, they outweigh it. 0 = off. */
+  leagueTie: number;
+  /** league key of a team in a game; default: the competition name without its season */
+  leagueOf?: (teamId: number, tournamentName: string) => string | null;
 }
 
 // Tuned from grid search on 81,588 games (65K train / 16K test):
@@ -48,7 +60,16 @@ const DEFAULT_CONFIG: MasseyConfig = {
   // and left 8% more games unpredictable.
   priorSeasonWeight: 0.25,
   seasonStart: null,
+  // Backtest 2026-11-14 (ratings frozen at a cutoff, predicting what followed): 0.05 left
+  // everyday West games unchanged (fall 76.3%, spring 74.5% winners) and fixed national
+  // events: MLS NEXT Cup Homegrown 52% → 60% (margin error 3.9 → 1.8 goals), U13/U14
+  // Championship 69% → 76% (5.8 → 1.5). 0.2+ helped the Cup a bit more but cost everyday games.
+  leagueTie: 0.05,
 };
+
+/** "MLS NEXT 2026-27 Homegrown Division" → "MLS NEXT Homegrown Division" */
+export const leagueName = (tournamentName: string) =>
+  tournamentName.replace(/\b20\d\d(-\d\d)?\b/g, "").replace(/\s+/g, " ").trim();
 
 function daysBetween(d1: string, d2: string): number {
   const ms = new Date(d2).getTime() - new Date(d1).getTime();
@@ -67,10 +88,10 @@ function capMargin(diff: number, cap: number): number {
  * - M[i][i] = total games played by team i (diagonal)
  * - p[i] = weighted sum of adjusted point differentials for team i
  *
- * Enhancements tuned from 48K-game statistical analysis:
- * - Margin cap at 3 goals (optimal correlation with win rate)
- * - Home advantage adjustment of 1.1 goals
- * - Recency weighting via exponential decay (3.5-month half-life)
+ * Enhancements (see DEFAULT_CONFIG for the backtests):
+ * - margin cap 6, home advantage 0.1 goals
+ * - recency: exponential decay (105-day half-life), last season × 0.25
+ * - league ties: each team pulled very lightly toward its league's level (leagueTie)
  */
 export function calculateRankings(
   games: GameInput[],
@@ -116,8 +137,8 @@ export function calculateRankings(
     { length: n },
     () => new Map()
   );
-  const diagonal = new Float64Array(n);
-  const p = new Float64Array(n);
+  let diagonal = new Float64Array(n);
+  let p = new Float64Array(n);
 
   const decayLambda = Math.LN2 / cfg.decayHalfLifeDays;
 
@@ -169,7 +190,45 @@ export function calculateRankings(
     }
   }
 
-  const ratings = jacobiSolve(diagonal, offDiag, p, n);
+  // league nodes: index n.. ; each team tied to the league it played most (decay-weighted)
+  let size = n;
+  if (cfg.leagueTie > 0) {
+    const leagueOf = cfg.leagueOf ?? ((_id: number, t: string) => leagueName(t) || null);
+    const weightIn: Map<string, number>[] = Array.from({ length: n }, () => new Map());
+    for (const game of completedGames) {
+      if (!game.tournamentName) continue;
+      const daysAgo = ISO_DATE.test(game.date) ? daysBetween(game.date, referenceDate) : 0;
+      const w = Math.exp(-decayLambda * Math.max(0, daysAgo));
+      for (const id of [game.team1Id, game.team2Id]) {
+        const k = leagueOf(id, game.tournamentName);
+        if (!k) continue;
+        const m = weightIn[teamIndex.get(id)!];
+        m.set(k, (m.get(k) ?? 0) + w);
+      }
+    }
+    const leagueIdx = new Map<string, number>();
+    const ties: Array<[number, number]> = [];
+    for (let i = 0; i < n; i++) {
+      let best: string | null = null, bw = 0;
+      for (const [k, w] of weightIn[i]) if (w > bw) { best = k; bw = w; }
+      if (!best) continue;
+      let L = leagueIdx.get(best);
+      if (L === undefined) { L = n + leagueIdx.size; leagueIdx.set(best, L); }
+      ties.push([i, L]);
+    }
+    size = n + leagueIdx.size;
+    const grow = <T extends Float64Array>(a: T) => { const b = new Float64Array(size); b.set(a); return b; };
+    const diag2 = grow(diagonal), p2 = grow(p);
+    for (let k = n; k < size; k++) offDiag.push(new Map());
+    for (const [i, L] of ties) {
+      diag2[i] += cfg.leagueTie; diag2[L] += cfg.leagueTie;
+      offDiag[i].set(L, (offDiag[i].get(L) ?? 0) - cfg.leagueTie);
+      offDiag[L].set(i, (offDiag[L].get(i) ?? 0) - cfg.leagueTie);
+    }
+    diagonal = diag2; p = p2;
+  }
+
+  const ratings = cgSolve(diagonal, offDiag, p, size, n);
 
   const results: RankingResult[] = [];
   for (let i = 0; i < n; i++) {
@@ -228,40 +287,59 @@ export function predictGame(
   };
 }
 
-function jacobiSolve(
+/**
+ * Solves M·x = b (M = weighted game Laplacian + league ties) with Jacobi-preconditioned
+ * conjugate gradient. Plain Jacobi iteration (used before 2026-11-14) converges very slowly
+ * across thinly connected pools, which the league ties create on purpose. A tiny ridge keeps
+ * pools with no connection at all defined; ratings are centered on the mean of the teams
+ * (the first `nTeams` unknowns).
+ */
+function cgSolve(
   diagonal: Float64Array,
   offDiag: Map<number, number>[],
   b: Float64Array,
-  n: number,
-  maxIter = 500,
-  tolerance = 1e-8
+  size: number,
+  nTeams: number,
+  maxIter = 3000,
+  tolerance = 1e-7
 ): Float64Array {
-  const x = new Float64Array(n);
-
-  for (let iter = 0; iter < maxIter; iter++) {
-    const xNew = new Float64Array(n);
-    let maxDiff = 0;
-
-    for (let i = 0; i < n; i++) {
-      if (diagonal[i] === 0) continue;
-      let sum = b[i];
-      for (const [j, val] of offDiag[i]) {
-        sum -= val * x[j];
-      }
-      xNew[i] = sum / diagonal[i];
+  const d = new Float64Array(size);
+  for (let i = 0; i < size; i++) d[i] = diagonal[i] + 1e-6;
+  const mul = (v: Float64Array, out: Float64Array) => {
+    for (let i = 0; i < size; i++) {
+      let s = d[i] * v[i];
+      for (const [j, val] of offDiag[i]) s += val * v[j];
+      out[i] = s;
     }
-
-    let mean = 0;
-    for (let i = 0; i < n; i++) mean += xNew[i];
-    mean /= n;
-    for (let i = 0; i < n; i++) {
-      xNew[i] -= mean;
-      maxDiff = Math.max(maxDiff, Math.abs(xNew[i] - x[i]));
+  };
+  const x = new Float64Array(size);
+  const r = Float64Array.from(b);
+  const z = new Float64Array(size), q = new Float64Array(size), Aq = new Float64Array(size);
+  for (let i = 0; i < size; i++) z[i] = r[i] / d[i];
+  q.set(z);
+  let rz = 0, bn = 0;
+  for (let i = 0; i < size; i++) { rz += r[i] * z[i]; bn += b[i] * b[i]; }
+  bn = Math.sqrt(bn);
+  if (bn > 0) {
+    for (let iter = 0; iter < maxIter; iter++) {
+      mul(q, Aq);
+      let qAq = 0;
+      for (let i = 0; i < size; i++) qAq += q[i] * Aq[i];
+      if (qAq <= 0) break;
+      const a = rz / qAq;
+      let rn = 0;
+      for (let i = 0; i < size; i++) { x[i] += a * q[i]; r[i] -= a * Aq[i]; rn += r[i] * r[i]; }
+      if (Math.sqrt(rn) < tolerance * bn) break;
+      let rz2 = 0;
+      for (let i = 0; i < size; i++) { z[i] = r[i] / d[i]; rz2 += r[i] * z[i]; }
+      const beta = rz2 / rz;
+      rz = rz2;
+      for (let i = 0; i < size; i++) q[i] = z[i] + beta * q[i];
     }
-
-    for (let i = 0; i < n; i++) x[i] = xNew[i];
-    if (maxDiff < tolerance) break;
   }
-
+  let mean = 0;
+  for (let i = 0; i < nTeams; i++) mean += x[i];
+  mean /= nTeams;
+  for (let i = 0; i < size; i++) x[i] -= mean;
   return x;
 }

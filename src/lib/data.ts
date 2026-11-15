@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import { generateFullSampleData } from "./sample-data";
-import { calculateRankings, type RankingResult } from "./ranking/massey";
+import { calculateRankings, leagueName, type RankingResult } from "./ranking/massey";
 import { loadGotsportData, hasRealData, inferAgeAndGender, type RealTeam } from "./import-gotsport-data";
 import { trackedCompetitions } from "./directory/tracked";
 import { mergeModularTwins, mergeTournamentCopies } from "./directory/merge-twins";
@@ -379,10 +379,13 @@ export function buildData(): DataSet {
       const twins = { ...m11, teams: usl.teams, games: usl.games };
       console.log(`  tournament copies: ${copies.merged} records joined into their team`);
       console.log(`  USL Academy: ${usl.joined} last-season records joined, ${usl.listed} teams playing this season listed as U20`);
-      let rankings = real.rankings;
-      if (m11.merged || copies.merged || usl.joined) {
-        rankings = calculateRankings(twins.games.map((g) => ({ ...g, status: "completed" as const })), { minGames: 10 });
-      }
+      // ratings on the merged games; each team's league is its competition + gender + age
+      // group, so ties stay within an age group (see leagueTie in ranking/massey.ts)
+      const teamAG = new Map(twins.teams.map((t) => [t.id, `${t.gender}|${t.ageGroup}`]));
+      const rankings = calculateRankings(twins.games.map((g) => ({ ...g, status: "completed" as const })), {
+        minGames: 10,
+        leagueOf: (id, t) => { const ln = leagueName(t); const ag = teamAG.get(id); return ln && ag ? `${ln}|${ag}` : null; },
+      });
       console.log(`  modular11 twins: ${twins.merged} merged into GotSport teams, ${twins.ambiguous} left separate (2+ candidates), ${twins.noCurrent} with only last season's teams`);
       const tracked = markTracked(twins.teams, twins.games);
       console.log(`  tracked: ${tracked.stats}`);
@@ -510,8 +513,10 @@ export function getClubMeta(clubName: string) {
   return CLUB_META[clubName] || null;
 }
 
-// Filter out futsal and non-team entries
-const EXCLUDE_TEAM = /futsal|association|youth soccer|cal north|cal south|state soccer|ussf|usys/i;
+// Filter out futsal and national-body entries. Club names often contain "Youth Soccer" or
+// "Association" (Roseville Youth Soccer Club, Valley United Soccer Club Association): those are
+// real club teams. State select (ODP) teams are already left out by markRankable.
+const EXCLUDE_TEAM = /futsal|\bussf\b|\busys\b/i;
 
 function buildRankedBase(
   teams: Team[],

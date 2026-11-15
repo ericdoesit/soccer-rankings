@@ -427,6 +427,19 @@ export function loadGotsportData() {
   /** team names from Modular11 and the MLS NEXT Cup file, for merging with their GotSport twins */
   const modularTeamNames = new Set<string>();
   const mlsNextFile = path.join(process.cwd(), "data", "mlsnext", "games.json");
+  // Generation adidas Cup: teams are written as bare club names ("LA Galaxy"). MLS NEXT clubs
+  // get their league name ("LA Galaxy MLS NEXT U15") so the cup joins their league history;
+  // foreign clubs ("FC Bayern U15") stay on their own.
+  const adidasFile = path.join(process.cwd(), "data", "adidas-cup", "games.json");
+  const ADIDAS_CLUB: Record<string, string> = { LAFC: "Los Angeles Football Club" };
+  const mlsNextClubs = new Set<string>();
+  for (const f of [modularFile, path.join(process.cwd(), "data", "mlsnext-tracker", "games.json")]) {
+    if (!fs.existsSync(f)) continue;
+    for (const g of JSON.parse(fs.readFileSync(f, "utf-8")) as Array<{ leagueId?: number; homeClub?: string; awayClub?: string }>) {
+      if (g.leagueId !== undefined && g.leagueId !== 12) continue;
+      for (const c of [g.homeClub, g.awayClub]) if (c) mlsNextClubs.add(c.trim().toLowerCase());
+    }
+  }
   // MLS NEXT 2026-27 (Homegrown + Academy) via mlsnexttracker.com (scripts/scrape-mlsnext-tracker.ts):
   // named like Modular11 ("<club> MLS NEXT U15") so it joins last season's teams
   const mlsTrackerFile = path.join(process.cwd(), "data", "mlsnext-tracker", "games.json");
@@ -452,7 +465,7 @@ export function loadGotsportData() {
     // its robots.txt blocks automated access, so nothing is fetched
     { file: path.join(process.cwd(), "data", "athleteone", "games.json"), fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "eventName"] },
     { file: mlsNextFile, fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "tournament"] },
-    { file: path.join(process.cwd(), "data", "adidas-cup", "games.json"), fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "tournament"] },
+    { file: adidasFile, fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "tournament"] },
     // Leagues not on GotSport, scraped from Demosphere (scripts/scrape-demosphere-league.ts)
     ...(fs.existsSync(path.join(process.cwd(), "data", "demosphere"))
       ? fs.readdirSync(path.join(process.cwd(), "data", "demosphere"), { withFileTypes: true }).filter((d) => d.isDirectory())
@@ -484,8 +497,12 @@ export function loadGotsportData() {
           modularTeamNames.add(t1); modularTeamNames.add(t2);
         }
         if (source.file === mlsTrackerFile && !g.completed) continue; // fixtures: predicted, not rated
-        if (source.file === modularFile || source.file === mlsNextFile || source.file === mlsTrackerFile) {
+        if (source.file === modularFile || source.file === mlsNextFile || source.file === mlsTrackerFile || source.file === adidasFile) {
           if (source.file === mlsNextFile && g.ageGroup) { t1 = `${t1} MLS NEXT ${g.ageGroup}`; t2 = `${t2} MLS NEXT ${g.ageGroup}`; }
+          if (source.file === adidasFile && g.ageGroup) {
+            const named = (t: string) => { const c = ADIDAS_CLUB[t] ?? t; return mlsNextClubs.has(c.toLowerCase()) ? `${c} MLS NEXT ${g.ageGroup}` : `${c} ${g.ageGroup}`; };
+            t1 = named(t1); t2 = named(t2);
+          }
           const d = normalizeDate(String(g.date ?? ""));
           const end = d && /^\d{4}-\d{2}-\d{2}/.test(d) ? seasonEndOf(new Date(d)) : null;
           if (end) {
@@ -639,7 +656,8 @@ export function loadGotsportData() {
     status: "completed" as const,
   }));
 
-  const rankings = calculateRankings(gameInputs, { minGames: 10 });
+  // provisional: getDataSet (src/lib/data.ts) re-rates the merged games with league ties
+  const rankings = calculateRankings(gameInputs.map((g, i) => ({ ...g, tournamentName: games[i].eventName })), { minGames: 10 });
 
   _cache = { teams, games, rankings, teamNameToId, gsIdByName, droppedEvents, sourceAssocByName, modularTeamNames, mlsWestNames, stateHintByName };
   return _cache;

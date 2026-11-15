@@ -362,6 +362,12 @@ export function buildTeamIdentity<T extends TeamLike>(
       const cands = clubsByKey.get(key) ?? clubsByKey.get(key.replace(/^la /, "los angeles "));
       const best = cands?.reduce((a, b) => (b.n > a.n ? b : a));
       if (best && WEST_ASSOC.has(best.association)) { state = best.association; mlsClub = best.name; s.mlsConference++; }
+      // no directory club of that name ("Modesto Ajax United", "De Anza Force"): it still plays
+      // in a Western conference, so take the most common West state among its opponents
+      if (!state) {
+        const votes = [...(oppVotes.get(t.id) ?? [])].filter(([a]) => WEST_ASSOC.has(a)).sort((x, y) => y[1] - x[1]);
+        if (votes.length) { state = votes[0][0]; s.mlsConference++; }
+      }
     }
     if (!d && !club && state) s.eventState++;
     if (!state) s.unknownState++;
