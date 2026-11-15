@@ -45,7 +45,7 @@ interface RankedTeam {
 }
 
 const REGIONS = [
-  { value: "National", label: "All Regions" },
+  { value: "National", label: "All regions" },
   { value: "Region4", label: "--- West ---" },
   { value: "Region3", label: "--- South ---" },
   { value: "Region2", label: "--- Midwest ---" },
@@ -174,10 +174,10 @@ export default function RankingsPage() {
   const places = REGIONS.filter((r) => r.value === "National" || !coverage ||
     (r.value.startsWith("Region") ? (coverage.regions[r.value] ?? 0) > 0 : (coverage.states[r.value] ?? 0) > 0));
   // Labels for the closed menus: without items the trigger shows the raw value ("All")
-  const ageItems = [{ value: "All", label: "All Ages" }, ...["U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17", "U18", "U19"].map((a) => ({ value: a, label: a })), { value: "U20", label: "U20 (USL Academy)" }];
-  const genderItems = [{ value: "Both", label: "Boys & Girls" }, { value: "Boys", label: "Boys" }, { value: "Girls", label: "Girls" }];
-  const programItems = [{ value: "All", label: "All Leagues" }, ...PROGRAMS.map((p) => ({ value: p, label: p }))];
-  const eventItems = [{ value: "All", label: "All Events" }, ...leagues.map((l) => ({ value: l, label: l }))];
+  const ageItems = [{ value: "All", label: "All ages" }, ...["U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17", "U18", "U19"].map((a) => ({ value: a, label: a })), { value: "U20", label: "U20 (USL Academy)" }];
+  const genderItems = [{ value: "Both", label: "Boys & girls" }, { value: "Boys", label: "Boys" }, { value: "Girls", label: "Girls" }];
+  const programItems = [{ value: "All", label: "All leagues" }, ...PROGRAMS.map((p) => ({ value: p, label: p }))];
+  const eventItems = [{ value: "All", label: "All events" }, ...leagues.map((l) => ({ value: l, label: l }))];
   const coveredNames = coverage ? REGIONS.filter((r) => !r.value.startsWith("Region") && r.value !== "National" && (coverage.states[r.value] ?? 0) > 0).map((r) => r.label) : [];
 
   useEffect(() => {
@@ -219,17 +219,17 @@ export default function RankingsPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
       <Suspense fallback={null}><ProgramFromUrl onProgram={setProgram} /></Suspense>
-      <h1 className="mb-4 text-3xl font-bold">Rankings</h1>
+      <h1 className="display mb-6">Rankings <span className="tail">by age and gender.</span></h1>
 
-      <div className="mb-6 rounded-lg border bg-muted/40 p-4 text-sm text-muted-foreground">
-        <p className="mb-2 font-medium text-foreground">What we rank</p>
-        <p className="mb-2">
+      <div className="surface mb-6 space-y-2 p-6 text-sm leading-relaxed text-muted-foreground">
+        <p className="eyebrow">What We Rank</p>
+        <p>
           These rankings cover the Western US{coveredNames.length ? <> ({coveredNames.join(", ")})</> : null}. Other states
           aren&apos;t ranked yet: ranking a state fairly takes its league and tournament results, and we don&apos;t collect
           those yet. Teams from other states still count in the ratings whenever they play Western teams, so the rankings
           reflect national competition. Hawaii isn&apos;t ranked because its teams rarely play mainland opponents.
         </p>
-        <p className="mb-2">
+        <p>
           Within the West, a team is listed when it plays in tracked competitions (elite leagues, State Cups,
           championships and major showcases) and has enough recent games. Teams that only play in local leagues stay in
           the directory, and their games still count.
@@ -259,7 +259,7 @@ export default function RankingsPage() {
             <SelectValue placeholder="Age" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="All">All Ages</SelectItem>
+            <SelectItem value="All">All ages</SelectItem>
             <SelectItem value="U8">U8</SelectItem>
             <SelectItem value="U9">U9</SelectItem>
             <SelectItem value="U10">U10</SelectItem>
@@ -281,7 +281,7 @@ export default function RankingsPage() {
             <SelectValue placeholder="Gender" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="Both">Boys &amp; Girls</SelectItem>
+            <SelectItem value="Both">Boys &amp; girls</SelectItem>
             <SelectItem value="Boys">Boys</SelectItem>
             <SelectItem value="Girls">Girls</SelectItem>
           </SelectContent>
@@ -292,7 +292,7 @@ export default function RankingsPage() {
             <SelectValue placeholder="League" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="All">All Leagues</SelectItem>
+            <SelectItem value="All">All leagues</SelectItem>
             {PROGRAMS.map((p) => (
               <SelectItem key={p} value={p}>{p}</SelectItem>
             ))}
@@ -304,7 +304,7 @@ export default function RankingsPage() {
             <SelectValue placeholder="Event" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="All">All Events</SelectItem>
+            <SelectItem value="All">All events</SelectItem>
             {leagues.map((l) => (
               <SelectItem key={l} value={l}>
                 {l}
@@ -314,7 +314,7 @@ export default function RankingsPage() {
         </Select>
 
         <Input
-          placeholder="Search teams..."
+          placeholder="Search teams"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="w-[240px]"
@@ -326,21 +326,21 @@ export default function RankingsPage() {
       )}
 
       {/* Table */}
-      <Card>
+      <Card className="gap-0 pb-0">
         <CardContent className="p-0">
           <div className="overflow-x-auto">
-            <table className="w-full text-sm" data-no-sort>
+            <table className="w-full table-fixed text-sm" data-no-sort>
               <thead>
                 <tr className="border-b border-border text-left text-xs text-muted-foreground">
                   {[
-                    { key: "rank", label: "#", className: "w-12", align: "" },
-                    { key: "", label: "", className: "w-10", align: "" },
+                    { key: "rank", label: "#", className: "w-20", align: "" },
+                    { key: "", label: "", className: "w-12", align: "" },
                     { key: "name", label: "Team", className: "", align: "" },
-                    { key: "club", label: "Club", className: "hidden md:table-cell", align: "" },
-                    { key: "state", label: "State", className: "hidden sm:table-cell", align: "" },
-                    { key: "score", label: "Score", className: "", align: "text-right" },
-                    { key: "record", label: "Record", className: "hidden sm:table-cell", align: "text-center" },
-                    { key: "gp", label: "GP", className: "hidden md:table-cell", align: "text-center" },
+                    { key: "club", label: "Club", className: "hidden md:table-cell w-56", align: "" },
+                    { key: "state", label: "State", className: "hidden sm:table-cell w-20", align: "" },
+                    { key: "score", label: "Score", className: "w-20", align: "text-right" },
+                    { key: "record", label: "Record", className: "hidden sm:table-cell w-28", align: "text-center" },
+                    { key: "gp", label: "GP", className: "hidden md:table-cell w-16", align: "text-center" },
                   ].map((col) => (
                     <th
                       key={col.key || "change"}
@@ -376,7 +376,7 @@ export default function RankingsPage() {
                       key={team.id}
                       className="border-b border-border/50 hover:bg-muted/50 transition-colors"
                     >
-                      <td className="px-4 py-2.5 font-medium">{team.rank}</td>
+                      <td className="rank-num px-4 py-2.5">{team.rank}</td>
                       <td className="px-4 py-2.5 text-center">
                         <RankChange current={team.rank} previous={team.previousRank} />
                       </td>
@@ -388,12 +388,12 @@ export default function RankingsPage() {
                           {team.name}
                         </Link>
                         {team.program && (
-                          <span className="ml-2 rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
+                          <span className="league-tag ml-2">
                             {team.program}
                           </span>
                         )}
                       </td>
-                      <td className="px-4 py-2.5 hidden md:table-cell text-muted-foreground">
+                      <td className="px-4 py-2.5 hidden md:table-cell truncate text-muted-foreground" title={team.club}>
                         <Link
                           href={`/club/${encodeURIComponent(team.club)}`}
                           className="hover:text-primary transition-colors"
@@ -404,7 +404,7 @@ export default function RankingsPage() {
                       <td className="px-4 py-2.5 hidden sm:table-cell text-muted-foreground">
                         {team.state}
                       </td>
-                      <td className="px-4 py-2.5 text-right font-mono font-medium">
+                      <td className="px-4 py-2.5 text-right font-semibold tabular-nums">
                         {team.score?.toFixed(1) ?? "—"}
                       </td>
                       <td className="px-4 py-2.5 text-center hidden sm:table-cell text-muted-foreground">
@@ -423,7 +423,7 @@ export default function RankingsPage() {
 
         {/* Pagination */}
         {totalCount > 0 && (
-          <div className="flex items-center justify-between px-4 py-3 border-t border-border">
+          <div className="flex items-center justify-between border-t border-[var(--surface-line)] px-6 py-4">
             <p className="lowbrow">
               {page * PAGE_SIZE + 1}-{Math.min((page + 1) * PAGE_SIZE, totalCount)} of {totalCount.toLocaleString()} teams
             </p>

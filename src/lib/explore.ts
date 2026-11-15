@@ -84,6 +84,8 @@ interface ExploreIndex {
   clubOfTeam: Map<number, string>;
   /** club slug → location of a team name, for multi-location clubs */
   locate: Map<string, (teamName: string) => string>;
+  /** West rank among listed teams of the same age group + gender (as on /rankings) */
+  listedRank: Map<number, number>;
 }
 const cache = new WeakMap<DataSet, ExploreIndex>();
 
@@ -260,7 +262,7 @@ function build(data: DataSet): ExploreIndex {
       ranked: cs.reduce((n, c) => n + c.ranked, 0),
     });
   }
-  return { leagues, clubs, clubSlugByName, areaStats, teamRow, clubOfTeam, locate };
+  return { leagues, clubs, clubSlugByName, areaStats, teamRow, clubOfTeam, locate, listedRank };
 }
 
 /** data/seed/club-locations.json: which location (chapter) each team of a multi-location club belongs to */
@@ -423,4 +425,5 @@ export function getTeamClubInfo(teamId: number, clubName: string, teamName: stri
   const location = ix.teamRow.get(teamId)?.location ?? ix.locate.get(club.slug)?.(teamName) ?? null;
   return { slug: club.slug, name: club.name, location, area: club.locations.find((l) => l.name === location)?.area ?? null };
 }
+export function getListedRank(teamId: number): number | null { return index().listedRank.get(teamId) ?? null; }
 export function clubSlugFor(name: string) { return index().clubSlugByName.get(name.toLowerCase()) ?? null; }

@@ -18,8 +18,8 @@ export default function MapPage() {
   const { clubs, generatedAt } = loadClubs();
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
-      <h1 className="mb-2 text-3xl font-bold">Southern California clubs</h1>
-      <p className="mb-4 max-w-3xl text-sm text-muted-foreground">
+      <h1 className="display mb-3">Southern California clubs</h1>
+      <p className="lead mb-6">
         Each dot is a club, placed at the field where its teams play most of their home league games (or its city when
         we don&apos;t know the field). Colour is the highest league the club fields; size is its number of teams. Fields
         shared by many clubs, such as league hubs, aren&apos;t used. Clubs that play only friendlies or tournaments may

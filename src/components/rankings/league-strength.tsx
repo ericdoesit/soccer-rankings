@@ -23,7 +23,7 @@ export function LeagueStrength({ ageGroup, gender, onPick }: { ageGroup: string;
   return (
     <Card className="mb-6">
       <CardHeader className="pb-2">
-        <CardTitle className="text-base">League strength · {ageGroup} {gender}</CardTitle>
+        <CardTitle className="heading-sm">League strength · {ageGroup} {gender}</CardTitle>
         <p className="text-xs text-muted-foreground">
           Average rating of each league&apos;s listed teams, on the same scale as the rankings. The gap between two
           leagues comes from the games their teams played against each other (showcases, cups); fewer than 50 such

@@ -40,7 +40,7 @@ export default async function MatchPage({
     <div className="mx-auto max-w-4xl px-4 py-8">
       {/* Match Header + Rankings — single card */}
       <Card className="mb-6">
-        <CardContent className="py-6">
+        <CardContent>
           {/* Tournament + Date */}
           <div className="mb-4 text-center text-xs text-muted-foreground">
             {match.tournamentName} &middot; {match.date}
@@ -169,7 +169,7 @@ export default async function MatchPage({
 
       {/* Head to Head */}
       <Card className="mb-6">
-        <CardContent className="py-5">
+        <CardContent>
           <h2 className="heading-sm mb-4">Head to Head</h2>
           {match.h2hGames.length === 0 ? (
             <p className="text-sm text-muted-foreground">
@@ -188,7 +188,7 @@ export default async function MatchPage({
                   <Link
                     key={g.id}
                     href={`/match/${g.id}`}
-                    className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 rounded-[10px] border border-border/50 p-3 text-sm hover:bg-muted/50 transition-colors"
+                    className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 rounded-2xl bg-card p-3 shadow-[var(--surface-shadow)] text-sm hover:bg-muted/50 transition-colors"
                   >
                     <div className="text-left">
                       <span className={`font-semibold ${t1Won ? "text-foreground" : "text-muted-foreground"}`}>
@@ -216,7 +216,7 @@ export default async function MatchPage({
       {/* Team Form — side by side */}
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
-          <CardContent className="py-5">
+          <CardContent>
             <h2 className="heading-sm mb-3">{match.team1.name} Form</h2>
             <div className="mb-3 flex gap-1">
               {match.team1Form.map((g) => (
@@ -241,7 +241,7 @@ export default async function MatchPage({
         </Card>
 
         <Card>
-          <CardContent className="py-5">
+          <CardContent>
             <h2 className="heading-sm mb-3">{match.team2.name} Form</h2>
             <div className="mb-3 flex gap-1">
               {match.team2Form.map((g) => (

@@ -29,14 +29,14 @@ const RANKED_LEAGUES: Array<[program: string, label: string]> = [
 ];
 
 /** "Leagues" dropdown in the site header. */
-export function LeaguesMenu() {
+export function LeaguesMenu({ active = false, itemClass }: { active?: boolean; itemClass: (on: boolean) => string }) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none">
+      <DropdownMenuTrigger className={`${itemClass(active)} group/lm flex items-center gap-1 outline-none focus-visible:ring-2 focus-visible:ring-ring`}>
         Leagues
-        <ChevronDownIcon className="size-3.5" aria-hidden />
+        <ChevronDownIcon className="size-3.5 transition-transform duration-200 group-data-[popup-open]/lm:rotate-180" aria-hidden />
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" className="w-56">
+      <DropdownMenuContent align="start" sideOffset={8} className="w-60 rounded-2xl p-1.5 duration-200">
         <DropdownMenuGroup>
           <DropdownMenuLabel>MLS NEXT predictions</DropdownMenuLabel>
           <DropdownMenuItem render={<Link href="/mls-next?division=homegrown" />}>MLS NEXT Homegrown</DropdownMenuItem>

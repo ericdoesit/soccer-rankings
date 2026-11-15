@@ -4,6 +4,7 @@ import { AGE_ORDER, areaBySlug, getClubRow, getLeague } from "@/lib/explore";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getLeagueRankings } from "@/lib/league-rankings";
+import { chip } from "@/lib/ui-classes";
 
 export default async function LeaguePage({
   params, searchParams,
@@ -51,7 +52,7 @@ export default async function LeaguePage({
     if (l) q.set("level", l);
     return `/league/${slug}?${q}#rankings`;
   };
-  const pill = (on: boolean) => `rounded-full border px-3 py-1 text-sm ${on ? "border-foreground bg-foreground text-background" : "hover:bg-muted"}`;
+  const pill = chip;
   const season = league.seasons[0];
 
   return (
@@ -61,7 +62,7 @@ export default async function LeaguePage({
         {area && <> / <Link href={`/state/${area.slug}`} className="hover:text-primary">{area.name}</Link></>}
         {" "}/ {league.name}
       </p>
-      <h1 className="heading mt-1">{league.name}</h1>
+      <h1 className="display mt-1">{league.name}</h1>
       <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
         {league.tier && league.tier !== "CUP" && <Badge variant="secondary">{league.tier}</Badge>}
         {league.kind === "cup" && <Badge variant="secondary">Cup</Badge>}
@@ -90,7 +91,7 @@ export default async function LeaguePage({
       {lr && ranked.length > 0 && (
         <Card className="mt-6" id="rankings">
           <CardHeader>
-            <CardTitle className="heading">{league.name} rankings · {lr.season}</CardTitle>
+            <CardTitle className="heading-sm">{league.name} rankings · {lr.season}</CardTitle>
             <p className="text-xs text-muted-foreground">
               Every team playing {lr.events.join(" and ")} that has a rating, ranked by rating within its age group.
               Ratings use all of a team&apos;s games, not just league games. The record is league games only.
@@ -112,7 +113,15 @@ export default async function LeaguePage({
             )}
           </CardHeader>
           <CardContent className="p-0 overflow-x-auto">
-            <table className="w-full text-sm">
+            {/* fixed column widths, so switching age group or level doesn't shift the columns */}
+            <table className="w-full table-fixed text-sm">
+              <colgroup>
+                <col className="w-20" />
+                <col />
+                <col className="hidden w-64 md:table-column" />
+                <col className="w-32" />
+                <col className="w-28" />
+              </colgroup>
               <thead>
                 <tr className="border-b border-border text-left text-xs text-muted-foreground">
                   <th className="px-4 py-2 text-right">#</th>
@@ -130,7 +139,7 @@ export default async function LeaguePage({
                       <Link href={`/team/${r.teamId}`} className="font-medium hover:text-primary transition-colors">{r.name}</Link>
                       {r.westListed && <span className="ml-1.5 text-[11px] text-muted-foreground">West rank</span>}
                     </td>
-                    <td className="px-4 py-2 hidden md:table-cell text-xs text-muted-foreground">{r.division ?? "—"}</td>
+                    <td className="px-4 py-2 hidden md:table-cell truncate text-xs text-muted-foreground" title={r.division ?? undefined}>{r.division ?? "—"}</td>
                     <td className="px-4 py-2 text-right tabular-nums" data-sort={r.w * 3 + r.d}>{r.w}-{r.d}-{r.l}</td>
                     <td className="px-4 py-2 text-right tabular-nums">{r.rating.toFixed(2)}</td>
                   </tr>
@@ -142,7 +151,7 @@ export default async function LeaguePage({
       )}
 
       <Card className="mt-6">
-        <CardHeader><CardTitle className="heading">Clubs</CardTitle></CardHeader>
+        <CardHeader><CardTitle className="heading-sm">Clubs</CardTitle></CardHeader>
         <CardContent className="p-0 overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

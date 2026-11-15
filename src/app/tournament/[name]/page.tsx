@@ -2,6 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTournamentGames, getTeamName } from "@/lib/data";
 import { Card, CardContent } from "@/components/ui/card";
+import { getTournamentView } from "@/lib/tournament-view";
+import { DivisionView } from "./division-view";
+import { segment, segmentItem } from "@/lib/ui-classes";
 
 // Big leagues have 20K+ games; rendering them all produced a 32 MB page.
 const PAGE_SIZE = 300;
@@ -18,6 +21,26 @@ export default async function TournamentPage({
   const games = getTournamentGames(tournamentName);
   if (games.length === 0) notFound();
 
+  // Default view: age groups → divisions with standings; "All games" is the plain list
+  const sp = await searchParams;
+  const view = sp.view === "games" ? "games" : "divisions";
+  const base = `/tournament/${encodeURIComponent(tournamentName)}`;
+  const tabCls = segmentItem;
+  const tabs = (
+    <div className={`${segment} mb-6`}>
+      <Link href={base} className={tabCls(view === "divisions")}>By division</Link>
+      <Link href={`${base}?view=games`} className={tabCls(view === "games")}>All games</Link>
+    </div>
+  );
+  if (view === "divisions") {
+    const v = getTournamentView(tournamentName);
+    if (v) {
+      // big leagues: show one age group at a time
+      const age = typeof sp.age === "string" ? sp.age : v.games > 1500 ? v.groups[0]?.key ?? null : null;
+      return <DivisionView v={v} age={age} tabs={tabs} />;
+    }
+  }
+
   const teams = new Set<number>();
   for (const g of games) {
     teams.add(g.team1Id);
@@ -25,10 +48,10 @@ export default async function TournamentPage({
   }
 
   const pageCount = Math.ceil(games.length / PAGE_SIZE);
-  const requested = Number((await searchParams).page);
+  const requested = Number(sp.page);
   const page = Number.isInteger(requested) ? Math.min(Math.max(requested, 1), pageCount) : 1;
   const pageGames = games.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
-  const pageHref = (p: number) => `/tournament/${encodeURIComponent(tournamentName)}?page=${p}`;
+  const pageHref = (p: number) => `${base}?view=games&page=${p}`;
 
   // Group by date
   const byDate = new Map<string, typeof games>();
@@ -41,7 +64,8 @@ export default async function TournamentPage({
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
-      <h1 className="heading mb-2">{tournamentName}</h1>
+      <h1 className="display mb-2">{tournamentName}</h1>
+      {tabs}
       <div className="flex gap-4 mb-8">
         <span className="lowbrow">{games.length} games</span>
         <span className="lowbrow">{teams.size} teams</span>

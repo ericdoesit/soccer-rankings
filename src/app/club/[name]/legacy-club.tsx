@@ -19,7 +19,7 @@ export function LegacyClub({ clubName }: { clubName: string }) {
     <div className="mx-auto max-w-5xl px-4 py-8">
       {/* Club Header */}
       <div className="mb-8">
-        <h1 className="heading">{club.name}</h1>
+        <h1 className="display">{club.name}</h1>
         {meta && (
           <p className="body-text mt-1">{meta.fullName}</p>
         )}
@@ -47,31 +47,31 @@ export function LegacyClub({ clubName }: { clubName: string }) {
       {/* Club Stats */}
       <div className="mb-8 grid grid-cols-2 gap-4 sm:grid-cols-5">
         <Card>
-          <CardContent className="py-3 text-center">
+          <CardContent className="text-center">
             <p className="text-2xl font-bold">#{club.clubRank}</p>
             <p className="lowbrow mt-1">Club Rank</p>
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="py-3 text-center">
+          <CardContent className="text-center">
             <p className="text-2xl font-bold">{club.avgScore.toFixed(1)}</p>
             <p className="lowbrow mt-1">Avg Rating</p>
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="py-3 text-center">
+          <CardContent className="text-center">
             <p className="text-2xl font-bold">{winRate}%</p>
             <p className="lowbrow mt-1">Win Rate</p>
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="py-3 text-center">
+          <CardContent className="text-center">
             <p className="text-2xl font-bold">{club.totalGames}</p>
             <p className="lowbrow mt-1">Total Games</p>
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="py-3 text-center">
+          <CardContent className="text-center">
             <p className="text-2xl font-bold">
               {club.totalWins}-{club.totalLosses}-{club.totalDraws}
             </p>
@@ -93,7 +93,7 @@ export function LegacyClub({ clubName }: { clubName: string }) {
       {/* All Club Teams */}
       <Card>
         <CardHeader>
-          <CardTitle className="heading">Teams</CardTitle>
+          <CardTitle className="heading-sm">Teams</CardTitle>
         </CardHeader>
         <CardContent className="p-0">
           <div className="overflow-x-auto">

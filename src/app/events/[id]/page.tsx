@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getPrediction, formatDates, type PredTeam, type PredMatch, type PredGroup, type KnockoutRow } from "@/lib/events";
+import { chip } from "@/lib/ui-classes";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -193,7 +194,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
       <Link href="/events" className="text-sm text-muted-foreground hover:text-foreground">&larr; Upcoming events</Link>
-      <h1 className="heading mt-2">{e.name}</h1>
+      <h1 className="display mt-2">{e.name}</h1>
       <p className="mt-1 text-muted-foreground">
         {formatDates(e.start, e.end)}{e.venue ? ` · ${e.venue}` : ""}{e.city ? ` · ${e.city}, ${e.state}` : ""}
       </p>
@@ -204,7 +205,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
       {e.format && <p className="mt-4 max-w-3xl text-sm">{e.format}</p>}
 
       <Card className="mt-6">
-        <CardContent className="py-4 text-sm text-muted-foreground space-y-1.5">
+        <CardContent className="text-sm text-muted-foreground space-y-1.5">
           <p>
             <span className="font-semibold text-foreground">How these predictions work.</span> Each match is predicted from
             the two teams&apos; ratings: we look at how often teams with the same rating gap won, drew or lost in real games over
@@ -226,7 +227,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
 
       <nav className="mt-6 flex flex-wrap gap-2" aria-label="Age groups">
         {p.divisions.map((d) => (
-          <a key={d.division} href={`#${d.division}`} className="rounded-full border px-3 py-1 text-sm hover:bg-muted">{d.division}</a>
+          <a key={d.division} href={`#${d.division}`} className={chip(false)}>{d.division}</a>
         ))}
       </nav>
 
@@ -243,7 +244,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
             {superRR.length > 0 && (
               <div className="grid gap-4 md:grid-cols-2 mb-6">{superRR.map((g) => <GroupCard key={g.name} g={g} />)}</div>
             )}
-            {showcase.length > 0 && <h3 className="heading-sm mb-3">Showcase groups</h3>}
+            {showcase.length > 0 && <h3 className="heading-sm mb-3">Showcase Groups</h3>}
             <div className="grid gap-4 md:grid-cols-2">
               {showcase.map((g) => <GroupCard key={g.name} g={g} />)}
             </div>

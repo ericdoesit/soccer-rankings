@@ -1,51 +1,72 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { getStats, RANK_RULES } from "@/lib/data";
+import { getAreas } from "@/lib/explore";
+import { WestMap } from "@/components/west-map";
+
+/** 2026-27 season: school-year age groups (Aug 1 – Jul 31); U## = 2027 − school birth year */
+const SEASON_END = 2027;
+const format = (u: number) => (u >= 13 ? "11v11" : u >= 11 ? "9v9" : u >= 9 ? "7v7" : "4v4 / 5v5");
 
 export default function AboutPage() {
+  const stats = getStats();
+  const areas = getAreas();
+  const ageRows = Array.from({ length: 14 }, (_, i) => 2008 + i).map((by) => ({
+    by,
+    early: SEASON_END - by,      // born Jan–Jul: school year that ends in their birth year
+    late: SEASON_END - by - 1,   // born Aug–Dec: school year that ends the following year
+  }));
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
-      <h1 className="heading mb-8">About Youth Soccer Rankings</h1>
+      <h1 className="display mb-8">About <span className="tail">Youth Soccer Rankings.</span></h1>
 
       <div className="space-y-6">
         <Card>
-          <CardContent className="py-6">
-            <h2 className="heading mb-3">How It Works</h2>
+          <CardContent>
+            <h2 className="heading-sm mb-3">How It Works</h2>
             <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
               <p>
-                Youth Soccer Rankings ranks competitive youth soccer club teams in
-                the Western US. Each team is assigned
-                a score measured in <strong className="text-foreground">goals</strong>. To predict the goal difference when two
-                teams play each other, subtract the score of one team from the
-                other.
+                Youth Soccer Rankings rates competitive youth club teams in the Western US. Each team has a score
+                measured in <strong className="text-foreground">goals</strong>. To predict the goal difference when two
+                teams play, subtract one team&apos;s score from the other&apos;s.
               </p>
               <p>
-                For example, if Team A has a score of 3.6 and Team B has a score
-                of 1.5, you can expect Team A to win by about 2 goals. This works
-                across age groups and genders.
+                For example, if Team A has a score of 3.6 and Team B has a score of 1.5, expect Team A to win by about
+                2 goals. Compare teams within the same age group and gender: each age group is rated on its own.
               </p>
             </div>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="py-6">
-            <h2 className="heading mb-3">The Enhanced Massey Rating System</h2>
+          <CardContent>
+            <h2 className="heading-sm mb-3">The Enhanced Massey Rating System</h2>
             <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
               <p>
-                Our rankings use an Enhanced Massey Rating System, a
-                well-established approach in sports analytics. The core algorithm
-                solves a linear system to find team strengths that best explain
-                observed goal differences across all games.
+                Ratings come from an Enhanced Massey rating system, a long-standing method in sports analytics. It
+                finds the team strengths that best explain the goal differences in every game we have.
               </p>
-              <p className="font-semibold text-foreground">Enhancements tuned from 80,000+ game analysis:</p>
               <ul className="list-disc pl-5 space-y-2">
                 <li>
-                  <strong className="text-foreground">Margin cap (6 goals)</strong> — A 10-0 win counts the same as a 6-0 win to prevent outliers from distorting ratings.
+                  <strong className="text-foreground">Margin cap (6 goals).</strong> A 10-0 win counts the same as a
+                  6-0 win, so blowouts don&apos;t distort the ratings.
                 </li>
                 <li>
-                  <strong className="text-foreground">Recency weighting</strong> — Recent games are weighted more heavily than older games, with a half-life of about 3.5 months.
+                  <strong className="text-foreground">Recent games count more.</strong> A game&apos;s weight halves
+                  about every 3.5 months (105 days).
                 </li>
                 <li>
-                  <strong className="text-foreground">Home advantage (0.1 goals)</strong> — A small adjustment based on rematch analysis of 24,000 games.
+                  <strong className="text-foreground">Last season counts a quarter.</strong> Rosters change every
+                  August, so games from before Aug 1 count at a quarter of their weight.
+                </li>
+                <li>
+                  <strong className="text-foreground">League ties.</strong> Each team is very lightly tied to the
+                  league it plays in most, so that groups of teams that rarely meet, such as MLS NEXT conferences in
+                  different regions, are rated on one scale. Wherever real games connect them, the games decide.
+                </li>
+                <li>
+                  <strong className="text-foreground">Every game is treated as neutral.</strong> Most results
+                  don&apos;t record which team was at home, so there is no home-field adjustment.
                 </li>
               </ul>
             </div>
@@ -53,178 +74,153 @@ export default function AboutPage() {
         </Card>
 
         <Card>
-          <CardContent className="py-6">
-            <h2 className="heading mb-3">Data Sources</h2>
+          <CardContent>
+            <h2 className="heading-sm mb-3">Data Sources</h2>
             <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
               <p>
-                Game results are collected from tournament and league websites
-                across the Western US. We currently track over{" "}
-                <strong className="text-foreground">470,000 games</strong> from multiple platforms
-                including GotSport, Coast Soccer League, Total Global Sports,
-                and state association sites.
+                We rate <strong className="text-foreground">{stats.westGames.toLocaleString()} games</strong> involving
+                Western teams, collected from the leagues and events themselves:
               </p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>GotSport: state leagues, NPL and N1 leagues, State Cups and most tournaments</li>
+                <li>MLS NEXT: the league&apos;s 2026-27 schedule (Homegrown, Academy, Flex and Pro Player Pathway games), earlier seasons, MLS NEXT Cup and Generation adidas Cup</li>
+                <li>ECNL, ECNL Regional League and Pre-ECNL</li>
+                <li>Elite Academy League and USL Academy</li>
+                <li>Coast Soccer League, leagues run on Demosphere, Surf Cup, and other event schedules</li>
+              </ul>
+              <p>Ratings are recalculated whenever new results come in.</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent>
+            <h2 className="heading-sm mb-3">Which Teams Are Listed</h2>
+            <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
               <p>
-                Teams must play a minimum of 10 games before they are ranked.
-                Rankings are recalculated regularly as new game data becomes
-                available.
+                Every team with games gets a rating. The rankings list a Western team when it has:
+              </p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>at least {RANK_RULES.minGames} rated games in the last 15 months</li>
+                <li>at least {RANK_RULES.minTrackedGames} of them in tracked competitions: elite leagues, N1, State Cups, championships and major showcases</li>
+                <li>at least {RANK_RULES.minQualityOpponentGames} games against teams that also play tracked competitions</li>
+                <li>a schedule stronger than the weakest {Math.round(RANK_RULES.minSchedulePercentile * 100)}% in its age group</li>
+                <li>a game this season, once the season is two months old (January 1 for U15 and older, whose high school season runs in the fall)</li>
+              </ul>
+              <p>
+                Teams that only play local leagues stay in the directory, and their games still count in everyone&apos;s
+                ratings. Teams from other regions are rated when they play Western teams but aren&apos;t listed.
               </p>
             </div>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="py-6">
-            <h2 className="heading mb-3">2026-27 Age Group Changes</h2>
+          <CardContent>
+            <h2 className="heading-sm mb-3">2026-27 Age Groups</h2>
             <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
               <p>
-                Starting with the 2026-27 season, US Youth Soccer is transitioning
-                from <strong className="text-foreground">calendar birth year</strong> (Jan-Dec) to{" "}
-                <strong className="text-foreground">school year</strong> (Aug-Jul) age grouping. The age cutoff
-                is now <strong className="text-foreground">August 31st</strong>. This means a player&apos;s age
-                group may shift depending on their birth month.
-              </p>
-              <p className="text-xs">
-                Find your birth year in the left column. Your age group before
-                August is in the Jan-Jul columns. After August 1st, use the
-                Aug-Dec columns for the new season.
+                From the 2026-27 season, youth soccer groups players by{" "}
+                <strong className="text-foreground">school year</strong> (August 1 – July 31) instead of calendar
+                birth year. A player born from January through July plays with their birth year; a player born from
+                August through December plays one group younger, with the next year&apos;s birthdays. Age groups move
+                up one every August 1.
               </p>
             </div>
-            <div className="overflow-x-auto mt-4 -mx-2">
-              <table className="w-full text-xs border-collapse">
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full text-sm">
                 <thead>
-                  <tr>
-                    <th className="border border-border px-2 py-1.5 bg-muted/50 text-left font-semibold" rowSpan={2}>
-                      Birth Year
-                    </th>
-                    <th className="border border-border px-2 py-1 bg-primary/20 text-center font-semibold" colSpan={7}>
-                      Jan - Jul 2027
-                    </th>
-                    <th className="border border-border px-2 py-1 bg-muted/30 text-center font-semibold" colSpan={5}>
-                      Aug - Dec 2027
-                    </th>
-                    <th className="border border-border px-2 py-1.5 bg-muted/50 text-center font-semibold" rowSpan={2}>
-                      Format
-                    </th>
-                  </tr>
-                  <tr>
-                    {["Jan","Feb","Mar","Apr","May","Jun","Jul"].map(m => (
-                      <th key={m} className="border border-border px-1.5 py-1 bg-primary/10 text-center font-medium">{m}</th>
-                    ))}
-                    {["Aug","Sep","Oct","Nov","Dec"].map(m => (
-                      <th key={m} className="border border-border px-1.5 py-1 bg-muted/20 text-center font-medium">{m}</th>
-                    ))}
+                  <tr className="text-left text-xs">
+                    <th>Birth year</th>
+                    <th>Born Jan–Jul</th>
+                    <th>Born Aug–Dec</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {[
-                    { by: 2007, pre: "U20", post: "U19", format: "11v11" },
-                    { by: 2008, pre: "U19", post: "U18", format: "11v11" },
-                    { by: 2009, pre: "U18", post: "U17", format: "11v11" },
-                    { by: 2010, pre: "U17", post: "U16", format: "11v11" },
-                    { by: 2011, pre: "U16", post: "U15", format: "11v11" },
-                    { by: 2012, pre: "U15", post: "U14", format: "11v11" },
-                    { by: 2013, pre: "U14", post: "U13", format: "11v11" },
-                    { by: 2014, pre: "U13", post: "U12", format: "9v9" },
-                    { by: 2015, pre: "U12", post: "U11", format: "9v9" },
-                    { by: 2016, pre: "U11", post: "U10", format: "7v7" },
-                    { by: 2017, pre: "U10", post: "U9", format: "7v7" },
-                    { by: 2018, pre: "U9", post: "U8", format: "5v5" },
-                    { by: 2019, pre: "U8", post: "U7", format: "5v5" },
-                    { by: 2020, pre: "U7", post: "U6", format: "5v5" },
-                  ].map((row) => (
-                    <tr key={row.by} className="hover:bg-muted/30 transition-colors">
-                      <td className="border border-border px-2 py-1.5 font-semibold bg-muted/50">
-                        {row.by}
-                      </td>
-                      {Array(7).fill(null).map((_, i) => (
-                        <td key={`pre-${i}`} className="border border-border px-1.5 py-1.5 text-center bg-primary/5">
-                          {row.pre}
-                        </td>
-                      ))}
-                      {Array(5).fill(null).map((_, i) => (
-                        <td key={`post-${i}`} className="border border-border px-1.5 py-1.5 text-center">
-                          {row.post}
-                        </td>
-                      ))}
-                      <td className="border border-border px-2 py-1.5 text-center text-muted-foreground">
-                        {row.format}
-                      </td>
+                  {ageRows.map((r) => (
+                    <tr key={r.by} className="border-t border-[var(--surface-line)]">
+                      <td className="font-medium tabular-nums">{r.by}</td>
+                      <td className="tabular-nums">U{r.early} <span className="text-muted-foreground">· {format(r.early)}</span></td>
+                      <td className="tabular-nums">U{r.late} <span className="text-muted-foreground">· {format(r.late)}</span></td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <p className="mt-3 text-muted-foreground text-xs">
-              Age cutoff: August 31st. A player born in 2013 is U14 from
-              January through July 2027, then becomes U13 when the new season
-              starts in August 2027. Game format transitions from 5v5 to 7v7
-              at U9, 7v7 to 9v9 at U11, and 9v9 to 11v11 at U13.
+            <p className="mt-3 text-xs text-muted-foreground">
+              For the 2026-27 season (August 2026 – July 2027). Example: a player born in March 2014 is U13; one born in
+              October 2014 is U12. Game format moves from small-sided to 7v7 at U9, 9v9 at U11 and 11v11 at U13.
             </p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="py-6">
-            <h2 className="heading mb-3">Predictive Power</h2>
+          <CardContent>
+            <h2 className="heading-sm mb-3">Predictive Power</h2>
             <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
               <p>
-                A ranking system&apos;s accuracy is measured by its{" "}
-                <strong className="text-foreground">Predictive Power</strong> — how often a higher-ranked team beats
-                a lower-ranked team. Flipping a coin would be right 50% of the time; 100% would mean the
-                rankings always predict the result (impossible given the random nature of the sport).
+                A rating system is only as good as its predictions. Flipping a coin picks the winner half the time;
+                no system gets close to every game, because soccer has a lot of chance in it.
               </p>
               <p>
-                In a test on this fall&apos;s games, we rated teams using only games played before
-                October 1, 2026, then predicted the next six weeks (about 44,000 games). The higher-rated
-                team won <strong className="text-foreground">77% of the games that weren&apos;t draws</strong>.
-                The same test settled how much last season counts: a quarter of its normal weight
-                predicted better than full weight or this season alone.
+                To test ours, we rated teams using only games played before October 1, 2026, then predicted the next
+                six weeks of games involving Western teams. The higher-rated team won{" "}
+                <strong className="text-foreground">76% of the games that weren&apos;t draws</strong>, and about 90% when
+                it was favored by 2 goals or more. The same test in spring 2026 gave 75%.
+              </p>
+              <p>
+                National events are harder, because they bring together teams from groups that rarely play each
+                other. At the 2026 MLS NEXT Cup the league ties raised the share of winners picked in the U13/U14
+                Championship from 69% to 76%, and halved the average miss on the goal margin in the Homegrown
+                brackets, from 3.6 to 1.8 goals.
               </p>
             </div>
           </CardContent>
         </Card>
+
         <Card>
-          <CardContent className="py-6">
-            <h2 className="heading mb-4">Coverage: Region IV</h2>
+          <CardContent>
+            <h2 className="heading-sm mb-4">Coverage: Region IV</h2>
             <p className="body-text mb-6">
-              We rank teams in <strong className="text-foreground">US Youth Soccer Region IV</strong>, the 13 Western
-              states. California is split into Cal South and Cal North, the way its two state associations run it, so the
-              West has 14 areas.
+              We cover <strong className="text-foreground">US Youth Soccer Region IV</strong>, the 13 Western states.
+              California is split into Cal South and Cal North, the way its two state associations run it. Twelve of
+              the states are ranked; Hawaii isn&apos;t yet.
             </p>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/region-iv-map.svg"
-              alt="US map with the 13 Region IV states highlighted: Alaska, Arizona, California, Colorado, Hawaii, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, Washington and Wyoming"
-              className="w-full max-w-2xl mx-auto mb-6"
-            />
-            <div className="grid gap-4 sm:grid-cols-2 mb-6">
-              {[
-                {
-                  name: "West",
-                  note: "N1 League West conference, plus New Mexico",
-                  states: ["Arizona", "Cal North", "Cal South", "Colorado", "Nevada", "New Mexico", "Utah", "Wyoming"],
-                },
-                {
-                  name: "Northwest",
-                  note: "N1 League Northwest conference",
-                  states: ["Alaska", "Hawaii (not ranked yet)", "Idaho", "Montana", "Oregon", "Washington"],
-                },
-              ].map((group) => (
-                <div key={group.name} className="rounded-[10px] border border-border p-4">
-                  <div className="flex items-center gap-2 mb-1">
-                    <div className="h-3 w-3 rounded-full bg-blue-600" />
-                    <span className="font-semibold text-foreground">{group.name}</span>
+            {/* the same map as the States page: each area links to its state page */}
+            <div className="mb-6 grid gap-6 md:grid-cols-[minmax(0,380px)_1fr] md:items-start">
+              <WestMap
+                className="mx-auto w-full max-w-[380px]"
+                areas={areas.map(({ area, clubs, teams }) => ({ code: area.code, slug: area.slug, name: area.name, teams, clubs: clubs.length }))}
+              />
+              <div className="grid content-start gap-4">
+                {[
+                  {
+                    name: "West",
+                    note: "N1 West conference; New Mexico plays in the South conference with west Texas",
+                    states: ["Arizona", "Cal North", "Cal South", "Colorado", "Nevada", "New Mexico", "Utah", "Wyoming"],
+                  },
+                  {
+                    name: "Northwest",
+                    note: "N1 Northwest conference",
+                    states: ["Alaska", "Hawaii (not ranked yet)", "Idaho", "Montana", "Oregon", "Washington"],
+                  },
+                ].map((group) => (
+                  <div key={group.name} className="surface p-5">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="size-2.5 rounded-full bg-[var(--brand)]" aria-hidden />
+                      <span className="font-semibold text-foreground">{group.name}</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground mb-2">{group.note}</p>
+                    <ul className="space-y-0.5">
+                      {group.states.map((st) => (
+                        <li key={st} className="text-xs text-muted-foreground">{st}</li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-2">{group.note}</p>
-                  <ul className="space-y-0.5">
-                    {group.states.map((st) => (
-                      <li key={st} className="text-xs text-muted-foreground">{st}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-            <h3 className="font-semibold text-foreground mb-2">Why Region IV</h3>
+            <h3 className="heading-sm mb-2">Why Region IV</h3>
             <ul className="body-text space-y-2 list-disc pl-5">
               <li>
                 <strong className="text-foreground">It&apos;s how Western youth soccer is organized.</strong>{" "}Region IV is
@@ -233,9 +229,9 @@ export default function AboutPage() {
               </li>
               <li>
                 <strong className="text-foreground">Western teams play each other.</strong>{" "}The elite leagues group the
-                West the same way: the N1 League&apos;s West and Northwest conferences together cover every Region IV state except New Mexico,
-                and ECNL, Girls Academy and DPL run Western conferences and showcases (Surf Cup, DPL Western Regional,
-                GA West). Teams that play each other often can be compared accurately.
+                West the same way: N1&apos;s West and Northwest conferences cover every Region IV state except New Mexico,
+                and ECNL, Girls Academy, DPL and MLS NEXT run Western conferences and showcases (Surf Cup, DPL Western
+                Regional, GA West). Teams that play each other often can be compared accurately.
               </li>
               <li>
                 <strong className="text-foreground">Depth over breadth.</strong>{" "}We&apos;d rather cover every competitive

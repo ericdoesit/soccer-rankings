@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { LegacyClub } from "./legacy-club";
 import { LEAGUES } from "@/lib/directory/leagues";
+import { chip } from "@/lib/ui-classes";
 
 // "Walnut Creek Surf Soccer Club Blue U12" → "Blue" inside the club's own grid
 function shortName(t: TeamRow, clubName: string) {
@@ -44,7 +45,7 @@ export default async function ClubPage({ params, searchParams }: {
   const shown = location ? club.teams.filter((t) => t.location === location.name) : club.teams;
   const locHref = (l: string | null) => `/club/${club.slug}${l ? `?loc=${encodeURIComponent(l)}` : ""}`;
   const pill = (on: boolean) =>
-    `rounded-full border px-3 py-1 text-xs transition-colors ${on ? "border-primary bg-primary text-primary-foreground" : "border-border hover:bg-muted"}`;
+    chip(on);
   const cell = (age: string, gender: "Boys" | "Girls") =>
     shown.filter((t) => t.ageGroup === age && t.gender === gender)
       .sort((a, b) => (a.rank ?? 1e9) - (b.rank ?? 1e9));
@@ -62,7 +63,7 @@ export default async function ClubPage({ params, searchParams }: {
         {club.area && <> / <Link href={`/state/${club.area.slug}`} className="hover:text-primary">{club.area.name}</Link></>}
         {" "}/ {club.name}
       </p>
-      <h1 className="heading mt-1">{club.name}</h1>
+      <h1 className="display mt-1">{club.name}</h1>
       {(club.city || club.website) && (
         <p className="mt-1 text-sm text-muted-foreground">
           {club.city}

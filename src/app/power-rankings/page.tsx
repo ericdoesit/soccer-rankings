@@ -12,8 +12,8 @@ import {
 } from "@/components/ui/select";
 
 /** labels for the closed menus (without items the trigger shows the raw value, "All" / "Both") */
-const AGE_ITEMS = [{ value: "All", label: "All Ages" }, ...["U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17", "U18", "U19"].map((a) => ({ value: a, label: a })), { value: "U20", label: "U20 (USL Academy)" }];
-const GENDER_ITEMS = [{ value: "Both", label: "Boys & Girls" }, { value: "Boys", label: "Boys" }, { value: "Girls", label: "Girls" }];
+const AGE_ITEMS = [{ value: "All", label: "All ages" }, ...["U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17", "U18", "U19"].map((a) => ({ value: a, label: a })), { value: "U20", label: "U20 (USL Academy)" }];
+const GENDER_ITEMS = [{ value: "Both", label: "Boys & girls" }, { value: "Boys", label: "Boys" }, { value: "Girls", label: "Girls" }];
 
 interface PowerTeam {
   id: number;
@@ -86,8 +86,8 @@ export default function PowerRankingsPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
       <div className="mb-6">
-        <h1 className="heading">Power Rankings</h1>
-        <p className="body-text mt-2">
+        <h1 className="display">Power rankings</h1>
+        <p className="lead mt-3">
           The top 1% of teams who prove themselves against elite competition across leagues.
           Composite score based on rating, strength of schedule, quality wins, and cross-league performance.
         </p>
@@ -99,7 +99,7 @@ export default function PowerRankingsPage() {
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="All">All Ages</SelectItem>
+            <SelectItem value="All">All ages</SelectItem>
             <SelectItem value="U8">U8</SelectItem>
             <SelectItem value="U9">U9</SelectItem>
             <SelectItem value="U10">U10</SelectItem>
@@ -121,7 +121,7 @@ export default function PowerRankingsPage() {
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="Both">Boys &amp; Girls</SelectItem>
+            <SelectItem value="Both">Boys &amp; girls</SelectItem>
             <SelectItem value="Boys">Boys</SelectItem>
             <SelectItem value="Girls">Girls</SelectItem>
           </SelectContent>
@@ -175,7 +175,7 @@ export default function PowerRankingsPage() {
                       key={team.id}
                       className="border-b border-border/50 hover:bg-muted/50 transition-colors"
                     >
-                      <td className="px-4 py-2.5 font-medium">{team.powerRank}</td>
+                      <td className="rank-num px-4 py-2.5">{team.powerRank}</td>
                       <td className="px-4 py-2.5">
                         <Link
                           href={`/team/${team.id}`}

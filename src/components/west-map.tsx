@@ -32,7 +32,7 @@ const LABEL: Record<string, [number, number]> = {
 
 /**
  * Clickable map of the West: each state (Cal North and Cal South separately)
- * links to its /state page. Shading shows how many teams we have there.
+ * links to its /state page. Orange (the site accent) shading shows how many teams we have there.
  */
 export function WestMap({ areas, className }: { areas: MapArea[]; className?: string }) {
   const max = Math.max(1, ...areas.map((a) => a.teams));
@@ -56,7 +56,7 @@ export function WestMap({ areas, className }: { areas: MapArea[]; className?: st
             <path
               d={d}
               clipPath={CLIP[a.code] ? `url(#clip-${a.code})` : undefined}
-              fill="var(--primary)"
+              fill="var(--brand)"
               fillOpacity={shade(a.teams)}
               stroke="var(--background)"
               strokeWidth={1.2}

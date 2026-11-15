@@ -52,13 +52,13 @@ export default async function StatePage({ params }: { params: Promise<{ area: st
       <p className="text-sm text-muted-foreground">
         <Link href="/states" className="hover:text-primary">States</Link> / {area.name}
       </p>
-      <h1 className="heading mt-1">{area.name}</h1>
+      <h1 className="display mt-1">{area.name}</h1>
       <p className="body-text mt-1 text-muted-foreground">
         {leagueRows.length} leagues · {clubs.length} clubs · {data.teams.toLocaleString()} teams
       </p>
 
       <Card className="mt-6">
-        <CardHeader><CardTitle className="heading">Leagues</CardTitle></CardHeader>
+        <CardHeader><CardTitle className="heading-sm">Leagues</CardTitle></CardHeader>
         <CardContent className="p-0 overflow-x-auto">
           {leagueRows.length ? <LeagueTable rows={leagueRows} area={area} /> : (
             <p className="px-4 pb-4 text-sm text-muted-foreground">No league schedules collected for {area.name} yet.</p>
@@ -68,13 +68,13 @@ export default async function StatePage({ params }: { params: Promise<{ area: st
 
       {cups.length > 0 && (
         <Card className="mt-6">
-          <CardHeader><CardTitle className="heading">Cups</CardTitle></CardHeader>
+          <CardHeader><CardTitle className="heading-sm">Cups</CardTitle></CardHeader>
           <CardContent className="p-0 overflow-x-auto"><LeagueTable rows={cups} area={area} /></CardContent>
         </Card>
       )}
 
       <Card className="mt-6">
-        <CardHeader><CardTitle className="heading">Clubs</CardTitle></CardHeader>
+        <CardHeader><CardTitle className="heading-sm">Clubs</CardTitle></CardHeader>
         <CardContent className="p-0 overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

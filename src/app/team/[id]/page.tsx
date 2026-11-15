@@ -63,10 +63,10 @@ export default async function TeamPage({
     <div className="mx-auto max-w-5xl px-4 py-8">
       {/* Team Header */}
       <div className="mb-8">
-        <div className="flex items-start justify-between">
-          <div>
-            <h1 className="heading">{team.name}</h1>
-            <p className="mt-1 text-muted-foreground">
+        <div className="flex items-end justify-between gap-6">
+          <div className="min-w-0">
+            <h1 className="display">{team.name}</h1>
+            <p className="lead mt-3">
               {team.clubVerified ? (
                 <>
                   <Link href={clubHref} className="hover:text-primary transition-colors">{team.club}</Link>
@@ -79,8 +79,8 @@ export default async function TeamPage({
               {" "}&middot; {team.state} &middot; {team.ageGroup} {team.gender}
             </p>
           </div>
-          <div className="text-right">
-            <p className="text-4xl font-bold">{team.score.toFixed(1)}</p>
+          <div className="shrink-0 text-right">
+            <p className="stat-number">{team.score.toFixed(1)}</p>
             <p className="lowbrow mt-1">Rating</p>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default async function TeamPage({
         {/* Stats Row */}
         <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-5">
           <Card>
-            <CardContent className="py-3 text-center">
+            <CardContent className="text-center">
               {team.rankable ? (
                 <>
                   <p className="text-2xl font-bold">#{team.rank}</p>
@@ -103,25 +103,25 @@ export default async function TeamPage({
             </CardContent>
           </Card>
           <Card>
-            <CardContent className="py-3 text-center">
+            <CardContent className="text-center">
               <p className="text-2xl font-bold">{cur.w + cur.d + cur.l}</p>
               <p className="lowbrow mt-1">Games {currentSeason}</p>
             </CardContent>
           </Card>
           <Card>
-            <CardContent className="py-3 text-center">
+            <CardContent className="text-center">
               <p className="text-2xl font-bold text-green-500">{cur.w}</p>
               <p className="lowbrow mt-1">Wins</p>
             </CardContent>
           </Card>
           <Card>
-            <CardContent className="py-3 text-center">
+            <CardContent className="text-center">
               <p className="text-2xl font-bold text-red-500">{cur.l}</p>
               <p className="lowbrow mt-1">Losses</p>
             </CardContent>
           </Card>
           <Card>
-            <CardContent className="py-3 text-center">
+            <CardContent className="text-center">
               <p className="text-2xl font-bold text-yellow-500">{cur.d}</p>
               <p className="lowbrow mt-1">Draws</p>
             </CardContent>
@@ -143,7 +143,7 @@ export default async function TeamPage({
       {ctx && (
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="heading">About this team</CardTitle>
+            <CardTitle className="heading-sm">About This Team</CardTitle>
           </CardHeader>
           <CardContent className="grid gap-3 text-sm sm:grid-cols-2">
             <div>
@@ -152,7 +152,7 @@ export default async function TeamPage({
                 <>
                   <p className="mt-1"><Link href={clubHref} className="hover:text-primary">{team.club}</Link></p>
                   {locHref && (
-                    <p className="mt-1 text-muted-foreground">
+                    <p className="lead mt-3">
                       Location: <Link href={locHref} className="text-foreground hover:text-primary">{clubInfo!.location}</Link>
                       {clubInfo!.area && <span className="text-xs"> ({clubInfo!.area})</span>}
                     </p>
@@ -162,7 +162,7 @@ export default async function TeamPage({
                 <div className="mt-1">
                   <p>Not listed. GotSport publishes this team without a club.</p>
                   {ctx.likelyClub && (
-                    <p className="mt-1 text-muted-foreground">
+                    <p className="lead mt-3">
                       Possibly <span className="font-medium text-foreground">{ctx.likelyClub.club}</span>: its teams play {ctx.likelyClub.games} home games at {ctx.likelyClub.field}, this team&apos;s home field.
                     </p>
                   )}
@@ -213,7 +213,7 @@ export default async function TeamPage({
       {seasonRows.length > 0 && (
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="heading">By season</CardTitle>
+            <CardTitle className="heading-sm">By Season</CardTitle>
             <p className="text-xs text-muted-foreground">
               Seasons run Aug 1 – Jul 31. Rosters change between seasons, so earlier records may be a different group of
               players. The rating counts recent games most: a game from a year ago counts about a tenth as much as one this week.
@@ -253,7 +253,7 @@ export default async function TeamPage({
       {/* Game History */}
       <Card>
         <CardHeader>
-          <CardTitle className="heading">Game History</CardTitle>
+          <CardTitle className="heading-sm">Game History</CardTitle>
         </CardHeader>
         <CardContent className="p-0">
           <div className="overflow-x-auto">

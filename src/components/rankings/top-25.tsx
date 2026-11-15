@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ChevronRight } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -12,8 +13,8 @@ import {
 } from "@/components/ui/select";
 
 /** labels for the closed menus (without items the trigger shows the raw value, "All" / "Both") */
-const AGE_ITEMS = [{ value: "All", label: "All Ages" }, ...["U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17", "U18", "U19"].map((a) => ({ value: a, label: a })), { value: "U20", label: "U20 (USL Academy)" }];
-const GENDER_ITEMS = [{ value: "Both", label: "Boys & Girls" }, { value: "Boys", label: "Boys" }, { value: "Girls", label: "Girls" }];
+const AGE_ITEMS = [{ value: "All", label: "All ages" }, ...["U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17", "U18", "U19"].map((a) => ({ value: a, label: a })), { value: "U20", label: "U20 (USL Academy)" }];
+const GENDER_ITEMS = [{ value: "Both", label: "Boys & girls" }, { value: "Boys", label: "Boys" }, { value: "Girls", label: "Girls" }];
 
 interface RankedTeam {
   id: number;
@@ -67,14 +68,14 @@ export function Top25Rankings() {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between pb-3">
-        <CardTitle className="heading">Top 25 Rankings</CardTitle>
+        <CardTitle className="heading-sm">Top 25 <span className="tail">Rankings</span></CardTitle>
         <div className="flex items-center gap-2">
           <Select items={AGE_ITEMS} value={ageGroup} onValueChange={(v) => v !== null && setAgeGroup(v)}>
-            <SelectTrigger className="w-[90px] h-8 text-xs">
+            <SelectTrigger className="w-[104px] text-xs">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="All">All Ages</SelectItem>
+              <SelectItem value="All">All ages</SelectItem>
               <SelectItem value="U8">U8</SelectItem>
               <SelectItem value="U9">U9</SelectItem>
               <SelectItem value="U10">U10</SelectItem>
@@ -91,34 +92,34 @@ export function Top25Rankings() {
             </SelectContent>
           </Select>
           <Select items={GENDER_ITEMS} value={gender} onValueChange={(v) => v !== null && setGender(v)}>
-            <SelectTrigger className="w-auto min-w-[112px] whitespace-nowrap h-8 text-xs">
+            <SelectTrigger className="w-auto min-w-[120px] whitespace-nowrap text-xs">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="Both">Boys &amp; Girls</SelectItem>
+              <SelectItem value="Both">Boys &amp; girls</SelectItem>
               <SelectItem value="Boys">Boys</SelectItem>
               <SelectItem value="Girls">Girls</SelectItem>
             </SelectContent>
           </Select>
           <Link
             href="/rankings"
-            className="text-xs text-primary hover:underline ml-2"
+            className="group/va ml-1 inline-flex items-center gap-0.5 rounded-full px-3 py-2 text-xs font-medium text-foreground transition-colors duration-300 ease-out hover:bg-muted hover:duration-150"
           >
-            View All &rarr;
+            View all <ChevronRight className="size-3.5 transition-transform duration-200 group-hover/va:translate-x-0.5" strokeWidth={2} aria-hidden />
           </Link>
         </div>
       </CardHeader>
       <CardContent className="p-0">
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full table-fixed text-sm">
             <thead>
               <tr className="border-b border-border text-left text-xs text-muted-foreground">
-                <th className="px-4 py-2 w-12">#</th>
-                <th className="px-4 py-2 w-10 text-center"></th>
+                <th className="px-4 py-2 w-20">#</th>
+                <th className="px-4 py-2 w-12 text-center"></th>
                 <th className="px-4 py-2">Team</th>
-                <th className="px-4 py-2 hidden sm:table-cell">State</th>
-                <th className="px-4 py-2 text-right">Score</th>
-                <th className="px-4 py-2 text-center hidden sm:table-cell">Record</th>
+                <th className="px-4 py-2 hidden sm:table-cell w-20">State</th>
+                <th className="px-4 py-2 text-right w-20">Score</th>
+                <th className="px-4 py-2 text-center hidden sm:table-cell w-28">Record</th>
               </tr>
             </thead>
             <tbody>
@@ -127,7 +128,7 @@ export function Top25Rankings() {
                   key={team.id}
                   className="border-b border-border/50 hover:bg-muted/50 transition-colors"
                 >
-                  <td className="px-4 py-2.5 font-medium">{team.rank}</td>
+                  <td className="rank-num px-4 py-2.5">{team.rank}</td>
                   <td className="px-4 py-2.5 text-center">
                     <RankChange current={team.rank} previous={team.previousRank} />
                   </td>
@@ -160,7 +161,7 @@ export function Top25Rankings() {
           </table>
         </div>
       </CardContent>
-      <div className="flex items-center px-4 py-3">
+      <div className="flex items-center px-6">
         <p className="lowbrow">Last updated: {new Date().toISOString().split("T")[0]}</p>
       </div>
     </Card>

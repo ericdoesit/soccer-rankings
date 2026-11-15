@@ -102,7 +102,7 @@ export function ClubMap({ clubs, token }: { clubs: MapClub[]; token: string | un
 
   if (!token) {
     return (
-      <div className="rounded-lg border p-6 text-sm text-muted-foreground">
+      <div className="surface p-6 text-sm text-muted-foreground">
         The map needs a Mapbox token. Add <code>NEXT_PUBLIC_MAPBOX_TOKEN=pk.…</code> to <code>.env.local</code> and restart
         the dev server.
       </div>
@@ -114,7 +114,7 @@ export function ClubMap({ clubs, token }: { clubs: MapClub[]; token: string | un
         {TIERS.map((t) => (
           <button key={t.key} type="button" aria-pressed={on.has(t.key)}
             onClick={() => setOn((s) => { const n = new Set(s); if (n.has(t.key)) n.delete(t.key); else n.add(t.key); return n; })}
-            className={`flex items-center gap-1.5 rounded-full border px-3 py-1 ${on.has(t.key) ? "" : "opacity-40"}`}>
+            className={`flex items-center gap-1.5 rounded-full bg-card px-3 py-1 shadow-[var(--surface-shadow)] ${on.has(t.key) ? "" : "opacity-40"}`}>
             <span className="inline-block size-2.5 rounded-full" style={{ background: t.color }} aria-hidden />
             {t.label}
           </button>
@@ -127,7 +127,7 @@ export function ClubMap({ clubs, token }: { clubs: MapClub[]; token: string | un
           {new Set(geojson.features.map((f) => f.properties.club)).size} clubs shown
         </span>
       </div>
-      <div ref={el} className="h-[70vh] w-full overflow-hidden rounded-lg border" />
+      <div ref={el} className="h-[70vh] w-full overflow-hidden rounded-[var(--radius-surface)] shadow-[var(--surface-shadow)]" />
     </div>
   );
 }

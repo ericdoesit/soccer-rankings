@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getMlsPredictions, type MlsPick, type MlsTeamRow } from "@/lib/mlsnext";
+import { chip } from "@/lib/ui-classes";
 
 export const metadata = { title: "MLS NEXT predictions · Youth Soccer Rankings" };
 
@@ -14,7 +15,7 @@ const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 function Pill({ href, on, children }: { href: string; on: boolean; children: React.ReactNode }) {
   return (
     <Link href={href} scroll={false}
-      className={`rounded-full border px-3 py-1 text-sm ${on ? "border-foreground bg-foreground text-background" : "hover:bg-muted"}`}>
+      className={chip(on)}>
       {children}
     </Link>
   );
@@ -39,7 +40,7 @@ export default async function MlsNextPage({ searchParams }: { searchParams: SP }
   if (!data) {
     return (
       <div className="mx-auto max-w-5xl px-4 py-8">
-        <h1 className="mb-4 text-3xl font-bold">MLS NEXT</h1>
+        <h1 className="display mb-4">MLS NEXT</h1>
         <p className="text-muted-foreground">No predictions yet. Run <code>npm run scrape:mlsnext</code>, <code>npm run build:data</code> and <code>npm run predict:mlsnext</code>.</p>
       </div>
     );
@@ -56,8 +57,8 @@ export default async function MlsNextPage({ searchParams }: { searchParams: SP }
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
-      <h1 className="mb-2 text-3xl font-bold">MLS NEXT predictions</h1>
-      <p className="mb-6 text-sm text-muted-foreground">
+      <h1 className="display mb-3">MLS NEXT predictions</h1>
+      <p className="lead mb-6">
         2026-27 season, Homegrown and Academy Divisions. Each upcoming game is predicted from the two teams&apos; ratings, and each
         conference&apos;s remaining schedule is played out 10,000 times to project the final table. Tables rank by points per game,
         as MLS NEXT does. Schedule and results come from the league&apos;s public schedule via{" "}
@@ -79,7 +80,7 @@ export default async function MlsNextPage({ searchParams }: { searchParams: SP }
         <>
           <Card className="mb-6">
             <CardHeader className="pb-2">
-              <CardTitle className="text-base">{conf.conference} · {age} · projected final table</CardTitle>
+              <CardTitle className="heading-sm">{conf.conference} · {age} · projected final table</CardTitle>
             </CardHeader>
             <CardContent className="overflow-x-auto p-0">
               <table className="w-full text-sm">
@@ -117,7 +118,7 @@ export default async function MlsNextPage({ searchParams }: { searchParams: SP }
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-base">Next {data.days} days · {conf.upcoming.length} games</CardTitle>
+              <CardTitle className="heading-sm">Next {data.days} days · {conf.upcoming.length} games</CardTitle>
               <p className="text-xs text-muted-foreground">
                 Each bar shows the chance of a home win, a draw and an away win. Flex and Pro Pathway games are included but
                 don&apos;t count in the table. Times are Pacific.

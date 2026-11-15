@@ -150,8 +150,8 @@ export default function FlightPlannerPage() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
-      <h1 className="mb-2 text-3xl font-bold">Tournament Flight Planner</h1>
-      <p className="mb-8 text-muted-foreground">
+      <h1 className="display mb-3">Tournament flight planner</h1>
+      <p className="lead mb-8">
         Paste your registered teams and we&apos;ll automatically group them into
         competitive flights based on our rankings data.
       </p>
@@ -160,11 +160,11 @@ export default function FlightPlannerPage() {
         {/* Input */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-base">Team List</CardTitle>
+            <CardTitle className="heading-sm">Team List</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <textarea
-              className="w-full rounded-md border border-input bg-background p-3 text-sm min-h-[300px] font-mono focus:outline-none focus:ring-2 focus:ring-ring"
+              className="w-full rounded-[var(--radius-surface)] border-0 bg-card p-4 text-sm shadow-[var(--surface-shadow)] min-h-[300px] tabular-nums focus:outline-none focus:ring-2 focus:ring-ring"
               placeholder={"Paste one team per line:\n\nALBION SC San Diego B16\nCeltic Soccer Club B16\nSurf SC B16 Elite\n..."}
               value={teamList}
               onChange={(e) => setTeamList(e.target.value)}
@@ -199,7 +199,7 @@ export default function FlightPlannerPage() {
         {plan && (
           <Card>
             <CardHeader>
-              <CardTitle className="text-base">Coverage</CardTitle>
+              <CardTitle className="heading-sm">Coverage</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
@@ -235,19 +235,19 @@ export default function FlightPlannerPage() {
       {/* Flight Results */}
       {plan && (
         <div className="mt-8 space-y-6">
-          <h2 className="text-xl font-bold">Flight Assignments</h2>
+          <h2 className="heading-sm">Flight Assignments</h2>
 
           {plan.flights.map((flight) => (
             <Card key={flight.id}>
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-base">{flight.name}</CardTitle>
+                  <CardTitle className="heading-sm">{flight.name}</CardTitle>
                   <div className="flex items-center gap-4 text-sm">
                     <span className="text-muted-foreground">
-                      Avg: <span className="font-mono font-medium text-foreground">{flight.avgRating.toFixed(1)}</span>
+                      Avg: <span className="font-semibold tabular-nums text-foreground">{flight.avgRating.toFixed(1)}</span>
                     </span>
                     <span className="text-muted-foreground">
-                      Spread: <span className="font-mono font-medium text-foreground">{flight.ratingSpread.toFixed(1)}</span>
+                      Spread: <span className="font-semibold tabular-nums text-foreground">{flight.ratingSpread.toFixed(1)}</span>
                     </span>
                     <div>
                       <span className="text-muted-foreground mr-1">Balance:</span>
@@ -290,7 +290,7 @@ export default function FlightPlannerPage() {
                         <td className="px-4 py-2 text-center">
                           <ConfidenceBadge confidence={team.confidence} />
                         </td>
-                        <td className="px-4 py-2 text-right font-mono">
+                        <td className="px-4 py-2 text-right tabular-nums">
                           {team.score !== null ? team.score.toFixed(1) : "N/A"}
                         </td>
                       </tr>
