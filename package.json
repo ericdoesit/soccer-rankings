@@ -37,7 +37,10 @@
     "schedule:import": "tsx scripts/import-schedule-paste.ts",
     "standings:import": "tsx scripts/import-standings-paste.ts",
     "standings:todo": "tsx scripts/standings-todo.ts",
-    "pages:open": "tsx scripts/open-gotsport-pages.ts"
+    "pages:open": "tsx scripts/open-gotsport-pages.ts",
+    "data:publish": "zsh scripts/publish-data.sh",
+    "data:fetch": "node scripts/fetch-data.mjs",
+    "prebuild": "node scripts/fetch-data.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

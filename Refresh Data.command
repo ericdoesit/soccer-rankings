@@ -7,6 +7,8 @@
 # logs/refresh-<date>.log.
 #
 # SKIP_ECNL=1 skips the ECNL step (TotalGlobalSports blocks AI crawlers, so Claude runs it this way).
+# PUBLISH_DATA=1 also publishes the rebuilt data as a GitHub Release (scripts/publish-data.sh);
+# the weekly scheduled run sets it.
 
 cd "$(dirname "$0")" || exit 1
 mkdir -p logs
@@ -22,6 +24,7 @@ STEPS=(
   "check:data|Check snapshot"
   "predict:mlsnext|MLS NEXT predictions"
   "events:upcoming|Upcoming events calendar"
+  "data:publish|Publish data to GitHub Releases"
 )
 
 typeset -a RESULTS
@@ -31,6 +34,13 @@ echo "=== Refresh started $(date) ==="
 
 for step in "${STEPS[@]}"; do
   script="${step%%|*}"; label="${step#*|}"
+  if [[ "$script" == "data:publish" && -z "$PUBLISH_DATA" ]]; then
+    continue
+  fi
+  if [[ "$script" == "data:publish" && $FAILED -gt 0 ]]; then
+    RESULTS+=("⏭  $label  (skipped: an earlier step failed)")
+    continue
+  fi
   if [[ "$script" == "scrape:ecnl" && -n "$SKIP_ECNL" ]]; then
     RESULTS+=("⏭  $label  (skipped: SKIP_ECNL set; run npm run scrape:ecnl yourself)")
     continue
