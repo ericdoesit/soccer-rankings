@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
+  // Pages read data/ from disk at request time (snapshot, seeds, division labels, …). On Vercel
+  // that folder holds the git-tracked seeds plus the runtime data release unpacked by
+  // scripts/fetch-data.mjs (npm prebuild), so ship all of it with the server functions.
+  outputFileTracingIncludes: {
+    "/*": ["./data/**/*"],
+    "/**/*": ["./data/**/*"],
+  },
 };
 
 export default nextConfig;
