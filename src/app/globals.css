@@ -304,3 +304,36 @@ main table tbody tr { border-color: var(--surface-line); }
 [data-slot="card"]:has(> [data-slot="card-content"].p-0:first-child) { padding-top: 0; }
 [data-slot="card"]:has(> [data-slot="card-content"].p-0:last-child) { padding-bottom: 0; }
 main table tbody tr:last-child { border-bottom-width: 0; }
+
+/* Club map popup (src/components/club-map.tsx): Mapbox's default popup is white with
+   inherited text colour, which is unreadable in dark mode. Use the theme's popover colours. */
+.club-popup .mapboxgl-popup-content {
+  background: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--surface-shadow);
+  padding: 12px 28px 12px 14px;
+  font-family: inherit;
+}
+.club-popup.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.club-popup.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+.club-popup.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip { border-bottom-color: var(--popover); }
+.club-popup.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.club-popup.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.club-popup.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip { border-top-color: var(--popover); }
+.club-popup.mapboxgl-popup-anchor-left .mapboxgl-popup-tip { border-right-color: var(--popover); }
+.club-popup.mapboxgl-popup-anchor-right .mapboxgl-popup-tip { border-left-color: var(--popover); }
+.club-popup .mapboxgl-popup-close-button {
+  color: var(--muted-foreground);
+  font-size: 18px;
+  line-height: 1;
+  padding: 6px 8px;
+  border-radius: 0 12px 0 8px;
+}
+.club-popup .mapboxgl-popup-close-button:hover { background: transparent; color: var(--popover-foreground); }
+.club-popup-body { display: grid; gap: 4px; font-size: 0.875rem; line-height: 1.35; }
+.club-popup-title { font-weight: 600; color: var(--popover-foreground); text-decoration: none; }
+.club-popup-title:hover { text-decoration: underline; text-underline-offset: 3px; }
+.club-popup-meta { font-size: 0.75rem; color: var(--popover-foreground); }
+.club-popup-venue { font-size: 0.75rem; color: var(--muted-foreground); }

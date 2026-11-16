@@ -70,22 +70,22 @@ export function ClubMap({ clubs, token }: { clubs: MapClub[]; token: string | un
           if (!f || f.geometry.type !== "Point") return;
           const p = f.properties;
           const box = document.createElement("div");
-          box.className = "text-sm";
+          box.className = "club-popup-body";
           const a = document.createElement("a");
           a.href = `/club/${encodeURIComponent(String(p.club))}`;
           a.textContent = String(p.club);
-          a.className = "font-semibold underline";
+          a.className = "club-popup-title";
           const meta = document.createElement("div");
-          meta.className = "mt-1 text-xs";
+          meta.className = "club-popup-meta";
           meta.textContent = `${p.tier} · ${p.teams} teams (${p.listed} ranked)${p.city ? ` · ${p.city}` : ""}`;
           box.append(a, meta);
           if (p.venue) {
             const v = document.createElement("div");
-            v.className = "text-xs opacity-70";
+            v.className = "club-popup-venue";
             v.textContent = p.site ? `Site: ${p.site} (one of the club's sites)` : `Home field: ${p.venue}`;
             box.append(v);
           }
-          new mapboxgl.Popup({ offset: 8 }).setLngLat(f.geometry.coordinates).setDOMContent(box).addTo(m);
+          new mapboxgl.Popup({ offset: 10, className: "club-popup", maxWidth: "280px" }).setLngLat(f.geometry.coordinates).setDOMContent(box).addTo(m);
         });
       });
     });
