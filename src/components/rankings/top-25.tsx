@@ -29,16 +29,6 @@ interface RankedTeam {
   draws: number;
 }
 
-function RankChange({ current, previous }: { current: number; previous: number | null }) {
-  const base = "inline-flex items-center justify-center gap-0.5 h-5 text-xs font-medium";
-  // null = no rank history yet; show neutral dash rather than "NEW" for every team
-  if (previous === null) return <span className={`${base} text-muted-foreground`}>&mdash;</span>;
-  const diff = previous - current;
-  if (diff === 0) return <span className={`${base} text-muted-foreground`}>&mdash;</span>;
-  if (diff > 0)
-    return <span className={`${base}`}><img src="/arrowup.svg" alt="up" className="h-2.5 w-2.5" /></span>;
-  return <span className={`${base}`}><img src="/arrowdown.svg" alt="down" className="h-2.5 w-2.5" /></span>;
-}
 
 function toTitleCase(str: string): string {
   return str
@@ -115,7 +105,6 @@ export function Top25Rankings() {
             <thead>
               <tr className="border-b border-border text-left text-xs text-muted-foreground">
                 <th className="px-4 py-2 w-20">#</th>
-                <th className="px-4 py-2 w-12 text-center"></th>
                 <th className="px-4 py-2">Team</th>
                 <th className="px-4 py-2 hidden sm:table-cell w-20">State</th>
                 <th className="px-4 py-2 text-right w-20">Score</th>
@@ -129,9 +118,6 @@ export function Top25Rankings() {
                   className="border-b border-border/50 hover:bg-muted/50 transition-colors"
                 >
                   <td className="rank-num px-4 py-2.5">{team.rank}</td>
-                  <td className="px-4 py-2.5 text-center">
-                    <RankChange current={team.rank} previous={team.previousRank} />
-                  </td>
                   <td className="px-4 py-2.5">
                     <Link
                       href={`/team/${team.id}`}

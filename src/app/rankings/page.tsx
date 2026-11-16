@@ -105,16 +105,6 @@ const REGIONS = [
   ],
 ];
 
-function RankChange({ current, previous }: { current: number; previous: number | null }) {
-  const base = "inline-flex items-center justify-center gap-0.5 h-5 text-xs font-medium";
-  // null = no rank history yet; show neutral dash rather than "NEW" for every team
-  if (previous === null) return <span className={`${base} text-muted-foreground`}>&mdash;</span>;
-  const diff = previous - current;
-  if (diff === 0) return <span className={`${base} text-muted-foreground`}>&mdash;</span>;
-  if (diff > 0)
-    return <span className={`${base}`}><img src="/arrowup.svg" alt="up" className="h-2.5 w-2.5" /></span>;
-  return <span className={`${base}`}><img src="/arrowdown.svg" alt="down" className="h-2.5 w-2.5" /></span>;
-}
 
 function toTitleCase(str: string): string {
   return str
@@ -334,7 +324,6 @@ export default function RankingsPage() {
                 <tr className="border-b border-border text-left text-xs text-muted-foreground">
                   {[
                     { key: "rank", label: "#", className: "w-20", align: "" },
-                    { key: "", label: "", className: "w-12", align: "" },
                     { key: "name", label: "Team", className: "", align: "" },
                     { key: "club", label: "Club", className: "hidden md:table-cell w-56", align: "" },
                     { key: "state", label: "State", className: "hidden sm:table-cell w-20", align: "" },
@@ -343,7 +332,7 @@ export default function RankingsPage() {
                     { key: "gp", label: "GP", className: "hidden md:table-cell w-16", align: "text-center" },
                   ].map((col) => (
                     <th
-                      key={col.key || "change"}
+                      key={col.key}
                       className={`px-4 py-3 ${col.className} ${col.align} ${col.key ? "cursor-pointer hover:text-foreground select-none transition-colors" : ""}`}
                       onClick={() => col.key && handleSort(col.key)}
                     >
@@ -359,14 +348,14 @@ export default function RankingsPage() {
                 {loading ? (
                   Array.from({ length: 10 }).map((_, i) => (
                     <tr key={i} className="border-b border-border/50">
-                      <td colSpan={8} className="px-4 py-3">
+                      <td colSpan={7} className="px-4 py-3">
                         <div className="h-4 w-full animate-pulse rounded bg-muted" />
                       </td>
                     </tr>
                   ))
                 ) : teams.length === 0 ? (
                   <tr>
-                    <td colSpan={8} className="px-4 py-8 text-center text-muted-foreground">
+                    <td colSpan={7} className="px-4 py-8 text-center text-muted-foreground">
                       No teams found matching your filters.
                     </td>
                   </tr>
@@ -377,9 +366,6 @@ export default function RankingsPage() {
                       className="border-b border-border/50 hover:bg-muted/50 transition-colors"
                     >
                       <td className="rank-num px-4 py-2.5">{team.rank}</td>
-                      <td className="px-4 py-2.5 text-center">
-                        <RankChange current={team.rank} previous={team.previousRank} />
-                      </td>
                       <td className="px-4 py-2.5">
                         <Link
                           href={`/team/${team.id}`}
