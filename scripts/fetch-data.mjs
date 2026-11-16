@@ -36,3 +36,28 @@ fs.writeFileSync(tmp, Buffer.from(await res.arrayBuffer()));
 execFileSync("tar", ["-xzf", tmp, "-C", ROOT], { stdio: "inherit" });
 fs.rmSync(tmp);
 console.log(`[fetch-data] data from ${release.tag_name} unpacked into data/`);
+
+// Slim the GotSport game files to the fields pages read at request time (src/lib/tournament-view,
+// team-context, league-rankings): 150 MB → ~60 MB. Every server function ships data/ (next.config
+// outputFileTracingIncludes), and Vercel only groups routes into shared functions while they stay
+// small; Hobby allows 12 functions per deployment. eventName is kept on the first game of each file
+// only (one file = one event). The build-time importer never runs on these slimmed copies.
+const KEEP = ["date", "homeTeamId", "awayTeamId", "division", "venue"];
+const gamesDir = path.join(ROOT, "data", "discovery", "games");
+if (fs.existsSync(gamesDir)) {
+  let before = 0, after = 0;
+  for (const f of fs.readdirSync(gamesDir).filter((n) => n.endsWith(".json"))) {
+    const file = path.join(gamesDir, f);
+    const text = fs.readFileSync(file, "utf8");
+    before += text.length;
+    const slim = JSON.parse(text).map((g, i) => {
+      const o = i === 0 && g.eventName ? { eventName: g.eventName } : {};
+      for (const k of KEEP) if (g[k] !== undefined && g[k] !== null && g[k] !== "") o[k] = g[k];
+      return o;
+    });
+    const out = JSON.stringify(slim);
+    after += out.length;
+    fs.writeFileSync(file, out);
+  }
+  console.log(`[fetch-data] slimmed data/discovery/games: ${(before / 1e6).toFixed(0)} MB → ${(after / 1e6).toFixed(0)} MB`);
+}

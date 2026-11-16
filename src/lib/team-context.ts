@@ -33,7 +33,13 @@ function discoveredTeams() {
 const eventGames = new Map<number, DiscGame[]>();
 function gamesOf(eventId: number): DiscGame[] {
   if (!eventGames.has(eventId)) {
-    try { eventGames.set(eventId, JSON.parse(fs.readFileSync(path.join(DISC, "games", `${eventId}.json`), "utf8"))); }
+    try {
+      const games: DiscGame[] = JSON.parse(fs.readFileSync(path.join(DISC, "games", `${eventId}.json`), "utf8"));
+      // deployed copies keep eventName on the first game only (scripts/fetch-data.mjs); one file = one event
+      const name = games[0]?.eventName;
+      if (name) for (const g of games) g.eventName ??= name;
+      eventGames.set(eventId, games);
+    }
     catch { eventGames.set(eventId, []); }
   }
   return eventGames.get(eventId)!;
