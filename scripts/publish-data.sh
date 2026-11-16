@@ -25,7 +25,7 @@ for f in "${FILES[@]}"; do [[ -e "$f" ]] && present+=("$f") || echo "skip (missi
 [[ -e data/snapshot.json ]] || { echo "data/snapshot.json missing: run npm run build:data first"; exit 1; }
 
 OUT="$(mktemp -d)/runtime-data.tar.gz"
-tar -czf "$OUT" "${present[@]}"
+COPYFILE_DISABLE=1 tar --no-xattrs -czf "$OUT" "${present[@]}"  # no macOS ._ files or xattrs
 SIZE=$(du -h "$OUT" | cut -f1)
 TAG="data-$(date +%Y-%m-%d)"
 GAMES=$(node -e 'const s=require("./data/snapshot.json");process.stdout.write(String(s.games.length))')

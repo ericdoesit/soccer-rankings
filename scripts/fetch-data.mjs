@@ -35,6 +35,10 @@ const tmp = path.join(ROOT, "runtime-data.tar.gz");
 fs.writeFileSync(tmp, Buffer.from(await res.arrayBuffer()));
 execFileSync("tar", ["-xzf", tmp, "-C", ROOT], { stdio: "inherit" });
 fs.rmSync(tmp);
+// archives packed on macOS before COPYFILE_DISABLE carry AppleDouble "._name" files: drop them
+for (const f of fs.readdirSync(path.join(ROOT, "data"), { recursive: true })) {
+  if (path.basename(String(f)).startsWith("._")) fs.rmSync(path.join(ROOT, "data", String(f)), { force: true });
+}
 console.log(`[fetch-data] data from ${release.tag_name} unpacked into data/`);
 
 // Slim the GotSport game files to the fields pages read at request time (src/lib/tournament-view,
