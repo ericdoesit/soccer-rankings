@@ -86,6 +86,15 @@ export function mergeModularTwins<T extends TeamLike, G extends GameLike>(
   };
   const gameDays = new Map<number, Set<string>>();
   for (const g of games) if (g.date) for (const id of [g.team1Id, g.team2Id]) (gameDays.get(id) ?? gameDays.set(id, new Set()).get(id)!).add(g.date);
+  // MLS NEXT 2026-27: a club with both a Homegrown and an Academy team has its Academy side named
+  // "… MLS NEXT AD B2012" (src/lib/mlsnext-divisions.ts). Then the plain-named team is the
+  // Homegrown one, and neither may merge into a GotSport team labelled for the other division
+  // (2026-11-16: "SoCal Reds MLS NEXT HD AR" / "… AD EC" were matched the wrong way round).
+  const AD_SPLIT = / MLS NEXT AD [BG]20\d\d\b/i;
+  const splitClubs = new Set(teams.filter((t) => AD_SPLIT.test(t.sourceName ?? "")).map((t) => `${t.club}|${t.ageGroup}|${t.gender}`));
+  const divisionLabel = (n: string) => (/\b(AD|academy division)\b/i.test(n) ? "AD" : /\b(HD|homegrown)\b/i.test(n) ? "HD" : null);
+  const mlsDivisionOf = (t: T) => AD_SPLIT.test(t.sourceName ?? "") ? "AD"
+    : /\bmls next\b/i.test(t.sourceName ?? "") && splitClubs.has(`${t.club}|${t.ageGroup}|${t.gender}`) ? "HD" : null;
   const into = new Map<number, number>();
   let ambiguous = 0, noCurrent = 0;
   const ambiguousCases: Array<{ team: T; candidates: T[] }> = [];
@@ -99,13 +108,16 @@ export function mergeModularTwins<T extends TeamLike, G extends GameLike>(
     const pre = /pre[- ]?ecnl/i;
     const myDays = gameDays.get(t.id);
     const myTag = designatorOf(name, t.club);
+    const myDiv = mlsDivisionOf(t);
     const cands = (pool.get(`${t.club}|${t.ageGroup}|${t.gender}`) ?? []).filter((c) => marker[1].test(c.sourceName ?? "")
       // an ECNL team's twin is not the club's Pre-ECNL team, and vice versa
       && pre.test(name) === pre.test(c.sourceName ?? "")
       // two teams that played on the same day are two teams ("… RL Red" and "… RL White")
       && !sharesDay(myDays, gameDays.get(c.id))
       // and different colors / coaches / conferences are different teams
-      && !tagsConflict(myTag, designatorOf(c.sourceName ?? "", c.club)));
+      && !tagsConflict(myTag, designatorOf(c.sourceName ?? "", c.club))
+      // Homegrown vs Academy: never the other division's team
+      && !(myDiv && divisionLabel(c.sourceName ?? "") !== null && divisionLabel(c.sourceName ?? "") !== myDiv));
     const chosen = cands.length === 1 ? cands[0] : cands.length > 1 ? pick(t, cands) : null;
     if (chosen) into.set(t.id, chosen.id);
     else if (cands.length > 1) {
