@@ -171,9 +171,16 @@ async function refreshFrontier() {
   // tournaments that had not been played yet) weekly, until 30 days after they end.
   // Re-crawls only fetch unfinished divisions, so this is cheap.
   const graceEnd = new Date(Date.now() - 30 * 864e5).toISOString().slice(0, 10);
+  // Weekend-aware (user, 2026-11-16: updates run on Monday for the weekend's games): an event is
+  // also due when its last fetch was before this week's Monday 00:00 local time, so the first run
+  // each Monday picks up every Saturday/Sunday result.
+  const monday = new Date();
+  monday.setHours(0, 0, 0, 0);
+  monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
   for (const e of Object.values(frontier.events)) {
     if (e.status !== "done" || !e.fetchedAt) continue;
-    if (Date.now() - Date.parse(e.fetchedAt) < REFRESH_ACTIVE_LEAGUE_DAYS * 864e5) continue;
+    const fetched = Date.parse(e.fetchedAt);
+    if (fetched >= monday.getTime() && Date.now() - fetched < REFRESH_ACTIVE_LEAGUE_DAYS * 864e5) continue;
     const divs = Object.values(e.divisions ?? {});
     const unfinished = divs.length === 0 ? (e.flights ?? 1) > 0 : divs.some((d) => !d.complete);
     if (unfinished && (!e.endDate || e.endDate >= graceEnd)) e.status = "pending";
