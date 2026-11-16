@@ -20,6 +20,7 @@ import { getDataSet } from "../src/lib/data";
 import { outcomeModel } from "../src/lib/predict";
 import { calculateRankings } from "../src/lib/ranking/massey";
 import type { TrackerGame } from "./scrape-mlsnext-tracker";
+import { splitDivisionNames } from "../src/lib/mlsnext-divisions";
 
 const DATA = path.join(process.cwd(), "data");
 const SRC = path.join(DATA, "mlsnext-tracker", "games.json");
@@ -32,7 +33,8 @@ const today = new Date().toISOString().slice(0, 10);
 const until = new Date(Date.now() + DAYS * 864e5).toISOString().slice(0, 10);
 
 if (!fs.existsSync(SRC)) { console.error("no data/mlsnext-tracker/games.json: run npm run scrape:mlsnext"); process.exit(1); }
-const all = JSON.parse(fs.readFileSync(SRC, "utf8")) as TrackerGame[];
+// a club's Homegrown and Academy teams share a name in the tracker: split them as the data build does
+const all = splitDivisionNames(JSON.parse(fs.readFileSync(SRC, "utf8")) as TrackerGame[]);
 const { teams, games, rankings } = getDataSet();
 const rating = new Map(rankings.map((r) => [r.teamId, r.score]));
 const since = new Date(Date.now() - 455 * 864e5).toISOString().slice(0, 10);

@@ -51,6 +51,11 @@
       "club": "AYSO S1 Alliance",
       "pattern": "^S1 ?ALLIANCE\\b",
       "evidence": "AYSO Section 1 Alliance (select teams of AYSO regions, wiki.ayso.org/wiki/Category:Alliance) plays the Coast Soccer League as 'AYSO S1 Alliance' (coastsoccer clubs list, club 417); CSL schedules write its teams 'S1 ALLIANCE <region code> <name>'. Requested by the user 2026-11-13 (their AYSO Region 1031 South LA select team)."
+    },
+    "LAFC (MLS NEXT)": {
+      "club": "Los Angeles Football Club",
+      "pattern": "^Los Angeles Football Club\\b",
+      "evidence": "mlsnexttracker.com club 'Los Angeles Football Club' (LAFC, the MLS club's academy; Homegrown Division, Southwest conferences). Club matching drops 'Football Club' and 'SC' as generic words, so the name reduced to 'los angeles' and matched Los Angeles SC (LASC), a different club. Found 2026-11-16 reviewing SoCal U15 MLS NEXT teams."
     }
   },
   "AK": {

@@ -6,6 +6,7 @@
  * This replaces the sample data generator for development.
  */
 
+import { divisionTeamName, namesInBothDivisions, type TrackerDivisionGame } from "./mlsnext-divisions";
 import * as fs from "fs";
 import * as path from "path";
 import { calculateRankings, type GameInput, type RankingResult } from "./ranking/massey";
@@ -443,6 +444,10 @@ export function loadGotsportData() {
   // MLS NEXT 2026-27 (Homegrown + Academy) via mlsnexttracker.com (scripts/scrape-mlsnext-tracker.ts):
   // named like Modular11 ("<club> MLS NEXT U15") so it joins last season's teams
   const mlsTrackerFile = path.join(process.cwd(), "data", "mlsnext-tracker", "games.json");
+  // Homegrown and Academy teams of one club share a tracker name: split them (src/lib/mlsnext-divisions.ts)
+  const mlsBothDivisions = fs.existsSync(mlsTrackerFile)
+    ? namesInBothDivisions(JSON.parse(fs.readFileSync(mlsTrackerFile, "utf-8")) as TrackerDivisionGame[])
+    : new Set<string>();
   const ecnlFile = path.join(process.cwd(), "data", "ecnl", "games.json");
   const additionalSources = [
     { file: path.join(DATA_DIR, "az-nv-games", "games.json"), fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "eventName"] },
@@ -497,6 +502,7 @@ export function loadGotsportData() {
           modularTeamNames.add(t1); modularTeamNames.add(t2);
         }
         if (source.file === mlsTrackerFile && !g.completed) continue; // fixtures: predicted, not rated
+        if (source.file === mlsTrackerFile) { t1 = divisionTeamName(t1, g, mlsBothDivisions); t2 = divisionTeamName(t2, g, mlsBothDivisions); }
         if (source.file === modularFile || source.file === mlsNextFile || source.file === mlsTrackerFile || source.file === adidasFile) {
           if (source.file === mlsNextFile && g.ageGroup) { t1 = `${t1} MLS NEXT ${g.ageGroup}`; t2 = `${t2} MLS NEXT ${g.ageGroup}`; }
           if (source.file === adidasFile && g.ageGroup) {
