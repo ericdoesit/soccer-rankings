@@ -8,7 +8,8 @@
 #
 # SKIP_ECNL=1 skips the ECNL step (TotalGlobalSports blocks AI crawlers, so Claude runs it this way).
 # PUBLISH_DATA=1 also publishes the rebuilt data as a GitHub Release (scripts/publish-data.sh);
-# the weekly scheduled run sets it.
+# the weekly scheduled run sets it. After a successful publish it also rebuilds the live site
+# (npm run site:redeploy), since a new data release alone doesn't redeploy Vercel.
 
 cd "$(dirname "$0")" || exit 1
 mkdir -p logs
@@ -25,6 +26,7 @@ STEPS=(
   "predict:mlsnext|MLS NEXT predictions"
   "events:upcoming|Upcoming events calendar"
   "data:publish|Publish data to GitHub Releases"
+  "site:redeploy|Rebuild the live site with the new data (Vercel)"
 )
 
 typeset -a RESULTS
@@ -34,10 +36,10 @@ echo "=== Refresh started $(date) ==="
 
 for step in "${STEPS[@]}"; do
   script="${step%%|*}"; label="${step#*|}"
-  if [[ "$script" == "data:publish" && -z "$PUBLISH_DATA" ]]; then
+  if [[ ( "$script" == "data:publish" || "$script" == "site:redeploy" ) && -z "$PUBLISH_DATA" ]]; then
     continue
   fi
-  if [[ "$script" == "data:publish" && $FAILED -gt 0 ]]; then
+  if [[ ( "$script" == "data:publish" || "$script" == "site:redeploy" ) && $FAILED -gt 0 ]]; then
     RESULTS+=("⏭  $label  (skipped: an earlier step failed)")
     continue
   fi

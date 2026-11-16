@@ -79,6 +79,22 @@ const gsOf = new Map(teams.filter((t) => t.gotsportTeamId).map((t) => [t.id, t.g
 const pairKey = (a: number, b: number, d: string) => `${Math.min(a, b)}_${Math.max(a, b)}_${d}`;
 const inSnap = new Set<string>();
 for (const g of games) { const a = gsOf.get(g.team1Id), b = gsOf.get(g.team2Id); if (a && b) inSnap.add(pairKey(a, b, g.date)); }
+// Merged teams keep only one GotSport id, so a game against the merged-away id can't match by
+// id pair. Accept it when the side we do know has a game that day with the same score
+// (2026-11-16: this was all 59 "missing" events, ~2,000 games, every one present).
+const teamByGs = new Map([...gsOf].map(([id, gs]) => [gs, id]));
+const scoreKey = (a: number, b: number) => [a, b].sort((x, y) => x - y).join("-");
+const teamDay = new Set<string>();
+for (const g of games) {
+  const sk = scoreKey(g.team1Score, g.team2Score);
+  teamDay.add(`${g.team1Id}|${g.date}|${sk}`); teamDay.add(`${g.team2Id}|${g.date}|${sk}`);
+}
+type RawGame = { eventName: string; homeTeamId: number; awayTeamId: number; date: string; homeScore?: number; awayScore?: number };
+const present = (g: RawGame) => {
+  if (inSnap.has(pairKey(g.homeTeamId, g.awayTeamId, g.date))) return true;
+  const sk = scoreKey(Number(g.homeScore), Number(g.awayScore));
+  return [g.homeTeamId, g.awayTeamId].some((gs) => teamByGs.has(gs) && teamDay.has(`${teamByGs.get(gs)}|${g.date}|${sk}`));
+};
 // events the build dropped on purpose as outside the West (written by build-snapshot)
 const droppedFile = path.join(process.cwd(), "data", "snapshot-dropped-events.json");
 const dropped = new Set<string>(fs.existsSync(droppedFile) ? JSON.parse(fs.readFileSync(droppedFile, "utf-8")) : []);
@@ -87,15 +103,15 @@ const shortList: unknown[] = [];
 for (const f of fs.existsSync(gamesDir) ? fs.readdirSync(gamesDir) : []) {
   const file = path.join(gamesDir, f);
   if (fs.statSync(file).mtimeMs > snapTime) { newer++; continue; } // crawled after this build
-  const raw = JSON.parse(fs.readFileSync(file, "utf-8")) as Array<{ eventName: string; homeTeamId: number; awayTeamId: number; date: string }>;
+  const raw = JSON.parse(fs.readFileSync(file, "utf-8")) as RawGame[];
   if (!raw.length || dropped.has(raw[0].eventName)) continue;
   // the importer skips scores over 20 (futsal / data errors), so don't expect those
-  const want = new Set(raw.filter((g) => g.homeTeamId && g.awayTeamId && !((g as { homeScore?: number }).homeScore! > 20 || (g as { awayScore?: number }).awayScore! > 20))
-    .map((g) => pairKey(g.homeTeamId, g.awayTeamId, g.date)));
-  if (!want.size) continue;
+  const want = [...new Map(raw.filter((g) => g.homeTeamId && g.awayTeamId && !(g.homeScore! > 20 || g.awayScore! > 20))
+    .map((g) => [pairKey(g.homeTeamId, g.awayTeamId, g.date), g])).values()];
+  if (!want.length) continue;
   n++;
-  const have = [...want].filter((k) => inSnap.has(k)).length;
-  if (have < want.size * 0.97) { short++; shortList.push([raw[0].eventName, `${have}/${want.size}`]); }
+  const have = want.filter(present).length;
+  if (have < want.length * 0.97) { short++; shortList.push([raw[0].eventName, `${have}/${want.length}`]); }
 }
 check("ERROR", "discovered events with >3% of matches missing from snapshot", short, n, shortList);
 if (newer) console.log(`          (${newer} event files changed after this build; rebuild to include them)`);

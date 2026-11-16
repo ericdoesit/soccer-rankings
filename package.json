@@ -39,6 +39,7 @@
     "standings:todo": "tsx scripts/standings-todo.ts",
     "pages:open": "tsx scripts/open-gotsport-pages.ts",
     "data:publish": "zsh scripts/publish-data.sh",
+    "site:redeploy": "vercel redeploy https://soccer-rankings-two.vercel.app --target production",
     "data:fetch": "node scripts/fetch-data.mjs",
     "prebuild": "node scripts/fetch-data.mjs"
   },
