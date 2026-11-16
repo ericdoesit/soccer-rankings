@@ -343,3 +343,89 @@ main table tbody tr:last-child { border-bottom-width: 0; }
 .club-popup-title:hover { text-decoration: underline; text-underline-offset: 3px; }
 .club-popup-meta { font-size: 0.75rem; color: var(--popover-foreground); }
 .club-popup-venue { font-size: 0.75rem; color: var(--muted-foreground); }
+
+/* ═══════════════════════════════════════════════
+   CHARTS — the Pitfalls on the Pathway chart kit (src/components/about/charts.tsx):
+   solid poster colours used only in charts, hairline grid, one shared tooltip.
+   ═══════════════════════════════════════════════ */
+:root {
+  --ch-gold: #e0c90f;
+  --ch-blue: #1b9de0;
+  --ch-red: #e94f35;
+  --ch-green: #1fa84d;
+  --ch-dim: #dcdad5;
+  /* local leagues: the site's ink, so the elite-league colours stand out */
+  --ch-ink: #1a1919;
+  --ch-grid: rgba(26, 25, 25, 0.07);
+}
+.dark {
+  --ch-gold: #f2df22;
+  --ch-blue: #3fb3ec;
+  --ch-red: #ef6750;
+  --ch-green: #2fc063;
+  --ch-dim: #3a3a3a;
+  --ch-ink: #edece8;
+  --ch-grid: rgba(255, 255, 255, 0.07);
+}
+.d3-chart { width: 100%; }
+.d3-chart svg { display: block; width: 100%; height: auto; }
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+.legend-item { display: inline-flex; align-items: center; gap: 6px; }
+/* small uppercase label above a chart */
+.chart-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+#chart-tip {
+  display: none;
+  position: fixed;
+  pointer-events: none;
+  background: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  z-index: 100;
+  max-width: 280px;
+  box-shadow: var(--surface-shadow);
+}
+/* key findings: big number + caption (Pitfalls .insight-row / .insight) */
+.insight-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.75rem;
+}
+.insight {
+  background: var(--background);
+  border: 1px solid var(--surface-line);
+  border-radius: 16px;
+  padding: 1.25rem 1.25rem 1.1rem;
+}
+.insight .i-num {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--foreground);
+}
+.insight p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+  margin-top: 0.4rem;
+}

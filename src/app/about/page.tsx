@@ -2,6 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { getStats, RANK_RULES } from "@/lib/data";
 import { getAreas } from "@/lib/explore";
 import { WestMap } from "@/components/west-map";
+import { getAboutCharts, SOCAL_LEAGUE_ORDER } from "@/lib/about-charts";
+import { HBars, LeagueOverlap } from "@/components/about/charts";
 
 /** 2026-27 season: school-year age groups (Aug 1 – Jul 31); U## = 2027 − school birth year */
 const SEASON_END = 2027;
@@ -10,6 +12,9 @@ const format = (u: number) => (u >= 13 ? "11v11" : u >= 11 ? "9v9" : u >= 9 ? "7
 export default function AboutPage() {
   const stats = getStats();
   const areas = getAreas();
+  const charts = getAboutCharts();
+  const pct = (n: number) => `${Math.round(n * 100)}%`;
+  const typeColor = { "Elite & national leagues": "red", "State & local leagues": "blue", "Tournaments & showcases": "gold", "State Cups & championships": "green" } as const;
   const ageRows = Array.from({ length: 14 }, (_, i) => 2008 + i).map((by) => ({
     by,
     early: SEASON_END - by,      // born Jan–Jul: school year that ends in their birth year
@@ -89,6 +94,54 @@ export default function AboutPage() {
                 <li>Coast Soccer League, leagues run on Demosphere, Surf Cup, and other event schedules</li>
               </ul>
               <p>Ratings are recalculated whenever new results come in.</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent>
+            <h2 className="heading-sm mb-3">What We Count</h2>
+            <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+              <p>
+                A rating is only as good as the games behind it. We don&apos;t rate a league on its own: league games,
+                local leagues, tournaments, showcases and State Cups all go into one rating, so a team that plays a
+                weekend showcase against a team from another league connects the two leagues.
+              </p>
+            </div>
+
+            <div className="insight-row mt-5">
+              <div className="insight">
+                <div className="i-num">{charts.westGames.toLocaleString()}</div>
+                <p>games involving Western teams, every one counted in the ratings</p>
+              </div>
+              <div className="insight">
+                <div className="i-num">{charts.competitions.toLocaleString()}</div>
+                <p>leagues, tournaments, showcases and cups those games come from</p>
+              </div>
+              <div className="insight">
+                <div className="i-num">{charts.socalTeams.toLocaleString()}</div>
+                <p>Southern California teams rated from this season&apos;s league play, local leagues included</p>
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <p className="chart-title">Where the games come from</p>
+              <HBars
+                rows={charts.gamesByType.map((t) => ({
+                  label: t.type,
+                  v: t.games,
+                  c: typeColor[t.type as keyof typeof typeColor],
+                  end: `${t.games.toLocaleString()} · ${pct(t.games / charts.westGames)}`,
+                }))}
+              />
+            </div>
+
+            <div className="mt-10">
+              <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+                The curves overlap: the best teams in a lower league are stronger than typical teams a tier up, which is
+                why we rate teams, not leagues. Hover or tap the chart for team counts.
+              </p>
+              <LeagueOverlap groups={charts.socal} order={SOCAL_LEAGUE_ORDER} />
             </div>
           </CardContent>
         </Card>
