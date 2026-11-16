@@ -113,6 +113,19 @@ function toTitleCase(str: string): string {
     .replace(/\b(Fc|Sc|Sd|Ie|Rl|Ecnl|Npl|Ga|La|Lv)\b/gi, (m) => m.toUpperCase());
 }
 
+/** Phone layout of a team name: the league is dropped (its tag sits on the line below) and the
+ *  trailing age group is split off so it stays visible when the rest is cut short. */
+function phoneName(name: string, program?: string): { base: string; age: string } {
+  let base = name;
+  if (program) {
+    const esc = program.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    base = base.replace(new RegExp(`\\s${esc}(?=[\\s,-]|$)`, "i"), "");
+  }
+  base = base.replace(/,{2,}/g, ",").replace(/\s+/g, " ").trim();
+  const m = base.match(/^(.*?)\s+(U\d{1,2})$/);
+  return m ? { base: m[1], age: m[2] } : { base, age: "" };
+}
+
 export default function RankingsPage() {
   const [region, setRegion] = useState("National");
   const [ageGroup, setAgeGroup] = useState("All");
@@ -120,6 +133,7 @@ export default function RankingsPage() {
   const [league, setLeague] = useState("All");
   const [program, setProgram] = useState("All");
   const [search, setSearch] = useState("");
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [teams, setTeams] = useState<RankedTeam[]>([]);
   const [leagues, setLeagues] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
@@ -207,32 +221,40 @@ export default function RankingsPage() {
   }, [fetchRankings]);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
+    <div className="mx-auto max-w-7xl px-4 py-6 sm:py-8">
       <Suspense fallback={null}><ProgramFromUrl onProgram={setProgram} /></Suspense>
-      <h1 className="display mb-6">Rankings <span className="tail">by age and gender.</span></h1>
+      <h1 className="display mb-4 sm:mb-6">Rankings <span className="tail">by age and gender.</span></h1>
 
-      <div className="surface mb-6 space-y-2 p-6 text-sm leading-relaxed text-muted-foreground">
+      <div className="surface mb-6 space-y-2 p-5 text-sm leading-relaxed text-muted-foreground sm:p-6">
         <p className="eyebrow">What We Rank</p>
         <p>
-          These rankings cover the Western US{coveredNames.length ? <> ({coveredNames.join(", ")})</> : null}. Other states
+          These rankings cover the Western US{coveredNames.length ? <> ({coveredNames.join(", ")})</> : null}.{" "}
+          <button
+            type="button"
+            onClick={() => setAboutOpen(true)}
+            className={`font-medium text-foreground underline underline-offset-4 sm:hidden ${aboutOpen ? "hidden" : ""}`}
+          >
+            More
+          </button>
+          <span className={aboutOpen ? "" : "hidden sm:inline"}> Other states
           aren&apos;t ranked yet: ranking a state fairly takes its league and tournament results, and we don&apos;t collect
           those yet. Teams from other states still count in the ratings whenever they play Western teams, so the rankings
-          reflect national competition. Hawaii isn&apos;t ranked because its teams rarely play mainland opponents.
+          reflect national competition. Hawaii isn&apos;t ranked because its teams rarely play mainland opponents.</span>
         </p>
-        <p>
+        <p className={aboutOpen ? "" : "hidden sm:block"}>
           Within the West, a team is listed when it plays in tracked competitions (elite leagues, State Cups,
           championships and major showcases) and has enough recent games. Teams that only play in local leagues stay in
           the directory, and their games still count.
         </p>
-        <p>
+        <p className={aboutOpen ? "" : "hidden sm:block"}>
           Next: tracking teams from outside the West that compete nationally in Los Angeles.
         </p>
       </div>
 
       {/* Filters */}
-      <div className="mb-6 flex flex-wrap items-center gap-3">
+      <div className="mb-6 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:gap-3">
         <Select items={places} value={region} onValueChange={(v) => v !== null && setRegion(v)}>
-          <SelectTrigger className="w-[160px]">
+          <SelectTrigger className="w-full sm:w-[160px]">
             <SelectValue placeholder="Region" />
           </SelectTrigger>
           <SelectContent>
@@ -245,7 +267,7 @@ export default function RankingsPage() {
         </Select>
 
         <Select items={ageItems} value={ageGroup} onValueChange={(v) => v !== null && setAgeGroup(v)}>
-          <SelectTrigger className="w-[120px]">
+          <SelectTrigger className="w-full sm:w-[120px]">
             <SelectValue placeholder="Age" />
           </SelectTrigger>
           <SelectContent>
@@ -267,7 +289,7 @@ export default function RankingsPage() {
         </Select>
 
         <Select items={genderItems} value={gender} onValueChange={(v) => v !== null && setGender(v)}>
-          <SelectTrigger className="w-auto min-w-[150px] whitespace-nowrap">
+          <SelectTrigger className="w-full whitespace-nowrap sm:w-auto sm:min-w-[150px]">
             <SelectValue placeholder="Gender" />
           </SelectTrigger>
           <SelectContent>
@@ -278,7 +300,7 @@ export default function RankingsPage() {
         </Select>
 
         <Select items={programItems} value={program} onValueChange={(v) => v !== null && setProgram(v)}>
-          <SelectTrigger className="w-[160px]">
+          <SelectTrigger className="w-full sm:w-[160px]">
             <SelectValue placeholder="League" />
           </SelectTrigger>
           <SelectContent>
@@ -290,7 +312,7 @@ export default function RankingsPage() {
         </Select>
 
         <Select items={eventItems} value={league} onValueChange={(v) => v !== null && setLeague(v)}>
-          <SelectTrigger className="w-[220px]">
+          <SelectTrigger className="col-span-2 w-full sm:w-[220px]">
             <SelectValue placeholder="Event" />
           </SelectTrigger>
           <SelectContent>
@@ -307,7 +329,7 @@ export default function RankingsPage() {
           placeholder="Search teams"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-[240px]"
+          className="col-span-2 w-full sm:w-[240px]"
         />
       </div>
 
@@ -323,11 +345,11 @@ export default function RankingsPage() {
               <thead>
                 <tr className="border-b border-border text-left text-xs text-muted-foreground">
                   {[
-                    { key: "rank", label: "#", className: "w-20", align: "" },
+                    { key: "rank", label: "#", className: "w-11 sm:w-20", align: "" },
                     { key: "name", label: "Team", className: "", align: "" },
                     { key: "club", label: "Club", className: "hidden md:table-cell w-56", align: "" },
                     { key: "state", label: "State", className: "hidden sm:table-cell w-20", align: "" },
-                    { key: "score", label: "Score", className: "w-20", align: "text-right" },
+                    { key: "score", label: "Score", className: "w-14 sm:w-20", align: "text-right" },
                     { key: "record", label: "Record", className: "hidden sm:table-cell w-28", align: "text-center" },
                     { key: "gp", label: "GP", className: "hidden md:table-cell w-16", align: "text-center" },
                   ].map((col) => (
@@ -367,17 +389,43 @@ export default function RankingsPage() {
                     >
                       <td className="rank-num px-4 py-2.5">{team.rank}</td>
                       <td className="px-4 py-2.5">
-                        <Link
-                          href={`/team/${team.id}`}
-                          className="font-medium hover:text-primary transition-colors"
-                        >
-                          {team.name}
-                        </Link>
-                        {team.program && (
-                          <span className="league-tag ml-2">
-                            {team.program}
+                        {/* phones: the name stays on one line; the league tag drops to the line below */}
+                        <div className="flex min-w-0 items-center">
+                          <Link
+                            href={`/team/${team.id}`}
+                            title={team.name}
+                            className="hidden font-medium hover:text-primary transition-colors sm:inline"
+                          >
+                            {team.name}
+                          </Link>
+                          {(() => {
+                            const { base, age } = phoneName(team.name, team.program);
+                            return (
+                              <Link
+                                href={`/team/${team.id}`}
+                                title={team.name}
+                                className="flex min-w-0 gap-1 text-[13px] font-medium tracking-[-0.01em] hover:text-primary transition-colors sm:hidden"
+                              >
+                                <span className="truncate">{base}</span>
+                                {age && <span className="shrink-0">{age}</span>}
+                              </Link>
+                            );
+                          })()}
+                          {/* wrapped: .league-tag sets display itself, which would beat `hidden` */}
+                          {team.program && (
+                            <span className="ml-2 hidden sm:inline">
+                              <span className="league-tag">{team.program}</span>
+                            </span>
+                          )}
+                        </div>
+                        {/* columns hidden on small screens, folded into a second line */}
+                        <div className="mt-1 flex min-w-0 items-center gap-1.5 text-xs text-muted-foreground md:hidden">
+                          {team.program && <span className="shrink-0 sm:hidden"><span className="league-tag">{team.program}</span></span>}
+                          <span className="truncate">
+                            <span className="sm:hidden">{team.state} · {team.wins}-{team.losses}-{team.draws} · </span>
+                            {team.gamesPlayed} GP · {team.club}
                           </span>
-                        )}
+                        </div>
                       </td>
                       <td className="px-4 py-2.5 hidden md:table-cell truncate text-muted-foreground" title={team.club}>
                         <Link
@@ -409,7 +457,7 @@ export default function RankingsPage() {
 
         {/* Pagination */}
         {totalCount > 0 && (
-          <div className="flex items-center justify-between border-t border-[var(--surface-line)] px-6 py-4">
+          <div className="flex flex-col items-center gap-3 border-t border-[var(--surface-line)] px-4 py-4 sm:flex-row sm:justify-between sm:px-6">
             <p className="lowbrow">
               {page * PAGE_SIZE + 1}-{Math.min((page + 1) * PAGE_SIZE, totalCount)} of {totalCount.toLocaleString()} teams
             </p>
@@ -422,7 +470,7 @@ export default function RankingsPage() {
               >
                 Previous
               </Button>
-              <span className="text-sm text-muted-foreground px-2">
+              <span className="whitespace-nowrap px-2 text-sm text-muted-foreground">
                 Page {page + 1} of {Math.ceil(totalCount / PAGE_SIZE)}
               </span>
               <Button

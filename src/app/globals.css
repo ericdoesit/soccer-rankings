@@ -277,6 +277,12 @@ main table td, main table th { padding-top: 0.8rem; padding-bottom: 0.8rem; }
 main table tr > :first-child { padding-left: 1.5rem; }
 main table tr > :last-child { padding-right: 1.5rem; }
 main table tbody tr { border-color: var(--surface-line); }
+/* phones: less side padding so the team column gets the room */
+@media (max-width: 639px) {
+  main table tr > :first-child { padding-left: 1rem; }
+  main table tr > :last-child { padding-right: 1rem; }
+  main table td, main table th { padding-left: 0.5rem; padding-right: 0.5rem; }
+}
 
 @layer base {
   * {

@@ -12,6 +12,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+/** League pages outside the per-program rankings: MLS NEXT predictions and local league tables. */
+export const LEAGUE_PAGES: Array<[href: string, label: string]> = [
+  ["/mls-next?division=homegrown", "MLS NEXT Homegrown"],
+  ["/mls-next?division=academy", "MLS NEXT Academy"],
+  ["/league/socal-soccer-league#rankings", "SoCal Soccer League"],
+  ["/league/norcal-premier#rankings", "NorCal Premier"],
+  ["/league/coast-soccer-league#rankings", "Coast Soccer League (CSL)"],
+];
+
 /** League programs with their own rankings view (the same list as the Rankings page's "League" filter). */
 const RANKED_LEAGUES: Array<[program: string, label: string]> = [
   ["MLS NEXT", "MLS NEXT"],

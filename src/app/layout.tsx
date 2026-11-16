@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import Link from "next/link";
+import Image from "next/image";
 import "./globals.css";
 import { TableSorter } from "@/components/table-sorter";
 import { SiteNav } from "@/components/site-nav";
@@ -39,10 +40,19 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-md">
           <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4">
-            <Link href="/" className="flex shrink-0 items-center gap-2.5">
-              <span className="flex h-8 items-center justify-center rounded-full bg-foreground px-2.5 text-[11px] font-semibold tracking-wide text-background">
-                YSR
-              </span>
+            <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label="Youth Soccer Rankings home">
+              {/* transparent PNG served as-is (unoptimized) so it isn't re-encoded; 192px tall
+                  source covers the largest size at 3x. Phones 44px (matches the menu pill),
+                  tablets 48px, desktop 56px. */}
+              <Image
+                src="/logo.png"
+                alt=""
+                width={185}
+                height={192}
+                preload
+                unoptimized
+                className="h-11 w-auto md:h-12 lg:h-14"
+              />
               <span className="heading-sm hidden lg:inline">Youth Soccer Rankings</span>
             </Link>
             <div className="flex min-w-0 items-center gap-3">
