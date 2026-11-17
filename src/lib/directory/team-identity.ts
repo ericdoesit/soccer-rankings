@@ -176,11 +176,11 @@ export function buildTeamIdentity<T extends TeamLike>(
     }
     return x;
   };
-  const aliases = loadJson<Record<string, Record<string, { club: string; pattern?: string }>>>(
+  const aliases = loadJson<Record<string, Record<string, { club: string; pattern?: string; strip?: boolean }>>>(
     path.join(process.cwd(), "data", "seed", "club-aliases.json"), {});
   /** pattern aliases: a regex on the full team name names the club of a team listed without one */
   const patternAliases = Object.entries(aliases).flatMap(([assoc, table]) =>
-    typeof table === "object" ? Object.values(table).filter((a) => a.pattern).map((a) => ({ re: new RegExp(a.pattern!, "i"), club: a.club, association: assoc })) : []);
+    typeof table === "object" ? Object.values(table).filter((a) => a.pattern).map((a) => ({ re: new RegExp(a.pattern!, "i"), club: a.club, association: assoc, strip: !!a.strip })) : []);
   /** alias lookup by first word, any case ("PSA", "Villarreal") */
   function aliasFor(assoc: string, word: string | undefined): string | undefined {
     if (!word) return undefined;
@@ -381,7 +381,10 @@ export function buildTeamIdentity<T extends TeamLike>(
     const gender: "Boys" | "Girls" = d ? (d.gender === "f" ? "Girls" : "Boys") : parseTeamName(raw).gender ?? t.gender;
 
     // Prefer the directory's current team name ("GU12 SB Souza") over an old one
-    const nameSource = d ? d.teamName : raw;
+    // "strip": the pattern is another spelling of the club ("Los Angeles Sports Club" for Los Angeles SC),
+    // so it comes off the team name rather than showing next to the club ("Los Angeles SC Sports Club")
+    const nameSource0 = d ? d.teamName : raw;
+    const nameSource = pat?.strip ? nameSource0.replace(pat.re, "").replace(/^[\s,-]+/, "").trim() || nameSource0 : nameSource0;
     /** When the club came from elsewhere (approval, alias, organization), the team's own name may
      *  start with the club's short form: drop an all-caps short form ending in FC/SC ("WSM FC
      *  Samba" for Westside Metros FC) or a dangling prefix ending in a hyphen ("TR- Cheetahs"). */

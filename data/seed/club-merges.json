@@ -7,5 +7,45 @@
   "TOTAL FUTBOL ACADEMY (CA)": {
     "into": "Total Futbol Academy (CA)",
     "evidence": "GotSport writes the club name in capitals; the club writes 'Total Futbol Academy' (totalfutbolacademy.com). Requested by the user 2026-11-13."
+  },
+  "ASPIRE LASC": {
+    "into": "Aspire LASC",
+    "evidence": "Aspire LASC (8930 Baring Cross St., Los Angeles 90044) is its own club, not Los Angeles SC, per the user 2026-11-17."
+  },
+  "LASC Aspire": {
+    "into": "Aspire LASC",
+    "evidence": "Aspire LASC (8930 Baring Cross St., Los Angeles 90044) is its own club, not Los Angeles SC, per the user 2026-11-17."
+  },
+  "Aspire LASC": {
+    "into": "Aspire LASC",
+    "evidence": "Aspire LASC (8930 Baring Cross St., Los Angeles 90044) is its own club, not Los Angeles SC, per the user 2026-11-17."
+  },
+  "LASC 08B": {
+    "into": "Los Angeles SC",
+    "evidence": "wearelasc.com: 'Los Angeles SC' (site name), legal name 'Los Angeles Soccer Club', footer 'Los Angeles Sports Club', Pasadena; plays MLS NEXT, Elite Academy, N1, SoCal Soccer League, USL Academy and UPSL. The PRSL team page lists 'Aspire u13' under club 'Los Angeles Soccer Club (LASC)'. Confirmed by the user 2026-11-17."
+  },
+  "LASC 07/08B": {
+    "into": "Los Angeles SC",
+    "evidence": "wearelasc.com: 'Los Angeles SC' (site name), legal name 'Los Angeles Soccer Club', footer 'Los Angeles Sports Club', Pasadena; plays MLS NEXT, Elite Academy, N1, SoCal Soccer League, USL Academy and UPSL. The PRSL team page lists 'Aspire u13' under club 'Los Angeles Soccer Club (LASC)'. Confirmed by the user 2026-11-17."
+  },
+  "LASC 09B": {
+    "into": "Los Angeles SC",
+    "evidence": "wearelasc.com: 'Los Angeles SC' (site name), legal name 'Los Angeles Soccer Club', footer 'Los Angeles Sports Club', Pasadena; plays MLS NEXT, Elite Academy, N1, SoCal Soccer League, USL Academy and UPSL. The PRSL team page lists 'Aspire u13' under club 'Los Angeles Soccer Club (LASC)'. Confirmed by the user 2026-11-17."
+  },
+  "LASC 13B": {
+    "into": "Los Angeles SC",
+    "evidence": "wearelasc.com: 'Los Angeles SC' (site name), legal name 'Los Angeles Soccer Club', footer 'Los Angeles Sports Club', Pasadena; plays MLS NEXT, Elite Academy, N1, SoCal Soccer League, USL Academy and UPSL. The PRSL team page lists 'Aspire u13' under club 'Los Angeles Soccer Club (LASC)'. Confirmed by the user 2026-11-17."
+  },
+  "LASC GU14": {
+    "into": "Los Angeles SC",
+    "evidence": "wearelasc.com: 'Los Angeles SC' (site name), legal name 'Los Angeles Soccer Club', footer 'Los Angeles Sports Club', Pasadena; plays MLS NEXT, Elite Academy, N1, SoCal Soccer League, USL Academy and UPSL. The PRSL team page lists 'Aspire u13' under club 'Los Angeles Soccer Club (LASC)'. Confirmed by the user 2026-11-17."
+  },
+  "LASC GU13": {
+    "into": "Los Angeles SC",
+    "evidence": "wearelasc.com: 'Los Angeles SC' (site name), legal name 'Los Angeles Soccer Club', footer 'Los Angeles Sports Club', Pasadena; plays MLS NEXT, Elite Academy, N1, SoCal Soccer League, USL Academy and UPSL. The PRSL team page lists 'Aspire u13' under club 'Los Angeles Soccer Club (LASC)'. Confirmed by the user 2026-11-17."
+  },
+  "Los Angeles Sports Club": {
+    "into": "Los Angeles SC",
+    "evidence": "wearelasc.com: 'Los Angeles SC' (site name), legal name 'Los Angeles Soccer Club', footer 'Los Angeles Sports Club', Pasadena; plays MLS NEXT, Elite Academy, N1, SoCal Soccer League, USL Academy and UPSL. The PRSL team page lists 'Aspire u13' under club 'Los Angeles Soccer Club (LASC)'. Confirmed by the user 2026-11-17."
   }
 }

@@ -17,6 +17,12 @@
     }
   },
   "CAS": {
+    "Aspire LASC": {
+      "club": "Aspire LASC",
+      "pattern": "^(Aspire LASC|LASC Aspire)\\b",
+      "strip": true,
+      "evidence": "Aspire LASC, 8930 Baring Cross St., Los Angeles 90044: a different club from Los Angeles SC (LASC, Pasadena), per the user 2026-11-17 (the PRSL team page files 'Aspire u13' under 'Los Angeles Soccer Club (LASC)'; the user's correction wins). Teams: UPSL Academy 'Aspire LASC U15/U17', PRSL 'Aspire u13', GotSport 'Aspire LASC'."
+    },
     "LA City United sites": {
       "club": "LA City United",
       "pattern": "^(Obama|Whitsett|Wilmington) [BG]U\\d{2}\\b",
@@ -56,6 +62,12 @@
       "club": "Los Angeles Football Club",
       "pattern": "^Los Angeles Football Club\\b",
       "evidence": "mlsnexttracker.com club 'Los Angeles Football Club' (LAFC, the MLS club's academy; Homegrown Division, Southwest conferences). Club matching drops 'Football Club' and 'SC' as generic words, so the name reduced to 'los angeles' and matched Los Angeles SC (LASC), a different club. Found 2026-11-16 reviewing SoCal U15 MLS NEXT teams."
+    },
+    "LASC names": {
+      "club": "Los Angeles SC",
+      "pattern": "^(Los Angeles Sports Club|LASC(?![-\\w])(?! Aspire\\b))\\b",
+      "evidence": "wearelasc.com: 'Los Angeles SC' (site name), legal name 'Los Angeles Soccer Club', footer 'Los Angeles Sports Club', Pasadena; plays MLS NEXT, Elite Academy, N1, SoCal Soccer League, USL Academy and UPSL. Confirmed by the user 2026-11-17. 'LASC-SCV' and 'LASC-RIVERSIDE' are left alone (affiliates not confirmed). 'Aspire LASC' is a different club (see 'Aspire LASC').",
+      "strip": true
     }
   },
   "AK": {
