@@ -1,0 +1,7 @@
+{
+  "_note": "A team name from a non-GotSport source (tournament or league file) → the team it is, by that team's name as the importer keys it (the snapshot's sourceName). Its games then join that team's record. Applied in src/lib/import-gotsport-data.ts.",
+  "LASC GU13 Black": {
+    "into": "Los Angeles SC GU14 Black",
+    "evidence": "Girlazo 2026 (July, 2025-26 age label GU13): Los Angeles SC's GU14 Black (GotSport 719528, birth year 2013), whose coach uses a lasoccerclub.org address (that domain points to wearelasc.com). Confirmed by the user 2026-11-17."
+  }
+}

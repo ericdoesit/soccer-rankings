@@ -414,6 +414,10 @@ export function loadGotsportData() {
   const gsIdByName = new Map<string, number>();
   const sourceAssocByName = new Map<string, string>();
   const stateHintByName = new Map<string, string>();
+  // data/seed/same-team-names.json: a source's name for a team we already have under another name
+  const sameTeam = new Map(Object.entries(JSON.parse(fs.existsSync(path.join(process.cwd(), "data", "seed", "same-team-names.json"))
+    ? fs.readFileSync(path.join(process.cwd(), "data", "seed", "same-team-names.json"), "utf-8") : "{}") as Record<string, { into: string } | string>)
+    .filter(([k]) => !k.startsWith("_")).map(([k, v]) => [k, typeof v === "string" ? v : v.into]));
   // MLS NEXT 2026-27 conferences made up of Western clubs (scripts/predict-mlsnext.ts flags the same set)
   const MLS_WEST_CONFERENCES = new Set(["Desert", "Mountain", "Northern California Coast", "Northern California Redwood",
     "Pacific Northwest", "South California", "Northwest", "Southwest"]);
@@ -530,6 +534,7 @@ export function loadGotsportData() {
         if (venues.size) { t1 = stripVenue(t1, venues); t2 = stripVenue(t2, venues); }
         // …and in some rows the "home team" was the away team plus a venue: the real
         // home team was lost, so the game can't be used.
+        if (!isApi) { t1 = sameTeam.get(t1) ?? t1; t2 = sameTeam.get(t2) ?? t2; }
         if (!isApi && t1 === t2) continue;
         // Coast Soccer League: when a team withdraws it is renamed "… DROP(PED)" and every game
         // left on its schedule is entered as a 1-0 forfeit, future dates included. Forfeits aren't
