@@ -83,16 +83,16 @@ export default async function MlsNextPage({ searchParams }: { searchParams: SP }
               <CardTitle className="heading-sm">{conf.conference} · {age} · projected final table</CardTitle>
             </CardHeader>
             <CardContent className="overflow-x-auto p-0">
-              <table className="w-full text-sm">
+              <table className="w-full table-fixed text-sm sm:table-auto">
                 <thead className="text-xs text-muted-foreground">
                   <tr className="border-b">
                     <th className="px-4 py-2 text-left">Team</th>
-                    <th className="px-2 py-2 text-right">W-D-L</th>
+                    <th className="hidden px-2 py-2 text-right sm:table-cell">W-D-L</th>
                     <th className="hidden px-2 py-2 text-right sm:table-cell">GF-GA</th>
-                    <th className="px-2 py-2 text-right">PPG now</th>
-                    <th className="px-2 py-2 text-right">Projected</th>
-                    <th className="px-2 py-2 text-right">1st</th>
-                    <th className="px-4 py-2 text-right">Top 4</th>
+                    <th className="w-14 px-2 py-2 text-right sm:w-auto">PPG now</th>
+                    <th className="w-[4.5rem] px-2 py-2 text-right sm:w-auto">Projected</th>
+                    <th className="hidden px-2 py-2 text-right sm:table-cell">1st</th>
+                    <th className="w-16 px-4 py-2 text-right sm:w-auto">Top 4</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -102,12 +102,13 @@ export default async function MlsNextPage({ searchParams }: { searchParams: SP }
                         <Team name={t.club} id={t.teamId} />
                         {t.assumed && <span className="ml-1.5 text-[11px] text-muted-foreground">(no data)</span>}
                         {t.provisional && <span className="ml-1.5 text-[11px] text-muted-foreground" title="Fewer than 10 games: rating is provisional">(few games)</span>}
+                        <div className="mt-0.5 text-xs text-muted-foreground tabular-nums sm:hidden">{t.w}-{t.d}-{t.l}{t.first >= 0.005 ? ` · 1st ${pct(t.first)}` : ""}</div>
                       </td>
-                      <td className="px-2 py-2 text-right tabular-nums">{t.w}-{t.d}-{t.l}</td>
+                      <td className="hidden px-2 py-2 text-right tabular-nums sm:table-cell">{t.w}-{t.d}-{t.l}</td>
                       <td className="hidden px-2 py-2 text-right tabular-nums text-muted-foreground sm:table-cell">{t.gf}-{t.ga}</td>
                       <td className="px-2 py-2 text-right tabular-nums">{t.ppm.toFixed(2)}</td>
                       <td className="px-2 py-2 text-right tabular-nums font-medium">{t.expPpm.toFixed(2)}</td>
-                      <td className="px-2 py-2 text-right tabular-nums">{t.first >= 0.005 ? pct(t.first) : "–"}</td>
+                      <td className="hidden px-2 py-2 text-right tabular-nums sm:table-cell">{t.first >= 0.005 ? pct(t.first) : "–"}</td>
                       <td className="px-4 py-2 text-right tabular-nums">{t.top4 >= 0.005 ? pct(t.top4) : "–"}</td>
                     </tr>
                   ))}

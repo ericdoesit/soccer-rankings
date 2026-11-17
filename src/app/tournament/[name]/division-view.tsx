@@ -27,11 +27,11 @@ function DivisionCard({ d }: { d: Division }) {
             <tr className="border-b border-border text-left text-xs text-muted-foreground">
               <th className="px-4 py-2 w-8">#</th>
               <th className="px-4 py-2">Team</th>
-              <th className="px-3 py-2 text-right">W-D-L</th>
+              <th className="px-3 py-2 text-right hidden sm:table-cell">W-D-L</th>
               <th className="px-3 py-2 text-right hidden sm:table-cell">GF-GA</th>
               <th className="px-3 py-2 text-right">Pts</th>
               <th className="px-3 py-2 text-right" title="Current rating">Rating</th>
-              <th className="px-4 py-2 text-right" title="Rank among listed West teams of this age and gender">West rank</th>
+              <th className="px-4 py-2 text-right hidden sm:table-cell" title="Rank among listed West teams of this age and gender">West rank</th>
             </tr>
           </thead>
           <tbody>
@@ -41,12 +41,13 @@ function DivisionCard({ d }: { d: Division }) {
                 <td className="px-4 py-2">
                   <Link href={`/team/${r.teamId}`} className="font-medium hover:text-primary">{r.name}</Link>
                   {r.clubSlug && <Link href={`/club/${r.clubSlug}`} className="ml-2 text-xs text-muted-foreground hover:text-primary">{r.club}</Link>}
+                  <div className="mt-0.5 text-xs text-muted-foreground tabular-nums sm:hidden">{r.w}-{r.d}-{r.l}{r.westRank ? ` · West #${r.westRank}` : ""}</div>
                 </td>
-                <td className="px-3 py-2 text-right tabular-nums">{r.w}-{r.d}-{r.l}</td>
+                <td className="px-3 py-2 text-right tabular-nums hidden sm:table-cell">{r.w}-{r.d}-{r.l}</td>
                 <td className="px-3 py-2 text-right tabular-nums text-muted-foreground hidden sm:table-cell">{r.gf}-{r.ga}</td>
                 <td className="px-3 py-2 text-right tabular-nums font-semibold">{r.pts}</td>
                 <td className="px-3 py-2 text-right tabular-nums">{r.rating === null ? "—" : r.rating.toFixed(1)}</td>
-                <td className="px-4 py-2 text-right tabular-nums">{r.westRank ? `#${r.westRank}` : <span className="text-muted-foreground">—</span>}</td>
+                <td className="px-4 py-2 text-right tabular-nums hidden sm:table-cell">{r.westRank ? `#${r.westRank}` : <span className="text-muted-foreground">—</span>}</td>
               </tr>
             ))}
           </tbody>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { TeamNameCell } from "@/components/rankings/team-name-cell";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Select,
@@ -141,14 +142,14 @@ export default function PowerRankingsPage() {
             <div className="p-8 text-center text-muted-foreground">Loading power rankings...</div>
           ) : (
             <div className="overflow-x-auto">
-              <table className="w-full text-sm">
+              <table className="w-full table-fixed text-sm sm:table-auto">
                 <thead>
                   <tr className="border-b border-border text-left text-xs text-muted-foreground">
                     {[
-                      { key: "powerRank", label: "#", tip: "Power rank position", className: "px-4 py-2 w-12 cursor-pointer hover:text-foreground" },
+                      { key: "powerRank", label: "#", tip: "Power rank position", className: "px-4 py-2 w-10 sm:w-14 cursor-pointer hover:text-foreground" },
                       { key: "name", label: "Team", tip: "Team name", className: "px-4 py-2 cursor-pointer hover:text-foreground" },
                       { key: "club", label: "Club", tip: "Club affiliation", className: "px-4 py-2 hidden md:table-cell cursor-pointer hover:text-foreground" },
-                      { key: "powerScore", label: "Power", tip: "Composite score: 40% rating, 25% strength of schedule, 20% quality wins, 15% cross-league performance", className: "px-4 py-2 text-right cursor-pointer hover:text-foreground" },
+                      { key: "powerScore", label: "Power", tip: "Composite score: 40% rating, 25% strength of schedule, 20% quality wins, 15% cross-league performance", className: "px-4 py-2 text-right w-16 sm:w-20 cursor-pointer hover:text-foreground" },
                       { key: "score", label: "Rating", tip: "Massey rating measured in expected goal difference vs an average team", className: "px-4 py-2 text-right hidden sm:table-cell cursor-pointer hover:text-foreground" },
                       { key: "sos", label: "SOS", tip: "Strength of Schedule — average Massey rating of all opponents faced", className: "px-4 py-2 text-right hidden sm:table-cell cursor-pointer hover:text-foreground" },
                       { key: "qualityWins", label: "Quality W", tip: "Wins against opponents ranked in the top 50%", className: "px-4 py-2 text-center hidden lg:table-cell cursor-pointer hover:text-foreground" },
@@ -177,15 +178,9 @@ export default function PowerRankingsPage() {
                     >
                       <td className="rank-num px-4 py-2.5">{team.powerRank}</td>
                       <td className="px-4 py-2.5">
-                        <Link
-                          href={`/team/${team.id}`}
-                          className="font-medium hover:text-primary transition-colors"
-                        >
-                          {team.name}
-                        </Link>
-                        <span className="ml-2 text-xs text-muted-foreground hidden sm:inline">
-                          {team.ageGroup} {team.gender}
-                        </span>
+                        <TeamNameCell id={team.id} name={team.name} meta={`${team.ageGroup} ${team.gender} · rating ${team.score.toFixed(2)} · ${team.club}`}>
+                          <span className="ml-2 text-xs text-muted-foreground">{team.ageGroup} {team.gender}</span>
+                        </TeamNameCell>
                       </td>
                       <td className="px-4 py-2.5 hidden md:table-cell">
                         <Link

@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { phoneName } from "@/components/rankings/team-name-cell";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -111,19 +112,6 @@ function toTitleCase(str: string): string {
     .toLowerCase()
     .replace(/\b\w/g, (c) => c.toUpperCase())
     .replace(/\b(Fc|Sc|Sd|Ie|Rl|Ecnl|Npl|Ga|La|Lv)\b/gi, (m) => m.toUpperCase());
-}
-
-/** Phone layout of a team name: the league is dropped (its tag sits on the line below) and the
- *  trailing age group is split off so it stays visible when the rest is cut short. */
-function phoneName(name: string, program?: string): { base: string; age: string } {
-  let base = name;
-  if (program) {
-    const esc = program.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    base = base.replace(new RegExp(`\\s${esc}(?=[\\s,-]|$)`, "i"), "");
-  }
-  base = base.replace(/,{2,}/g, ",").replace(/\s+/g, " ").trim();
-  const m = base.match(/^(.*?)\s+(U\d{1,2})$/);
-  return m ? { base: m[1], age: m[2] } : { base, age: "" };
 }
 
 export default function RankingsPage() {

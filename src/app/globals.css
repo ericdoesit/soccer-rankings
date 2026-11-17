@@ -282,6 +282,8 @@ main table tbody tr { border-color: var(--surface-line); }
   main table tr > :first-child { padding-left: 1rem; }
   main table tr > :last-child { padding-right: 1rem; }
   main table td, main table th { padding-left: 0.5rem; padding-right: 0.5rem; }
+  /* numbers sit under their heading, left-aligned like the team column (opt out: .keep-align) */
+  main table:not(.keep-align) th, main table:not(.keep-align) td { text-align: left; }
 }
 
 @layer base {

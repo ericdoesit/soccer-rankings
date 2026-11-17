@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChevronRight } from "lucide-react";
+import { TeamNameCell } from "@/components/rankings/team-name-cell";
 import {
   Select,
   SelectContent,
@@ -27,6 +28,7 @@ interface RankedTeam {
   wins: number;
   losses: number;
   draws: number;
+  program?: string;
 }
 
 
@@ -57,11 +59,11 @@ export function Top25Rankings() {
 
   return (
     <Card>
-      <CardHeader className="flex flex-row items-center justify-between pb-3">
+      <CardHeader className="flex flex-col gap-3 pb-3 sm:flex-row sm:items-center sm:justify-between">
         <CardTitle className="heading-sm">Top 25 <span className="tail">Rankings</span></CardTitle>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Select items={AGE_ITEMS} value={ageGroup} onValueChange={(v) => v !== null && setAgeGroup(v)}>
-            <SelectTrigger className="w-[104px] text-xs">
+            <SelectTrigger className="w-[100px] text-xs sm:w-[104px]">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -82,7 +84,7 @@ export function Top25Rankings() {
             </SelectContent>
           </Select>
           <Select items={GENDER_ITEMS} value={gender} onValueChange={(v) => v !== null && setGender(v)}>
-            <SelectTrigger className="w-auto min-w-[120px] whitespace-nowrap text-xs">
+            <SelectTrigger className="w-auto min-w-[108px] whitespace-nowrap text-xs sm:min-w-[120px]">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -93,7 +95,7 @@ export function Top25Rankings() {
           </Select>
           <Link
             href="/rankings"
-            className="group/va ml-1 inline-flex items-center gap-0.5 rounded-full px-3 py-2 text-xs font-medium text-foreground transition-colors duration-300 ease-out hover:bg-muted hover:duration-150"
+            className="group/va inline-flex items-center gap-0.5 whitespace-nowrap rounded-full py-1 sm:ml-1 sm:px-3 sm:py-2 text-xs font-medium text-foreground transition-colors duration-300 ease-out hover:bg-muted hover:duration-150"
           >
             View all <ChevronRight className="size-3.5 transition-transform duration-200 group-hover/va:translate-x-0.5" strokeWidth={2} aria-hidden />
           </Link>
@@ -104,10 +106,10 @@ export function Top25Rankings() {
           <table className="w-full table-fixed text-sm">
             <thead>
               <tr className="border-b border-border text-left text-xs text-muted-foreground">
-                <th className="px-4 py-2 w-20">#</th>
+                <th className="px-4 py-2 w-10 sm:w-20">#</th>
                 <th className="px-4 py-2">Team</th>
                 <th className="px-4 py-2 hidden sm:table-cell w-20">State</th>
-                <th className="px-4 py-2 text-right w-20">Score</th>
+                <th className="px-4 py-2 text-right w-16 sm:w-20">Score</th>
                 <th className="px-4 py-2 text-center hidden sm:table-cell w-28">Record</th>
               </tr>
             </thead>
@@ -119,18 +121,14 @@ export function Top25Rankings() {
                 >
                   <td className="rank-num px-4 py-2.5">{team.rank}</td>
                   <td className="px-4 py-2.5">
-                    <Link
-                      href={`/team/${team.id}`}
-                      className="font-medium hover:text-primary transition-colors"
-                    >
-                      {team.name}
-                    </Link>
-                    <Link
-                      href={`/club/${encodeURIComponent(team.club)}`}
-                      className="ml-2 text-xs text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {team.club}
-                    </Link>
+                    <TeamNameCell id={team.id} name={team.name} program={team.program} meta={[team.program, team.state, `${team.wins}-${team.losses}-${team.draws}`, team.club].filter(Boolean).join(" · ")}>
+                      <Link
+                        href={`/club/${encodeURIComponent(team.club)}`}
+                        className="ml-2 text-xs text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {team.club}
+                      </Link>
+                    </TeamNameCell>
                   </td>
                   <td className="px-4 py-2.5 hidden sm:table-cell text-muted-foreground">
                     {team.state}

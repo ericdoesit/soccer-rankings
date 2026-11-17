@@ -125,10 +125,10 @@ export default async function ClubPage({ params, searchParams }: {
 
       <Card className="mt-6">
         <CardContent className="p-0 overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full table-fixed text-sm">
             <thead>
               <tr className="border-b border-border text-left text-xs text-muted-foreground">
-                <th className="px-4 py-2 w-16">Age</th>
+                <th className="px-4 py-2 w-14 sm:w-16">Age</th>
                 <th className="px-4 py-2">Boys</th>
                 <th className="px-4 py-2">Girls</th>
               </tr>

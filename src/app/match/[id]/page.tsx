@@ -112,7 +112,7 @@ export default async function MatchPage({
           {/* Rankings Comparison — centered under score */}
           {t1 && t2 && (
             <div className="mt-6 border-t border-border pt-5">
-              <table className="w-full max-w-2xl mx-auto text-sm table-fixed">
+              <table className="keep-align w-full max-w-2xl mx-auto text-sm table-fixed">
                 <colgroup>
                   <col className="w-[40%]" />
                   <col className="w-[20%]" />

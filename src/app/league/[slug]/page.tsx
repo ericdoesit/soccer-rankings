@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TeamNameCell } from "@/components/rankings/team-name-cell";
 import { notFound } from "next/navigation";
 import { AGE_ORDER, areaBySlug, getClubRow, getLeague } from "@/lib/explore";
 import { Badge } from "@/components/ui/badge";
@@ -93,7 +94,7 @@ export default async function LeaguePage({
           <CardHeader>
             <CardTitle className="heading-sm">{league.name} rankings · {lr.season}</CardTitle>
             <p className="text-xs text-muted-foreground">
-              Every team playing {lr.events.join(" and ")} that has a rating, ranked by rating within its age group.
+              {`Every team playing ${lr.events.join(" and ")} that has a rating, ranked by rating within its age group. `}
               Ratings use all of a team&apos;s games, not just league games. The record is league games only.
               “West rank” marks teams also listed in the main West rankings.
             </p>
@@ -116,31 +117,32 @@ export default async function LeaguePage({
             {/* fixed column widths, so switching age group or level doesn't shift the columns */}
             <table className="w-full table-fixed text-sm">
               <colgroup>
-                <col className="w-20" />
+                <col className="w-10 sm:w-20" />
                 <col />
                 <col className="hidden w-64 md:table-column" />
-                <col className="w-32" />
-                <col className="w-28" />
+                <col className="hidden w-32 sm:table-column" />
+                <col className="w-16 sm:w-28" />
               </colgroup>
               <thead>
                 <tr className="border-b border-border text-left text-xs text-muted-foreground">
-                  <th className="px-4 py-2 text-right">#</th>
+                  <th className="px-4 py-2 sm:text-right">#</th>
                   <th className="px-4 py-2">Team</th>
                   <th className="px-4 py-2 hidden md:table-cell">Division</th>
-                  <th className="px-4 py-2 text-right">League W-D-L</th>
+                  <th className="px-4 py-2 text-right hidden sm:table-cell">League W-D-L</th>
                   <th className="px-4 py-2 text-right">Rating</th>
                 </tr>
               </thead>
               <tbody>
                 {ranked.map((r) => (
                   <tr key={r.teamId} className="border-b last:border-b-0 border-border/50 hover:bg-muted/50 transition-colors">
-                    <td className="px-4 py-2 text-right tabular-nums text-muted-foreground">{r.rank}</td>
+                    <td className="px-4 py-2 sm:text-right tabular-nums text-muted-foreground">{r.rank}</td>
                     <td className="px-4 py-2">
-                      <Link href={`/team/${r.teamId}`} className="font-medium hover:text-primary transition-colors">{r.name}</Link>
-                      {r.westListed && <span className="ml-1.5 text-[11px] text-muted-foreground">West rank</span>}
+                      <TeamNameCell id={r.teamId} name={r.name} meta={[`${r.w}-${r.d}-${r.l} league`, r.division, r.westListed && "West rank"].filter(Boolean).join(" · ")}>
+                        {r.westListed && <span className="ml-1.5 text-[11px] text-muted-foreground">West rank</span>}
+                      </TeamNameCell>
                     </td>
                     <td className="px-4 py-2 hidden md:table-cell truncate text-xs text-muted-foreground" title={r.division ?? undefined}>{r.division ?? "—"}</td>
-                    <td className="px-4 py-2 text-right tabular-nums" data-sort={r.w * 3 + r.d}>{r.w}-{r.d}-{r.l}</td>
+                    <td className="px-4 py-2 text-right tabular-nums hidden sm:table-cell" data-sort={r.w * 3 + r.d}>{r.w}-{r.d}-{r.l}</td>
                     <td className="px-4 py-2 text-right tabular-nums">{r.rating.toFixed(2)}</td>
                   </tr>
                 ))}
