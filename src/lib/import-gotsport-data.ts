@@ -469,6 +469,8 @@ export function loadGotsportData() {
     // AthleteOne (TotalGlobalSports) schedules pasted by the user (scripts/import-athleteone-paste.ts);
     // its robots.txt blocks automated access, so nothing is fetched
     { file: path.join(process.cwd(), "data", "athleteone", "games.json"), fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "eventName"] },
+    // SincSports league schedules read in the browser (scripts/import-sincsports-paste.ts): Pacific Regional SL
+    { file: path.join(process.cwd(), "data", "sincsports", "games.json"), fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "eventName"] },
     { file: mlsNextFile, fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "tournament"] },
     { file: adidasFile, fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "tournament"] },
     // Leagues not on GotSport, scraped from Demosphere (scripts/scrape-demosphere-league.ts)
@@ -542,6 +544,10 @@ export function loadGotsportData() {
           t1 = cslTeamName(t1, g); t2 = cslTeamName(t2, g);
           // a Southern California league: its teams are Cal South (club matching and region)
           stateHintByName.set(t1, "CAS"); stateHintByName.set(t2, "CAS");
+        }
+        // sources that know their league's state (SincSports): club matching and region
+        if (!isApi && typeof g.state === "string" && /^[A-Z]{2,3}$/.test(g.state)) {
+          stateHintByName.set(t1, g.state); stateHintByName.set(t2, g.state);
         }
         if (!isApi && g.league && demoAssoc.has(g.league)) {
           if (date0(g) > new Date().toISOString().slice(0, 10)) continue;

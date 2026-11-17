@@ -1,0 +1,882 @@
+[
+ {
+  "gameNumber": "PACRSL-54",
+  "date": "2026-09-12",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Dynamo B2017",
+  "awayTeam": "Inter United FC White B2017",
+  "homeScore": 2,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "PACRSL-57",
+  "date": "2026-09-19",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Inter United FC B2017",
+  "awayTeam": "Inter United FC White B2017",
+  "homeScore": 2,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "PACRSL-62",
+  "date": "2026-09-26",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Inter United FC B2017",
+  "awayTeam": "Dynamo B2017",
+  "homeScore": 6,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "PACRSL-61",
+  "date": "2026-09-26",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Inter United FC White B2017",
+  "awayTeam": "Prestige United B2017",
+  "homeScore": 2,
+  "awayScore": 9
+ },
+ {
+  "gameNumber": "PACRSL-145",
+  "date": "2026-09-27",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Prestige United B2017",
+  "awayTeam": "Valley FC B2017",
+  "homeScore": 5,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-70",
+  "date": "2026-10-10",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "VIEWS FC BU10",
+  "awayTeam": "Inter United FC B2017",
+  "homeScore": 9,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-69",
+  "date": "2026-10-10",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Dynamo B2017",
+  "awayTeam": "Prestige United B2017",
+  "homeScore": 0,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-72",
+  "date": "2026-10-11",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Dynamo B2017",
+  "awayTeam": "Inter United FC B2017",
+  "homeScore": 2,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "PACRSL-71",
+  "date": "2026-10-11",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Prestige United B2017",
+  "awayTeam": "Inter United FC White B2017",
+  "homeScore": 2,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "PACRSL-148",
+  "date": "2026-10-11",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "VIEWS FC BU10",
+  "awayTeam": "Valley FC B2017",
+  "homeScore": 3,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "PACRSL-153",
+  "date": "2026-10-17",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Dynamo B2017",
+  "awayTeam": "Valley FC B2017",
+  "homeScore": 0,
+  "awayScore": 7
+ },
+ {
+  "gameNumber": "PACRSL-56",
+  "date": "2026-10-17",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Prestige United B2017",
+  "awayTeam": "Inter United FC B2017",
+  "homeScore": 8,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "PACRSL-55",
+  "date": "2026-10-18",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "VIEWS FC BU10",
+  "awayTeam": "Dynamo B2017",
+  "homeScore": 3,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "PACRSL-146",
+  "date": "2026-10-18",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Valley FC B2017",
+  "awayTeam": "Inter United FC White B2017",
+  "homeScore": 6,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "PACRSL-147",
+  "date": "2026-10-24",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Valley FC B2017",
+  "awayTeam": "Inter United FC B2017",
+  "homeScore": 3,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-59",
+  "date": "2026-10-24",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Prestige United B2017",
+  "awayTeam": "Dynamo B2017",
+  "homeScore": 7,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "PACRSL-60",
+  "date": "2026-10-24",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Inter United FC White B2017",
+  "awayTeam": "VIEWS FC BU10",
+  "homeScore": 8,
+  "awayScore": 7
+ },
+ {
+  "gameNumber": "PACRSL-154",
+  "date": "2026-10-25",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Valley FC B2017",
+  "awayTeam": "Dynamo B2017",
+  "homeScore": 2,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "PACRSL-58",
+  "date": "2026-10-25",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Prestige United B2017",
+  "awayTeam": "VIEWS FC BU10",
+  "homeScore": 5,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-68",
+  "date": "2026-11-01",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "VIEWS FC BU10",
+  "awayTeam": "Prestige United B2017",
+  "homeScore": 4,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "PACRSL-67",
+  "date": "2026-11-01",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Inter United FC White B2017",
+  "awayTeam": "Inter United FC B2017",
+  "homeScore": 2,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "PACRSL-152",
+  "date": "2026-11-07",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Valley FC B2017",
+  "awayTeam": "VIEWS FC BU10",
+  "homeScore": 7,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-64",
+  "date": "2026-11-07",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Inter United FC White B2017",
+  "awayTeam": "Dynamo B2017",
+  "homeScore": 3,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "PACRSL-65",
+  "date": "2026-11-08",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Dynamo B2017",
+  "awayTeam": "VIEWS FC BU10",
+  "homeScore": 0,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "PACRSL-149",
+  "date": "2026-11-08",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Inter United FC White B2017",
+  "awayTeam": "Valley FC B2017",
+  "homeScore": 5,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "PACRSL-151",
+  "date": "2026-11-14",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Valley FC B2017",
+  "awayTeam": "Prestige United B2017",
+  "homeScore": 2,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "PACRSL-66",
+  "date": "2026-11-15",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Inter United FC B2017",
+  "awayTeam": "Prestige United B2017",
+  "homeScore": 2,
+  "awayScore": 8
+ },
+ {
+  "gameNumber": "PACRSL-117",
+  "date": "2026-09-12",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "GLENDALE FC BU11 BLACK B2016",
+  "awayTeam": "Atlas FC Soccer Academy B2016",
+  "homeScore": 1,
+  "awayScore": 7
+ },
+ {
+  "gameNumber": "PACRSL-115",
+  "date": "2026-09-12",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Dynamo B2016",
+  "awayTeam": "Chivas Academy LA B2016",
+  "homeScore": 3,
+  "awayScore": 8
+ },
+ {
+  "gameNumber": "PACRSL-123",
+  "date": "2026-09-19",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "GLENDALE FC BU11 BLACK B2016",
+  "awayTeam": "Keen Soccer USA B2016",
+  "homeScore": 7,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "PACRSL-122",
+  "date": "2026-09-19",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Dynamo B2016",
+  "awayTeam": "Inter FC Gold B2016",
+  "homeScore": 4,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "PACRSL-121",
+  "date": "2026-09-19",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Chivas Academy LA B2016",
+  "awayTeam": "Atlas FC Soccer Academy B2016",
+  "homeScore": 9,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-129",
+  "date": "2026-09-26",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Dynamo B2016",
+  "awayTeam": "Keen Soccer USA B2016",
+  "homeScore": 6,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "PACRSL-128",
+  "date": "2026-09-26",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Atlas FC Soccer Academy B2016",
+  "awayTeam": "Inter FC Gold B2016",
+  "homeScore": 1,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "PACRSL-139",
+  "date": "2026-10-10",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Dynamo B2016",
+  "awayTeam": "GLENDALE FC BU11 BLACK B2016",
+  "homeScore": 5,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-140",
+  "date": "2026-10-10",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Atlas FC Soccer Academy B2016",
+  "awayTeam": "Keen Soccer USA B2016",
+  "homeScore": 4,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "PACRSL-141",
+  "date": "2026-10-10",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Chivas Academy LA B2016",
+  "awayTeam": "Inter FC Gold B2016",
+  "homeScore": 3,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "PACRSL-143",
+  "date": "2026-10-17",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "GLENDALE FC BU11 BLACK B2016",
+  "awayTeam": "Chivas Academy LA B2016",
+  "homeScore": 2,
+  "awayScore": 7
+ },
+ {
+  "gameNumber": "PACRSL-144",
+  "date": "2026-10-17",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Keen Soccer USA B2016",
+  "awayTeam": "Dynamo B2016",
+  "homeScore": 2,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "PACRSL-142",
+  "date": "2026-10-17",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Inter FC Gold B2016",
+  "awayTeam": "Atlas FC Soccer Academy B2016",
+  "homeScore": 8,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "PACRSL-118",
+  "date": "2026-10-24",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Inter FC Gold B2016",
+  "awayTeam": "GLENDALE FC BU11 BLACK B2016",
+  "homeScore": 8,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "PACRSL-120",
+  "date": "2026-10-24",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Keen Soccer USA B2016",
+  "awayTeam": "Chivas Academy LA B2016",
+  "homeScore": 3,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "PACRSL-119",
+  "date": "2026-10-24",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Atlas FC Soccer Academy B2016",
+  "awayTeam": "Dynamo B2016",
+  "homeScore": 1,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "PACRSL-116",
+  "date": "2026-10-25",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Inter FC Gold B2016",
+  "awayTeam": "Keen Soccer USA B2016",
+  "homeScore": 2,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "PACRSL-124",
+  "date": "2026-10-31",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "GLENDALE FC BU11 BLACK B2016",
+  "awayTeam": "Dynamo B2016",
+  "homeScore": 4,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "PACRSL-125",
+  "date": "2026-11-01",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Keen Soccer USA B2016",
+  "awayTeam": "Atlas FC Soccer Academy B2016",
+  "homeScore": 4,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "PACRSL-126",
+  "date": "2026-11-01",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Inter FC Gold B2016",
+  "awayTeam": "Chivas Academy LA B2016",
+  "homeScore": 0,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "PACRSL-132",
+  "date": "2026-11-07",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "GLENDALE FC BU11 BLACK B2016",
+  "awayTeam": "Atlas FC Soccer Academy B2016",
+  "homeScore": 6,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "PACRSL-130",
+  "date": "2026-11-07",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Keen Soccer USA B2016",
+  "awayTeam": "Inter FC Gold B2016",
+  "homeScore": 0,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "PACRSL-131",
+  "date": "2026-11-07",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Chivas Academy LA B2016",
+  "awayTeam": "Dynamo B2016",
+  "homeScore": 6,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "PACRSL-135",
+  "date": "2026-11-08",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Dynamo B2016",
+  "awayTeam": "Atlas FC Soccer Academy B2016",
+  "homeScore": 5,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "PACRSL-138",
+  "date": "2026-11-14",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "GLENDALE FC BU11 BLACK B2016",
+  "awayTeam": "Keen Soccer USA B2016",
+  "homeScore": 5,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "PACRSL-133",
+  "date": "2026-11-14",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Chivas Academy LA B2016",
+  "awayTeam": "Keen Soccer USA B2016",
+  "homeScore": 4,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "PACRSL-136",
+  "date": "2026-11-14",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Atlas FC Soccer Academy B2016",
+  "awayTeam": "Chivas Academy LA B2016",
+  "homeScore": 0,
+  "awayScore": 11
+ },
+ {
+  "gameNumber": "PACRSL-137",
+  "date": "2026-11-15",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Inter FC Gold B2016",
+  "awayTeam": "Dynamo B2016",
+  "homeScore": 4,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-74",
+  "date": "2026-09-12",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Squadra Venezia FC B2014",
+  "awayTeam": "UIFC ACADEMIA NIUPIII B2014",
+  "homeScore": 1,
+  "awayScore": 8
+ },
+ {
+  "gameNumber": "PACRSL-78",
+  "date": "2026-09-12",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Glassell United B2014",
+  "awayTeam": "Chivas Academy LA B2014",
+  "homeScore": 2,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "PACRSL-73",
+  "date": "2026-09-13",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "LASC Aspire B2014",
+  "awayTeam": "Prestige FC B2014",
+  "homeScore": 3,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "PACRSL-80",
+  "date": "2026-09-19",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Squadra Venezia FC B2014",
+  "awayTeam": "Prestige FC B2014",
+  "homeScore": 3,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "PACRSL-79",
+  "date": "2026-09-19",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "UIFC ACADEMIA NIUPIII B2014",
+  "awayTeam": "LASC Aspire B2014",
+  "homeScore": 9,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "PACRSL-81",
+  "date": "2026-09-19",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Prestige LA B2014",
+  "awayTeam": "Glassell United B2014",
+  "homeScore": 2,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-82",
+  "date": "2026-09-20",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "LASC Aspire B2014",
+  "awayTeam": "Chivas Academy LA B2014",
+  "homeScore": 1,
+  "awayScore": 11
+ },
+ {
+  "gameNumber": "PACRSL-89",
+  "date": "2026-09-26",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Squadra Venezia FC B2014",
+  "awayTeam": "Chivas Academy LA B2014",
+  "homeScore": 3,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "PACRSL-87",
+  "date": "2026-09-26",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Glassell United B2014",
+  "awayTeam": "UIFC ACADEMIA NIUPIII B2014",
+  "homeScore": 0,
+  "awayScore": 8
+ },
+ {
+  "gameNumber": "PACRSL-90",
+  "date": "2026-09-27",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "UIFC ACADEMIA NIUPIII B2014",
+  "awayTeam": "Prestige LA B2014",
+  "homeScore": 7,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "PACRSL-88",
+  "date": "2026-09-27",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Glassell United B2014",
+  "awayTeam": "LASC Aspire B2014",
+  "homeScore": 3,
+  "awayScore": 8
+ },
+ {
+  "gameNumber": "PACRSL-86",
+  "date": "2026-09-27",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Prestige FC B2014",
+  "awayTeam": "Chivas Academy LA B2014",
+  "homeScore": 0,
+  "awayScore": 8
+ },
+ {
+  "gameNumber": "PACRSL-98",
+  "date": "2026-10-10",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Prestige FC B2014",
+  "awayTeam": "Squadra Venezia FC B2014",
+  "homeScore": 1,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "PACRSL-99",
+  "date": "2026-10-10",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Prestige LA B2014",
+  "awayTeam": "Chivas Academy LA B2014",
+  "homeScore": 0,
+  "awayScore": 7
+ },
+ {
+  "gameNumber": "PACRSL-97",
+  "date": "2026-10-11",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "LASC Aspire B2014",
+  "awayTeam": "UIFC ACADEMIA NIUPIII B2014",
+  "homeScore": 0,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "PACRSL-105",
+  "date": "2026-10-17",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Squadra Venezia FC B2014",
+  "awayTeam": "Chivas Academy LA B2014",
+  "homeScore": 3,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "PACRSL-103",
+  "date": "2026-10-17",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Glassell United B2014",
+  "awayTeam": "LASC Aspire B2014",
+  "homeScore": 4,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "PACRSL-104",
+  "date": "2026-10-17",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Prestige LA B2014",
+  "awayTeam": "Prestige FC B2014",
+  "homeScore": 2,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "PACRSL-107",
+  "date": "2026-10-18",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "UIFC ACADEMIA NIUPIII B2014",
+  "awayTeam": "Prestige FC B2014",
+  "homeScore": 4,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "PACRSL-108",
+  "date": "2026-10-18",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Prestige LA B2014",
+  "awayTeam": "Glassell United B2014",
+  "homeScore": 0,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-77",
+  "date": "2026-10-24",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Prestige FC B2014",
+  "awayTeam": "UIFC ACADEMIA NIUPIII B2014",
+  "homeScore": 3,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "PACRSL-96",
+  "date": "2026-10-24",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Chivas Academy LA B2014",
+  "awayTeam": "Glassell United B2014",
+  "homeScore": 10,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "PACRSL-76",
+  "date": "2026-10-25",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "LASC Aspire B2014",
+  "awayTeam": "Squadra Venezia FC B2014",
+  "homeScore": 2,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "PACRSL-110",
+  "date": "2026-10-25",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Chivas Academy LA B2014",
+  "awayTeam": "LASC Aspire B2014",
+  "homeScore": 5,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-111",
+  "date": "2026-10-25",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Glassell United B2014",
+  "awayTeam": "Prestige FC B2014",
+  "homeScore": 0,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "PACRSL-114",
+  "date": "2026-10-31",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Glassell United B2014",
+  "awayTeam": "UIFC ACADEMIA NIUPIII B2014",
+  "homeScore": 0,
+  "awayScore": 9
+ },
+ {
+  "gameNumber": "PACRSL-94",
+  "date": "2026-11-01",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "LASC Aspire B2014",
+  "awayTeam": "Prestige FC B2014",
+  "homeScore": 2,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-112",
+  "date": "2026-11-01",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Chivas Academy LA B2014",
+  "awayTeam": "UIFC ACADEMIA NIUPIII B2014",
+  "homeScore": 0,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-84",
+  "date": "2026-11-07",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Squadra Venezia FC B2014",
+  "awayTeam": "Glassell United B2014",
+  "homeScore": 9,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "PACRSL-101",
+  "date": "2026-11-08",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Prestige FC B2014",
+  "awayTeam": "Chivas Academy LA B2014",
+  "homeScore": 0,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "PACRSL-95",
+  "date": "2026-11-14",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Squadra Venezia FC B2014",
+  "awayTeam": "UIFC ACADEMIA NIUPIII B2014",
+  "homeScore": 0,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "PACRSL-91",
+  "date": "2026-11-14",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "Glassell United B2014",
+  "awayTeam": "Prestige FC B2014",
+  "homeScore": 1,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "PACRSL-93",
+  "date": "2026-11-15",
+  "eventName": "Pacific Regional Soccer League 2026",
+  "state": "CAS",
+  "homeTeam": "UIFC ACADEMIA NIUPIII B2014",
+  "awayTeam": "Chivas Academy LA B2014",
+  "homeScore": 0,
+  "awayScore": 2
+ }
+]
