@@ -156,8 +156,8 @@ export function LeagueOverlap({ groups, order, initial = "U15|Boys" }: {
     el.innerHTML = "";
     if (!leagues.length) return;
     const narrow = W < 520;
-    const H = narrow ? 260 : 320;
-    const m = { top: 12, right: 12, bottom: 44, left: narrow ? 44 : 60 };
+    const H = narrow ? 268 : 328;
+    const m = { top: 12, right: 12, bottom: 52, left: narrow ? 44 : 60 };
     const all = leagues.flatMap((l) => l.values);
     const lo = Math.floor((d3.min(all) ?? 0) - 1), hi = Math.ceil((d3.max(all) ?? 1) + 1);
     const xs = d3.range(lo, hi + 0.001, (hi - lo) / 160);
@@ -167,7 +167,7 @@ export function LeagueOverlap({ groups, order, initial = "U15|Boys" }: {
     });
     const x = d3.scaleLinear().domain([lo, hi]).range([m.left, W - m.right]);
     const y = d3.scaleLinear().domain([0, (d3.max(curves, (c) => d3.max(c.ys)) ?? 1) * 1.08]).range([H - m.bottom, m.top]);
-    const svg = d3.select(el).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H);
+    const svg = d3.select(el).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H).style("overflow", "visible");
 
     // y: teams per rating point (count), or % of the league's teams per rating point (share)
     const yt = y.ticks(narrow ? 4 : 5);
@@ -182,9 +182,9 @@ export function LeagueOverlap({ groups, order, initial = "U15|Boys" }: {
     svg.append("g").selectAll("line").data(xt).join("line")
       .attr("x1", (d) => x(d)).attr("x2", (d) => x(d)).attr("y1", m.top).attr("y2", H - m.bottom).attr("stroke", P.grid);
     svg.append("g").selectAll("text").data(xt).join("text")
-      .attr("x", (d) => x(d)).attr("y", H - m.bottom + 28).attr("text-anchor", "middle")
+      .attr("x", (d) => x(d)).attr("y", H - m.bottom + 18).attr("text-anchor", "middle")
       .attr("fill", P.muted).attr("font-size", "11px").text((d) => d);
-    svg.append("text").attr("x", (m.left + W - m.right) / 2).attr("y", H - 2).attr("text-anchor", "middle")
+    svg.append("text").attr("x", (m.left + W - m.right) / 2).attr("y", H - 10).attr("text-anchor", "middle")
       .attr("fill", P.muted).attr("font-size", "11px").text("Team rating (goals)");
     svg.append("text").attr("transform", `translate(10 ${(m.top + H - m.bottom) / 2}) rotate(-90)`).attr("text-anchor", "middle")
       .attr("fill", P.muted).attr("font-size", "11px").text(scale === "share" ? (narrow ? "Share per point" : "Share of league per rating point") : (narrow ? "Teams per point" : "Teams per rating point"));
