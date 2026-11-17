@@ -14,7 +14,7 @@ FILES=(
   data/snapshot.json                 # teams, games, ratings (src/lib/data.ts)
   data/snapshot-dropped-events.json  # events left out of the snapshot (data.ts)
   data/discovery                     # tournament division labels, team event lists (tournament-view, team-context, league-rankings)
-  data/predictions/mlsnext.json      # MLS NEXT predictions page (src/lib/mlsnext.ts)
+  data/predictions                   # MLS NEXT page (mlsnext.ts) and event predictions /events/[id] (events.ts)
   data/upcoming-events.json          # Events tab (src/lib/events.ts)
   data/coast-soccer/games.json       # CSL league rankings (src/lib/league-rankings.ts)
   data/norcal-premier/clubs.json     # NorCal Premier club list (src/lib/explore.ts)

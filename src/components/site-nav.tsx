@@ -27,8 +27,8 @@ const LINKS: Array<[href: string, label: string, match: RegExp]> = [
 const LEAGUES_RE = /^\/(league|mls-next)\b/;
 
 const item = (on: boolean) =>
-  `whitespace-nowrap rounded-full px-3.5 py-2 ${
-    on ? "bg-foreground text-background" : "text-foreground hover:bg-muted active:bg-[var(--press)] transition-colors duration-300 ease-out hover:duration-150 active:duration-75 data-[popup-open]:bg-muted"
+  `whitespace-nowrap rounded-full px-3.5 py-2 transition-colors duration-500 ease-out ${
+    on ? "bg-foreground text-background" : "text-foreground hover:bg-muted data-[popup-open]:bg-muted"
   }`;
 
 export function SiteNav() {
