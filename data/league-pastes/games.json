@@ -878,5 +878,725 @@
   "awayTeam": "Chivas Academy LA B2014",
   "homeScore": 0,
   "awayScore": 2
+ },
+ {
+  "gameNumber": "ACAD26F-1",
+  "date": "2026-09-12",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LASC Aspire B2012",
+  "awayTeam": "Irvine FC Academy South Bay B2012",
+  "homeScore": 3,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "ACAD26F-2",
+  "date": "2026-09-12",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LOBOS F&P B2014",
+  "awayTeam": "California Football Club B2014",
+  "homeScore": 3,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "ACAD26F-3",
+  "date": "2026-09-12",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LOBOS F&P B2010",
+  "awayTeam": "FC Dallas - Coachella B2010",
+  "homeScore": 2,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-4",
+  "date": "2026-09-12",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LASC Aspire B2010",
+  "awayTeam": "Gauchos Intercontinental FC B2010",
+  "homeScore": 0,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "ACAD26F-5",
+  "date": "2026-09-12",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Irvine FC Academy Maywood B2012",
+  "awayTeam": "Dreamers SC B2012",
+  "homeScore": 1,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-6",
+  "date": "2026-09-12",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Irvine FC Academy Maywood B2010",
+  "awayTeam": "Coachella Gullit Academy B2010",
+  "homeScore": 0,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "ACAD26F-7",
+  "date": "2026-09-13",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Los Angeles Sports Club B2014",
+  "awayTeam": "Club Leon Pomona B2014",
+  "homeScore": 1,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "ACAD26F-8",
+  "date": "2026-09-13",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Pomona Champions SC B2010",
+  "awayTeam": "Champions Elite SC B2010",
+  "homeScore": 10,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-9",
+  "date": "2026-09-13",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "AYSD D1 Academy B2012",
+  "awayTeam": "Atlas SC Academy B2012",
+  "homeScore": 13,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "ACAD26F-11",
+  "date": "2026-09-19",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LOBOS F&P B2014",
+  "awayTeam": "Los Angeles Sports Club B2014",
+  "homeScore": 3,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "ACAD26F-12",
+  "date": "2026-09-19",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "California Football Club B2014",
+  "awayTeam": "Club Leon Pomona B2014",
+  "homeScore": 19,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "ACAD26F-13",
+  "date": "2026-09-19",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Dreamers SC B2012",
+  "awayTeam": "Irvine FC Academy South Bay B2012",
+  "homeScore": 1,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "ACAD26F-14",
+  "date": "2026-09-19",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Pomona Champions SC B2010",
+  "awayTeam": "LASC Aspire B2010",
+  "homeScore": 8,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-15",
+  "date": "2026-09-19",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Irvine FC Academy Maywood B2012",
+  "awayTeam": "AYSD D1 Academy B2012",
+  "homeScore": 2,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "ACAD26F-16",
+  "date": "2026-09-19",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Irvine FC Academy Maywood B2010",
+  "awayTeam": "LOBOS F&P B2010",
+  "homeScore": 0,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "ACAD26F-17",
+  "date": "2026-09-20",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Atlas SC Academy B2012",
+  "awayTeam": "LASC Aspire B2012",
+  "homeScore": 2,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "ACAD26F-18",
+  "date": "2026-09-20",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Champions Elite SC B2010",
+  "awayTeam": "FC Dallas - Coachella B2010",
+  "homeScore": 1,
+  "awayScore": 7
+ },
+ {
+  "gameNumber": "ACAD26F-19",
+  "date": "2026-09-20",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Coachella Gullit Academy B2010",
+  "awayTeam": "Gauchos Intercontinental FC B2010",
+  "homeScore": 4,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "ACAD26F-21",
+  "date": "2026-09-26",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Gauchos Intercontinental FC B2010",
+  "awayTeam": "LASC Aspire B2010",
+  "homeScore": 5,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-22",
+  "date": "2026-09-26",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LOBOS F&P B2014",
+  "awayTeam": "Club Leon Pomona B2014",
+  "homeScore": 16,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "ACAD26F-23",
+  "date": "2026-09-26",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Irvine FC Academy South Bay B2012",
+  "awayTeam": "AYSD D1 Academy B2012",
+  "homeScore": 4,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "ACAD26F-25",
+  "date": "2026-09-27",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Atlas SC Academy B2012",
+  "awayTeam": "Irvine FC Academy Maywood B2012",
+  "homeScore": 3,
+  "awayScore": 4
+ },
+ {
+  "gameNumber": "ACAD26F-26",
+  "date": "2026-09-27",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Pomona Champions SC B2010",
+  "awayTeam": "Champions Elite SC B2010",
+  "homeScore": 4,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-27",
+  "date": "2026-09-27",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LASC Aspire B2012",
+  "awayTeam": "Dreamers SC B2012",
+  "homeScore": 1,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "ACAD26F-28",
+  "date": "2026-09-27",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Coachella Gullit Academy B2010",
+  "awayTeam": "Irvine FC Academy Maywood B2010",
+  "homeScore": 8,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "ACAD26F-29",
+  "date": "2026-09-27",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "California Football Club B2014",
+  "awayTeam": "Los Angeles Sports Club B2014",
+  "homeScore": 2,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "ACAD26F-30",
+  "date": "2026-10-03",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LOBOS F&P B2010",
+  "awayTeam": "LASC Aspire B2010",
+  "homeScore": 3,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "ACAD26F-33",
+  "date": "2026-10-03",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Irvine FC Academy Maywood B2010",
+  "awayTeam": "FC Dallas - Coachella B2010",
+  "homeScore": 1,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "ACAD26F-37",
+  "date": "2026-10-04",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Champions Elite SC B2010",
+  "awayTeam": "Coachella Gullit Academy B2010",
+  "homeScore": 0,
+  "awayScore": 11
+ },
+ {
+  "gameNumber": "ACAD26F-38",
+  "date": "2026-10-10",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Los Angeles Sports Club B2014",
+  "awayTeam": "California Football Club B2014",
+  "homeScore": 0,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-39",
+  "date": "2026-10-10",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Club Leon Pomona B2014",
+  "awayTeam": "LOBOS F&P B2014",
+  "homeScore": 1,
+  "awayScore": 14
+ },
+ {
+  "gameNumber": "ACAD26F-40",
+  "date": "2026-10-10",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Gauchos Intercontinental FC B2010",
+  "awayTeam": "Irvine FC Academy Maywood B2010",
+  "homeScore": 1,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-41",
+  "date": "2026-10-11",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Irvine FC Academy Maywood B2012",
+  "awayTeam": "Irvine FC Academy South Bay B2012",
+  "homeScore": 7,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-42",
+  "date": "2026-10-11",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Champions Elite SC B2010",
+  "awayTeam": "LOBOS F&P B2010",
+  "homeScore": 1,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "ACAD26F-47",
+  "date": "2026-10-17",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Irvine FC Academy South Bay B2012",
+  "awayTeam": "LASC Aspire B2012",
+  "homeScore": 1,
+  "awayScore": 9
+ },
+ {
+  "gameNumber": "ACAD26F-48",
+  "date": "2026-10-17",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "FC Dallas - Coachella B2010",
+  "awayTeam": "Pomona Champions SC B2010",
+  "homeScore": 8,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "ACAD26F-49",
+  "date": "2026-10-17",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Dreamers SC B2012",
+  "awayTeam": "Irvine FC Academy Maywood B2012",
+  "homeScore": 0,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "ACAD26F-50",
+  "date": "2026-10-17",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LOBOS F&P B2010",
+  "awayTeam": "Coachella Gullit Academy B2010",
+  "homeScore": 0,
+  "awayScore": 8
+ },
+ {
+  "gameNumber": "ACAD26F-51",
+  "date": "2026-10-17",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "California Football Club B2014",
+  "awayTeam": "LOBOS F&P B2014",
+  "homeScore": 6,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "ACAD26F-53",
+  "date": "2026-10-18",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Champions Elite SC B2010",
+  "awayTeam": "Gauchos Intercontinental FC B2010",
+  "homeScore": 0,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "ACAD26F-54",
+  "date": "2026-10-18",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Irvine FC Academy Maywood B2010",
+  "awayTeam": "LASC Aspire B2010",
+  "homeScore": 3,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-55",
+  "date": "2026-10-22",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Club Leon Pomona B2014",
+  "awayTeam": "Los Angeles Sports Club B2014",
+  "homeScore": 0,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "ACAD26F-56",
+  "date": "2026-10-24",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "FC Dallas - Coachella B2010",
+  "awayTeam": "Gauchos Intercontinental FC B2010",
+  "homeScore": 3,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "ACAD26F-57",
+  "date": "2026-10-24",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LASC Aspire B2010",
+  "awayTeam": "Coachella Gullit Academy B2010",
+  "homeScore": 1,
+  "awayScore": 12
+ },
+ {
+  "gameNumber": "ACAD26F-58",
+  "date": "2026-10-24",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LOBOS F&P B2010",
+  "awayTeam": "Pomona Champions SC B2010",
+  "homeScore": 6,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-59",
+  "date": "2026-10-24",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LOBOS F&P B2014",
+  "awayTeam": "California Football Club B2014",
+  "homeScore": 0,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-60",
+  "date": "2026-10-24",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "AYSD D1 Academy B2012",
+  "awayTeam": "Irvine FC Academy Maywood B2012",
+  "homeScore": 4,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-61",
+  "date": "2026-10-24",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LASC Aspire B2012",
+  "awayTeam": "Atlas SC Academy B2012",
+  "homeScore": 4,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "ACAD26F-62",
+  "date": "2026-10-25",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Irvine FC Academy South Bay B2012",
+  "awayTeam": "Dreamers SC B2012",
+  "homeScore": 0,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "ACAD26F-63",
+  "date": "2026-10-25",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Champions Elite SC B2010",
+  "awayTeam": "Irvine FC Academy Maywood B2010",
+  "homeScore": 1,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "ACAD26F-64",
+  "date": "2026-10-27",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Club Leon Pomona B2014",
+  "awayTeam": "Los Angeles Sports Club B2014",
+  "homeScore": 1,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-66",
+  "date": "2026-10-31",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Pomona Champions SC B2010",
+  "awayTeam": "Gauchos Intercontinental FC B2010",
+  "homeScore": 0,
+  "awayScore": 6
+ },
+ {
+  "gameNumber": "ACAD26F-67",
+  "date": "2026-10-31",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Dreamers SC B2012",
+  "awayTeam": "LASC Aspire B2012",
+  "homeScore": 5,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "ACAD26F-68",
+  "date": "2026-10-31",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Coachella Gullit Academy B2010",
+  "awayTeam": "Champions Elite SC B2010",
+  "homeScore": 6,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "ACAD26F-70",
+  "date": "2026-10-31",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LOBOS F&P B2010",
+  "awayTeam": "LASC Aspire B2010",
+  "homeScore": 3,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "ACAD26F-71",
+  "date": "2026-10-31",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "California Football Club B2014",
+  "awayTeam": "Club Leon Pomona B2014",
+  "homeScore": 18,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "ACAD26F-72",
+  "date": "2026-11-01",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Los Angeles Sports Club B2014",
+  "awayTeam": "LOBOS F&P B2014",
+  "homeScore": 3,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "ACAD26F-73",
+  "date": "2026-11-01",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Irvine FC Academy Maywood B2012",
+  "awayTeam": "Atlas SC Academy B2012",
+  "homeScore": 3,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "ACAD26F-74",
+  "date": "2026-11-01",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Pomona Champions SC B2010",
+  "awayTeam": "Irvine FC Academy Maywood B2010",
+  "homeScore": 0,
+  "awayScore": 5
+ },
+ {
+  "gameNumber": "ACAD26F-75",
+  "date": "2026-11-01",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Irvine FC Academy Maywood B2010",
+  "awayTeam": "FC Dallas - Coachella B2010",
+  "homeScore": 1,
+  "awayScore": 7
+ },
+ {
+  "gameNumber": "ACAD26F-76",
+  "date": "2026-11-04",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LASC Aspire B2010",
+  "awayTeam": "Champions Elite SC B2010",
+  "homeScore": 0,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "ACAD26F-77",
+  "date": "2026-11-06",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LASC Aspire B2012",
+  "awayTeam": "Irvine FC Academy Maywood B2012",
+  "homeScore": 2,
+  "awayScore": 1
+ },
+ {
+  "gameNumber": "ACAD26F-78",
+  "date": "2026-11-07",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Gauchos Intercontinental FC B2010",
+  "awayTeam": "LOBOS F&P B2010",
+  "homeScore": 1,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "ACAD26F-79",
+  "date": "2026-11-07",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "FC Dallas - Coachella B2010",
+  "awayTeam": "Coachella Gullit Academy B2010",
+  "homeScore": 0,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "ACAD26F-80",
+  "date": "2026-11-08",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Atlas SC Academy B2012",
+  "awayTeam": "Irvine FC Academy South Bay B2012",
+  "homeScore": 2,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "ACAD26F-81",
+  "date": "2026-11-08",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Dreamers SC B2012",
+  "awayTeam": "AYSD D1 Academy B2012",
+  "homeScore": 3,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "ACAD26F-82",
+  "date": "2026-11-10",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Gauchos Intercontinental FC B2010",
+  "awayTeam": "Pomona Champions SC B2010",
+  "homeScore": 2,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "ACAD26F-83",
+  "date": "2026-11-11",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "LASC Aspire B2010",
+  "awayTeam": "Irvine FC Academy Maywood B2010",
+  "homeScore": 0,
+  "awayScore": 3
+ },
+ {
+  "gameNumber": "ACAD26F-84",
+  "date": "2026-11-11",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Coachella Gullit Academy B2010",
+  "awayTeam": "LOBOS F&P B2010",
+  "homeScore": 0,
+  "awayScore": 2
+ },
+ {
+  "gameNumber": "ACAD26F-86",
+  "date": "2026-11-14",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Gauchos Intercontinental FC B2010",
+  "awayTeam": "Champions Elite SC B2010",
+  "homeScore": 17,
+  "awayScore": 0
+ },
+ {
+  "gameNumber": "ACAD26F-87",
+  "date": "2026-11-14",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Irvine FC Academy South Bay B2012",
+  "awayTeam": "Irvine FC Academy Maywood B2012",
+  "homeScore": 1,
+  "awayScore": 7
+ },
+ {
+  "gameNumber": "ACAD26F-88",
+  "date": "2026-11-15",
+  "eventName": "UPSL Academy 2026 Fall",
+  "state": "CAS",
+  "homeTeam": "Atlas SC Academy B2012",
+  "awayTeam": "Dreamers SC B2012",
+  "homeScore": 0,
+  "awayScore": 6
  }
 ]

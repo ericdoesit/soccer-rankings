@@ -1,0 +1,94 @@
+# UPSL Academy 2026 Fall, California games, read 2026-11-17 from https://academy.upsl.com/schedule/
+# (the page's results table; robots.txt allows it, plain requests hit a bot check).
+# Left out: postponed games, 0-0 results (16 of 90, mostly unreported), and five Florida teams the
+# table tags CA (Team Boca, USS Kendall Lions, Cyclones FC, GOT FC, Santos FC).
+@team T0	U15	AYSD D1 Academy U15
+@team T1	U15	LASC Aspire U15
+@team T2	U17	LASC Aspire U17
+@team T3	U15	Atlas SC Academy U15
+@team T4	U13	California Football Club U13
+@team T5	U17	Champions Elite SC U17
+@team T6	U13	Club Leon Pomona U13
+@team T7	U17	Coachella Gullit Academy U17
+@team T9	U15	Dreamers SC U15
+@team T10	U17	FC Dallas - Coachella U17
+@team T12	U17	Gauchos Intercontinental FC U17
+@team T13	U15	Irvine FC Academy Maywood U15
+@team T14	U17	Irvine FC Academy Maywood U17
+@team T15	U15	Irvine FC Academy South Bay U15
+@team T16	U13	LOBOS F&P U13
+@team T17	U17	LOBOS F&P U17
+@team T18	U13	Los Angeles Sports Club U13
+@team T19	U17	Pomona Champions SC U17
+09-12 1 - T1:3 T15:2
+09-12 2 - T16:3 T4:5
+09-12 3 - T17:2 T10:1
+09-12 4 - T2:0 T12:6
+09-12 5 - T13:1 T9:1
+09-12 6 - T14:0 T7:4
+09-13 7 - T18:1 T6:0
+09-13 8 - T19:10 T5:1
+09-13 9 - T0:13 T3:3
+09-19 11 - T16:3 T18:6
+09-19 12 - T4:19 T6:0
+09-19 13 - T9:1 T15:0
+09-19 14 - T19:8 T2:1
+09-19 15 - T13:2 T0:2
+09-19 16 - T14:0 T17:2
+09-20 17 - T3:2 T1:4
+09-20 18 - T5:1 T10:7
+09-20 19 - T7:4 T12:0
+09-26 21 - T12:5 T2:1
+09-26 22 - T16:16 T6:0
+09-26 23 - T15:4 T0:2
+09-27 25 - T3:3 T13:4
+09-27 26 - T19:4 T5:1
+09-27 27 - T1:1 T9:3
+09-27 28 - T7:8 T14:0
+09-27 29 - T4:2 T18:3
+10-03 30 - T17:3 T2:0
+10-03 33 - T14:1 T10:5
+10-04 37 - T5:0 T7:11
+10-10 38 - T18:0 T4:1
+10-10 39 - T6:1 T16:14
+10-10 40 - T12:1 T14:1
+10-11 41 - T13:7 T15:1
+10-11 42 - T5:1 T17:5
+10-17 47 - T15:1 T1:9
+10-17 48 - T10:8 T19:2
+10-17 49 - T9:0 T13:2
+10-17 50 - T17:0 T7:8
+10-17 51 - T4:6 T16:3
+10-18 53 - T5:0 T12:5
+10-18 54 - T14:3 T2:1
+10-22 55 - T6:0 T18:6
+10-24 56 - T10:3 T12:0
+10-24 57 - T2:1 T7:12
+10-24 58 - T17:6 T19:1
+10-24 59 - T16:0 T4:1
+10-24 60 - T0:4 T13:1
+10-24 61 - T1:4 T3:2
+10-25 62 - T15:0 T9:6
+10-25 63 - T5:1 T14:6
+10-27 64 - T6:1 T18:1
+10-31 66 - T19:0 T12:6
+10-31 67 - T9:5 T1:3
+10-31 68 - T7:6 T5:2
+10-31 70 - T17:3 T2:0
+10-31 71 - T4:18 T6:0
+11-01 72 - T18:3 T16:5
+11-01 73 - T13:3 T3:0
+11-01 74 - T19:0 T14:5
+11-01 75 - T14:1 T10:7
+11-04 76 - T2:0 T5:3
+11-06 77 - T1:2 T13:1
+11-07 78 - T12:1 T17:0
+11-07 79 - T10:0 T7:2
+11-08 80 - T3:2 T15:3
+11-08 81 - T9:3 T0:2
+11-10 82 - T12:2 T19:2
+11-11 83 - T2:0 T14:3
+11-11 84 - T7:0 T17:2
+11-14 86 - T12:17 T5:0
+11-14 87 - T15:1 T13:7
+11-15 88 - T3:0 T9:6

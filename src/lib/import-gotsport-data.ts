@@ -469,8 +469,8 @@ export function loadGotsportData() {
     // AthleteOne (TotalGlobalSports) schedules pasted by the user (scripts/import-athleteone-paste.ts);
     // its robots.txt blocks automated access, so nothing is fetched
     { file: path.join(process.cwd(), "data", "athleteone", "games.json"), fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "eventName"] },
-    // SincSports league schedules read in the browser (scripts/import-sincsports-paste.ts): Pacific Regional SL
-    { file: path.join(process.cwd(), "data", "sincsports", "games.json"), fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "eventName"] },
+    // League schedules read in the browser (scripts/import-league-paste.ts): Pacific Regional SL, UPSL Academy
+    { file: path.join(process.cwd(), "data", "league-pastes", "games.json"), fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "eventName"] },
     { file: mlsNextFile, fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "tournament"] },
     { file: adidasFile, fields: ["homeTeam", "awayTeam", "homeScore", "awayScore", "date", "tournament"] },
     // Leagues not on GotSport, scraped from Demosphere (scripts/scrape-demosphere-league.ts)
