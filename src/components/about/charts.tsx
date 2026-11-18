@@ -111,6 +111,12 @@ const LEAGUE_STYLE: Record<string, { c: keyof Palette; dash?: string }> = {
   "N1": { c: "gold" },
   "SoCal Soccer League": { c: "ink" }, "Coast Soccer League": { c: "ink", dash: "6 4" },
 };
+/** Boys pyramid level from Pitfalls on the Pathway (report/ecosystem.html): 1 Pro Pipeline … 5 Regional Travel. */
+const PYRAMID_LEVEL: Record<string, number> = {
+  "MLS NEXT HD": 1, "ECNL": 2, "MLS NEXT AD": 3, "ECNL RL": 3, "N1": 3, "EA": 3,
+  "EA2": 4, "Pre-ECNL": 4, "SoCal Soccer League": 5, "Coast Soccer League": 5,
+};
+const PYRAMID_URL = "https://pitfalls-on-the-pathway.vercel.app/report/ecosystem.html";
 const MIN_TEAMS = 5;
 /** state / district leagues: off by default so the elite-league curves aren't dwarfed */
 const LOCAL = new Set(["SoCal Soccer League", "Coast Soccer League"]);
@@ -135,6 +141,7 @@ export function LeagueOverlap({ groups, order, initial = "U15|Boys" }: {
   const [scale, setScale] = useState<"count" | "share">("count");
   const [showLocal, setShowLocal] = useState(false);
   const shown = (l: string) => showLocal || !LOCAL.has(l);
+  const level = (l: string) => (gender === "Boys" ? PYRAMID_LEVEL[l] : undefined);
   const leagues = useMemo(() => {
     const g = groups[`${age}|${gender}`] ?? {};
     return order.filter((l) => shown(l) && (g[l]?.length ?? 0) >= MIN_TEAMS)
@@ -199,7 +206,7 @@ export function LeagueOverlap({ groups, order, initial = "U15|Boys" }: {
       // median: a small triangle on the axis
       const mx = x(c.med), by = H - m.bottom;
       svg.append("path").attr("d", `M${mx},${by + 1} l-5,9 h10 z`).attr("fill", P[st.c])
-        .on("mousemove", (ev) => showTip(ev, `<strong>${c.league}</strong><br>median ${c.med.toFixed(1)} · ${c.values.length} teams`))
+        .on("mousemove", (ev) => showTip(ev, `<strong>${c.league}</strong>${level(c.league) ? ` · level ${level(c.league)}` : ""}<br>median ${c.med.toFixed(1)} · ${c.values.length} teams`))
         .on("mouseleave", hideTip);
     }
     svg.append("line").attr("x1", m.left).attr("x2", W - m.right).attr("y1", H - m.bottom).attr("y2", H - m.bottom).attr("stroke", P.muted).attr("stroke-opacity", 0.4);
@@ -229,7 +236,14 @@ export function LeagueOverlap({ groups, order, initial = "U15|Boys" }: {
           <line x1="0" x2="26" y1="6" y2="6" stroke={`var(--ch-${st.c})`} strokeWidth="3" strokeDasharray={st.dash} />
         </svg>
         <div className="min-w-0">
-          <div className="text-sm font-semibold leading-tight text-foreground">{league}</div>
+          <div className="flex items-center gap-1.5 text-sm font-semibold leading-tight text-foreground">
+            {league}
+            {level(league) && (
+              <span title={`Pyramid level ${level(league)}`} className="rounded-full border border-[var(--surface-line)] px-1.5 text-[10px] font-semibold leading-4 tabular-nums text-muted-foreground">
+                L{level(league)}
+              </span>
+            )}
+          </div>
           <div className="text-xs tabular-nums text-muted-foreground">median {med.toFixed(1)} · {values.length} teams</div>
         </div>
       </div>
@@ -266,7 +280,9 @@ export function LeagueOverlap({ groups, order, initial = "U15|Boys" }: {
         </div>
         {leagues.length > 0 && (
           <div className="grid grid-cols-2 content-start gap-x-4 gap-y-3 sm:grid-cols-3 lg:order-2 lg:grid-cols-1 lg:pt-2">
-            <p className="col-span-full text-xs font-semibold text-muted-foreground">League</p>
+            <p className="col-span-full text-xs font-semibold text-muted-foreground">
+              League{gender === "Boys" ? " · pyramid level" : ""}
+            </p>
             {legend}
           </div>
         )}
@@ -278,6 +294,16 @@ export function LeagueOverlap({ groups, order, initial = "U15|Boys" }: {
             : `The area under each curve equals the league's number of rated ${age} ${gender.toLowerCase()} teams, so height shows both quality and quantity.`}{" "}
           Each team counts in the league it played most in 2026/27 and has at least 10 rated games. MLS NEXT HD is the
           Homegrown Division (Flex games included), AD the Academy Division.
+        </p>
+      )}
+      {leagues.length > 0 && gender === "Boys" && (
+        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+          L1–L5 are the levels of the{" "}
+          <a href={PYRAMID_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
+            Pitfalls on the Pathway boys pyramid
+          </a>
+          : L1 Pro Pipeline, L2 National Elite, L3 National Competitive, L4 Regional/National Bridge, L5 Regional Travel.
+          Where a league with a higher level number sits above one with a lower number, results disagree with the pyramid.
         </p>
       )}
       {hidden.length > 0 && (

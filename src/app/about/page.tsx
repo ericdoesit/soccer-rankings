@@ -139,7 +139,8 @@ export default function AboutPage() {
             <div className="mt-10">
               <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
                 The curves overlap: the best teams in a lower league are stronger than typical teams a tier up, which is
-                why we rate teams, not leagues. Hover or tap the chart for team counts.
+                why we rate teams, not leagues. The pyramid levels (L1–L5) rank a league&rsquo;s access to the pro pathway,
+                not the strength of its teams: on results, levels 1 to 3 overlap. Hover or tap the chart for team counts.
               </p>
               <LeagueOverlap groups={charts.socal} order={SOCAL_LEAGUE_ORDER} />
             </div>
