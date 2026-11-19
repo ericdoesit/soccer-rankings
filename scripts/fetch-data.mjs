@@ -22,24 +22,46 @@ if (fs.existsSync(SNAPSHOT) && !force) {
   process.exit(0);
 }
 const headers = { "X-GitHub-Api-Version": "2022-11-28", ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}) };
-const rel = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { headers: { ...headers, Accept: "application/vnd.github+json" } });
-if (!rel.ok) throw new Error(`[fetch-data] latest release: HTTP ${rel.status}`);
-const release = await rel.json();
-const asset = release.assets?.find((a) => a.name === "runtime-data.tar.gz");
-if (!asset) throw new Error(`[fetch-data] release ${release.tag_name} has no runtime-data.tar.gz`);
-
-console.log(`[fetch-data] downloading ${release.tag_name} (${(asset.size / 1e6).toFixed(1)} MB)`);
-const res = await fetch(asset.url, { headers: { ...headers, Accept: "application/octet-stream" } });
-if (!res.ok) throw new Error(`[fetch-data] download: HTTP ${res.status}`);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+/**
+ * The latest release's runtime-data.tar.gz. First the plain download link (github.com/…/releases/
+ * latest/download/…): no API call, so no rate limit. Unauthenticated API calls are limited to 60 an
+ * hour per address, and Vercel's build machines share addresses, so the API route alone failed
+ * builds with HTTP 403 (2026-11-19). The API stays as a fallback, with retries.
+ */
+async function download() {
+  const direct = `https://github.com/${REPO}/releases/latest/download/runtime-data.tar.gz`;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    const res = await fetch(direct, { redirect: "follow" }).catch(() => null);
+    if (res?.ok) { console.log(`[fetch-data] downloading the latest release (direct link)`); return Buffer.from(await res.arrayBuffer()); }
+    console.log(`[fetch-data] direct download: ${res ? `HTTP ${res.status}` : "network error"} (try ${attempt}/3)`);
+    await sleep(2000 * attempt);
+  }
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    const rel = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { headers: { ...headers, Accept: "application/vnd.github+json" } }).catch(() => null);
+    if (rel?.ok) {
+      const release = await rel.json();
+      const asset = release.assets?.find((a) => a.name === "runtime-data.tar.gz");
+      if (!asset) throw new Error(`[fetch-data] release ${release.tag_name} has no runtime-data.tar.gz`);
+      console.log(`[fetch-data] downloading ${release.tag_name} (${(asset.size / 1e6).toFixed(1)} MB)`);
+      const res = await fetch(asset.url, { headers: { ...headers, Accept: "application/octet-stream" } });
+      if (res.ok) return Buffer.from(await res.arrayBuffer());
+      console.log(`[fetch-data] download: HTTP ${res.status} (try ${attempt}/3)`);
+    } else console.log(`[fetch-data] latest release: ${rel ? `HTTP ${rel.status}` : "network error"} (try ${attempt}/3)`);
+    await sleep(5000 * attempt);
+  }
+  throw new Error("[fetch-data] could not download the latest data release");
+}
+const archive = await download();
 const tmp = path.join(ROOT, "runtime-data.tar.gz");
-fs.writeFileSync(tmp, Buffer.from(await res.arrayBuffer()));
+fs.writeFileSync(tmp, archive);
 execFileSync("tar", ["-xzf", tmp, "-C", ROOT], { stdio: "inherit" });
 fs.rmSync(tmp);
 // archives packed on macOS before COPYFILE_DISABLE carry AppleDouble "._name" files: drop them
 for (const f of fs.readdirSync(path.join(ROOT, "data"), { recursive: true })) {
   if (path.basename(String(f)).startsWith("._")) fs.rmSync(path.join(ROOT, "data", String(f)), { force: true });
 }
-console.log(`[fetch-data] data from ${release.tag_name} unpacked into data/`);
+console.log("[fetch-data] latest data release unpacked into data/");
 
 // Slim the GotSport game files to the fields pages read at request time (src/lib/tournament-view,
 // team-context, league-rankings): 150 MB → ~60 MB. Every server function ships data/ (next.config
