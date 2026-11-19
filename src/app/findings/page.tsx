@@ -67,7 +67,7 @@ export default function FindingsPage() {
               )}
               <div className="insight">
                 <div className="i-num">59%</div>
-                <p>of MLS roster spots are held by foreign players: the league buys more talent than it develops</p>
+                <p>of MLS roster spots are held by foreign players. From college to MLS, American teams are bought, not built</p>
               </div>
             </div>
           </CardContent>
@@ -158,6 +158,15 @@ export default function FindingsPage() {
                 </a>
                 , which follows the money and the MLS pipeline, they point the same way: American youth soccer sorts
                 players by administration and price more than by competition.
+              </p>
+              <p className="border-l-2 border-[var(--surface-line)] pl-3 text-foreground">
+                <strong>From college to MLS, American teams are bought, not built.</strong>{" "}
+                <span className="text-muted-foreground">
+                  MLS fills 59% of its roster spots with foreign players and signs about 345 players from abroad a year,
+                  against 75 Homegrowns. D1 men&apos;s rosters hold 30–35% international players and fill 25–30% of
+                  spots from the transfer portal. At both levels, the strongest teams are put together by recruiting
+                  finished players, not by developing them.
+                </span>
               </p>
               <h3 className="heading-sm pt-2 text-foreground">Why the US is poorly positioned</h3>
               <ul className="list-disc space-y-2 pl-5">

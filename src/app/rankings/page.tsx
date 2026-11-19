@@ -214,9 +214,15 @@ export default function RankingsPage() {
       <h1 className="display mb-4 sm:mb-6">Rankings <span className="tail">by age and gender.</span></h1>
 
       <div className="surface mb-6 space-y-2 p-5 text-sm leading-relaxed text-muted-foreground sm:p-6">
-        <p className="eyebrow">What We Rank</p>
+        <p className="eyebrow">Why We Built This</p>
         <p>
-          These rankings cover the Western US{coveredNames.length ? <> ({coveredNames.join(", ")})</> : null}.{" "}
+          This project started as a way to rank youth teams and see where the best ones play. Building it exposed a flaw
+          in the system: youth leagues are siloed and rarely play each other, the same way MLS sits apart from the rest
+          of the US game at the top.{" "}
+          <Link href="/findings" className="font-medium text-foreground underline underline-offset-4">
+            Read the findings
+          </Link>
+          .{" "}
           <button
             type="button"
             onClick={() => setAboutOpen(true)}
@@ -224,18 +230,19 @@ export default function RankingsPage() {
           >
             More
           </button>
-          <span className={aboutOpen ? "" : "hidden sm:inline"}> Other states
-          aren&apos;t ranked yet: ranking a state fairly takes its league and tournament results, and we don&apos;t collect
-          those yet. Teams from other states still count in the ratings whenever they play Western teams, so the rankings
-          reflect national competition. Hawaii isn&apos;t ranked because its teams rarely play mainland opponents.</span>
         </p>
         <p className={aboutOpen ? "" : "hidden sm:block"}>
-          Within the West, a team is listed when it plays in tracked competitions (elite leagues, State Cups,
-          championships and major showcases) and has enough recent games. Teams that only play in local leagues stay in
-          the directory, and their games still count.
+          To see where Southern California&apos;s leagues and clubs are, explore the{" "}
+          <Link href="/map" className="font-medium text-foreground underline underline-offset-4">
+            map
+          </Link>
+          .
         </p>
         <p className={aboutOpen ? "" : "hidden sm:block"}>
-          Next: tracking teams from outside the West that compete nationally in Los Angeles.
+          Rankings cover the Western US{coveredNames.length ? <> ({coveredNames.join(", ")})</> : null}. A team is
+          listed when it plays in tracked competitions (elite leagues, State Cups, championships and major showcases)
+          and has enough recent games. Teams from other states, and teams that only play local leagues, aren&apos;t
+          listed, but their games against ranked teams still count.
         </p>
       </div>
 
