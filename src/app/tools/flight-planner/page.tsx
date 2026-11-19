@@ -8,15 +8,20 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 /**
  * Flight Planner (src/lib/flight-planner.ts): paste a tournament's teams, confirm each match, then
- * split them into flights of similar strength across leagues or within one league, with every
- * game predicted.
+ * split them into flights of similar strength across leagues or within one league. Each flight gets
+ * a youth-tournament bracket (seeded groups, crossovers, a final) with every game predicted, and
+ * teams that don't fit their flight are flagged.
  */
 interface Candidate { id: number; name: string; club: string; state: string; rating: number; games: number; league: string | null; listed: boolean; match: number }
 interface Row { input: string; candidates: Candidate[] }
 interface Level { league: string; median: number; teams: number }
 interface PlanTeam { key: string; name: string; rating: number; league: string | null; id?: number }
-interface Game { a: string; b: string; margin: number; outcome: { win: number; draw: number; loss: number } }
-interface Flight { name: string; teams: PlanTeam[]; avg: number; spread: number; level: string | null; close: number; mismatches: number; games: Game[] }
+interface Game { a: string; b: string; stage: string; margin: number; outcome: { win: number; draw: number; loss: number } }
+interface Flag { name: string; direction: "up" | "down"; note: string }
+interface Flight {
+  name: string; teams: PlanTeam[]; avg: number; spread: number; level: string | null; close: number; mismatches: number;
+  format: string; groups: Array<{ name: string; teams: PlanTeam[] }>; games: Game[]; final: Game | null; flags: Flag[];
+}
 
 const AGES = ["U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17", "U18", "U19"];
 const AGE_ITEMS = [{ value: "", label: "Age: from names" }, ...AGES.map((a) => ({ value: a, label: a }))];
@@ -36,6 +41,18 @@ Pateadores B2014`;
 /** choice per row: a candidate id, or "level:<league>" (unmatched team placed at a league's median) */
 type Choice = string;
 const pct = (x: number) => `${Math.round(x * 100)}%`;
+
+/** "LA Galaxy over Strikers FC by 0.6 · 55% win · 20% draw" */
+function GameLine({ g, strong }: { g: Game; strong?: boolean }) {
+  const fav = g.margin >= 0;
+  const p = fav ? g.outcome.win : g.outcome.loss;
+  return (
+    <li className={`flex gap-2 ${p >= 0.85 ? "text-amber-600" : ""} ${strong ? "font-medium text-foreground" : ""}`}>
+      <span className="min-w-0 flex-1 truncate">{fav ? g.a : g.b} over {fav ? g.b : g.a}</span>
+      <span className="shrink-0 tabular-nums">by {Math.abs(g.margin).toFixed(1)} · {pct(p)} win · {pct(g.outcome.draw)} draw</span>
+    </li>
+  );
+}
 
 export default function FlightPlannerPage() {
   const [text, setText] = useState("");
@@ -91,7 +108,7 @@ export default function FlightPlannerPage() {
 
   function exportCsv() {
     if (!flights) return;
-    const rows = [["Flight", "Seed", "Team", "Rating", "League"], ...flights.flatMap((f) => f.teams.map((t, i) => [f.name, String(i + 1), t.name, t.rating.toFixed(2), t.league ?? ""]))];
+    const rows = [["Flight", "Group", "Seed", "Team", "Rating", "League"], ...flights.flatMap((f) => f.teams.map((t, i) => [f.name, f.groups.find((g) => g.teams.some((x) => x.key === t.key))?.name ?? "", String(i + 1), t.name, t.rating.toFixed(2), t.league ?? ""]))];
     const blob = new Blob([rows.map((r) => r.map((c) => `"${c.replace(/"/g, '""')}"`).join(",")).join("\n")], { type: "text/csv" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob); a.download = "flights.csv"; a.click();
@@ -102,8 +119,9 @@ export default function FlightPlannerPage() {
     <div className="mx-auto max-w-7xl px-4 py-8">
       <h1 className="display">Flight planner</h1>
       <p className="lead mt-3 max-w-3xl">
-        Paste a tournament&rsquo;s teams, confirm each match, and split them into flights of similar strength, across
-        leagues or within each league. Every game is predicted from the ratings.
+        Paste a tournament&rsquo;s teams, confirm each match, and split them into flights of similar strength, the way
+        youth tournaments do: Premier, Gold, Silver and so on. Each flight gets a seeded bracket that builds to a final,
+        every game is predicted from the ratings, and teams that don&rsquo;t fit their flight are flagged.
       </p>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,420px)_1fr]">
@@ -216,30 +234,50 @@ export default function FlightPlannerPage() {
                     </p>
                   </CardHeader>
                   <CardContent className="space-y-3">
-                    <ol className="space-y-1 text-sm">
-                      {f.teams.map((t, i) => (
-                        <li key={t.key} className="flex items-baseline gap-2">
-                          <span className="w-4 shrink-0 text-xs tabular-nums text-muted-foreground">{i + 1}</span>
-                          {t.id ? <Link href={`/team/${t.id}`} className="min-w-0 flex-1 truncate hover:text-primary">{t.name}</Link> : <span className="min-w-0 flex-1 truncate italic">{t.name}</span>}
-                          <span className="shrink-0 text-xs text-muted-foreground">{t.league ?? ""}</span>
-                          <span className="w-10 shrink-0 text-right tabular-nums">{t.rating.toFixed(1)}</span>
-                        </li>
+                    <p className="text-xs font-medium text-foreground">{f.format}</p>
+                    <div className={f.groups.length > 1 ? "grid gap-3 sm:grid-cols-2" : ""}>
+                      {f.groups.map((grp) => (
+                        <div key={grp.name || "all"}>
+                          {grp.name && <p className="mb-1 text-xs font-medium text-muted-foreground">{grp.name}</p>}
+                          <ol className="space-y-1 text-sm">
+                            {grp.teams.map((t) => {
+                              const seed = f.teams.findIndex((x) => x.key === t.key) + 1;
+                              const flag = f.flags.find((x) => x.name === t.name);
+                              return (
+                                <li key={t.key} className="flex items-baseline gap-2">
+                                  <span className="w-4 shrink-0 text-xs tabular-nums text-muted-foreground">{seed}</span>
+                                  {t.id ? <Link href={`/team/${t.id}`} className="min-w-0 flex-1 truncate hover:text-primary">{t.name}</Link> : <span className="min-w-0 flex-1 truncate italic">{t.name}</span>}
+                                  {flag && <span className="shrink-0 text-xs text-amber-600" title={flag.note}>{flag.direction === "up" ? "▲" : "▼"}</span>}
+                                  {f.groups.length === 1 && <span className="shrink-0 text-xs text-muted-foreground">{t.league ?? ""}</span>}
+                                  <span className="w-10 shrink-0 text-right tabular-nums">{t.rating.toFixed(1)}</span>
+                                </li>
+                              );
+                            })}
+                          </ol>
+                        </div>
                       ))}
-                    </ol>
-                    <details className="text-xs">
-                      <summary className="cursor-pointer text-muted-foreground">{f.games.length} predicted games</summary>
-                      <ul className="mt-2 space-y-1">
-                        {f.games.map((g, j) => {
-                          const fav = g.margin >= 0;
-                          const p = fav ? g.outcome.win : g.outcome.loss;
-                          return (
-                            <li key={j} className={`flex gap-2 ${p >= 0.85 ? "text-amber-600" : ""}`}>
-                              <span className="min-w-0 flex-1 truncate">{fav ? g.a : g.b} over {fav ? g.b : g.a}</span>
-                              <span className="shrink-0 tabular-nums">by {Math.abs(g.margin).toFixed(1)} · {pct(p)} win · {pct(g.outcome.draw)} draw</span>
-                            </li>
-                          );
-                        })}
+                    </div>
+                    {f.final && (
+                      <div className="rounded-lg bg-muted/50 px-3 py-2 text-xs">
+                        <p className="mb-1 text-muted-foreground">Likely final</p>
+                        <ul><GameLine g={f.final} strong /></ul>
+                      </div>
+                    )}
+                    {f.flags.length > 0 && (
+                      <ul className="space-y-0.5 text-xs text-amber-600">
+                        {f.flags.map((x) => <li key={x.name}>{x.direction === "up" ? "▲" : "▼"} {x.name}: {x.note}</li>)}
                       </ul>
+                    )}
+                    <details className="text-xs">
+                      <summary className="cursor-pointer text-muted-foreground">{f.games.length} predicted group games</summary>
+                      {[...new Set(f.games.map((g) => g.stage))].map((stage) => (
+                        <div key={stage} className="mt-2">
+                          {f.groups.length > 1 && <p className="mb-1 text-muted-foreground">{stage}</p>}
+                          <ul className="space-y-1">
+                            {f.games.filter((g) => g.stage === stage).map((g, j) => <GameLine key={j} g={g} />)}
+                          </ul>
+                        </div>
+                      ))}
                     </details>
                   </CardContent>
                 </Card>
@@ -247,10 +285,15 @@ export default function FlightPlannerPage() {
             </div>
           )}
           <p className="mt-4 text-xs text-muted-foreground">
-            Flights are cut from a ladder of ratings, strongest first, so sizes differ by at most one team. &ldquo;Within
-            a goal&rdquo; counts games whose predicted margin is one goal or less; &ldquo;lopsided&rdquo; ones have a
-            favorite who wins 85% of the time or more. Teams placed at a league&rsquo;s level use that league&rsquo;s
-            median rating for this age group.
+            Flights are cut from a ladder of ratings, strongest first, so sizes differ by at most one team. Brackets
+            follow common youth-tournament formats: 4 teams play a round robin and the top 2 meet in the final; 5 play a
+            round robin and 1st place wins; 6 split into two seeded groups of 3 with one crossover game each; 8 split
+            into two seeded groups of 4. Seeding keeps the top two teams apart until the final. The likely final is the
+            teams with the most expected points from their group games. &ldquo;Within a goal&rdquo; counts games whose
+            predicted margin is one goal or less; &ldquo;lopsided&rdquo; ones have a favorite who wins 85% of the time
+            or more, and a team on the wrong end of most of its games is flagged (▲ move up, ▼ move down). Teams placed
+            at a league&rsquo;s level use that league&rsquo;s median rating for this age group. Each tournament sets its
+            own points and tiebreak rules.
           </p>
         </div>
       )}

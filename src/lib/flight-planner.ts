@@ -4,8 +4,9 @@
  *  1. match: each pasted name is matched to rated teams of the chosen age group and gender
  *     (every rated team, listed or not), returning the top candidates for the organizer to confirm.
  *  2. plan:  confirmed teams (or unmatched ones given a level) are split into flights of a
- *     chosen size, across leagues or within one league, with every game predicted from the
- *     site's outcome model (src/lib/predict.ts).
+ *     chosen size, across leagues or within one league, and each flight gets a youth-tournament
+ *     bracket (seeded groups, crossovers, a final), with every game predicted from the site's
+ *     outcome model (src/lib/predict.ts) and teams that don't fit their flight flagged.
  *
  * Rebuilt 2026-11-19: the first version ignored age and gender ("B16" matched U16 and U18
  * teams), searched only listed teams by plain string distance, and put unmatched teams in the
@@ -22,10 +23,12 @@ export interface Candidate {
 }
 export interface MatchRow { input: string; candidates: Candidate[] }
 export interface PlanTeam { key: string; name: string; rating: number; league: string | null; id?: number }
-export interface PlannedGame { a: string; b: string; margin: number; outcome: Outcome }
+export interface PlannedGame { a: string; b: string; stage: string; margin: number; outcome: Outcome }
+export interface PlannedGroup { name: string; teams: PlanTeam[] }
 export interface PlannedFlight {
   name: string; teams: PlanTeam[]; avg: number; spread: number; level: string | null;
-  close: number; games: PlannedGame[]; mismatches: number;
+  format: string; groups: PlannedGroup[]; close: number; games: PlannedGame[]; mismatches: number;
+  final: PlannedGame | null; flags: Array<{ name: string; direction: "up" | "down"; note: string }>;
 }
 
 /** "Surf B2014 Elite", "BU13", "B14", "2014B" → age group and gender, when the names say so */
@@ -137,14 +140,37 @@ function predictor() {
   return modelCache.predict;
 }
 
+/** flight names, strongest first, as youth tournaments label them */
+const FLIGHT_NAMES = ["Premier", "Gold", "Silver", "Bronze", "Copper"];
+const flightName = (f: number) => FLIGHT_NAMES[f] ?? `Flight ${f + 1}`;
+
 /**
- * Split teams into flights of about `size` (sizes differ by at most one), strongest first.
+ * Split teams into flights of about `size` (sizes differ by at most one), strongest first, then
+ * build each flight's bracket the way US youth tournaments do:
+ *   3–4 teams: round robin, top 2 meet in the final
+ *   5 teams:   round robin (4 games each), 1st place wins, no final
+ *   6 teams:   two seeded groups of 3 (1·4·5 and 2·3·6) plus one crossover game each, group winners meet in the final
+ *   7–8 teams: two seeded groups (1·4·5·8 and 2·3·6·7), round robin in each, group winners meet in the final
+ * Seeding keeps the top two teams apart until the final. The likely final takes the teams with the
+ * most expected points (3 per win, 1 per draw) from the predicted group games.
  * mode "mixed": one ladder across leagues. mode "league": each league seeded on its own.
  */
 export function planFlights(teams: PlanTeam[], size: number, mode: "mixed" | "league", ageGroup: string, gender: string): PlannedFlight[] {
   const predict = predictor();
   const levels = leagueLevels(ageGroup, gender);
   const levelOf = (r: number) => levels.length ? levels.reduce((b, x) => (Math.abs(x.median - r) < Math.abs(b.median - r) ? x : b)).league : null;
+  const game = (a: PlanTeam, b: PlanTeam, stage: string): PlannedGame => {
+    const o = predict(a.rating, b.rating);
+    return { a: a.name, b: b.name, stage, margin: Math.round((a.rating - b.rating) * 10) / 10,
+      outcome: { win: Math.round(o.win * 100) / 100, draw: Math.round(o.draw * 100) / 100, loss: Math.round(o.loss * 100) / 100, margin: o.margin } };
+  };
+  const roundRobin = (ts: PlanTeam[], stage: string) => {
+    const g: PlannedGame[] = [];
+    for (let x = 0; x < ts.length; x++) for (let y = x + 1; y < ts.length; y++) g.push(game(ts[x], ts[y], stage));
+    return g;
+  };
+  const lopsided = (g: PlannedGame) => Math.max(g.outcome.win, g.outcome.loss) >= 0.85;
+
   const groups: Array<[string, PlanTeam[]]> = mode === "league"
     ? [...teams.reduce((m, t) => m.set(t.league ?? "Other", [...(m.get(t.league ?? "Other") ?? []), t]), new Map<string, PlanTeam[]>())]
     : [["", teams]];
@@ -158,24 +184,64 @@ export function planFlights(teams: PlanTeam[], size: number, mode: "mixed" | "le
       const n = base + (f < extra ? 1 : 0);
       const ft = sorted.slice(i, i + n); i += n;
       if (!ft.length) continue;
-      const games: PlannedGame[] = [];
-      for (let x = 0; x < ft.length; x++) for (let y = x + 1; y < ft.length; y++) {
-        const o = predict(ft[x].rating, ft[y].rating);
-        games.push({ a: ft[x].name, b: ft[y].name, margin: Math.round((ft[x].rating - ft[y].rating) * 10) / 10, outcome: { win: Math.round(o.win * 100) / 100, draw: Math.round(o.draw * 100) / 100, loss: Math.round(o.loss * 100) / 100, margin: o.margin } });
+
+      // bracket
+      let format: string, pools: PlannedGroup[] = [], games: PlannedGame[];
+      if (ft.length >= 6) {
+        // snake seeding: A gets seeds 1,4,5,8; B gets 2,3,6,7
+        const A: PlanTeam[] = [], B: PlanTeam[] = [];
+        ft.forEach((t, s) => ([0, 3].includes(s % 4) ? A : B).push(t));
+        pools = [{ name: "Group A", teams: A }, { name: "Group B", teams: B }];
+        games = [...roundRobin(A, "Group A"), ...roundRobin(B, "Group B")];
+        if (ft.length === 6) {
+          // crossovers keep the top two seeds apart: 1v6, 4v3, 5v2
+          for (let c = 0; c < 3; c++) games.push(game(A[c], B[2 - c], "Crossover"));
+          format = "Two seeded groups of 3, one crossover game each, group winners meet in the final";
+        } else format = `Two seeded groups of ${A.length}${A.length !== B.length ? ` and ${B.length}` : ""}, group winners meet in the final`;
+      } else {
+        pools = [{ name: "", teams: ft }];
+        games = roundRobin(ft, "Group");
+        format = ft.length === 2 ? "Two-team flight: one game" : ft.length === 5 ? "Round robin, 4 games each, 1st place wins" : `Round robin, ${ft.length - 1} games each, top 2 meet in the final`;
       }
+
+      // expected points from the predicted group games
+      const pts = new Map<string, number>(ft.map((t) => [t.name, 0]));
+      for (const x of games) {
+        pts.set(x.a, pts.get(x.a)! + 3 * x.outcome.win + x.outcome.draw);
+        pts.set(x.b, pts.get(x.b)! + 3 * x.outcome.loss + x.outcome.draw);
+      }
+      const byPts = (ts: PlanTeam[]) => [...ts].sort((a, b) => pts.get(b.name)! - pts.get(a.name)! || b.rating - a.rating);
+      let final: PlannedGame | null = null;
+      if (pools.length === 2) final = game(byPts(pools[0].teams)[0], byPts(pools[1].teams)[0], "Final");
+      else if (ft.length >= 3 && ft.length <= 4) { const [a, b] = byPts(ft); final = game(a, b, "Final"); }
+
+      // teams that don't fit: the favorite (or underdog) by 85%+ in most of their games
+      const flags: PlannedFlight["flags"] = [];
+      if (ft.length >= 3) for (const t of ft) {
+        const mine = games.filter((x) => x.a === t.name || x.b === t.name);
+        const winsBig = mine.filter((x) => (x.a === t.name ? x.outcome.win : x.outcome.loss) >= 0.85).length;
+        const losesBig = mine.filter((x) => (x.a === t.name ? x.outcome.loss : x.outcome.win) >= 0.85).length;
+        if (winsBig * 2 > mine.length && f > 0) flags.push({ name: t.name, direction: "up", note: `favored by 85%+ in ${winsBig} of ${mine.length} games: belongs a flight up` });
+        else if (losesBig * 2 > mine.length) flags.push({ name: t.name, direction: "down", note: `underdog by 85%+ in ${losesBig} of ${mine.length} games: belongs a flight down${f === k - 1 ? " or in a lower bracket" : ""}` });
+        else if (winsBig * 2 > mine.length) flags.push({ name: t.name, direction: "up", note: `favored by 85%+ in ${winsBig} of ${mine.length} games: too strong for this field` });
+      }
+
       const r = ft.map((t) => t.rating);
       const avg = r.reduce((a, b) => a + b, 0) / r.length;
       out.push({
-        name: `${label ? `${label} · ` : ""}Flight ${f + 1}`,
+        name: `${label ? `${label} · ` : ""}${flightName(f)}`,
         teams: ft,
         avg: Math.round(avg * 100) / 100,
         spread: Math.round((Math.max(...r) - Math.min(...r)) * 100) / 100,
         level: levelOf(avg),
-        // share of games predicted within one goal
+        format,
+        groups: pools,
+        // share of group games predicted within one goal
         close: games.length ? Math.round((games.filter((x) => Math.abs(x.margin) <= 1).length / games.length) * 100) : 100,
-        // games the favorite wins 85%+ of the time
-        mismatches: games.filter((x) => Math.max(x.outcome.win, x.outcome.loss) >= 0.85).length,
+        mismatches: games.filter(lopsided).length,
         games,
+        final,
+        flags,
       });
     }
   }
