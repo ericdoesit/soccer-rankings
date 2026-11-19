@@ -235,7 +235,9 @@ export default function AboutPage() {
             <p className="body-text mb-6">
               We cover <strong className="text-foreground">US Youth Soccer Region IV</strong>, the 13 Western states.
               California is split into Cal South and Cal North, the way its two state associations run it. Twelve of
-              the states are ranked; Hawaii isn&apos;t yet.
+              the states are ranked; Hawaii isn&apos;t yet.{" "}
+              <Link href="/states" className="font-medium text-foreground underline underline-offset-2">Browse the states</Link>{" "}
+              for each one&apos;s leagues, clubs and teams.
             </p>
             {/* the same map as the States page: each area links to its state page */}
             <div className="mb-6 grid gap-6 md:grid-cols-[minmax(0,380px)_1fr] md:items-start">

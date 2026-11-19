@@ -1,4 +1,5 @@
 import fs from "fs";
+import Link from "next/link";
 import path from "path";
 import { ClubMap, type MapClub } from "@/components/club-map";
 
@@ -27,6 +28,9 @@ export default function MapPage() {
         {generatedAt ? `, ${new Date(generatedAt).toLocaleDateString("en-US", { month: "short", year: "numeric" })}` : ""}.
       </p>
       <ClubMap clubs={clubs} token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} />
+      <p className="mt-4 text-sm">
+        <Link href="/states" className="text-primary hover:underline">Every Western state: its leagues, clubs and teams →</Link>
+      </p>
     </div>
   );
 }

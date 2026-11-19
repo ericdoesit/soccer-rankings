@@ -16,8 +16,8 @@ import {
 
 /** Header links in one pill group; the section you're in is filled. */
 const LINKS: Array<[href: string, label: string, match: RegExp]> = [
-  ["/rankings", "Rankings", /^\/(rankings|team)\b/],
-  ["/states", "States", /^\/(states?|club)\b/],
+  // state and club pages (reached from rankings, About and the map) sit under Rankings
+  ["/rankings", "Rankings", /^\/(rankings|team|states?|club)\b/],
   ["/events", "Events", /^\/(events|tournament|match)\b/],
   ["/map", "Map", /^\/map\b/],
   ["/power-rankings", "Power Rankings", /^\/power-rankings\b/],
@@ -70,9 +70,9 @@ export function SiteNav() {
       <nav aria-label="Main" className="pointer-events-none -mx-8 -my-8 hidden min-w-0 overflow-x-auto px-8 py-8 [scrollbar-width:none] md:block">
         <div className="pointer-events-auto flex w-max items-center gap-0.5 rounded-full bg-card p-1.5 text-[13px] font-medium shadow-[var(--surface-shadow)]">
           <Link href={rankings[0]} className={item(on(rankings[2]))}>{rankings[1]}</Link>
-          {rest.slice(0, 2).map(([href, label, re]) => <Link key={href} href={href} className={item(on(re))}>{label}</Link>)}
+          {rest.slice(0, 1).map(([href, label, re]) => <Link key={href} href={href} className={item(on(re))}>{label}</Link>)}
           <LeaguesMenu active={LEAGUES_RE.test(path)} itemClass={item} />
-          {rest.slice(2).map(([href, label, re]) => <Link key={href} href={href} className={item(on(re))}>{label}</Link>)}
+          {rest.slice(1).map(([href, label, re]) => <Link key={href} href={href} className={item(on(re))}>{label}</Link>)}
         </div>
       </nav>
     </>
