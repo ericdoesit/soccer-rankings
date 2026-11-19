@@ -307,3 +307,93 @@ function tagsConflict(a: Set<string>, b: Set<string>): boolean {
   for (const w of a) if (b.has(w)) return false;
   return true;
 }
+
+/**
+ * Coast Soccer League copies. CSL schedules come from Coast's own site ("OXNARD FC LOS TOROS
+ * B2014"), so a club's Coast team arrived as a record separate from the same team's GotSport
+ * record ("Oxnard FC Lostoros U13", its tournaments and State Cup). Unjoined, Coast teams had
+ * almost no games against other leagues (3 in 15 months, 2026-11-19), so Coast's level floated.
+ *
+ * A record whose games are all Coast games joins a non-Coast record of the same club, age group
+ * and gender when exactly one such record:
+ *   - is not an ECNL / MLS NEXT / EA / GA / DPL team (a club's Coast team is a different side),
+ *   - has the same distinguishing words ("LOS TOROS" = "Lostoros", "N TORRANCE LIONS" =
+ *     "North Torrance Lions"; no words on one side only matches no words on the other),
+ *   - has compatible birth years, never played on the same day, and played in a season the
+ *     Coast record played in.
+ * Two Coast records pointing at one record are both left alone.
+ */
+export function mergeCoastTwins<T extends TeamLike, G extends GameLike & { tournamentName?: string | null }>(
+  teams: T[], games: G[],
+): { teams: T[]; games: G[]; merged: number; joins: Array<{ into: T; from: T }>; unmatched: Array<{ team: T; candidates: T[]; fits: number }> } {
+  const unmatched: Array<{ team: T; candidates: T[]; fits: number }> = [];
+  const isCoast = (g: G) => /^coast soccer league/i.test(g.tournamentName ?? "");
+  const coastGames = new Map<number, number>(), otherGames = new Map<number, number>();
+  const dates = new Map<number, Set<string>>(), seasons = new Map<number, Set<number>>();
+  const seasonOf = (d: string) => (Number(d.slice(5, 7)) >= 8 ? Number(d.slice(0, 4)) : Number(d.slice(0, 4)) - 1);
+  for (const g of games) for (const id of [g.team1Id, g.team2Id]) {
+    const m = isCoast(g) ? coastGames : otherGames;
+    m.set(id, (m.get(id) ?? 0) + 1);
+    if (!g.date) continue;
+    (dates.get(id) ?? dates.set(id, new Set()).get(id)!).add(g.date);
+    (seasons.get(id) ?? seasons.set(id, new Set()).get(id)!).add(seasonOf(g.date));
+  }
+  const pool = new Map<string, T[]>();
+  for (const t of teams) {
+    const n = t.sourceName ?? "";
+    // elite-league sides (incl. N1, a bare "RL", "Pre MLS Next") are never the club's Coast team
+    if (!t.clubVerified || t.region !== "Region4" || !otherGames.get(t.id) || coastGames.get(t.id) || tierOf(n)
+      || /\b(rl|n1|mls ?next|npl)\b/i.test(n)) continue;
+    const k = `${t.club}|${t.ageGroup}|${t.gender}`;
+    pool.set(k, [...(pool.get(k) ?? []), t]);
+  }
+  // age labels ("BU12", "GU15", "15U", "2014B") and stray letters ("S.C.") aren't designators
+  const NOISE = /^((19|20)\d\d|[bgu]{1,2}\d{1,4}|\d{1,4}[bgu]{1,2}|[a-z]|boys|girls|tournament)$/;
+  const words = (t: T) => [...designator(t.sourceName ?? "", t.club)].filter((w) => !NOISE.test(w)).sort();
+  /** "los toros" = "lostoros"; "n torrance lions" = "north torrance lions" (a short word may abbreviate) */
+  const sameWords = (a: string[], b: string[]) => {
+    if (a.join("") === b.join("")) return true;
+    if (!a.length || !b.length || a.length !== b.length) return false;
+    const used = new Set<number>();
+    return a.every((w) => {
+      const i = b.findIndex((x, j) => !used.has(j) && (x === w || (w.length <= 3 && x.startsWith(w)) || (x.length <= 3 && w.startsWith(x))));
+      if (i < 0) return false;
+      used.add(i); return true;
+    });
+  };
+  const overlap = <X>(a?: Set<X>, b?: Set<X>) => { if (!a || !b) return false; for (const x of a) if (b.has(x)) return true; return false; };
+  const into = new Map<number, number>();
+  for (const t of teams) {
+    if (!t.clubVerified || !coastGames.get(t.id) || otherGames.get(t.id)) continue;
+    const mine = words(t), ya = birthYears(t.sourceName ?? "");
+    const all = pool.get(`${t.club}|${t.ageGroup}|${t.gender}`) ?? [];
+    const cands = all.filter((c) => {
+      const yb = birthYears(c.sourceName ?? "");
+      return (!ya.size || !yb.size || overlap(ya, yb))
+        && !overlap(dates.get(t.id), dates.get(c.id))
+        && overlap(seasons.get(t.id), seasons.get(c.id))
+        && sameWords(mine, words(c));
+    });
+    if (cands.length === 1) into.set(t.id, cands[0].id);
+    else if (all.length) unmatched.push({ team: t, candidates: all, fits: cands.length });
+  }
+  // two Coast records can't both be one team
+  const hits = new Map<number, number>();
+  for (const to of into.values()) hits.set(to, (hits.get(to) ?? 0) + 1);
+  for (const [from, to] of into) if ((hits.get(to) ?? 0) > 1) into.delete(from);
+  if (!into.size) return { teams, games, merged: 0, joins: [], unmatched };
+  const byId = new Map(teams.map((t) => [t.id, t]));
+  const joins = [...into].map(([from, to]) => ({ into: byId.get(to)!, from: byId.get(from)! }));
+  const outGames: G[] = [];
+  const seen = new Set<string>();
+  for (const g of games) {
+    const a = into.get(g.team1Id) ?? g.team1Id, b = into.get(g.team2Id) ?? g.team2Id;
+    if (a === b) continue;
+    const [lo, hi, sLo, sHi] = a < b ? [a, b, g.team1Score, g.team2Score] : [b, a, g.team2Score, g.team1Score];
+    const key = `${lo}_${hi}_${sLo}_${sHi}_${g.date}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    outGames.push(a === g.team1Id && b === g.team2Id ? g : { ...g, team1Id: a, team2Id: b });
+  }
+  return { teams: teams.filter((t) => !into.has(t.id)), games: outGames, merged: into.size, joins, unmatched };
+}

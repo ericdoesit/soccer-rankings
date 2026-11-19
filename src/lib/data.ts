@@ -4,7 +4,7 @@ import { generateFullSampleData } from "./sample-data";
 import { calculateRankings, leagueName, type RankingResult } from "./ranking/massey";
 import { loadGotsportData, hasRealData, inferAgeAndGender, type RealTeam } from "./import-gotsport-data";
 import { trackedCompetitions } from "./directory/tracked";
-import { mergeModularTwins, mergeTournamentCopies } from "./directory/merge-twins";
+import { mergeCoastTwins, mergeModularTwins, mergeTournamentCopies } from "./directory/merge-twins";
 import { buildTeamIdentity } from "./directory/team-identity";
 import { joinUslAcademySeasons } from "./directory/usl-academy";
 import { assignPrograms, PROGRAMS } from "./directory/program";
@@ -294,6 +294,8 @@ export let lastDroppedEvents: string[] = [];
 export let lastAmbiguousTwins: Array<{ team: { id: number; sourceName?: string }; candidates: Array<{ id: number; sourceName?: string }> }> = [];
 /** tournament copies joined in the last build (scripts/twin-ambiguity.ts --copies) */
 export let lastTournamentCopies: Array<{ into: { id: number; club: string; ageGroup: string; gender: string; sourceName?: string }; from: Array<{ id: number; sourceName?: string }> }> = [];
+export let lastCoastUnmatched: Array<{ team: { id: number; sourceName?: string }; candidates: Array<{ id: number; sourceName?: string }>; fits: number }> = [];
+export let lastCoastJoins: Array<{ into: { id: number; sourceName?: string }; from: { id: number; sourceName?: string } }> = [];
 export const DROPPED_EVENTS_FILE = path.join(process.cwd(), "data", "snapshot-dropped-events.json");
 
 export function buildData(): DataSet {
@@ -374,8 +376,13 @@ export function buildData(): DataSet {
       // tournament copies of one team (each event's own name for the club's ECNL / GA / DPL … team)
       const copies = mergeTournamentCopies(m11.teams, m11.games);
       lastTournamentCopies = copies.joins;
+      // Coast Soccer League records joined to the same team's GotSport record (its tournaments)
+      const coast = mergeCoastTwins(copies.teams, copies.games);
+      lastCoastJoins = coast.joins;
+      lastCoastUnmatched = coast.unmatched;
+      console.log(`  Coast Soccer League: ${coast.merged} records joined to their GotSport team`);
       // USL Academy: one program across seasons (B2006 → B2007), listed as U20
-      const usl = joinUslAcademySeasons(copies.teams, copies.games);
+      const usl = joinUslAcademySeasons(coast.teams, coast.games);
       const twins = { ...m11, teams: usl.teams, games: usl.games };
       console.log(`  tournament copies: ${copies.merged} records joined into their team`);
       console.log(`  USL Academy: ${usl.joined} last-season records joined, ${usl.listed} teams playing this season listed as U20`);
