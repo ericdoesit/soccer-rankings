@@ -265,7 +265,7 @@ export function LeagueOverlap({ groups, order, initial = "U15|Boys" }: {
         <button type="button" className={pill(scale === "count")} onClick={() => setScale("count")}>Number of teams</button>
         <button type="button" className={pill(scale === "share")} onClick={() => setScale("share")}>Share of each league</button>
         <button type="button" aria-pressed={showLocal} className={pill(showLocal)} onClick={() => setShowLocal((v) => !v)}>
-          {showLocal ? "✓ " : "+ "}Local leagues (SoCal flights, CSL, PSSLU, SGV, SWSL)
+          {showLocal ? "✓ " : "+ "}Local leagues (SoCal F1, CSL, PSSLU, SGV, SWSL)
         </button>
       </div>
       {/* legend beside the chart on wide screens (League → median · teams), above it on phones */}

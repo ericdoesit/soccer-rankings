@@ -147,7 +147,8 @@ export default function AboutPage() {
                 why we rate teams, not leagues. The pyramid levels (L1–L5) rank a league&rsquo;s access to the pro pathway,
                 not the strength of its teams: on results, levels 1 to 3 overlap. Hover or tap the chart for team counts.
               </p>
-              <LeagueOverlap groups={charts.socal} order={SOCAL_LEAGUE_ORDER} />
+              {/* SoCal League: first-team flights only (F2–F4 are development teams), as in the pyramid key */}
+              <LeagueOverlap groups={charts.socal} order={SOCAL_LEAGUE_ORDER.filter((l) => !/^SoCal F[2-4]$/.test(l))} />
             </div>
           </CardContent>
         </Card>
