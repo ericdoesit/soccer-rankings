@@ -10,6 +10,8 @@ import { Pyramid } from "@/components/about/pyramid";
 const SEASON_END = 2027;
 const format = (u: number) => (u >= 13 ? "11v11" : u >= 11 ? "9v9" : u >= 9 ? "7v7" : "4v4 / 5v5");
 
+const PITFALLS = "https://pitfalls-on-the-pathway.vercel.app/";
+
 export default function AboutPage() {
   const stats = getStats();
   const areas = getAreas();
@@ -212,6 +214,53 @@ export default function AboutPage() {
             </CardContent>
           </Card>
         )}
+
+        <Card>
+          <CardContent>
+            <h2 className="heading-sm mb-3">What This Says About the US System</h2>
+            <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+              <p>
+                Our ratings measure teams, not the system around them. Read next to{" "}
+                <a href={PITFALLS} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
+                  Pitfalls on the Pathway
+                </a>
+                , which follows the money and the MLS pipeline, they point the same way: American youth soccer sorts
+                players by administration and price more than by competition.
+              </p>
+              <h3 className="heading-sm pt-2 text-foreground">Why the US is poorly positioned</h3>
+              <ul className="list-disc space-y-2 pl-5">
+                <li><strong className="text-foreground">Leagues are joined, not earned.</strong> MLS NEXT, ECNL, Elite Academy and N1 are memberships clubs apply and pay for, with no promotion or relegation. On results, the top three levels of the pyramid overlap: about a quarter of SoCal N1 and Elite Academy teams rate as high as a typical MLS NEXT Homegrown team.</li>
+                <li><strong className="text-foreground">The leagues barely test each other.</strong> MLS NEXT Homegrown teams play about 6% of their games against other leagues{hdEvent && Math.abs(hdEvent.d) >= 0.3 ? `, and one preseason showcase moves the league's measured level by ${Math.abs(hdEvent.d).toFixed(1)} goals` : ""}. Nobody, the leagues included, can say with confidence which one is strongest.</li>
+                <li><strong className="text-foreground">Price filters before talent does.</strong> Club soccer costs about $3,000–$4,000 a year in a regional league and $5,000–$15,000 at independent MLS NEXT clubs. Households under $50K are roughly 40% of US families but under 8% of club parents.</li>
+                <li><strong className="text-foreground">The paid middle tier is an American invention.</strong> In England, Spain, Germany and Brazil, training at this intensity is free once a pro club selects a player, or costs a few hundred euros at a community club. US clubs are businesses paid for retention: more teams, more flights, more tournaments. Second and third teams often pay the same fee as the first team and subsidize it.</li>
+                <li><strong className="text-foreground">The club that collects the fees is not the one that decides.</strong> College coaches and MLS academy directors judge players at showcases and tryouts, with no stake in who developed them. MLS academies are free and sign their best players directly as Homegrowns; families at the 122 independent MLS NEXT clubs pay to compete for a draft pool those academies have already skimmed, with two roster spots per MLS team reserved for Homegrowns.</li>
+                <li><strong className="text-foreground">Sorting happens at the wrong ages.</strong> Elsewhere, serious professional filtering typically happens at 15–17, and the best debut at 18–20. The US does its biggest sorting at college recruiting showcases and in college itself, after that window.</li>
+                <li><strong className="text-foreground">College is a minor road to MLS and the national team.</strong> MLS takes about 82 draft picks a year, against about 345 signings from abroad and 75 Homegrowns. 79% of the 2020–25 draft picks were off MLS rosters by 2026, and the median survivor earns $113K. D1 men&apos;s rosters, capped at 28, hold 30–35% international players and fill 25–30% of spots from the transfer portal. High school soccer plays almost no part: recruiting runs through club showcases.</li>
+                <li><strong className="text-foreground">MLS buys more than it builds.</strong> 59% of MLS roster spots are held by foreign players, and 92.6% of the money in the league&apos;s 100 biggest transfers went to non-Americans. The domestic pipeline families pay for is not how the league builds its best teams.</li>
+                <li><strong className="text-foreground">Quality is invisible to the people paying.</strong> A club&apos;s coaches predict a player&apos;s development better than its league, tier or fee, but families can&apos;t see coaching from outside, so badge and price stand in for it.</li>
+                <li><strong className="text-foreground">Distance decides exposure.</strong> Scouts concentrate in a few markets and national events, so the best player in a smaller market stays invisible, and strong teams can only meet by flying.</li>
+              </ul>
+              <h3 className="heading-sm pt-2 text-foreground">Structural changes that would help</h3>
+              <ul className="list-disc space-y-2 pl-5">
+                <li><strong className="text-foreground">Let results move teams.</strong> Promotion and relegation between the top of N1 and Elite Academy and the bottom of ECNL and MLS NEXT, region by region, even one place a season.</li>
+                <li><strong className="text-foreground">An open regional cup at every age.</strong> Every league enters and it is played locally, creating the cross-league games the system lacks at a fraction of the cost of travel showcases.</li>
+                <li><strong className="text-foreground">Pay the club that developed the player.</strong> Apply training compensation and solidarity payments between US clubs, so an MLS contract or transfer rewards the $2,000 club that taught the player, not only the last badge on his jersey.</li>
+                <li><strong className="text-foreground">Make the top tier free for selected players</strong>, as it is almost everywhere else, funded by pro clubs, the federation and development payments, so the price of a team stops deciding who reaches it.</li>
+                <li><strong className="text-foreground">Separate the pro track from the college track by 15–17.</strong> Identify and contract professional prospects at the ages the rest of the world does, and treat college as an education route rather than the main sorting point for pros.</li>
+                <li><strong className="text-foreground">Open, cheap scouting.</strong> Regional talent-ID days open to any team&apos;s players, steered by where strong teams actually are rather than by league badges, so regional standouts are seen.</li>
+                <li><strong className="text-foreground">Make coaching visible.</strong> Publish coach licenses, training hours and what each team in a club receives, and price lower teams for what they get.</li>
+                <li><strong className="text-foreground">Rate everyone on one scale.</strong> A common rating across all leagues, with how well tested each rating is. That is what this site tries to do.</li>
+              </ul>
+            </div>
+            <p className="mt-4 border-t border-[var(--surface-line)] pt-3 text-xs leading-relaxed text-muted-foreground">
+              Cost, income, MLS salary, draft and transfer figures are from{" "}
+              <a href={PITFALLS} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">Pitfalls on the Pathway</a>{" "}
+              (MLSPA 2026 salary guide, MLS SuperDraft 2020–25, Transfermarkt, NCAA, Aspen Institute and its own family survey),
+              where each is sourced. League overlap and cross-league figures are from this site&apos;s ratings. The ages
+              of professional filtering elsewhere are typical, not fixed, and vary by country and club.
+            </p>
+          </CardContent>
+        </Card>
 
         <Card>
           <CardContent>
