@@ -75,8 +75,6 @@ export function Pyramid({ groups, group = "U15|Boys", minTeams = 5 }: {
                 <span className="text-[10px] font-bold uppercase tracking-[0.1em] opacity-75">{b.level}</span>{" "}
                 <span className="text-xs font-bold tracking-[-0.01em] sm:text-[13px]">{b.name}</span>
               </span>
-              {/* short league lists sit right of the name; a long one (level 5) runs across the band under the logos */}
-              {b.leagues.length <= 60 && <span className="text-right text-[10px] leading-snug opacity-85 sm:text-[11px]">{b.leagues}</span>}
               <div className="col-span-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
                 {b.logos.map(([f, alt, wide]) => (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -84,7 +82,8 @@ export function Pyramid({ groups, group = "U15|Boys", minTeams = 5 }: {
                     className={`object-contain ${wide ? "h-4 w-auto sm:h-5" : "h-7 w-7 sm:h-8 sm:w-8"}`} />
                 ))}
               </div>
-              {b.leagues.length > 60 && <span className="col-span-2 text-center text-[9px] leading-snug opacity-85 sm:text-[10px]">{b.leagues}</span>}
+              {/* league names run across the bottom of the layer, under the logos */}
+              <span className="col-span-2 text-center text-[9px] leading-snug opacity-85 sm:text-[10px]">{b.leagues}</span>
             </div>
           );
         })}
