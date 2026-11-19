@@ -802,7 +802,7 @@ const LEAGUE_FAMILIES: Array<[RegExp, string]> = [
   [/development player league/i, "DPL"],
 ];
 const NOT_LEAGUE = /\b(cup|showcase|classic|invitational|tournament|festival|playoffs?|finals?|challenge|championships?|shootout|friendl(y|ies))\b/i;
-function leagueFamily(name: string): string | null {
+export function leagueFamily(name: string): string | null {
   if (!name || NOT_LEAGUE.test(name)) return null;
   const fam = LEAGUE_FAMILIES.find(([re]) => re.test(name))?.[1];
   if (fam) return fam;

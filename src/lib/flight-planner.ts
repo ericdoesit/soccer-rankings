@@ -1,184 +1,183 @@
-import { getRankings, type RankedTeam } from "./data";
+/**
+ * Flight Planner: seed a tournament's teams into flights (brackets) of similar strength.
+ *
+ *  1. match: each pasted name is matched to rated teams of the chosen age group and gender
+ *     (every rated team, listed or not), returning the top candidates for the organizer to confirm.
+ *  2. plan:  confirmed teams (or unmatched ones given a level) are split into flights of a
+ *     chosen size, across leagues or within one league, with every game predicted from the
+ *     site's outcome model (src/lib/predict.ts).
+ *
+ * Rebuilt 2026-11-19: the first version ignored age and gender ("B16" matched U16 and U18
+ * teams), searched only listed teams by plain string distance, and put unmatched teams in the
+ * last flight.
+ */
+import { getDataSet, leagueFamily } from "./data";
+import { outcomeModel, type Outcome } from "./predict";
 
-export interface FlightTeamInput {
-  name: string;
-  club?: string;
-  ageGroup?: string;
-  gender?: string;
+const SEASON_END = 2027; // 2026-27: U## = 2027 − birth year (school-year age groups)
+
+export interface Candidate {
+  id: number; name: string; club: string; state: string; rating: number; games: number;
+  league: string | null; listed: boolean; match: number;
+}
+export interface MatchRow { input: string; candidates: Candidate[] }
+export interface PlanTeam { key: string; name: string; rating: number; league: string | null; id?: number }
+export interface PlannedGame { a: string; b: string; margin: number; outcome: Outcome }
+export interface PlannedFlight {
+  name: string; teams: PlanTeam[]; avg: number; spread: number; level: string | null;
+  close: number; games: PlannedGame[]; mismatches: number;
 }
 
-export interface MatchedTeam {
-  input: FlightTeamInput;
-  matched: RankedTeam | null;
-  confidence: "exact" | "fuzzy" | "unknown";
-  score: number | null;
-}
-
-export interface Flight {
-  id: number;
-  name: string;
-  teams: MatchedTeam[];
-  avgRating: number;
-  ratingSpread: number;
-  predictedCloseness: number; // 0-100, higher = more competitive games
-}
-
-export interface FlightPlan {
-  flights: Flight[];
-  totalTeams: number;
-  matchedTeams: number;
-  unmatchedTeams: number;
-  coveragePercent: number;
-}
-
-function normalize(s: string): string {
-  return s
-    .toLowerCase()
-    .replace(/\bfc\b|\bsc\b|\bsoccer\b|\bclub\b|\bacademy\b/g, "")
-    .replace(/[^a-z0-9]/g, "")
-    .trim();
-}
-
-function levenshtein(a: string, b: string): number {
-  const m = a.length;
-  const n = b.length;
-  const dp: number[][] = Array.from({ length: m + 1 }, () =>
-    Array(n + 1).fill(0)
-  );
-  for (let i = 0; i <= m; i++) dp[i][0] = i;
-  for (let j = 0; j <= n; j++) dp[0][j] = j;
-  for (let i = 1; i <= m; i++) {
-    for (let j = 1; j <= n; j++) {
-      dp[i][j] =
-        a[i - 1] === b[j - 1]
-          ? dp[i - 1][j - 1]
-          : 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
-    }
+/** "Surf B2014 Elite", "BU13", "B14", "2014B" → age group and gender, when the names say so */
+export function detectAgeGender(lines: string[]): { ageGroup?: string; gender?: string } {
+  const ages = new Map<string, number>(), genders = new Map<string, number>();
+  for (const l of lines) {
+    const s = ` ${l} `;
+    let m = s.match(/\b([BG])U?(\d{2})\b(?!\/)/i) ?? s.match(/\bU(\d{2})\s*([BG])\b/i)?.slice(0).reverse() ?? null;
+    let age: string | undefined, g: string | undefined;
+    const by = s.match(/\b([BG])?\s?(20[01]\d)\s?([BG])?\b/i);
+    if (by) { age = `U${SEASON_END - Number(by[2])}`; g = (by[1] ?? by[3])?.toUpperCase(); }
+    else if ((m = s.match(/\b([BG])U(\d{1,2})\b/i))) { age = `U${m[2]}`; g = m[1].toUpperCase(); }
+    else if ((m = s.match(/\bU(\d{1,2})\b/i))) age = `U${m[1]}`;
+    else if ((m = s.match(/\b([BG])(\d{2})\b/i))) { age = `U${SEASON_END - 2000 - Number(m[2])}`; g = m[1].toUpperCase(); }
+    if (!g && /\bboys?\b/i.test(s)) g = "B";
+    if (!g && /\bgirls?\b/i.test(s)) g = "G";
+    if (age) ages.set(age, (ages.get(age) ?? 0) + 1);
+    if (g) genders.set(g, (genders.get(g) ?? 0) + 1);
   }
-  return dp[m][n];
+  const top = (m: Map<string, number>) => [...m].sort((a, b) => b[1] - a[1])[0]?.[0];
+  const g = top(genders);
+  return { ageGroup: top(ages), gender: g === "B" ? "Boys" : g === "G" ? "Girls" : undefined };
 }
 
-function similarityScore(input: string, candidate: string): number {
-  const a = normalize(input);
-  const b = normalize(candidate);
-  if (a === b) return 1.0;
-  if (a.includes(b) || b.includes(a)) return 0.85;
-  const dist = levenshtein(a, b);
-  const maxLen = Math.max(a.length, b.length);
-  if (maxLen === 0) return 0;
-  return Math.max(0, 1 - dist / maxLen);
+const LEVEL_WORDS = new Set("ecnl rl pre mls next hd ad ea ea2 n1 npl ga dpl academy elite premier select gold black white blue red".split(" "));
+const GENERIC = new Set("fc sc cf soccer club futbol football the de of boys girls boy girl team".split(" "));
+/** a name's identifying words: no age labels, years or generic words */
+function words(s: string): string[] {
+  return s.toLowerCase().replace(/[()#.,'/]/g, " ")
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w && !GENERIC.has(w) && !/^(\d+|[bgu]{1,2}\d{1,4}|\d{1,4}[bgu])$/.test(w));
+}
+/** share of the pasted words found in the candidate (prefix match for 4+ letters: "lostoros" ~ "los toros") */
+function similarity(input: string[], cand: string[]): number {
+  if (!input.length || !cand.length) return 0;
+  const joined = cand.join("");
+  let hit = 0;
+  for (const w of input) {
+    if (cand.includes(w)) hit += 1;
+    else if (w.length >= 4 && (cand.some((c) => c.startsWith(w) || w.startsWith(c) && c.length >= 4) || joined.includes(w))) hit += 0.7;
+  }
+  // league and level words in the candidate ("ECNL", "MLS NEXT", "Elite") aren't a mismatch
+  const extra = cand.filter((c) => !input.includes(c) && !LEVEL_WORDS.has(c)).length;
+  return hit / input.length - Math.min(0.3, extra * 0.04);
 }
 
-export function matchTeams(inputs: FlightTeamInput[]): MatchedTeam[] {
-  const allRanked = getRankings({ limit: 10000 });
+interface Pool { teams: Array<Candidate & { words: string[] }> }
+const poolCache = new WeakMap<object, Map<string, Pool>>();
+function pool(ageGroup: string, gender: string): Pool {
+  const data = getDataSet();
+  const byKey = poolCache.get(data) ?? poolCache.set(data, new Map()).get(data)!;
+  const key = `${ageGroup}|${gender}`;
+  const hit = byKey.get(key);
+  if (hit) return hit;
+  const rating = new Map(data.rankings.map((r) => [r.teamId, r]));
+  const since = new Date(Date.now() - 455 * 864e5).toISOString().slice(0, 10);
+  const leagueCount = new Map<number, Map<string, number>>();
+  for (const g of data.games) {
+    if (g.status !== "completed" || g.date < since) continue;
+    const l = leagueFamily(g.tournamentName ?? "");
+    if (!l) continue;
+    for (const id of [g.team1Id, g.team2Id]) { const m = leagueCount.get(id) ?? leagueCount.set(id, new Map()).get(id)!; m.set(l, (m.get(l) ?? 0) + 1); }
+  }
+  const teams: Pool["teams"] = [];
+  for (const t of data.teams) {
+    if (t.ageGroup !== ageGroup || t.gender !== gender) continue;
+    const r = rating.get(t.id);
+    if (!r || r.gamesPlayed < 5) continue;
+    const league = [...(leagueCount.get(t.id) ?? [])].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+    teams.push({ id: t.id, name: t.name, club: t.club, state: t.state, rating: r.score, games: r.gamesPlayed, league,
+      listed: !!t.rankable, match: 0, words: [...new Set(words(`${t.name} ${t.club} ${t.sourceName ?? ""}`))] });
+  }
+  const p = { teams };
+  byKey.set(key, p);
+  return p;
+}
 
-  return inputs.map((input) => {
-    let bestMatch: RankedTeam | null = null;
-    let bestScore = 0;
-
-    for (const team of allRanked) {
-      // Check name similarity
-      let score = similarityScore(input.name, team.name);
-
-      // Boost if club matches
-      if (input.club && team.club) {
-        const clubSim = similarityScore(input.club, team.club);
-        score = score * 0.7 + clubSim * 0.3;
-      }
-
-      if (score > bestScore) {
-        bestScore = score;
-        bestMatch = team;
-      }
-    }
-
-    let confidence: "exact" | "fuzzy" | "unknown";
-    if (bestScore >= 0.85) confidence = "exact";
-    else if (bestScore >= 0.5) confidence = "fuzzy";
-    else confidence = "unknown";
-
-    return {
-      input,
-      matched: confidence !== "unknown" ? bestMatch : null,
-      confidence,
-      score: confidence !== "unknown" && bestMatch ? bestMatch.score : null,
-    };
+export function matchTeams(lines: string[], ageGroup: string, gender: string): MatchRow[] {
+  const { teams } = pool(ageGroup, gender);
+  return lines.map((input) => {
+    const w = words(input);
+    const scored = teams.map((t) => ({ t, s: similarity(w, t.words) }))
+      .filter((x) => x.s >= 0.5)
+      // best word match first; then West, listed and well-tested teams
+      // (within 0.05 counts as a tie: then the club's listed, stronger team first)
+      .sort((a, b) => (Math.abs(b.s - a.s) > 0.05 ? b.s - a.s : 0) || Number(b.t.listed) - Number(a.t.listed) || b.t.rating - a.t.rating)
+      .slice(0, 3);
+    return { input, candidates: scored.map(({ t, s }) => ({ id: t.id, name: t.name, club: t.club, state: t.state, rating: t.rating, games: t.games, league: t.league, listed: t.listed, match: Math.round(Math.min(1, s) * 100) / 100 })) };
   });
 }
 
-export function generateFlights(
-  matchedTeams: MatchedTeam[],
-  numFlights: number
-): FlightPlan {
-  // Separate matched and unmatched
-  const withScores = matchedTeams
-    .filter((t) => t.score !== null)
-    .sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
-  const withoutScores = matchedTeams.filter((t) => t.score === null);
-
-  const teamsPerFlight = Math.ceil(withScores.length / numFlights);
-  const flights: Flight[] = [];
-
-  for (let i = 0; i < numFlights; i++) {
-    const flightTeams = withScores.slice(
-      i * teamsPerFlight,
-      (i + 1) * teamsPerFlight
-    );
-
-    // Add unmatched teams to the last flight
-    if (i === numFlights - 1) {
-      flightTeams.push(...withoutScores);
-    }
-
-    const scores = flightTeams
-      .map((t) => t.score)
-      .filter((s): s is number => s !== null);
-
-    const avgRating =
-      scores.length > 0 ? scores.reduce((a, b) => a + b, 0) / scores.length : 0;
-    const maxScore = scores.length > 0 ? Math.max(...scores) : 0;
-    const minScore = scores.length > 0 ? Math.min(...scores) : 0;
-    const ratingSpread = maxScore - minScore;
-
-    // Predicted closeness: smaller spread = more competitive
-    // Scale: 0 spread = 100% close, 5+ goal spread = 0% close
-    const predictedCloseness = Math.max(
-      0,
-      Math.round((1 - ratingSpread / 5) * 100)
-    );
-
-    flights.push({
-      id: i + 1,
-      name: `Flight ${i + 1}`,
-      teams: flightTeams,
-      avgRating: Math.round(avgRating * 100) / 100,
-      ratingSpread: Math.round(ratingSpread * 100) / 100,
-      predictedCloseness,
-    });
-  }
-
-  const matchedCount = matchedTeams.filter((t) => t.confidence !== "unknown").length;
-
-  return {
-    flights,
-    totalTeams: matchedTeams.length,
-    matchedTeams: matchedCount,
-    unmatchedTeams: matchedTeams.length - matchedCount,
-    coveragePercent: Math.round((matchedCount / matchedTeams.length) * 100),
-  };
+/** median rating of each league's listed teams at this age (for "about N1 level" and unmatched teams) */
+export function leagueLevels(ageGroup: string, gender: string): Array<{ league: string; median: number; teams: number }> {
+  const by = new Map<string, number[]>();
+  for (const t of pool(ageGroup, gender).teams) if (t.listed && t.league) (by.get(t.league) ?? by.set(t.league, []).get(t.league)!).push(t.rating);
+  const med = (a: number[]) => { const s = [...a].sort((x, y) => x - y); return s[s.length >> 1]; };
+  return [...by].filter(([, v]) => v.length >= 8).map(([league, v]) => ({ league, median: Math.round(med(v) * 100) / 100, teams: v.length }))
+    .sort((a, b) => b.median - a.median);
 }
 
-export function parseTeamList(text: string): FlightTeamInput[] {
-  return text
-    .split("\n")
-    .map((line) => line.trim())
-    .filter((line) => line.length > 2)
-    .map((line) => {
-      // Try to parse "Team Name, Club Name" or just "Team Name"
-      const parts = line.split(/[,\t]/).map((p) => p.trim());
-      return {
-        name: parts[0],
-        club: parts[1] || undefined,
-      };
-    });
+let modelCache: { data: object; predict: ReturnType<typeof outcomeModel> } | null = null;
+function predictor() {
+  const data = getDataSet();
+  if (modelCache?.data !== data) {
+    const rating = new Map(data.rankings.map((r) => [r.teamId, r.score]));
+    const since = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10);
+    modelCache = { data, predict: outcomeModel(data.games.filter((g) => g.status === "completed"), rating, since) };
+  }
+  return modelCache.predict;
+}
+
+/**
+ * Split teams into flights of about `size` (sizes differ by at most one), strongest first.
+ * mode "mixed": one ladder across leagues. mode "league": each league seeded on its own.
+ */
+export function planFlights(teams: PlanTeam[], size: number, mode: "mixed" | "league", ageGroup: string, gender: string): PlannedFlight[] {
+  const predict = predictor();
+  const levels = leagueLevels(ageGroup, gender);
+  const levelOf = (r: number) => levels.length ? levels.reduce((b, x) => (Math.abs(x.median - r) < Math.abs(b.median - r) ? x : b)).league : null;
+  const groups: Array<[string, PlanTeam[]]> = mode === "league"
+    ? [...teams.reduce((m, t) => m.set(t.league ?? "Other", [...(m.get(t.league ?? "Other") ?? []), t]), new Map<string, PlanTeam[]>())]
+    : [["", teams]];
+  const out: PlannedFlight[] = [];
+  for (const [label, g] of groups.sort((a, b) => b[1].length - a[1].length)) {
+    const sorted = [...g].sort((a, b) => b.rating - a.rating);
+    const k = Math.max(1, Math.round(sorted.length / size));
+    const base = Math.floor(sorted.length / k), extra = sorted.length % k;
+    let i = 0;
+    for (let f = 0; f < k; f++) {
+      const n = base + (f < extra ? 1 : 0);
+      const ft = sorted.slice(i, i + n); i += n;
+      if (!ft.length) continue;
+      const games: PlannedGame[] = [];
+      for (let x = 0; x < ft.length; x++) for (let y = x + 1; y < ft.length; y++) {
+        const o = predict(ft[x].rating, ft[y].rating);
+        games.push({ a: ft[x].name, b: ft[y].name, margin: Math.round((ft[x].rating - ft[y].rating) * 10) / 10, outcome: { win: Math.round(o.win * 100) / 100, draw: Math.round(o.draw * 100) / 100, loss: Math.round(o.loss * 100) / 100, margin: o.margin } });
+      }
+      const r = ft.map((t) => t.rating);
+      const avg = r.reduce((a, b) => a + b, 0) / r.length;
+      out.push({
+        name: `${label ? `${label} · ` : ""}Flight ${f + 1}`,
+        teams: ft,
+        avg: Math.round(avg * 100) / 100,
+        spread: Math.round((Math.max(...r) - Math.min(...r)) * 100) / 100,
+        level: levelOf(avg),
+        // share of games predicted within one goal
+        close: games.length ? Math.round((games.filter((x) => Math.abs(x.margin) <= 1).length / games.length) * 100) : 100,
+        // games the favorite wins 85%+ of the time
+        mismatches: games.filter((x) => Math.max(x.outcome.win, x.outcome.loss) >= 0.85).length,
+        games,
+      });
+    }
+  }
+  return out;
 }
