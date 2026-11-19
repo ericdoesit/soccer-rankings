@@ -234,7 +234,7 @@ export default async function TeamPage({
                 <tbody>
                   {seasonRows.map(([season, x]) => (
                     <tr key={season} className="border-b last:border-b-0 border-border/50">
-                      <td className="px-4 py-2.5 font-medium">{season}{season === currentSeason && <span className="ml-1.5 text-xs text-muted-foreground">(current)</span>}</td>
+                      <td className="whitespace-nowrap px-4 py-2.5 font-medium">{season}{season === currentSeason && <span className="ml-1.5 text-xs text-muted-foreground">(current)</span>}</td>
                       <td className="px-4 py-2.5 text-right tabular-nums">{x.w + x.d + x.l}</td>
                       <td className="px-4 py-2.5 text-right tabular-nums">{x.w}-{x.d}-{x.l}</td>
                       <td className="px-4 py-2.5 text-right tabular-nums text-muted-foreground">{x.gf}-{x.ga}</td>
