@@ -31,7 +31,7 @@ const BANDS: Array<{
     logos: [["pre-ecnl.png", "Pre-ECNL"], ["ea2.png", "Elite Academy 2"], ["odp.png", "Olympic Development Program"]],
     cls: "bg-[#1fa84d] text-white", width: "w-[85%] sm:w-[79%]" },
   { level: "Level 5", name: "Regional Travel", leagues: "SoCal League (Pre-Elite, F1–F4) · Coast Soccer · PSSLU · SGV · Southwest Super · Pacific Regional · USL Youth",
-    rated: [["SoCal Pre-Elite", "SoCal Pre-Elite"], ["SoCal F1", "SoCal F1"], ["SoCal F2", "SoCal F2"], ["SoCal F3", "SoCal F3"], ["SoCal F4", "SoCal F4"], ["Coast Soccer League", "Coast Soccer"], ["PSSLU", "PSSLU"], ["SGV Soccer League", "SGV Soccer League"], ["Southwest Super League", "Southwest Super"]],
+    rated: [["SoCal Pre-Elite", "SoCal Pre-Elite"], ["SoCal F1", "SoCal F1"], ["Coast Soccer League", "Coast Soccer"], ["PSSLU", "PSSLU"], ["SGV Soccer League", "SGV Soccer League"], ["Southwest Super League", "Southwest Super"]],
     logos: [["socal.png", "SoCal Soccer League"], ["csl.svg", "Coast Soccer League", true], ["psslu.png", "PSSLU"], ["sgv.png", "SGV Soccer League"], ["southwest-super.png", "Southwest Super League"], ["pacific-regional.png", "Pacific Regional Soccer League"], ["usl-youth.png", "USL Youth"]],
     cls: "bg-[#dcdad5] text-[#0f0f0f]", width: "w-[92%] sm:w-[90%]" },
   { level: "Foundation", name: "Recreational", leagues: "AYSO · City Parks", rated: [],
