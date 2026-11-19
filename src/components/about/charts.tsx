@@ -109,17 +109,17 @@ const LEAGUE_STYLE: Record<string, { c: keyof Palette; dash?: string }> = {
   "GA": { c: "red" }, "GA Aspire": { c: "red", dash: "6 4" },
   "EA": { c: "green" }, "EA2": { c: "green", dash: "6 4" }, "DPL": { c: "green" },
   "N1": { c: "gold" },
-  "SoCal Soccer League": { c: "ink" }, "Coast Soccer League": { c: "ink", dash: "6 4" }, "PSSLU": { c: "ink", dash: "2 3" }, "SGV Soccer League": { c: "dim" }, "Southwest Super League": { c: "dim", dash: "6 4" },
+  "SoCal Soccer League": { c: "ink" }, "SoCal Pre-Elite": { c: "dim" }, "SoCal F1": { c: "ink" }, "SoCal F2": { c: "ink", dash: "6 4" }, "SoCal F3": { c: "ink", dash: "2 3" }, "SoCal F4": { c: "dim", dash: "2 3" }, "Coast Soccer League": { c: "ink", dash: "6 4" }, "PSSLU": { c: "ink", dash: "2 3" }, "SGV Soccer League": { c: "dim" }, "Southwest Super League": { c: "dim", dash: "6 4" },
 };
 /** Boys pyramid level from Pitfalls on the Pathway (report/ecosystem.html): 1 Pro Pipeline … 5 Regional Travel. */
 const PYRAMID_LEVEL: Record<string, number> = {
   "MLS NEXT HD": 1, "ECNL": 2, "MLS NEXT AD": 3, "ECNL RL": 3, "N1": 3, "EA": 3,
-  "EA2": 4, "Pre-ECNL": 4, "SoCal Soccer League": 5, "Coast Soccer League": 5, "PSSLU": 5, "SGV Soccer League": 5, "Southwest Super League": 5,
+  "EA2": 4, "Pre-ECNL": 4, "SoCal Soccer League": 5, "SoCal Pre-Elite": 5, "SoCal F1": 5, "SoCal F2": 5, "SoCal F3": 5, "SoCal F4": 5, "Coast Soccer League": 5, "PSSLU": 5, "SGV Soccer League": 5, "Southwest Super League": 5,
 };
 const PYRAMID_URL = "https://pitfalls-on-the-pathway.vercel.app/report/ecosystem.html";
 const MIN_TEAMS = 5;
 /** state / district leagues: off by default so the elite-league curves aren't dwarfed */
-const LOCAL = new Set(["SoCal Soccer League", "Coast Soccer League", "PSSLU", "SGV Soccer League", "Southwest Super League"]);
+const LOCAL = new Set(["SoCal Soccer League", "SoCal Pre-Elite", "SoCal F1", "SoCal F2", "SoCal F3", "SoCal F4", "Coast Soccer League", "PSSLU", "SGV Soccer League", "Southwest Super League"]);
 
 /** Gaussian KDE scaled by team count, so a bigger league draws a bigger curve. */
 function density(values: number[], xs: number[], bw: number) {
@@ -265,7 +265,7 @@ export function LeagueOverlap({ groups, order, initial = "U15|Boys" }: {
         <button type="button" className={pill(scale === "count")} onClick={() => setScale("count")}>Number of teams</button>
         <button type="button" className={pill(scale === "share")} onClick={() => setScale("share")}>Share of each league</button>
         <button type="button" aria-pressed={showLocal} className={pill(showLocal)} onClick={() => setShowLocal((v) => !v)}>
-          {showLocal ? "✓ " : "+ "}Local leagues (SoCal, CSL, PSSLU, SGV, SWSL)
+          {showLocal ? "✓ " : "+ "}Local leagues (SoCal flights, CSL, PSSLU, SGV, SWSL)
         </button>
       </div>
       {/* legend beside the chart on wide screens (League → median · teams), above it on phones */}

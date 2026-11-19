@@ -8,7 +8,9 @@
  * Computed from the snapshot once per snapshot object (like getStats in data.ts).
  */
 import { getDataSet } from "@/lib/data";
+import fs from "fs";
 import { trackedByName } from "@/lib/directory/tracked";
+import { discoveryFilesFor } from "@/lib/tournament-view";
 
 /** 2026-27 season start: league membership is this season's league games only (data must be fresh) */
 const SEASON_START = "2026-08-01";
@@ -43,8 +45,32 @@ const SOCAL_LEAGUES: Array<[RegExp, string]> = [
 ];
 export const SOCAL_LEAGUE_ORDER = [
   "MLS NEXT HD", "MLS NEXT AD", "ECNL", "ECNL RL", "Pre-ECNL", "GA", "GA Aspire", "EA", "EA2", "DPL", "N1",
-  "SoCal Soccer League", "Coast Soccer League", "PSSLU", "SGV Soccer League", "Southwest Super League",
+  "SoCal Pre-Elite", "SoCal F1", "SoCal F2", "SoCal F3", "SoCal F4", "SoCal Soccer League",
+  "Coast Soccer League", "PSSLU", "SGV Soccer League", "Southwest Super League",
 ];
+/** SoCal Soccer League's flights (its top tier for older ages is N1 West District 3, a league of its own) */
+export const SOCAL_FLIGHTS = ["SoCal Pre-Elite", "SoCal F1", "SoCal F2", "SoCal F3", "SoCal F4"];
+/** "BU13 - F2 West" → "SoCal F2"; "Pre-Elite Division I" → "SoCal Pre-Elite"; "F3/4 East" → "SoCal F3" */
+function socalFlight(division: string): string | null {
+  const d = division.split(" - ").slice(1).join(" - ") || division;
+  if (/pre[- ]?elite/i.test(d)) return "SoCal Pre-Elite";
+  const f = d.match(/\bF([1-4])\b/);
+  return f ? `SoCal F${f[1]}` : null;
+}
+/** GotSport team id → SoCal League flight, from this season's schedule files (data/discovery) */
+function socalFlights(eventNames: Iterable<string>): Map<number, string> {
+  const out = new Map<number, string>();
+  for (const name of eventNames) for (const f of discoveryFilesFor(name)) {
+    try {
+      for (const g of JSON.parse(fs.readFileSync(f, "utf8")) as Array<{ division?: string; homeTeamId?: number; awayTeamId?: number }>) {
+        const fl = g.division ? socalFlight(g.division) : null;
+        if (!fl) continue;
+        for (const id of [g.homeTeamId, g.awayTeamId]) if (id && !out.has(id)) out.set(id, fl);
+      }
+    } catch { /* skip */ }
+  }
+  return out;
+}
 const socalLeagueOf = (name: string) => SOCAL_LEAGUES.find(([re]) => re.test(name))?.[1] ?? null;
 
 const ELITE = new Set(["MLS NEXT", "Elite Academy League", "USL Academy", "Girls Academy", "GA Aspire", "DPL", "ECNL", "N1", "USYS National League", "Multi-state league / NPL Finals"]);
@@ -66,6 +92,43 @@ export interface AboutCharts {
   socalTeams: number;
 }
 
+/**
+ * Cal South team → its league this season: the league it played most (ties: the stronger tier,
+ * by display order), with MIN_LEAGUE_GAMES there; summer and winter leagues don't count.
+ * Shared with scripts/league-ranges.ts so the ranges describe the same teams as the charts.
+ */
+export function socalLeagueMembership(data: { teams: Array<{ id: number; state?: string; gotsportTeamId?: number }>; games: Array<{ team1Id: number; team2Id: number; date: string; status?: string; tournamentName?: string | null }> }): Map<number, string> {
+  const cas = new Set(data.teams.filter((t) => t.state === "CAS").map((t) => t.id));
+  const leagueGames = new Map<number, Map<string, number>>();
+  const socalEvents = new Set<string>();
+  for (const g of data.games) {
+    if (g.status !== "completed" || !g.date || g.date < SEASON_START) continue;
+    const league = socalLeagueOf(g.tournamentName ?? "");
+    if (!league || OFF_SEASON.test(g.tournamentName ?? "")) continue;
+    if (league === "SoCal Soccer League") socalEvents.add(g.tournamentName!);
+    for (const id of [g.team1Id, g.team2Id]) {
+      if (!cas.has(id)) continue;
+      const m = leagueGames.get(id) ?? new Map<string, number>();
+      m.set(league, (m.get(league) ?? 0) + 1);
+      leagueGames.set(id, m);
+    }
+  }
+  const primary = new Map<number, string>();
+  for (const [id, m] of leagueGames) {
+    const [best, n] = [...m].sort((a, b) => b[1] - a[1] || SOCAL_LEAGUE_ORDER.indexOf(a[0]) - SOCAL_LEAGUE_ORDER.indexOf(b[0]))[0];
+    if (n >= MIN_LEAGUE_GAMES) primary.set(id, best);
+  }
+  // SoCal League teams by flight (a team whose flight isn't in the schedule files stays "SoCal Soccer League")
+  const flights = socalFlights(socalEvents);
+  const gs = new Map(data.teams.map((t) => [t.id, t.gotsportTeamId]));
+  for (const [id, l] of primary) {
+    if (l !== "SoCal Soccer League") continue;
+    const fl = flights.get(gs.get(id) ?? -1);
+    if (fl) primary.set(id, fl);
+  }
+  return primary;
+}
+
 const cache = new WeakMap<object, AboutCharts>();
 export function getAboutCharts(): AboutCharts {
   const data = getDataSet();
@@ -79,31 +142,14 @@ export function getAboutCharts(): AboutCharts {
   const byType = new Map<string, number>();
   const comps = new Set<string>();
   let westGames = 0;
-  const leagueGames = new Map<number, Map<string, number>>();
   for (const g of data.games) {
     if (g.status !== "completed" || !(west(g.team1Id) || west(g.team2Id))) continue;
     westGames++;
     if (g.tournamentName) comps.add(g.tournamentName);
     const type = gameType(g.tournamentName);
     byType.set(type, (byType.get(type) ?? 0) + 1);
-    if (!g.date || g.date < SEASON_START) continue;
-    const league = socalLeagueOf(g.tournamentName ?? "");
-    if (!league || OFF_SEASON.test(g.tournamentName ?? "")) continue;
-    for (const id of [g.team1Id, g.team2Id]) {
-      if (!cas(id)) continue;
-      const m = leagueGames.get(id) ?? new Map<string, number>();
-      m.set(league, (m.get(league) ?? 0) + 1);
-      leagueGames.set(id, m);
-    }
   }
-
-  // each team counts in the league it played most (ties: the stronger tier, by display order),
-  // once it has MIN_LEAGUE_GAMES there
-  const primary = new Map<number, string>();
-  for (const [id, m] of leagueGames) {
-    const [best, n] = [...m].sort((a, b) => b[1] - a[1] || SOCAL_LEAGUE_ORDER.indexOf(a[0]) - SOCAL_LEAGUE_ORDER.indexOf(b[0]))[0];
-    if (n >= MIN_LEAGUE_GAMES) primary.set(id, best);
-  }
+  const primary = socalLeagueMembership(data);
   const rating = new Map(data.rankings.filter((r) => r.gamesPlayed >= MIN_GAMES).map((r) => [r.teamId, r.score]));
   const socal: AboutCharts["socal"] = {};
   let socalTeams = 0;

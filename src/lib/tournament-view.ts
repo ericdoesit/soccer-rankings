@@ -31,7 +31,7 @@ export interface TournamentView {
 // ---- division labels from the source files (GotSport discovery, pasted AthleteOne) ----
 const ROOT = process.cwd();
 let eventFiles: Map<string, string[]> | null = null;
-function discoveryFilesFor(eventName: string): string[] {
+export function discoveryFilesFor(eventName: string): string[] {
   if (!eventFiles) {
     eventFiles = new Map();
     const dir = path.join(ROOT, "data", "discovery", "games");
