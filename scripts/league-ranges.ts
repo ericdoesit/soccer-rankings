@@ -81,10 +81,15 @@ const poisson1 = () => { const L = Math.exp(-1); let k = 0, p = 1; do { k++; p *
 const baseMed = medians(base);
 const prev = process.env.EVENTS_ONLY && fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, "utf8")) : null;
 const reps: Array<Record<string, Record<string, number>>> = [];
+// listed teams: their own rating in each replicate, for the Proven rankings' likely ranges
+const listed = data.teams.filter((t) => t.rankable).map((t) => t.id);
+const teamReps = new Map<number, number[]>(listed.map((id) => [id, []]));
 for (let b = 0; b < (prev ? 0 : B); b++) {
   const sample = [...inside];
   for (const g of crossGames) for (let k = poisson1(); k > 0; k--) sample.push(g);
-  reps.push(medians(rate(sample)));
+  const r = rate(sample);
+  reps.push(medians(r));
+  for (const [id, a] of teamReps) { const v = r.get(id); if (v !== undefined) a.push(v); }
   console.log(`  replicate ${b + 1}/${B} (${((Date.now() - t0) / 1000).toFixed(0)}s)`);
 }
 const pct = (a: number[], p: number) => { const s = [...a].sort((x, y) => x - y); return s[Math.min(s.length - 1, Math.max(0, Math.round(p * (s.length - 1))))]; };
@@ -95,6 +100,10 @@ if (!prev) for (const [k, g] of groups) for (const [l, ids] of g) {
   const cg = crossGames.filter((x) => set.has(x.team1Id) || set.has(x.team2Id)).length;
   (ranges[k] ??= {})[l] = { median: +baseMed[k][l].toFixed(2), lo: +pct(v, 0.1).toFixed(2), hi: +pct(v, 0.9).toFixed(2), teams: ids.length, crossGames: cg };
 }
+
+// each listed team: 10th–90th percentile of its rating over the replicates
+const teams: Record<number, [number, number]> = prev?.teams ?? {};
+if (!prev) for (const [id, a] of teamReps) if (a.length >= Math.min(10, B)) teams[id] = [+pct(a, 0.1).toFixed(2), +pct(a, 0.9).toFixed(2)];
 
 // one event out: for each league shown (U13, U15, U17 boys), the tournament, showcase or cup (not a
 // league) with the most of its teams' cross-league games, each dropped once
@@ -122,5 +131,5 @@ for (const [ev, n] of top) {
   console.log(`  without ${ev} (${n} cross-league games)`);
 }
 
-fs.writeFileSync(OUT, JSON.stringify({ builtAt: prev?.builtAt ?? new Date().toISOString(), games: games.length, crossGames: crossGames.length, replicates: prev?.replicates ?? B, ranges, events }));
+fs.writeFileSync(OUT, JSON.stringify({ builtAt: prev?.builtAt ?? new Date().toISOString(), games: games.length, crossGames: crossGames.length, replicates: prev?.replicates ?? B, ranges, teams, events }));
 console.log(`Wrote ${OUT} in ${((Date.now() - t0) / 1000).toFixed(0)}s`);

@@ -181,6 +181,8 @@ export interface LeagueRanges {
   ranges: Record<string, Record<string, { median: number; lo: number; hi: number; teams: number; crossGames: number }>>;
   /** the events with the most cross-league games, each dropped once: league median shifts */
   events: Array<{ event: string; crossGames: number; shifts: Record<string, Record<string, number>> }>;
+  /** listed team id → [10th, 90th percentile] of its rating over the replicates */
+  teams?: Record<string, [number, number]>;
 }
 let rangesCache: { mtime: number; value: LeagueRanges | null } | null = null;
 export function getLeagueRanges(): LeagueRanges | null {

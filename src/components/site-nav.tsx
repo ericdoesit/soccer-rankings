@@ -20,7 +20,7 @@ const LINKS: Array<[href: string, label: string, match: RegExp]> = [
   ["/rankings", "Rankings", /^\/(rankings|team|states?|club)\b/],
   ["/events", "Events", /^\/(events|tournament|match)\b/],
   ["/map", "Map", /^\/map\b/],
-  ["/power-rankings", "Power Rankings", /^\/power-rankings\b/],
+  ["/proven", "Proven", /^\/(proven|power-rankings)\b/],
   ["/tools/flight-planner", "Flight Planner", /^\/tools\b/],
   ["/findings", "Findings", /^\/findings\b/],
   ["/about", "About", /^\/about\b/],

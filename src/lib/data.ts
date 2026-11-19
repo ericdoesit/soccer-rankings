@@ -784,144 +784,83 @@ export function getStats() {
   return { ...st, lastUpdated: new Date().toISOString().split("T")[0] };
 }
 
-export interface PowerRankedTeam extends RankedTeam {
-  powerScore: number;
-  powerRank: number;
-  sos: number;
-  qualityWins: number;
-  crossLeagueWins: number;
-  crossLeagueGames: number;
+/**
+ * Proven rankings (replaced the composite Power Rankings, 2026-11-19). A rating is only as firm as the
+ * games that tie a team to other leagues (games inside a league only order its teams), so a team is
+ * "proven" once it has PROVEN_MIN_CROSS games in the last 15 months against teams whose own league is
+ * different. Proven teams are ranked by rating, per age group and gender, with:
+ *   - the rating's likely range (data/league-ranges.json: 10th–90th percentile over bootstrap re-runs),
+ *   - its record against other leagues and against the age group's top 25.
+ */
+export const PROVEN_MIN_CROSS = 8;
+/** league play only (no cups, showcases, playoffs), one name per league across its seasons and conferences */
+const LEAGUE_FAMILIES: Array<[RegExp, string]> = [
+  [/\bmls next\b.*\b(homegrown|flex)\b/i, "MLS NEXT HD"], [/\bmls next\b.*\bacademy\b/i, "MLS NEXT AD"], [/\bmls next\b/i, "MLS NEXT"],
+  [/\becnl[- ]?rl\b|\becnl regional\b/i, "ECNL RL"], [/\bpre[- ]?ecnl\b/i, "Pre-ECNL"], [/\becnl\b/i, "ECNL"],
+  [/elite academy league ea2\b|\bea2\b/i, "EA2"], [/elite academy league\b/i, "EA"], [/^n1\b|\bn1 i\b/i, "N1"],
+  [/girls academy aspire|\baspire league\b/i, "GA Aspire"], [/girls academy/i, "GA"], [/^usl academy/i, "USL Academy"],
+  [/development player league/i, "DPL"],
+];
+const NOT_LEAGUE = /\b(cup|showcase|classic|invitational|tournament|festival|playoffs?|finals?|challenge|championships?|shootout|friendl(y|ies))\b/i;
+function leagueFamily(name: string): string | null {
+  if (!name || NOT_LEAGUE.test(name)) return null;
+  const fam = LEAGUE_FAMILIES.find(([re]) => re.test(name))?.[1];
+  if (fam) return fam;
+  if (!/\b(league|npl|conference|division)\b/i.test(name)) return null;
+  // other leagues: one name across seasons ("SOCAL Fall League 2026 - 2027" = "SOCAL Spring League 2026")
+  return leagueName(name).replace(/\b(fall|spring|winter|summer)\b/gi, "").replace(/[\s-]+$/, "").replace(/\s+/g, " ").trim() || null;
 }
-
-export function getPowerRankings(filter: { ageGroup?: string; gender?: string } = {}): PowerRankedTeam[] {
-  const { games, rankings } = getData();
-  const allRanked = getIndex().rankedBase;
-
-  const rankingMap = new Map(rankings.map((r) => [r.teamId, r]));
-  const teamMap = new Map(allRanked.map((t) => [t.id, t]));
-
-  // Build game lookup per team
-  const teamGames = new Map<number, Game[]>();
-  for (const g of games) {
-    if (g.status !== "completed") continue;
-    for (const tid of [g.team1Id, g.team2Id]) {
-      if (!teamGames.has(tid)) teamGames.set(tid, []);
-      teamGames.get(tid)!.push(g);
+export interface ProvenTeam extends RankedTeam {
+  provenRank: number;
+  range: [number, number] | null;
+  league: string | null;
+  cross: { w: number; d: number; l: number };
+  top25: { w: number; d: number; l: number };
+}
+const provenCache = new WeakMap<object, Map<string, { teams: ProvenTeam[]; untested: RankedTeam[] }>>();
+export function getProvenRankings(ageGroup: string, gender: string, ranges?: Record<string, [number, number]>): { teams: ProvenTeam[]; untested: RankedTeam[] } {
+  const index = getIndex();
+  const byKey = provenCache.get(index) ?? provenCache.set(index, new Map()).get(index)!;
+  const cacheKey = `${ageGroup}|${gender}|${ranges ? Object.keys(ranges).length : 0}`;
+  const hit = byKey.get(cacheKey);
+  if (hit) return hit;
+  const { rankedBase, gamesByTeam } = index;
+  const since = new Date(Date.now() - TRACKED_DAYS * 864e5).toISOString().slice(0, 10);
+  const pool = rankedBase.filter((t) => t.ageGroup === ageGroup && t.gender === gender).sort((a, b) => b.score - a.score);
+  const top25 = new Set(pool.slice(0, 25).map((t) => t.id));
+  // each team's own league: the league it played most in the window
+  const ownCache = new Map<number, string | null>();
+  const own = (id: number) => {
+    if (ownCache.has(id)) return ownCache.get(id)!;
+    const n = new Map<string, number>();
+    for (const g of gamesByTeam.get(id) ?? []) {
+      if (g.date < since) continue;
+      const l = leagueFamily(g.tournamentName ?? "");
+      if (l) n.set(l, (n.get(l) ?? 0) + 1);
     }
-  }
-
-  // Detect each team's "home league" (most frequent event)
-  function getHomeLeague(tid: number): string {
-    const tg = teamGames.get(tid) || [];
-    const freq = new Map<string, number>();
-    for (const g of tg) {
-      if (g.tournamentName) freq.set(g.tournamentName, (freq.get(g.tournamentName) || 0) + 1);
-    }
-    let best = "";
-    let bestCount = 0;
-    for (const [name, count] of freq) {
-      if (count > bestCount) { best = name; bestCount = count; }
-    }
+    const best = [...n].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+    ownCache.set(id, best);
     return best;
-  }
-
-  const results: PowerRankedTeam[] = [];
-
-  for (const team of allRanked) {
-    const r = rankingMap.get(team.id);
-    if (!r || r.gamesPlayed < 15) continue;
-    if (filter.ageGroup && filter.ageGroup !== "All" && team.ageGroup !== filter.ageGroup) continue;
-    if (filter.gender && filter.gender !== "Both" && team.gender !== filter.gender) continue;
-
-    const tg = teamGames.get(team.id) || [];
-    if (tg.length === 0) continue;
-
-    // 1. SOS — average opponent Massey rating
-    let sosSum = 0;
-    let sosCount = 0;
-    for (const g of tg) {
-      const oppId = g.team1Id === team.id ? g.team2Id : g.team1Id;
-      const oppR = rankingMap.get(oppId);
-      if (oppR && !isNaN(oppR.score)) {
-        sosSum += oppR.score;
-        sosCount++;
-      }
+  };
+  const teams: ProvenTeam[] = [], untested: RankedTeam[] = [];
+  for (const t of pool) {
+    const mine = own(t.id);
+    const cross = { w: 0, d: 0, l: 0 }, vsTop = { w: 0, d: 0, l: 0 };
+    for (const g of gamesByTeam.get(t.id) ?? []) {
+      if (g.date < since || g.status !== "completed") continue;
+      const me1 = g.team1Id === t.id, opp = me1 ? g.team2Id : g.team1Id;
+      const [a, b] = me1 ? [g.team1Score, g.team2Score] : [g.team2Score, g.team1Score];
+      const k = a > b ? "w" : a < b ? "l" : "d";
+      const theirs = own(opp);
+      if (mine && theirs && theirs !== mine) cross[k]++;
+      if (top25.has(opp) && opp !== t.id) vsTop[k]++;
     }
-    const sos = sosCount > 0 ? sosSum / sosCount : 0;
-
-    // 2. Quality Wins — wins against teams in top 50% by Massey
-    let qualityWins = 0;
-    const medianScore = allRanked.length > 0 ? allRanked[Math.floor(allRanked.length / 2)]?.score || 0 : 0;
-    for (const g of tg) {
-      const isT1 = g.team1Id === team.id;
-      const myScore = isT1 ? g.team1Score : g.team2Score;
-      const oppScore = isT1 ? g.team2Score : g.team1Score;
-      if (myScore <= oppScore) continue; // not a win
-      const oppId = isT1 ? g.team2Id : g.team1Id;
-      const oppR = rankingMap.get(oppId);
-      if (oppR && oppR.score > medianScore) {
-        qualityWins++;
-      }
-    }
-
-    // 3. Cross-league games
-    const homeLeague = getHomeLeague(team.id);
-    let crossWins = 0;
-    let crossGames = 0;
-    for (const g of tg) {
-      if (g.tournamentName && g.tournamentName !== homeLeague) {
-        crossGames++;
-        const isT1 = g.team1Id === team.id;
-        const myScore = isT1 ? g.team1Score : g.team2Score;
-        const oppScore = isT1 ? g.team2Score : g.team1Score;
-        if (myScore > oppScore) crossWins++;
-      }
-    }
-
-    // Eligibility: at least 5 cross-league games and 5 quality wins
-    if (crossGames < 5) continue;
-    if (qualityWins < 5) continue;
-
-    // Massey rating must be in top 10%
-    const top10Cutoff = allRanked[Math.floor(allRanked.length * 0.1)]?.score || 0;
-    if (r.score < top10Cutoff) continue;
-
-    results.push({
-      ...team,
-      powerScore: 0,
-      powerRank: 0,
-      sos,
-      qualityWins,
-      crossLeagueWins: crossWins,
-      crossLeagueGames: crossGames,
-    });
+    if (cross.w + cross.d + cross.l < PROVEN_MIN_CROSS) { untested.push(t); continue; }
+    teams.push({ ...t, provenRank: teams.length + 1, range: ranges?.[t.id] ?? null, league: mine, cross, top25: vsTop });
   }
-
-  // Normalize components and compute composite power score
-  if (results.length === 0) return [];
-
-  const maxMassey = Math.max(...results.map((r) => r.score));
-  const minMassey = Math.min(...results.map((r) => r.score));
-  const maxSos = Math.max(...results.map((r) => r.sos));
-  const minSos = Math.min(...results.map((r) => r.sos));
-  const maxQW = Math.max(...results.map((r) => r.qualityWins), 1);
-  const maxCross = Math.max(...results.map((r) => r.crossLeagueGames > 0 ? r.crossLeagueWins / r.crossLeagueGames : 0), 0.01);
-
-  for (const t of results) {
-    const masseyNorm = maxMassey > minMassey ? (t.score - minMassey) / (maxMassey - minMassey) : 0.5;
-    const sosNorm = maxSos > minSos ? (t.sos - minSos) / (maxSos - minSos) : 0.5;
-    const qwNorm = t.qualityWins / maxQW;
-    const crossNorm = t.crossLeagueGames > 0 ? (t.crossLeagueWins / t.crossLeagueGames) / maxCross : 0;
-
-    t.powerScore = Math.round(
-      (masseyNorm * 0.4 + sosNorm * 0.25 + qwNorm * 0.2 + crossNorm * 0.15) * 100
-    ) / 100;
-  }
-
-  results.sort((a, b) => b.powerScore - a.powerScore);
-  results.forEach((t, i) => { t.powerRank = i + 1; });
-
-  return results;
+  const out = { teams, untested };
+  byKey.set(cacheKey, out);
+  return out;
 }
 
 export interface ClubDetail {
