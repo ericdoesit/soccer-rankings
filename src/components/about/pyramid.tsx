@@ -5,6 +5,8 @@
  */
 const PYRAMID_URL = "https://pitfalls-on-the-pathway.vercel.app/report/ecosystem.html";
 
+/** widths: Regional Travel (level 5) sets the scale; each layer above is one fixed step narrower, the foundation one
+ * wider (8 points from sm up, 5 on phones, where narrower layers couldn't hold their names and logos) */
 const BANDS: Array<{
   level: string;
   name: string;
@@ -18,25 +20,25 @@ const BANDS: Array<{
 }> = [
   { level: "Level 1", name: "Pro Pipeline", leagues: "MLS NEXT HD", rated: [["MLS NEXT HD", "MLS NEXT HD"]],
     logos: [["mls-next.png", "MLS NEXT"]],
-    cls: "bg-[#f2df22] text-[#0f0f0f]", width: "w-[64%] sm:w-[46%]" },
+    cls: "bg-[#f2df22] text-[#0f0f0f]", width: "w-[72%] sm:w-[42%]" },
   { level: "Level 2", name: "National Elite", leagues: "ECNL Boys · USL Academy", rated: [["ECNL", "ECNL"]],
     logos: [["ecnl.png", "ECNL"], ["usl-academy.png", "USL Academy"]],
-    cls: "bg-[#e94f35] text-white", width: "w-[71%] sm:w-[57%]" },
+    cls: "bg-[#e94f35] text-white", width: "w-[77%] sm:w-[50%]" },
   { level: "Level 3", name: "National Competitive", leagues: "MLS NEXT AD · ECNL-RL · N1 · Elite Academy · NAL",
     rated: [["MLS NEXT AD", "MLS NEXT AD"], ["ECNL RL", "ECNL RL"], ["N1", "N1 (SoCal top tier)"], ["EA", "Elite Academy"]],
     logos: [["mls-next.png", "MLS NEXT Academy Division"], ["ecnl-rl.png", "ECNL Regional League"], ["n1.png", "National 1 League"], ["ea.png", "Elite Academy"], ["nal.png", "National Academy League"]],
-    cls: "bg-[#1b9de0] text-white", width: "w-[78%] sm:w-[68%]" },
+    cls: "bg-[#1b9de0] text-white", width: "w-[82%] sm:w-[58%]" },
   { level: "Level 4", name: "Regional / National Bridge", leagues: "EA2 · Pre-ECNL · ODP",
     rated: [["EA2", "EA2"], ["Pre-ECNL", "Pre-ECNL"]],
     logos: [["pre-ecnl.png", "Pre-ECNL"], ["ea2.png", "Elite Academy 2"], ["odp.png", "Olympic Development Program"]],
-    cls: "bg-[#1fa84d] text-white", width: "w-[85%] sm:w-[79%]" },
-  { level: "Level 5", name: "Regional Travel", leagues: "SoCal League (Pre-Elite, F1–F4) · Coast Soccer · PSSLU · SGV · Southwest Super · Pacific Regional · USL Youth",
+    cls: "bg-[#1fa84d] text-white", width: "w-[87%] sm:w-[66%]" },
+  { level: "Level 5", name: "Regional Travel", leagues: "SoCal League (Pre-Elite, F1–F4) · Coast Soccer · PSSLU\nSGV · Southwest Super · Pacific Regional · USL Youth",
     rated: [["SoCal Pre-Elite", "SoCal Pre-Elite"], ["SoCal F1", "SoCal F1"], ["Coast Soccer League", "Coast Soccer"], ["PSSLU", "PSSLU"], ["SGV Soccer League", "SGV Soccer League"], ["Southwest Super League", "Southwest Super"]],
     logos: [["socal.png", "SoCal Soccer League"], ["csl.svg", "Coast Soccer League", true], ["psslu.png", "PSSLU"], ["sgv.png", "SGV Soccer League"], ["southwest-super.png", "Southwest Super League"], ["pacific-regional.png", "Pacific Regional Soccer League"], ["usl-youth.png", "USL Youth"]],
-    cls: "bg-[#dcdad5] text-[#0f0f0f]", width: "w-[92%] sm:w-[90%]" },
+    cls: "bg-[#dcdad5] text-[#0f0f0f]", width: "w-[92%] sm:w-[74%]" },
   { level: "Foundation", name: "Recreational", leagues: "AYSO · City Parks", rated: [],
     logos: [["ayso.png", "AYSO"], ["la-rec-parks.png", "LA Rec & Parks", true]],
-    cls: "bg-[#0f0f0f] text-white dark:ring-1 dark:ring-inset dark:ring-white/15", width: "w-full" },
+    cls: "bg-[#0f0f0f] text-white dark:ring-1 dark:ring-inset dark:ring-white/15", width: "w-[97%] sm:w-[82%]" },
 ];
 
 const median = (a: number[]) => { const s = [...a].sort((x, y) => x - y); const h = s.length >> 1; return s.length % 2 ? s[h] : (s[h - 1] + s[h]) / 2; };
@@ -77,12 +79,12 @@ export function Pyramid({ groups, group = "U15|Boys", minTeams = 5 }: {
                 {b.logos.map(([f, alt, wide]) => (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img key={f + alt} src={`/pyramid/${f}`} alt={alt} title={alt} loading="lazy"
-                    className={`object-contain ${wide ? "h-4 w-auto sm:h-5" : "h-7 w-7 sm:h-8 sm:w-8"}`} />
+                    className={`object-contain ${wide ? "h-3.5 w-auto sm:h-5" : "h-6 w-6 sm:h-8 sm:w-8"}`} />
                 ))}
               </div>
               {/* league names run across the bottom of the layer, under the logos */}
-              {/* two lines reserved below desktop width, where level 5's list wraps, so every layer is the same height */}
-              <span className="col-span-2 flex min-h-[2.75em] items-center justify-center text-center text-[9px] leading-snug opacity-85 sm:text-[10px] lg:min-h-0">{b.leagues}</span>
+              {/* two lines reserved in every layer (level 5's list breaks after PSSLU), so all layers are the same height */}
+              <span className="col-span-2 flex min-h-[2.75em] items-center justify-center whitespace-pre-line text-center text-[9px] leading-snug opacity-85 sm:text-[10px]">{b.leagues}</span>
             </div>
           );
         })}
