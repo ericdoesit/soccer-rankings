@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import Link from "next/link";
 import Image from "next/image";
 import "./globals.css";
@@ -7,9 +7,12 @@ import { TableSorter } from "@/components/table-sorter";
 import { SiteNav } from "@/components/site-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+// Manrope served from the repo (variable font, latin, SIL OFL: fonts/Manrope-OFL.txt). next/font/google
+// fetched it from Google at build time, and that fetch failed intermittently on Vercel, failing deploys.
+const manrope = localFont({
+  src: "./fonts/manrope-latin-wght.woff2",
+  weight: "200 800",
+  display: "swap",
   variable: "--font-manrope",
 });
 
