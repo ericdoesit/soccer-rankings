@@ -4,6 +4,7 @@ import { getAreas } from "@/lib/explore";
 import { WestMap } from "@/components/west-map";
 import { getAboutCharts, SOCAL_LEAGUE_ORDER } from "@/lib/about-charts";
 import { HBars, LeagueOverlap } from "@/components/about/charts";
+import { Pyramid } from "@/components/about/pyramid";
 
 /** 2026-27 season: school-year age groups (Aug 1 – Jul 31); U## = 2027 − school birth year */
 const SEASON_END = 2027;
@@ -134,6 +135,10 @@ export default function AboutPage() {
                   end: `${t.games.toLocaleString()} · ${pct(t.games / charts.westGames)}`,
                 }))}
               />
+            </div>
+
+            <div className="mt-10">
+              <Pyramid groups={charts.socal} />
             </div>
 
             <div className="mt-10">
