@@ -81,7 +81,8 @@ export function Pyramid({ groups, group = "U15|Boys", minTeams = 5 }: {
                 ))}
               </div>
               {/* league names run across the bottom of the layer, under the logos */}
-              <span className="col-span-2 text-center text-[9px] leading-snug opacity-85 sm:text-[10px]">{b.leagues}</span>
+              {/* two lines reserved below desktop width, where level 5's list wraps, so every layer is the same height */}
+              <span className="col-span-2 flex min-h-[2.75em] items-center justify-center text-center text-[9px] leading-snug opacity-85 sm:text-[10px] lg:min-h-0">{b.leagues}</span>
             </div>
           );
         })}
