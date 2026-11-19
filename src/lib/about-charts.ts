@@ -34,10 +34,11 @@ const SOCAL_LEAGUES: Array<[RegExp, string]> = [
   [/^socal (fall|spring) league/i, "SoCal Soccer League"],
   [/^coast soccer league/i, "Coast Soccer League"],
   [/^psslu\b/i, "PSSLU"],
+  [/^sgv\b.*\bleague\b/i, "SGV Soccer League"],
 ];
 export const SOCAL_LEAGUE_ORDER = [
   "MLS NEXT HD", "MLS NEXT AD", "ECNL", "ECNL RL", "Pre-ECNL", "GA", "GA Aspire", "EA", "EA2", "DPL", "N1",
-  "SoCal Soccer League", "Coast Soccer League", "PSSLU",
+  "SoCal Soccer League", "Coast Soccer League", "PSSLU", "SGV Soccer League",
 ];
 const socalLeagueOf = (name: string) => SOCAL_LEAGUES.find(([re]) => re.test(name))?.[1] ?? null;
 
