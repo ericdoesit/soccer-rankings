@@ -22,6 +22,7 @@ const LINKS: Array<[href: string, label: string, match: RegExp]> = [
   ["/map", "Map", /^\/map\b/],
   ["/power-rankings", "Power Rankings", /^\/power-rankings\b/],
   ["/tools/flight-planner", "Flight Planner", /^\/tools\b/],
+  ["/findings", "Findings", /^\/findings\b/],
   ["/about", "About", /^\/about\b/],
 ];
 const LEAGUES_RE = /^\/(league|mls-next)\b/;
