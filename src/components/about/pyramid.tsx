@@ -71,10 +71,8 @@ export function Pyramid({ groups, group = "U15|Boys", minTeams = 5 }: {
               key={b.level}
               className={`${b.cls} ${b.width} grid grid-cols-[auto_1fr] items-baseline gap-x-3 gap-y-1 rounded-lg px-3 py-1.5 sm:px-3.5`}
             >
-              <span className="whitespace-nowrap">
-                <span className="text-[10px] font-bold uppercase tracking-[0.1em] opacity-75">{b.level}</span>{" "}
-                <span className="text-xs font-bold tracking-[-0.01em] sm:text-[13px]">{b.name}</span>
-              </span>
+              <span className="whitespace-nowrap text-xs font-bold tracking-[-0.01em] sm:text-[13px]">{b.name}</span>
+              <span className="text-right text-[10px] font-bold uppercase tracking-[0.1em] opacity-75">{b.level}</span>
               <div className="col-span-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
                 {b.logos.map(([f, alt, wide]) => (
                   // eslint-disable-next-line @next/next/no-img-element
