@@ -18,22 +18,22 @@ const BANDS: Array<{
 }> = [
   { level: "Level 1", name: "Pro Pipeline", leagues: "MLS NEXT HD", rated: [["MLS NEXT HD", "HD"]],
     logos: [["mls-next.png", "MLS NEXT"]],
-    cls: "bg-[#f2df22] text-[#0f0f0f]", width: "w-[64%] sm:w-[30%]" },
+    cls: "bg-[#f2df22] text-[#0f0f0f]", width: "w-[64%] sm:w-[46%]" },
   { level: "Level 2", name: "National Elite", leagues: "ECNL Boys · USL Academy", rated: [["ECNL", "ECNL"]],
     logos: [["ecnl.png", "ECNL"], ["usl-academy.png", "USL Academy"]],
-    cls: "bg-[#e94f35] text-white", width: "w-[71%] sm:w-[44%]" },
+    cls: "bg-[#e94f35] text-white", width: "w-[71%] sm:w-[57%]" },
   { level: "Level 3", name: "National Competitive", leagues: "MLS NEXT AD · ECNL-RL · N1 · Elite Academy · NAL",
     rated: [["MLS NEXT AD", "AD"], ["ECNL RL", "RL"], ["N1", "N1"], ["EA", "EA"]],
     logos: [["mls-next.png", "MLS NEXT Academy Division"], ["ecnl-rl.png", "ECNL Regional League"], ["n1.png", "National 1 League"], ["ea.png", "Elite Academy"], ["nal.png", "National Academy League"]],
-    cls: "bg-[#1b9de0] text-white", width: "w-[78%] sm:w-[58%]" },
+    cls: "bg-[#1b9de0] text-white", width: "w-[78%] sm:w-[68%]" },
   { level: "Level 4", name: "Regional / National Bridge", leagues: "EA2 · Pre-ECNL · ODP",
     rated: [["EA2", "EA2"], ["Pre-ECNL", "Pre-ECNL"]],
     logos: [["pre-ecnl.png", "Pre-ECNL"], ["ea2.png", "Elite Academy 2"], ["odp.png", "Olympic Development Program"]],
-    cls: "bg-[#1fa84d] text-white", width: "w-[85%] sm:w-[72%]" },
+    cls: "bg-[#1fa84d] text-white", width: "w-[85%] sm:w-[79%]" },
   { level: "Level 5", name: "Regional Travel", leagues: "SoCal League · Coast Soccer · Pacific Regional · USL Youth",
     rated: [["SoCal Soccer League", "SoCal"], ["Coast Soccer League", "Coast"]],
     logos: [["socal.png", "SoCal Soccer League"], ["csl.svg", "Coast Soccer League", true], ["pacific-regional.png", "Pacific Regional Soccer League"], ["usl-youth.png", "USL Youth"]],
-    cls: "bg-[#dcdad5] text-[#0f0f0f]", width: "w-[92%] sm:w-[86%]" },
+    cls: "bg-[#dcdad5] text-[#0f0f0f]", width: "w-[92%] sm:w-[90%]" },
   { level: "Foundation", name: "Recreational", leagues: "AYSO · City Parks", rated: [],
     logos: [["ayso.png", "AYSO"], ["la-rec-parks.png", "LA Rec & Parks", true]],
     cls: "bg-[#0f0f0f] text-white dark:ring-1 dark:ring-inset dark:ring-white/15", width: "w-full" },
@@ -59,37 +59,37 @@ export function Pyramid({ groups, group = "U15|Boys", minTeams = 5 }: {
         </a>
         . Numbers are our median team rating for each league&rsquo;s {age} {gender.toLowerCase()} Cal South teams, 2026/27.
       </p>
-      <div className="flex flex-col items-center">
+      <div className="mx-auto flex max-w-[620px] flex-col items-center">
         {BANDS.map((b, i) => {
           const chips = b.rated.map(([k, label]) => [label, med(k)] as const).filter(([, v]) => v != null).sort((a, z) => z[1]! - a[1]!);
           return (
             <div
               key={b.level}
-              className={`${b.cls} ${b.width} grid grid-cols-[1fr_auto] gap-x-3 gap-y-1.5 px-3 py-2.5 sm:px-[18px] sm:py-3 ${
+              className={`${b.cls} ${b.width} grid grid-cols-[1fr_auto] gap-x-3 gap-y-1 px-3 py-2 sm:px-3.5 ${
                 i === 0 ? "rounded-t-md" : ""} ${i === BANDS.length - 1 ? "rounded-b-md" : ""}`}
             >
-              <span className="text-[0.56rem] font-bold uppercase tracking-[0.12em] opacity-75 sm:text-[0.6rem]">{b.level}</span>
-              <span className="text-right text-[0.56rem] leading-snug opacity-80 sm:text-[0.68rem]">{b.leagues}</span>
-              <div className="col-span-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 py-1">
+              <span className="text-[10px] font-bold uppercase tracking-[0.1em] opacity-75">{b.level}</span>
+              <span className="text-right text-[10px] leading-snug opacity-85 sm:text-[11px]">{b.leagues}</span>
+              <div className="col-span-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 py-0.5">
                 {b.logos.map(([f, alt, wide]) => (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img key={f + alt} src={`/pyramid/${f}`} alt={alt} title={alt} loading="lazy"
-                    className={`object-contain ${wide ? "h-6 w-auto max-w-[30%] sm:h-[38px]" : "h-11 w-[30%] sm:h-[60px] sm:w-[60px]"}`} />
+                    className={`object-contain ${wide ? "h-5 w-auto max-w-[30%] sm:h-6" : "h-9 w-[30%] sm:h-10 sm:w-10"}`} />
                 ))}
               </div>
               <div className="col-span-2 flex flex-wrap justify-center gap-1.5">
                 {chips.length ? chips.map(([label, v]) => (
-                  <span key={label} className="rounded-full bg-black/15 px-2 py-0.5 text-[11px] font-semibold tabular-nums sm:text-xs">
+                  <span key={label} className="rounded-full bg-black/15 px-2 py-px text-[11px] font-semibold tabular-nums">
                     {label} {v!.toFixed(1)}
                   </span>
                 )) : <span className="text-[11px] opacity-60">not rated</span>}
               </div>
-              <span className="col-span-2 text-[0.72rem] font-bold tracking-[-0.01em] sm:text-[0.82rem]">{b.name}</span>
+              <span className="col-span-2 text-xs font-bold tracking-[-0.01em] sm:text-[13px]">{b.name}</span>
             </div>
           );
         })}
       </div>
-      <figcaption className="mt-4 text-xs leading-relaxed text-muted-foreground">
+      <figcaption className="mx-auto mt-4 max-w-[620px] text-xs leading-relaxed text-muted-foreground">
         Read down the pyramid and the medians should fall. They don&rsquo;t at the top: ECNL (level 2) and MLS NEXT AD
         (level 3) rate as high as or higher than MLS NEXT HD (level 1), and the best level 3 leagues sit close behind. The
         pyramid ranks access to the pro pathway; results show levels 1 to 3 overlapping. Levels 4 and 5 do fall in order.
