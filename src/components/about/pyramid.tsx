@@ -64,20 +64,19 @@ export function Pyramid({ groups, group = "U15|Boys", minTeams = 5 }: {
         . The key gives our median team rating for each league&rsquo;s {age} {gender.toLowerCase()} Cal South teams, 2026/27.
       </p>
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_210px] lg:gap-8">
-      <div className="mx-auto flex w-full max-w-[620px] flex-col items-center">
-        {BANDS.map((b, i) => {
+      <div className="mx-auto flex w-full max-w-[620px] flex-col items-center gap-[3px]">
+        {BANDS.map((b) => {
           return (
             <div
               key={b.level}
-              className={`${b.cls} ${b.width} grid grid-cols-[auto_1fr] items-baseline gap-x-3 gap-y-1 px-3 py-1.5 sm:px-3.5 ${
-                i === 0 ? "rounded-t-md" : ""} ${i === BANDS.length - 1 ? "rounded-b-md" : ""}`}
+              className={`${b.cls} ${b.width} grid grid-cols-[auto_1fr] items-baseline gap-x-3 gap-y-1 rounded-lg px-3 py-1.5 sm:px-3.5`}
             >
               <span className="whitespace-nowrap">
                 <span className="text-[10px] font-bold uppercase tracking-[0.1em] opacity-75">{b.level}</span>{" "}
                 <span className="text-xs font-bold tracking-[-0.01em] sm:text-[13px]">{b.name}</span>
               </span>
-              {/* long league lists (level 5) get a smaller size so they fit the band */}
-              <span className={`text-right leading-snug opacity-85 ${b.leagues.length > 60 ? "text-[8.5px] sm:text-[9.5px]" : "text-[10px] sm:text-[11px]"}`}>{b.leagues}</span>
+              {/* short league lists sit right of the name; a long one (level 5) runs across the band under the logos */}
+              {b.leagues.length <= 60 && <span className="text-right text-[10px] leading-snug opacity-85 sm:text-[11px]">{b.leagues}</span>}
               <div className="col-span-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
                 {b.logos.map(([f, alt, wide]) => (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -85,6 +84,7 @@ export function Pyramid({ groups, group = "U15|Boys", minTeams = 5 }: {
                     className={`object-contain ${wide ? "h-4 w-auto sm:h-5" : "h-7 w-7 sm:h-8 sm:w-8"}`} />
                 ))}
               </div>
+              {b.leagues.length > 60 && <span className="col-span-2 text-center text-[9px] leading-snug opacity-85 sm:text-[10px]">{b.leagues}</span>}
             </div>
           );
         })}
