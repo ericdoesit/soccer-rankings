@@ -2,8 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { getStats, RANK_RULES } from "@/lib/data";
 import { getAreas } from "@/lib/explore";
 import { WestMap } from "@/components/west-map";
-import { getAboutCharts, SOCAL_LEAGUE_ORDER } from "@/lib/about-charts";
-import { HBars, LeagueOverlap } from "@/components/about/charts";
+import { getAboutCharts, getLeagueRanges, SOCAL_LEAGUE_ORDER } from "@/lib/about-charts";
+import { HBars, LeagueOverlap, LeagueRanges } from "@/components/about/charts";
 import { Pyramid } from "@/components/about/pyramid";
 
 /** 2026-27 season: school-year age groups (Aug 1 – Jul 31); U## = 2027 − school birth year */
@@ -14,6 +14,15 @@ export default function AboutPage() {
   const stats = getStats();
   const areas = getAreas();
   const charts = getAboutCharts();
+  const ranges = getLeagueRanges();
+  // SoCal League: first-team flights only (F2–F4 are development teams), as in the pyramid key
+  const shownLeagues = SOCAL_LEAGUE_ORDER.filter((l) => !/^SoCal F[2-4]$/.test(l));
+  // headline numbers for "How We Compare Leagues": U15 boys, MLS NEXT HD (the thinnest-linked elite league)
+  const hd = ranges?.ranges["U15|Boys"]?.["MLS NEXT HD"];
+  const hdEvent = ranges?.events.map((e) => ({ event: e.event, d: e.shifts["U15|Boys"]?.["MLS NEXT HD"] ?? 0 }))
+    .sort((a, b) => Math.abs(b.d) - Math.abs(a.d))[0];
+  const mostLinked = ranges ? Object.entries(ranges.ranges["U15|Boys"] ?? {}).filter(([l]) => shownLeagues.includes(l))
+    .sort((a, b) => b[1].crossGames - a[1].crossGames)[0] : undefined;
   const pct = (n: number) => `${Math.round(n * 100)}%`;
   const typeColor = { "Elite & national leagues": "red", "State & local leagues": "blue", "Tournaments & showcases": "gold", "State Cups & championships": "green" } as const;
   const ageRows = Array.from({ length: 14 }, (_, i) => 2008 + i).map((by) => ({
@@ -148,10 +157,61 @@ export default function AboutPage() {
                 not the strength of its teams: on results, levels 1 to 3 overlap. Hover or tap the chart for team counts.
               </p>
               {/* SoCal League: first-team flights only (F2–F4 are development teams), as in the pyramid key */}
-              <LeagueOverlap groups={charts.socal} order={SOCAL_LEAGUE_ORDER.filter((l) => !/^SoCal F[2-4]$/.test(l))} />
+              <LeagueOverlap groups={charts.socal} order={shownLeagues} />
             </div>
           </CardContent>
         </Card>
+
+        {ranges && hd && (
+          <Card>
+            <CardContent>
+              <h2 className="heading-sm mb-3">How We Compare Leagues</h2>
+              <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+                <p>
+                  Games inside a league only put its teams in order. If every team in a league drew with every other,
+                  we would learn that they are equal, not how good they are.
+                </p>
+                <p>
+                  A league&rsquo;s level comes from games against other leagues: tournaments, showcases, State Cups and
+                  friendlies, and chains of results (if A beats B and B beats C, A sits above C). The best teams
+                  meeting each other is enough, because each team&rsquo;s league games already place it among its
+                  league-mates.
+                </p>
+                <p>
+                  Those games are few and uneven, so we test how firm each league&rsquo;s level is. We re-run the full
+                  ratings {`${ranges.replicates} times`}, each time reshuffling which games between leagues count, and we
+                  leave out each league&rsquo;s biggest connecting tournament, one at a time.
+                </p>
+              </div>
+
+              <div className="insight-row mt-5">
+                <div className="insight">
+                  <div className="i-num">{hd.crossGames}</div>
+                  <p>games tie U15 MLS NEXT HD teams to other leagues, the fewest of the elite leagues{mostLinked ? ` (${mostLinked[0]}: ${mostLinked[1].crossGames})` : ""}</p>
+                </div>
+                <div className="insight">
+                  <div className="i-num">{hd.lo.toFixed(1)}–{hd.hi.toFixed(1)}</div>
+                  <p>where U15 MLS NEXT HD&rsquo;s median of {hd.median.toFixed(1)} landed in 80% of the re-runs</p>
+                </div>
+                {hdEvent && Math.abs(hdEvent.d) >= 0.3 && (
+                  <div className="insight">
+                    <div className="i-num">{hdEvent.d > 0 ? "+" : "−"}{Math.abs(hdEvent.d).toFixed(1)}</div>
+                    <p>goals U15 MLS NEXT HD moves without one event: {hdEvent.event}</p>
+                  </div>
+                )}
+              </div>
+
+              <div className="mt-10">
+                <LeagueRanges groups={ranges.ranges} events={ranges.events} leagues={shownLeagues} replicates={ranges.replicates} />
+              </div>
+              <p className="mt-4 border-t border-[var(--surface-line)] pt-3 text-xs leading-relaxed text-muted-foreground">
+                The ranges show how much each level depends on which games happened to be played. They can&rsquo;t catch
+                games that misrepresent a team, such as a preseason showcase where teams rotate players. That is what the
+                one-event test is for. Recomputed with each data refresh ({ranges.builtAt.slice(0, 10)}).
+              </p>
+            </CardContent>
+          </Card>
+        )}
 
         <Card>
           <CardContent>

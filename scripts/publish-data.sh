@@ -16,6 +16,7 @@ FILES=(
   data/discovery                     # tournament division labels, team event lists (tournament-view, team-context, league-rankings)
   data/predictions                   # MLS NEXT page (mlsnext.ts) and event predictions /events/[id] (events.ts)
   data/upcoming-events.json          # Events tab (src/lib/events.ts)
+  data/league-ranges.json            # About page league ranges (scripts/league-ranges.ts)
   data/coast-soccer/games.json       # CSL league rankings (src/lib/league-rankings.ts)
   data/norcal-premier/clubs.json     # NorCal Premier club list (src/lib/explore.ts)
   data/ysg/teams.json                # team names (data.ts)

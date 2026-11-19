@@ -9,6 +9,7 @@
  */
 import { getDataSet } from "@/lib/data";
 import fs from "fs";
+import path from "path";
 import { trackedByName } from "@/lib/directory/tracked";
 import { discoveryFilesFor } from "@/lib/tournament-view";
 
@@ -75,7 +76,7 @@ const socalLeagueOf = (name: string) => SOCAL_LEAGUES.find(([re]) => re.test(nam
 
 const ELITE = new Set(["MLS NEXT", "Elite Academy League", "USL Academy", "Girls Academy", "GA Aspire", "DPL", "ECNL", "N1", "USYS National League", "Multi-state league / NPL Finals"]);
 export const GAME_TYPES = ["Elite & national leagues", "State & local leagues", "Tournaments & showcases", "State Cups & championships"] as const;
-function gameType(name: string): (typeof GAME_TYPES)[number] {
+export function gameType(name: string): (typeof GAME_TYPES)[number] {
   const t = trackedByName(name ?? "");
   if (t && ELITE.has(t)) return "Elite & national leagues";
   if (t === "State Cup" || t === "Championship") return "State Cups & championships";
@@ -98,7 +99,7 @@ export interface AboutCharts {
  * Shared with scripts/league-ranges.ts so the ranges describe the same teams as the charts.
  */
 export function socalLeagueMembership(data: { teams: Array<{ id: number; state?: string; gotsportTeamId?: number }>; games: Array<{ team1Id: number; team2Id: number; date: string; status?: string; tournamentName?: string | null }> }): Map<number, string> {
-  const cas = new Set(data.teams.filter((t) => t.state === "CAS").map((t) => t.id));
+  const casTeams = new Set(data.teams.filter((t) => t.state === "CAS").map((t) => t.id));
   const leagueGames = new Map<number, Map<string, number>>();
   const socalEvents = new Set<string>();
   for (const g of data.games) {
@@ -107,7 +108,7 @@ export function socalLeagueMembership(data: { teams: Array<{ id: number; state?:
     if (!league || OFF_SEASON.test(g.tournamentName ?? "")) continue;
     if (league === "SoCal Soccer League") socalEvents.add(g.tournamentName!);
     for (const id of [g.team1Id, g.team2Id]) {
-      if (!cas.has(id)) continue;
+      if (!casTeams.has(id)) continue;
       const m = leagueGames.get(id) ?? new Map<string, number>();
       m.set(league, (m.get(league) ?? 0) + 1);
       leagueGames.set(id, m);
@@ -137,7 +138,6 @@ export function getAboutCharts(): AboutCharts {
 
   const teamById = new Map(data.teams.map((t) => [t.id, t]));
   const west = (id: number) => teamById.get(id)?.region === "Region4";
-  const cas = (id: number) => teamById.get(id)?.state === "CAS";
 
   const byType = new Map<string, number>();
   const comps = new Set<string>();
@@ -171,4 +171,24 @@ export function getAboutCharts(): AboutCharts {
   };
   cache.set(data, out);
   return out;
+}
+
+/** data/league-ranges.json (scripts/league-ranges.ts): how sure each league's level is */
+export interface LeagueRanges {
+  builtAt: string;
+  replicates: number;
+  /** "U15|Boys" → league → median rating, its 80% range over the replicates, teams, games vs other leagues */
+  ranges: Record<string, Record<string, { median: number; lo: number; hi: number; teams: number; crossGames: number }>>;
+  /** the events with the most cross-league games, each dropped once: league median shifts */
+  events: Array<{ event: string; crossGames: number; shifts: Record<string, Record<string, number>> }>;
+}
+let rangesCache: { mtime: number; value: LeagueRanges | null } | null = null;
+export function getLeagueRanges(): LeagueRanges | null {
+  const file = path.join(process.cwd(), "data", "league-ranges.json");
+  try {
+    const mtime = fs.statSync(file).mtimeMs;
+    if (rangesCache?.mtime === mtime) return rangesCache.value;
+    rangesCache = { mtime, value: JSON.parse(fs.readFileSync(file, "utf8")) as LeagueRanges };
+    return rangesCache.value;
+  } catch { return null; }
 }

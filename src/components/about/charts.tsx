@@ -312,3 +312,97 @@ export function LeagueOverlap({ groups, order, initial = "U15|Boys" }: {
     </div>
   );
 }
+
+/* ───────────── league ranges: how firm each league's level is ───────────── */
+
+type Range = { median: number; lo: number; hi: number; teams: number; crossGames: number };
+const LEVEL_COLOR: Record<number, keyof Palette> = { 1: "gold", 2: "red", 3: "blue", 4: "green", 5: "ink" };
+
+/**
+ * One row per league: the bar is the 80% range of its median rating over the bootstrap re-runs
+ * (scripts/league-ranges.ts), the dot the median; the end label the games linking it to other leagues.
+ */
+export function LeagueRanges({ groups, events, leagues, replicates, initial = "U15" }: {
+  groups: Record<string, Record<string, Range>>;
+  events: Array<{ event: string; shifts: Record<string, Record<string, number>> }>;
+  /** leagues to draw, in tie-break order */
+  leagues: string[];
+  replicates: number;
+  initial?: string;
+}) {
+  const ages = useMemo(() => Object.keys(groups).filter((k) => k.endsWith("|Boys")).map((k) => k.split("|")[0])
+    .sort((a, b) => Number(a.slice(1)) - Number(b.slice(1))), [groups]);
+  const [age, setAge] = useState(ages.includes(initial) ? initial : ages[0]);
+  const key = `${age}|Boys`;
+  const rows = useMemo(() => Object.entries(groups[key] ?? {}).filter(([l]) => leagues.includes(l))
+    .map(([league, r]) => ({ league, ...r, level: PYRAMID_LEVEL[league] }))
+    .sort((a, b) => b.median - a.median), [groups, key, leagues]);
+  // the one-event test: the biggest move any single tournament causes at this age
+  const biggest = useMemo(() => {
+    let best: { event: string; league: string; d: number } | null = null;
+    for (const e of events) for (const [l, d] of Object.entries(e.shifts[key] ?? {})) {
+      if (!leagues.includes(l)) continue;
+      if (!best || Math.abs(d) > Math.abs(best.d)) best = { event: e.event, league: l, d };
+    }
+    return best;
+  }, [events, key, leagues]);
+
+  const [ref, W] = useWidth<HTMLDivElement>();
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !W || !rows.length) return;
+    const P = palette();
+    el.innerHTML = "";
+    const narrow = W < 520;
+    const rowH = narrow ? 40 : 30, top = 6;
+    const m = { left: narrow ? 8 : 170, right: narrow ? 8 : 120 };
+    const H = top + rows.length * rowH + 30;
+    const lo = Math.floor(d3.min(rows, (r) => r.lo)! - 0.5), hi = Math.ceil(d3.max(rows, (r) => r.hi)! + 0.5);
+    const x = d3.scaleLinear().domain([lo, hi]).range([m.left, W - m.right]);
+    const svg = d3.select(el).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H);
+    const xt = x.ticks(narrow ? 5 : 8);
+    svg.append("g").selectAll("line").data(xt).join("line")
+      .attr("x1", (d) => x(d)).attr("x2", (d) => x(d)).attr("y1", top).attr("y2", H - 24).attr("stroke", P.grid);
+    svg.append("g").selectAll("text").data(xt).join("text")
+      .attr("x", (d) => x(d)).attr("y", H - 8).attr("text-anchor", "middle").attr("fill", P.muted).attr("font-size", "11px").text((d) => d);
+    rows.forEach((r, i) => {
+      const y = top + i * rowH + (narrow ? 26 : rowH / 2);
+      const c = P[LEVEL_COLOR[r.level ?? 5] ?? "ink"];
+      const label = `${r.league}${r.level ? ` · L${r.level}` : ""}`;
+      if (narrow) svg.append("text").attr("x", m.left).attr("y", y - 11).attr("fill", P.text).attr("font-size", "11px").text(`${label} · ${r.crossGames} games vs other leagues`);
+      else {
+        svg.append("text").attr("x", m.left - 12).attr("y", y + 4).attr("text-anchor", "end").attr("fill", P.text).attr("font-size", "12px").text(label);
+        svg.append("text").attr("x", W - m.right + 12).attr("y", y + 4).attr("fill", P.muted).attr("font-size", "11px").text(`${r.crossGames} games vs others`);
+      }
+      svg.append("line").attr("x1", x(r.lo)).attr("x2", x(r.hi)).attr("y1", y).attr("y2", y)
+        .attr("stroke", c).attr("stroke-opacity", 0.35).attr("stroke-width", 9).attr("stroke-linecap", "round");
+      svg.append("circle").attr("cx", x(r.median)).attr("cy", y).attr("r", 5).attr("fill", c).attr("stroke", P.text).attr("stroke-opacity", r.level === 1 ? 0.5 : 0);
+      svg.append("rect").attr("x", 0).attr("y", y - rowH / 2).attr("width", W).attr("height", rowH).attr("fill", "transparent")
+        .on("mousemove", (ev) => showTip(ev, `<strong>${r.league}</strong><br>median ${r.median.toFixed(1)}, likely ${r.lo.toFixed(1)} – ${r.hi.toFixed(1)}<br>${r.teams} teams · ${r.crossGames} games vs other leagues`))
+        .on("mouseleave", hideTip);
+    });
+    return hideTip;
+  });
+
+  const pill = (on: boolean) => `rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${on ? "bg-foreground text-background" : "bg-muted text-foreground hover:bg-[var(--press)]"}`;
+  return (
+    <div>
+      <h3 className="heading-sm">How Sure Is Each League&rsquo;s Level? {age} Boys, Cal South</h3>
+      <p className="mt-1 mb-4 text-sm text-muted-foreground">
+        Dot: the league&rsquo;s median team rating. Bar: where it landed in 80% of {replicates} re-runs of the ratings,
+        each with the games between leagues reshuffled. A wide bar means few games tie the league to the others.
+      </p>
+      <div className="mb-5 flex flex-wrap gap-1.5" role="group" aria-label="Age group">
+        {ages.map((a) => <button key={a} type="button" className={pill(a === age)} onClick={() => setAge(a)}>{a}</button>)}
+      </div>
+      <div ref={ref} className="d3-chart" />
+      {biggest && (
+        <p className="mt-4 rounded-lg bg-muted px-4 py-3 text-sm leading-relaxed text-foreground">
+          {Math.abs(biggest.d) >= 0.3
+            ? <>One event matters: without <strong>{biggest.event}</strong>, {biggest.league}&rsquo;s median moves {biggest.d > 0 ? "up" : "down"} {Math.abs(biggest.d).toFixed(1)} goals. Its level leans on that event&rsquo;s results.</>
+            : <>No single tournament carries a league: leaving out each league&rsquo;s biggest connecting event moves no {age} median by more than {Math.abs(biggest.d).toFixed(1)} goals.</>}
+        </p>
+      )}
+    </div>
+  );
+}

@@ -12,6 +12,7 @@
     "scrape:modular11": "tsx scripts/scrape-modular11.ts",
     "scrape:mlsnext": "tsx scripts/scrape-mlsnext-tracker.ts",
     "predict:mlsnext": "tsx scripts/predict-mlsnext.ts",
+    "league:ranges": "tsx scripts/league-ranges.ts",
     "scrape:mlsnext-playoffs": "tsx scripts/scrape-mlsnext.ts",
     "scrape:surf": "tsx scripts/scrape-surfcup.ts",
     "scrape:coast": "tsx scripts/scrape-coast-soccer.ts",
