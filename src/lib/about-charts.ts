@@ -14,6 +14,10 @@ import { trackedByName } from "@/lib/directory/tracked";
 const SEASON_START = "2026-08-01";
 /** teams in the overlap chart need this many rated games (the rankings' own minimum) */
 const MIN_GAMES = 10;
+/** a team counts in a league only with this many of its games there this season */
+const MIN_LEAGUE_GAMES = 5;
+/** summer and off-season leagues (e.g. PSSLU Summer) aren't a team's league for the season */
+const OFF_SEASON = /\b(summer|winter)\b/i;
 
 /** Leagues a SoCal team can belong to, in display order (strongest tiers first).
  *  MLS NEXT: Homegrown (+ Flex, played by Homegrown teams) vs Academy Division. Clubs with a team
@@ -84,7 +88,7 @@ export function getAboutCharts(): AboutCharts {
     byType.set(type, (byType.get(type) ?? 0) + 1);
     if (!g.date || g.date < SEASON_START) continue;
     const league = socalLeagueOf(g.tournamentName ?? "");
-    if (!league) continue;
+    if (!league || OFF_SEASON.test(g.tournamentName ?? "")) continue;
     for (const id of [g.team1Id, g.team2Id]) {
       if (!cas(id)) continue;
       const m = leagueGames.get(id) ?? new Map<string, number>();
@@ -93,11 +97,12 @@ export function getAboutCharts(): AboutCharts {
     }
   }
 
-  // each team counts in the league it played most (ties: the stronger tier, by display order)
+  // each team counts in the league it played most (ties: the stronger tier, by display order),
+  // once it has MIN_LEAGUE_GAMES there
   const primary = new Map<number, string>();
   for (const [id, m] of leagueGames) {
-    const best = [...m].sort((a, b) => b[1] - a[1] || SOCAL_LEAGUE_ORDER.indexOf(a[0]) - SOCAL_LEAGUE_ORDER.indexOf(b[0]))[0][0];
-    primary.set(id, best);
+    const [best, n] = [...m].sort((a, b) => b[1] - a[1] || SOCAL_LEAGUE_ORDER.indexOf(a[0]) - SOCAL_LEAGUE_ORDER.indexOf(b[0]))[0];
+    if (n >= MIN_LEAGUE_GAMES) primary.set(id, best);
   }
   const rating = new Map(data.rankings.filter((r) => r.gamesPlayed >= MIN_GAMES).map((r) => [r.teamId, r.score]));
   const socal: AboutCharts["socal"] = {};

@@ -292,7 +292,7 @@ export function LeagueOverlap({ groups, order, initial = "U15|Boys" }: {
           {scale === "share"
             ? `Each curve is scaled to its own league, so every league has the same area and small leagues are as easy to read as big ones.`
             : `The area under each curve equals the league's number of rated ${age} ${gender.toLowerCase()} teams, so height shows both quality and quantity.`}{" "}
-          Each team counts in the league it played most in 2026/27 and has at least 10 rated games. MLS NEXT HD is the
+          Each team counts in the league it played most in 2026/27 (at least 5 games there; summer and winter leagues don’t count) and has at least 10 rated games. MLS NEXT HD is the
           Homegrown Division (Flex games included), AD the Academy Division.
         </p>
       )}
