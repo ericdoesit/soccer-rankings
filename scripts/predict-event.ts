@@ -11,17 +11,151 @@
  *   npx tsx scripts/predict-event.ts 57894 --score   # after the event: predictions vs results
  *
  * Writes data/predictions/<event>.json.
+ *
+ * --score never re-predicts: it grades the saved (pre-event) predictions file against the
+ * GotSport results in data/discovery/games/<event>.json, pairing games by match number + date
+ * (snapshot team ids change on every rebuild, and GotSport's result names often lack the club).
+ * It also writes each team's GotSport id at this event into the file as gotsportTeamId.
  */
 import * as fs from "fs";
 import * as path from "path";
 import { getDataSet } from "../src/lib/data";
 import { outcomeModel, type Outcome } from "../src/lib/predict";
-import type { Prediction, PredGroup } from "../src/lib/events";
+import type { Prediction, PredGroup, PredTeam } from "../src/lib/events";
 
 const eventId = process.argv[2];
 if (!eventId) { console.error("usage: npx tsx scripts/predict-event.ts <eventId> [--score]"); process.exit(1); }
 const FIX = path.join(process.cwd(), "data", "fixtures");
 const OUT = path.join(process.cwd(), "data", "predictions");
+
+if (process.argv.includes("--score")) { scoreSaved(); process.exit(0); }
+
+function scoreSaved() {
+  const predFile = path.join(OUT, `${eventId}.json`);
+  const gamesFile = path.join(process.cwd(), "data", "discovery", "games", `${eventId}.json`);
+  if (!fs.existsSync(predFile)) { console.error(`no saved predictions: ${predFile}`); process.exit(1); }
+  if (!fs.existsSync(gamesFile)) { console.error(`no GotSport results yet: ${gamesFile} (run the discovery crawler)`); process.exit(1); }
+  const pred: Prediction = JSON.parse(fs.readFileSync(predFile, "utf8"));
+  const results: Array<{ matchNumber: number | string; date: string; homeTeamId: number; awayTeamId: number; homeScore: number | null; awayScore: number | null }> =
+    JSON.parse(fs.readFileSync(gamesFile, "utf8"));
+  const byMatch = new Map(results.map((g) => [`${g.matchNumber}|${g.date}`, g]));
+  const key = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "");
+  // Schedules change after predictions are made (opponents swapped, home/away flipped), so a
+  // match number alone can pair the wrong teams. Pass 1: each GotSport id votes for the label it
+  // stood in for, using the schedule's home side; the majority wins. Pass 2 grades a game only
+  // when both of its ids belong to the two predicted teams, and takes home/away from the ids.
+  const votes = new Map<number, Map<string, number>>();
+  const vote = (id: number, k: string) => { const v = votes.get(id) ?? new Map<string, number>(); v.set(k, (v.get(k) ?? 0) + 1); votes.set(id, v); };
+  for (const d of pred.divisions) for (const g of d.groups) for (const m of g.matches) {
+    const res = m.schedule && byMatch.get(`${m.schedule.match}|${m.schedule.date}`);
+    if (!res) continue;
+    const aHome = key(m.schedule!.home) === key(m.a.label);
+    vote(aHome ? res.homeTeamId : res.awayTeamId, `${d.division}|${m.a.label}`);
+    vote(aHome ? res.awayTeamId : res.homeTeamId, `${d.division}|${m.b.label}`);
+  }
+  const owner = new Map<number, string>(); // GotSport id → division|label
+  for (const [id, v] of votes) owner.set(id, [...v].sort((x, y) => y[1] - x[1])[0][0]);
+  const gsId = new Map<string, number>(); // division|label → GotSport team id
+  for (const [id, k] of owner) if (!gsId.has(k) || (votes.get(id)!.get(k)! > votes.get(gsId.get(k)!)!.get(k)!)) gsId.set(k, id);
+  let changed = 0;
+  const noData = (t: PredTeam) => t.rating === null;
+  const split = () => ({ games: 0, correct: 0, favGames: 0, favWon: 0 });
+  const rated = split(), unrated = split();
+  const BUCKETS: Array<[number, number]> = [[0, 0.5], [0.5, 0.6], [0.6, 0.7], [0.7, 0.8], [0.8, 0.9], [0.9, 1.01]];
+  const buckets = BUCKETS.map(([from, to]) => ({ from, to: Math.min(to, 1), games: 0, predicted: 0, won: 0, drew: 0 }));
+  const upsets: NonNullable<Prediction["score"]>["upsets"] = [];
+  const big = { games: 0, lost: 0, lostNoData: 0 };
+  let n = 0, right = 0, logLoss = 0, favGames = 0, favWon = 0, draws = 0, unplayed = 0;
+  for (const d of pred.divisions) for (const g of d.groups) for (const m of g.matches) {
+    const res = m.schedule && byMatch.get(`${m.schedule.match}|${m.schedule.date}`);
+    if (!res) { unplayed++; continue; }
+    const ka = `${d.division}|${m.a.label}`, kb = `${d.division}|${m.b.label}`;
+    const h = owner.get(res.homeTeamId), w = owner.get(res.awayTeamId);
+    const aHome = h === ka && w === kb ? true : h === kb && w === ka ? false : null;
+    if (aHome === null) { changed++; m.result = null; continue; } // a different pairing was played
+    if (res.homeScore == null || res.awayScore == null) { unplayed++; continue; }
+    const as = aHome ? res.homeScore : res.awayScore, bs = aHome ? res.awayScore : res.homeScore;
+    m.result = { a: as, b: bs };
+    const actual: "win" | "draw" | "loss" = as > bs ? "win" : as === bs ? "draw" : "loss";
+    const call = (["win", "draw", "loss"] as const).reduce((x, y) => (m[y] > m[x] ? y : x));
+    const ok = call === actual, favA = m.win >= m.loss, chance = favA ? m.win : m.loss;
+    const favWins = actual !== "draw" && (actual === "win") === favA;
+    const side = noData(m.a) || noData(m.b) ? unrated : rated;
+    n++; side.games++;
+    if (ok) { right++; side.correct++; }
+    logLoss -= Math.log(Math.max(1e-6, m[actual]));
+    if (actual === "draw") draws++;
+    else { favGames++; side.favGames++; if (favWins) { favWon++; side.favWon++; } }
+    const b = buckets.find((x) => chance >= x.from && chance < x.to) ?? buckets[buckets.length - 1];
+    b.games++; b.predicted += chance; if (favWins) b.won++; if (actual === "draw") b.drew++;
+    if (chance >= 0.7) {
+      big.games++;
+      if (actual !== "draw" && !favWins) {
+        big.lost++; if (side === unrated) big.lostNoData++;
+        const [fav, opp] = favA ? [m.a, m.b] : [m.b, m.a];
+        upsets.push({ division: d.division, group: g.name, fav: fav.label, opp: opp.label, chance, score: favA ? `${as}–${bs}` : `${bs}–${as}`, noData: side === unrated });
+      }
+    }
+  }
+  buckets.forEach((b) => { if (b.games) b.predicted /= b.games; });
+  upsets.sort((x, y) => y.chance - x.chance);
+
+  // championship outcomes: knockout final (by match number) or the round-robin SuperGroup winner
+  const labelOf = new Map<string, string>(); // division|GotSport id → label
+  for (const [k, id] of gsId) labelOf.set(`${k.split("|")[0]}|${id}`, k.slice(k.indexOf("|") + 1));
+  const finals: NonNullable<Prediction["score"]>["finals"] = [];
+  let played = 0, favTopped = 0, expected = 0;
+  for (const d of pred.divisions) for (const g of d.groups) {
+    if (g.kind === "bracket") {
+      const byTitle = g.teams.filter((t) => t.reach).sort((x, y) => y.reach!.title - x.reach!.title);
+      const fin = (g.knockout ?? []).find((k) => /^final/i.test(k.round));
+      const res = fin && byMatch.get(`${fin.match}|${fin.date}`);
+      if (!byTitle.length || !res || res.homeScore == null || res.awayScore == null) continue;
+      const home = labelOf.get(`${d.division}|${res.homeTeamId}`) ?? fin!.home, away = labelOf.get(`${d.division}|${res.awayTeamId}`) ?? fin!.away;
+      const winner = res.homeScore > res.awayScore ? home : res.awayScore > res.homeScore ? away : null; // a draw went to penalties
+      const w = winner ? byTitle.findIndex((t) => t.label === winner) : -1;
+      finals.push({ division: d.division, group: g.name, kind: "final", favorite: byTitle[0].label, favChance: byTitle[0].reach!.title,
+        home, away, score: `${res.homeScore}–${res.awayScore}`, winner, winnerChance: w >= 0 ? byTitle[w].reach!.title : null, winnerRank: w >= 0 ? w + 1 : null });
+      continue;
+    }
+    if (!g.matches.length || g.matches.some((m) => !m.result)) continue;
+    const st = new Map(g.teams.map((t) => [t.label, { p: 0, gd: 0, gf: 0 }]));
+    for (const m of g.matches) {
+      const A = st.get(m.a.label)!, B = st.get(m.b.label)!, { a, b } = m.result!;
+      A.gd += a - b; B.gd += b - a; A.gf += a; B.gf += b;
+      if (a > b) A.p += 3; else if (b > a) B.p += 3; else { A.p++; B.p++; }
+    }
+    const order = [...st].sort((x, y) => y[1].p - x[1].p || y[1].gd - x[1].gd || y[1].gf - x[1].gf).map(([l]) => l);
+    const byOdds = [...g.teams].sort((x, y) => (y.winGroup ?? 0) - (x.winGroup ?? 0));
+    played++; expected += byOdds[0].winGroup ?? 0; if (order[0] === byOdds[0].label) favTopped++;
+    if (/supergroup/i.test(g.name)) {
+      const w = byOdds.findIndex((t) => t.label === order[0]);
+      finals.push({ division: d.division, group: g.name, kind: "group", favorite: byOdds[0].label, favChance: byOdds[0].winGroup ?? 0,
+        winner: order[0], winnerChance: byOdds[w]?.winGroup ?? null, winnerRank: w + 1 });
+    }
+  }
+
+  // null = no GotSport id played as this team (e.g. it withdrew and others filled its games)
+  const tag = (div: string, t: PredTeam) => { t.gotsportTeamId = gsId.get(`${div}|${t.label}`) ?? null; };
+  for (const d of pred.divisions) {
+    for (const g of d.groups) { g.teams.forEach((t) => tag(d.division, t)); g.matches.forEach((m) => { tag(d.division, m.a); tag(d.division, m.b); }); }
+    d.ranking.forEach((t) => tag(d.division, t));
+  }
+  const pct = (x: number) => `${(x * 100).toFixed(1)}%`;
+  console.log(`SCORE: ${n} games graded (${unplayed} not found or unplayed, ${changed} played by a different pairing than predicted) · most-likely result right ${n ? pct(right / n) : "—"}` +
+    ` · favorite won ${favGames ? pct(favWon / favGames) : "—"} of decided games · avg log loss ${n ? (logLoss / n).toFixed(3) : "—"} (coin flip 1.099)`);
+  buckets.filter((b) => b.games).forEach((b) => console.log(`  favorite ${Math.round(b.from * 100)}–${Math.round(b.to * 100)}%: ${b.games} games · predicted ${pct(b.predicted)} · won ${pct(b.won / b.games)} · drew ${pct(b.drew / b.games)}`));
+  console.log(`  both rated: ${rated.correct}/${rated.games} right · with a no-data team: ${unrated.correct}/${unrated.games} right`);
+  console.log(`  70%+ favorites lost ${big.lost} of ${big.games} (${big.lostNoData} involving a no-data team) · group favorites topped ${favTopped}/${played} (expected ${expected.toFixed(1)})`);
+  finals.forEach((f) => console.log(`  ${f.division} ${f.group}: favorite ${f.favorite} ${pct(f.favChance)} → ${f.kind === "final" ? `${f.home} ${f.score} ${f.away}` : `won by ${f.winner}`}`));
+  console.log(`GotSport ids recorded for ${gsId.size} teams`);
+  pred.score = {
+    games: n, correct: right, logLoss: n ? logLoss / n : null, gradedAt: new Date().toISOString(),
+    favGames, favWon, draws, buckets: buckets.filter((b) => b.games), rated, noData: unrated, bigUpsets: big,
+    upsets: upsets.slice(0, 8), finals, groups: { played, favTopped, expected },
+  };
+  fs.writeFileSync(predFile, JSON.stringify(pred, null, 2) + "\n");
+}
 const readTsv = (f: string) => fs.existsSync(f)
   ? fs.readFileSync(f, "utf8").split("\n").filter((l) => l.trim() && !l.startsWith("#")).map((l) => l.split("\t").map((c) => c.trim()))
   : [];
@@ -239,23 +373,5 @@ for (const div of divisions) {
 }
 console.log(`\nmatched ${entries.length - unmatched.length}/${entries.length} teams (${entries.filter((e) => e.confidence === "exact").length} exact name, ${entries.filter((e) => e.confidence === "club").length} by club); rated ${out.teams.rated}`);
 
-// ---- after the event: how did the predictions do? ----
-if (process.argv.includes("--score")) {
-  const ids = new Set(entries.map((e) => e.teamId).filter(Boolean) as number[]);
-  const evGames = ds.games.filter((g) => g.tournamentName && g.tournamentName === (event.fullName ?? event.name) && g.date >= (event.start ?? "") && ids.has(g.team1Id) && ids.has(g.team2Id));
-  let right = 0, logLoss = 0, n = 0;
-  for (const g of evGames) {
-    const a = rating.get(g.team1Id), b = rating.get(g.team2Id);
-    if (a === undefined || b === undefined) continue;
-    const o = predict(a, b);
-    const actual = g.team1Score > g.team2Score ? "win" : g.team1Score === g.team2Score ? "draw" : "loss";
-    const call = o.win >= o.loss ? (o.win >= o.draw ? "win" : "draw") : (o.loss >= o.draw ? "loss" : "draw");
-    if (call === actual) right++;
-    logLoss -= Math.log(Math.max(1e-6, o[actual]));
-    n++;
-  }
-  console.log(`\nSCORE: ${n} games · most-likely result right ${n ? pct(right / n) : "—"} · avg log loss ${n ? (logLoss / n).toFixed(3) : "—"}`);
-  out.score = { games: n, correct: right, logLoss: n ? logLoss / n : null };
-}
 fs.mkdirSync(OUT, { recursive: true });
 fs.writeFileSync(path.join(OUT, `${eventId}.json`), JSON.stringify(out, null, 2) + "\n");

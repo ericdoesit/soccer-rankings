@@ -100,6 +100,61 @@ export function HBars({ rows, valFmt = (v) => v.toLocaleString() }: {
   return <div ref={ref} className="d3-chart" />;
 }
 
+/* ───────────── paired horizontal bars: two values per row (e.g. predicted vs actual) ───────────── */
+export function PairedBars({ rows, series, max = 1, valFmt = (v) => `${Math.round(v * 100)}%` }: {
+  rows: Array<{ label: string; a: number; b: number; tip?: string }>;
+  series: [{ name: string; c: keyof Palette }, { name: string; c: keyof Palette }];
+  max?: number;
+  valFmt?: (v: number) => string;
+}) {
+  const [ref, W] = useWidth<HTMLDivElement>();
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !W) return;
+    const P = palette();
+    el.innerHTML = "";
+    const narrow = W < 520;
+    const m = narrow ? { top: 4, right: 44, bottom: 26, left: 4 } : { top: 4, right: 56, bottom: 26, left: 150 };
+    const barH = 13, inner = 3, gap = 14, labelH = narrow ? 17 : 0, step = barH * 2 + inner + gap + labelH;
+    const H = m.top + m.bottom + rows.length * step;
+    const svg = d3.select(el).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H);
+    const x = d3.scaleLinear().domain([0, max]).range([m.left, W - m.right]);
+    const ticks = x.ticks(narrow ? 4 : 5);
+    svg.append("g").selectAll("line").data(ticks).join("line")
+      .attr("x1", (d) => x(d)).attr("x2", (d) => x(d)).attr("y1", m.top).attr("y2", H - m.bottom).attr("stroke", P.grid);
+    svg.append("g").selectAll("text").data(ticks).join("text")
+      .attr("x", (d) => x(d)).attr("y", H - 8).attr("text-anchor", "middle")
+      .attr("fill", P.muted).attr("font-size", "11px").text((d) => valFmt(d));
+    rows.forEach((r, i) => {
+      const y = m.top + i * step + labelH;
+      if (narrow) svg.append("text").attr("x", m.left).attr("y", y - 5).attr("fill", P.text).attr("font-size", "11px").text(r.label);
+      else svg.append("text").attr("x", m.left - 10).attr("y", y + barH + inner / 2 + 4).attr("text-anchor", "end")
+        .attr("fill", P.text).attr("font-size", "12px").text(r.label);
+      ([r.a, r.b] as const).forEach((v, k) => {
+        const yy = y + k * (barH + inner), bw = Math.max(2, x(v) - x(0));
+        svg.append("rect").attr("x", x(0)).attr("y", yy).attr("width", bw).attr("height", barH).attr("rx", 2).attr("fill", P[series[k].c])
+          .on("mousemove", (ev) => showTip(ev, `<strong>${r.label}</strong><br>${series[k].name}: ${valFmt(v)}${r.tip ? `<br>${r.tip}` : ""}`))
+          .on("mouseleave", hideTip);
+        svg.append("text").attr("x", x(0) + bw + 6).attr("y", yy + barH / 2 + 4)
+          .attr("fill", P.text).attr("font-size", "11px").attr("font-weight", k ? 600 : 400).text(valFmt(v));
+      });
+    });
+    return hideTip;
+  });
+  return (
+    <div>
+      <div className="chart-legend">
+        {series.map((s) => (
+          <span key={s.name} className="legend-item">
+            <span style={{ width: 10, height: 10, borderRadius: 2, background: `var(--ch-${s.c})`, display: "inline-block" }} />{s.name}
+          </span>
+        ))}
+      </div>
+      <div ref={ref} className="d3-chart" />
+    </div>
+  );
+}
+
 /* ───────────── league overlap: count-scaled rating densities ───────────── */
 
 /** League colours: one hue per league family, dashed line for its second tier. */

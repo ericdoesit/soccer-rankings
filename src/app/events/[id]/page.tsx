@@ -2,7 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getPrediction, formatDates, type PredTeam, type PredMatch, type PredGroup, type KnockoutRow } from "@/lib/events";
+import { getPrediction, formatDates, type PredTeam, type PredMatch, type PredGroup, type KnockoutRow, type EventScore } from "@/lib/events";
+import { PairedBars } from "@/components/about/charts";
 import { chip } from "@/lib/ui-classes";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
@@ -47,9 +48,12 @@ function OutcomeBar({ m }: { m: PredMatch }) {
 function MatchRow({ m: raw }: { m: PredMatch }) {
   // scheduled matches: home team on the left, as on the event schedule
   const m = raw.schedule && raw.schedule.home === raw.b.label
-    ? { ...raw, a: raw.b, b: raw.a, win: raw.loss, loss: raw.win, margin: -raw.margin } : raw;
+    ? { ...raw, a: raw.b, b: raw.a, win: raw.loss, loss: raw.win, margin: -raw.margin, result: raw.result && { a: raw.result.b, b: raw.result.a } } : raw;
   const fav = m.margin >= 0 ? m.a : m.b;
   const gap = Math.abs(m.margin);
+  const r = m.result;
+  const call = (["win", "draw", "loss"] as const).reduce((x, y) => (m[y] > m[x] ? y : x));
+  const actual = r ? (r.a > r.b ? "win" : r.a === r.b ? "draw" : "loss") : null;
   return (
     <div className="py-2.5">
       {m.schedule && (
@@ -65,8 +69,132 @@ function MatchRow({ m: raw }: { m: PredMatch }) {
       <div className="mt-1.5"><OutcomeBar m={m} /></div>
       <p className="mt-1 text-[11px] text-muted-foreground">
         {gap < 0.25 ? "Even match" : `${fav.club} by ${gap.toFixed(1)} goal${gap >= 1.05 ? "s" : ""}`}
+        {r && (
+          <>
+            {" · "}
+            <span className="font-semibold text-foreground tabular-nums">Final {r.a}–{r.b}</span>
+            {" · "}
+            <span className={actual === call ? "text-foreground" : undefined}>{actual === call ? "✓ called it" : "✗ missed"}</span>
+          </>
+        )}
       </p>
     </div>
+  );
+}
+
+const pct1 = (a: number, b: number) => (b ? `${Math.round((100 * a) / b)}%` : "—");
+
+/** After the event: the pre-event predictions graded against the results. */
+function ModelResults({ s, generatedAt, teams }: { s: EventScore; generatedAt: string; teams: Map<string, PredTeam> }) {
+  const big = s.bigUpsets;
+  const nm = (label: string | null | undefined) => (label ? (teams.has(label) ? displayName(teams.get(label)!) : label) : "");
+  return (
+    <Card className="mt-6">
+      <CardContent className="space-y-6">
+        <div>
+          <h2 className="heading-sm">How the Model Did</h2>
+          <p className="mt-1 text-sm text-muted-foreground">
+            These predictions were made on {formatDates(generatedAt.slice(0, 10))}, before the event, and haven&apos;t been changed.
+            Here they are checked against {s.games} results.
+          </p>
+        </div>
+
+        <div className="insight-row">
+          <div className="insight">
+            <div className="i-num">{pct1(s.correct, s.games)}</div>
+            <p>of games ended in the result we rated most likely (win, draw or loss): {s.correct} of {s.games}. A random pick gets about a third.</p>
+          </div>
+          {s.favGames ? (
+            <div className="insight">
+              <div className="i-num">{pct1(s.favWon ?? 0, s.favGames)}</div>
+              <p>of games with a winner went to the team we favored; {s.draws} more were draws</p>
+            </div>
+          ) : null}
+          {s.rated && s.noData && s.noData.games > 0 && (
+            <div className="insight">
+              <div className="i-num">{pct1(s.rated.correct, s.rated.games)} <span className="text-muted-foreground text-xl">vs {pct1(s.noData.correct, s.noData.games)}</span></div>
+              <p>right when both teams had a rating, against games with a &ldquo;no data&rdquo; team ({s.noData.games} of {s.games} games)</p>
+            </div>
+          )}
+          {big && big.games > 0 && (
+            <div className="insight">
+              <div className="i-num">{big.lost} <span className="text-muted-foreground text-xl">of {big.games}</span></div>
+              <p>strong favorites (70%+) lost{big.lostNoData ? `, ${big.lostNoData} of them in games with a team we had no data on` : ""}</p>
+            </div>
+          )}
+        </div>
+
+        {s.buckets && s.buckets.length > 1 && (
+          <div>
+            <p className="chart-title">Favorites won less often than predicted</p>
+            <PairedBars
+              series={[{ name: "Predicted win", c: "dim" }, { name: "Actually won", c: "blue" }]}
+              rows={s.buckets.map((b) => ({
+                label: b.from === 0 ? "Under 50% favorite" : `${Math.round(b.from * 100)}–${Math.round(b.to * 100)}% favorite`,
+                a: b.predicted, b: b.won / b.games,
+                tip: `${b.games} games · ${Math.round((100 * b.drew) / b.games)}% drawn`,
+              }))}
+            />
+            <p className="mt-2 text-xs text-muted-foreground">
+              Games grouped by how likely we made the favorite to win. Draws count as not winning.
+            </p>
+          </div>
+        )}
+
+        {s.finals && s.finals.length > 0 && (
+          <div>
+            <p className="chart-title">SuperGroup champions</p>
+            <div className="divide-y divide-border/50 text-sm">
+              {s.finals.map((f) => {
+                const favWon = f.winner === f.favorite;
+                return (
+                  <div key={`${f.division}${f.group}`} className="grid gap-1 py-2.5 md:grid-cols-[4rem_1fr_1.4fr] md:gap-4">
+                    <span className="font-semibold">{f.division}{f.kind === "group" ? ` ${f.group.replace("SuperGroup ", "")}` : ""}</span>
+                    <span className="text-muted-foreground">Favorite: <span className="text-foreground">{nm(f.favorite)}</span> ({pct(f.favChance)})</span>
+                    <span>
+                      {f.kind === "final" ? <>Final: {nm(f.home)} <span className="font-semibold tabular-nums">{f.score}</span> {nm(f.away)}</> : <>Won by {nm(f.winner)}</>}
+                      <span className="text-muted-foreground">
+                        {f.winner === null
+                          ? (f.home === f.favorite || f.away === f.favorite ? " · favorite reached the final, decided on penalties" : " · decided on penalties")
+                          : favWon ? " · ✓ the favorite" : f.winnerRank ? ` · our #${f.winnerRank} pick (${pct(f.winnerChance ?? 0)})` : ""}
+                      </span>
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+            {s.groups && s.groups.played > 0 && (
+              <p className="mt-2 text-xs text-muted-foreground">
+                Across all {s.groups.played} round-robin groups, our favorite finished first in {s.groups.favTopped}; the model expected about {Math.round(s.groups.expected)}.
+              </p>
+            )}
+          </div>
+        )}
+
+        {s.upsets && s.upsets.length > 0 && (
+          <div>
+            <p className="chart-title">Biggest upsets</p>
+            <div className="divide-y divide-border/50 text-sm">
+              {s.upsets.slice(0, 5).map((u) => (
+                <div key={`${u.division}${u.fav}${u.opp}`} className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5 py-2">
+                  <span><span className="font-semibold tabular-nums">{pct(u.chance)}</span> favorite {nm(u.fav)} lost <span className="tabular-nums">{u.score}</span> to {nm(u.opp)}</span>
+                  <span className="text-xs text-muted-foreground">{u.division} {u.group}{u.noData ? " · no-data team" : ""}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div className="rounded-xl border border-border/60 bg-muted/40 p-4 text-sm">
+          <p>
+            <span className="font-semibold">What this tells us.</span> The ratings put teams in the right order more often than not, but
+            favorites won less often than predicted. On everyday games the odds hold up, so the gap here comes mostly from the
+            teams marked &ldquo;no data&rdquo;: about half the games involved one, and many of those teams had played all season under a
+            different name on GotSport, so we never connected them to their results.
+          </p>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -204,6 +332,11 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
       </div>
       {e.format && <p className="mt-4 max-w-3xl text-sm">{e.format}</p>}
 
+      {p.score?.buckets && (
+        <ModelResults s={p.score} generatedAt={p.generatedAt}
+          teams={new Map(p.divisions.flatMap((d) => d.groups.flatMap((g) => g.teams)).map((t) => [t.label, t]))} />
+      )}
+
       <Card className="mt-6">
         <CardContent className="text-sm text-muted-foreground space-y-1.5">
           <p>
@@ -217,7 +350,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
             {", a draw and a right-team win. "}
             {`${p.teams.rated} of ${p.teams.total} teams have a rating. Teams marked “no data,” mostly from outside the West, are treated as an average team in their age group.`}
           </p>
-          {p.score && (
+          {p.score && !p.score.buckets && (
             <p className="text-foreground">
               Result check: the most likely result was right in {p.score.correct} of {p.score.games} games.
             </p>
