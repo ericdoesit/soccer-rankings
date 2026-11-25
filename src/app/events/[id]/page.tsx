@@ -247,6 +247,8 @@ function KnockoutList({ rows }: { rows: KnockoutRow[] }) {
 
 function BracketCard({ g }: { g: PredGroup }) {
   const sim = g.teams.some((t) => t.reach);
+  // an 8-team bracket starts at the quarterfinals, so nobody "reaches" them: the column would be all 0%
+  const showQf = g.teams.some((t) => t.reach && t.reach.qf > 0);
   const main = (g.knockout ?? []).filter((k) => !/consolation/i.test(k.round));
   const consolation = (g.knockout ?? []).filter((k) => /consolation/i.test(k.round));
   return (
@@ -264,7 +266,7 @@ function BracketCard({ g }: { g: PredGroup }) {
           <div className="flex items-center gap-3 px-4 pb-1 lowbrow">
             <span className="flex-1">Team</span>
             <span className="w-14 text-right">Rating</span>
-            <span className="w-14 text-right">Quarters</span>
+            {showQf && <span className="w-14 text-right">Quarters</span>}
             <span className="w-14 text-right">Semis</span>
             <span className="w-14 text-right">Final</span>
             <span className="w-14 text-right">Title</span>
@@ -279,7 +281,7 @@ function BracketCard({ g }: { g: PredGroup }) {
               <span className={`${sim ? "w-14" : "w-12"} text-right tabular-nums ${sim ? "text-muted-foreground" : "font-semibold"}`}>{t.rating !== null ? t.rating.toFixed(2) : "—"}</span>
               {t.reach && (
                 <>
-                  <span className="w-14 text-right tabular-nums text-muted-foreground">{pct(t.reach.qf)}</span>
+                  {showQf && <span className="w-14 text-right tabular-nums text-muted-foreground">{pct(t.reach.qf)}</span>}
                   <span className="w-14 text-right tabular-nums text-muted-foreground">{pct(t.reach.sf)}</span>
                   <span className="w-14 text-right tabular-nums">{pct(t.reach.final)}</span>
                   <span className="w-14 text-right tabular-nums font-semibold">{pct(t.reach.title)}</span>
@@ -348,7 +350,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
             {"Each bar shows the chance of a "}
             <span className="font-medium text-foreground">left-team win</span>
             {", a draw and a right-team win. "}
-            {`${p.teams.rated} of ${p.teams.total} teams have a rating. Teams marked “no data,” mostly from outside the West, are treated as an average team in their age group.`}
+            {`${p.teams.rated} of ${p.teams.total} teams have a rating. Teams marked “no data” are treated as an average team in their age group.`}
           </p>
           {p.score && !p.score.buckets && (
             <p className="text-foreground">
@@ -372,7 +374,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
           <section key={d.division} id={d.division} className="mt-10 scroll-mt-20">
             <h2 className="heading mb-1">{d.division} {e.gender ?? ""}</h2>
             <p className="lowbrow mb-4">{d.teams} teams</p>
-            {(brackets.length > 0 || superRR.length > 0) && <h3 className="heading-sm mb-3">SuperGroup</h3>}
+            {superRR.length > 0 || brackets.some((g) => /supergroup/i.test(g.name)) ? <h3 className="heading-sm mb-3">SuperGroup</h3> : null}
             {brackets.map((g) => <BracketCard key={g.name} g={g} />)}
             {superRR.length > 0 && (
               <div className="grid gap-4 md:grid-cols-2 mb-6">{superRR.map((g) => <GroupCard key={g.name} g={g} />)}</div>

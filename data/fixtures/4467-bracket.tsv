@@ -1,0 +1,25 @@
+# division	group	match	round	date	time	field	home	away  (W:/L: = winner/loser of an earlier round)
+U18/19	Championship Bracket	1	Quarterfinals A	2026-11-27	8:30 AM PST	Field #12	Beach FC Beach Futbol Club B2009 Beach FC ECNL	Pateadores Pateadores ECNL B2008/09
+U18/19	Championship Bracket	2	Quarterfinals B	2026-11-27	8:30 AM PST	Field #13	Placer United Placer United 2008/09B ECNL, Gantt	Seattle United Seattle United ECNL B2008/09
+U18/19	Championship Bracket	3	Quarterfinals C	2026-11-27	10:30 AM PST	Field #12	XF XF ECNL B2008/09	Mustang SC Mustang Soccer ECNL B2008/09
+U18/19	Championship Bracket	4	Quarterfinals D	2026-11-27	10:30 AM PST	Field #13	Oregon Premier FC Oregon Premier FC ECNL B2008/09	Legends FC Legends FC (CA) ECNL B09
+U18/19	Championship Bracket	9	Consolation A	2026-11-28	8:30 AM PST	Field #12	L:Quarterfinals A	L:Quarterfinals B
+U18/19	Championship Bracket	10	Consolation B	2026-11-28	8:30 AM PST	Field #13	L:Quarterfinals C	L:Quarterfinals D
+U18/19	Championship Bracket	5	Semi-Finals A	2026-11-28	10:30 AM PST	Field #12	W:Quarterfinals A	W:Quarterfinals B
+U18/19	Championship Bracket	6	Semi-Finals B	2026-11-28	10:30 AM PST	Field #13	W:Quarterfinals C	W:Quarterfinals D
+U18/19	Championship Bracket	7	Third Place	2026-11-29	10:00 AM PST	Field #12	L:Semi-Finals A	L:Semi-Finals B
+U18/19	Championship Bracket	8	Final	2026-11-29	10:00 AM PST	Field #13	W:Semi-Finals A	W:Semi-Finals B
+U18/19	Championship Bracket	11	Consolation 7th Place	2026-11-29	8:00 AM PST	Field #12	L:Consolation A	L:Consolation B
+U18/19	Championship Bracket	12	Consolation Final	2026-11-29	8:00 AM PST	Field #13	W:Consolation A	W:Consolation B
+U17	Championship Bracket	1	Quarterfinals A	2026-11-27	12:30 PM PST	Field #12	Santa Clara Sporting Santa Clara Sporting ECNL B2009/10	SDSC Surf SDSC Surf ECNL B2009/10
+U17	Championship Bracket	2	Quarterfinals B	2026-11-27	12:30 PM PST	Field #13	Rebels SC Rebels Soccer Club Rebels SC ECNL B2009/10	Seattle United Seattle United ECNL B2009/10
+U17	Championship Bracket	3	Quarterfinals C	2026-11-27	2:30 PM PST	Field #12	XF XF ECNL B2009/10 1	Boise Timbers Boise Timbers ECNL B2009/10
+U17	Championship Bracket	4	Quarterfinals D	2026-11-27	2:30 PM PST	Field #13	Pateadores Pateadores ECNL B2009/10	Davis Legacy Davis Legacy ECNL B2009/10
+U17	Championship Bracket	9	Consolation A	2026-11-28	2:30 PM PST	Field #12	L:Quarterfinals A	L:Quarterfinals B
+U17	Championship Bracket	10	Consolation B	2026-11-28	2:30 PM PST	Field #13	L:Quarterfinals C	L:Quarterfinals D
+U17	Championship Bracket	5	Semi-Finals A	2026-11-28	12:30 PM PST	Field #12	W:Quarterfinals A	W:Quarterfinals B
+U17	Championship Bracket	6	Semi-Finals B	2026-11-28	12:30 PM PST	Field #13	W:Quarterfinals C	W:Quarterfinals D
+U17	Championship Bracket	7	Third Place	2026-11-29	12:00 PM PST	Field #12	L:Semi-Finals A	L:Semi-Finals B
+U17	Championship Bracket	8	Final	2026-11-29	12:00 PM PST	Field #13	W:Semi-Finals A	W:Semi-Finals B
+U17	Championship Bracket	11	Consolation 7th Place	2026-11-29	2:00 PM PST	Field #12	L:Consolation A	L:Consolation B
+U17	Championship Bracket	12	Consolation Final	2026-11-29	2:00 PM PST	Field #13	W:Consolation A	W:Consolation B

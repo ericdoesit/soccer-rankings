@@ -31,7 +31,12 @@ const WEST = [
 const DELAY_MS = Number(process.env.ECNL_API_DELAY_MS || 250);
 
 type Obj = Record<string, any>;
-type EventMeta = { eventId: number; eventName: string; league: string; gender: string; conference: string; season: string };
+type EventMeta = { eventId: number; eventName: string; league: string; gender: string; conference: string; season: string; national?: boolean };
+/** National events (e.g. ECNL Boys Phoenix 2026 = 4429): ids have no West conference in their name, so they are
+ *  passed explicitly. Only games with at least one West team are kept (see main). */
+const NATIONAL_IDS = (process.env.ECNL_NATIONAL_EVENT_IDS || "").split(",").map(Number).filter(Boolean);
+const TODAY = new Date().toISOString().slice(0, 10);
+const WEST_STATES = new Set(["CA", "OR", "WA", "NV", "AZ", "UT", "ID", "CO", "NM", "MT", "WY", "AK", "HI"]);
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 const str = (v: unknown) => v == null ? "" : String(v).trim();
@@ -93,6 +98,18 @@ function classify(meta: Obj, org: typeof ORGS[number]): EventMeta | null {
     /regional|ecnl\s*rl|ecrl/.test(lower) ? "ECNL RL" : org.league;
   const gender = /girls/.test(lower) ? "Girls" : /boys/.test(lower) ? "Boys" : org.gender;
   return { eventId, eventName, league, gender, conference, season };
+}
+/** A national event: league and gender from its name, conference "National"; no West-conference check. */
+function classifyNational(meta: Obj): EventMeta | null {
+  const eventId = num(meta.eventID ?? meta.eventId ?? meta.id);
+  const eventName = str(meta.name ?? meta.eventName ?? meta.event_name);
+  if (!eventId || !eventName) return null;
+  const season = eventName.match(/20\d{2}\s*-\s*2\d{2}/)?.[0].replace(/\s/g, "") || "";
+  if (season && !SEASONS.has(season)) return null;
+  const lower = eventName.toLowerCase();
+  const league = /pre[- ]?ecnl/.test(lower) ? "Pre-ECNL" : /regional|ecnl\s*rl|ecrl/.test(lower) ? "ECNL RL" : "ECNL";
+  const gender = /girls/.test(lower) ? "Girls" : /boys/.test(lower) ? "Boys" : "";
+  return { eventId, eventName, league, gender, conference: "National", season, national: true };
 }
 function findObjectsWithEventId(value: any, out: Obj[] = []): Obj[] {
   if (Array.isArray(value)) for (const item of value) findObjectsWithEventId(item, out);
@@ -156,9 +173,10 @@ async function discoverEvents(eventArg?: number): Promise<EventMeta[]> {
   }
   if (eventArg) {
     const details = await get(`team/get-event-details-by-eventid/${eventArg}`);
-    const meta = classify(Array.isArray(details) ? details[0] : details, ORGS[0]);
+    const raw = Array.isArray(details) ? details[0] : details;
+    const meta = classify(raw, ORGS[0]) ?? (NATIONAL_IDS.includes(eventArg) ? classifyNational(raw) : null);
     if (meta) found.set(meta.eventId, meta);
-    else console.warn(`[ECNL] Event ${eventArg} did not classify as a West ECNL/ECRL event in selected seasons.`);
+    else console.warn(`[ECNL] Event ${eventArg} did not classify as a West ECNL/ECRL event in selected seasons (national events: add it to ECNL_NATIONAL_EVENT_IDS).`);
   } else {
     // Known historical Pre-ECNL seeds from the project's earlier TGS discovery.
     // Add newer IDs with ECNL_PRE_EVENT_IDS once verified; Pre-ECNL does not yet
@@ -171,6 +189,16 @@ async function discoverEvents(eventArg?: number): Promise<EventMeta[]> {
         if (meta && meta.league === "Pre-ECNL") found.set(meta.eventId, meta);
       } catch (error) {
         console.warn(`[ECNL] Pre-ECNL seed ${id} unavailable: ${String(error)}`);
+      }
+    }
+    for (const id of NATIONAL_IDS) {
+      try {
+        const details = await get(`team/get-event-details-by-eventid/${id}`);
+        const meta = classifyNational(Array.isArray(details) ? details[0] : details);
+        if (meta) found.set(meta.eventId, meta);
+        else console.warn(`[ECNL] National event ${id} has no name or is outside the selected seasons`);
+      } catch (error) {
+        console.warn(`[ECNL] National event ${id} unavailable: ${String(error)}`);
       }
     }
   }
@@ -268,6 +296,11 @@ async function scrapeEvent(event: EventMeta) {
         const statusText = nameOf(m, "type", "status", "matchStatus").toLowerCase();
         const date = normalizeDate(m.gameDate ?? m.matchDate ?? m.date);
         if (homeScore === null || awayScore === null || !date || /forfeit|cancel|postpon|walkover/.test(statusText)) continue;
+        // Played games carry flagText "Box Score"; unplayed ones "Game Preview" (probe 2026-11-25: matched
+        // the scored/unscored split exactly). `status` is always "On Time" and `type` is the round, so neither
+        // says whether a game was played. A score on a future date or on a "Game Preview" is not a result.
+        const flag = nameOf(m, "flagText").toLowerCase();
+        if (date > TODAY || (flag && flag !== "box score")) continue;
         const homeTeamId = idOf(m, "hometeamID", "homeTeamID", "homeTeamId");
         const awayTeamId = idOf(m, "awayteamID", "awayTeamID", "awayTeamId");
         const homeTeam = nameOf(m, "homeTeam", "hometeam") || (homeTeamId ? nameOf(teamsById.get(homeTeamId) || {}, "name", "teamName") : "");
@@ -292,7 +325,9 @@ async function scrapeEvent(event: EventMeta) {
           venue: nameOf(m, "venue", "complex") || null,
         });
       }
-      const standingsData = records(standingsRaw, ["teamStandings", "standings", "standingsList"]);
+      // The response is a list of flight groups, each with its rows in `teamStandings`; read every group's rows.
+      const groups = records(standingsRaw, ["teamStandings", "standings", "standingsList"]);
+      const standingsData = groups.some(g => Array.isArray(g.teamStandings)) ? groups.flatMap(g => (Array.isArray(g.teamStandings) ? g.teamStandings : [])) : groups;
       for (const row of standingsData) {
         const teamId = idOf(row, "teamID", "teamId");
         eventStandings.push({
@@ -320,9 +355,25 @@ async function main() {
   console.log(`[ECNL] Discovered ${events.length} West events: ${events.map(e => e.eventName).join(" | ")}`);
 
   const all = { games: [] as Obj[], teams: [] as Obj[], clubs: [] as Obj[], standings: [] as Obj[] };
-  for (const event of events) {
+  // conference events first: their teams define who is a West team at a national event
+  const ordered = [...events.filter(e => !e.national), ...events.filter(e => e.national)];
+  for (const event of ordered) {
     try {
-      const result = await scrapeEvent(event);
+      let result = await scrapeEvent(event);
+      if (event.national) {
+        const westTeams = new Set(all.teams.map(t => t.teamId));
+        const westClubs = new Set([...all.clubs, ...result.clubs].filter(c => WEST_STATES.has(String(c.state ?? "").toUpperCase())).map(c => c.clubId));
+        const isWest = (teamId: unknown, clubId: unknown) => westTeams.has(teamId) || westClubs.has(clubId);
+        const games = result.games.filter(g => isWest(g.homeTeamId, g.homeClubId) || isWest(g.awayTeamId, g.awayClubId));
+        const keepTeams = new Set(games.flatMap(g => [g.homeTeamId, g.awayTeamId]));
+        const keepClubs = new Set(games.flatMap(g => [g.homeClubId, g.awayClubId]));
+        console.log(`[ECNL]   national: kept ${games.length} of ${result.games.length} games (at least one West team)`);
+        result = {
+          games, teams: result.teams.filter(t => keepTeams.has(t.teamId)),
+          clubs: result.clubs.filter(c => keepClubs.has(c.clubId)),
+          standings: result.standings.filter(r => isWest(r.teamId, null)),
+        };
+      }
       all.games.push(...result.games);
       all.teams.push(...result.teams);
       all.clubs.push(...result.clubs);

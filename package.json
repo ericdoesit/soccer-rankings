@@ -18,7 +18,7 @@
     "scrape:coast": "tsx scripts/scrape-coast-soccer.ts",
     "scrape:demosphere": "tsx scripts/scrape-demosphere-league.ts",
     "scrape:norcal-clubs": "tsx scripts/scrape-norcal-premier-clubs.ts",
-    "scrape:ecnl": "ECNL_PRE_EVENT_IDS=3923,4205,4360,4363,4368,4370,4383,4385,4387,4391,4382,4384,4386,4388,4390 tsx scripts/scrape-ecnl-api.ts",
+    "scrape:ecnl": "ECNL_NATIONAL_EVENT_IDS=4429,4467 ECNL_PRE_EVENT_IDS=3923,4205,4360,4363,4368,4370,4383,4385,4387,4391,4382,4384,4386,4388,4390 tsx scripts/scrape-ecnl-api.ts",
     "ecnl:merge": "tsx scripts/merge-ecnl.ts",
     "build:data": "tsx scripts/build-snapshot.ts",
     "check:data": "tsx scripts/check-snapshot.ts",

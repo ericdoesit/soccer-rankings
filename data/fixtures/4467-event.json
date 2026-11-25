@@ -1,0 +1,15 @@
+{
+  "id": 4467,
+  "name": "ECNL West Coast Super Cup",
+  "fullName": "ECNL Boys West Coast Super Cup 2026",
+  "league": "ECNL",
+  "gender": "Boys",
+  "start": "2026-11-27",
+  "end": "2026-11-29",
+  "venue": "Surf Sports Park",
+  "city": "San Diego",
+  "state": "CA",
+  "format": "Eight ECNL Boys teams in each age group (U17 and U18/19) play a single-elimination bracket: quarterfinals Friday, semifinals Saturday, final and third place Sunday. Quarterfinal losers play a consolation bracket.",
+  "teamTag": "\\bECNL\\b",
+  "excludeTag": "\\b(ECNL[- ]?RL|ECRL|RL|Pre[- ]?ECNL)\\b"
+}

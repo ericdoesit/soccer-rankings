@@ -166,7 +166,8 @@ const ds = getDataSet();
 const rating = new Map(ds.rankings.map((r) => [r.teamId, r.score]));
 const record = new Map(ds.rankings.map((r) => [r.teamId, `${r.wins}-${r.losses}-${r.draws}`]));
 const since = new Date(Date.now() - 455 * 864e5).toISOString().slice(0, 10);
-const predict = outcomeModel(ds.games, rating, since);
+// win/draw/loss table from teams with 4+ games (1–3-game ratings are pulled-in estimates, see data.ts)
+const predict = outcomeModel(ds.games, new Map(ds.rankings.filter((x) => x.gamesPlayed >= 4).map((x) => [x.teamId, x.score])), since);
 const seasonStart = "2026-08-01";
 const gamesThisSeason = new Map<number, number>();
 for (const g of ds.games) if (g.date >= seasonStart) for (const id of [g.team1Id, g.team2Id]) gamesThisSeason.set(id, (gamesThisSeason.get(id) ?? 0) + 1);
@@ -174,9 +175,20 @@ for (const g of ds.games) if (g.date >= seasonStart) for (const id of [g.team1Id
 // ---- match an event entry (club + team label) to one of our teams ----
 const norm = (s: string) => s.toLowerCase().replace(/\((ca|cas|can|tx|txs|txn|az|co|ut|nm|id|il|ga)\)/g, " ")
   .replace(/[^a-z0-9]+/g, " ").replace(/\b(soccer club|futbol club|football club|sc|fc)\b/g, " ").replace(/\s+/g, " ").trim();
-const ageOk = (division: string, age: string) => division === "U19" ? age === "U19" || age === "U18" : age === division;
+// Event settings (data/fixtures/<event>-event.json): gender, plus for non-DPL events `teamTag` (regex a
+// team's name must match, default DPL) and `excludeTag` (regex that rules a team out, e.g. ECNL RL / Pre-ECNL).
+const eventMeta = (() => { const f = path.join(FIX, `${eventId}-event.json`); return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : {}; })() as
+  { gender?: string; teamTag?: string; excludeTag?: string };
+const TEAM_TAG = new RegExp(eventMeta.teamTag ?? "\\bdpl", "i");
+const EXCLUDE_TAG = eventMeta.excludeTag ? new RegExp(eventMeta.excludeTag, "i") : null;
+/** "U18/19" covers both ages; DPL's "U19" also takes U18 teams */
+const ageOk = (division: string, age: string) => {
+  const two = division.match(/^U(\d+)\/(\d+)$/);
+  if (two) return age === `U${two[1]}` || age === `U${two[2]}`;
+  return division === "U19" ? age === "U19" || age === "U18" : age === division;
+};
 const dplo = (s: string) => /\bdplo\b/i.test(s);
-const byGender = ds.teams.filter((t) => t.gender === "Girls");
+const byGender = ds.teams.filter((t) => t.gender === (eventMeta.gender ?? "Girls") && !(EXCLUDE_TAG?.test(t.sourceName ?? t.name)));
 
 interface Entry { division: string; club: string; team: string; group?: string; teamId?: number; matchedName?: string; confidence?: "id" | "exact" | "club" | "none"; gotsportTeamId?: number }
 function matchEntry(e: Entry): Entry {
@@ -185,7 +197,7 @@ function matchEntry(e: Entry): Entry {
   const exact = pool.filter((t) => { const n = norm(t.sourceName ?? ""); return n === full || n === label; });
   // prefer a rated team, then the one most active this season
   const best = (c: typeof pool) => c.sort((a, b) => Number(rating.has(b.id)) - Number(rating.has(a.id)) || (gamesThisSeason.get(b.id) ?? 0) - (gamesThisSeason.get(a.id) ?? 0))[0];
-  const sameClub = pool.filter((t) => (norm(t.club ?? "") === club || norm(t.sourceName ?? "").startsWith(club)) && /\bdpl/i.test(t.sourceName ?? t.name));
+  const sameClub = pool.filter((t) => (norm(t.club ?? "") === club || norm(t.sourceName ?? "").startsWith(club)) && TEAM_TAG.test(t.sourceName ?? t.name));
   if (exact.length) {
     const t = best(exact);
     if (rating.has(t.id)) return { ...e, teamId: t.id, matchedName: t.sourceName, confidence: "exact" };
