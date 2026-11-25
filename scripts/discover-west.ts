@@ -267,9 +267,13 @@ async function crawlEvent(e: EventEntry) {
   const gamesFile = path.join(GAMES_DIR, `${e.id}.json`);
   const previous = e.divisions ? readJson<Game[]>(gamesFile, []) : [];
   const divisions = e.divisions ?? {};
+  // A division whose listed games are all played is only skipped once the event itself is over:
+  // leagues add rounds to a flight mid-season (SOCAL GU10 Pre-Elite 7v7 was "complete" on Nov 10
+  // with 23 games, then grew to 28), so a running event re-reads every division.
+  const eventOver = !!e.endDate && e.endDate < today;
   const skip = new Set(groups.filter((g) => {
     const d = divisions[g.id];
-    return d?.complete && Date.parse(d.checkedAt) > recheckBefore;
+    return eventOver && d?.complete && Date.parse(d.checkedAt) > recheckBefore;
   }).map((g) => g.id));
   const games: Game[] = previous.filter((g) => g.flightId !== undefined && skip.has(g.flightId));
   const scheduleFile = path.join(SCHEDULE_DIR, `${e.id}.json`);
