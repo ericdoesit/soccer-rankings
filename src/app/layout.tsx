@@ -56,7 +56,7 @@ export default function RootLayout({
                 unoptimized
                 className="h-11 w-auto md:h-12 lg:h-14"
               />
-              <span className="heading-sm hidden lg:inline">Youth Soccer Rankings</span>
+              <span className="heading-sm hidden xl:inline">Youth Soccer Rankings</span>
             </Link>
             <div className="flex min-w-0 items-center gap-3">
               <SiteNav />
