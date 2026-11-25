@@ -13,6 +13,7 @@
     "scrape:mlsnext": "tsx scripts/scrape-mlsnext-tracker.ts",
     "predict:mlsnext": "tsx scripts/predict-mlsnext.ts",
     "league:ranges": "tsx scripts/league-ranges.ts",
+    "accuracy:socal": "tsx scripts/backtest-socal-flights.ts",
     "scrape:mlsnext-playoffs": "tsx scripts/scrape-mlsnext.ts",
     "scrape:surf": "tsx scripts/scrape-surfcup.ts",
     "scrape:coast": "tsx scripts/scrape-coast-soccer.ts",

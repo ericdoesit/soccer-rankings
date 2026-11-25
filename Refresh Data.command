@@ -24,6 +24,7 @@ STEPS=(
   "build:data|Rebuild snapshot + ratings"
   "check:data|Check snapshot"
   "predict:mlsnext|MLS NEXT predictions"
+  "accuracy:socal|SoCal prediction accuracy, week by week (~3 min)"
   "league:ranges|League level ranges for the About page (~11 min)"
   "events:upcoming|Upcoming events calendar"
   "data:publish|Publish data to GitHub Releases"

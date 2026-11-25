@@ -5,6 +5,8 @@ import { AGE_ORDER, areaBySlug, getClubRow, getLeague } from "@/lib/explore";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getLeagueRankings } from "@/lib/league-rankings";
+import { getLeagueAccuracy } from "@/lib/league-accuracy";
+import { PredictionAccuracy } from "@/components/league/prediction-accuracy";
 import { chip } from "@/lib/ui-classes";
 
 export default async function LeaguePage({
@@ -54,6 +56,7 @@ export default async function LeaguePage({
     return `/league/${slug}?${q}#rankings`;
   };
   const pill = chip;
+  const accuracy = getLeagueAccuracy(slug);
   const season = league.seasons[0];
 
   return (
@@ -88,6 +91,8 @@ export default async function LeaguePage({
         Schedules: {season.events.join(" · ")}
         {league.seasons.length > 1 && <> (earlier seasons: {league.seasons.slice(1).map((s) => s.season).join(", ")})</>}
       </p>
+
+      {accuracy && <PredictionAccuracy acc={accuracy} leagueName={league.def?.shortName ?? league.name} />}
 
       {lr && ranked.length > 0 && (
         <Card className="mt-6" id="rankings">

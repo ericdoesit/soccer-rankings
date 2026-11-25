@@ -461,3 +461,47 @@ export function LeagueRanges({ groups, events, leagues, replicates, initial = "U
     </div>
   );
 }
+
+/* ───────────── line over time (charts.js lineChart): one value per point, labelled ───────────── */
+export function PointLine({ points, domain, valFmt = (v) => `${Math.round(v * 100)}%`, c = "blue" }: {
+  points: Array<{ label: string; v: number; tip?: string }>;
+  domain: [number, number];
+  valFmt?: (v: number) => string;
+  c?: keyof Palette;
+}) {
+  const [ref, W] = useWidth<HTMLDivElement>();
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !W) return;
+    const P = palette();
+    el.innerHTML = "";
+    const narrow = W < 520;
+    const m = { top: 22, right: narrow ? 36 : 16, bottom: narrow ? 40 : 28, left: 40 };
+    const H = narrow ? 200 : 220;
+    const svg = d3.select(el).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H);
+    const x = d3.scalePoint<number>().domain(points.map((_, i) => i)).range([m.left + 10, W - m.right - 10]);
+    const y = d3.scaleLinear().domain(domain).range([H - m.bottom, m.top]);
+    const ticks = y.ticks(4);
+    svg.append("g").selectAll("line").data(ticks).join("line")
+      .attr("x1", m.left).attr("x2", W - m.right).attr("y1", (d) => y(d)).attr("y2", (d) => y(d)).attr("stroke", P.grid);
+    svg.append("g").selectAll("text").data(ticks).join("text")
+      .attr("x", m.left - 8).attr("y", (d) => y(d) + 4).attr("text-anchor", "end")
+      .attr("fill", P.muted).attr("font-size", "11px").text((d) => valFmt(d));
+    svg.append("path").datum(points)
+      .attr("d", d3.line<(typeof points)[number]>().x((_, i) => x(i)!).y((p) => y(p.v)))
+      .attr("fill", "none").attr("stroke", P[c]).attr("stroke-width", 2.5);
+    points.forEach((p, i) => {
+      svg.append("circle").attr("cx", x(i)!).attr("cy", y(p.v)).attr("r", 4.5).attr("fill", P[c])
+        .on("mousemove", (ev) => showTip(ev, `<strong>${p.label}</strong><br>${p.tip ?? valFmt(p.v)}`))
+        .on("mouseleave", hideTip);
+      if (!narrow || i % 2 === 0 || i === points.length - 1)
+        svg.append("text").attr("x", x(i)!).attr("y", y(p.v) - 10).attr("text-anchor", "middle")
+          .attr("fill", P.text).attr("font-size", "11px").attr("font-weight", 600).text(valFmt(p.v));
+      const lx = svg.append("text").attr("fill", P.muted).attr("font-size", "11px").text(p.label);
+      if (narrow) lx.attr("transform", `translate(${x(i)! + 4},${H - m.bottom + 12}) rotate(35)`);
+      else lx.attr("x", x(i)!).attr("y", H - 8).attr("text-anchor", "middle");
+    });
+    return hideTip;
+  });
+  return <div ref={ref} className="d3-chart" />;
+}
