@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { getDataSet, type DataSet } from "@/lib/data";
+import { tidyEventName } from "./names";
 
 /**
  * Extra description for a team page, from the GotSport discovery files: the divisions it plays
@@ -60,7 +61,7 @@ export function getTeamContext(gotsportTeamId: number | undefined, confirmedClub
   for (const ev of info.events) {
     for (const g of gamesOf(ev)) {
       if (g.homeTeamId !== gotsportTeamId && g.awayTeamId !== gotsportTeamId) continue;
-      if (g.date >= seasonStart && g.division) divisions.set(`${g.eventName}|${g.division}`, { event: g.eventName.trim(), division: g.division.replace(/^U\d{1,2}[BG]\s+/, "").trim() });
+      if (g.date >= seasonStart && g.division) divisions.set(`${tidyEventName(g.eventName)}|${g.division}`, { event: tidyEventName(g.eventName), division: g.division.replace(/^U\d{1,2}[BG]\s+/, "").trim() });
       if (g.homeTeamId === gotsportTeamId && g.venue) { const f = cleanField(g.venue); if (f.length > 3 && !/\btbd\b/i.test(f)) fields.set(f, (fields.get(f) ?? 0) + 1); }
     }
   }

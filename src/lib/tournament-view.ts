@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { getDataSet, getTournamentGames, type Game, type Team } from "@/lib/data";
 import { AGE_ORDER, getListedRank, clubSlugFor } from "@/lib/explore";
+import { tidyEventName } from "./names";
 
 /**
  * A tournament's games organized for its page: age group + gender → divisions (the event's
@@ -40,11 +41,11 @@ export function discoveryFilesFor(eventName: string): string[] {
         const fd = fs.openSync(path.join(dir, f), "r");
         const buf = Buffer.alloc(4000); const n = fs.readSync(fd, buf, 0, 4000, 0); fs.closeSync(fd);
         const m = buf.toString("utf8", 0, n).match(/"eventName":"((?:[^"\\]|\\.)*)"/);
-        if (m) { const name = JSON.parse(`"${m[1]}"`); eventFiles.set(name, [...(eventFiles.get(name) ?? []), path.join(dir, f)]); }
+        if (m) { const name = tidyEventName(JSON.parse(`"${m[1]}"`)); eventFiles.set(name, [...(eventFiles.get(name) ?? []), path.join(dir, f)]); }
       } catch { /* skip */ }
     }
   }
-  return eventFiles.get(eventName) ?? [];
+  return eventFiles.get(tidyEventName(eventName)) ?? [];
 }
 const pairKey = (date: string, a: string | number, b: string | number) => {
   const [x, y] = [String(a), String(b)].sort();

@@ -58,24 +58,24 @@ export default function AboutPage() {
               </p>
               <ul className="list-disc pl-5 space-y-2">
                 <li>
-                  <strong className="text-foreground">Margin cap (6 goals).</strong> A 10-0 win counts the same as a
+                  <strong className="text-foreground">Margin cap (6 goals).</strong>{" "}A 10-0 win counts the same as a
                   6-0 win, so blowouts don&apos;t distort the ratings.
                 </li>
                 <li>
-                  <strong className="text-foreground">Recent games count more.</strong> A game&apos;s weight halves
+                  <strong className="text-foreground">Recent games count more.</strong>{" "}A game&apos;s weight halves
                   about every 3.5 months (105 days).
                 </li>
                 <li>
-                  <strong className="text-foreground">Last season counts a quarter.</strong> Rosters change every
+                  <strong className="text-foreground">Last season counts a quarter.</strong>{" "}Rosters change every
                   August, so games from before Aug 1 count at a quarter of their weight.
                 </li>
                 <li>
-                  <strong className="text-foreground">League ties.</strong> Each team is very lightly tied to the
+                  <strong className="text-foreground">League ties.</strong>{" "}Each team is very lightly tied to the
                   league it plays in most, so that groups of teams that rarely meet, such as MLS NEXT conferences in
                   different regions, are rated on one scale. Wherever real games connect them, the games decide.
                 </li>
                 <li>
-                  <strong className="text-foreground">Every game is treated as neutral.</strong> Most results
+                  <strong className="text-foreground">Every game is treated as neutral.</strong>{" "}Most results
                   don&apos;t record which team was at home, so there is no home-field adjustment.
                 </li>
               </ul>
@@ -88,7 +88,7 @@ export default function AboutPage() {
             <h2 className="heading-sm mb-3">Data Sources</h2>
             <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
               <p>
-                We rate <strong className="text-foreground">{stats.westGames.toLocaleString()} games</strong> involving
+                We rate <strong className="text-foreground">{stats.westGames.toLocaleString()} games</strong>{" "}involving
                 Western teams, collected from the leagues and events themselves:
               </p>
               <ul className="list-disc pl-5 space-y-1">
@@ -172,7 +172,7 @@ export default function AboutPage() {
             <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
               <p>
                 From the 2026-27 season, youth soccer groups players by{" "}
-                <strong className="text-foreground">school year</strong> (August 1 – July 31) instead of calendar
+                <strong className="text-foreground">school year</strong>{" "}(August 1 – July 31) instead of calendar
                 birth year. A player born from January through July plays with their birth year; a player born from
                 August through December plays one group younger, with the next year&apos;s birthdays. Age groups move
                 up one every August 1.

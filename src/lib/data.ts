@@ -8,6 +8,7 @@ import { mergeCoastTwins, mergeModularTwins, mergeTournamentCopies, mergeSeasonT
 import { buildTeamIdentity } from "./directory/team-identity";
 import { joinUslAcademySeasons } from "./directory/usl-academy";
 import { assignPrograms, PROGRAMS } from "./directory/program";
+import { tidyEventName } from "./names";
 
 export interface Team {
   id: number;
@@ -391,7 +392,7 @@ export function buildData(): DataSet {
         team1Score: g.team1Score,
         team2Score: g.team2Score,
         date: g.date,
-        tournamentName: g.eventName,
+        tournamentName: tidyEventName(g.eventName),
         status: "completed" as const,
       }));
 

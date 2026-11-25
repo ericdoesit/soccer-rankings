@@ -125,7 +125,7 @@ export function ClubMap({ clubs, token }: { clubs: MapClub[]; token: string | un
   if (!token) {
     return (
       <div className="surface p-6 text-sm text-muted-foreground">
-        The map needs a Mapbox token. Add <code>NEXT_PUBLIC_MAPBOX_TOKEN=pk.…</code> to <code>.env.local</code> and restart
+        The map needs a Mapbox token. Add <code>NEXT_PUBLIC_MAPBOX_TOKEN=pk.…</code>{" "}to <code>.env.local</code>{" "}and restart
         the dev server.
       </div>
     );

@@ -23,6 +23,7 @@ import { seasonEndYear } from "./directory/team-names";
 import { clubMatcher } from "./directory/club-match";
 import { normalizeWebsite } from "./directory/url";
 import { coachFor } from "./team-coaches";
+import { tidyEventName } from "./names";
 
 export interface Area { code: string; slug: string; name: string; short: string }
 
@@ -94,7 +95,7 @@ function frontierEvents(): Map<string, { id: number; league: boolean }> {
   try {
     const f = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "discovery", "frontier.json"), "utf-8"));
     for (const e of Array.isArray(f.events) ? f.events : Object.values(f.events) as Array<{ id: number; name?: string; league?: boolean }>)
-      if (e.name) out.set(e.name, { id: e.id, league: !!e.league });
+      if (e.name) out.set(tidyEventName(e.name), { id: e.id, league: !!e.league });
   } catch { /* no frontier yet */ }
   return out;
 }

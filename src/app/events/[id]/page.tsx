@@ -150,7 +150,7 @@ function ModelResults({ s, generatedAt, teams }: { s: EventScore; generatedAt: s
                 return (
                   <div key={`${f.division}${f.group}`} className="grid gap-1 py-2.5 md:grid-cols-[4rem_1fr_1.4fr] md:gap-4">
                     <span className="font-semibold">{f.division}{f.kind === "group" ? ` ${f.group.replace("SuperGroup ", "")}` : ""}</span>
-                    <span className="text-muted-foreground">Favorite: <span className="text-foreground">{nm(f.favorite)}</span> ({pct(f.favChance)})</span>
+                    <span className="text-muted-foreground">Favorite: <span className="text-foreground">{nm(f.favorite)}</span>{" "}({pct(f.favChance)})</span>
                     <span>
                       {f.kind === "final" ? <>Final: {nm(f.home)} <span className="font-semibold tabular-nums">{f.score}</span> {nm(f.away)}</> : <>Won by {nm(f.winner)}</>}
                       <span className="text-muted-foreground">
@@ -177,7 +177,7 @@ function ModelResults({ s, generatedAt, teams }: { s: EventScore; generatedAt: s
             <div className="divide-y divide-border/50 text-sm">
               {s.upsets.slice(0, 5).map((u) => (
                 <div key={`${u.division}${u.fav}${u.opp}`} className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5 py-2">
-                  <span><span className="font-semibold tabular-nums">{pct(u.chance)}</span> favorite {nm(u.fav)} lost <span className="tabular-nums">{u.score}</span> to {nm(u.opp)}</span>
+                  <span><span className="font-semibold tabular-nums">{pct(u.chance)}</span>{" "}favorite {nm(u.fav)} lost <span className="tabular-nums">{u.score}</span>{" "}to {nm(u.opp)}</span>
                   <span className="text-xs text-muted-foreground">{u.division} {u.group}{u.noData ? " · no-data team" : ""}</span>
                 </div>
               ))}
@@ -187,7 +187,7 @@ function ModelResults({ s, generatedAt, teams }: { s: EventScore; generatedAt: s
 
         <div className="rounded-xl border border-border/60 bg-muted/40 p-4 text-sm">
           <p>
-            <span className="font-semibold">What this tells us.</span> The ratings put teams in the right order more often than not, but
+            <span className="font-semibold">What this tells us.</span>{" "}The ratings put teams in the right order more often than not, but
             favorites won less often than predicted. On everyday games the odds hold up, so the gap here comes mostly from the
             teams marked &ldquo;no data&rdquo;: about half the games involved one, and many of those teams had played all season under a
             different name on GotSport, so we never connected them to their results.
@@ -342,7 +342,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
       <Card className="mt-6">
         <CardContent className="text-sm text-muted-foreground space-y-1.5">
           <p>
-            <span className="font-semibold text-foreground">How these predictions work.</span> Each match is predicted from
+            <span className="font-semibold text-foreground">How these predictions work.</span>{" "}Each match is predicted from
             the two teams&apos; ratings: we look at how often teams with the same rating gap won, drew or lost in real games over
             the last 15 months. Each group is then played out 10,000 times to get every team&apos;s chance of finishing first.
           </p>

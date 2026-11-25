@@ -10,9 +10,12 @@
  *
  * Club strength: ratings run on different scales by age (U8 teams sit far below U19), so a club's
  * score is the average percentile (0–100) of its best team in each age group it fields, among the
- * Southern California teams of that age and gender. Clubs need teams in 3+ age groups.
+ * Southern California teams of that age and gender. Clubs need teams in 3+ age groups, and a club
+ * page: a team GotSport lists without a club gets a fragment of its own name as "club" ("B19 Gold",
+ * "JALA BU8"), which is not a club (424 of 791 names, 2026-11-25). Those teams are still ranked.
  */
 import { getDataSet, RANK_RULES, type Team } from "./data";
+import { clubSlugFor } from "./explore";
 
 export const SOCAL_AGES = ["U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17", "U18", "U19"] as const;
 export type SoCalGender = "Boys" | "Girls";
@@ -21,7 +24,8 @@ export interface SoCalTeam {
   rating: number; rank: number; league: string; record: string; games: number; westRank: number | null;
 }
 export interface SoCalClub {
-  club: string; rank: number; strength: number; ageGroups: number; teams: number;
+  /** club page address (/club/<slug>); only confirmed clubs are ranked */
+  club: string; slug: string; rank: number; strength: number; ageGroups: number; teams: number;
   best: { ageGroup: string; gender: string; percentile: number; teamId: number } | null; leagues: string[];
 }
 
@@ -100,8 +104,8 @@ export function getSoCalClubs(gender: SoCalGender | "All", ageGroup: string | "A
     });
   }
   const minAges = ageGroup === "All" ? MIN_CLUB_AGES : 1;
-  const clubs: SoCalClub[] = [...per].filter(([, xs]) => xs.length >= minAges).map(([club, xs]) => ({
-    club, rank: 0, strength: Math.round(10 * xs.reduce((s, x) => s + x.percentile, 0) / xs.length) / 10,
+  const clubs: SoCalClub[] = [...per].filter(([club, xs]) => xs.length >= minAges && clubSlugFor(club)).map(([club, xs]) => ({
+    club, slug: clubSlugFor(club)!, rank: 0, strength: Math.round(10 * xs.reduce((s, x) => s + x.percentile, 0) / xs.length) / 10,
     ageGroups: xs.length, teams: teams.get(club) ?? 0,
     best: xs.reduce((a, b) => (b.percentile > a.percentile ? b : a)),
     leagues: [...(leagues.get(club) ?? [])].sort(),

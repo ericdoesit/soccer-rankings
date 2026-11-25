@@ -2,7 +2,7 @@ import fs from "fs";
 import Link from "next/link";
 import path from "path";
 import { ClubMap, type MapClub } from "@/components/club-map";
-import { Card, CardContent } from "@/components/ui/card";
+import { SoCalTable } from "@/components/socal-table";
 import { chip, segment, segmentItem } from "@/lib/ui-classes";
 import { SOCAL_AGES, getSoCalClubs, getSoCalTeams, type SoCalGender } from "@/lib/socal";
 
@@ -40,7 +40,7 @@ export default async function SoCalPage({ searchParams }: { searchParams: Promis
       <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
         Every Cal South team with at least four games in the last 15 months and one this season, whatever league it plays
         in: the elite leagues, N1 and NPL, the SoCal League, Coast and the local tournaments. The{" "}
-        <Link href="/rankings" className="font-medium text-foreground underline underline-offset-4">West rankings</Link> list only
+        <Link href="/rankings" className="font-medium text-foreground underline underline-offset-4">West rankings</Link>{" "}list only
         teams in tracked competitions; here they all count, because their ratings hold up. Tested on 47,000 Southern
         California games, ratings called state-league games as well as elite-league ones, and placed the leagues correctly
         against each other. Club strength is the average percentile of a club&apos;s best team in each age group it fields
@@ -64,7 +64,15 @@ export default async function SoCalPage({ searchParams }: { searchParams: Promis
         ))}
       </div>
 
-      {view === "teams" ? <TeamsTable age={age} gender={gender as SoCalGender} /> : <ClubsTable age={age} gender={gender as SoCalGender | "All"} />}
+      {view === "teams" ? (
+        <SoCalTable kind="teams" key={`t${age}${gender}`} rows={getSoCalTeams(age, gender as SoCalGender)}
+          caption={`${getSoCalTeams(age, gender as SoCalGender).length} ${age} ${gender.toLowerCase()} teams`} />
+      ) : (
+        <SoCalTable kind="clubs" key={`c${age}${gender}`} rows={getSoCalClubs(gender as SoCalGender | "All", age)}
+          caption={`${getSoCalClubs(gender as SoCalGender | "All", age).length} clubs (${age === "All" ? "all ages" : age}${gender === "All" ? "" : `, ${gender.toLowerCase()}`}). ${age === "All"
+            ? "Strength: average percentile of the club's best team in each age group (clubs with 3+ age groups)."
+            : "Strength: percentile of the club's best team in this age group."}`} />
+      )}
 
       <h2 className="heading mt-12 mb-3">Club map</h2>
       <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
@@ -80,96 +88,5 @@ export default async function SoCalPage({ searchParams }: { searchParams: Promis
         <Link href="/states" className="text-primary hover:underline">Every Western state: its leagues, clubs and teams →</Link>
       </p>
     </div>
-  );
-}
-
-const th = "px-4 py-3 text-left text-xs font-normal text-muted-foreground";
-const td = "px-4 py-2.5";
-
-function TeamsTable({ age, gender }: { age: string; gender: SoCalGender }) {
-  const teams = getSoCalTeams(age, gender);
-  return (
-    <Card className="gap-0 pb-0">
-      <CardContent className="p-0">
-        <p className="px-4 pt-4 pb-2 text-xs text-muted-foreground">{teams.length} {age} {gender.toLowerCase()} teams</p>
-        <div className="overflow-x-auto">
-          <table className="w-full table-fixed text-sm">
-            <thead>
-              <tr className="border-b border-border">
-                <th className={`${th} w-12 sm:w-16`}>#</th>
-                <th className={th}>Team</th>
-                <th className={`${th} hidden lg:table-cell w-56`}>League</th>
-                <th className={`${th} w-16 text-right`}>Rating</th>
-                <th className={`${th} hidden sm:table-cell w-28 text-center`}>This season</th>
-                <th className={`${th} hidden md:table-cell w-24 text-right`}>West rank</th>
-              </tr>
-            </thead>
-            <tbody>
-              {teams.map((t) => (
-                <tr key={t.id} className="border-b border-border/50 hover:bg-muted/50 transition-colors">
-                  <td className={`${td} rank-num`}>{t.rank}</td>
-                  <td className={`${td} min-w-0`}>
-                    <Link href={`/team/${t.id}`} className="block truncate font-medium hover:text-primary" title={t.name}>{t.name}</Link>
-                    <span className="block truncate text-xs text-muted-foreground lg:hidden">{t.league}</span>
-                  </td>
-                  <td className={`${td} hidden lg:table-cell truncate text-muted-foreground`} title={t.league}>{t.league}</td>
-                  <td className={`${td} text-right tabular-nums font-medium`}>{t.rating.toFixed(2)}</td>
-                  <td className={`${td} hidden sm:table-cell text-center tabular-nums text-muted-foreground`}>{t.record}</td>
-                  <td className={`${td} hidden md:table-cell text-right tabular-nums text-muted-foreground`}>{t.westRank ? `#${t.westRank}` : "—"}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
-
-function ClubsTable({ age, gender }: { age: string; gender: SoCalGender | "All" }) {
-  const clubs = getSoCalClubs(gender, age);
-  const scope = `${age === "All" ? "all ages" : age}${gender === "All" ? "" : `, ${gender.toLowerCase()}`}`;
-  return (
-    <Card className="gap-0 pb-0">
-      <CardContent className="p-0">
-        <p className="px-4 pt-4 pb-2 text-xs text-muted-foreground">
-          {clubs.length} clubs ({scope}).{" "}
-          {age === "All" ? "Strength: average percentile of the club's best team in each age group (clubs with 3+ age groups)." : "Strength: percentile of the club's best team in this age group."}
-        </p>
-        <div className="overflow-x-auto">
-          <table className="w-full table-fixed text-sm">
-            <thead>
-              <tr className="border-b border-border">
-                <th className={`${th} w-12 sm:w-16`}>#</th>
-                <th className={th}>Club</th>
-                <th className={`${th} w-20 text-right`}>Strength</th>
-                <th className={`${th} hidden sm:table-cell w-24 text-center`}>Age groups</th>
-                <th className={`${th} hidden sm:table-cell w-20 text-center`}>Teams</th>
-                <th className={`${th} hidden lg:table-cell w-64`}>Leagues</th>
-              </tr>
-            </thead>
-            <tbody>
-              {clubs.map((c) => (
-                <tr key={c.club} className="border-b border-border/50 hover:bg-muted/50 transition-colors">
-                  <td className={`${td} rank-num`}>{c.rank}</td>
-                  <td className={`${td} min-w-0`}>
-                    <Link href={`/club/${encodeURIComponent(c.club)}`} className="block truncate font-medium hover:text-primary" title={c.club}>{c.club}</Link>
-                    {c.best && (
-                      <span className="block truncate text-xs text-muted-foreground">
-                        best: {c.best.ageGroup} {c.best.gender.toLowerCase()}, top {Math.max(1, Math.round(100 - c.best.percentile))}%
-                      </span>
-                    )}
-                  </td>
-                  <td className={`${td} text-right tabular-nums font-medium`}>{c.strength.toFixed(1)}</td>
-                  <td className={`${td} hidden sm:table-cell text-center tabular-nums text-muted-foreground`}>{c.ageGroups}</td>
-                  <td className={`${td} hidden sm:table-cell text-center tabular-nums text-muted-foreground`}>{c.teams}</td>
-                  <td className={`${td} hidden lg:table-cell truncate text-muted-foreground`} title={c.leagues.join(", ")}>{c.leagues.join(", ")}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </CardContent>
-    </Card>
   );
 }

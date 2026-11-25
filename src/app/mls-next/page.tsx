@@ -41,7 +41,7 @@ export default async function MlsNextPage({ searchParams }: { searchParams: SP }
     return (
       <div className="mx-auto max-w-5xl px-4 py-8">
         <h1 className="display mb-4">MLS NEXT</h1>
-        <p className="text-muted-foreground">No predictions yet. Run <code>npm run scrape:mlsnext</code>, <code>npm run build:data</code> and <code>npm run predict:mlsnext</code>.</p>
+        <p className="text-muted-foreground">No predictions yet. Run <code>npm run scrape:mlsnext</code>, <code>npm run build:data</code>{" "}and <code>npm run predict:mlsnext</code>.</p>
       </div>
     );
   }
