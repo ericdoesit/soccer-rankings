@@ -51,7 +51,7 @@ export function SoCalTable(props: Props) {
             <input
               type="search" value={query} placeholder="Search a club or team" aria-label="Search a club or team"
               role="combobox" aria-expanded={open && suggestions.length > 0} aria-controls="socal-suggest" aria-autocomplete="list"
-              className="w-full rounded-full bg-card px-4 py-1.5 text-sm shadow-[var(--surface-shadow)] outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
+              className="h-9 w-full rounded-full border border-border bg-background px-4 text-[13px] font-medium outline-none transition-colors placeholder:font-normal placeholder:text-muted-foreground hover:border-foreground/25 focus:border-foreground/40"
               onChange={(e) => { setQuery(e.target.value); setPage(1); setOpen(true); setHi(0); }}
               onFocus={() => setOpen(true)}
               onBlur={() => setTimeout(() => setOpen(false), 120)}
@@ -64,7 +64,7 @@ export function SoCalTable(props: Props) {
               }}
             />
             {open && suggestions.length > 0 && !(suggestions.length === 1 && suggestions[0] === query) && (
-              <ul id="socal-suggest" role="listbox" className="absolute right-0 left-0 z-20 mt-1 overflow-hidden rounded-2xl bg-popover py-1 text-sm text-popover-foreground shadow-[var(--surface-shadow)]">
+              <ul id="socal-suggest" role="listbox" className="absolute right-0 left-0 z-20 mt-1 overflow-hidden rounded-2xl border border-border bg-popover py-1 text-[13px] text-popover-foreground">
                 {suggestions.map((c, i) => (
                   <li key={c} role="option" aria-selected={i === hi}
                     onMouseDown={(e) => { e.preventDefault(); pick(c); }} onMouseEnter={() => setHi(i)}

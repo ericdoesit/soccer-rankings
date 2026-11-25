@@ -15,7 +15,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { ASSOCIATIONS, METROS } from "./geo";
 import { normalizeClubName, standardizeAbbreviations } from "./normalize";
-import { currentAgeGroup, formatTeamName, parseTeamName } from "./team-names";
+import { caseWords, currentAgeGroup, formatTeamName, parseTeamName, titleCaseWords } from "./team-names";
 import { clubMatcher } from "./club-match";
 
 interface TeamLike {
@@ -411,6 +411,10 @@ export function buildTeamIdentity<T extends TeamLike>(
       clubVerified: !!club,
     };
   });
+
+  // names typed in capitals ("ALBION SC Merced") read like the rest: see caseWords
+  const titleWords = titleCaseWords(out.flatMap((t) => [t.name, t.club]));
+  for (const t of out) { t.name = caseWords(t.name, titleWords); t.club = caseWords(t.club, titleWords); }
 
   const stats = `${out.length} teams · directory ${s.directory} · club-name match ${s.clubMatch} · state from events ${s.eventState}` +
     ` · approved clubs ${s.approved} · club from GotSport organization ${s.orgClub} · MLS NEXT conference ${s.mlsConference} · from league club lists ${s.league} · state unknown ${s.unknownState} · out of region ${s.outOfRegion} · age unknown ${s.unknownAge}`;

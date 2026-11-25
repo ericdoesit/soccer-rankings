@@ -202,3 +202,21 @@ export function currentAgeGroup(opts: {
   }
   return null;
 }
+
+/** All-caps words that are names, not abbreviations, even though "Next" etc. exist in title case. */
+const KEEP_CAPS = new Set(["NEXT", "ECNL", "ECRL", "AYSO", "USYS", "USSF", "YMCA", "NPSL", "PSSLU", "DPLO", "NPLO", "LAFC", "CCFC", "MLS", "USA"]);
+/**
+ * Consistent casing for names typed in capitals: "ALBION SC Santa Ana SANTA ANA ACADEMY" →
+ * "Albion SC Santa Ana Santa Ana Academy". An all-caps word (3+ letters) becomes title case only
+ * when the data also writes it that way (`titleWords`: lowercased words seen as "Albion", "Santa"),
+ * so abbreviations that never appear in title case stay ("SDSC", "FRAM", "OCSA"); KEEP_CAPS too.
+ */
+export function caseWords(name: string, titleWords: Set<string>): string {
+  return name.replace(/\b[A-Z]{3,}\b/g, (w) => (KEEP_CAPS.has(w) || !titleWords.has(w.toLowerCase()) ? w : w[0] + w.slice(1).toLowerCase()));
+}
+/** lowercased words written in title case somewhere in these names ("Albion" → "albion") */
+export function titleCaseWords(names: Iterable<string>): Set<string> {
+  const out = new Set<string>();
+  for (const n of names) for (const w of n.match(/\b[A-Z][a-z]{2,}\b/g) ?? []) out.add(w.toLowerCase());
+  return out;
+}

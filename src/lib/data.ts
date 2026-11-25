@@ -9,6 +9,7 @@ import { buildTeamIdentity } from "./directory/team-identity";
 import { joinUslAcademySeasons } from "./directory/usl-academy";
 import { assignPrograms, PROGRAMS } from "./directory/program";
 import { tidyEventName } from "./names";
+import { caseWords, titleCaseWords } from "./directory/team-names";
 
 export interface Team {
   id: number;
@@ -427,7 +428,9 @@ export function buildData(): DataSet {
       console.log(`  season records: ${seasons.merged} last-season records joined to their squad (${seasons.joins.length} squads)`);
       // USL Academy: one program across seasons (B2006 → B2007), listed as U20
       const usl = joinUslAcademySeasons(seasons.teams, seasons.games);
-      const twins = { ...m11, teams: usl.teams, games: usl.games };
+      // later joins can bring a club name typed in capitals ("ALBION SC Colorado"): same casing as team identity
+      const titleWords = titleCaseWords(usl.teams.flatMap((t) => [t.name, t.club]));
+      const twins = { ...m11, teams: usl.teams.map((t) => ({ ...t, name: caseWords(t.name, titleWords), club: caseWords(t.club, titleWords) })), games: usl.games };
       console.log(`  tournament copies: ${copies.merged} records joined into their team`);
       console.log(`  USL Academy: ${usl.joined} last-season records joined, ${usl.listed} teams playing this season listed as U20`);
       // ratings on the merged games; each team's league is its competition + gender + age
