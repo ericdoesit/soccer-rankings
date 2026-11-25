@@ -89,24 +89,29 @@ async function geocode(query: string): Promise<Geo> {
 }
 
 // --- each club's home field -------------------------------------------------------------
-type Snap = { teams: Array<{ id: number; club: string; state: string; rankable: boolean; clubVerified?: boolean; gotsportTeamId?: number; program?: string }> };
+type Snap = { teams: Array<{ id: number; club: string; state: string; gender: string; rankable: boolean; clubVerified?: boolean; gotsportTeamId?: number; program?: string }> };
 const snap = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "snapshot.json"), "utf8")) as Snap;
 const clubByGsId = new Map<number, string>();
-const clubInfo = new Map<string, { teams: number; listed: number; programs: Set<string> }>();
+const clubInfo = new Map<string, { teams: number; listed: number; programs: Set<string>; by: Record<string, { teams: number; programs: Set<string> }> }>();
 // Only confirmed clubs (GotSport directory, a league club list, or a directory name match).
 // A team GotSport lists without a club gets a fragment of its own name as "club" ("Obama
 // BU09", an LA City United team named after its park): that is a team, not a club.
 for (const t of snap.teams) {
   if (t.state !== "CAS" || !t.club || !t.clubVerified) continue;
   if (t.gotsportTeamId) clubByGsId.set(t.gotsportTeamId, t.club);
-  const c = clubInfo.get(t.club) ?? { teams: 0, listed: 0, programs: new Set<string>() };
+  const c = clubInfo.get(t.club) ?? { teams: 0, listed: 0, programs: new Set<string>(), by: {} };
   c.teams++; if (t.rankable) c.listed++; if (t.program) c.programs.add(t.program);
+  // per gender, so the map can show "Boys: EA · Girls: DPL" for a club in several leagues
+  const g = (c.by[t.gender] ??= { teams: 0, programs: new Set<string>() });
+  g.teams++; if (t.program) g.programs.add(t.program);
   clubInfo.set(t.club, c);
 }
 const frontier = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "discovery", "frontier.json"), "utf8")).events;
 const events: Array<{ id: number | string; league?: boolean }> = Array.isArray(frontier) ? frontier : Object.entries(frontier).map(([id, v]) => ({ id, ...(v as object) }));
 const leagueEvents = new Set(events.filter((e) => e.league).map((e) => Number(e.id)));
 
+const byGender = (info: { by: Record<string, { teams: number; programs: Set<string> }> }) =>
+  Object.fromEntries(Object.entries(info.by).map(([g, x]) => [g, { teams: x.teams, programs: [...x.programs].sort() }]));
 const cleanVenue = (v: string) => v.trim().replace(/\s*[-–,#(].*$/, "").replace(/\s+(field|fld|pitch|turf)\s*\w*$/i, "").trim();
 const venues = new Map<string, Map<string, number>>();
 const gamesDir = path.join(ROOT, "data", "discovery", "games");
@@ -192,7 +197,7 @@ async function main() {
         if (!g) { console.warn(`  couldn't find ${club} site ${site.address}`); continue; }
         out.push({
           club, lat: +g.lat.toFixed(5), lng: +g.lng.toFixed(5), source: "club's own listing", venue: site.name,
-          site: site.name, city: g.city, teams: info.teams, listed: info.listed, programs: [...info.programs].sort(),
+          site: site.name, city: g.city, teams: info.teams, listed: info.listed, programs: [...info.programs].sort(), byGender: byGender(info),
         });
       }
       viaVenue++;
@@ -219,7 +224,7 @@ async function main() {
       source: venue ? "home field" : "club city",
       venue,
       city: geo.city ?? city ?? null,
-      teams: info.teams, listed: info.listed, programs: [...info.programs].sort(),
+      teams: info.teams, listed: info.listed, programs: [...info.programs].sort(), byGender: byGender(info),
     });
     if (looked && looked % 25 === 0) console.log(`  ${looked} lookups…`);
   }

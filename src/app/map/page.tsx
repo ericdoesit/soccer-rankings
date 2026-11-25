@@ -20,9 +20,10 @@ export default function MapPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
       <h1 className="display mb-3">Southern California clubs</h1>
-      <p className="lead mb-6">
+      <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
         Each dot is a club, placed at the field where its teams play most of their home league games (or its city when
-        we don&apos;t know the field). Colour is the highest league the club fields; size is its number of teams. Fields
+        we don&apos;t know the field). Colour is the club&apos;s highest league among those switched on, and Boys or Girls
+        uses only that side&apos;s teams; click a club to see every league it plays in. Size is its number of teams. Fields
         shared by many clubs, such as league hubs, aren&apos;t used. Clubs that play only friendlies or tournaments may
         be missing. Locations from OpenStreetMap
         {generatedAt ? `, ${new Date(generatedAt).toLocaleDateString("en-US", { month: "short", year: "numeric" })}` : ""}.

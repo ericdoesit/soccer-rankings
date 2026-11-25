@@ -9,9 +9,12 @@ export interface MapClub {
   /** set when the club has several sites (one dot each) */
   site?: string;
   teams: number; listed: number; programs: string[];
+  /** per gender: team count and leagues ("Boys" → EA, NPL; "Girls" → DPL) */
+  byGender?: Record<string, { teams: number; programs: string[] }>;
 }
+type Gender = "All" | "Boys" | "Girls";
 
-/** Highest league a club fields, in this order; colours follow it. */
+/** League tiers, highest first. A club is coloured by its highest tier that's switched on. */
 const TIERS: Array<{ key: string; label: string; color: string; programs: string[] }> = [
   { key: "mls", label: "MLS NEXT", color: "#1d4ed8", programs: ["MLS NEXT"] },
   { key: "ecnl", label: "ECNL", color: "#0f766e", programs: ["ECNL"] },
@@ -22,25 +25,38 @@ const TIERS: Array<{ key: string; label: string; color: string; programs: string
   { key: "n1", label: "N1 / NPL", color: "#ca8a04", programs: ["N1", "NPL", "GA Aspire", "USL Academy"] },
   { key: "other", label: "Other / local", color: "#6b7280", programs: [] },
 ];
-const tierOf = (programs: string[]) => TIERS.find((t) => t.programs.some((p) => programs.includes(p))) ?? TIERS[TIERS.length - 1];
+/** every tier a club fields (a club in DPL, EA and NPL is in three); "other" when none */
+const tiersOf = (programs: string[]) => {
+  const ts = TIERS.filter((t) => t.programs.some((p) => programs.includes(p)));
+  return ts.length ? ts : [TIERS[TIERS.length - 1]];
+};
+const programsFor = (c: MapClub, g: Gender) => (g === "All" ? c.programs : c.byGender?.[g]?.programs ?? []);
+const teamsFor = (c: MapClub, g: Gender) => (g === "All" ? c.teams : c.byGender?.[g]?.teams ?? 0);
+const leagueLine = (c: MapClub) => (["Boys", "Girls"] as const)
+  .filter((g) => c.byGender?.[g]?.teams)
+  .map((g) => `${g}: ${c.byGender![g].programs.length ? c.byGender![g].programs.join(", ") : "local leagues"}`).join(" · ");
 
 export function ClubMap({ clubs, token }: { clubs: MapClub[]; token: string | undefined }) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<MapboxMap | null>(null);
   const [on, setOn] = useState<Set<string>>(() => new Set(TIERS.map((t) => t.key)));
   const [rankedOnly, setRankedOnly] = useState(false);
+  const [gender, setGender] = useState<Gender>("All");
 
   const geojson = useMemo(() => ({
     type: "FeatureCollection" as const,
     features: clubs
-      .map((c) => ({ c, tier: tierOf(c.programs) }))
-      .filter(({ c, tier }) => on.has(tier.key) && (!rankedOnly || c.listed > 0))
+      // a club shows when any league it fields (for the chosen gender) is switched on
+      .filter((c) => !c.byGender || teamsFor(c, gender) > 0)
+      .map((c) => ({ c, tier: tiersOf(programsFor(c, gender)).find((t) => on.has(t.key)) }))
+      .filter((x): x is { c: MapClub; tier: (typeof TIERS)[number] } => !!x.tier && (!rankedOnly || x.c.listed > 0))
       .map(({ c, tier }) => ({
         type: "Feature" as const,
         geometry: { type: "Point" as const, coordinates: [c.lng, c.lat] },
-        properties: { club: c.club, site: c.site ?? "", city: c.city ?? "", venue: c.venue ?? "", teams: c.teams, listed: c.listed, tier: tier.label, color: tier.color, programs: c.programs.join(", ") },
+        properties: { club: c.club, site: c.site ?? "", city: c.city ?? "", venue: c.venue ?? "", teams: c.teams, listed: c.listed, tier: tier.label, color: tier.color,
+          leagues: leagueLine(c) || c.programs.join(", ") },
       })),
-  }), [clubs, on, rankedOnly]);
+  }), [clubs, on, rankedOnly, gender]);
 
   // create the map once (browser only)
   useEffect(() => {
@@ -77,8 +93,14 @@ export function ClubMap({ clubs, token }: { clubs: MapClub[]; token: string | un
           a.className = "club-popup-title";
           const meta = document.createElement("div");
           meta.className = "club-popup-meta";
-          meta.textContent = `${p.tier} · ${p.teams} teams (${p.listed} ranked)${p.city ? ` · ${p.city}` : ""}`;
+          meta.textContent = `${p.teams} teams (${p.listed} ranked)${p.city ? ` · ${p.city}` : ""}`;
           box.append(a, meta);
+          if (p.leagues) {
+            const l = document.createElement("div");
+            l.className = "club-popup-meta";
+            l.textContent = String(p.leagues);
+            box.append(l);
+          }
           if (p.venue) {
             const v = document.createElement("div");
             v.className = "club-popup-venue";
@@ -119,6 +141,12 @@ export function ClubMap({ clubs, token }: { clubs: MapClub[]; token: string | un
             {t.label}
           </button>
         ))}
+        <span className="ml-2 inline-flex overflow-hidden rounded-full bg-card shadow-[var(--surface-shadow)]" role="group" aria-label="Teams">
+          {(["All", "Boys", "Girls"] as const).map((g) => (
+            <button key={g} type="button" aria-pressed={gender === g} onClick={() => setGender(g)}
+              className={`px-3 py-1 ${gender === g ? "bg-foreground text-background" : ""}`}>{g}</button>
+          ))}
+        </span>
         <label className="ml-2 flex items-center gap-1.5">
           <input type="checkbox" checked={rankedOnly} onChange={(e) => setRankedOnly(e.target.checked)} />
           Only clubs with a ranked team
