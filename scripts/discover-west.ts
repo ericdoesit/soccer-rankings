@@ -59,6 +59,10 @@ function divisionComplete(matches: ApiMatch[], today: string, abandonedBefore: s
 
 const DIR = path.join(process.cwd(), "data", "discovery");
 const GAMES_DIR = path.join(DIR, "games");
+// unplayed matches (match number + GotSport team ids), so predictions can match entrants by id
+const SCHEDULE_DIR = path.join(DIR, "schedules");
+/** fetch an upcoming event's schedule this many days before it starts */
+const SCHEDULE_AHEAD_DAYS = 14;
 const FRONTIER_FILE = path.join(DIR, "frontier.json");
 const TEAMS_FILE = path.join(DIR, "teams.json");
 const DIRECTORY_FILE = path.join(process.cwd(), "data", "gotsport-teams", "region4.json");
@@ -245,8 +249,11 @@ async function crawlEvent(e: EventEntry) {
   const groups = ev.schedule_groups ?? [];
   const now = new Date();
   const today = now.toISOString().slice(0, 10);
-  if (e.startDate && e.startDate > today) {
-    // Not played yet: note it, come back after it starts (see refreshFrontier).
+  // Events starting within SCHEDULE_AHEAD_DAYS are fetched now for their schedule (unplayed matches
+  // with team ids → data/discovery/schedules), so event predictions can match entrants by GotSport id.
+  const scheduleAhead = new Date(now.getTime() + SCHEDULE_AHEAD_DAYS * 864e5).toISOString().slice(0, 10);
+  if (e.startDate && e.startDate > scheduleAhead) {
+    // Not played yet: note it, come back closer to the start (see refreshFrontier).
     Object.assign(e, { status: "done", flights: groups.length, games: 0, teams: 0,
       fetchedAt: now.toISOString(), reason: `starts ${e.startDate}`, divisions: e.divisions ?? {} });
     return;
@@ -265,6 +272,9 @@ async function crawlEvent(e: EventEntry) {
     return d?.complete && Date.parse(d.checkedAt) > recheckBefore;
   }).map((g) => g.id));
   const games: Game[] = previous.filter((g) => g.flightId !== undefined && skip.has(g.flightId));
+  const scheduleFile = path.join(SCHEDULE_DIR, `${e.id}.json`);
+  const previousSchedule = readJson<Game[]>(scheduleFile, []);
+  const schedule: Game[] = [];
   const eventTeams = new Set<number>(games.flatMap((g) => [g.homeTeamId, g.awayTeamId]));
 
   console.log(`  → ${ev.name} (${ev.city}, ${ev.state}) — ${groups.length} divisions` +
@@ -277,6 +287,7 @@ async function crawlEvent(e: EventEntry) {
       failedFlights++;
       // keep whatever we had for this division
       games.push(...previous.filter((x) => x.flightId === g.id));
+      schedule.push(...previousSchedule.filter((x) => x.flightId === g.id));
       continue;
     }
     let divisionGames = 0;
@@ -289,7 +300,16 @@ async function crawlEvent(e: EventEntry) {
         t.orgId ??= orgFromLogo(side.team_logo);
         if (!t.events.includes(e.id)) t.events.push(e.id);
       }
-      if (m.home_score == null || m.away_score == null || !m.homeTeam?.team_id || !m.awayTeam?.team_id) continue;
+      if (!m.homeTeam?.team_id || !m.awayTeam?.team_id) continue;
+      if (m.home_score == null || m.away_score == null) {
+        schedule.push({
+          gameId: m.id, matchNumber: m.match_number, date: m.match_date,
+          homeTeam: m.homeTeam.full_name, awayTeam: m.awayTeam.full_name,
+          homeTeamId: m.homeTeam.team_id, awayTeamId: m.awayTeam.team_id,
+          division: m.division_name, flightId: g.id, eventId: e.id, eventName: ev.name,
+        });
+        continue;
+      }
       divisionGames++;
       games.push({
         gameId: m.id, matchNumber: m.match_number, date: m.match_date,
@@ -302,6 +322,8 @@ async function crawlEvent(e: EventEntry) {
     divisions[g.id] = { complete: divisionComplete(matches, today, abandonedBefore), checkedAt: now.toISOString(), games: divisionGames };
   }
   writeJson(gamesFile, games);
+  if (schedule.length) { fs.mkdirSync(SCHEDULE_DIR, { recursive: true }); writeJson(scheduleFile, schedule); }
+  else if (fs.existsSync(scheduleFile)) fs.rmSync(scheduleFile);
   const finished = groups.filter((g) => divisions[g.id]?.complete).length;
   Object.assign(e, { status: "done", flights: groups.length, games: games.length, teams: eventTeams.size,
     fetchedAt: now.toISOString(), reason: undefined, divisions });

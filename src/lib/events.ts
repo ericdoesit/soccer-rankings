@@ -9,7 +9,7 @@ export interface UpcomingEvent {
 
 export interface PredTeam {
   club: string; team: string; label: string; teamId: number | null; matchedName: string | null;
-  match: "exact" | "club" | "none"; rating: number | null; assumedRating: number | null;
+  match: "id" | "exact" | "club" | "none"; rating: number | null; assumedRating: number | null;
   record: string | null; rankInDivision: number | null;
   /** the team's GotSport id at this event (stable across snapshot rebuilds; teamId is not), filled in by --score */
   gotsportTeamId?: number | null;

@@ -43,7 +43,11 @@ npm run discover -- --status      # progress per state
 - **Incremental re-crawls:** each event records which divisions are finished (last match in the past,
   nothing waiting for a score; unscored matches older than 14 days count as cancelled). Unfinished
   divisions are re-fetched weekly, finished ones re-checked every 28 days; events that haven't started
-  are recorded and crawled once they start.
+  are recorded and crawled from 14 days before they start (`SCHEDULE_AHEAD_DAYS`).
+- **Schedules:** unplayed matches (match number, date, both GotSport `team_id`s) go to
+  `data/discovery/schedules/<event>.json`, scored ones to `data/discovery/games/`. Event predictions
+  (`scripts/predict-event.ts`) use them to match entrants by GotSport id: the same team plays under
+  different names at different events (Dallas Surf's DPL team is "12G Aspire" elsewhere).
 - **All GotSport calls go through `scripts/lib/gotsport-client.ts`:** one request per 1.5 s, a lock
   file (two crawlers in parallel got HTTP 403), multi-minute back-off on 403.
 - API notes: `event_ranking_data/event_details?event_id=` → schedule groups; `flight_matches?flight_id=

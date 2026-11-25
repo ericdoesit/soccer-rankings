@@ -9,6 +9,7 @@
  *
  *   npx tsx scripts/predict-event.ts 57894
  *   npx tsx scripts/predict-event.ts 57894 --score   # after the event: predictions vs results
+ *   npx tsx scripts/predict-event.ts 57894 --dry-run # print the matching, write nothing
  *
  * Writes data/predictions/<event>.json.
  *
@@ -22,6 +23,7 @@ import * as path from "path";
 import { getDataSet } from "../src/lib/data";
 import { outcomeModel, type Outcome } from "../src/lib/predict";
 import type { Prediction, PredGroup, PredTeam } from "../src/lib/events";
+import { assignGotsportIds, readGsMatches } from "./lib/event-gotsport-ids";
 
 const eventId = process.argv[2];
 if (!eventId) { console.error("usage: npx tsx scripts/predict-event.ts <eventId> [--score]"); process.exit(1); }
@@ -40,23 +42,23 @@ function scoreSaved() {
     JSON.parse(fs.readFileSync(gamesFile, "utf8"));
   const byMatch = new Map(results.map((g) => [`${g.matchNumber}|${g.date}`, g]));
   const key = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "");
-  // Schedules change after predictions are made (opponents swapped, home/away flipped), so a
-  // match number alone can pair the wrong teams. Pass 1: each GotSport id votes for the label it
-  // stood in for, using the schedule's home side; the majority wins. Pass 2 grades a game only
-  // when both of its ids belong to the two predicted teams, and takes home/away from the ids.
-  const votes = new Map<number, Map<string, number>>();
-  const vote = (id: number, k: string) => { const v = votes.get(id) ?? new Map<string, number>(); v.set(k, (v.get(k) ?? 0) + 1); votes.set(id, v); };
-  for (const d of pred.divisions) for (const g of d.groups) for (const m of g.matches) {
-    const res = m.schedule && byMatch.get(`${m.schedule.match}|${m.schedule.date}`);
-    if (!res) continue;
+  // Schedules change after predictions are made (teams re-slotted, home/away flipped, withdrawals),
+  // so a match number alone can pair the wrong teams. Each team's GotSport id comes from
+  // assignGotsportIds (GotSport's names for the id first, then shared match numbers); a game is
+  // graded only when both of its ids belong to the two predicted teams.
+  const teamsByKey = new Map<string, PredTeam & { division: string }>();
+  for (const d of pred.divisions) for (const g of d.groups) for (const t of [...g.teams, ...g.matches.flatMap((m) => [m.a, m.b])])
+    if (!teamsByKey.has(`${d.division}|${t.label}`)) teamsByKey.set(`${d.division}|${t.label}`, { ...t, division: d.division });
+  const slots = pred.divisions.flatMap((d) => d.groups.flatMap((g) => g.matches.filter((m) => m.schedule).map((m) => {
+    const [a, b] = [teamsByKey.get(`${d.division}|${m.a.label}`)!, teamsByKey.get(`${d.division}|${m.b.label}`)!];
     const aHome = key(m.schedule!.home) === key(m.a.label);
-    vote(aHome ? res.homeTeamId : res.awayTeamId, `${d.division}|${m.a.label}`);
-    vote(aHome ? res.awayTeamId : res.homeTeamId, `${d.division}|${m.b.label}`);
-  }
-  const owner = new Map<number, string>(); // GotSport id → division|label
-  for (const [id, v] of votes) owner.set(id, [...v].sort((x, y) => y[1] - x[1])[0][0]);
+    return { match: m.schedule!.match, date: m.schedule!.date, home: aHome ? a : b, away: aHome ? b : a };
+  })));
+  const ids = assignGotsportIds([...teamsByKey.values()], slots, results);
   const gsId = new Map<string, number>(); // division|label → GotSport team id
-  for (const [id, k] of owner) if (!gsId.has(k) || (votes.get(id)!.get(k)! > votes.get(gsId.get(k)!)!.get(k)!)) gsId.set(k, id);
+  for (const [t, { id }] of ids) gsId.set(`${t.division}|${t.label}`, id);
+  const owner = new Map<number, string>(); // GotSport id → division|label
+  for (const [k, id] of gsId) owner.set(id, k);
   let changed = 0;
   const noData = (t: PredTeam) => t.rating === null;
   const split = () => ({ games: 0, correct: 0, favGames: 0, favWon: 0 });
@@ -176,7 +178,7 @@ const ageOk = (division: string, age: string) => division === "U19" ? age === "U
 const dplo = (s: string) => /\bdplo\b/i.test(s);
 const byGender = ds.teams.filter((t) => t.gender === "Girls");
 
-interface Entry { division: string; club: string; team: string; group?: string; teamId?: number; matchedName?: string; confidence?: "exact" | "club" | "none" }
+interface Entry { division: string; club: string; team: string; group?: string; teamId?: number; matchedName?: string; confidence?: "id" | "exact" | "club" | "none"; gotsportTeamId?: number }
 function matchEntry(e: Entry): Entry {
   const full = norm(`${e.club} ${e.team}`), label = norm(e.team), club = norm(e.club);
   const pool = byGender.filter((t) => ageOk(e.division, t.ageGroup) && dplo(t.sourceName ?? t.name) === dplo(e.team));
@@ -201,9 +203,62 @@ const accepted = readTsv(path.join(FIX, `${eventId}-accepted.tsv`)).map(([divisi
 const groupsRaw = readTsv(path.join(FIX, `${eventId}-groups.tsv`)).map(([division, group, club, team]) => ({ division, group, club, team }));
 const entries: Entry[] = (groupsRaw.length ? groupsRaw : accepted).map(matchEntry);
 if (!entries.length) { console.error(`no data/fixtures/${eventId}-accepted.tsv or -groups.tsv`); process.exit(1); }
+const label = (e: Entry) => `${e.club} ${e.team}`;
+/** the entry a GotSport display name ("Colorado Rush East U15G DPL") refers to */
+const findEntry = (division: string, shown: string) => {
+  const n = norm(shown);
+  const inDiv = entries.filter((e) => e.division === division);
+  // GotSport shows "<club> <team>" but drops words repeated from the club name
+  // ("Idaho Surf SC" + "ID Surf U16G DPL" → "Idaho Surf SC ID U16G DPL")
+  const restFits = (e: Entry) => {
+    const club = norm(e.club);
+    if (!n.startsWith(club + " ")) return false;
+    const team = new Set(norm(e.team).split(" "));
+    return n.slice(club.length + 1).split(" ").every((w) => team.has(w));
+  };
+  return inDiv.find((e) => norm(`${e.club} ${e.team}`) === n) ?? inDiv.find((e) => norm(e.team) === n)
+    ?? inDiv.find((e) => n.startsWith(norm(e.club) + " ") && n.endsWith(norm(e.team)))
+    ?? inDiv.find(restFits);
+};
+
+// ---- GotSport ids: match entrants by the team id they are registered under ----
+// The same GotSport team plays under different names at different events (Dallas Surf's DPL
+// team is "12G Aspire" elsewhere), so names alone miss teams we have. The crawler saves each
+// event's unplayed matches (data/discovery/schedules) and results (data/discovery/games) with team
+// ids; pairing our schedule/bracket fixtures with them by match number gives each entrant its id.
+// An id that stands in for more than one entrant (schedule changes) goes to the one it played most.
+{
+  const gsMatches = readGsMatches(eventId);
+  const fixtures = [
+    ...readTsv(path.join(FIX, `${eventId}-schedule.tsv`)).map(([division, match, date, , , home, away]) => ({ division, match, date, home, away })),
+    ...readTsv(path.join(FIX, `${eventId}-bracket.tsv`)).map(([division, , match, , date, , , home, away]) => ({ division, match, date, home, away })),
+  ];
+  const place = (division: string, shown: string) => (/^[WL]:/.test(shown) ? undefined : findEntry(division, shown));
+  const best = assignGotsportIds(entries, fixtures.map((m) => ({ match: m.match, date: m.date, home: place(m.division, m.home), away: place(m.division, m.away) })), gsMatches);
+  const byGsId = new Map<number, typeof ds.teams>();
+  for (const t of ds.teams) if (t.gotsportTeamId) byGsId.set(t.gotsportTeamId, [...(byGsId.get(t.gotsportTeamId) ?? []), t]);
+  let agreed = 0, changed = 0;
+  let kept = 0;
+  for (const [e, { id, by }] of best) {
+    const t = (byGsId.get(id) ?? []).filter((c) => rating.has(c.id))
+      .sort((a, b) => (gamesThisSeason.get(b.id) ?? 0) - (gamesThisSeason.get(a.id) ?? 0))[0];
+    // only match numbers tie this id to the entrant (no GotSport name names the club): an exact
+    // name match to a different team wins, since re-slotted schedules send votes astray
+    if (t && e.teamId !== t.id && by === "slots" && e.confidence === "exact") {
+      console.log(`  kept name match: ${e.division} ${label(e)} = ${e.matchedName} (GotSport id ${id} by match numbers only → ${t.sourceName})`);
+      kept++; continue;
+    }
+    e.gotsportTeamId = id;
+    if (!t) continue;
+    if (e.teamId === t.id) { agreed++; continue; }
+    console.log(`  by GotSport id: ${e.division} ${label(e)}: ${e.matchedName ? `${e.matchedName} (${e.confidence})` : "no data"} → ${t.sourceName}`);
+    Object.assign(e, { teamId: t.id, matchedName: t.sourceName, confidence: "id" });
+    changed++;
+  }
+  console.log(`GotSport ids: ${best.size}/${entries.length} entrants (from ${gsMatches.length} GotSport matches) · ${agreed} agree with the name match · ${changed} re-matched by id · ${kept} kept their exact name match`);
+}
 
 const r = (e: Entry) => (e.teamId !== undefined ? rating.get(e.teamId) : undefined);
-const label = (e: Entry) => `${e.club} ${e.team}`;
 const pct = (x: number) => `${Math.round(100 * x)}%`.padStart(4);
 
 // ---- group simulation (round robin, 3 pts win / 1 draw; ties broken at random) ----
@@ -237,22 +292,6 @@ function simulate(group: Entry[], runs = 10000) {
 
 // optional match schedule: division · match # · date · time · field · home · away (names as shown on GotSport)
 const schedule = readTsv(path.join(FIX, `${eventId}-schedule.tsv`)).map(([division, match, date, time, field, home, away]) => ({ division, match, date, time, field, home, away }));
-/** the entry a GotSport display name ("Colorado Rush East U15G DPL") refers to */
-const findEntry = (division: string, shown: string) => {
-  const n = norm(shown);
-  const inDiv = entries.filter((e) => e.division === division);
-  // GotSport shows "<club> <team>" but drops words repeated from the club name
-  // ("Idaho Surf SC" + "ID Surf U16G DPL" → "Idaho Surf SC ID U16G DPL")
-  const restFits = (e: Entry) => {
-    const club = norm(e.club);
-    if (!n.startsWith(club + " ")) return false;
-    const team = new Set(norm(e.team).split(" "));
-    return n.slice(club.length + 1).split(" ").every((w) => team.has(w));
-  };
-  return inDiv.find((e) => norm(`${e.club} ${e.team}`) === n) ?? inDiv.find((e) => norm(e.team) === n)
-    ?? inDiv.find((e) => n.startsWith(norm(e.club) + " ") && n.endsWith(norm(e.team)))
-    ?? inDiv.find(restFits);
-};
 const scheduled = new Map<string, (typeof schedule)[number] & { homeEntry?: Entry }>();
 for (const m of schedule) {
   const h = findEntry(m.division, m.home), a = findEntry(m.division, m.away);
@@ -309,7 +348,7 @@ const out: Prediction = {
 const divisions = [...new Set(entries.map((e) => e.division))];
 const unmatched = entries.filter((e) => e.confidence === "none");
 const teamOut = (e: Entry, rank: Map<Entry, number>): PredGroup["teams"][number] => ({
-  club: e.club, team: e.team, label: label(e), teamId: e.teamId ?? null, matchedName: e.matchedName ?? null,
+  club: e.club, team: e.team, label: label(e), teamId: e.teamId ?? null, matchedName: e.matchedName ?? null, gotsportTeamId: e.gotsportTeamId ?? null,
   match: e.confidence ?? "none", rating: r(e) ?? null, assumedRating: r(e) === undefined ? rr(e) : null,
   record: e.teamId && rating.has(e.teamId) ? record.get(e.teamId) ?? null : null, rankInDivision: rank.get(e) ?? null,
 });
@@ -371,7 +410,10 @@ for (const div of divisions) {
   });
   ranked.slice(0, groupsRaw.length ? 5 : 99).forEach((e, i) => console.log(`   ${String(i + 1).padStart(2)}. ${r(e)!.toFixed(2).padStart(6)}  ${label(e)}`));
 }
-console.log(`\nmatched ${entries.length - unmatched.length}/${entries.length} teams (${entries.filter((e) => e.confidence === "exact").length} exact name, ${entries.filter((e) => e.confidence === "club").length} by club); rated ${out.teams.rated}`);
+console.log(`\nmatched ${entries.length - unmatched.length}/${entries.length} teams (${entries.filter((e) => e.confidence === "id").length} by GotSport id, ${entries.filter((e) => e.confidence === "exact").length} exact name, ${entries.filter((e) => e.confidence === "club").length} by club); rated ${out.teams.rated}`);
 
-fs.mkdirSync(OUT, { recursive: true });
-fs.writeFileSync(path.join(OUT, `${eventId}.json`), JSON.stringify(out, null, 2) + "\n");
+if (process.argv.includes("--dry-run")) console.log("dry run: predictions not written");
+else {
+  fs.mkdirSync(OUT, { recursive: true });
+  fs.writeFileSync(path.join(OUT, `${eventId}.json`), JSON.stringify(out, null, 2) + "\n");
+}
