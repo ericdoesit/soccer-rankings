@@ -22,6 +22,7 @@
  *   npx tsx scripts/discover-west.ts --state UT      # one state only
  *   npx tsx scripts/discover-west.ts --loop          # keep going; refresh frontier daily
  *   npx tsx scripts/discover-west.ts --events-only   # skip the directory phase
+ *   npx tsx scripts/discover-west.ts --events-only --refetch 48745,54026   # re-read these events now
  *   npx tsx scripts/discover-west.ts --status        # print progress and exit
  *
  * Output:
@@ -375,6 +376,11 @@ async function runOnce(): Promise<boolean> {
   if (refresh || !lastDirectoryRefresh) lastDirectoryRefresh = Date.now();
   // Phase 2: events, state by state.
   await refreshFrontier();
+  // --refetch 48745,54026: read these events again now, even if fetched earlier this week
+  for (const id of (argVal("--refetch") ?? "").split(",").filter(Boolean)) {
+    const e = frontier.events[id];
+    if (e) { e.status = "pending"; e.attempts = 0; } else console.warn(`--refetch: event ${id} is not in the frontier`);
+  }
   save();
   let progressed = false;
   while (spent < BUDGET) {
