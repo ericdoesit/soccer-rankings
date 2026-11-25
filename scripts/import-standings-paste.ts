@@ -14,7 +14,8 @@
  * Saved schedule pages (HTML) are the fastest: the age-group "Schedule" button
  * (schedules?age=9&gender=m) lists every flight of that age at once, and each row carries
  * GotSport's game id, both full team names and the status, so games marked "Forfeit" are
- * recorded in data/seed/forfeit-games.json and dropped from the ratings.
+ * recorded in data/seed/forfeit-games.json and dropped from the ratings, as are "Canceled"
+ * games that still carry a score.
  * Schedule and results pages work too ("Match #  Time  Home Team  Results  Away Team"): each
  * numbered match names both of its teams, which tells apart teams that share a short name.
  *   …add --build to rebuild the data afterwards (npm run build:data)
@@ -186,7 +187,7 @@ for (const eventId of events) {
     rows++;
     const g = byGame.get(p[1]);
     if (!g) { missing++; continue; }
-    if (/forfeit/i.test(p[2])) forfeits.add(Number(p[1]));
+    if (/forfeit|cancel/i.test(p[2])) forfeits.add(Number(p[1]));
     const [home, away] = [p[3], p[4]];
     if (!fits(home, g.homeTeam) || !fits(away, g.awayTeam)) { unmatched.add(`game ${p[1]}: ${home} v ${away} don't fit GotSport's (${g.homeTeam} v ${g.awayTeam})`); continue; }
     for (const [id, full] of [[g.homeTeamId, home], [g.awayTeamId, away]] as const) {
