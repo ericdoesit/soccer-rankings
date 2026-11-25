@@ -57,9 +57,12 @@ check("WARN", "identical games (same teams, score, date) — possible double cou
 console.log("Rankings");
 check("ERROR", "non-finite rating", rankings.filter((r) => !Number.isFinite(r.score)).length, rankings.length);
 check("ERROR", "ranked team missing", rankings.filter((r) => !teamById.has(r.teamId)).length, rankings.length);
-const ranks = rankings.map((r) => r.rank).sort((a, b) => a - b);
-check("ERROR", "ranks not 1..N", ranks.filter((r, i) => r !== i + 1).length, rankings.length);
-check("ERROR", "ranked with < 10 games", rankings.filter((r) => r.gamesPlayed < 10).length, rankings.length);
+// every team with a game is rated; rank numbers go only to teams with 4+ games (data.ts shrinkFewGames)
+const numbered = rankings.filter((r) => r.gamesPlayed >= 4);
+const ranks = numbered.map((r) => r.rank).sort((a, b) => a - b);
+check("ERROR", "ranks of 4+-game teams not 1..N", ranks.filter((r, i) => r !== i + 1).length, numbered.length);
+check("ERROR", "rank number on a team with < 4 games", rankings.filter((r) => r.gamesPlayed < 4 && r.rank !== 0).length, rankings.length);
+check("ERROR", "listed with < 4 games", rankings.filter((r) => r.gamesPlayed < 4 && teamById.get(r.teamId)?.rankable).length, rankings.length);
 check("WARN", "ranked teams with placeholder #team_id names",
   rankings.filter((r) => / #\d+$/.test(teamById.get(r.teamId)?.name ?? "")).length, rankings.length);
 const scores = rankings.map((r) => r.score);

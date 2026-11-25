@@ -101,7 +101,7 @@ export default async function MlsNextPage({ searchParams }: { searchParams: SP }
                       <td className="px-4 py-2">
                         <Team name={t.club} id={t.teamId} />
                         {t.assumed && <span className="ml-1.5 text-[11px] text-muted-foreground">(no data)</span>}
-                        {t.provisional && <span className="ml-1.5 text-[11px] text-muted-foreground" title="Fewer than 10 games: rating is provisional">(few games)</span>}
+                        {t.provisional && <span className="ml-1.5 text-[11px] text-muted-foreground" title="Fewer than 4 games: rating is a rough estimate">(few games)</span>}
                         <div className="mt-0.5 text-xs text-muted-foreground tabular-nums sm:hidden">{t.w}-{t.d}-{t.l}{t.first >= 0.005 ? ` · 1st ${pct(t.first)}` : ""}</div>
                       </td>
                       <td className="hidden px-2 py-2 text-right tabular-nums sm:table-cell">{t.w}-{t.d}-{t.l}</td>

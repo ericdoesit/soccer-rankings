@@ -190,12 +190,15 @@ function markTracked(teams: Team[], games: Game[]): { teams: Team[]; stats: stri
 export const RANK_RULES = {
   /** isolated from the mainland: rated, in the directory, not ranked */
   excludedStates: new Set(["HI"]),
-  /** rated games in the last 15 months */
-  minGames: 10,
+  /** rated games in the last 15 months. Backtest (scripts/backtest-provisional.ts, 2026-11-25, 167K
+   *  team-games over three seasons, rated before a cutoff, predicting the six weeks after): from 4 games
+   *  a rating predicts a team's next games as well as one built from 20; below 4 it has to be pulled
+   *  toward the team's opponents (see FEW_GAMES_WEIGHT). Was 10. */
+  minGames: 4,
   /** of those, games in tracked competitions (elite leagues, N1, State Cups, …) */
   minTrackedGames: 4,
-  /** games against opponents who themselves play tracked competitions */
-  minQualityOpponentGames: 5,
+  /** games against opponents who themselves play tracked competitions (was 5; 4 = minGames) */
+  minQualityOpponentGames: 4,
   /** average opponent rating must be above this percentile of its age group + gender */
   minSchedulePercentile: 0.2,
   /** games this season (from Aug 1). A team that hasn't played may have folded, merged or
@@ -228,6 +231,36 @@ function loadSelectTeams(): RegExp[] {
   } catch { return []; }
 }
 
+/**
+ * Weight on a team's own rating by games played, the rest on the average rating of its opponents.
+ * Backtest (scripts/backtest-provisional.ts, 2026-11-25): the best weight was 0.6 at 1 game, 0.8 at
+ * 2–3 games and 0.9–1.0 from 4 games on, the same as for long-established teams. A team with 1–3
+ * games isn't listed (RANK_RULES.minGames) but its rating is the best guess for predictions: after
+ * the pull, a 1-game team predicts its next games about as well as a 10-game team.
+ */
+const FEW_GAMES_WEIGHT = (games: number) => (games >= 4 ? 1 : games >= 2 ? 0.8 : 0.6);
+function shrinkFewGames(rankings: DataSet["rankings"], games: Array<{ team1Id: number; team2Id: number }>): DataSet["rankings"] {
+  const raw = new Map(rankings.map((r) => [r.teamId, r.score]));
+  const opp = new Map<number, { sum: number; n: number }>();
+  for (const g of games) for (const [me, them] of [[g.team1Id, g.team2Id], [g.team2Id, g.team1Id]]) {
+    const s = raw.get(them);
+    if (s === undefined) continue;
+    const x = opp.get(me) ?? { sum: 0, n: 0 }; x.sum += s; x.n++; opp.set(me, x);
+  }
+  const out = rankings.map((r) => {
+    const w = FEW_GAMES_WEIGHT(r.gamesPlayed), o = opp.get(r.teamId);
+    if (w === 1 || !o?.n) return r;
+    const base = o.sum / o.n;
+    return { ...r, score: Math.round((base + w * (r.score - base)) * 100) / 100 };
+  });
+  // rank numbers only among teams with 4+ games, so adding the few-game ratings doesn't move anyone
+  out.sort((a, b) => b.score - a.score);
+  let rank = 0;
+  for (const r of out) r.rank = r.gamesPlayed >= 4 ? ++rank : 0;
+  return out;
+}
+
+const INTERNATIONAL = /\((Mexico|Canada|England|Germany|Netherlands|France|Spain|Italy|Costa Rica|Brazil|Argentina|Japan|Korea|China|Australia|New Zealand|Guatemala|El Salvador|Honduras|Jamaica)\)|^(Quebec|British Columbia|Alberta)\b/i;
 function markRankable(teams: Team[], games: Game[], rankings: DataSet["rankings"]): { teams: Team[]; stats: string } {
   const selectTeams = loadSelectTeams();
   const byId = new Map(teams.map((t) => [t.id, t]));
@@ -267,6 +300,8 @@ function markRankable(teams: Team[], games: Game[], rankings: DataSet["rankings"
     const x = n.get(t.id);
     const reason =
       t.region !== "Region4" ? "outside the West" :
+      // national / foreign club teams at West showcases ("2011 (Germany)", "Royals (Canada)", "Quebec #693811")
+      INTERNATIONAL.test(`${t.name} ${t.sourceName ?? ""}`) ? "outside the West (international team)" :
       t.ageGroup === "U19+" ? "aged out (U19+)" :
       RANK_RULES.excludedStates.has(t.state) ? "Hawaii teams aren't ranked (too few games against mainland teams)" :
       // State ODP / EPD squads are all-star selections, not club teams: their games still
@@ -389,10 +424,12 @@ export function buildData(): DataSet {
       // ratings on the merged games; each team's league is its competition + gender + age
       // group, so ties stay within an age group (see leagueTie in ranking/massey.ts)
       const teamAG = new Map(twins.teams.map((t) => [t.id, `${t.gender}|${t.ageGroup}`]));
-      const rankings = calculateRankings(twins.games.map((g) => ({ ...g, status: "completed" as const })), {
-        minGames: 10,
+      // every team with a game is rated (minGames 1); teams under RANK_RULES.minGames aren't listed,
+      // and below 4 games their rating is pulled toward their opponents' (shrinkFewGames)
+      const rankings = shrinkFewGames(calculateRankings(twins.games.map((g) => ({ ...g, status: "completed" as const })), {
+        minGames: 1,
         leagueOf: (id, t) => { const ln = leagueName(t); const ag = teamAG.get(id); return ln && ag ? `${ln}|${ag}` : null; },
-      });
+      }), twins.games);
       console.log(`  modular11 twins: ${twins.merged} merged into GotSport teams, ${twins.ambiguous} left separate (2+ candidates), ${twins.noCurrent} with only last season's teams`);
       const tracked = markTracked(twins.teams, twins.games);
       console.log(`  tracked: ${tracked.stats}`);

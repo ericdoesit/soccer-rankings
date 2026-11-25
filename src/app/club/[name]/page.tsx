@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { LegacyClub } from "./legacy-club";
 import { LEAGUES } from "@/lib/directory/leagues";
 import { chip } from "@/lib/ui-classes";
+import { RANK_RULES } from "@/lib/data";
 
 // "Walnut Creek Surf Soccer Club Blue U12" → "Blue" inside the club's own grid
 function shortName(t: TeamRow, clubName: string) {
@@ -146,7 +147,7 @@ export default async function ClubPage({ params, searchParams }: {
         </CardContent>
       </Card>
       <p className="mt-3 text-xs text-muted-foreground">
-        Teams that played in the last 15 months. Ranks are within each age group and gender across the West. A team is ranked once it has 10 games and has played in an elite league, N1, a State Cup or a regional championship or showcase in the last 15 months.
+        Teams that played in the last 15 months. Ranks are within each age group and gender across the West. A team is ranked once it has {RANK_RULES.minGames} games and has played in an elite league, N1, a State Cup or a regional championship or showcase in the last 15 months.
       </p>
     </div>
   );

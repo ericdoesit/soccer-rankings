@@ -18,7 +18,6 @@ import * as fs from "fs";
 import * as path from "path";
 import { getDataSet } from "../src/lib/data";
 import { outcomeModel } from "../src/lib/predict";
-import { calculateRankings } from "../src/lib/ranking/massey";
 import type { TrackerGame } from "./scrape-mlsnext-tracker";
 import { splitDivisionNames } from "../src/lib/mlsnext-divisions";
 
@@ -38,14 +37,10 @@ const all = splitDivisionNames(JSON.parse(fs.readFileSync(SRC, "utf8")) as Track
 const { teams, games, rankings } = getDataSet();
 const rating = new Map(rankings.map((r) => [r.teamId, r.score]));
 const since = new Date(Date.now() - 455 * 864e5).toISOString().slice(0, 10);
-// win/draw/loss table from published ratings only
-const model = outcomeModel(games.filter((g) => g.status === "completed"), rating, since);
-// Published ratings need 10+ games; early in the season many MLS NEXT teams have fewer.
-// For predictions only, teams with 3–9 games get a provisional rating from the same
-// model (flagged "few games"); published ratings are unchanged.
-const provisional = new Set<number>();
-for (const r of calculateRankings(games.map((g) => ({ ...g, status: "completed" as const })), { minGames: 3 }))
-  if (!rating.has(r.teamId)) { rating.set(r.teamId, r.score); provisional.add(r.teamId); }
+// Every team with a game is rated (src/lib/data.ts); 1–3-game ratings are pulled toward their
+// opponents and flagged "few games" here. The win/draw/loss table uses 4+-game teams only.
+const provisional = new Set(rankings.filter((r) => r.gamesPlayed < 4).map((r) => r.teamId));
+const model = outcomeModel(games.filter((g) => g.status === "completed"), new Map([...rating].filter(([id]) => !provisional.has(id))), since);
 const teamById = new Map(teams.map((t) => [t.id, t]));
 
 

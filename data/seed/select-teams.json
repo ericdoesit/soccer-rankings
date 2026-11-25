@@ -4,6 +4,26 @@
     {
       "pattern": "\\b(AK|Alaska) Select Chicas\\b",
       "evidence": "Eagle River Soccer Association's Chicas/Chico travel program: rosters of players from Alaska, California, New Mexico, Mississippi, Arizona, Virginia and Florida for showcases (club website text pasted by the user 2026-11-13). User: go with the best decision; decided to unlist like ODP."
+    },
+    {
+      "pattern": "\\b\\d{4} (Boys|Girls) Oregon\\b",
+      "evidence": "Oregon state teams ('2012 Boys Oregon #570961'). State-association select team (ODP-style: the association's name plus a birth year, no club), seen only at showcases. Surfaced on 2026-11-25 when the listing minimum dropped from 10 games to 4; unlisted like ODP. Name-pattern evidence only."
+    },
+    {
+      "pattern": "\\bColorado Soccer Association( Mountain Region)? \\d{4} (Boys|Girls)\\b",
+      "evidence": "Colorado Soccer Association (regional) teams. State-association select team (ODP-style: the association's name plus a birth year, no club), seen only at showcases. Surfaced on 2026-11-25 when the listing minimum dropped from 10 games to 4; unlisted like ODP. Name-pattern evidence only."
+    },
+    {
+      "pattern": "(^|\\s)WA [BG]\\d{4}\\b",
+      "evidence": "Washington Youth Soccer state teams ('WA B2012 #438163'). State-association select team (ODP-style: the association's name plus a birth year, no club), seen only at showcases. Surfaced on 2026-11-25 when the listing minimum dropped from 10 games to 4; unlisted like ODP. Name-pattern evidence only."
+    },
+    {
+      "pattern": "\\bNebraska \\d{4}[BG]\\b",
+      "evidence": "Nebraska state teams ('Nebraska 2012G #442057'). State-association select team (ODP-style: the association's name plus a birth year, no club), seen only at showcases. Surfaced on 2026-11-25 when the listing minimum dropped from 10 games to 4; unlisted like ODP. Name-pattern evidence only."
+    },
+    {
+      "pattern": "\\bCal South PRO\\+",
+      "evidence": "Cal South PRO+ (Cal South's player-development select program). State-association select team (ODP-style: the association's name plus a birth year, no club), seen only at showcases. Surfaced on 2026-11-25 when the listing minimum dropped from 10 games to 4; unlisted like ODP. Name-pattern evidence only."
     }
   ]
 }
