@@ -248,7 +248,7 @@ const findEntry = (division: string, shown: string) => {
   const place = (division: string, shown: string) => (/^[WL]:/.test(shown) ? undefined : findEntry(division, shown));
   const best = assignGotsportIds(entries, fixtures.map((m) => ({ match: m.match, date: m.date, home: place(m.division, m.home), away: place(m.division, m.away) })), gsMatches);
   const byGsId = new Map<number, typeof ds.teams>();
-  for (const t of ds.teams) for (const gs of [t.gotsportTeamId, ...(t.formerGotsportTeamIds ?? [])]) if (gs) byGsId.set(gs, [...(byGsId.get(gs) ?? []), t]);
+  for (const t of ds.teams) for (const gs of [t.gotsportTeamId, ...(t.otherGotsportTeamIds ?? [])]) if (gs) byGsId.set(gs, [...(byGsId.get(gs) ?? []), t]);
   let agreed = 0, changed = 0;
   let kept = 0;
   for (const [e, { id, by }] of best) {

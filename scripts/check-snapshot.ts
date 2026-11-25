@@ -79,8 +79,8 @@ const gamesDir = path.join(process.cwd(), "data", "discovery", "games");
 // the build reads sources at its start and writes the snapshot ~10-30 s later
 const snapTime = fs.statSync(SNAPSHOT_FILE).mtimeMs - 60_000;
 // a team's GotSport ids: this season's plus earlier seasons' registrations joined into it
-const gsOf = new Map(teams.filter((t) => t.gotsportTeamId || t.formerGotsportTeamIds?.length)
-  .map((t) => [t.id, [t.gotsportTeamId, ...(t.formerGotsportTeamIds ?? [])].filter((x): x is number => !!x)]));
+const gsOf = new Map(teams.filter((t) => t.gotsportTeamId || t.otherGotsportTeamIds?.length)
+  .map((t) => [t.id, [t.gotsportTeamId, ...(t.otherGotsportTeamIds ?? [])].filter((x): x is number => !!x)]));
 const pairKey = (a: number, b: number, d: string) => `${Math.min(a, b)}_${Math.max(a, b)}_${d}`;
 const inSnap = new Set<string>();
 for (const g of games) for (const a of gsOf.get(g.team1Id) ?? []) for (const b of gsOf.get(g.team2Id) ?? []) inSnap.add(pairKey(a, b, g.date));

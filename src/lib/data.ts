@@ -4,7 +4,7 @@ import { generateFullSampleData } from "./sample-data";
 import { calculateRankings, leagueName, type RankingResult } from "./ranking/massey";
 import { loadGotsportData, hasRealData, inferAgeAndGender, type RealTeam } from "./import-gotsport-data";
 import { trackedCompetitions } from "./directory/tracked";
-import { mergeCoastTwins, mergeModularTwins, mergeTournamentCopies, mergeSeasonTwins } from "./directory/merge-twins";
+import { mergeCoastTwins, mergeModularTwins, mergeTournamentCopies, mergeSeasonTwins, mergeSameSeasonCopies } from "./directory/merge-twins";
 import { buildTeamIdentity } from "./directory/team-identity";
 import { joinUslAcademySeasons } from "./directory/usl-academy";
 import { assignPrograms, PROGRAMS } from "./directory/program";
@@ -22,7 +22,7 @@ export interface Team {
   /** GotSport team_id when the team came from the GotSport API */
   gotsportTeamId?: number;
   /** GotSport ids of earlier seasons' registrations joined into this team (mergeSeasonTwins) */
-  formerGotsportTeamIds?: number[];
+  otherGotsportTeamIds?: number[];
   /** true when the club comes from the GotSport directory, a league club list or a club-name match */
   clubVerified?: boolean;
   /** played a tracked competition (src/lib/directory/tracked.ts) in the last 15 months: listed in rankings */
@@ -419,7 +419,10 @@ export function buildData(): DataSet {
       lastCoastUnmatched = coast.unmatched;
       console.log(`  Coast Soccer League: ${coast.merged} records joined to their GotSport team`);
       // one squad across seasons: each season's GotSport registration is a new record (mergeSeasonTwins)
-      const seasons = mergeSeasonTwins(coast.teams, coast.games);
+      // copies of one squad within this season (league record + tournament record), then its earlier seasons
+      const sameSeason = mergeSameSeasonCopies(coast.teams, coast.games, currentSeason().start);
+      console.log(`  same-season copies: ${sameSeason.merged} records joined into ${sameSeason.joins.length} squads`);
+      const seasons = mergeSeasonTwins(sameSeason.teams, sameSeason.games);
       console.log(`  season records: ${seasons.merged} last-season records joined to their squad (${seasons.joins.length} squads)`);
       // USL Academy: one program across seasons (B2006 → B2007), listed as U20
       const usl = joinUslAcademySeasons(seasons.teams, seasons.games);
