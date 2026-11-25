@@ -2797,5 +2797,43 @@
   "label": "Historic Belmar Park, Downtown Santa Monica, Santa Monica, Los Angeles County, California, United States",
   "city": "Santa Monica"
  },
- "photon:San Elijo Park Hilltop": null
+ "photon:San Elijo Park Hilltop": null,
+ "Vista Del Mar Child and Family Services, California": null,
+ "photon:Vista Del Mar Child and Family Services": null,
+ "Jesse Owens Stadium, California": {
+  "lat": 34.064274,
+  "lng": -118.1671937,
+  "label": "Jesse Owens Stadium, Circle Drive, Los Angeles, Los Angeles County, California, 90032, United States",
+  "city": "Los Angeles"
+ },
+ "Victoriano Park, California": {
+  "lat": 33.8906867,
+  "lng": -117.2127141,
+  "label": "Victoriano Park, Moreno Valley, Riverside County, California, United States",
+  "city": "Moreno Valley"
+ },
+ "Phoenix Rising FC Youth Complex, California": null,
+ "photon:Phoenix Rising FC Youth Complex": null,
+ "Reata Sports Complex, California": null,
+ "photon:Reata Sports Complex": null,
+ "Arizona Athletic Grounds, California": null,
+ "photon:Arizona Athletic Grounds": null,
+ "Birdsall Park, California": {
+  "lat": 34.1474463,
+  "lng": -117.3998945,
+  "label": "Birdsall Park, Rialto, San Bernardino County, California, United States",
+  "city": "Rialto"
+ },
+ "Will Rogers Middle School, California": {
+  "lat": 33.8905256,
+  "lng": -118.3459416,
+  "label": "Will Rogers Middle School, 4110, 154th Street, Lawndale, Los Angeles County, California, 90260, United States",
+  "city": "Lawndale"
+ },
+ "Sommers Bend Sports Park, California": {
+  "lat": 33.544489,
+  "lng": -117.0991457,
+  "label": "Sports Ranch at Sommers Bend, 32101, Temecula, Riverside County, California, 92591, United States",
+  "city": "Temecula"
+ }
 }

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-25T17:43:48.872Z",
+ "generatedAt": "2026-11-25T18:01:00.663Z",
  "source": "OpenStreetMap Nominatim",
  "clubs": [
   {
@@ -9,8 +9,8 @@
    "source": "home field",
    "venue": "Sierra Vista Elementary School",
    "city": "Los Angeles",
-   "teams": 490,
-   "listed": 128,
+   "teams": 488,
+   "listed": 126,
    "programs": [
     "ECNL",
     "ECNL RL",
@@ -30,7 +30,7 @@
      ]
     },
     "Girls": {
-     "teams": 265,
+     "teams": 263,
      "programs": [
       "ECNL",
       "ECNL RL",
@@ -85,7 +85,7 @@
    "source": "home field",
    "venue": "Los Alisos Intermediate School",
    "city": "Mission Viejo",
-   "teams": 375,
+   "teams": 368,
    "listed": 103,
    "programs": [
     "DPL",
@@ -97,7 +97,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 234,
+     "teams": 236,
      "programs": [
       "ECNL",
       "ECNL RL",
@@ -107,7 +107,7 @@
      ]
     },
     "Girls": {
-     "teams": 141,
+     "teams": 132,
      "programs": [
       "DPL",
       "ECNL",
@@ -126,7 +126,7 @@
    "source": "home field",
    "venue": "Dignity Health Sports Park",
    "city": "Carson",
-   "teams": 312,
+   "teams": 311,
    "listed": 97,
    "programs": [
     "ECNL",
@@ -137,7 +137,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 165,
+     "teams": 164,
      "programs": [
       "ECNL",
       "ECNL RL",
@@ -164,7 +164,7 @@
    "source": "home field",
    "venue": "Azusa High School",
    "city": "Azusa",
-   "teams": 285,
+   "teams": 279,
    "listed": 91,
    "programs": [
     "DPL",
@@ -176,7 +176,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 240,
+     "teams": 235,
      "programs": [
       "EA",
       "EA2",
@@ -186,7 +186,7 @@
      ]
     },
     "Girls": {
-     "teams": 45,
+     "teams": 44,
      "programs": [
       "DPL",
       "N1",
@@ -241,7 +241,7 @@
    "source": "home field",
    "venue": "Cottonwood Park",
    "city": "Anaheim",
-   "teams": 238,
+   "teams": 233,
    "listed": 79,
    "programs": [
     "EA",
@@ -253,7 +253,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 134,
+     "teams": 131,
      "programs": [
       "EA",
       "ECNL",
@@ -264,7 +264,7 @@
      ]
     },
     "Girls": {
-     "teams": 104,
+     "teams": 102,
      "programs": [
       "ECNL",
       "ECNL RL",
@@ -281,8 +281,8 @@
    "source": "home field",
    "venue": "San Marino High School",
    "city": "San Marino",
-   "teams": 238,
-   "listed": 76,
+   "teams": 232,
+   "listed": 78,
    "programs": [
     "DPL",
     "EA",
@@ -295,7 +295,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 160,
+     "teams": 155,
      "programs": [
       "EA",
       "EA2",
@@ -305,7 +305,7 @@
      ]
     },
     "Girls": {
-     "teams": 78,
+     "teams": 77,
      "programs": [
       "DPL",
       "GA",
@@ -323,7 +323,7 @@
    "source": "home field",
    "venue": "Surf Sports Park",
    "city": "San Diego",
-   "teams": 317,
+   "teams": 315,
    "listed": 73,
    "programs": [
     "ECNL",
@@ -344,7 +344,7 @@
      ]
     },
     "Girls": {
-     "teams": 117,
+     "teams": 115,
      "programs": [
       "ECNL",
       "ECNL RL",
@@ -362,8 +362,8 @@
    "source": "home field",
    "venue": "Oak Park High School",
    "city": "Oak Park",
-   "teams": 142,
-   "listed": 71,
+   "teams": 138,
+   "listed": 69,
    "programs": [
     "ECNL",
     "ECNL RL",
@@ -372,7 +372,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 103,
+     "teams": 99,
      "programs": [
       "ECNL",
       "ECNL RL",
@@ -396,7 +396,7 @@
    "source": "home field",
    "venue": "Orange County Great Park",
    "city": "Irvine",
-   "teams": 233,
+   "teams": 229,
    "listed": 62,
    "programs": [
     "DPL",
@@ -409,7 +409,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 154,
+     "teams": 150,
      "programs": [
       "EA",
       "EA2",
@@ -435,8 +435,8 @@
    "source": "home field",
    "venue": "ROBB",
    "city": "San Diego",
-   "teams": 223,
-   "listed": 59,
+   "teams": 218,
+   "listed": 58,
    "programs": [
     "EA",
     "EA2",
@@ -447,7 +447,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 154,
+     "teams": 149,
      "programs": [
       "EA",
       "EA2",
@@ -472,8 +472,8 @@
    "source": "home field",
    "venue": "Charter Oak High School",
    "city": "Covina",
-   "teams": 145,
-   "listed": 59,
+   "teams": 143,
+   "listed": 58,
    "programs": [
     "EA",
     "EA2",
@@ -484,7 +484,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 110,
+     "teams": 108,
      "programs": [
       "EA",
       "EA2",
@@ -510,7 +510,7 @@
    "source": "home field",
    "venue": "4S Ranch Sports Park",
    "city": "4S Ranch",
-   "teams": 164,
+   "teams": 162,
    "listed": 56,
    "programs": [
     "ECNL",
@@ -522,7 +522,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 91,
+     "teams": 90,
      "programs": [
       "ECNL",
       "ECNL RL",
@@ -530,7 +530,7 @@
      ]
     },
     "Girls": {
-     "teams": 73,
+     "teams": 72,
      "programs": [
       "GA",
       "GA Aspire",
@@ -546,8 +546,8 @@
    "source": "home field",
    "venue": "Aviara Park",
    "city": "Carlsbad",
-   "teams": 218,
-   "listed": 54,
+   "teams": 216,
+   "listed": 55,
    "programs": [
     "DPL",
     "EA",
@@ -558,7 +558,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 140,
+     "teams": 138,
      "programs": [
       "EA",
       "EA2",
@@ -576,14 +576,47 @@
    }
   },
   {
+   "club": "FC Premier (CA)",
+   "lat": 33.73144,
+   "lng": -118.02785,
+   "source": "home field",
+   "venue": "Marina High School",
+   "city": "Huntington Beach",
+   "teams": 138,
+   "listed": 53,
+   "programs": [
+    "DPL",
+    "EA2",
+    "N1",
+    "NPL"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 77,
+     "programs": [
+      "EA2",
+      "N1",
+      "NPL"
+     ]
+    },
+    "Girls": {
+     "teams": 61,
+     "programs": [
+      "DPL",
+      "N1"
+     ]
+    }
+   }
+  },
+  {
    "club": "So Cal Blues",
    "lat": 34.0615,
    "lng": -117.1397,
    "source": "home field",
    "venue": "Crafton Park",
    "city": "Redlands",
-   "teams": 197,
-   "listed": 54,
+   "teams": 192,
+   "listed": 52,
    "programs": [
     "DPL",
     "ECNL",
@@ -593,7 +626,7 @@
    ],
    "byGender": {
     "Girls": {
-     "teams": 177,
+     "teams": 172,
      "programs": [
       "DPL",
       "ECNL",
@@ -611,47 +644,14 @@
    }
   },
   {
-   "club": "FC Premier (CA)",
-   "lat": 33.73144,
-   "lng": -118.02785,
-   "source": "home field",
-   "venue": "Marina High School",
-   "city": "Huntington Beach",
-   "teams": 137,
-   "listed": 52,
-   "programs": [
-    "DPL",
-    "EA2",
-    "N1",
-    "NPL"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 76,
-     "programs": [
-      "EA2",
-      "N1",
-      "NPL"
-     ]
-    },
-    "Girls": {
-     "teams": 61,
-     "programs": [
-      "DPL",
-      "N1"
-     ]
-    }
-   }
-  },
-  {
    "club": "City SC Southwest",
    "lat": 33.4532,
    "lng": -117.09565,
    "source": "home field",
    "venue": "Patricia H. Birdsall Sports Park",
    "city": "Temecula",
-   "teams": 258,
-   "listed": 51,
+   "teams": 243,
+   "listed": 50,
    "programs": [
     "DPL",
     "EA",
@@ -663,7 +663,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 151,
+     "teams": 149,
      "programs": [
       "EA",
       "EA2",
@@ -673,7 +673,7 @@
      ]
     },
     "Girls": {
-     "teams": 107,
+     "teams": 94,
      "programs": [
       "DPL",
       "GA",
@@ -689,7 +689,7 @@
    "source": "home field",
    "venue": "Villa Park High School",
    "city": "Villa Park",
-   "teams": 141,
+   "teams": 136,
    "listed": 49,
    "programs": [
     "DPL",
@@ -703,7 +703,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 74,
+     "teams": 72,
      "programs": [
       "EA",
       "EA2",
@@ -713,48 +713,12 @@
      ]
     },
     "Girls": {
-     "teams": 67,
+     "teams": 64,
      "programs": [
       "DPL",
       "GA",
       "GA Aspire",
       "NPL"
-     ]
-    }
-   }
-  },
-  {
-   "club": "Slammers FC",
-   "lat": 33.6277,
-   "lng": -117.85331,
-   "source": "home field",
-   "venue": "Bonita Canyon Sports Park",
-   "city": "Newport Beach",
-   "teams": 118,
-   "listed": 48,
-   "programs": [
-    "ECNL",
-    "ECNL RL",
-    "NPL",
-    "Pre-ECNL"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 35,
-     "programs": [
-      "ECNL",
-      "ECNL RL",
-      "NPL",
-      "Pre-ECNL"
-     ]
-    },
-    "Girls": {
-     "teams": 83,
-     "programs": [
-      "ECNL",
-      "ECNL RL",
-      "NPL",
-      "Pre-ECNL"
      ]
     }
    }
@@ -766,7 +730,7 @@
    "source": "home field",
    "venue": "Azusa High School",
    "city": "Azusa",
-   "teams": 98,
+   "teams": 97,
    "listed": 47,
    "programs": [
     "EA",
@@ -776,7 +740,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 84,
+     "teams": 83,
      "programs": [
       "EA",
       "EA2",
@@ -799,7 +763,7 @@
    "source": "home field",
    "venue": "Oso Park",
    "city": "Mission Viejo",
-   "teams": 94,
+   "teams": 93,
    "listed": 47,
    "programs": [
     "DPL",
@@ -813,7 +777,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 59,
+     "teams": 58,
      "programs": [
       "ECNL",
       "ECNL RL",
@@ -863,6 +827,42 @@
    }
   },
   {
+   "club": "Slammers FC",
+   "lat": 33.6277,
+   "lng": -117.85331,
+   "source": "home field",
+   "venue": "Bonita Canyon Sports Park",
+   "city": "Newport Beach",
+   "teams": 116,
+   "listed": 45,
+   "programs": [
+    "ECNL",
+    "ECNL RL",
+    "NPL",
+    "Pre-ECNL"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 37,
+     "programs": [
+      "ECNL",
+      "ECNL RL",
+      "NPL",
+      "Pre-ECNL"
+     ]
+    },
+    "Girls": {
+     "teams": 79,
+     "programs": [
+      "ECNL",
+      "ECNL RL",
+      "NPL",
+      "Pre-ECNL"
+     ]
+    }
+   }
+  },
+  {
    "club": "LA Breakers FC",
    "lat": 34.00066,
    "lng": -118.44667,
@@ -896,6 +896,41 @@
       "N1",
       "NPL",
       "Pre-ECNL"
+     ]
+    }
+   }
+  },
+  {
+   "club": "Empire Surf",
+   "lat": 33.54449,
+   "lng": -117.09915,
+   "source": "home field",
+   "venue": "Sommers Bend Sports Park",
+   "city": "Temecula",
+   "teams": 154,
+   "listed": 41,
+   "programs": [
+    "ECNL RL",
+    "N1",
+    "NPL",
+    "Pre-ECNL"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 79,
+     "programs": [
+      "ECNL RL",
+      "N1",
+      "NPL",
+      "Pre-ECNL"
+     ]
+    },
+    "Girls": {
+     "teams": 75,
+     "programs": [
+      "ECNL RL",
+      "N1",
+      "NPL"
      ]
     }
    }
@@ -937,48 +972,13 @@
    }
   },
   {
-   "club": "Empire Surf",
-   "lat": 33.48826,
-   "lng": -117.03148,
-   "source": "home field",
-   "venue": "Galway Downs",
-   "city": "Escondido",
-   "teams": 175,
-   "listed": 37,
-   "programs": [
-    "ECNL RL",
-    "N1",
-    "NPL",
-    "Pre-ECNL"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 93,
-     "programs": [
-      "ECNL RL",
-      "N1",
-      "NPL",
-      "Pre-ECNL"
-     ]
-    },
-    "Girls": {
-     "teams": 82,
-     "programs": [
-      "ECNL RL",
-      "N1",
-      "NPL"
-     ]
-    }
-   }
-  },
-  {
    "club": "Express Soccer",
    "lat": 33.03207,
    "lng": -117.28039,
    "source": "home field",
    "venue": "Encinitas Community Park",
    "city": "Encinitas",
-   "teams": 77,
+   "teams": 75,
    "listed": 37,
    "programs": [
     "N1",
@@ -986,16 +986,51 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 42,
+     "teams": 41,
      "programs": [
       "N1"
      ]
     },
     "Girls": {
-     "teams": 35,
+     "teams": 34,
      "programs": [
       "N1",
       "NPL"
+     ]
+    }
+   }
+  },
+  {
+   "club": "Albion SC Riverside",
+   "lat": 33.93976,
+   "lng": -117.37824,
+   "source": "home field",
+   "venue": "Matthew Gage Middle School",
+   "city": "Riverside",
+   "teams": 94,
+   "listed": 35,
+   "programs": [
+    "DPL",
+    "EA",
+    "EA2",
+    "MLS NEXT",
+    "N1"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 71,
+     "programs": [
+      "EA",
+      "EA2",
+      "MLS NEXT",
+      "N1"
+     ]
+    },
+    "Girls": {
+     "teams": 23,
+     "programs": [
+      "DPL",
+      "N1"
      ]
     }
    }
@@ -1036,36 +1071,40 @@
    }
   },
   {
-   "club": "Albion SC Riverside",
-   "lat": 33.93976,
-   "lng": -117.37824,
+   "club": "FRAM SC",
+   "lat": 33.7536,
+   "lng": -118.32899,
    "source": "home field",
-   "venue": "Matthew Gage Middle School",
-   "city": "Riverside",
-   "teams": 103,
+   "venue": "Miraleste Intermediate School",
+   "city": "Rancho Palos Verdes",
+   "teams": 110,
    "listed": 34,
    "programs": [
     "DPL",
     "EA",
     "EA2",
-    "MLS NEXT",
-    "N1"
+    "GA",
+    "GA Aspire",
+    "N1",
+    "NPL"
    ],
    "byGender": {
     "Boys": {
-     "teams": 77,
+     "teams": 52,
      "programs": [
       "EA",
       "EA2",
-      "MLS NEXT",
-      "N1"
+      "NPL"
      ]
     },
     "Girls": {
-     "teams": 26,
+     "teams": 58,
      "programs": [
       "DPL",
-      "N1"
+      "GA",
+      "GA Aspire",
+      "N1",
+      "NPL"
      ]
     }
    }
@@ -1077,7 +1116,7 @@
    "source": "home field",
    "venue": "Rincon Park",
    "city": "Chino Hills",
-   "teams": 87,
+   "teams": 85,
    "listed": 34,
    "programs": [
     "DPL",
@@ -1093,48 +1132,9 @@
      ]
     },
     "Girls": {
-     "teams": 26,
+     "teams": 24,
      "programs": [
       "DPL"
-     ]
-    }
-   }
-  },
-  {
-   "club": "FRAM SC",
-   "lat": 33.7536,
-   "lng": -118.32899,
-   "source": "home field",
-   "venue": "Miraleste Intermediate School",
-   "city": "Rancho Palos Verdes",
-   "teams": 114,
-   "listed": 33,
-   "programs": [
-    "DPL",
-    "EA",
-    "EA2",
-    "GA",
-    "GA Aspire",
-    "N1",
-    "NPL"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 54,
-     "programs": [
-      "EA",
-      "EA2",
-      "NPL"
-     ]
-    },
-    "Girls": {
-     "teams": 60,
-     "programs": [
-      "DPL",
-      "GA",
-      "GA Aspire",
-      "N1",
-      "NPL"
      ]
     }
    }
@@ -1146,7 +1146,7 @@
    "source": "home field",
    "venue": "Liberty Park",
    "city": "Huntington Beach",
-   "teams": 127,
+   "teams": 126,
    "listed": 31,
    "programs": [
     "DPL",
@@ -1158,7 +1158,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 59,
+     "teams": 58,
      "programs": [
       "EA",
       "EA2",
@@ -1177,45 +1177,13 @@
    }
   },
   {
-   "club": "Chula Vista FC",
-   "lat": 32.6451,
-   "lng": -117.04289,
-   "source": "home field",
-   "venue": "Terra Nova Park",
-   "city": "Chula Vista",
-   "teams": 101,
-   "listed": 30,
-   "programs": [
-    "DPL",
-    "EA",
-    "EA2",
-    "MLS NEXT"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 83,
-     "programs": [
-      "EA",
-      "EA2",
-      "MLS NEXT"
-     ]
-    },
-    "Girls": {
-     "teams": 18,
-     "programs": [
-      "DPL"
-     ]
-    }
-   }
-  },
-  {
    "club": "Central Cal Aztecs",
    "lat": 35.40877,
    "lng": -118.97203,
    "source": "home field",
    "venue": "Bakersfield College",
    "city": "Bakersfield",
-   "teams": 47,
+   "teams": 46,
    "listed": 30,
    "programs": [
     "DPL",
@@ -1224,7 +1192,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 33,
+     "teams": 32,
      "programs": [
       "EA",
       "EA2"
@@ -1245,7 +1213,7 @@
    "source": "home field",
    "venue": "Marina Hills  Park",
    "city": "Laguna Niguel",
-   "teams": 141,
+   "teams": 139,
    "listed": 29,
    "programs": [
     "EA",
@@ -1256,7 +1224,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 100,
+     "teams": 98,
      "programs": [
       "EA",
       "EA2",
@@ -1274,13 +1242,45 @@
    }
   },
   {
+   "club": "Chula Vista FC",
+   "lat": 32.6451,
+   "lng": -117.04289,
+   "source": "home field",
+   "venue": "Terra Nova Park",
+   "city": "Chula Vista",
+   "teams": 99,
+   "listed": 29,
+   "programs": [
+    "DPL",
+    "EA",
+    "EA2",
+    "MLS NEXT"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 81,
+     "programs": [
+      "EA",
+      "EA2",
+      "MLS NEXT"
+     ]
+    },
+    "Girls": {
+     "teams": 18,
+     "programs": [
+      "DPL"
+     ]
+    }
+   }
+  },
+  {
    "club": "Legends FC - San Diego",
    "lat": 32.80555,
    "lng": -117.16551,
    "source": "home field",
    "venue": "Merrill Douglas Stadium",
    "city": "San Diego",
-   "teams": 94,
+   "teams": 93,
    "listed": 29,
    "programs": [
     "ECNL",
@@ -1290,7 +1290,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 49,
+     "teams": 48,
      "programs": [
       "N1",
       "Pre-ECNL"
@@ -1362,31 +1362,6 @@
      "programs": [
       "N1",
       "NPL"
-     ]
-    }
-   }
-  },
-  {
-   "club": "ALBION SC Los Angeles",
-   "lat": 33.9193,
-   "lng": -118.15942,
-   "source": "home field",
-   "venue": "St Pius x St Matthias Academy",
-   "city": "Downey",
-   "teams": 42,
-   "listed": 28,
-   "programs": [
-    "EA",
-    "EA2",
-    "MLS NEXT"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 42,
-     "programs": [
-      "EA",
-      "EA2",
-      "MLS NEXT"
      ]
     }
    }
@@ -1483,38 +1458,6 @@
    }
   },
   {
-   "club": "FC Man United",
-   "lat": 34.039,
-   "lng": -117.86388,
-   "source": "home field",
-   "venue": "Walnut Ranch Park",
-   "city": "Walnut",
-   "teams": 68,
-   "listed": 26,
-   "programs": [
-    "DPL",
-    "EA2",
-    "N1",
-    "NPL"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 37,
-     "programs": [
-      "EA2",
-      "N1",
-      "NPL"
-     ]
-    },
-    "Girls": {
-     "teams": 31,
-     "programs": [
-      "DPL"
-     ]
-    }
-   }
-  },
-  {
    "club": "Santa Barbara Soccer Club",
    "lat": 34.42572,
    "lng": -119.87426,
@@ -1542,6 +1485,38 @@
      "teams": 23,
      "programs": [
       "GA Aspire"
+     ]
+    }
+   }
+  },
+  {
+   "club": "FC Man United",
+   "lat": 34.039,
+   "lng": -117.86388,
+   "source": "home field",
+   "venue": "Walnut Ranch Park",
+   "city": "Walnut",
+   "teams": 63,
+   "listed": 26,
+   "programs": [
+    "DPL",
+    "EA2",
+    "N1",
+    "NPL"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 34,
+     "programs": [
+      "EA2",
+      "N1",
+      "NPL"
+     ]
+    },
+    "Girls": {
+     "teams": 29,
+     "programs": [
+      "DPL"
      ]
     }
    }
@@ -1578,6 +1553,31 @@
      "programs": [
       "DPL",
       "GA"
+     ]
+    }
+   }
+  },
+  {
+   "club": "ALBION SC Los Angeles",
+   "lat": 33.9193,
+   "lng": -118.15942,
+   "source": "home field",
+   "venue": "St Pius x St Matthias Academy",
+   "city": "Downey",
+   "teams": 39,
+   "listed": 26,
+   "programs": [
+    "EA",
+    "EA2",
+    "MLS NEXT"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 39,
+     "programs": [
+      "EA",
+      "EA2",
+      "MLS NEXT"
      ]
     }
    }
@@ -1706,46 +1706,13 @@
    }
   },
   {
-   "club": "Albion SC Santa Monica",
-   "lat": 34.00981,
-   "lng": -118.48842,
-   "source": "home field",
-   "venue": "Belmar Historic",
-   "city": "Santa Monica",
-   "teams": 89,
-   "listed": 24,
-   "programs": [
-    "DPL",
-    "EA",
-    "N1",
-    "NPL"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 59,
-     "programs": [
-      "EA",
-      "N1",
-      "NPL"
-     ]
-    },
-    "Girls": {
-     "teams": 30,
-     "programs": [
-      "DPL",
-      "NPL"
-     ]
-    }
-   }
-  },
-  {
    "club": "FLYTE SC IE",
    "lat": 33.98596,
    "lng": -117.41028,
    "source": "home field",
    "venue": "Rancho Jurupa Regional Sports Park",
    "city": "Jurupa Valley",
-   "teams": 85,
+   "teams": 83,
    "listed": 24,
    "programs": [
     "DPL",
@@ -1756,14 +1723,14 @@
    ],
    "byGender": {
     "Girls": {
-     "teams": 35,
+     "teams": 34,
      "programs": [
       "DPL",
       "GA Aspire"
      ]
     },
     "Boys": {
-     "teams": 50,
+     "teams": 49,
      "programs": [
       "EA",
       "EA2",
@@ -1779,7 +1746,7 @@
    "source": "home field",
    "venue": "Celebration Park North",
    "city": "Ontario",
-   "teams": 56,
+   "teams": 55,
    "listed": 24,
    "programs": [
     "DPL",
@@ -1788,7 +1755,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 34,
+     "teams": 33,
      "programs": [
       "EA",
       "N1"
@@ -1803,13 +1770,46 @@
    }
   },
   {
+   "club": "Albion SC Santa Monica",
+   "lat": 34.02293,
+   "lng": -118.27148,
+   "source": "home field",
+   "venue": "John Adams Middle School",
+   "city": "Los Angeles",
+   "teams": 76,
+   "listed": 23,
+   "programs": [
+    "DPL",
+    "EA",
+    "N1",
+    "NPL"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 48,
+     "programs": [
+      "EA",
+      "N1",
+      "NPL"
+     ]
+    },
+    "Girls": {
+     "teams": 28,
+     "programs": [
+      "DPL",
+      "NPL"
+     ]
+    }
+   }
+  },
+  {
    "club": "Eagles SC",
    "lat": 33.90453,
    "lng": -115.98462,
    "source": "home field",
    "venue": "Pleasant Valley",
    "city": "Camarillo",
-   "teams": 76,
+   "teams": 73,
    "listed": 23,
    "programs": [
     "ECNL",
@@ -1820,7 +1820,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 25,
+     "teams": 23,
      "programs": [
       "ECNL",
       "ECNL RL",
@@ -1830,7 +1830,7 @@
      ]
     },
     "Girls": {
-     "teams": 51,
+     "teams": 50,
      "programs": [
       "ECNL",
       "ECNL RL",
@@ -1846,7 +1846,7 @@
    "source": "home field",
    "venue": "Brea Sports Park",
    "city": "Brea",
-   "teams": 51,
+   "teams": 50,
    "listed": 23,
    "programs": [
     "EA",
@@ -1855,7 +1855,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 46,
+     "teams": 45,
      "programs": [
       "EA",
       "EA2",
@@ -1967,7 +1967,7 @@
    "source": "home field",
    "venue": "Central Park",
    "city": "Bakersfield",
-   "teams": 51,
+   "teams": 50,
    "listed": 22,
    "programs": [
     "DPL",
@@ -1976,7 +1976,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 35,
+     "teams": 34,
      "programs": [
       "EA",
       "EA2"
@@ -2053,6 +2053,36 @@
    }
   },
   {
+   "club": "Valley United SC",
+   "lat": 34.18862,
+   "lng": -118.50432,
+   "source": "home field",
+   "venue": "Birmingham Community Charter High School",
+   "city": "Los Angeles",
+   "teams": 51,
+   "listed": 21,
+   "programs": [
+    "DPL",
+    "EA",
+    "EA2"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 38,
+     "programs": [
+      "EA",
+      "EA2"
+     ]
+    },
+    "Girls": {
+     "teams": 13,
+     "programs": [
+      "DPL"
+     ]
+    }
+   }
+  },
+  {
    "club": "Oceanside",
    "lat": 33.20565,
    "lng": -117.32247,
@@ -2075,36 +2105,6 @@
      "teams": 23,
      "programs": [
       "N1"
-     ]
-    }
-   }
-  },
-  {
-   "club": "Valley United SC",
-   "lat": 34.18862,
-   "lng": -118.50432,
-   "source": "home field",
-   "venue": "Birmingham Community Charter High School",
-   "city": "Los Angeles",
-   "teams": 51,
-   "listed": 20,
-   "programs": [
-    "DPL",
-    "EA",
-    "EA2"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 38,
-     "programs": [
-      "EA",
-      "EA2"
-     ]
-    },
-    "Girls": {
-     "teams": 13,
-     "programs": [
-      "DPL"
      ]
     }
    }
@@ -2150,7 +2150,7 @@
    "source": "home field",
    "venue": "El Rancho Charter School",
    "city": "Anaheim",
-   "teams": 85,
+   "teams": 84,
    "listed": 19,
    "programs": [
     "DPL",
@@ -2161,7 +2161,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 45,
+     "teams": 44,
      "programs": [
       "EA",
       "EA2",
@@ -2237,13 +2237,42 @@
    }
   },
   {
+   "club": "Ventura Surf Soccer Club",
+   "lat": 34.27097,
+   "lng": -119.19275,
+   "source": "home field",
+   "venue": "Ventura Community Park",
+   "city": "Ventura",
+   "teams": 102,
+   "listed": 17,
+   "programs": [
+    "N1",
+    "NPL"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 55,
+     "programs": [
+      "NPL"
+     ]
+    },
+    "Girls": {
+     "teams": 47,
+     "programs": [
+      "N1",
+      "NPL"
+     ]
+    }
+   }
+  },
+  {
    "club": "Vista Storm Soccer Club",
    "lat": 33.22678,
    "lng": -117.25834,
    "source": "home field",
    "venue": "Vista Sports Park",
    "city": "Vista",
-   "teams": 77,
+   "teams": 76,
    "listed": 17,
    "programs": [
     "N1",
@@ -2258,9 +2287,43 @@
      ]
     },
     "Girls": {
-     "teams": 37,
+     "teams": 36,
      "programs": [
       "N1"
+     ]
+    }
+   }
+  },
+  {
+   "club": "Empire SC",
+   "lat": 33.9487,
+   "lng": -117.56284,
+   "source": "home field",
+   "venue": "Eastvale Community Park",
+   "city": "Eastvale",
+   "teams": 60,
+   "listed": 17,
+   "programs": [
+    "EA",
+    "EA2",
+    "ECNL RL",
+    "N1",
+    "NPL"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 35,
+     "programs": [
+      "EA",
+      "EA2"
+     ]
+    },
+    "Girls": {
+     "teams": 25,
+     "programs": [
+      "ECNL RL",
+      "N1",
+      "NPL"
      ]
     }
    }
@@ -2287,35 +2350,6 @@
     },
     "Girls": {
      "teams": 10,
-     "programs": [
-      "N1",
-      "NPL"
-     ]
-    }
-   }
-  },
-  {
-   "club": "Ventura Surf Soccer Club",
-   "lat": 34.27097,
-   "lng": -119.19275,
-   "source": "home field",
-   "venue": "Ventura Community Park",
-   "city": "Ventura",
-   "teams": 103,
-   "listed": 16,
-   "programs": [
-    "N1",
-    "NPL"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 55,
-     "programs": [
-      "NPL"
-     ]
-    },
-    "Girls": {
-     "teams": 48,
      "programs": [
       "N1",
       "NPL"
@@ -2439,47 +2473,13 @@
    }
   },
   {
-   "club": "Empire SC",
-   "lat": 33.9487,
-   "lng": -117.56284,
-   "source": "home field",
-   "venue": "Eastvale Community Park",
-   "city": "Eastvale",
-   "teams": 62,
-   "listed": 16,
-   "programs": [
-    "EA",
-    "EA2",
-    "ECNL RL",
-    "N1",
-    "NPL"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 36,
-     "programs": [
-      "EA",
-      "EA2"
-     ]
-    },
-    "Girls": {
-     "teams": 26,
-     "programs": [
-      "ECNL RL",
-      "N1",
-      "NPL"
-     ]
-    }
-   }
-  },
-  {
    "club": "Oxnard United SC",
    "lat": 34.1834,
    "lng": -118.57979,
    "source": "home field",
    "venue": "Los Angeles Pierce College",
    "city": "Los Angeles",
-   "teams": 46,
+   "teams": 45,
    "listed": 16,
    "programs": [
     "EA2",
@@ -2488,7 +2488,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 29,
+     "teams": 28,
      "programs": [
       "EA2",
       "N1",
@@ -2564,42 +2564,13 @@
    }
   },
   {
-   "club": "Celtic Soccer Club (S-CA)",
-   "lat": 34.08112,
-   "lng": -117.65172,
-   "source": "home field",
-   "venue": "Chaffey High School",
-   "city": "Ontario",
-   "teams": 43,
-   "listed": 15,
-   "programs": [
-    "MLS NEXT",
-    "NPL"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 38,
-     "programs": [
-      "MLS NEXT",
-      "NPL"
-     ]
-    },
-    "Girls": {
-     "teams": 5,
-     "programs": [
-      "NPL"
-     ]
-    }
-   }
-  },
-  {
    "club": "Future FC (CAS)",
    "lat": 33.81566,
    "lng": -117.53218,
    "source": "home field",
    "venue": "Eagle Glen Community Park",
    "city": "Corona",
-   "teams": 43,
+   "teams": 44,
    "listed": 15,
    "programs": [
     "N1",
@@ -2614,9 +2585,38 @@
      ]
     },
     "Girls": {
-     "teams": 20,
+     "teams": 21,
      "programs": [
       "N1",
+      "NPL"
+     ]
+    }
+   }
+  },
+  {
+   "club": "Celtic Soccer Club (S-CA)",
+   "lat": 34.08112,
+   "lng": -117.65172,
+   "source": "home field",
+   "venue": "Chaffey High School",
+   "city": "Ontario",
+   "teams": 41,
+   "listed": 15,
+   "programs": [
+    "MLS NEXT",
+    "NPL"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 36,
+     "programs": [
+      "MLS NEXT",
+      "NPL"
+     ]
+    },
+    "Girls": {
+     "teams": 5,
+     "programs": [
       "NPL"
      ]
     }
@@ -2675,7 +2675,7 @@
    "source": "home field",
    "venue": "Waite Middle School",
    "city": "Norwalk",
-   "teams": 63,
+   "teams": 62,
    "listed": 14,
    "programs": [
     "EA2",
@@ -2684,7 +2684,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 50,
+     "teams": 49,
      "programs": [
       "EA2",
       "NPL"
@@ -2757,6 +2757,37 @@
    }
   },
   {
+   "club": "Desert Empire Surf",
+   "lat": 33.72882,
+   "lng": -116.38257,
+   "source": "club city",
+   "venue": null,
+   "city": "Palm Desert",
+   "teams": 65,
+   "listed": 12,
+   "programs": [
+    "DPL",
+    "N1",
+    "NPL"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 32,
+     "programs": [
+      "N1",
+      "NPL"
+     ]
+    },
+    "Girls": {
+     "teams": 33,
+     "programs": [
+      "DPL",
+      "N1"
+     ]
+    }
+   }
+  },
+  {
    "club": "San Clemente Surf Soccer",
    "lat": 33.48058,
    "lng": -117.58492,
@@ -2810,37 +2841,6 @@
      "programs": [
       "N1",
       "NPL"
-     ]
-    }
-   }
-  },
-  {
-   "club": "Desert Empire Surf",
-   "lat": 33.72882,
-   "lng": -116.38257,
-   "source": "club city",
-   "venue": null,
-   "city": "Palm Desert",
-   "teams": 70,
-   "listed": 11,
-   "programs": [
-    "DPL",
-    "N1",
-    "NPL"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 34,
-     "programs": [
-      "N1",
-      "NPL"
-     ]
-    },
-    "Girls": {
-     "teams": 36,
-     "programs": [
-      "DPL",
-      "N1"
      ]
     }
    }
@@ -3058,6 +3058,34 @@
    }
   },
   {
+   "club": "South Valley Surf SC",
+   "lat": 35.37387,
+   "lng": -119.01946,
+   "source": "club city",
+   "venue": null,
+   "city": "Bakersfield",
+   "teams": 67,
+   "listed": 9,
+   "programs": [
+    "GA",
+    "N1"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 40,
+     "programs": [
+      "N1"
+     ]
+    },
+    "Girls": {
+     "teams": 27,
+     "programs": [
+      "GA"
+     ]
+    }
+   }
+  },
+  {
    "club": "Sporting So-Cal Soccer Club",
    "lat": 34.14481,
    "lng": -118.2327,
@@ -3194,64 +3222,6 @@
    }
   },
   {
-   "club": "South Valley Surf SC",
-   "lat": 35.37387,
-   "lng": -119.01946,
-   "source": "club city",
-   "venue": null,
-   "city": "Bakersfield",
-   "teams": 70,
-   "listed": 8,
-   "programs": [
-    "GA",
-    "N1"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 43,
-     "programs": [
-      "N1"
-     ]
-    },
-    "Girls": {
-     "teams": 27,
-     "programs": [
-      "GA"
-     ]
-    }
-   }
-  },
-  {
-   "club": "Eagle Soccer Club KC",
-   "lat": 33.98596,
-   "lng": -117.41028,
-   "source": "home field",
-   "venue": "Rancho Jurupa Regional Sports Park",
-   "city": "Jurupa Valley",
-   "teams": 66,
-   "listed": 8,
-   "programs": [
-    "DPL",
-    "EA2",
-    "NPL"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 48,
-     "programs": [
-      "EA2",
-      "NPL"
-     ]
-    },
-    "Girls": {
-     "teams": 18,
-     "programs": [
-      "DPL"
-     ]
-    }
-   }
-  },
-  {
    "club": "Los Angeles Bulls Soccer Club",
    "lat": 34.05745,
    "lng": -118.495,
@@ -3275,6 +3245,36 @@
     },
     "Girls": {
      "teams": 16,
+     "programs": [
+      "DPL"
+     ]
+    }
+   }
+  },
+  {
+   "club": "Eagle Soccer Club KC",
+   "lat": 33.98596,
+   "lng": -117.41028,
+   "source": "home field",
+   "venue": "Rancho Jurupa Regional Sports Park",
+   "city": "Jurupa Valley",
+   "teams": 65,
+   "listed": 8,
+   "programs": [
+    "DPL",
+    "EA2",
+    "NPL"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 48,
+     "programs": [
+      "EA2",
+      "NPL"
+     ]
+    },
+    "Girls": {
+     "teams": 17,
      "programs": [
       "DPL"
      ]
@@ -3392,7 +3392,7 @@
    "source": "home field",
    "venue": "Del Norte High School",
    "city": "San Diego",
-   "teams": 134,
+   "teams": 131,
    "listed": 7,
    "programs": [
     "GA",
@@ -3408,7 +3408,7 @@
      ]
     },
     "Girls": {
-     "teams": 49,
+     "teams": 46,
      "programs": [
       "GA"
      ]
@@ -3637,31 +3637,6 @@
    }
   },
   {
-   "club": "Vaqueros FC",
-   "lat": 32.97638,
-   "lng": -117.06174,
-   "source": "home field",
-   "venue": "Arbolitos Sport",
-   "city": "Poway",
-   "teams": 41,
-   "listed": 6,
-   "programs": [
-    "N1"
-   ],
-   "byGender": {
-    "Girls": {
-     "teams": 13,
-     "programs": []
-    },
-    "Boys": {
-     "teams": 28,
-     "programs": [
-      "N1"
-     ]
-    }
-   }
-  },
-  {
    "club": "PYSL Blast SC",
    "lat": 32.79897,
    "lng": -117.22373,
@@ -3682,6 +3657,31 @@
     },
     "Boys": {
      "teams": 19,
+     "programs": [
+      "N1"
+     ]
+    }
+   }
+  },
+  {
+   "club": "Vaqueros FC",
+   "lat": 32.97638,
+   "lng": -117.06174,
+   "source": "home field",
+   "venue": "Arbolitos Sport",
+   "city": "Poway",
+   "teams": 40,
+   "listed": 6,
+   "programs": [
+    "N1"
+   ],
+   "byGender": {
+    "Girls": {
+     "teams": 13,
+     "programs": []
+    },
+    "Boys": {
+     "teams": 27,
      "programs": [
       "N1"
      ]
@@ -3851,6 +3851,33 @@
    }
   },
   {
+   "club": "Foothill Storm",
+   "lat": 34.09668,
+   "lng": -117.71978,
+   "source": "club city",
+   "venue": null,
+   "city": "Claremont",
+   "teams": 20,
+   "listed": 6,
+   "programs": [
+    "N1",
+    "NPL"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 18,
+     "programs": [
+      "N1",
+      "NPL"
+     ]
+    },
+    "Girls": {
+     "teams": 2,
+     "programs": []
+    }
+   }
+  },
+  {
    "club": "SWAP",
    "lat": 33.77629,
    "lng": -118.14809,
@@ -3912,7 +3939,7 @@
    "source": "home field",
    "venue": "Nunez Park",
    "city": "San Bernardino",
-   "teams": 36,
+   "teams": 35,
    "listed": 5,
    "programs": [
     "DPL"
@@ -3923,7 +3950,7 @@
      "programs": []
     },
     "Girls": {
-     "teams": 9,
+     "teams": 8,
      "programs": [
       "DPL"
      ]
@@ -3955,33 +3982,6 @@
      "programs": [
       "DPL"
      ]
-    }
-   }
-  },
-  {
-   "club": "Foothill Storm",
-   "lat": 34.09668,
-   "lng": -117.71978,
-   "source": "club city",
-   "venue": null,
-   "city": "Claremont",
-   "teams": 22,
-   "listed": 5,
-   "programs": [
-    "N1",
-    "NPL"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 20,
-     "programs": [
-      "N1",
-      "NPL"
-     ]
-    },
-    "Girls": {
-     "teams": 2,
-     "programs": []
     }
    }
   },
@@ -4049,6 +4049,27 @@
    }
   },
   {
+   "club": "San Diego Motion FC",
+   "lat": 32.71571,
+   "lng": -117.16383,
+   "source": "club city",
+   "venue": null,
+   "city": "San Diego",
+   "teams": 10,
+   "listed": 5,
+   "programs": [],
+   "byGender": {
+    "Boys": {
+     "teams": 8,
+     "programs": []
+    },
+    "Girls": {
+     "teams": 2,
+     "programs": []
+    }
+   }
+  },
+  {
    "club": "Downey Futbol Club",
    "lat": 33.92068,
    "lng": -118.16228,
@@ -4082,7 +4103,7 @@
    "source": "home field",
    "venue": "Aviara Park",
    "city": "Carlsbad",
-   "teams": 76,
+   "teams": 75,
    "listed": 4,
    "programs": [
     "EA",
@@ -4092,7 +4113,7 @@
    ],
    "byGender": {
     "Boys": {
-     "teams": 30,
+     "teams": 29,
      "programs": [
       "EA",
       "MLS NEXT"
@@ -4104,6 +4125,27 @@
       "GA",
       "GA Aspire"
      ]
+    }
+   }
+  },
+  {
+   "club": "FC Balboa",
+   "lat": 32.69935,
+   "lng": -117.13274,
+   "source": "home field",
+   "venue": "Logan Memorial Educational Campus",
+   "city": "San Diego",
+   "teams": 26,
+   "listed": 4,
+   "programs": [],
+   "byGender": {
+    "Boys": {
+     "teams": 17,
+     "programs": []
+    },
+    "Girls": {
+     "teams": 9,
+     "programs": []
     }
    }
   },
@@ -4344,47 +4386,26 @@
    }
   },
   {
-   "club": "San Diego Motion FC",
-   "lat": 32.71571,
-   "lng": -117.16383,
-   "source": "club city",
-   "venue": null,
-   "city": "San Diego",
-   "teams": 10,
-   "listed": 4,
-   "programs": [],
-   "byGender": {
-    "Boys": {
-     "teams": 8,
-     "programs": []
-    },
-    "Girls": {
-     "teams": 2,
-     "programs": []
-    }
-   }
-  },
-  {
    "club": "AYSO S1 Alliance",
    "lat": 34.11374,
    "lng": -117.50013,
    "source": "home field",
    "venue": "Grand Avenue Park",
    "city": "Fontana",
-   "teams": 166,
+   "teams": 162,
    "listed": 3,
    "programs": [
     "N1"
    ],
    "byGender": {
     "Boys": {
-     "teams": 102,
+     "teams": 99,
      "programs": [
       "N1"
      ]
     },
     "Girls": {
-     "teams": 64,
+     "teams": 63,
      "programs": [
       "N1"
      ]
@@ -4438,58 +4459,6 @@
      "programs": [
       "N1"
      ]
-    }
-   }
-  },
-  {
-   "club": "Rebels Central",
-   "lat": 32.82599,
-   "lng": -117.10685,
-   "source": "home field",
-   "venue": "Canyon Hills High School",
-   "city": "San Diego",
-   "teams": 29,
-   "listed": 3,
-   "programs": [
-    "ECNL RL",
-    "N1",
-    "NPL",
-    "Pre-ECNL"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 28,
-     "programs": [
-      "ECNL RL",
-      "N1",
-      "NPL",
-      "Pre-ECNL"
-     ]
-    },
-    "Girls": {
-     "teams": 1,
-     "programs": []
-    }
-   }
-  },
-  {
-   "club": "FC Balboa",
-   "lat": 32.69935,
-   "lng": -117.13274,
-   "source": "home field",
-   "venue": "Logan Memorial Educational Campus",
-   "city": "San Diego",
-   "teams": 26,
-   "listed": 3,
-   "programs": [],
-   "byGender": {
-    "Boys": {
-     "teams": 17,
-     "programs": []
-    },
-    "Girls": {
-     "teams": 9,
-     "programs": []
     }
    }
   },
@@ -4671,7 +4640,7 @@
    "source": "home field",
    "venue": "Coronado Cays Park",
    "city": "Coronado",
-   "teams": 35,
+   "teams": 34,
    "listed": 2,
    "programs": [
     "N1"
@@ -4682,7 +4651,7 @@
      "programs": []
     },
     "Girls": {
-     "teams": 10,
+     "teams": 9,
      "programs": [
       "N1"
      ]
@@ -4740,6 +4709,37 @@
    }
   },
   {
+   "club": "Rebels Central",
+   "lat": 32.82599,
+   "lng": -117.10685,
+   "source": "home field",
+   "venue": "Canyon Hills High School",
+   "city": "San Diego",
+   "teams": 28,
+   "listed": 2,
+   "programs": [
+    "ECNL RL",
+    "N1",
+    "NPL",
+    "Pre-ECNL"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 27,
+     "programs": [
+      "ECNL RL",
+      "N1",
+      "NPL",
+      "Pre-ECNL"
+     ]
+    },
+    "Girls": {
+     "teams": 1,
+     "programs": []
+    }
+   }
+  },
+  {
    "club": "Kickers FC (CA)",
    "lat": 34.23161,
    "lng": -119.19714,
@@ -4771,41 +4771,16 @@
    "source": "home field",
    "venue": "Edward Vincent Jr Park",
    "city": "Inglewood",
-   "teams": 23,
+   "teams": 22,
    "listed": 2,
    "programs": [],
    "byGender": {
     "Boys": {
-     "teams": 21,
+     "teams": 20,
      "programs": []
     },
     "Girls": {
      "teams": 2,
-     "programs": []
-    }
-   }
-  },
-  {
-   "club": "Downtown LA Soccer Club",
-   "lat": 32.81431,
-   "lng": -117.08362,
-   "source": "home field",
-   "venue": "El Dorado FS 3",
-   "city": "San Diego",
-   "teams": 20,
-   "listed": 2,
-   "programs": [
-    "MLS NEXT"
-   ],
-   "byGender": {
-    "Boys": {
-     "teams": 14,
-     "programs": [
-      "MLS NEXT"
-     ]
-    },
-    "Girls": {
-     "teams": 6,
      "programs": []
     }
    }
@@ -4827,6 +4802,31 @@
     },
     "Girls": {
      "teams": 11,
+     "programs": []
+    }
+   }
+  },
+  {
+   "club": "Downtown LA Soccer Club",
+   "lat": 32.81431,
+   "lng": -117.08362,
+   "source": "home field",
+   "venue": "El Dorado FS 3",
+   "city": "San Diego",
+   "teams": 19,
+   "listed": 2,
+   "programs": [
+    "MLS NEXT"
+   ],
+   "byGender": {
+    "Boys": {
+     "teams": 13,
+     "programs": [
+      "MLS NEXT"
+     ]
+    },
+    "Girls": {
+     "teams": 6,
      "programs": []
     }
    }
@@ -4857,27 +4857,6 @@
    }
   },
   {
-   "club": "Olimpico FC",
-   "lat": 34.09229,
-   "lng": -117.43433,
-   "source": "club city",
-   "venue": null,
-   "city": "Fontana",
-   "teams": 18,
-   "listed": 2,
-   "programs": [],
-   "byGender": {
-    "Boys": {
-     "teams": 15,
-     "programs": []
-    },
-    "Girls": {
-     "teams": 3,
-     "programs": []
-    }
-   }
-  },
-  {
    "club": "Fellowship Of Christian Athletes",
    "lat": 34.38677,
    "lng": -117.38361,
@@ -4903,6 +4882,27 @@
    }
   },
   {
+   "club": "Olimpico FC",
+   "lat": 34.09229,
+   "lng": -117.43433,
+   "source": "club city",
+   "venue": null,
+   "city": "Fontana",
+   "teams": 16,
+   "listed": 2,
+   "programs": [],
+   "byGender": {
+    "Boys": {
+     "teams": 13,
+     "programs": []
+    },
+    "Girls": {
+     "teams": 3,
+     "programs": []
+    }
+   }
+  },
+  {
    "club": "Riverside MGFM Soccer Organization",
    "lat": 33.97321,
    "lng": -117.37309,
@@ -4919,27 +4919,6 @@
     },
     "Girls": {
      "teams": 5,
-     "programs": []
-    }
-   }
-  },
-  {
-   "club": "Possible FC",
-   "lat": 33.82682,
-   "lng": -118.07708,
-   "source": "home field",
-   "venue": "Furgeson Elementary School",
-   "city": "Hawaiian Gardens",
-   "teams": 14,
-   "listed": 2,
-   "programs": [],
-   "byGender": {
-    "Boys": {
-     "teams": 12,
-     "programs": []
-    },
-    "Girls": {
-     "teams": 2,
      "programs": []
     }
    }
@@ -4982,6 +4961,27 @@
    "byGender": {
     "Boys": {
      "teams": 12,
+     "programs": []
+    },
+    "Girls": {
+     "teams": 2,
+     "programs": []
+    }
+   }
+  },
+  {
+   "club": "Possible FC",
+   "lat": 33.82682,
+   "lng": -118.07708,
+   "source": "home field",
+   "venue": "Furgeson Elementary School",
+   "city": "Hawaiian Gardens",
+   "teams": 13,
+   "listed": 2,
+   "programs": [],
+   "byGender": {
+    "Boys": {
+     "teams": 11,
      "programs": []
     },
     "Girls": {
@@ -5276,18 +5276,39 @@
    }
   },
   {
+   "club": "RSF Attack",
+   "lat": 33.99085,
+   "lng": -118.29119,
+   "source": "home field",
+   "venue": "Church of the Nativity",
+   "city": "Los Angeles",
+   "teams": 28,
+   "listed": 1,
+   "programs": [],
+   "byGender": {
+    "Boys": {
+     "teams": 18,
+     "programs": []
+    },
+    "Girls": {
+     "teams": 10,
+     "programs": []
+    }
+   }
+  },
+  {
    "club": "Necaxa USA Futbol Club",
    "lat": 34.06862,
    "lng": -117.93895,
    "source": "club city",
    "venue": null,
    "city": "West Covina",
-   "teams": 29,
+   "teams": 27,
    "listed": 1,
    "programs": [],
    "byGender": {
     "Boys": {
-     "teams": 24,
+     "teams": 22,
      "programs": []
     },
     "Girls": {
@@ -5666,12 +5687,12 @@
    "source": "club city",
    "venue": null,
    "city": "El Monte",
-   "teams": 58,
+   "teams": 56,
    "listed": 0,
    "programs": [],
    "byGender": {
     "Boys": {
-     "teams": 54,
+     "teams": 52,
      "programs": []
     },
     "Girls": {
@@ -5687,7 +5708,7 @@
    "source": "club city",
    "venue": null,
    "city": "Moreno Valley",
-   "teams": 55,
+   "teams": 54,
    "listed": 0,
    "programs": [],
    "byGender": {
@@ -5696,7 +5717,7 @@
      "programs": []
     },
     "Girls": {
-     "teams": 23,
+     "teams": 22,
      "programs": []
     }
    }
@@ -5708,7 +5729,7 @@
    "source": "club city",
    "venue": null,
    "city": "Oxnard",
-   "teams": 47,
+   "teams": 46,
    "listed": 0,
    "programs": [],
    "byGender": {
@@ -5717,7 +5738,7 @@
      "programs": []
     },
     "Girls": {
-     "teams": 9,
+     "teams": 8,
      "programs": []
     }
    }
@@ -5771,37 +5792,16 @@
    "source": "club city",
    "venue": null,
    "city": "Carson",
-   "teams": 34,
+   "teams": 33,
    "listed": 0,
    "programs": [],
    "byGender": {
     "Boys": {
-     "teams": 33,
+     "teams": 32,
      "programs": []
     },
     "Girls": {
      "teams": 1,
-     "programs": []
-    }
-   }
-  },
-  {
-   "club": "RSF Attack",
-   "lat": 33.99085,
-   "lng": -118.29119,
-   "source": "home field",
-   "venue": "Church of the Nativity",
-   "city": "Los Angeles",
-   "teams": 28,
-   "listed": 0,
-   "programs": [],
-   "byGender": {
-    "Boys": {
-     "teams": 18,
-     "programs": []
-    },
-    "Girls": {
-     "teams": 10,
      "programs": []
     }
    }
@@ -5840,27 +5840,6 @@
     },
     "Girls": {
      "teams": 3,
-     "programs": []
-    }
-   }
-  },
-  {
-   "club": "Rising Stars FC",
-   "lat": 33.83581,
-   "lng": -118.07817,
-   "source": "home field",
-   "venue": "Fedde Academy Middle School",
-   "city": "Hawaiian Gardens",
-   "teams": 23,
-   "listed": 0,
-   "programs": [],
-   "byGender": {
-    "Boys": {
-     "teams": 17,
-     "programs": []
-    },
-    "Girls": {
-     "teams": 6,
      "programs": []
     }
    }
@@ -5992,23 +5971,6 @@
    }
   },
   {
-   "club": "Chivas Academy LA",
-   "lat": 33.90004,
-   "lng": -118.11486,
-   "source": "home field",
-   "venue": "Ernie Pyle Elementary School",
-   "city": "Bellflower",
-   "teams": 18,
-   "listed": 0,
-   "programs": [],
-   "byGender": {
-    "Boys": {
-     "teams": 18,
-     "programs": []
-    }
-   }
-  },
-  {
    "club": "Glendale FC",
    "lat": 34.14694,
    "lng": -118.24785,
@@ -6047,6 +6009,23 @@
    }
   },
   {
+   "club": "Chivas Academy LA",
+   "lat": 33.90004,
+   "lng": -118.11486,
+   "source": "home field",
+   "venue": "Ernie Pyle Elementary School",
+   "city": "Bellflower",
+   "teams": 16,
+   "listed": 0,
+   "programs": [],
+   "byGender": {
+    "Boys": {
+     "teams": 16,
+     "programs": []
+    }
+   }
+  },
+  {
    "club": "Legends FC Desert Cities",
    "lat": 33.74524,
    "lng": -116.36428,
@@ -6063,27 +6042,6 @@
     },
     "Boys": {
      "teams": 11,
-     "programs": []
-    }
-   }
-  },
-  {
-   "club": "Hemet Juventus FC",
-   "lat": 33.92592,
-   "lng": -117.26011,
-   "source": "home field",
-   "venue": "Moreno Valley Community Park",
-   "city": "Moreno Valley",
-   "teams": 14,
-   "listed": 0,
-   "programs": [],
-   "byGender": {
-    "Boys": {
-     "teams": 10,
-     "programs": []
-    },
-    "Girls": {
-     "teams": 4,
      "programs": []
     }
    }
@@ -6110,6 +6068,27 @@
    }
   },
   {
+   "club": "Hemet Juventus FC",
+   "lat": 33.92592,
+   "lng": -117.26011,
+   "source": "home field",
+   "venue": "Moreno Valley Community Park",
+   "city": "Moreno Valley",
+   "teams": 13,
+   "listed": 0,
+   "programs": [],
+   "byGender": {
+    "Boys": {
+     "teams": 9,
+     "programs": []
+    },
+    "Girls": {
+     "teams": 4,
+     "programs": []
+    }
+   }
+  },
+  {
    "club": "Real La Habra FC",
    "lat": 33.94565,
    "lng": -117.96574,
@@ -6131,27 +6110,6 @@
    }
   },
   {
-   "club": "FC Warriors",
-   "lat": 34.4128,
-   "lng": -118.55381,
-   "source": "club city",
-   "venue": null,
-   "city": "Santa Clarita",
-   "teams": 13,
-   "listed": 0,
-   "programs": [],
-   "byGender": {
-    "Boys": {
-     "teams": 11,
-     "programs": []
-    },
-    "Girls": {
-     "teams": 2,
-     "programs": []
-    }
-   }
-  },
-  {
    "club": "Development Academy of CA",
    "lat": 34.15583,
    "lng": -118.80772,
@@ -6164,6 +6122,27 @@
    "byGender": {
     "Boys": {
      "teams": 12,
+     "programs": []
+    }
+   }
+  },
+  {
+   "club": "FC Warriors",
+   "lat": 34.4128,
+   "lng": -118.55381,
+   "source": "club city",
+   "venue": null,
+   "city": "Santa Clarita",
+   "teams": 12,
+   "listed": 0,
+   "programs": [],
+   "byGender": {
+    "Boys": {
+     "teams": 10,
+     "programs": []
+    },
+    "Girls": {
+     "teams": 2,
      "programs": []
     }
    }
@@ -6274,27 +6253,6 @@
    }
   },
   {
-   "club": "MSA FC",
-   "lat": 34.21764,
-   "lng": -119.03835,
-   "source": "club city",
-   "venue": null,
-   "city": "Camarillo",
-   "teams": 8,
-   "listed": 0,
-   "programs": [],
-   "byGender": {
-    "Boys": {
-     "teams": 3,
-     "programs": []
-    },
-    "Girls": {
-     "teams": 5,
-     "programs": []
-    }
-   }
-  },
-  {
    "club": "California Stars Soccer Club",
    "lat": 34.15728,
    "lng": -118.7851,
@@ -6370,6 +6328,27 @@
     },
     "Girls": {
      "teams": 2,
+     "programs": []
+    }
+   }
+  },
+  {
+   "club": "MSA FC",
+   "lat": 34.21764,
+   "lng": -119.03835,
+   "source": "club city",
+   "venue": null,
+   "city": "Camarillo",
+   "teams": 5,
+   "listed": 0,
+   "programs": [],
+   "byGender": {
+    "Boys": {
+     "teams": 2,
+     "programs": []
+    },
+    "Girls": {
+     "teams": 3,
      "programs": []
     }
    }

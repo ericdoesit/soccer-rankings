@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
   // Pages read data/ from disk at request time (snapshot, seeds, division labels, …). On Vercel
   // that folder holds the git-tracked seeds plus the runtime data release unpacked by
   // scripts/fetch-data.mjs (npm prebuild), so ship all of it with the server functions.
+  // the club map became the Southern California page (rankings + map); keep shared /map links working
+  async redirects() {
+    return [{ source: "/map", destination: "/socal", permanent: true }];
+  },
   outputFileTracingIncludes: {
     "/*": ["./data/**/*"],
     "/**/*": ["./data/**/*"],

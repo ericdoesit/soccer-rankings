@@ -232,9 +232,9 @@ export default function RankingsPage() {
           </button>
         </p>
         <p className={aboutOpen ? "" : "hidden sm:block"}>
-          To see where Southern California&apos;s leagues and clubs are, explore the{" "}
-          <Link href="/map" className="font-medium text-foreground underline underline-offset-4">
-            map
+          For every Southern California team and club, including the SoCal League and Coast, see the{" "}
+          <Link href="/socal" className="font-medium text-foreground underline underline-offset-4">
+            Southern California rankings and club map
           </Link>
           .
         </p>

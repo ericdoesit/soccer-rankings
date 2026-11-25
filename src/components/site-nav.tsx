@@ -19,7 +19,7 @@ const LINKS: Array<[href: string, label: string, match: RegExp]> = [
   // state and club pages (reached from rankings, About and the map) sit under Rankings
   ["/rankings", "Rankings", /^\/(rankings|team|states?|club)\b/],
   ["/events", "Events", /^\/(events|tournament|match)\b/],
-  ["/map", "Map", /^\/map\b/],
+  ["/socal", "SoCal", /^\/(socal|map)\b/],
   ["/proven", "Proven", /^\/(proven|power-rankings)\b/],
   ["/tools/flight-planner", "Flight Planner", /^\/tools\b/],
   ["/findings", "Findings", /^\/findings\b/],

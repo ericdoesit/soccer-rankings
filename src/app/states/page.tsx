@@ -15,7 +15,7 @@ export default function StatesPage() {
         the two state associations.
       </p>
       <p className="mt-2 text-sm">
-        <Link href="/map" className="text-primary hover:underline">Map of Southern California clubs →</Link>
+        <Link href="/socal" className="text-primary hover:underline">Southern California: team and club rankings, club map →</Link>
       </p>
 
       <div className="mt-6 grid gap-6 md:grid-cols-[minmax(0,380px)_1fr] md:items-start">
