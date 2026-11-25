@@ -13,7 +13,7 @@
  * its name, or (4) is the one GotSport-registered team among those. When no candidate
  * played this season, there is no current twin. Otherwise ("… AD" and "… AD 2" both active) the teams stay separate.
  */
-interface TeamLike { id: number; club: string; ageGroup: string; gender: string; region: string; sourceName?: string; clubVerified?: boolean; gotsportTeamId?: number }
+interface TeamLike { id: number; club: string; ageGroup: string; gender: string; region: string; sourceName?: string; clubVerified?: boolean; gotsportTeamId?: number; formerGotsportTeamIds?: number[] }
 interface GameLike { team1Id: number; team2Id: number; team1Score: number; team2Score: number; date: string }
 
 const MARKER: Array<[RegExp, RegExp]> = [
@@ -396,4 +396,85 @@ export function mergeCoastTwins<T extends TeamLike, G extends GameLike & { tourn
     outGames.push(a === g.team1Id && b === g.team2Id ? g : { ...g, team1Id: a, team2Id: b });
   }
   return { teams: teams.filter((t) => !into.has(t.id)), games: outGames, merged: into.size, joins, unmatched };
+}
+
+/**
+ * One squad, one record per season. GotSport issues a new team id with each season's registration
+ * ("Albion SC Santa Monica 25/26 … 2012G DPL", Aug 2025 – Jun 2026 → "Albion SC Santa Monica U15G DPL",
+ * May 2026 on), so a squad's history split in two and both records could be listed (25 squads,
+ * 2026-11-25). Records of one club, age group (current season) and gender with the same level words
+ * ("DPL", "Academy", "Premier", "White" …) join when, sorted by first game, they form one timeline:
+ *   - each record starts after the previous one started and ends after it ended,
+ *   - overlapping by at most 75 days (spring re-registration while last season's team finishes),
+ *   - never playing on the same day,
+ *   - sharing a competition across seasons ("Development Player League 25/26" → "26/27"),
+ *   - never having played each other (then they are two teams that share a name).
+ * A group that isn't one timeline (two squads at the same level, copies within a season) is left
+ * alone. Results agree: joined records differ by a median 1.16 goals in rating, against 2.57 for
+ * two teams of the same club and age at different levels. Older seasons still count for less in the
+ * rating (priorSeasonWeight). The latest record keeps its id and name.
+ */
+const SEASON_DROP = /^([a-z]|gu|bu|u\d+|g\d+|b\d+|\d+g|\d+b|\d+|girls|boys|sc|fc|soccer|club|futbol)$/;
+function seasonLevelKey(name: string, club: string): string {
+  const n = name.toLowerCase().replace(/#\d+/g, " ").replace(/\b\d{2,4}\s*[/-]\s*\d{2,4}\b/g, " ")
+    .replace(/(\d)([a-z])/g, "$1 $2").replace(/([a-z])(\d)/g, "$1 $2");
+  const clubWords = new Set(club.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean));
+  return [...new Set(n.split(/[^a-z0-9]+/).filter((w) => w && !clubWords.has(w) && !SEASON_DROP.test(w)))].sort().join(" ");
+}
+const competitionOf = (name: string | null | undefined) => (name ?? "").toLowerCase()
+  .replace(/\b(19|20)\d{2}\b|\b\d{2}\/\d{2}\b|\b\d{4}\s*-\s*\d{2,4}\b/g, " ").replace(/[\s–-]+$/g, "").replace(/\s+/g, " ").trim();
+
+export function mergeSeasonTwins<T extends TeamLike, G extends GameLike & { tournamentName?: string | null }>(
+  teams: T[], games: G[],
+): { teams: T[]; games: G[]; merged: number; joins: Array<{ into: T; from: T[] }> } {
+  const info = new Map<number, { dates: Set<string>; comps: Set<string>; first: string; last: string }>();
+  const met = new Set<string>(); // pairs that played each other: two teams, never one squad
+  for (const g of games) {
+    met.add(`${Math.min(g.team1Id, g.team2Id)}_${Math.max(g.team1Id, g.team2Id)}`);
+    if (!g.date) continue;
+    for (const id of [g.team1Id, g.team2Id]) {
+      const x = info.get(id) ?? { dates: new Set<string>(), comps: new Set<string>(), first: "9999", last: "" };
+      x.dates.add(g.date); x.comps.add(competitionOf(g.tournamentName));
+      if (g.date < x.first) x.first = g.date;
+      if (g.date > x.last) x.last = g.date;
+      info.set(id, x);
+    }
+  }
+  const groups = new Map<string, T[]>();
+  for (const t of teams) {
+    if (t.region !== "Region4" || !t.club || !info.has(t.id)) continue;
+    const k = `${t.club}|${t.ageGroup}|${t.gender}|${seasonLevelKey(t.sourceName ?? "", t.club)}`;
+    groups.set(k, [...(groups.get(k) ?? []), t]);
+  }
+  const days = (a: string, b: string) => (Date.parse(b) - Date.parse(a)) / 864e5;
+  const into = new Map<number, number>();
+  const joins: Array<{ into: T; from: T[] }> = [];
+  for (const grp of groups.values()) {
+    if (grp.length < 2) continue;
+    const seq = [...grp].sort((a, b) => info.get(a.id)!.first.localeCompare(info.get(b.id)!.first));
+    let timeline = true;
+    for (let i = 1; i < seq.length && timeline; i++) {
+      const A = info.get(seq[i - 1].id)!, B = info.get(seq[i].id)!;
+      timeline = B.last > A.last && days(B.first, A.last) <= 75 && sharesDay(A.dates, B.dates) === false
+        && [...A.comps].some((c) => c && B.comps.has(c));
+    }
+    for (let i = 0; i < seq.length && timeline; i++) for (let j = i + 1; j < seq.length && timeline; j++)
+      if (met.has(`${Math.min(seq[i].id, seq[j].id)}_${Math.max(seq[i].id, seq[j].id)}`)) timeline = false;
+    if (!timeline) continue;
+    const target = seq[seq.length - 1];
+    for (const t of seq.slice(0, -1)) into.set(t.id, target.id);
+    joins.push({ into: target, from: seq.slice(0, -1) });
+  }
+  if (!into.size) return { teams, games, merged: 0, joins };
+  // the squad keeps its earlier registrations' GotSport ids, so lookups by last season's id still find it
+  const former = new Map<number, number[]>();
+  for (const j of joins) former.set(j.into.id, [...new Set(j.from.flatMap((t) => [t.gotsportTeamId, ...(t.formerGotsportTeamIds ?? [])]).filter((x): x is number => !!x && x !== j.into.gotsportTeamId))]);
+  return {
+    teams: teams.filter((t) => !into.has(t.id)).map((t) => (former.get(t.id)?.length ? { ...t, formerGotsportTeamIds: former.get(t.id) } : t)),
+    games: games.map((g) => {
+      const a = into.get(g.team1Id) ?? g.team1Id, b = into.get(g.team2Id) ?? g.team2Id;
+      return a === g.team1Id && b === g.team2Id ? g : { ...g, team1Id: a, team2Id: b };
+    }).filter((g) => g.team1Id !== g.team2Id),
+    merged: into.size, joins,
+  };
 }

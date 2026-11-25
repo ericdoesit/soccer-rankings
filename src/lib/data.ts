@@ -4,7 +4,7 @@ import { generateFullSampleData } from "./sample-data";
 import { calculateRankings, leagueName, type RankingResult } from "./ranking/massey";
 import { loadGotsportData, hasRealData, inferAgeAndGender, type RealTeam } from "./import-gotsport-data";
 import { trackedCompetitions } from "./directory/tracked";
-import { mergeCoastTwins, mergeModularTwins, mergeTournamentCopies } from "./directory/merge-twins";
+import { mergeCoastTwins, mergeModularTwins, mergeTournamentCopies, mergeSeasonTwins } from "./directory/merge-twins";
 import { buildTeamIdentity } from "./directory/team-identity";
 import { joinUslAcademySeasons } from "./directory/usl-academy";
 import { assignPrograms, PROGRAMS } from "./directory/program";
@@ -21,6 +21,8 @@ export interface Team {
   sourceName?: string;
   /** GotSport team_id when the team came from the GotSport API */
   gotsportTeamId?: number;
+  /** GotSport ids of earlier seasons' registrations joined into this team (mergeSeasonTwins) */
+  formerGotsportTeamIds?: number[];
   /** true when the club comes from the GotSport directory, a league club list or a club-name match */
   clubVerified?: boolean;
   /** played a tracked competition (src/lib/directory/tracked.ts) in the last 15 months: listed in rankings */
@@ -416,8 +418,11 @@ export function buildData(): DataSet {
       lastCoastJoins = coast.joins;
       lastCoastUnmatched = coast.unmatched;
       console.log(`  Coast Soccer League: ${coast.merged} records joined to their GotSport team`);
+      // one squad across seasons: each season's GotSport registration is a new record (mergeSeasonTwins)
+      const seasons = mergeSeasonTwins(coast.teams, coast.games);
+      console.log(`  season records: ${seasons.merged} last-season records joined to their squad (${seasons.joins.length} squads)`);
       // USL Academy: one program across seasons (B2006 → B2007), listed as U20
-      const usl = joinUslAcademySeasons(coast.teams, coast.games);
+      const usl = joinUslAcademySeasons(seasons.teams, seasons.games);
       const twins = { ...m11, teams: usl.teams, games: usl.games };
       console.log(`  tournament copies: ${copies.merged} records joined into their team`);
       console.log(`  USL Academy: ${usl.joined} last-season records joined, ${usl.listed} teams playing this season listed as U20`);

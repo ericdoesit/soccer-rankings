@@ -78,14 +78,16 @@ console.log("Sources (discovery files vs snapshot)");
 const gamesDir = path.join(process.cwd(), "data", "discovery", "games");
 // the build reads sources at its start and writes the snapshot ~10-30 s later
 const snapTime = fs.statSync(SNAPSHOT_FILE).mtimeMs - 60_000;
-const gsOf = new Map(teams.filter((t) => t.gotsportTeamId).map((t) => [t.id, t.gotsportTeamId as number]));
+// a team's GotSport ids: this season's plus earlier seasons' registrations joined into it
+const gsOf = new Map(teams.filter((t) => t.gotsportTeamId || t.formerGotsportTeamIds?.length)
+  .map((t) => [t.id, [t.gotsportTeamId, ...(t.formerGotsportTeamIds ?? [])].filter((x): x is number => !!x)]));
 const pairKey = (a: number, b: number, d: string) => `${Math.min(a, b)}_${Math.max(a, b)}_${d}`;
 const inSnap = new Set<string>();
-for (const g of games) { const a = gsOf.get(g.team1Id), b = gsOf.get(g.team2Id); if (a && b) inSnap.add(pairKey(a, b, g.date)); }
+for (const g of games) for (const a of gsOf.get(g.team1Id) ?? []) for (const b of gsOf.get(g.team2Id) ?? []) inSnap.add(pairKey(a, b, g.date));
 // Merged teams keep only one GotSport id, so a game against the merged-away id can't match by
 // id pair. Accept it when the side we do know has a game that day with the same score
 // (2026-11-16: this was all 59 "missing" events, ~2,000 games, every one present).
-const teamByGs = new Map([...gsOf].map(([id, gs]) => [gs, id]));
+const teamByGs = new Map([...gsOf].flatMap(([id, gss]) => gss.map((gs) => [gs, id] as const)));
 const scoreKey = (a: number, b: number) => [a, b].sort((x, y) => x - y).join("-");
 const teamDay = new Set<string>();
 for (const g of games) {
