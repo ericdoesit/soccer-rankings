@@ -507,8 +507,10 @@ export function PointLine({ points, domain, valFmt = (v) => `${Math.round(v * 10
 }
 
 /* ───────────── regression: game counts as shaded cells, bin means, fitted line ───────────── */
-export function RegressionChart({ cells, means, slope, intercept, xLabel, yLabel, c = "blue" }: {
+export function RegressionChart({ cells, means, slope, intercept, xLabel, yLabel, c = "blue", mark = "bubbles" }: {
   cells: Array<{ x: number; y: number; n: number }>;
+  /** bubbles: circle area ∝ games; squares: shaded heat-map cells */
+  mark?: "bubbles" | "squares";
   means: Array<{ x: number; y: number; n: number }>;
   slope: number; intercept: number; xLabel: string; yLabel: string;
   c?: keyof Palette;
@@ -536,15 +538,26 @@ export function RegressionChart({ cells, means, slope, intercept, xLabel, yLabel
     }
     svg.append("text").attr("x", (m.left + W - m.right) / 2).attr("y", H - 6).attr("text-anchor", "middle").attr("fill", P.muted).attr("font-size", "11px").text(xLabel);
     svg.append("text").attr("transform", `translate(12,${(m.top + H - m.bottom) / 2}) rotate(-90)`).attr("text-anchor", "middle").attr("fill", P.muted).attr("font-size", "11px").text(yLabel);
-    // cells: half a goal wide, one goal tall; shade by share of the busiest cell (square-root scale)
+    // each cell: half a goal wide (predicted), one goal tall (actual)
     const shown = cells.filter((d) => Math.abs(d.x) < lim && Math.abs(d.y) < lim);
     const max = d3.max(shown, (d) => d.n) ?? 1;
     const cw = x(0.5) - x(0), ch = y(0) - y(1);
-    svg.append("g").selectAll("rect").data(shown).join("rect")
-      .attr("x", (d) => x(d.x - 0.25)).attr("y", (d) => y(d.y + 0.5)).attr("width", cw).attr("height", ch)
-      .attr("fill", P[c]).attr("fill-opacity", (d) => 0.06 + 0.7 * Math.sqrt(d.n / max))
-      .on("mousemove", (ev, d) => showTip(ev, `predicted ${d.x > 0 ? "+" : ""}${d.x}, actual ${d.y > 0 ? "+" : ""}${d.y}<br><strong>${d.n.toLocaleString()}</strong> games`))
-      .on("mouseleave", hideTip);
+    const tip = (d: { x: number; y: number; n: number }) =>
+      `predicted ${d.x > 0 ? "+" : ""}${d.x}, actual ${d.y > 0 ? "+" : ""}${d.y}<br><strong>${d.n.toLocaleString()}</strong> games`;
+    if (mark === "bubbles") {
+      // circle area proportional to games; the busiest cell fills its half-goal column
+      const rMax = Math.min(cw, ch) * 0.62;
+      svg.append("g").selectAll("circle").data([...shown].sort((a, b) => b.n - a.n)).join("circle")
+        .attr("cx", (d) => x(d.x)).attr("cy", (d) => y(d.y)).attr("r", (d) => Math.max(0.8, rMax * Math.sqrt(d.n / max)))
+        .attr("fill", P[c]).attr("fill-opacity", 0.5)
+        .on("mousemove", (ev, d) => showTip(ev, tip(d))).on("mouseleave", hideTip);
+    } else {
+      // shade by share of the busiest cell (square-root scale)
+      svg.append("g").selectAll("rect").data(shown).join("rect")
+        .attr("x", (d) => x(d.x - 0.25)).attr("y", (d) => y(d.y + 0.5)).attr("width", cw).attr("height", ch)
+        .attr("fill", P[c]).attr("fill-opacity", (d) => 0.06 + 0.7 * Math.sqrt(d.n / max))
+        .on("mousemove", (ev, d) => showTip(ev, tip(d))).on("mouseleave", hideTip);
+    }
     // fitted line
     svg.append("line").attr("x1", x(-lim)).attr("y1", y(intercept - slope * lim)).attr("x2", x(lim)).attr("y2", y(intercept + slope * lim))
       .attr("stroke", P.red).attr("stroke-width", 2.5);
@@ -558,7 +571,7 @@ export function RegressionChart({ cells, means, slope, intercept, xLabel, yLabel
   return (
     <div>
       <div className="chart-legend">
-        <span className="legend-item"><span style={{ width: 10, height: 10, borderRadius: 2, background: `var(--ch-${c})`, opacity: 0.6, display: "inline-block" }} />Games (darker = more)</span>
+        <span className="legend-item"><span style={{ width: 10, height: 10, borderRadius: mark === "bubbles" ? 5 : 2, background: `var(--ch-${c})`, opacity: 0.6, display: "inline-block" }} />{mark === "bubbles" ? "Games (bigger = more)" : "Games (darker = more)"}</span>
         <span className="legend-item"><span style={{ width: 8, height: 8, borderRadius: 4, background: "var(--ch-ink)", display: "inline-block" }} />Average actual margin</span>
         <span className="legend-item"><span style={{ width: 14, height: 2.5, background: "var(--ch-red)", display: "inline-block" }} />Regression line</span>
       </div>

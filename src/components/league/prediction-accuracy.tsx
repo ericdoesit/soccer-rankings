@@ -101,7 +101,7 @@ export function PredictionAccuracy({ acc, leagueName }: { acc: LeagueAccuracy; l
               xLabel="Predicted goal difference (rating gap)" yLabel="Actual goal difference"
             />
             <p className="mt-2 text-xs text-muted-foreground">
-              Each shaded cell counts games with that predicted and actual goal difference (home side first). The regression
+              Each circle counts games with that predicted and actual goal difference (home side first); bigger means more games. The regression
               line is actual = {o.intercept.toFixed(2)} + {o.slope.toFixed(2)} × predicted: a slope near 1 means a one-goal
               rating gap played out as about one goal on the field. The rating gap explains {Math.round(o.r2 * 100)}% of the
               spread in results (R² {o.r2.toFixed(2)}); the rest is the ordinary randomness of a single game.
