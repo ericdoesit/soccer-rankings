@@ -58,66 +58,80 @@ export function ClubMap({ clubs, token }: { clubs: MapClub[]; token: string | un
       })),
   }), [clubs, on, rankedOnly, gender]);
 
-  // create the map once (browser only)
+  // create the map once (browser only). The basemap follows the site theme (<html class="dark">,
+  // see theme-toggle.tsx): Mapbox light-v11 / dark-v11, swapped live when the theme changes.
+  const geoRef = useRef(geojson);
   useEffect(() => {
     if (!token || !el.current || map.current) return;
     let cancelled = false;
+    let observer: MutationObserver | null = null;
+    const isDark = () => document.documentElement.classList.contains("dark");
+    const styleUrl = (dark: boolean) => `mapbox://styles/mapbox/${dark ? "dark" : "light"}-v11`;
     import("mapbox-gl").then(({ default: mapboxgl }) => {
       if (cancelled || !el.current) return;
       mapboxgl.accessToken = token;
-      const m = new mapboxgl.Map({ container: el.current, style: "mapbox://styles/mapbox/light-v11", center: [-117.9, 33.85], zoom: 7.2 });
+      let dark = isDark();
+      const m = new mapboxgl.Map({ container: el.current, style: styleUrl(dark), center: [-117.9, 33.85], zoom: 7.2 });
       m.addControl(new mapboxgl.NavigationControl({ showCompass: false }), "top-right");
       map.current = m;
-      m.on("load", () => {
-        m.addSource("clubs", { type: "geojson", data: geojson });
+      // a new style drops our source and layer: add them on every style load
+      m.on("style.load", () => {
+        if (m.getSource("clubs")) return;
+        m.addSource("clubs", { type: "geojson", data: geoRef.current });
         m.addLayer({
           id: "clubs", type: "circle", source: "clubs",
           paint: {
             "circle-color": ["get", "color"],
             "circle-radius": ["interpolate", ["linear"], ["get", "teams"], 1, 4, 20, 7, 80, 12],
-            "circle-opacity": 0.85, "circle-stroke-color": "#ffffff", "circle-stroke-width": 1,
+            "circle-opacity": 0.85, "circle-stroke-color": dark ? "#1a1919" : "#ffffff", "circle-stroke-width": 1,
           },
         });
-        m.on("mouseenter", "clubs", () => { m.getCanvas().style.cursor = "pointer"; });
-        m.on("mouseleave", "clubs", () => { m.getCanvas().style.cursor = ""; });
-        m.on("click", "clubs", (e) => {
-          // GeoJSON typings aren't installed; the layer only holds our Point features
-          const f = e.features?.[0] as unknown as { geometry: { type: string; coordinates: [number, number] }; properties: Record<string, string | number> } | undefined;
-          if (!f || f.geometry.type !== "Point") return;
-          const p = f.properties;
-          const box = document.createElement("div");
-          box.className = "club-popup-body";
-          const a = document.createElement("a");
-          a.href = `/club/${encodeURIComponent(String(p.club))}`;
-          a.textContent = String(p.club);
-          a.className = "club-popup-title";
-          const meta = document.createElement("div");
-          meta.className = "club-popup-meta";
-          meta.textContent = `${p.teams} teams (${p.listed} ranked)${p.city ? ` · ${p.city}` : ""}`;
-          box.append(a, meta);
-          if (p.leagues) {
-            const l = document.createElement("div");
-            l.className = "club-popup-meta";
-            l.textContent = String(p.leagues);
-            box.append(l);
-          }
-          if (p.venue) {
-            const v = document.createElement("div");
-            v.className = "club-popup-venue";
-            v.textContent = p.site ? `Site: ${p.site} (one of the club's sites)` : `Home field: ${p.venue}`;
-            box.append(v);
-          }
-          new mapboxgl.Popup({ offset: 10, className: "club-popup", maxWidth: "280px" }).setLngLat(f.geometry.coordinates).setDOMContent(box).addTo(m);
-        });
+      });
+      observer = new MutationObserver(() => {
+        if (isDark() === dark) return;
+        dark = isDark();
+        m.setStyle(styleUrl(dark));
+      });
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+      m.on("mouseenter", "clubs", () => { m.getCanvas().style.cursor = "pointer"; });
+      m.on("mouseleave", "clubs", () => { m.getCanvas().style.cursor = ""; });
+      m.on("click", "clubs", (e) => {
+        // GeoJSON typings aren't installed; the layer only holds our Point features
+        const f = e.features?.[0] as unknown as { geometry: { type: string; coordinates: [number, number] }; properties: Record<string, string | number> } | undefined;
+        if (!f || f.geometry.type !== "Point") return;
+        const p = f.properties;
+        const box = document.createElement("div");
+        box.className = "club-popup-body";
+        const a = document.createElement("a");
+        a.href = `/club/${encodeURIComponent(String(p.club))}`;
+        a.textContent = String(p.club);
+        a.className = "club-popup-title";
+        const meta = document.createElement("div");
+        meta.className = "club-popup-meta";
+        meta.textContent = `${p.teams} teams (${p.listed} ranked)${p.city ? ` · ${p.city}` : ""}`;
+        box.append(a, meta);
+        if (p.leagues) {
+          const l = document.createElement("div");
+          l.className = "club-popup-meta";
+          l.textContent = String(p.leagues);
+          box.append(l);
+        }
+        if (p.venue) {
+          const v = document.createElement("div");
+          v.className = "club-popup-venue";
+          v.textContent = p.site ? `Site: ${p.site} (one of the club's sites)` : `Home field: ${p.venue}`;
+          box.append(v);
+        }
+        new mapboxgl.Popup({ offset: 10, className: "club-popup", maxWidth: "280px" }).setLngLat(f.geometry.coordinates).setDOMContent(box).addTo(m);
       });
     });
-    return () => { cancelled = true; map.current?.remove(); map.current = null; };
+    return () => { cancelled = true; observer?.disconnect(); map.current?.remove(); map.current = null; };
     // geojson is applied by the effect below once the source exists
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   // filters
   useEffect(() => {
+    geoRef.current = geojson; // for the next style load (theme switch)
     const src = map.current?.getSource("clubs") as GeoJSONSource | undefined;
     src?.setData(geojson);
   }, [geojson]);
