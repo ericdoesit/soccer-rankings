@@ -17,6 +17,8 @@ export interface LeagueRankRow {
   level: string | null;
   /** listed in the main West rankings */
   westListed: boolean;
+  /** place in the West rankings of its age group + gender, when listed there */
+  westRank: number | null;
 }
 export interface LeagueRankings {
   season: string; events: string[];
@@ -98,6 +100,12 @@ export function getLeagueRankings(slug: string): LeagueRankings | null {
     }
   }
 
+  // the West rankings' own order (same as src/lib/socal.ts)
+  const west = new Map<string, number[]>();
+  for (const t of data.teams) if (t.rankable) west.set(`${t.ageGroup}|${t.gender}`, [...(west.get(`${t.ageGroup}|${t.gender}`) ?? []), t.id]);
+  const westRank = new Map<number, number>();
+  for (const ids of west.values()) ids.sort((a, b) => (rating.get(b) ?? 0) - (rating.get(a) ?? 0)).forEach((id, i) => westRank.set(id, i + 1));
+
   const groups = new Map<string, LeagueRankRow[]>();
   let unrated = 0;
   for (const [id, r] of record) {
@@ -112,7 +120,7 @@ export function getLeagueRankings(slug: string): LeagueRankings | null {
       division: (t.gotsportTeamId !== undefined ? divisionByGs.get(t.gotsportTeamId) : undefined)
         ?? divisionByName.get((t.sourceName ?? "").trim()) ?? null,
       level: null,
-      ...r, westListed: !!t.rankable,
+      ...r, westListed: !!t.rankable, westRank: westRank.get(id) ?? null,
     });
     groups.set(key, rows);
   }

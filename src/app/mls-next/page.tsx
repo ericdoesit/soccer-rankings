@@ -58,7 +58,7 @@ export default async function MlsNextPage({ searchParams }: { searchParams: SP }
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
       <h1 className="display mb-3">MLS NEXT predictions</h1>
-      <p className="lead mb-6">
+      <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
         2026-27 season, Homegrown and Academy Divisions. Each upcoming game is predicted from the two teams&apos; ratings, and each
         conference&apos;s remaining schedule is played out 10,000 times to project the final table. Tables rank by points per game,
         as MLS NEXT does. Schedule and results come from the league&apos;s public schedule via{" "}

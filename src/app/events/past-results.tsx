@@ -21,7 +21,7 @@ export function PastResults({ q, state }: { q: string; state: string }) {
 
   return (
     <>
-      <p className="lead mb-6">
+      <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
         Tournaments that have finished, newest first: {all.length.toLocaleString()} West events with results in our data. Leagues
         that run all season are not listed here.
       </p>

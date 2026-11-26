@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { TeamNameCell } from "@/components/rankings/team-name-cell";
 import { notFound } from "next/navigation";
 import { AGE_ORDER, areaBySlug, getClubRow, getLeague } from "@/lib/explore";
 import { Badge } from "@/components/ui/badge";
@@ -7,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getLeagueRankings } from "@/lib/league-rankings";
 import { getLeagueAccuracy } from "@/lib/league-accuracy";
 import { PredictionAccuracy } from "@/components/league/prediction-accuracy";
+import { LeagueClubTable, LeagueTeamTable } from "@/components/league/league-tables";
 import { chip } from "@/lib/ui-classes";
 
 export default async function LeaguePage({
@@ -95,13 +95,13 @@ export default async function LeaguePage({
       {accuracy && <PredictionAccuracy acc={accuracy} leagueName={league.name} />}
 
       {lr && ranked.length > 0 && (
-        <Card className="mt-6" id="rankings">
+        <Card className="mt-6 gap-0 pb-0" id="rankings">
           <CardHeader>
             <CardTitle className="heading-sm">{league.name} rankings · {lr.season}</CardTitle>
             <p className="text-xs text-muted-foreground">
               {`Every team playing ${lr.events.join(" and ")} that has a rating, ranked by rating within its age group. `}
               Ratings use all of a team&apos;s games, not just league games. The record is league games only.
-              “West rank” marks teams also listed in the main West rankings.
+              West rank is the team’s place in the main West rankings, for teams listed there. Search finds a club or team in this age group.
             </p>
             <div className="mt-2 flex flex-wrap gap-2">
               {genders.map((g) => <Link key={g} href={rankHref(age!, g)} scroll={false} className={pill(g === gender)}>{g}</Link>)}
@@ -118,74 +118,23 @@ export default async function LeaguePage({
               </div>
             )}
           </CardHeader>
-          <CardContent className="p-0 overflow-x-auto">
-            {/* fixed column widths, so switching age group or level doesn't shift the columns */}
-            <table className="w-full table-fixed text-sm">
-              <colgroup>
-                <col className="w-10 sm:w-20" />
-                <col />
-                <col className="hidden w-64 md:table-column" />
-                <col className="hidden w-32 sm:table-column" />
-                <col className="w-16 sm:w-28" />
-              </colgroup>
-              <thead>
-                <tr className="border-b border-border text-left text-xs text-muted-foreground">
-                  <th className="px-4 py-2 sm:text-right">#</th>
-                  <th className="px-4 py-2">Team</th>
-                  <th className="px-4 py-2 hidden md:table-cell">Division</th>
-                  <th className="px-4 py-2 text-right hidden sm:table-cell">League W-D-L</th>
-                  <th className="px-4 py-2 text-right">Rating</th>
-                </tr>
-              </thead>
-              <tbody>
-                {ranked.map((r) => (
-                  <tr key={r.teamId} className="border-b last:border-b-0 border-border/50 hover:bg-muted/50 transition-colors">
-                    <td className="px-4 py-2 sm:text-right tabular-nums text-muted-foreground">{r.rank}</td>
-                    <td className="px-4 py-2">
-                      <TeamNameCell id={r.teamId} name={r.name} meta={[`${r.w}-${r.d}-${r.l} league`, r.division, r.westListed && "West rank"].filter(Boolean).join(" · ")}>
-                        {r.westListed && <span className="ml-1.5 text-[11px] text-muted-foreground">West rank</span>}
-                      </TeamNameCell>
-                    </td>
-                    <td className="px-4 py-2 hidden md:table-cell truncate text-xs text-muted-foreground" title={r.division ?? undefined}>{r.division ?? "—"}</td>
-                    <td className="px-4 py-2 text-right tabular-nums hidden sm:table-cell" data-sort={r.w * 3 + r.d}>{r.w}-{r.d}-{r.l}</td>
-                    <td className="px-4 py-2 text-right tabular-nums">{r.rating.toFixed(2)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <CardContent className="p-0">
+            <LeagueTeamTable key={`${age}|${gender}|${level ?? ""}`} rows={ranked}
+              caption={`${ranked.length.toLocaleString()} ${level ? `${level} ` : ""}${age} ${gender!.toLowerCase()} teams`} />
           </CardContent>
         </Card>
       )}
 
-      <Card className="mt-6">
+      <Card className="mt-6 gap-0 pb-0">
         <CardHeader><CardTitle className="heading-sm">Clubs</CardTitle></CardHeader>
-        <CardContent className="p-0 overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-border text-left text-xs text-muted-foreground">
-                <th className="px-4 py-2">Club</th>
-                <th className="px-4 py-2 hidden sm:table-cell">State</th>
-                <th className="px-4 py-2 text-right">Teams</th>
-                <th className="px-4 py-2 hidden md:table-cell">Ages</th>
-                <th className="px-4 py-2 text-right hidden sm:table-cell">Best rank</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map(({ club, teams, ages, best }) => (
-                <tr key={club.slug} className="border-b last:border-b-0 border-border/50 hover:bg-muted/50 transition-colors">
-                  <td className="px-4 py-2.5">
-                    <Link href={`/club/${club.slug}`} className="font-medium hover:text-primary transition-colors">{club.name}</Link>
-                  </td>
-                  <td className="px-4 py-2.5 hidden sm:table-cell text-muted-foreground">{club.area?.short ?? "—"}</td>
-                  <td className="px-4 py-2.5 text-right">{teams.length}</td>
-                  <td className="px-4 py-2.5 hidden md:table-cell text-muted-foreground text-xs">
-                    {ages.length > 1 ? `${ages[0]}–${ages[ages.length - 1]}` : ages[0]}
-                  </td>
-                  <td className="px-4 py-2.5 text-right hidden sm:table-cell text-muted-foreground">{best ? `#${best}` : "—"}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <CardContent className="p-0">
+          <LeagueClubTable
+            caption={`${rows.length.toLocaleString()} clubs · ${teamCount.toLocaleString()} teams`}
+            rows={rows.map(({ club, teams, ages, best }) => ({
+              slug: club.slug, club: club.name, state: club.area?.short ?? null, teams: teams.length,
+              ages: ages.length > 1 ? `${ages[0]}–${ages[ages.length - 1]}` : (ages[0] ?? "—"), best,
+            }))}
+          />
         </CardContent>
       </Card>
     </div>

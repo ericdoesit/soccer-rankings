@@ -117,8 +117,8 @@ export default function FlightPlannerPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
-      <h1 className="display">Flight planner</h1>
-      <p className="lead mt-3 max-w-3xl">
+      <h1 className="display mb-3">Flight planner <span className="tail">seed a tournament.</span></h1>
+      <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
         Paste a tournament&rsquo;s teams, confirm each match, and split them into flights of similar strength, the way
         youth tournaments do: Premier, Gold, Silver and so on. Each flight gets a seeded bracket that builds to a final,
         every game is predicted from the ratings, and teams that don&rsquo;t fit their flight are flagged.

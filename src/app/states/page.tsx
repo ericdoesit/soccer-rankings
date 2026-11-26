@@ -9,8 +9,8 @@ export default function StatesPage() {
   const areas = getAreas();
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
-      <h1 className="display">West states</h1>
-      <p className="lead mt-3">
+      <h1 className="display mb-3">West states</h1>
+      <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
         Pick a state to see its leagues, clubs and teams. California is split into Cal South and Cal North,
         the two state associations.
       </p>

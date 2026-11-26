@@ -46,12 +46,12 @@ export default function ProvenPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
       <div className="mb-6">
-        <h1 className="display">Proven rankings</h1>
-        <p className="lead mt-3 max-w-3xl">
+        <h1 className="display mb-3">Proven <span className="tail">tested across leagues.</span></h1>
+        <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
           Teams ranked by rating once that rating has been tested: at least {MIN_CROSS} games in the last 15 months
           against teams from other leagues. Games inside a league only put its teams in order; games between leagues
           show how strong they really are.{" "}
-          <Link href="/findings" className="underline underline-offset-2 hover:text-foreground">Why this matters</Link>
+          <Link href="/findings" className="font-medium text-foreground underline underline-offset-4">Why this matters</Link>
         </p>
       </div>
 

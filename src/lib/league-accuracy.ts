@@ -15,6 +15,7 @@ export interface LeagueAccuracy {
   overall: AccuracyStats; established: AccuracyStats;
   byTier: Record<string, AccuracyStats>; byGender: Record<string, AccuracyStats>; byAge: Record<string, AccuracyStats>;
   byWeek: Record<string, AccuracyStats>;
+  scatter?: { cells: Array<{ x: number; y: number; n: number }>; means: Array<{ x: number; y: number; n: number }> };
 }
 
 const FILES: Record<string, string> = { "socal-soccer-league": "socal-accuracy.json" };

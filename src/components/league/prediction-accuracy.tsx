@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { PairedBars, PointLine } from "@/components/about/charts";
+import { PairedBars, PointLine, RegressionChart } from "@/components/about/charts";
 import { AGE_ORDER } from "@/lib/explore";
 import type { AccuracyStats, LeagueAccuracy } from "@/lib/league-accuracy";
 
@@ -90,6 +90,22 @@ export function PredictionAccuracy({ acc, leagueName }: { acc: LeagueAccuracy; l
                 tip: `${s.decided.toLocaleString()} games with a winner<br>margin miss ${s.mae.toFixed(1)} goals`,
               }))}
             />
+          </div>
+        )}
+
+        {acc.scatter && (
+          <div>
+            <div className="chart-title">Predicted vs actual goal difference, every game</div>
+            <RegressionChart
+              cells={acc.scatter.cells} means={acc.scatter.means} slope={o.slope} intercept={o.intercept}
+              xLabel="Predicted goal difference (rating gap)" yLabel="Actual goal difference"
+            />
+            <p className="mt-2 text-xs text-muted-foreground">
+              Each shaded cell counts games with that predicted and actual goal difference (home side first). The regression
+              line is actual = {o.intercept.toFixed(2)} + {o.slope.toFixed(2)} × predicted: a slope near 1 means a one-goal
+              rating gap played out as about one goal on the field. The rating gap explains {Math.round(o.r2 * 100)}% of the
+              spread in results (R² {o.r2.toFixed(2)}); the rest is the ordinary randomness of a single game.
+            </p>
           </div>
         )}
 

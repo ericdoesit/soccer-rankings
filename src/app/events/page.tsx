@@ -40,7 +40,7 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
     <div className="mx-auto max-w-5xl px-4 py-8">
       <h1 className="display mb-6">Upcoming events</h1>
       {tabs}
-      <p className="lead mb-6">
+      <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
         Major tournaments, State Cups and league events in the West over the next six months
         {until ? ` (through ${formatDates(until)})` : ""}: tracked competitions, events whose last edition had 300+ games,
         and events we have predictions for.

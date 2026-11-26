@@ -140,6 +140,15 @@ const group = (key: (r: Row) => string) => {
   for (const r of rows) { const k = key(r); m.set(k, [...(m.get(k) ?? []), r]); }
   return Object.fromEntries([...m].map(([k, rs]) => [k, summarize(rs)]));
 };
+// regression chart: games counted by predicted margin (0.5-goal bins) × actual margin (whole goals),
+// plus the average actual margin per predicted bin. Both clipped to ±10 goals.
+const clip = (v: number) => Math.max(-10, Math.min(10, v));
+const cells = new Map<string, number>(), binMean = new Map<number, { s: number; n: number }>();
+for (const r of rows) {
+  const x = clip(Math.round(r.predMargin * 2) / 2), y = clip(r.margin);
+  cells.set(`${x}|${y}`, (cells.get(`${x}|${y}`) ?? 0) + 1);
+  const b = binMean.get(x) ?? { s: 0, n: 0 }; b.s += r.margin; b.n++; binMean.set(x, b);
+}
 // calibration: favourite's chance (among decided) in 5-point bins
 const calib = new Map<number, { n: number; exp: number; won: number }>();
 for (const r of rows) if (r.favWon !== null) {
@@ -156,6 +165,10 @@ const out = {
   byTierGender: group((r) => `${r.tier}|${r.gender}`),
   byAgeGender: group((r) => `${r.age}|${r.gender}`),
   byAgeTier: group((r) => `${r.age}|${r.tier}`),
+  scatter: {
+    cells: [...cells].map(([k, n]) => { const [x, y] = k.split("|").map(Number); return { x, y, n }; }),
+    means: [...binMean].sort((a, b) => a[0] - b[0]).filter(([, b]) => b.n >= 20).map(([x, b]) => ({ x, y: b.s / b.n, n: b.n })),
+  },
   calibration: [...calib].sort((a, b) => a[0] - b[0]).map(([b, x]) => ({ bin: b, n: x.n, expected: x.exp / x.n, actual: x.won / x.n })),
 };
 const file = process.argv[2] ?? path.join(process.cwd(), "data", "predictions", "socal-accuracy.json");
