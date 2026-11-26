@@ -264,7 +264,10 @@ function shrinkFewGames(rankings: DataSet["rankings"], games: Array<{ team1Id: n
   return out;
 }
 
-const INTERNATIONAL = /\((Mexico|Canada|England|Germany|Netherlands|France|Spain|Italy|Costa Rica|Brazil|Argentina|Japan|Korea|China|Australia|New Zealand|Guatemala|El Salvador|Honduras|Jamaica)\)|^(Quebec|British Columbia|Alberta)\b/i;
+// Foreign pro-club academies registered without a country tag: Club Tijuana (Liga MX, Xolos
+// Fuerzas Básicas, GotSport lists its 2012 team under Nevada). Not the US clubs that carry
+// a Mexican club's name (Chivas Denver, Rayados Academy San Diego, Pumas-UNAM Filial Seattle …).
+const INTERNATIONAL = /\((Mexico|Canada|England|Germany|Netherlands|France|Spain|Italy|Costa Rica|Brazil|Argentina|Japan|Korea|China|Australia|New Zealand|Guatemala|El Salvador|Honduras|Jamaica)\)|^(Quebec|British Columbia|Alberta)\b|^Club Tijuana\b/i;
 function markRankable(teams: Team[], games: Game[], rankings: DataSet["rankings"]): { teams: Team[]; stats: string } {
   const selectTeams = loadSelectTeams();
   const byId = new Map(teams.map((t) => [t.id, t]));
