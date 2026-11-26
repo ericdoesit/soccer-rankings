@@ -29,6 +29,7 @@ STEPS=(
   "events:upcoming|Upcoming events calendar"
   "data:publish|Publish data to GitHub Releases"
   "site:redeploy|Rebuild the live site with the new data (Vercel)"
+  "site:warm|Warm up the live site (first visitors skip the cold start)"
 )
 
 typeset -a RESULTS
@@ -38,7 +39,7 @@ echo "=== Refresh started $(date) ==="
 
 for step in "${STEPS[@]}"; do
   script="${step%%|*}"; label="${step#*|}"
-  if [[ ( "$script" == "data:publish" || "$script" == "site:redeploy" ) && -z "$PUBLISH_DATA" ]]; then
+  if [[ ( "$script" == "data:publish" || "$script" == "site:redeploy" || "$script" == "site:warm" ) && -z "$PUBLISH_DATA" ]]; then
     continue
   fi
   if [[ ( "$script" == "data:publish" || "$script" == "site:redeploy" ) && $FAILED -gt 0 ]]; then

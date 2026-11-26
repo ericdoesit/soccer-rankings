@@ -42,6 +42,7 @@
     "pages:open": "tsx scripts/open-gotsport-pages.ts",
     "data:publish": "zsh scripts/publish-data.sh",
     "site:redeploy": "vercel redeploy https://soccer-rankings-two.vercel.app --target production",
+    "site:warm": "zsh scripts/warm-site.sh",
     "data:fetch": "node scripts/fetch-data.mjs",
     "prebuild": "node scripts/fetch-data.mjs"
   },

@@ -1,4 +1,5 @@
 import { getRankings, getLeagues, getLeagueStrength, getCoverage } from "@/lib/data";
+import { DATA_CACHE } from "@/lib/cache-headers";
 
 const MAX_LIMIT = 500;
 
@@ -6,17 +7,17 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
 
   if (searchParams.get("leagues") === "list") {
-    return Response.json(getLeagues());
+    return Response.json(getLeagues(), { headers: DATA_CACHE });
   }
   // listed teams per state / region (which places the filter offers)
   if (searchParams.get("coverage")) {
-    return Response.json(getCoverage());
+    return Response.json(getCoverage(), { headers: DATA_CACHE });
   }
   // league comparison for one age group + gender
   if (searchParams.get("strength")) {
     const age = searchParams.get("ageGroup"), gender = searchParams.get("gender");
     if (!age || !gender || age === "All" || gender === "Both") return Response.json([]);
-    return Response.json(getLeagueStrength(age, gender));
+    return Response.json(getLeagueStrength(age, gender), { headers: DATA_CACHE });
   }
 
   // limit 1..MAX_LIMIT (default 50), offset >= 0; junk values fall back to defaults
@@ -42,6 +43,6 @@ export async function GET(request: Request) {
   // Total matching rows go in a header so clients can paginate without
   // downloading every row.
   return Response.json(all.slice(offset, offset + limit), {
-    headers: { "X-Total-Count": String(all.length) },
+    headers: { "X-Total-Count": String(all.length), ...DATA_CACHE },
   });
 }
