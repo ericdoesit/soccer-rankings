@@ -35,7 +35,7 @@ function StatsTable({ title, rows }: { title: string; rows: Array<[string, Accur
   );
 }
 
-export function PredictionAccuracy({ acc, leagueName, slug }: { acc: LeagueAccuracy; leagueName: string; slug: string }) {
+export function PredictionAccuracy({ acc, leagueName }: { acc: LeagueAccuracy; leagueName: string }) {
   const o = acc.overall;
   // weeks with a full slate (a stray midweek make-up week is too small to read)
   const weeks = Object.entries(acc.byWeek).filter(([, s]) => s.n >= 100).sort(([a], [b]) => a.localeCompare(b));
@@ -99,10 +99,9 @@ export function PredictionAccuracy({ acc, leagueName, slug }: { acc: LeagueAccur
             <RegressionChart
               cells={acc.scatter.cells} means={acc.scatter.means} slope={o.slope} intercept={o.intercept}
               xLabel="Predicted goal difference (rating gap)" yLabel="Actual goal difference"
-              pointsUrl={`/api/league-accuracy?league=${encodeURIComponent(slug)}`}
             />
             <p className="mt-2 text-xs text-muted-foreground">
-              Each square counts games with that predicted and actual goal difference (home side first); darker means more games. “Every game” draws one dot per game instead. The regression
+              Each square counts games with that predicted and actual goal difference (home side first); darker means more games. The regression
               line is actual = {o.intercept.toFixed(2)} + {o.slope.toFixed(2)} × predicted: a slope near 1 means a one-goal
               rating gap played out as about one goal on the field. The rating gap explains {Math.round(o.r2 * 100)}% of the
               spread in results (R² {o.r2.toFixed(2)}); the rest is the ordinary randomness of a single game.

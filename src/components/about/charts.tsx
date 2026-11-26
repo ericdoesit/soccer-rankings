@@ -506,29 +506,17 @@ export function PointLine({ points, domain, valFmt = (v) => `${Math.round(v * 10
   return <div ref={ref} className="d3-chart" />;
 }
 
-/* ───────────── regression: game counts as shaded cells (or every game as a dot), bin means, fitted line ───────────── */
-type Mark = "squares" | "dots";
-export function RegressionChart({ cells, means, slope, intercept, xLabel, yLabel, pointsUrl, c = "blue" }: {
+/* ───────────── regression: game counts as shaded cells, bin means, fitted line ───────────── */
+export function RegressionChart({ cells, means, slope, intercept, xLabel, yLabel, c = "blue" }: {
   cells: Array<{ x: number; y: number; n: number }>;
   means: Array<{ x: number; y: number; n: number }>;
   slope: number; intercept: number; xLabel: string; yLabel: string;
-  /** per-game points ({ x: predicted ×10, y: actual }) for the "every game" view, fetched when first shown */
-  pointsUrl?: string;
   c?: keyof Palette;
 }) {
   const [ref, W] = useWidth<HTMLDivElement>();
-  const [mark, setMark] = useState<Mark>("squares");
-  const [points, setPoints] = useState<{ x: number[]; y: number[] } | null>(null);
-  const loading = mark === "dots" && !points;
-  const choose = (k: Mark) => {
-    setMark(k);
-    if (k === "dots" && !points && pointsUrl) fetch(pointsUrl).then((r) => r.json()).then(setPoints).catch(() => setMark("squares"));
-  };
-
   useEffect(() => {
     const el = ref.current;
     if (!el || !W) return;
-    const t0 = performance.now();
     const P = palette();
     el.innerHTML = "";
     const narrow = W < 520;
@@ -537,35 +525,9 @@ export function RegressionChart({ cells, means, slope, intercept, xLabel, yLabel
     const lim = 8;
     const x = d3.scaleLinear().domain([-lim, lim]).range([m.left, W - m.right]);
     const y = d3.scaleLinear().domain([-lim, lim]).range([H - m.bottom, m.top]);
-    // every game: one canvas under the SVG (23,000 SVG circles would be slow to draw and hover)
-    if (mark === "dots" && points) {
-      const dpr = window.devicePixelRatio || 1;
-      const cv = document.createElement("canvas");
-      cv.width = W * dpr; cv.height = H * dpr;
-      cv.style.cssText = `position:absolute;left:0;top:0;width:${W}px;height:${H}px`;
-      el.style.position = "relative";
-      el.appendChild(cv);
-      const ctx = cv.getContext("2d")!;
-      ctx.scale(dpr, dpr);
-      ctx.beginPath();
-      ctx.rect(m.left, m.top, W - m.left - m.right, H - m.top - m.bottom);
-      ctx.clip();
-      ctx.fillStyle = P[c];
-      ctx.globalAlpha = narrow ? 0.22 : 0.16;
-      // scores are whole goals: spread each dot a little (fixed seed, so it doesn't shimmer on redraw)
-      let seed = 7;
-      const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647) - 0.5;
-      const r = narrow ? 1.1 : 1.4;
-      for (let i = 0; i < points.x.length; i++) {
-        const px = x(points.x[i] / 10 + rand() * 0.1), py = y(points.y[i] + rand() * 0.7);
-        ctx.beginPath(); ctx.arc(px, py, r, 0, 2 * Math.PI); ctx.fill();
-      }
-    }
-    const svg = d3.select(el).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H)
-      .style("position", "relative");
-    const ticks = [-8, -4, 0, 4, 8];
+    const svg = d3.select(el).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H);
     const g = svg.append("g");
-    for (const t of ticks) {
+    for (const t of [-8, -4, 0, 4, 8]) {
       g.append("line").attr("x1", x(t)).attr("x2", x(t)).attr("y1", m.top).attr("y2", H - m.bottom).attr("stroke", P.grid).attr("stroke-width", t === 0 ? 2 : 1);
       g.append("line").attr("x1", m.left).attr("x2", W - m.right).attr("y1", y(t)).attr("y2", y(t)).attr("stroke", P.grid).attr("stroke-width", t === 0 ? 2 : 1);
       g.append("text").attr("x", x(t)).attr("y", H - m.bottom + 15).attr("text-anchor", "middle").attr("fill", P.muted).attr("font-size", "11px").text(t > 0 ? `+${t}` : t);
@@ -573,17 +535,15 @@ export function RegressionChart({ cells, means, slope, intercept, xLabel, yLabel
     }
     svg.append("text").attr("x", (m.left + W - m.right) / 2).attr("y", H - 6).attr("text-anchor", "middle").attr("fill", P.muted).attr("font-size", "11px").text(xLabel);
     svg.append("text").attr("transform", `translate(12,${(m.top + H - m.bottom) / 2}) rotate(-90)`).attr("text-anchor", "middle").attr("fill", P.muted).attr("font-size", "11px").text(yLabel);
-    if (mark === "squares") {
-      // each cell: half a goal wide (predicted), one goal tall (actual); shade by share of the busiest (square root)
-      const shown = cells.filter((d) => Math.abs(d.x) < lim && Math.abs(d.y) < lim);
-      const max = d3.max(shown, (d) => d.n) ?? 1;
-      const cw = x(0.5) - x(0), ch = y(0) - y(1);
-      svg.append("g").selectAll("rect").data(shown).join("rect")
-        .attr("x", (d) => x(d.x - 0.25)).attr("y", (d) => y(d.y + 0.5)).attr("width", cw).attr("height", ch)
-        .attr("fill", P[c]).attr("fill-opacity", (d) => 0.06 + 0.7 * Math.sqrt(d.n / max))
-        .on("mousemove", (ev, d) => showTip(ev, `predicted ${d.x > 0 ? "+" : ""}${d.x}, actual ${d.y > 0 ? "+" : ""}${d.y}<br><strong>${d.n.toLocaleString()}</strong> games`))
-        .on("mouseleave", hideTip);
-    }
+    // each cell: half a goal wide (predicted), one goal tall (actual); shade by share of the busiest (square root)
+    const shown = cells.filter((d) => Math.abs(d.x) < lim && Math.abs(d.y) < lim);
+    const max = d3.max(shown, (d) => d.n) ?? 1;
+    const cw = x(0.5) - x(0), ch = y(0) - y(1);
+    svg.append("g").selectAll("rect").data(shown).join("rect")
+      .attr("x", (d) => x(d.x - 0.25)).attr("y", (d) => y(d.y + 0.5)).attr("width", cw).attr("height", ch)
+      .attr("fill", P[c]).attr("fill-opacity", (d) => 0.06 + 0.7 * Math.sqrt(d.n / max))
+      .on("mousemove", (ev, d) => showTip(ev, `predicted ${d.x > 0 ? "+" : ""}${d.x}, actual ${d.y > 0 ? "+" : ""}${d.y}<br><strong>${d.n.toLocaleString()}</strong> games`))
+      .on("mouseleave", hideTip);
     // fitted line
     svg.append("line").attr("x1", x(-lim)).attr("y1", y(intercept - slope * lim)).attr("x2", x(lim)).attr("y2", y(intercept + slope * lim))
       .attr("stroke", P.red).attr("stroke-width", 2.5);
@@ -592,27 +552,14 @@ export function RegressionChart({ cells, means, slope, intercept, xLabel, yLabel
       .attr("cx", (d) => x(d.x)).attr("cy", (d) => y(d.y)).attr("r", 3.5).attr("fill", P.ink)
       .on("mousemove", (ev, d) => showTip(ev, `predicted ${d.x > 0 ? "+" : ""}${d.x} goals<br>average actual <strong>${d.y > 0 ? "+" : ""}${d.y.toFixed(1)}</strong> over ${d.n.toLocaleString()} games`))
       .on("mouseleave", hideTip);
-    el.dataset.drawMs = (performance.now() - t0).toFixed(1);
     return hideTip;
   });
   return (
     <div>
-      <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-        <div className="chart-legend !mb-0">
-          <span className="legend-item"><span style={{ width: mark === "dots" ? 6 : 10, height: mark === "dots" ? 6 : 10, borderRadius: mark === "dots" ? 3 : 2, background: `var(--ch-${c})`, opacity: 0.6, display: "inline-block" }} />{mark === "dots" ? "One dot per game" : "Games (darker = more)"}</span>
-          <span className="legend-item"><span style={{ width: 8, height: 8, borderRadius: 4, background: "var(--ch-ink)", display: "inline-block" }} />Average actual margin</span>
-          <span className="legend-item"><span style={{ width: 14, height: 2.5, background: "var(--ch-red)", display: "inline-block" }} />Regression line</span>
-        </div>
-        {pointsUrl && (
-          <div className="flex gap-1.5" role="group" aria-label="Chart view">
-            {(["squares", "dots"] as const).map((k) => (
-              <button key={k} type="button" onClick={() => choose(k)} aria-pressed={mark === k}
-                className={`rounded-full px-3 py-1 text-xs font-medium ${mark === k ? "bg-foreground text-background" : "bg-card shadow-[var(--surface-shadow)] hover:bg-muted"}`}>
-                {k === "squares" ? "Squares" : loading ? "Loading…" : "Every game"}
-              </button>
-            ))}
-          </div>
-        )}
+      <div className="chart-legend">
+        <span className="legend-item"><span style={{ width: 10, height: 10, borderRadius: 2, background: `var(--ch-${c})`, opacity: 0.6, display: "inline-block" }} />Games (darker = more)</span>
+        <span className="legend-item"><span style={{ width: 8, height: 8, borderRadius: 4, background: "var(--ch-ink)", display: "inline-block" }} />Average actual margin</span>
+        <span className="legend-item"><span style={{ width: 14, height: 2.5, background: "var(--ch-red)", display: "inline-block" }} />Regression line</span>
       </div>
       <div ref={ref} className="d3-chart" />
     </div>

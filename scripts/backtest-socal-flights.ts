@@ -174,11 +174,6 @@ const out = {
 const file = process.argv[2] ?? path.join(process.cwd(), "data", "predictions", "socal-accuracy.json");
 fs.mkdirSync(path.dirname(file), { recursive: true });
 fs.writeFileSync(file, JSON.stringify(out, null, 1));
-// one point per game for the "every game" chart, fetched only when shown (/api/league-accuracy):
-// predicted margin in tenths of a goal, actual margin in goals
-fs.writeFileSync(file.replace(/\.json$/, "-points.json"), JSON.stringify({
-  x: rows.map((r) => Math.round(r.predMargin * 10)), y: rows.map((r) => r.margin),
-}));
 const pct = (x: number) => `${(100 * x).toFixed(1)}%`;
 console.log(`${EVENT}: ${season.length} games, ${rows.length} predicted (${unrated} with an unrated team, ${unmatched} without a flight)`);
 for (const [title, g] of [["tier", out.byTier], ["gender", out.byGender], ["age", out.byAge]] as const) {
