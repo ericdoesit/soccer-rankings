@@ -264,10 +264,15 @@ function shrinkFewGames(rankings: DataSet["rankings"], games: Array<{ team1Id: n
   return out;
 }
 
-// Foreign pro-club academies registered without a country tag: Club Tijuana (Liga MX, Xolos
-// Fuerzas Básicas, GotSport lists its 2012 team under Nevada). Not the US clubs that carry
-// a Mexican club's name (Chivas Denver, Rayados Academy San Diego, Pumas-UNAM Filial Seattle …).
-const INTERNATIONAL = /\((Mexico|Canada|England|Germany|Netherlands|France|Spain|Italy|Costa Rica|Brazil|Argentina|Japan|Korea|China|Australia|New Zealand|Guatemala|El Salvador|Honduras|Jamaica)\)|^(Quebec|British Columbia|Alberta)\b|^Club Tijuana\b/i;
+const INTERNATIONAL = /\((Mexico|Canada|England|Germany|Netherlands|France|Spain|Italy|Costa Rica|Brazil|Argentina|Japan|Korea|China|Australia|New Zealand|Guatemala|El Salvador|Honduras|Jamaica)\)|^(Quebec|British Columbia|Alberta)\b/i;
+/**
+ * Foreign pro-club academies registered without a country tag. Club Tijuana (Liga MX): its
+ * travelling Sub-15 etc. ("Club Tijuana FB 2012", 11-0 incl. 6-2 over Players SC MLS NEXT) is
+ * registered outside Cal South (GotSport puts it under Nevada); the Cal South registrations
+ * ("Club Tijuana Xoloitzcuincles") are likely its US academy in Chula Vista and stay eligible.
+ * Not the US clubs named after Mexican clubs (Chivas Denver, Rayados Academy San Diego …).
+ */
+const isForeignAcademy = (t: Team) => /^Club Tijuana\b/i.test(t.name) && t.state !== "CAS";
 function markRankable(teams: Team[], games: Game[], rankings: DataSet["rankings"]): { teams: Team[]; stats: string } {
   const selectTeams = loadSelectTeams();
   const byId = new Map(teams.map((t) => [t.id, t]));
@@ -308,7 +313,7 @@ function markRankable(teams: Team[], games: Game[], rankings: DataSet["rankings"
     const reason =
       t.region !== "Region4" ? "outside the West" :
       // national / foreign club teams at West showcases ("2011 (Germany)", "Royals (Canada)", "Quebec #693811")
-      INTERNATIONAL.test(`${t.name} ${t.sourceName ?? ""}`) ? "outside the West (international team)" :
+      INTERNATIONAL.test(`${t.name} ${t.sourceName ?? ""}`) || isForeignAcademy(t) ? "outside the West (international team)" :
       t.ageGroup === "U19+" ? "aged out (U19+)" :
       RANK_RULES.excludedStates.has(t.state) ? "Hawaii teams aren't ranked (too few games against mainland teams)" :
       // State ODP / EPD squads are all-star selections, not club teams: their games still
