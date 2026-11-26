@@ -16,6 +16,7 @@
  */
 import { getDataSet, RANK_RULES, type Team } from "./data";
 import { clubSlugFor } from "./explore";
+import { readPrecomputed } from "./precomputed";
 
 export const SOCAL_AGES = ["U8", "U9", "U10", "U11", "U12", "U13", "U14", "U15", "U16", "U17", "U18", "U19"] as const;
 export type SoCalGender = "Boys" | "Girls";
@@ -33,7 +34,24 @@ export interface SoCalClub {
 const OUT = /select team|state select|outside the West|aged out|Hawaii/;
 const MIN_CLUB_AGES = 3;
 
-let cache: { teams: SoCalTeam[]; byKey: Map<string, SoCalTeam[]> } | null = null;
+let cache: { teams: SoCalTeam[]; byKey: Map<string, SoCalTeam[]>; clubSlugs?: Record<string, string | null> } | null = null;
+
+/** what scripts/build-precomputed.ts saves (data/precomputed/socal.json): the teams, ranked, and each club's page */
+export interface SoCalPrecomputed { teams: SoCalTeam[]; clubSlugs: Record<string, string | null> }
+export function computeSoCal(): SoCalPrecomputed {
+  const { teams } = build();
+  const clubSlugs: Record<string, string | null> = {};
+  for (const t of teams) if (!(t.club in clubSlugs)) clubSlugs[t.club] = clubSlugFor(t.club);
+  return { teams, clubSlugs };
+}
+function fromPrecomputed() {
+  const pre = readPrecomputed<SoCalPrecomputed>("socal");
+  if (!pre) return null;
+  const byKey = new Map<string, SoCalTeam[]>();
+  for (const t of pre.teams) byKey.set(`${t.ageGroup}|${t.gender}`, [...(byKey.get(`${t.ageGroup}|${t.gender}`) ?? []), t]);
+  for (const list of byKey.values()) list.sort((a, b) => a.rank - b.rank);
+  return { teams: pre.teams, byKey, clubSlugs: pre.clubSlugs };
+}
 
 function build() {
   const ds = getDataSet();
@@ -78,7 +96,9 @@ function build() {
   for (const list of byKey.values()) list.sort((a, b) => b.rating - a.rating).forEach((t, i) => { t.rank = i + 1; });
   return { teams, byKey };
 }
-const data = () => (cache ??= build());
+// precomputed when it matches the snapshot: a cold server then never loads the snapshot
+const data = (): NonNullable<typeof cache> => (cache ??= fromPrecomputed() ?? build());
+const slugOf = (club: string) => { const s = data().clubSlugs; return s ? s[club] ?? null : clubSlugFor(club); };
 
 export function getSoCalTeams(ageGroup: string, gender: SoCalGender): SoCalTeam[] {
   return data().byKey.get(`${ageGroup}|${gender}`) ?? [];
@@ -104,8 +124,8 @@ export function getSoCalClubs(gender: SoCalGender | "All", ageGroup: string | "A
     });
   }
   const minAges = ageGroup === "All" ? MIN_CLUB_AGES : 1;
-  const clubs: SoCalClub[] = [...per].filter(([club, xs]) => xs.length >= minAges && clubSlugFor(club)).map(([club, xs]) => ({
-    club, slug: clubSlugFor(club)!, rank: 0, strength: Math.round(10 * xs.reduce((s, x) => s + x.percentile, 0) / xs.length) / 10,
+  const clubs: SoCalClub[] = [...per].filter(([club, xs]) => xs.length >= minAges && slugOf(club)).map(([club, xs]) => ({
+    club, slug: slugOf(club)!, rank: 0, strength: Math.round(10 * xs.reduce((s, x) => s + x.percentile, 0) / xs.length) / 10,
     ageGroups: xs.length, teams: teams.get(club) ?? 0,
     best: xs.reduce((a, b) => (b.percentile > a.percentile ? b : a)),
     leagues: [...(leagues.get(club) ?? [])].sort(),

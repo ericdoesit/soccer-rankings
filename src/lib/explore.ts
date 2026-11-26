@@ -411,6 +411,8 @@ export function getArea(slug: string) {
   return { area: a, ...index().areaStats.get(a.code)! };
 }
 export function getLeague(slug: string) { return index().leagues.get(slug) ?? null; }
+/** every league / cup page slug (for scripts/build-precomputed.ts) */
+export function getLeagueSlugs() { return [...index().leagues.keys()]; }
 export function getLeagueName(slug: string) { return index().leagues.get(slug)?.name ?? slug; }
 export function getClubRow(slugOrName: string) {
   const ix = index();

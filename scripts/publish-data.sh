@@ -15,6 +15,7 @@ FILES=(
   data/snapshot-dropped-events.json  # events left out of the snapshot (data.ts)
   data/discovery                     # tournament division labels, team event lists (tournament-view, team-context, league-rankings)
   data/predictions                   # MLS NEXT page (mlsnext.ts) and event predictions /events/[id] (events.ts)
+  data/precomputed                   # page data built with the snapshot (src/lib/precomputed.ts): cold pages skip the snapshot
   data/upcoming-events.json          # Events tab (src/lib/events.ts)
   data/league-ranges.json            # About page league ranges (scripts/league-ranges.ts)
   data/coast-soccer/games.json       # CSL league rankings (src/lib/league-rankings.ts)

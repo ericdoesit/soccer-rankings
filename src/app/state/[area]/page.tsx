@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getArea, sortLeagues, type Area, type LeagueRow } from "@/lib/explore";
+import type { Area } from "@/lib/explore";
+import { getStatePage, type StatePageLeague } from "@/lib/page-data";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-function LeagueTable({ rows, area }: { rows: LeagueRow[]; area: Area }) {
+function LeagueTable({ rows, area }: { rows: StatePageLeague[]; area: Area }) {
   return (
     <table className="w-full text-sm">
       <thead>
@@ -27,9 +28,9 @@ function LeagueTable({ rows, area }: { rows: LeagueRow[]; area: Area }) {
             <td className="px-4 py-2.5 hidden sm:table-cell">
               {l.tier && l.tier !== "CUP" ? <Badge variant="secondary">{l.tier}</Badge> : <span className="text-muted-foreground">—</span>}
             </td>
-            <td className="px-4 py-2.5 text-right">{(l.areaCounts.get(area.code) ?? 0).toLocaleString()}</td>
-            <td className="px-4 py-2.5 text-right hidden sm:table-cell text-muted-foreground">{l.clubs.size}</td>
-            <td className="px-4 py-2.5 text-right hidden md:table-cell text-muted-foreground">{l.seasons[0].season}</td>
+            <td className="px-4 py-2.5 text-right">{l.areaTeams.toLocaleString()}</td>
+            <td className="px-4 py-2.5 text-right hidden sm:table-cell text-muted-foreground">{l.clubs}</td>
+            <td className="px-4 py-2.5 text-right hidden md:table-cell text-muted-foreground">{l.season}</td>
           </tr>
         ))}
       </tbody>
@@ -39,13 +40,13 @@ function LeagueTable({ rows, area }: { rows: LeagueRow[]; area: Area }) {
 
 export default async function StatePage({ params }: { params: Promise<{ area: string }> }) {
   const { area: slug } = await params;
-  const data = getArea(slug);
+  // precomputed with the data build (src/lib/page-data.ts): a cold server skips the snapshot
+  const data = getStatePage(slug);
   if (!data) notFound();
   const { area, leagues, clubs } = data;
-  const sorted = sortLeagues(leagues, area.code);
-  const leagueRows = sorted.filter((l) => l.kind === "league");
-  const cups = sorted.filter((l) => l.kind === "cup");
-  const clubRows = [...clubs].sort((a, b) => b.teams.length - a.teams.length);
+  const leagueRows = leagues.filter((l) => l.kind === "league");
+  const cups = leagues.filter((l) => l.kind === "cup");
+  const clubRows = clubs;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
@@ -92,10 +93,10 @@ export default async function StatePage({ params }: { params: Promise<{ area: st
                   <td className="px-4 py-2.5">
                     <Link href={`/club/${c.slug}`} className="font-medium hover:text-primary transition-colors">{c.name}</Link>
                   </td>
-                  <td className="px-4 py-2.5 text-right">{c.teams.length}</td>
+                  <td className="px-4 py-2.5 text-right">{c.teams}</td>
                   <td className="px-4 py-2.5 text-right hidden sm:table-cell text-muted-foreground">{c.ranked}</td>
                   <td className="px-4 py-2.5 text-right hidden sm:table-cell text-muted-foreground">{c.bestRank ? `#${c.bestRank}` : "—"}</td>
-                  <td className="px-4 py-2.5 text-right hidden md:table-cell text-muted-foreground">{c.leagues.length}</td>
+                  <td className="px-4 py-2.5 text-right hidden md:table-cell text-muted-foreground">{c.leagues}</td>
                 </tr>
               ))}
             </tbody>

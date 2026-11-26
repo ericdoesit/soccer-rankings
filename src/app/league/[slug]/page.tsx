@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AGE_ORDER, areaBySlug, getClubRow, getLeague } from "@/lib/explore";
+import { AGE_ORDER, areaBySlug } from "@/lib/explore";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getLeagueRankings } from "@/lib/league-rankings";
+import { getLeaguePage } from "@/lib/page-data";
 import { getLeagueAccuracy } from "@/lib/league-accuracy";
 import { PredictionAccuracy } from "@/components/league/prediction-accuracy";
 import { LeagueClubTable, LeagueTeamTable } from "@/components/league/league-tables";
@@ -17,15 +17,14 @@ export default async function LeaguePage({
 }) {
   const { slug } = await params;
   const { state, age: ageParam, gender: genderParam, level: levelParam } = await searchParams;
-  const league = getLeague(slug);
+  // precomputed with the data build (src/lib/page-data.ts): a cold server skips the snapshot
+  const league = getLeaguePage(slug);
   if (!league) notFound();
   const area = state ? areaBySlug(state) : null;
 
-  const rows = [...league.clubs.entries()]
-    .map(([clubSlug, teamIds]) => {
-      const club = getClubRow(clubSlug)!;
-      const ids = new Set(teamIds);
-      const teams = club.teams.filter((t) => ids.has(t.id));
+  const rows = league.clubs
+    .map((club) => {
+      const teams = club.teams;
       const ages = [...new Set(teams.map((t) => t.ageGroup))].sort((a, b) => AGE_ORDER.indexOf(a) - AGE_ORDER.indexOf(b));
       const best = teams.reduce<number | null>((m, t) => (t.rank !== null && (m === null || t.rank < m) ? t.rank : m), null);
       return { club, teams, ages, best };
@@ -35,13 +34,14 @@ export default async function LeaguePage({
   const teamCount = rows.reduce((n, r) => n + r.teams.length, 0);
 
   // Rankings within the league (SoCal, NorCal Premier): every rated team, by age + gender
-  const lr = getLeagueRankings(slug);
-  const genders = lr ? (["Boys", "Girls"] as const).filter((g) => [...lr.groups.keys()].some((k) => k.endsWith(`|${g}`))) : [];
+  const lr = league.rankings;
+  const groupKeys = lr ? Object.keys(lr.groups) : [];
+  const genders = (["Boys", "Girls"] as const).filter((g) => groupKeys.some((k) => k.endsWith(`|${g}`)));
   const gender = genders.find((g) => g === genderParam) ?? genders[0];
-  const ages = lr && gender ? [...lr.groups.keys()].filter((k) => k.endsWith(`|${gender}`)).map((k) => k.split("|")[0])
+  const ages = gender ? groupKeys.filter((k) => k.endsWith(`|${gender}`)).map((k) => k.split("|")[0])
     .sort((a, b) => AGE_ORDER.indexOf(a) - AGE_ORDER.indexOf(b)) : [];
   const age = ages.find((a) => a === ageParam) ?? (ages.includes("U13") ? "U13" : ages[0]);
-  const group = lr && gender && age ? lr.groups.get(`${age}|${gender}`) ?? [] : [];
+  const group = lr && gender && age ? lr.groups[`${age}|${gender}`] ?? [] : [];
   const LEVEL_ORDER = ["Premier", "Elite", "Gold", "Champions", "Division 1", "Division 2", "Division 3", "Silver", "Bronze", "Copper", "Classic", "Select"];
   const levels = [...new Set(group.map((r) => r.level).filter((l): l is string => !!l))]
     .sort((a, b) => (LEVEL_ORDER.indexOf(a) + 1 || 99) - (LEVEL_ORDER.indexOf(b) + 1 || 99) || a.localeCompare(b));

@@ -8,6 +8,7 @@ import { mergeCoastTwins, mergeModularTwins, mergeTournamentCopies, mergeSeasonT
 import { buildTeamIdentity } from "./directory/team-identity";
 import { joinUslAcademySeasons } from "./directory/usl-academy";
 import { assignPrograms, PROGRAMS } from "./directory/program";
+import { readPrecomputed } from "./precomputed";
 import { tidyEventName } from "./names";
 import { caseWords, titleCaseWords } from "./directory/team-names";
 
@@ -546,6 +547,8 @@ export interface RankingsFilter {
 }
 
 export function getLeagues(): string[] {
+  const pre = readPrecomputed<RankingsPrecomputed>("rankings");
+  if (pre) return pre.leagues;
   const { games } = getData();
   const leagues = new Set<string>();
   for (const g of games) {
@@ -620,6 +623,8 @@ function buildRankedBase(
 /** Listed teams per state and region: the rankings page only offers places we rank. */
 const coverageCache = new WeakMap<RankedTeam[], { states: Record<string, number>; regions: Record<string, number> }>();
 export function getCoverage(): { states: Record<string, number>; regions: Record<string, number> } {
+  const pre = readPrecomputed<RankingsPrecomputed>("rankings");
+  if (pre) return pre.coverage;
   const { rankedBase } = getIndex();
   const hit = coverageCache.get(rankedBase);
   if (hit) return hit;
@@ -633,9 +638,36 @@ export function getCoverage(): { states: Record<string, number>; regions: Record
   return out;
 }
 
+/** what scripts/build-precomputed.ts saves for /api/rankings (data/precomputed/rankings.json) */
+export interface RankingsPrecomputed {
+  base: RankedTeam[];
+  /** GotSport names, searched too */
+  sourceNames: Record<number, string>;
+  leagues: string[];
+  coverage: { states: Record<string, number>; regions: Record<string, number> };
+  /** competition → listed teams that played in it */
+  leagueTeams: Record<string, number[]>;
+}
+export function computeRankingsPrecomputed(): RankingsPrecomputed {
+  const { rankedBase, gamesByTournament } = getIndex();
+  const listed = new Set(rankedBase.map((t) => t.id));
+  const leagueTeams: Record<string, number[]> = {};
+  for (const [name, games] of gamesByTournament) {
+    const ids = new Set<number>();
+    for (const g of games) for (const id of [g.team1Id, g.team2Id]) if (listed.has(id)) ids.add(id);
+    if (ids.size) leagueTeams[name] = [...ids];
+  }
+  const sourceNames: Record<number, string> = {};
+  for (const t of rankedBase) if (t.sourceName) sourceNames[t.id] = t.sourceName;
+  return { base: rankedBase, sourceNames, leagues: getLeagues(), coverage: getCoverage(), leagueTeams };
+}
+
 export function getRankings(filter: RankingsFilter = {}): RankedTeam[] {
-  const { teamById: teamMap, rankedBase, gamesByTournament } = getIndex();
-  let rankedTeams: RankedTeam[] = rankedBase;
+  // precomputed with the data build: a cold server answers without loading the snapshot
+  const pre = readPrecomputed<RankingsPrecomputed>("rankings");
+  const ix = pre ? null : getIndex();
+  const sourceName = (id: number) => (pre ? pre.sourceNames[id] : ix!.teamById.get(id)?.sourceName);
+  let rankedTeams: RankedTeam[] = pre ? pre.base : ix!.rankedBase;
 
   if (filter.region && filter.region !== "National") {
     rankedTeams = rankedTeams.filter((t) => {
@@ -650,8 +682,8 @@ export function getRankings(filter: RankingsFilter = {}): RankedTeam[] {
     rankedTeams = rankedTeams.filter((t) => t.gender === filter.gender);
   }
   if (filter.league && filter.league !== "All") {
-    const teamIdsInLeague = new Set<number>();
-    for (const g of gamesByTournament.get(filter.league) ?? []) {
+    const teamIdsInLeague = new Set<number>(pre ? pre.leagueTeams[filter.league] ?? [] : []);
+    if (!pre) for (const g of ix!.gamesByTournament.get(filter.league) ?? []) {
       teamIdsInLeague.add(g.team1Id);
       teamIdsInLeague.add(g.team2Id);
     }
@@ -663,11 +695,10 @@ export function getRankings(filter: RankingsFilter = {}): RankedTeam[] {
   if (filter.search) {
     const q = filter.search.toLowerCase();
     rankedTeams = rankedTeams.filter((t) => {
-      const original = teamMap.get(t.id);
       return (
         t.name.toLowerCase().includes(q) ||
         t.club.toLowerCase().includes(q) ||
-        (original?.sourceName?.toLowerCase().includes(q) ?? false)
+        (sourceName(t.id)?.toLowerCase().includes(q) ?? false)
       );
     });
   }
@@ -1045,6 +1076,8 @@ export interface LeagueStrengthRow {
   crossGames: number; links: Array<{ program: string; games: number }>; lessCertain: boolean;
 }
 export function getLeagueStrength(ageGroup: string, gender: string): LeagueStrengthRow[] {
+  const pre = readPrecomputed<Record<string, LeagueStrengthRow[]>>("strength");
+  if (pre) return pre[`${ageGroup}|${gender}`] ?? [];
   const { teams, games } = getData();
   const { rankedBase } = getIndex();
   const listed = rankedBase.filter((t) => t.ageGroup === ageGroup && t.gender === gender && t.program);

@@ -77,6 +77,8 @@ next-env.d.ts
 /.next-prod/
 /data/.gotsport.lock
 /data/predictions/
+/data/precomputed/
+/data/precomputed.tmp/
 /data/upcoming-events.json
 /logs/
 
