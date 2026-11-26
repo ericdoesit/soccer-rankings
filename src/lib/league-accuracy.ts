@@ -33,3 +33,14 @@ export function getLeagueAccuracy(slug: string): LeagueAccuracy | null {
     return null;
   }
 }
+
+/** per-game points: predicted margin in tenths of a goal (x), actual margin (y) */
+export function getLeagueAccuracyPoints(slug: string): { x: number[]; y: number[] } | null {
+  const name = FILES[slug];
+  if (!name) return null;
+  try {
+    return JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "predictions", name.replace(/\.json$/, "-points.json")), "utf8"));
+  } catch {
+    return null;
+  }
+}

@@ -92,7 +92,7 @@ export default async function LeaguePage({
         {league.seasons.length > 1 && <> (earlier seasons: {league.seasons.slice(1).map((s) => s.season).join(", ")})</>}
       </p>
 
-      {accuracy && <PredictionAccuracy acc={accuracy} leagueName={league.name} />}
+      {accuracy && <PredictionAccuracy acc={accuracy} leagueName={league.name} slug={slug} />}
 
       {lr && ranked.length > 0 && (
         <Card className="mt-6 gap-0 pb-0" id="rankings">
